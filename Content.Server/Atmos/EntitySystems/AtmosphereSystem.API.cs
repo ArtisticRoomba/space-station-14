@@ -5,6 +5,7 @@ using Content.Server.NodeContainer.NodeGroups;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Reactions;
+using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 
@@ -317,6 +318,49 @@ public partial class AtmosphereSystem
 
         device.Comp.JoinedGrid = null;
         return true;
+    }
+
+    /// <summary>
+    /// Attempts to find a random safe grid tile position for the given grid.
+    /// A safe grid tile position is one that has reasonably safe air pressure and temperature
+    /// and is not blocked by any walls or other anchored obstacles.
+    ///
+    /// Note that this method relies on the grid having a <see cref="GridAtmosphereComponent"/> and a <see cref="MapGridComponent"/>.
+    /// </summary>
+    /// <param name="ent">The grid to find a safe tile on.</param>
+    /// <param name="attempts">The number of attempts to check for a safe tile.</param>
+    /// <returns>A reasonably safe tile if one is found, (0, 0) if a tile could not be found.</returns>
+    [PublicAPI]
+    public Vector2i GetSafeGridTilePosition(Entity<GridAtmosphereComponent?> ent, int attempts = 20)
+    {
+        if (!_atmosQuery.Resolve(ent, ref ent.Comp, false) || !TryComp<MapGridComponent>(ent, out var mapGridComp))
+        {
+            return Vector2i.Zero;
+        }
+
+        // I LOVE GAMBLING!!!!!!!!!!!!
+        var xform = Transform(ent);
+        for (var i = 0; i < attempts; i++)
+        {
+            var randIndex = _random.Next(ent.Comp.Tiles.Count);
+            var tileAtmos = ent.Comp.Tiles.ElementAtOrDefault(randIndex).Value;
+            var indices = tileAtmos.GridIndices;
+
+            if (IsMixtureProbablySafe(tileAtmos.Air) &&
+                _map.AnchoredEntityCount(ent, mapGridComp, indices) == 0)
+            {
+                // Great, but the tile might have a grille or something.
+                // So we box the tile and check if there are any collisions.
+                var bounds = _lookup.GetLocalBounds(indices, 1);
+                if (!_physics.TryCollideRect(bounds, xform.MapID))
+                {
+                    return indices;
+                }
+            }
+        }
+
+        // Nope!
+        return Vector2i.Zero;
     }
 
     [ByRefEvent] private record struct SetSimulatedGridMethodEvent
