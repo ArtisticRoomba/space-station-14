@@ -1,3 +1,4 @@
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -33,6 +34,12 @@ public sealed partial class CartridgeAmmoComponent : AmmoComponent
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Spent;
+
+    /// <summary>
+    /// Tag to apply when the casing transitions into a spent state.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype> SpentTag = "Trash";
 
     /// <summary>
     /// Caseless ammunition.

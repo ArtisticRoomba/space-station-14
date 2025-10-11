@@ -450,6 +450,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (cartridge.Spent != spent)
             DirtyField(uid, cartridge, nameof(CartridgeAmmoComponent.Spent));
 
+        TagSystem.AddTag(uid, cartridge.SpentTag);
         cartridge.Spent = spent;
         Appearance.SetData(uid, AmmoVisuals.Spent, spent);
     }
