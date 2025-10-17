@@ -61,7 +61,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         _arrayNegPos = new TileAtmosphere[sizeNegX * sizePosY];
         _arrayNegNeg = new TileAtmosphere[sizeNegX * sizeNegY];
         _arrayPosNeg = new TileAtmosphere[sizePosX * sizeNegY];
-        BackingDictionary = new Dictionary<Vector2i, TileAtmosphere>();
+        BackingDictionary = new Dictionary<Vector2i, TileAtmosphere>(Count);
     }
 
     /// <summary>
