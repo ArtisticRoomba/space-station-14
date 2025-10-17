@@ -14,13 +14,8 @@ namespace Content.Server.Atmos;
 /// currently being used by Atmospherics so data structures can
 /// be easily swapped out.</para>
 /// </summary>
-public interface ITileAtmosphereData : IDictionary
+public interface ITileAtmosphereData : ICollection
 {
-    /// <summary>
-    /// Current number of elements the data structure can hold without resizing.
-    /// </summary>
-    public int Capacity { get; set; }
-
     /// <summary>
     /// Gets or sets the <see cref="TileAtmosphere"/>
     /// at the specified <see cref="Vector2i"/> key.
