@@ -45,9 +45,10 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
      behavior and I don't want to think about implementing all of that right now.
      Here little maintainer, take this pipe bomb.
      */
-    private Dictionary<Vector2i, TileAtmosphere> _backingDictionary;
-    public ICollection<Vector2i> Keys => _backingDictionary.Keys;
-    public ICollection<TileAtmosphere> Values => _backingDictionary.Values;
+    private Dictionary<Vector2i, TileAtmosphere> _backingDict;
+    public ICollection<Vector2i> Keys => [];
+    public ICollection<TileAtmosphere> Values => [];
+
 
     /// <summary>
     /// Initializes a new instance of a <see cref="TileAtmosphereDataArray"/>
@@ -67,7 +68,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         _arrayNegPos = new TileAtmosphere[sizeNegX * sizePosY];
         _arrayNegNeg = new TileAtmosphere[sizeNegX * sizeNegY];
         _arrayPosNeg = new TileAtmosphere[sizePosX * sizeNegY];
-        _backingDictionary = new Dictionary<Vector2i, TileAtmosphere>(Count);
+        _backingDict = new Dictionary<Vector2i, TileAtmosphere>(Count);
     }
 
     public bool Remove(KeyValuePair<Vector2i, TileAtmosphere> item)
@@ -180,7 +181,8 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 
     public void Add(KeyValuePair<Vector2i, TileAtmosphere> item)
     {
-        throw new NotImplementedException();
+        Add(item.Key, item.Value);
+        _backingDict.Add(item.Key, item.Value);
     }
 
     /// <summary>
@@ -192,17 +194,18 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         Array.Clear(_arrayNegPos);
         Array.Clear(_arrayNegNeg);
         Array.Clear(_arrayPosNeg);
-        _backingDictionary.Clear();
+        _backingDict.Clear();
     }
 
     public bool Contains(KeyValuePair<Vector2i, TileAtmosphere> item)
     {
-        throw new NotImplementedException();
+        return ContainsKey(item.Key);
     }
 
     public void CopyTo(KeyValuePair<Vector2i, TileAtmosphere>[] array, int arrayIndex)
     {
         throw new NotImplementedException();
+        // see Dictionary CopyTo
     }
 
     IEnumerator<KeyValuePair<Vector2i, TileAtmosphere>> IEnumerable<KeyValuePair<Vector2i, TileAtmosphere>>.GetEnumerator()
@@ -212,7 +215,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 
     public IDictionaryEnumerator GetEnumerator()
     {
-        return _backingDictionary.GetEnumerator();
+        return _backingDict.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -251,7 +254,6 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         {
             var array = GetArrayForCoordinates(key);
             array[EncodeZValue(key)] = value;
-            _backingDictionary[key] = value;
         }
     }
 
@@ -259,12 +261,12 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
     {
         var array = GetArrayForCoordinates(key);
         array[EncodeZValue(key)] = value;
-        _backingDictionary.Add(key, value);
     }
 
     public bool ContainsKey(Vector2i key)
     {
-        throw new NotImplementedException();
+        var value = this[key];
+        return !Unsafe.IsNullRef(ref value);
     }
 
     public bool TryGetValue(Vector2i key, [MaybeNullWhen(false)] out TileAtmosphere value)
@@ -288,7 +290,6 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 
         var array = GetArrayForCoordinates(key);
         array[EncodeZValue(key)] = null!;
-        _backingDictionary.Remove(key);
         return true;
     }
 }
