@@ -73,7 +73,8 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 
     public bool Remove(KeyValuePair<Vector2i, TileAtmosphere> item)
     {
-        throw new NotImplementedException();
+        _backingDict.Remove(item.Key);
+        return Remove(item.Key);
     }
 
     /// <summary>
@@ -213,14 +214,9 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         throw new NotImplementedException();
     }
 
-    public IDictionaryEnumerator GetEnumerator()
-    {
-        return _backingDict.GetEnumerator();
-    }
-
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return GetEnumerator();
+        return _backingDict.GetEnumerator();
     }
 
     /// <summary>
@@ -254,6 +250,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         {
             var array = GetArrayForCoordinates(key);
             array[EncodeZValue(key)] = value;
+            _backingDict.Add(key, value);
         }
     }
 
@@ -261,6 +258,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
     {
         var array = GetArrayForCoordinates(key);
         array[EncodeZValue(key)] = value;
+        _backingDict.Add(key, value);
     }
 
     public bool ContainsKey(Vector2i key)
@@ -275,6 +273,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         if (!Unsafe.IsNullRef(ref newValue))
         {
             value = newValue;
+            _backingDict.Add(key, value);
             return true;
         }
 
@@ -290,6 +289,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 
         var array = GetArrayForCoordinates(key);
         array[EncodeZValue(key)] = null!;
+        _backingDict.Remove(key);
         return true;
     }
 }
