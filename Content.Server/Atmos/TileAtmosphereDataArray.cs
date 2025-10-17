@@ -40,6 +40,8 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
      Here little maintainer, take this pipe bomb.
      */
     public Dictionary<Vector2i, TileAtmosphere> BackingDictionary;
+    public Dictionary<Vector2i, TileAtmosphere>.KeyCollection Keys => BackingDictionary.Keys;
+    public Dictionary<Vector2i, TileAtmosphere>.ValueCollection Values => BackingDictionary.Values;
 
     /// <summary>
     /// Initializes a new instance of a <see cref="TileAtmosphereDataArray"/>
@@ -194,12 +196,10 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
     /// <param name="index">The starting index in the destination array.</param>
     public void CopyTo(Array array, int index)
     {
-        Array.Copy(_arrayPosPos, (TileAtmosphere[])array, index);
-        Array.Copy(_arrayNegPos, (TileAtmosphere[])array, index + _arrayPosPos.Length);
-        Array.Copy(_arrayNegNeg, (TileAtmosphere[])array, index + _arrayPosPos.Length + _arrayNegPos.Length);
-        Array.Copy(_arrayPosNeg,
-            (TileAtmosphere[])array,
-            index + _arrayPosPos.Length + _arrayNegPos.Length + _arrayNegNeg.Length);
+        Array.Copy(_arrayPosPos, array, index);
+        Array.Copy(_arrayNegPos, array, index + _arrayPosPos.Length);
+        Array.Copy(_arrayNegNeg, array, index + _arrayPosPos.Length + _arrayNegPos.Length);
+        Array.Copy(_arrayPosNeg, array, index + _arrayPosPos.Length + _arrayNegPos.Length + _arrayNegNeg.Length);
     }
 
     /// <summary>
@@ -218,6 +218,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         {
             var array = GetArrayForCoordinates(key);
             array[EncodeZValue(key)] = value;
+            BackingDictionary[key] = value;
         }
     }
 
@@ -225,6 +226,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
     {
         var array = GetArrayForCoordinates(key);
         array[EncodeZValue(key)] = value;
+        BackingDictionary.Add(key, value);
     }
 
     public bool TryGetValue(Vector2i key, [MaybeNullWhen(false)] out TileAtmosphere value)
@@ -248,6 +250,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 
         var array = GetArrayForCoordinates(key);
         array[EncodeZValue(key)] = null!;
+        BackingDictionary.Remove(key);
         return true;
     }
 }
