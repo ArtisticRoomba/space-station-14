@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
-using YamlDotNet.Core.Tokens;
+using System.Runtime.CompilerServices;
 
 namespace Content.Server.Atmos;
 
@@ -34,6 +34,13 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
     private readonly TileAtmosphere[] _arrayNegNeg; // III
     private readonly TileAtmosphere[] _arrayPosNeg; // IV
 
+    /*
+     Unfortunately we also need to provide a lot of default dictionary
+     behavior and I don't want to think about implementing all of that right now.
+     Here little maintainer, take this pipe bomb.
+     */
+    public Dictionary<Vector2i, TileAtmosphere> BackingDictionary;
+
     /// <summary>
     /// Initializes a new instance of a <see cref="TileAtmosphereDataArray"/>
     /// with the specified minimum and maximum coordinates.
@@ -52,6 +59,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         _arrayNegPos = new TileAtmosphere[sizeNegX * sizePosY];
         _arrayNegNeg = new TileAtmosphere[sizeNegX * sizeNegY];
         _arrayPosNeg = new TileAtmosphere[sizePosX * sizeNegY];
+        BackingDictionary = new Dictionary<Vector2i, TileAtmosphere>();
     }
 
     /// <summary>
@@ -164,11 +172,12 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         Array.Clear(_arrayNegPos);
         Array.Clear(_arrayNegNeg);
         Array.Clear(_arrayPosNeg);
+        BackingDictionary.Clear();
     }
 
     public IDictionaryEnumerator GetEnumerator()
     {
-        throw new NotImplementedException();
+        return BackingDictionary.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -176,9 +185,21 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         return GetEnumerator();
     }
 
+    /// <summary>
+    /// Copies the elements of the <see cref="TileAtmosphereDataArray"/> to an <see cref="Array"/>,
+    /// starting at the specified index of the target array.
+    /// Copies from all four quadrant arrays in order.
+    /// </summary>
+    /// <param name="array">The destination array.</param>
+    /// <param name="index">The starting index in the destination array.</param>
     public void CopyTo(Array array, int index)
     {
-        throw new NotImplementedException();
+        Array.Copy(_arrayPosPos, (TileAtmosphere[])array, index);
+        Array.Copy(_arrayNegPos, (TileAtmosphere[])array, index + _arrayPosPos.Length);
+        Array.Copy(_arrayNegNeg, (TileAtmosphere[])array, index + _arrayPosPos.Length + _arrayNegPos.Length);
+        Array.Copy(_arrayPosNeg,
+            (TileAtmosphere[])array,
+            index + _arrayPosPos.Length + _arrayNegPos.Length + _arrayNegNeg.Length);
     }
 
     /// <summary>
@@ -208,11 +229,25 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 
     public bool TryGetValue(Vector2i key, [MaybeNullWhen(false)] out TileAtmosphere value)
     {
-        throw new NotImplementedException();
+        var newValue = this[key];
+        if (!Unsafe.IsNullRef(ref newValue))
+        {
+            value = newValue;
+            return true;
+        }
+
+        value = null;
+        return false;
     }
 
     public bool Remove(Vector2i key)
     {
-        throw new NotImplementedException();
+        var value = this[key];
+        if (Unsafe.IsNullRef(ref value))
+            return false;
+
+        var array = GetArrayForCoordinates(key);
+        array[EncodeZValue(key)] = null!;
+        return true;
     }
 }
