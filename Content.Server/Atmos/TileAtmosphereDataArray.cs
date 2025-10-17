@@ -24,6 +24,12 @@ namespace Content.Server.Atmos;
 public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 {
     /*
+     TODO:
+     Array resizing
+     Overstepping/out of bounds checks
+     */
+
+    /*
      Since a Z-order curve cannot have negative values,
      and we want to ensure values have good locality,
      we need to define 4 arrays that each store a quadrant of the grid.
@@ -39,9 +45,9 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
      behavior and I don't want to think about implementing all of that right now.
      Here little maintainer, take this pipe bomb.
      */
-    public Dictionary<Vector2i, TileAtmosphere> BackingDictionary;
-    public Dictionary<Vector2i, TileAtmosphere>.KeyCollection Keys => BackingDictionary.Keys;
-    public Dictionary<Vector2i, TileAtmosphere>.ValueCollection Values => BackingDictionary.Values;
+    private Dictionary<Vector2i, TileAtmosphere> _backingDictionary;
+    public ICollection<Vector2i> Keys => _backingDictionary.Keys;
+    public ICollection<TileAtmosphere> Values => _backingDictionary.Values;
 
     /// <summary>
     /// Initializes a new instance of a <see cref="TileAtmosphereDataArray"/>
@@ -61,7 +67,12 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         _arrayNegPos = new TileAtmosphere[sizeNegX * sizePosY];
         _arrayNegNeg = new TileAtmosphere[sizeNegX * sizeNegY];
         _arrayPosNeg = new TileAtmosphere[sizePosX * sizeNegY];
-        BackingDictionary = new Dictionary<Vector2i, TileAtmosphere>(Count);
+        _backingDictionary = new Dictionary<Vector2i, TileAtmosphere>(Count);
+    }
+
+    public bool Remove(KeyValuePair<Vector2i, TileAtmosphere> item)
+    {
+        throw new NotImplementedException();
     }
 
     /// <summary>
@@ -72,6 +83,8 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
                          _arrayNegPos.Length +
                          _arrayNegNeg.Length +
                          _arrayPosNeg.Length;
+
+    public bool IsReadOnly => false;
 
     public bool IsSynchronized => false;
     public object SyncRoot => this;
@@ -165,6 +178,11 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         coord = new Vector2i(x, y);
     }
 
+    public void Add(KeyValuePair<Vector2i, TileAtmosphere> item)
+    {
+        throw new NotImplementedException();
+    }
+
     /// <summary>
     /// Clears all elements from the <see cref="TileAtmosphereDataArray"/>.
     /// </summary>
@@ -174,12 +192,27 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         Array.Clear(_arrayNegPos);
         Array.Clear(_arrayNegNeg);
         Array.Clear(_arrayPosNeg);
-        BackingDictionary.Clear();
+        _backingDictionary.Clear();
+    }
+
+    public bool Contains(KeyValuePair<Vector2i, TileAtmosphere> item)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void CopyTo(KeyValuePair<Vector2i, TileAtmosphere>[] array, int arrayIndex)
+    {
+        throw new NotImplementedException();
+    }
+
+    IEnumerator<KeyValuePair<Vector2i, TileAtmosphere>> IEnumerable<KeyValuePair<Vector2i, TileAtmosphere>>.GetEnumerator()
+    {
+        throw new NotImplementedException();
     }
 
     public IDictionaryEnumerator GetEnumerator()
     {
-        return BackingDictionary.GetEnumerator();
+        return _backingDictionary.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -218,7 +251,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         {
             var array = GetArrayForCoordinates(key);
             array[EncodeZValue(key)] = value;
-            BackingDictionary[key] = value;
+            _backingDictionary[key] = value;
         }
     }
 
@@ -226,7 +259,12 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
     {
         var array = GetArrayForCoordinates(key);
         array[EncodeZValue(key)] = value;
-        BackingDictionary.Add(key, value);
+        _backingDictionary.Add(key, value);
+    }
+
+    public bool ContainsKey(Vector2i key)
+    {
+        throw new NotImplementedException();
     }
 
     public bool TryGetValue(Vector2i key, [MaybeNullWhen(false)] out TileAtmosphere value)
@@ -250,7 +288,7 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 
         var array = GetArrayForCoordinates(key);
         array[EncodeZValue(key)] = null!;
-        BackingDictionary.Remove(key);
+        _backingDictionary.Remove(key);
         return true;
     }
 }
