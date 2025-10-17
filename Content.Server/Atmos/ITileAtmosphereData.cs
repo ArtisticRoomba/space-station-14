@@ -21,7 +21,7 @@ public interface ITileAtmosphereData : ICollection
     /// at the specified <see cref="Vector2i"/> key.
     /// </summary>
     /// <param name="key"></param>
-    public TileAtmosphere this[Vector2i key] { get; set; }
+    TileAtmosphere this[Vector2i key] { get; set; }
 
     /// <summary>
     /// Adds the specified <see cref="TileAtmosphere"/> value
@@ -29,7 +29,7 @@ public interface ITileAtmosphereData : ICollection
     /// </summary>
     /// <param name="key">The key of the element to add.</param>
     /// <param name="value">The value of the element to add.</param>
-    public void Add(Vector2i key, TileAtmosphere value);
+    void Add(Vector2i key, TileAtmosphere value);
 
     /// <summary>
     /// Tries to get the <see cref="TileAtmosphere"/> associated
@@ -38,7 +38,7 @@ public interface ITileAtmosphereData : ICollection
     /// <param name="key">The key of the element to get.</param>
     /// <param name="value">The element that is returned.</param>
     /// <returns>True if the value could be retrieved; otherwise, false.</returns>
-    public bool TryGetValue(Vector2i key, [MaybeNullWhen(false)] out TileAtmosphere value);
+    bool TryGetValue(Vector2i key, [MaybeNullWhen(false)] out TileAtmosphere value);
 
     /// <summary>
     /// Removes the <see cref="TileAtmosphere"/> associated
@@ -46,6 +46,6 @@ public interface ITileAtmosphereData : ICollection
     /// </summary>
     /// <param name="key">The key of the element to remove.</param>
     /// <returns>True if the element is successfully found and removed; otherwise, false.</returns>
-    public bool Remove(Vector2i key);
+    bool Remove(Vector2i key);
 }
 

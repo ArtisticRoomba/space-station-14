@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using YamlDotNet.Core.Tokens;
 
 namespace Content.Server.Atmos;
 
@@ -28,6 +29,11 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
      we need to define 4 arrays that each store a quadrant of the grid.
      */
 
+    private readonly TileAtmosphere[] _arrayPosPos; // I
+    private readonly TileAtmosphere[] _arrayNegPos; // II
+    private readonly TileAtmosphere[] _arrayNegNeg; // III
+    private readonly TileAtmosphere[] _arrayPosNeg; // IV
+
     /// <summary>
     /// Initializes a new instance of a <see cref="TileAtmosphereDataArray"/>
     /// with the specified minimum and maximum coordinates.
@@ -48,11 +54,6 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         _arrayPosNeg = new TileAtmosphere[sizePosX * sizeNegY];
     }
 
-    private readonly TileAtmosphere[] _arrayPosPos; // I
-    private readonly TileAtmosphere[] _arrayNegPos; // II
-    private readonly TileAtmosphere[] _arrayNegNeg; // III
-    private readonly TileAtmosphere[] _arrayPosNeg; // IV
-
     /// <summary>
     /// Gets the number of elements contained in the <see cref="TileAtmosphereDataArray"/>.
     /// </summary>
@@ -64,6 +65,11 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
 
     public bool IsSynchronized => false;
     public object SyncRoot => this;
+
+    private TileAtmosphere[] GetArrayForCoordinates(Vector2i coord)
+    {
+        return GetArrayForCoordinates(coord.X, coord.Y);
+    }
 
     /// <summary>
     /// Retrieves the appropriate array for the given coordinates.
@@ -99,6 +105,17 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
     /// <summary>
     /// Calculates the Z-value for the given coordinates.
     /// </summary>
+    /// <param name="coord">The coordinates.</param>
+    /// <returns>The Z-value for the coordinates.</returns>
+    /// <remarks>See https://en.wikipedia.org/wiki/Z-order_curve</remarks>
+    private static int EncodeZValue(Vector2i coord)
+    {
+        return EncodeZValue(coord.X, coord.Y);
+    }
+
+    /// <summary>
+    /// Calculates the Z-value for the given coordinates.
+    /// </summary>
     /// <param name="x">The x coordinate.</param>
     /// <param name="y">The y coordinate.</param>
     /// <returns>The Z-value for the coordinates.</returns>
@@ -114,30 +131,44 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         return z;
     }
 
-    public void Clear()
+    /// <summary>
+    /// Decodes a given Z-value into its corresponding coordinates.
+    /// </summary>
+    /// <param name="z">The Z-value to decode.</param>
+    /// <param name="x">The decoded x coordinate.</param>
+    /// <param name="y">The decoded y coordinate.</param>
+    /// <remarks>See https://en.wikipedia.org/wiki/Z-order_curve</remarks>
+    private static void DecodeZValue(int z, out int x, out int y)
     {
-        throw new NotImplementedException();
+        x = 0;
+        y = 0;
+        for (var i = 0; i < sizeof(int) * 4; i++)
+        {
+            x |= ((z >> (2 * i)) & 1) << i;
+            y |= ((z >> (2 * i + 1)) & 1) << i;
+        }
     }
 
-    public bool Contains(object key)
+    private static void DecodeZValue(int z, out Vector2i coord)
     {
-        throw new NotImplementedException();
+        DecodeZValue(z, out var x, out var y);
+        coord = new Vector2i(x, y);
+    }
+
+    /// <summary>
+    /// Clears all elements from the <see cref="TileAtmosphereDataArray"/>.
+    /// </summary>
+    public void Clear()
+    {
+        Array.Clear(_arrayPosPos);
+        Array.Clear(_arrayNegPos);
+        Array.Clear(_arrayNegNeg);
+        Array.Clear(_arrayPosNeg);
     }
 
     public IDictionaryEnumerator GetEnumerator()
     {
         throw new NotImplementedException();
-    }
-
-    public void Remove(object key)
-    {
-        throw new NotImplementedException();
-    }
-
-    public object? this[object key]
-    {
-        get => throw new NotImplementedException();
-        set => throw new NotImplementedException();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -150,15 +181,29 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// Gets or sets the <see cref="TileAtmosphere"/>
+    /// at the specified <see cref="Vector2i"/> key.
+    /// </summary>
+    /// <param name="key">The key of the element to get or set.</param>
     public TileAtmosphere this[Vector2i key]
     {
-        get => throw new NotImplementedException();
-        set => throw new NotImplementedException();
+        get
+        {
+            var array = GetArrayForCoordinates(key);
+            return array[EncodeZValue(key)];
+        }
+        set
+        {
+            var array = GetArrayForCoordinates(key);
+            array[EncodeZValue(key)] = value;
+        }
     }
 
     public void Add(Vector2i key, TileAtmosphere value)
     {
-        throw new NotImplementedException();
+        var array = GetArrayForCoordinates(key);
+        array[EncodeZValue(key)] = value;
     }
 
     public bool TryGetValue(Vector2i key, [MaybeNullWhen(false)] out TileAtmosphere value)
