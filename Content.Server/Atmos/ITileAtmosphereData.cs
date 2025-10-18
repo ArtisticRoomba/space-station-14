@@ -12,5 +12,5 @@ namespace Content.Server.Atmos;
 /// currently being used by Atmospherics so data structures can
 /// be easily swapped out.</para>
 /// </summary>
-public interface ITileAtmosphereData : ICollection<TileAtmosphere>;
+public interface ITileAtmosphereData : IDictionary<Vector2i, TileAtmosphere>;
 
