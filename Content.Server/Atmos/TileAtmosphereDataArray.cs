@@ -53,9 +53,9 @@ public sealed class TileAtmosphereDataArray : ITileAtmosphereData
         /// <param name="sizeY">>The size in the Y direction.</param>
         public Quadrant(uint sizeX, uint sizeY)
         {
-            SizeX = sizeX;
-            SizeY = sizeY;
-            Tiles = new TileAtmosphere[sizeX * sizeY];
+            SizeX = (uint)MathHelper.NextPowerOfTwo(sizeX);
+            SizeY = (uint)MathHelper.NextPowerOfTwo(sizeY);
+            Tiles = new TileAtmosphere[SizeX * SizeY];
         }
     }
 
