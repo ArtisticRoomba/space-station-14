@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
@@ -21,6 +22,177 @@ public sealed partial class AtmosphereSystem
     /// The length to pre-allocate list/dicts of delta pressure entities on a <see cref="GridAtmosphereComponent"/>.
     /// </summary>
     public const int DeltaPressurePreAllocateLength = 1000;
+
+    /*
+     Problem: DeltaPressure currently has a lot of branching around checking for
+     null TileAtmospheres and null GasMixtures. Instead, we can bulk process data to
+     avoid obliterating CPU pipelining.
+
+     We can also do SIMD operations in bulk on these arrays, speeding up calculations
+     significantly.
+
+     Then, the steps for processing are:
+     - For every DeltaPressure entity, retrieve the TileAtmospheres surrounding it.
+       Nullcheck these TileAtmospheres and their GasMixtures. Load the data into an array
+       for computing PV=nRT, substituting 0f if null or the correct pressure if the entity
+       is a directional airtight.
+     - Using SIMD operations, calculate the pressures of all surrounding tiles in bulk.
+     - Using SIMD operations, calculate the delta pressures between opposing directions in bulk.
+     - Check if the max pressure or delta pressure exceeds the entity's thresholds,
+       and enqueue damage if so.
+     - After all entities are processed, dequeue the damage results and apply damage accordingly.
+     */
+
+    private readonly List<float> _deltaPressureVolume = [];
+    private readonly List<float> _deltaPressureTemperature = [];
+    private readonly List<float> _deltaPressureMoles = [];
+    private readonly List<float> _deltaPressurePressures = [];
+    private readonly List<float> _deltaPressureR = []; // KILL THIS
+
+    private readonly List<float> _deltaPressureOpposingGroupA = [];
+    private readonly List<float> _deltaPressureOpposingGroupB = [];
+    private readonly List<float> _deltaPressureOpposingGroupMax = [];
+
+    /// <summary>
+    /// Retrieves all <see cref="DeltaPressureComponent"/>-adjacent <see cref="TileAtmosphere"/>s
+    /// for nullchecking and queuing data for SIMD processing.
+    /// </summary>
+    /// <param name="ent"></param>
+    private void ProcessTileAtmospheres(Entity<GridAtmosphereComponent> ent)
+    {
+        for (var i = 0; i < ent.Comp.DeltaPressureEntities.Count; i++)
+        {
+            var dpEnt = ent.Comp.DeltaPressureEntities[i];
+            if (!_random.Prob(dpEnt.Comp.RandomDamageChance))
+            {
+                for (var j = 0; j < Atmospherics.Directions; j++)
+                {
+                    // TODO check if not filling this array to prevent div/zero causes issues later
+                    _deltaPressureVolume[i * Atmospherics.Directions + j] = 1;
+                }
+                continue;
+            }
+
+            var airtightComp = _airtightQuery.Comp(ent);
+            var currentPos = airtightComp.LastPosition.Tile;
+            for (var j = 0; j < Atmospherics.Directions; j++)
+            {
+                var direction = (AtmosDirection)(1 << i);
+                var offset = currentPos.Offset(direction);
+                var tileAtmos = ent.Comp.Tiles.GetValueOrDefault(offset);
+                if (tileAtmos is not { Air: { } mixture })
+                {
+                    _deltaPressureVolume[i * Atmospherics.Directions + j] = 1;
+                    continue;
+                }
+
+                _deltaPressureVolume [i * Atmospherics.Directions + j] = mixture.Volume;
+                _deltaPressureTemperature [i * Atmospherics.Directions + j] = mixture.Temperature;
+                _deltaPressureMoles [i * Atmospherics.Directions + j] = mixture.TotalMoles;
+                _deltaPressureR [i * Atmospherics.Directions + j] = Atmospherics.R; // EVILLLL
+            }
+
+            // This entity could be airtight but still be able to contain air on the tile it's on (ex. directional windows).
+            // As such, substitute the pressure of the pressure on top of the entity for the directions that it can accept air from.
+            // (Or rather, don't do so for directions that it blocks air from.)
+            if (!airtightComp.NoAirWhenFullyAirBlocked)
+            {
+                for (var k = 0; k < Atmospherics.Directions; k++)
+                {
+                    var direction = (AtmosDirection)(1 << k); // TODO DEDUPLICATE THIS CODE
+                    if (!airtightComp.AirBlockedDirection.HasFlag(direction))
+                    {
+                        var tileAtmos = ent.Comp.Tiles.GetValueOrDefault(currentPos);
+                        if (tileAtmos is not { Air: { } mixture })
+                        {
+                            _deltaPressureVolume[i * Atmospherics.Directions + k] = 1;
+                            continue;
+                        }
+
+                        _deltaPressureVolume [i * Atmospherics.Directions + k] = mixture.Volume;
+                        _deltaPressureTemperature [i * Atmospherics.Directions + k] = mixture.Temperature;
+                        _deltaPressureMoles [i * Atmospherics.Directions + k] = mixture.TotalMoles;
+                        _deltaPressureR [i * Atmospherics.Directions + k] = Atmospherics.R; // EVILLLL
+                    }
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Computes all pressures for the currently queued delta pressure entities in bulk,
+    /// storing the results in the _deltaPressurePressures array.
+    /// </summary>
+    private void ComputeArrayPressures()
+    {
+        /*
+         Retrieval of single tile pressures requires calling a get method for each tile,
+         which does a bunch of scalar operations.
+
+         So we go ahead and batch-retrieve the pressures of all tiles
+         and process them in bulk.
+         */
+
+        var molesSpan = CollectionsMarshal.AsSpan(_deltaPressureMoles);
+        var rSpan = CollectionsMarshal.AsSpan(_deltaPressureR);
+        var tempSpan = CollectionsMarshal.AsSpan(_deltaPressureTemperature);
+        var volumeSpan = CollectionsMarshal.AsSpan(_deltaPressureVolume);
+        var pressuresSpan = CollectionsMarshal.AsSpan(_deltaPressurePressures);
+
+        NumericsHelpers.Multiply(molesSpan, rSpan);
+        NumericsHelpers.Multiply(molesSpan, tempSpan);
+        NumericsHelpers.Divide(molesSpan, volumeSpan, pressuresSpan);
+    }
+
+    private void ComputePressureDifferentials()
+    {
+        /*
+         Note that the mapping is different here. Each entity gets its pressure from 4 elements in the _pressures array,
+         corresponding to the 4 directions around it. So we need to load them in pairs accordingly in the opposing groups.
+         */
+
+        var pressuresSpan = CollectionsMarshal.AsSpan(_deltaPressurePressures);
+        var opposingA = CollectionsMarshal.AsSpan(_deltaPressureOpposingGroupA);
+        var opposingB = CollectionsMarshal.AsSpan(_deltaPressureOpposingGroupB);
+        var opposingMax = CollectionsMarshal.AsSpan(_deltaPressureOpposingGroupMax);
+
+        // TODO LENGTH SHOULD BE DIVISIBLE BY DIRECTIONS
+        for (var i = 0; i < pressuresSpan.Length / Atmospherics.Directions; i++)
+        {
+            for (var j = 0; j < DeltaPressurePairCount; j++)
+            {
+                opposingA[i * DeltaPressurePairCount + j] = pressuresSpan[i * Atmospherics.Directions + j];
+                opposingB[i * DeltaPressurePairCount + j] = pressuresSpan[i * Atmospherics.Directions + j + DeltaPressurePairCount];
+            }
+        }
+
+        NumericsHelpers.Max(opposingA, opposingB, opposingMax);
+
+        // Calculate pressure differences between opposing directions.
+        NumericsHelpers.Sub(opposingA, opposingB);
+        NumericsHelpers.Abs(opposingA);
+    }
+
+    private void ProcessDeltaPressureArray(GridAtmosphereComponent gridAtmosComp)
+    {
+        for (var i = 0; i < gridAtmosComp.DeltaPressureEntities.Count; i++)
+        {
+            var ent = gridAtmosComp.DeltaPressureEntities[i];
+
+            var maxPressure = 0f;
+            var maxDelta = 0f;
+            for (var j = 0; j < DeltaPressurePairCount; j++)
+            {
+                maxPressure = MathF.Max(maxPressure, _deltaPressureOpposingGroupMax[i * DeltaPressurePairCount + j]);
+                maxDelta = MathF.Max(maxDelta, _deltaPressureOpposingGroupA[i * DeltaPressurePairCount + j]);
+            }
+
+            EnqueueDeltaPressureDamage(ent,
+                gridAtmosComp,
+                maxPressure,
+                maxDelta);
+        }
+    }
 
     /// <summary>
     /// Processes a singular entity, determining the pressures it's experiencing and applying damage based on that.
