@@ -43,39 +43,63 @@ public sealed partial class AtmosphereSystem
      - After all entities are processed, dequeue the damage results and apply damage accordingly.
      */
 
-    private readonly List<float> _deltaPressureVolume = [];
-    private readonly List<float> _deltaPressureTemperature = [];
-    private readonly List<float> _deltaPressureMoles = [];
-    private readonly List<float> _deltaPressurePressures = [];
-    private readonly List<float> _deltaPressureR = []; // KILL THIS
+    private float[] _deltaPressureVolume = [];
+    private float[] _deltaPressureTemperature = [];
+    private float[] _deltaPressureMoles = [];
+    private float[] _deltaPressurePressures = [];
+    private float[] _deltaPressureR = []; // KILL THIS
 
-    private readonly List<float> _deltaPressureOpposingGroupA = [];
-    private readonly List<float> _deltaPressureOpposingGroupB = [];
-    private readonly List<float> _deltaPressureOpposingGroupMax = [];
+    private float[] _deltaPressureOpposingGroupA = [];
+    private float[] _deltaPressureOpposingGroupB = [];
+    private float[] _deltaPressureOpposingGroupMax = [];
 
     private void EnsureListCapacities(int count)
     {
-        _deltaPressureVolume.EnsureCapacity(count);
-        _deltaPressureTemperature.EnsureCapacity(count);
-        _deltaPressureMoles.EnsureCapacity(count);
-        _deltaPressurePressures.EnsureCapacity(count);
-        _deltaPressureR.EnsureCapacity(count);
-        var opposingCount = count / DeltaPressurePairCount;
-        _deltaPressureOpposingGroupA.EnsureCapacity(opposingCount);
-        _deltaPressureOpposingGroupB.EnsureCapacity(opposingCount);
-        _deltaPressureOpposingGroupMax.EnsureCapacity(opposingCount);
+        var directionalCount = count * Atmospherics.Directions;
+        var opposingCount = count * DeltaPressurePairCount;
+
+        EnsureCapacity(ref _deltaPressureVolume, directionalCount);
+        EnsureCapacity(ref _deltaPressureTemperature, directionalCount);
+        EnsureCapacity(ref _deltaPressureMoles, directionalCount);
+        EnsureCapacity(ref _deltaPressurePressures, directionalCount);
+        EnsureCapacity(ref _deltaPressureR, directionalCount);
+
+        // EnsureCapacity(ref _deltaPressureOpposingGroupA, opposingCount);
+        // EnsureCapacity(ref _deltaPressureOpposingGroupB, opposingCount);
+        // EnsureCapacity(ref _deltaPressureOpposingGroupMax, opposingCount);
+
+        Array.Resize(ref _deltaPressureOpposingGroupA, opposingCount);
+        Array.Resize(ref _deltaPressureOpposingGroupB, opposingCount);
+        Array.Resize(ref _deltaPressureOpposingGroupMax, opposingCount);
+    }
+
+    private static void EnsureCapacity(ref float[] array, int size)
+    {
+        if (array.Length >= size)
+            return;
+
+        var newSize = array.Length == 0 ? 4 : array.Length;
+        while (newSize < size)
+        {
+            newSize = newSize <= int.MaxValue / 2 ? newSize * 2 : size;
+            if (newSize < size)
+                newSize = size;
+        }
+
+        Array.Resize(ref array, newSize);
     }
 
     private void ClearDeltaPressureLists()
     {
-        _deltaPressureVolume.Clear();
-        _deltaPressureTemperature.Clear();
-        _deltaPressureMoles.Clear();
-        _deltaPressurePressures.Clear();
-        _deltaPressureR.Clear();
-        _deltaPressureOpposingGroupA.Clear();
-        _deltaPressureOpposingGroupB.Clear();
-        _deltaPressureOpposingGroupMax.Clear();
+        Array.Clear(_deltaPressureVolume);
+        Array.Clear(_deltaPressureTemperature);
+        Array.Clear(_deltaPressureMoles);
+        Array.Clear(_deltaPressurePressures);
+        Array.Clear(_deltaPressureR);
+
+        Array.Clear(_deltaPressureOpposingGroupA);
+        Array.Clear(_deltaPressureOpposingGroupB);
+        Array.Clear(_deltaPressureOpposingGroupMax);
     }
 
     /// <summary>
@@ -98,11 +122,11 @@ public sealed partial class AtmosphereSystem
                 continue;
             }
 
-            var airtightComp = _airtightQuery.Comp(ent);
+            var airtightComp = _airtightQuery.Comp(dpEnt);
             var currentPos = airtightComp.LastPosition.Tile;
             for (var j = 0; j < Atmospherics.Directions; j++)
             {
-                var direction = (AtmosDirection)(1 << i);
+                var direction = (AtmosDirection)(1 << j);
                 var offset = currentPos.Offset(direction);
                 var tileAtmos = ent.Comp.Tiles.GetValueOrDefault(offset);
                 if (tileAtmos is not { Air: { } mixture })
@@ -158,15 +182,9 @@ public sealed partial class AtmosphereSystem
          and process them in bulk.
          */
 
-        var molesSpan = CollectionsMarshal.AsSpan(_deltaPressureMoles);
-        var rSpan = CollectionsMarshal.AsSpan(_deltaPressureR);
-        var tempSpan = CollectionsMarshal.AsSpan(_deltaPressureTemperature);
-        var volumeSpan = CollectionsMarshal.AsSpan(_deltaPressureVolume);
-        var pressuresSpan = CollectionsMarshal.AsSpan(_deltaPressurePressures);
-
-        NumericsHelpers.Multiply(molesSpan, rSpan);
-        NumericsHelpers.Multiply(molesSpan, tempSpan);
-        NumericsHelpers.Divide(molesSpan, volumeSpan, pressuresSpan);
+        NumericsHelpers.Multiply(_deltaPressureMoles, _deltaPressureR);
+        NumericsHelpers.Multiply(_deltaPressureMoles, _deltaPressureTemperature);
+        NumericsHelpers.Divide(_deltaPressureMoles, _deltaPressureVolume, _deltaPressurePressures);
     }
 
     private void ComputePressureDifferentials()
@@ -176,26 +194,21 @@ public sealed partial class AtmosphereSystem
          corresponding to the 4 directions around it. So we need to load them in pairs accordingly in the opposing groups.
          */
 
-        var pressuresSpan = CollectionsMarshal.AsSpan(_deltaPressurePressures);
-        var opposingA = CollectionsMarshal.AsSpan(_deltaPressureOpposingGroupA);
-        var opposingB = CollectionsMarshal.AsSpan(_deltaPressureOpposingGroupB);
-        var opposingMax = CollectionsMarshal.AsSpan(_deltaPressureOpposingGroupMax);
-
         // TODO LENGTH SHOULD BE DIVISIBLE BY DIRECTIONS
-        for (var i = 0; i < pressuresSpan.Length / Atmospherics.Directions; i++)
+        for (var i = 0; i < _deltaPressurePressures.Length / Atmospherics.Directions; i++)
         {
             for (var j = 0; j < DeltaPressurePairCount; j++)
             {
-                opposingA[i * DeltaPressurePairCount + j] = pressuresSpan[i * Atmospherics.Directions + j];
-                opposingB[i * DeltaPressurePairCount + j] = pressuresSpan[i * Atmospherics.Directions + j + DeltaPressurePairCount];
+                _deltaPressureOpposingGroupA[i * DeltaPressurePairCount + j] = _deltaPressurePressures[i * Atmospherics.Directions + j];
+                _deltaPressureOpposingGroupB[i * DeltaPressurePairCount + j] = _deltaPressurePressures[i * Atmospherics.Directions + j + DeltaPressurePairCount];
             }
         }
 
-        NumericsHelpers.Max(opposingA, opposingB, opposingMax);
+        NumericsHelpers.Max(_deltaPressureOpposingGroupA, _deltaPressureOpposingGroupB, _deltaPressureOpposingGroupMax);
 
         // Calculate pressure differences between opposing directions.
-        NumericsHelpers.Sub(opposingA, opposingB);
-        NumericsHelpers.Abs(opposingA);
+        NumericsHelpers.Sub(_deltaPressureOpposingGroupA, _deltaPressureOpposingGroupB);
+        NumericsHelpers.Abs(_deltaPressureOpposingGroupA);
     }
 
     private void ProcessDeltaPressureArray(GridAtmosphereComponent gridAtmosComp)

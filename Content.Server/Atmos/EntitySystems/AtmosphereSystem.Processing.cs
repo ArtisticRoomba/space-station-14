@@ -477,6 +477,8 @@ namespace Content.Server.Atmos.EntitySystems
         {
             var atmosphere = ent.Comp1;
             var count = atmosphere.DeltaPressureEntities.Count;
+            if (count == 0)
+                return true;
             if (!atmosphere.ProcessingPaused)
             {
                 atmosphere.DeltaPressureDamageResults.Clear();
