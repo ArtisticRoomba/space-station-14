@@ -479,32 +479,15 @@ namespace Content.Server.Atmos.EntitySystems
             var count = atmosphere.DeltaPressureEntities.Count;
             if (!atmosphere.ProcessingPaused)
             {
-                atmosphere.DeltaPressureCursor = 0;
                 atmosphere.DeltaPressureDamageResults.Clear();
+                ClearDeltaPressureLists();
+                EnsureListCapacities(count);
             }
 
-            var remaining = count - atmosphere.DeltaPressureCursor;
-            var batchSize = Math.Max(50, DeltaPressureParallelProcessPerIteration);
-            var toProcess = Math.Min(batchSize, remaining);
-
-            var timeCheck1 = 0;
-            while (atmosphere.DeltaPressureCursor < count)
-            {
-                var job = new DeltaPressureParallelJob(this,
-                    atmosphere,
-                    atmosphere.DeltaPressureCursor,
-                    DeltaPressureParallelBatchSize);
-                _parallel.ProcessNow(job, toProcess);
-
-                atmosphere.DeltaPressureCursor += toProcess;
-
-                if (timeCheck1++ < LagCheckIterations)
-                    continue;
-
-                timeCheck1 = 0;
-                if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
-                    return false;
-            }
+            ProcessTileAtmospheres(ent);
+            ComputeArrayPressures();
+            ComputePressureDifferentials();
+            ProcessDeltaPressureArray(ent);
 
             var timeCheck2 = 0;
             while (atmosphere.DeltaPressureDamageResults.TryDequeue(out var result))

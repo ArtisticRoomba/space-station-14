@@ -53,6 +53,31 @@ public sealed partial class AtmosphereSystem
     private readonly List<float> _deltaPressureOpposingGroupB = [];
     private readonly List<float> _deltaPressureOpposingGroupMax = [];
 
+    private void EnsureListCapacities(int count)
+    {
+        _deltaPressureVolume.EnsureCapacity(count);
+        _deltaPressureTemperature.EnsureCapacity(count);
+        _deltaPressureMoles.EnsureCapacity(count);
+        _deltaPressurePressures.EnsureCapacity(count);
+        _deltaPressureR.EnsureCapacity(count);
+        var opposingCount = count / DeltaPressurePairCount;
+        _deltaPressureOpposingGroupA.EnsureCapacity(opposingCount);
+        _deltaPressureOpposingGroupB.EnsureCapacity(opposingCount);
+        _deltaPressureOpposingGroupMax.EnsureCapacity(opposingCount);
+    }
+
+    private void ClearDeltaPressureLists()
+    {
+        _deltaPressureVolume.Clear();
+        _deltaPressureTemperature.Clear();
+        _deltaPressureMoles.Clear();
+        _deltaPressurePressures.Clear();
+        _deltaPressureR.Clear();
+        _deltaPressureOpposingGroupA.Clear();
+        _deltaPressureOpposingGroupB.Clear();
+        _deltaPressureOpposingGroupMax.Clear();
+    }
+
     /// <summary>
     /// Retrieves all <see cref="DeltaPressureComponent"/>-adjacent <see cref="TileAtmosphere"/>s
     /// for nullchecking and queuing data for SIMD processing.
@@ -194,6 +219,8 @@ public sealed partial class AtmosphereSystem
         }
     }
 
+    #region Old Multithreaded Method
+
     /// <summary>
     /// Processes a singular entity, determining the pressures it's experiencing and applying damage based on that.
     /// </summary>
@@ -290,11 +317,11 @@ public sealed partial class AtmosphereSystem
     /// it may not be a good idea to use this generically.</remarks>
     private static void GetBulkTileAtmospherePressures(TileAtmosphere?[] tiles, Span<float> pressures)
     {
-        #if DEBUG
+#if DEBUG
         // Just in case someone tries to use this method incorrectly.
         if (tiles.Length != pressures.Length || tiles.Length != Atmospherics.Directions)
             throw new ArgumentException("Length of arrays must be the same and of Atmospherics.Directions length.");
-        #endif
+#endif
 
         // This hardcoded direction limit is stopping goobers from
         // overflowing the stack with massive arrays.
@@ -337,6 +364,8 @@ public sealed partial class AtmosphereSystem
         NumericsHelpers.Multiply(mixtMoles, mixtTemp);
         NumericsHelpers.Divide(mixtMoles, mixtVol, pressures);
     }
+
+    #endregion
 
     /// <summary>
     /// Packs data into a <see cref="DeltaPressureDamageResult"/> data struct and enqueues it
