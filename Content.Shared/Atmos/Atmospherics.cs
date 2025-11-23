@@ -209,10 +209,13 @@ namespace Content.Shared.Atmos
         public const int TotalNumberOfGases = 9;
 
         /// <summary>
-        ///     This is the actual length of the gases arrays in mixtures.
-        ///     Set to the closest multiple of 4 relative to <see cref="TotalNumberOfGases"/> for SIMD reasons.
+        /// This is the actual length of the gases arrays in mixtures.
+        /// Set to the closest multiple of 8 relative to <see cref="TotalNumberOfGases"/> for SIMD reasons.
         /// </summary>
-        public const int AdjustedNumberOfGases = ((TotalNumberOfGases + 3) / 4) * 4;
+        /// <remarks>This is not set to the closest multiple of 4, as if AVX-256 is available for use, a padded 12 length
+        /// array will not fit neatly into 256-bit registers (8 floats, reminder of 4 floats).
+        /// Still fits neatly into 128-bit (4 floats, 2 ops) and 512-bit (16 floats) registers.</remarks>
+        public const int AdjustedNumberOfGases = ((TotalNumberOfGases + 7) / 8) * 8;
 
         /// <summary>
         ///     Amount of heat released per mole of burnt hydrogen or tritium (hydrogen isotope)

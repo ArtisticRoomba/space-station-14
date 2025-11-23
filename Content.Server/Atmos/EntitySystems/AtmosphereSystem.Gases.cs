@@ -30,7 +30,7 @@ namespace Content.Server.Atmos.EntitySystems
             _gasReactions = _protoMan.EnumeratePrototypes<GasReactionPrototype>().ToArray();
             Array.Sort(_gasReactions, (a, b) => b.Priority.CompareTo(a.Priority));
 
-            Array.Resize(ref _gasSpecificHeats, MathHelper.NextMultipleOf(Atmospherics.TotalNumberOfGases, 4));
+            Array.Resize(ref _gasSpecificHeats, MathHelper.NextMultipleOf(Atmospherics.TotalNumberOfGases, 8));
 
             for (var i = 0; i < GasPrototypes.Length; i++)
             {
