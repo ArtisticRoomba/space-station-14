@@ -68,6 +68,8 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 atmosphere.CurrentRunInvalidatedTiles.Clear();
                 atmosphere.CurrentRunInvalidatedTiles.EnsureCapacity(atmosphere.InvalidatedCoords.Count);
+                ProcessRevalidateCurrentCount.Inc(atmosphere.InvalidatedCoords.Count);
+                TotalProcessRevalidateCount.Inc(atmosphere.InvalidatedCoords.Count);
                 foreach (var indices in atmosphere.InvalidatedCoords)
                 {
                     var tile = GetOrNewTile(uid, atmosphere, indices, invalidateNew: false);
@@ -297,6 +299,7 @@ namespace Content.Server.Atmos.EntitySystems
                 QueueRunTiles(atmosphere.CurrentRunTiles, atmosphere.ActiveTiles);
 
             var number = 0;
+            var processed = atmosphere.CurrentRunTiles.Count;
             while (atmosphere.CurrentRunTiles.TryDequeue(out var tile))
             {
                 EqualizePressureInZone(ent, tile, atmosphere.UpdateCounter);
@@ -308,10 +311,16 @@ namespace Content.Server.Atmos.EntitySystems
                 // Process the rest next time.
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
                 {
+                    processed -= atmosphere.CurrentRunTiles.Count;
+                    TileEqualizeCurrentCount.Inc(processed);
+                    TotalTileEqualizeCount.Inc(processed);
                     return false;
                 }
             }
 
+            processed -= atmosphere.CurrentRunTiles.Count;
+            TileEqualizeCurrentCount.Inc(processed);
+            TotalTileEqualizeCount.Inc(processed);
             return true;
         }
 
@@ -319,10 +328,11 @@ namespace Content.Server.Atmos.EntitySystems
             Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> ent)
         {
             var atmosphere = ent.Comp1;
-            if(!atmosphere.ProcessingPaused)
+            if (!atmosphere.ProcessingPaused)
                 QueueRunTiles(atmosphere.CurrentRunTiles, atmosphere.ActiveTiles);
 
             var number = 0;
+            var processed = atmosphere.CurrentRunTiles.Count;
             while (atmosphere.CurrentRunTiles.TryDequeue(out var tile))
             {
                 ProcessCell(ent, tile, atmosphere.UpdateCounter);
@@ -334,10 +344,16 @@ namespace Content.Server.Atmos.EntitySystems
                 // Process the rest next time.
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
                 {
+                    processed -= atmosphere.CurrentRunTiles.Count;
+                    ProcessActiveTilesCurrentCount.Inc(processed);
+                    TotalProcessActiveTilesCount.Inc(processed);
                     return false;
                 }
             }
 
+            processed -= atmosphere.CurrentRunTiles.Count;
+            ProcessActiveTilesCurrentCount.Inc(processed);
+            TotalProcessActiveTilesCount.Inc(processed);
             return true;
         }
 
@@ -356,6 +372,7 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             var number = 0;
+            var processed = gridAtmosphere.CurrentRunExcitedGroups.Count;
             while (gridAtmosphere.CurrentRunExcitedGroups.TryDequeue(out var excitedGroup))
             {
                 excitedGroup.BreakdownCooldown++;
@@ -373,10 +390,16 @@ namespace Content.Server.Atmos.EntitySystems
                 // Process the rest next time.
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
                 {
+                    processed -= gridAtmosphere.CurrentRunExcitedGroups.Count;
+                    ProcessExcitedGroupsCurrentCount.Inc(processed);
+                    TotalProcessExcitedGroupsCount.Inc(processed);
                     return false;
                 }
             }
 
+            processed -= gridAtmosphere.CurrentRunExcitedGroups.Count;
+            ProcessExcitedGroupsCurrentCount.Inc(processed);
+            TotalProcessExcitedGroupsCount.Inc(processed);
             return true;
         }
 
@@ -389,6 +412,7 @@ namespace Content.Server.Atmos.EntitySystems
             // Note: This is still processed even if space wind is turned off since this handles playing the sounds.
 
             var number = 0;
+            var processed = atmosphere.CurrentRunTiles.Count;
             var bodies = GetEntityQuery<PhysicsComponent>();
             var xforms = GetEntityQuery<TransformComponent>();
             var metas = GetEntityQuery<MetaDataComponent>();
@@ -409,10 +433,16 @@ namespace Content.Server.Atmos.EntitySystems
                 // Process the rest next time.
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
                 {
+                    processed -= atmosphere.CurrentRunTiles.Count;
+                    ProcessHighPressureCurrentCount.Inc(processed);
+                    TotalProcessHighPressureCount.Inc(processed);
                     return false;
                 }
             }
 
+            processed -= atmosphere.CurrentRunTiles.Count;
+            ProcessHighPressureCurrentCount.Inc(processed);
+            TotalProcessHighPressureCount.Inc(processed);
             return true;
         }
 
@@ -420,10 +450,11 @@ namespace Content.Server.Atmos.EntitySystems
             Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> ent)
         {
             var atmosphere = ent.Comp1;
-            if(!atmosphere.ProcessingPaused)
+            if (!atmosphere.ProcessingPaused)
                 QueueRunTiles(atmosphere.CurrentRunTiles, atmosphere.HotspotTiles);
 
             var number = 0;
+            var processed = atmosphere.CurrentRunTiles.Count;
             while (atmosphere.CurrentRunTiles.TryDequeue(out var hotspot))
             {
                 ProcessHotspot(ent, hotspot);
@@ -435,19 +466,26 @@ namespace Content.Server.Atmos.EntitySystems
                 // Process the rest next time.
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
                 {
+                    processed -= atmosphere.CurrentRunTiles.Count;
+                    ProcessHotspotsCurrentCount.Inc(processed);
+                    TotalProcessHotspotsCount.Inc(processed);
                     return false;
                 }
             }
 
+            processed -= atmosphere.CurrentRunTiles.Count;
+            ProcessHotspotsCurrentCount.Inc(processed);
+            TotalProcessHotspotsCount.Inc(processed);
             return true;
         }
 
         private bool ProcessSuperconductivity(GridAtmosphereComponent atmosphere)
         {
-            if(!atmosphere.ProcessingPaused)
+            if (!atmosphere.ProcessingPaused)
                 QueueRunTiles(atmosphere.CurrentRunTiles, atmosphere.SuperconductivityTiles);
 
             var number = 0;
+            var processed = atmosphere.CurrentRunTiles.Count;
             while (atmosphere.CurrentRunTiles.TryDequeue(out var superconductivity))
             {
                 Superconduct(atmosphere, superconductivity);
@@ -459,10 +497,16 @@ namespace Content.Server.Atmos.EntitySystems
                 // Process the rest next time.
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
                 {
+                    processed -= atmosphere.CurrentRunTiles.Count;
+                    ProcessSuperconductivityCurrentCount.Inc(processed);
+                    TotalProcessSuperconductivityCount.Inc(processed);
                     return false;
                 }
             }
 
+            processed -= atmosphere.CurrentRunTiles.Count;
+            ProcessSuperconductivityCurrentCount.Inc(processed);
+            TotalProcessSuperconductivityCount.Inc(processed);
             return true;
         }
 
@@ -483,6 +527,8 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             var remaining = count - atmosphere.DeltaPressureCursor;
+            var prevCursor = atmosphere.DeltaPressureCursor;
+            int processed;
             var batchSize = Math.Max(50, DeltaPressureParallelProcessPerIteration);
             var toProcess = Math.Min(batchSize, remaining);
 
@@ -502,8 +548,17 @@ namespace Content.Server.Atmos.EntitySystems
 
                 timeCheck1 = 0;
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
+                {
+                    processed = atmosphere.DeltaPressureCursor - prevCursor;
+                    ProcessDeltaPressureCurrentCount.Inc(processed);
+                    TotalProcessDeltaPressureCount.Inc(processed);
                     return false;
+                }
             }
+
+            processed = atmosphere.DeltaPressureCursor - prevCursor;
+            ProcessDeltaPressureCurrentCount.Inc(processed);
+            TotalProcessDeltaPressureCount.Inc(processed);
 
             var timeCheck2 = 0;
             while (atmosphere.DeltaPressureDamageResults.TryDequeue(out var result))
@@ -539,6 +594,7 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             var number = 0;
+            var processed = atmosphere.CurrentRunPipeNet.Count;
             while (atmosphere.CurrentRunPipeNet.TryDequeue(out var pipenet))
             {
                 pipenet.Update();
@@ -550,6 +606,9 @@ namespace Content.Server.Atmos.EntitySystems
                 // Process the rest next time.
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
                 {
+                    processed -= atmosphere.CurrentRunPipeNet.Count;
+                    ProcessPipeNetCurrentCount.Inc(processed);
+                    TotalProcessPipeNetCount.Inc(processed);
                     return false;
                 }
             }
@@ -593,6 +652,7 @@ namespace Content.Server.Atmos.EntitySystems
 
             var time = _gameTiming.CurTime;
             var number = 0;
+            var processed = atmosphere.CurrentRunAtmosDevices.Count;
             var ev = new AtmosDeviceUpdateEvent(RealAtmosTime(), (ent, ent.Comp1, ent.Comp2), map);
             while (atmosphere.CurrentRunAtmosDevices.TryDequeue(out var device))
             {
@@ -606,10 +666,16 @@ namespace Content.Server.Atmos.EntitySystems
                 // Process the rest next time.
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
                 {
+                    processed -= atmosphere.CurrentRunAtmosDevices.Count;
+                    ProcessAtmosDevicesCurrentCount.Inc(processed);
+                    TotalProcessAtmosDevicesCount.Inc(processed);
                     return false;
                 }
             }
 
+            processed -= atmosphere.CurrentRunAtmosDevices.Count;
+            ProcessAtmosDevicesCurrentCount.Inc(processed);
+            TotalProcessAtmosDevicesCount.Inc(processed);
             return true;
         }
 
@@ -627,6 +693,8 @@ namespace Content.Server.Atmos.EntitySystems
                 {
                     _currentRunAtmosphere.Add((uid, atmos, overlay, grid, xform));
                 }
+
+                TotalGridAtmosCompCount.Set(_currentRunAtmosphere.Count);
             }
 
             // We set this to true just in case we have to stop processing due to time constraints.
@@ -694,7 +762,11 @@ namespace Content.Server.Atmos.EntitySystems
             switch (atmosphere.State)
             {
                 case AtmosphereProcessingState.Revalidate:
-                    if (!ProcessRevalidate(ent))
+                    _processRevalidateSw.Restart();
+                    var processRevalidate = ProcessRevalidate(ent);
+                    _processRevalidateSw.Stop();
+                    LogProcessRevalidateStatistics();
+                    if (!processRevalidate)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;
@@ -710,7 +782,10 @@ namespace Content.Server.Atmos.EntitySystems
                         : AtmosphereProcessingState.ActiveTiles;
                     return AtmosphereProcessingCompletionState.Continue;
                 case AtmosphereProcessingState.TileEqualize:
-                    if (!ProcessTileEqualize(ent))
+                    _tileEqualizeSw.Restart();
+                    var processTileEqualize = ProcessTileEqualize(ent);
+                    _tileEqualizeSw.Stop();
+                    if (!processTileEqualize)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;
@@ -720,7 +795,10 @@ namespace Content.Server.Atmos.EntitySystems
                     atmosphere.State = AtmosphereProcessingState.ActiveTiles;
                     return AtmosphereProcessingCompletionState.Continue;
                 case AtmosphereProcessingState.ActiveTiles:
-                    if (!ProcessActiveTiles(ent))
+                    _processActiveTilesSw.Restart();
+                    var processActiveTiles = ProcessActiveTiles(ent);
+                    _processActiveTilesSw.Stop();
+                    if (!processActiveTiles)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;
@@ -731,7 +809,10 @@ namespace Content.Server.Atmos.EntitySystems
                     atmosphere.State = ExcitedGroups ? AtmosphereProcessingState.ExcitedGroups : AtmosphereProcessingState.HighPressureDelta;
                     return AtmosphereProcessingCompletionState.Continue;
                 case AtmosphereProcessingState.ExcitedGroups:
-                    if (!ProcessExcitedGroups(ent))
+                    _processExcitedGroupsSw.Restart();
+                    var processExcitedGroups = ProcessExcitedGroups(ent);
+                    _processExcitedGroupsSw.Stop();
+                    if (!processExcitedGroups)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;
@@ -741,7 +822,10 @@ namespace Content.Server.Atmos.EntitySystems
                     atmosphere.State = AtmosphereProcessingState.HighPressureDelta;
                     return AtmosphereProcessingCompletionState.Continue;
                 case AtmosphereProcessingState.HighPressureDelta:
-                    if (!ProcessHighPressureDelta((ent, ent)))
+                    _processHighPressureSw.Restart();
+                    var processHighPressureDelta = ProcessHighPressureDelta((ent, ent));
+                    _processHighPressureSw.Stop();
+                    if (!processHighPressureDelta)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;
@@ -753,7 +837,10 @@ namespace Content.Server.Atmos.EntitySystems
                         : AtmosphereProcessingState.Hotspots;
                     return AtmosphereProcessingCompletionState.Continue;
                 case AtmosphereProcessingState.DeltaPressure:
-                    if (!ProcessDeltaPressure(ent))
+                    _processDeltaPressureSw.Restart();
+                    var processDeltaPressure = ProcessDeltaPressure(ent);
+                    _processDeltaPressureSw.Stop();
+                    if (!processDeltaPressure)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;
@@ -763,7 +850,10 @@ namespace Content.Server.Atmos.EntitySystems
                     atmosphere.State = AtmosphereProcessingState.Hotspots;
                     return AtmosphereProcessingCompletionState.Continue;
                 case AtmosphereProcessingState.Hotspots:
-                    if (!ProcessHotspots(ent))
+                    _processHotspotsSw.Restart();
+                    var processHotspots = ProcessHotspots(ent);
+                    _processHotspotsSw.Stop();
+                    if (!processHotspots)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;
@@ -778,7 +868,10 @@ namespace Content.Server.Atmos.EntitySystems
                         : AtmosphereProcessingState.PipeNet;
                     return AtmosphereProcessingCompletionState.Continue;
                 case AtmosphereProcessingState.Superconductivity:
-                    if (!ProcessSuperconductivity(atmosphere))
+                    _processSuperconductivitySw.Restart();
+                    var processSuperconductivity = ProcessSuperconductivity(atmosphere);
+                    _processSuperconductivitySw.Stop();
+                    if (!processSuperconductivity)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;
@@ -788,7 +881,10 @@ namespace Content.Server.Atmos.EntitySystems
                     atmosphere.State = AtmosphereProcessingState.PipeNet;
                     return AtmosphereProcessingCompletionState.Continue;
                 case AtmosphereProcessingState.PipeNet:
-                    if (!ProcessPipeNets(atmosphere))
+                    _processPipeNetSw.Restart();
+                    var processPipeNets = ProcessPipeNets(atmosphere);
+                    _processPipeNetSw.Stop();
+                    if (!processPipeNets)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;
@@ -798,7 +894,10 @@ namespace Content.Server.Atmos.EntitySystems
                     atmosphere.State = AtmosphereProcessingState.AtmosDevices;
                     return AtmosphereProcessingCompletionState.Continue;
                 case AtmosphereProcessingState.AtmosDevices:
-                    if (!ProcessAtmosDevices(ent, mapAtmosphere))
+                    _processAtmosDevicesSw.Restart();
+                    var processAtmosDevices = ProcessAtmosDevices(ent, mapAtmosphere);
+                    _processAtmosDevicesSw.Stop();
+                    if (!processAtmosDevices)
                     {
                         atmosphere.ProcessingPaused = true;
                         return AtmosphereProcessingCompletionState.Return;

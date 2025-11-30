@@ -17,11 +17,33 @@ public sealed partial class AtmosphereSystem
      */
 
     /// <summary>
+    /// Resets all statistics for the current atmos subtick.
+    /// This is different from an entire update - this measures
+    /// the amount of time we have spent in one call in each processing state
+    /// while executing <see cref="AtmosphereSystem.Update"/>.
+    /// </summary>
+    private void ResetSubtickStatistics()
+    {
+        ProcessRevalidateCurrentCount.Set(0);
+    }
+
+    /// <summary>
+    /// Logs all time and allocation statistics for the current atmos subtick.
+    /// This is different from an entire update - this measures
+    /// the amount of time we have spent in one call in each processing state
+    /// while executing <see cref="AtmosphereSystem.Update"/>.
+    /// </summary>
+    private void LogSubtickStatistics()
+    {
+
+    }
+
+    /// <summary>
     /// Total number of grids with <see cref="GridAtmosphereComponent"/>.
     /// </summary>
     private static readonly Gauge TotalGridAtmosCompCount = Metrics.CreateGauge(
-        "atmosphere_system_grid_atmosphere_component_count",
-        "Total number of Atmospherics GridAtmosphereComponents in existence."
+        "atmosphere_system_grid_atmosphere_component_count_processing",
+        "Total number of Atmospherics GridAtmosphereComponents scheduled for processing."
     );
 
     private static readonly Gauge AtmosMaxProcessingTime = Metrics.CreateGauge(
@@ -81,6 +103,24 @@ public sealed partial class AtmosphereSystem
         "atmosphere_system_total_process_revalidate_alloc_bytes",
         "Total allocations made during processing revalidation of invalid tiles for the entire update."
     );
+
+    private void LogProcessRevalidateStatistics()
+    {
+        var data = ProfData.TimeAlloc(_processRevalidateSw).TimeAllocSample;
+        ProcessRevalidateTime.Set(data.Time);
+        ProcessRevalidateAlloc.Set(data.Alloc);
+        TotalProcessRevalidateTime.Inc(data.Time);
+        TotalProcessRevalidateAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetProcessRevalidateStatistics()
+    {
+        _processRevalidateSw.Reset();
+        ProcessRevalidateTime.Set(0);
+        ProcessRevalidateAlloc.Set(0);
+        TotalProcessRevalidateTime.Set(0);
+        TotalProcessRevalidateAlloc.Set(0);
+    }
 
     #endregion
 
@@ -160,6 +200,18 @@ public sealed partial class AtmosphereSystem
 
     private ProfSampler _processExcitedGroupsSw;
 
+    private static readonly Gauge ExcitedGroupsDissolvedCount = Metrics.CreateGauge(
+        "atmosphere_system_excited_groups_dissolved_count",
+        "Number of excited groups that have been dissolved this atmostick. " +
+        "These are the groups that have been equalized and deactivated."
+    );
+
+    private static readonly Gauge ExcitedGroupsDisposedCount = Metrics.CreateGauge(
+        "atmosphere_system_excited_groups_disposed_count",
+        "Number of excited groups that have been disposed this atmostick " +
+        "without equalization (because they were too close in pressure)."
+    );
+
     private static readonly Gauge ProcessExcitedGroupsCurrentCount = Metrics.CreateGauge(
         "atmosphere_system_process_excited_groups_current_count",
         "Number of excited groups processed this update run."
@@ -231,6 +283,11 @@ public sealed partial class AtmosphereSystem
     #region ProcessDeltaPressure
 
     private ProfSampler _processDeltaPressureSw;
+
+    private static readonly Gauge ProcessDeltaPressureDamageDealtCount = Metrics.CreateGauge(
+        "atmosphere_system_process_delta_pressure_damage_dealt_count",
+        "Number of entities that took damage from delta pressure this atmostick."
+    );
 
     private static readonly Gauge ProcessDeltaPressureCurrentCount = Metrics.CreateGauge(
         "atmosphere_system_process_delta_pressure_current_count",

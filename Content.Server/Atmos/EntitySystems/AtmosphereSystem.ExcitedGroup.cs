@@ -159,6 +159,8 @@ public sealed partial class AtmosphereSystem
         }
 
         excitedGroup.BreakdownCooldown = 0;
+
+        ExcitedGroupsDissolvedCount.Inc();
     }
 
     /// <summary>
@@ -198,5 +200,7 @@ public sealed partial class AtmosphereSystem
         }
 
         excitedGroup.Tiles.Clear();
+
+        ExcitedGroupsDisposedCount.Inc();
     }
 }

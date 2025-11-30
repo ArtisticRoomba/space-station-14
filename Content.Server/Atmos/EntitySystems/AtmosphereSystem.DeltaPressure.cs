@@ -253,6 +253,7 @@ public sealed partial class AtmosphereSystem
 
         _damage.ChangeDamage(ent.Owner, appliedDamage, ignoreResistances: true, interruptsDoAfters: false);
         SetIsTakingDamageState(ent, true);
+        ProcessDeltaPressureDamageDealtCount.Inc();
     }
 
     /// <summary>
