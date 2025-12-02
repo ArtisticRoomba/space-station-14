@@ -9,18 +9,16 @@ namespace Content.Server.Atmos.EntitySystems
     */
 
     [ByRefEvent]
-    public readonly struct AtmosExposedUpdateEvent
+    public readonly struct AtmosExposedUpdateEvent(
+        EntityCoordinates coordinates,
+        GasMixture mixture,
+        TransformComponent transform,
+        float deltaTime)
     {
-        public readonly EntityCoordinates Coordinates;
-        public readonly GasMixture GasMixture;
-        public readonly TransformComponent Transform;
-
-        public AtmosExposedUpdateEvent(EntityCoordinates coordinates, GasMixture mixture, TransformComponent transform)
-        {
-            Coordinates = coordinates;
-            GasMixture = mixture;
-            Transform = transform;
-        }
+        public readonly EntityCoordinates Coordinates = coordinates;
+        public readonly GasMixture GasMixture = mixture;
+        public readonly TransformComponent Transform = transform;
+        public readonly float DeltaTime = deltaTime;
     }
 
     /// <summary>

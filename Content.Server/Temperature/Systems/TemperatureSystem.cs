@@ -147,7 +147,8 @@ public sealed class TemperatureSystem : SharedTemperatureSystem
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), true);
     }
 
-    private void OnAtmosExposedUpdate(EntityUid uid, TemperatureComponent temperature,
+    private void OnAtmosExposedUpdate(EntityUid uid,
+        TemperatureComponent temperature,
         ref AtmosExposedUpdateEvent args)
     {
         var transform = args.Transform;
@@ -156,11 +157,9 @@ public sealed class TemperatureSystem : SharedTemperatureSystem
             return;
 
         var temperatureDelta = args.GasMixture.Temperature - temperature.CurrentTemperature;
-        var airHeatCapacity = _atmosphere.GetHeatCapacity(args.GasMixture, false);
-        var heatCapacity = GetHeatCapacity(uid, temperature);
-        var heat = temperatureDelta * (airHeatCapacity * heatCapacity /
-                                       (airHeatCapacity + heatCapacity));
-        ChangeHeat(uid, heat * temperature.AtmosTemperatureTransferEfficiency, temperature: temperature);
+        var dQ = temperature.AtmosTemperatureTransferEfficiency * temperatureDelta * args.DeltaTime;
+
+        ChangeHeat(uid, dQ, temperature: temperature);
     }
 
     private void OnInit(EntityUid uid, InternalTemperatureComponent comp, MapInitEvent args)

@@ -116,7 +116,8 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
             if (air == null)
                 continue;
 
-            var updateEvent = new AtmosExposedUpdateEvent(transform.Coordinates, air, transform);
+            // humanoids are devices clearly
+            var updateEvent = new AtmosExposedUpdateEvent(transform.Coordinates, air, transform, RealAtmosTime());
             RaiseLocalEvent(uid, ref updateEvent);
         }
 
