@@ -785,6 +785,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _tileEqualizeSw.Restart();
                     var processTileEqualize = ProcessTileEqualize(ent);
                     _tileEqualizeSw.Stop();
+                    LogTileEqualizeStatistics();
                     if (!processTileEqualize)
                     {
                         atmosphere.ProcessingPaused = true;
@@ -798,6 +799,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _processActiveTilesSw.Restart();
                     var processActiveTiles = ProcessActiveTiles(ent);
                     _processActiveTilesSw.Stop();
+                    LogProcessActiveTilesStatistics();
                     if (!processActiveTiles)
                     {
                         atmosphere.ProcessingPaused = true;
@@ -812,6 +814,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _processExcitedGroupsSw.Restart();
                     var processExcitedGroups = ProcessExcitedGroups(ent);
                     _processExcitedGroupsSw.Stop();
+                    LogProcessExcitedGroupsStatistics();
                     if (!processExcitedGroups)
                     {
                         atmosphere.ProcessingPaused = true;
@@ -825,6 +828,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _processHighPressureSw.Restart();
                     var processHighPressureDelta = ProcessHighPressureDelta((ent, ent));
                     _processHighPressureSw.Stop();
+                    LogProcessHighPressureStatistics();
                     if (!processHighPressureDelta)
                     {
                         atmosphere.ProcessingPaused = true;
@@ -840,6 +844,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _processDeltaPressureSw.Restart();
                     var processDeltaPressure = ProcessDeltaPressure(ent);
                     _processDeltaPressureSw.Stop();
+                    LogProcessDeltaPressureStatistics();
                     if (!processDeltaPressure)
                     {
                         atmosphere.ProcessingPaused = true;
@@ -853,6 +858,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _processHotspotsSw.Restart();
                     var processHotspots = ProcessHotspots(ent);
                     _processHotspotsSw.Stop();
+                    LogProcessHotspotsStatistics();
                     if (!processHotspots)
                     {
                         atmosphere.ProcessingPaused = true;
@@ -871,6 +877,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _processSuperconductivitySw.Restart();
                     var processSuperconductivity = ProcessSuperconductivity(atmosphere);
                     _processSuperconductivitySw.Stop();
+                    LogProcessSuperconductivityStatistics();
                     if (!processSuperconductivity)
                     {
                         atmosphere.ProcessingPaused = true;
@@ -884,6 +891,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _processPipeNetSw.Restart();
                     var processPipeNets = ProcessPipeNets(atmosphere);
                     _processPipeNetSw.Stop();
+                    LogProcessPipeNetStatistics();
                     if (!processPipeNets)
                     {
                         atmosphere.ProcessingPaused = true;
@@ -897,6 +905,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _processAtmosDevicesSw.Restart();
                     var processAtmosDevices = ProcessAtmosDevices(ent, mapAtmosphere);
                     _processAtmosDevicesSw.Stop();
+                    LogProcessAtmosDevicesStatistics();
                     if (!processAtmosDevices)
                     {
                         atmosphere.ProcessingPaused = true;

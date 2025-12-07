@@ -25,6 +25,16 @@ public sealed partial class AtmosphereSystem
     private void ResetSubtickStatistics()
     {
         ProcessRevalidateCurrentCount.Set(0);
+        TileEqualizeCurrentCount.Set(0);
+        ProcessActiveTilesCurrentCount.Set(0);
+        ProcessExcitedGroupsCurrentCount.Set(0);
+        ProcessHighPressureCurrentCount.Set(0);
+        ProcessDeltaPressureCurrentCount.Set(0);
+        ProcessDeltaPressureDamageCurrentCount.Set(0);
+        ProcessHotspotsCurrentCount.Set(0);
+        ProcessSuperconductivityCurrentCount.Set(0);
+        ProcessPipeNetCurrentCount.Set(0);
+        ProcessAtmosDevicesCurrentCount.Set(0);
     }
 
     /// <summary>
@@ -158,6 +168,24 @@ public sealed partial class AtmosphereSystem
         "Total allocations made during processing equalization of tiles for the entire update."
     );
 
+    private void LogTileEqualizeStatistics()
+    {
+        var data = ProfData.TimeAlloc(_tileEqualizeSw).TimeAllocSample;
+        TileEqualizeTime.Set(data.Time);
+        TileEqualizeAlloc.Set(data.Alloc);
+        TotalTileEqualizeTime.Inc(data.Time);
+        TotalTileEqualizeAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetTileEqualizeStatistics()
+    {
+        _tileEqualizeSw.Reset();
+        TileEqualizeTime.Set(0);
+        TileEqualizeAlloc.Set(0);
+        TotalTileEqualizeTime.Set(0);
+        TotalTileEqualizeAlloc.Set(0);
+    }
+
     #endregion
 
     #region ProcessActiveTiles
@@ -193,6 +221,24 @@ public sealed partial class AtmosphereSystem
         "atmosphere_system_total_process_active_tiles_alloc_bytes",
         "Total allocations made during processing active tiles for the entire update."
     );
+
+    private void LogProcessActiveTilesStatistics()
+    {
+        var data = ProfData.TimeAlloc(_processActiveTilesSw).TimeAllocSample;
+        ProcessActiveTilesTime.Set(data.Time);
+        ProcessActiveTilesAlloc.Set(data.Alloc);
+        TotalProcessActiveTilesTime.Inc(data.Time);
+        TotalProcessActiveTilesAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetProcessActiveTilesStatistics()
+    {
+        _processActiveTilesSw.Reset();
+        ProcessActiveTilesTime.Set(0);
+        ProcessActiveTilesAlloc.Set(0);
+        TotalProcessActiveTilesTime.Set(0);
+        TotalProcessActiveTilesAlloc.Set(0);
+    }
 
     #endregion
 
@@ -242,6 +288,26 @@ public sealed partial class AtmosphereSystem
         "Total allocations made during processing excited groups for the entire update."
     );
 
+    private void LogProcessExcitedGroupsStatistics()
+    {
+        var data = ProfData.TimeAlloc(_processExcitedGroupsSw).TimeAllocSample;
+        ProcessExcitedGroupsTime.Set(data.Time);
+        ProcessExcitedGroupsAlloc.Set(data.Alloc);
+        TotalProcessExcitedGroupsTime.Inc(data.Time);
+        TotalProcessExcitedGroupsAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetProcessExcitedGroupsStatistics()
+    {
+        _processExcitedGroupsSw.Reset();
+        ProcessExcitedGroupsTime.Set(0);
+        ProcessExcitedGroupsAlloc.Set(0);
+        TotalProcessExcitedGroupsTime.Set(0);
+        TotalProcessExcitedGroupsAlloc.Set(0);
+        ExcitedGroupsDissolvedCount.Set(0);
+        ExcitedGroupsDisposedCount.Set(0);
+    }
+
     #endregion
 
     #region ProcessHighPressureDelta
@@ -277,6 +343,24 @@ public sealed partial class AtmosphereSystem
         "atmosphere_system_total_process_high_pressure_alloc_bytes",
         "Total allocations made during processing high pressure delta for the entire update."
     );
+
+    private void LogProcessHighPressureStatistics()
+    {
+        var data = ProfData.TimeAlloc(_processHighPressureSw).TimeAllocSample;
+        ProcessHighPressureTime.Set(data.Time);
+        ProcessHighPressureAlloc.Set(data.Alloc);
+        TotalProcessHighPressureTime.Inc(data.Time);
+        TotalProcessHighPressureAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetProcessHighPressureStatistics()
+    {
+        _processHighPressureSw.Reset();
+        ProcessHighPressureTime.Set(0);
+        ProcessHighPressureAlloc.Set(0);
+        TotalProcessHighPressureTime.Set(0);
+        TotalProcessHighPressureAlloc.Set(0);
+    }
 
     #endregion
 
@@ -329,6 +413,25 @@ public sealed partial class AtmosphereSystem
         "Total allocations made during processing delta pressure damage for the entire update."
     );
 
+    private void LogProcessDeltaPressureStatistics()
+    {
+        var data = ProfData.TimeAlloc(_processDeltaPressureSw).TimeAllocSample;
+        ProcessDeltaPressureTime.Set(data.Time);
+        ProcessDeltaPressureAlloc.Set(data.Alloc);
+        TotalProcessDeltaPressureTime.Inc(data.Time);
+        TotalProcessDeltaPressureAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetProcessDeltaPressureStatistics()
+    {
+        _processDeltaPressureSw.Reset();
+        ProcessDeltaPressureTime.Set(0);
+        ProcessDeltaPressureAlloc.Set(0);
+        TotalProcessDeltaPressureTime.Set(0);
+        TotalProcessDeltaPressureAlloc.Set(0);
+        ProcessDeltaPressureDamageDealtCount.Set(0);
+    }
+
     #endregion
 
     #region ProcessHotspots
@@ -364,6 +467,24 @@ public sealed partial class AtmosphereSystem
         "atmosphere_system_total_process_hotspots_alloc_bytes",
         "Total allocations made during processing hotspot tiles for the entire update."
     );
+
+    private void LogProcessHotspotsStatistics()
+    {
+        var data = ProfData.TimeAlloc(_processHotspotsSw).TimeAllocSample;
+        ProcessHotspotsTime.Set(data.Time);
+        ProcessHotspotsAlloc.Set(data.Alloc);
+        TotalProcessHotspotsTime.Inc(data.Time);
+        TotalProcessHotspotsAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetProcessHotspotsStatistics()
+    {
+        _processHotspotsSw.Reset();
+        ProcessHotspotsTime.Set(0);
+        ProcessHotspotsAlloc.Set(0);
+        TotalProcessHotspotsTime.Set(0);
+        TotalProcessHotspotsAlloc.Set(0);
+    }
 
     #endregion
 
@@ -401,6 +522,24 @@ public sealed partial class AtmosphereSystem
         "Total allocations made during processing superconductivity tiles for the entire update."
     );
 
+    private void LogProcessSuperconductivityStatistics()
+    {
+        var data = ProfData.TimeAlloc(_processSuperconductivitySw).TimeAllocSample;
+        ProcessSuperconductivityTime.Set(data.Time);
+        ProcessSuperconductivityAlloc.Set(data.Alloc);
+        TotalProcessSuperconductivityTime.Inc(data.Time);
+        TotalProcessSuperconductivityAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetProcessSuperconductivityStatistics()
+    {
+        _processSuperconductivitySw.Reset();
+        ProcessSuperconductivityTime.Set(0);
+        ProcessSuperconductivityAlloc.Set(0);
+        TotalProcessSuperconductivityTime.Set(0);
+        TotalProcessSuperconductivityAlloc.Set(0);
+    }
+
     #endregion
 
     #region ProcessPipeNet
@@ -437,6 +576,24 @@ public sealed partial class AtmosphereSystem
         "Total allocations made during processing pipe nets for the entire update."
     );
 
+    private void LogProcessPipeNetStatistics()
+    {
+        var data = ProfData.TimeAlloc(_processPipeNetSw).TimeAllocSample;
+        ProcessPipeNetTime.Set(data.Time);
+        ProcessPipeNetAlloc.Set(data.Alloc);
+        TotalProcessPipeNetTime.Inc(data.Time);
+        TotalProcessPipeNetAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetProcessPipeNetStatistics()
+    {
+        _processPipeNetSw.Reset();
+        ProcessPipeNetTime.Set(0);
+        ProcessPipeNetAlloc.Set(0);
+        TotalProcessPipeNetTime.Set(0);
+        TotalProcessPipeNetAlloc.Set(0);
+    }
+
     #endregion
 
     #region ProcessAtmosDevices
@@ -472,6 +629,24 @@ public sealed partial class AtmosphereSystem
         "atmosphere_system_total_process_atmos_devices_alloc_bytes",
         "Total allocations made during processing atmos devices for the entire update."
     );
+
+    private void LogProcessAtmosDevicesStatistics()
+    {
+        var data = ProfData.TimeAlloc(_processAtmosDevicesSw).TimeAllocSample;
+        ProcessAtmosDevicesTime.Set(data.Time);
+        ProcessAtmosDevicesAlloc.Set(data.Alloc);
+        TotalProcessAtmosDevicesTime.Inc(data.Time);
+        TotalProcessAtmosDevicesAlloc.Inc(data.Alloc);
+    }
+
+    private void ResetProcessAtmosDevicesStatistics()
+    {
+        _processAtmosDevicesSw.Reset();
+        ProcessAtmosDevicesTime.Set(0);
+        ProcessAtmosDevicesAlloc.Set(0);
+        TotalProcessAtmosDevicesTime.Set(0);
+        TotalProcessAtmosDevicesAlloc.Set(0);
+    }
 
     #endregion
 
