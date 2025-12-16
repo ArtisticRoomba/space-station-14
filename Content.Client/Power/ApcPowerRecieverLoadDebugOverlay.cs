@@ -49,7 +49,7 @@ public sealed class ApcPowerRecieverLoadDebugOverlay : Overlay
             var (worldPos, _) = _transform.GetWorldPositionRotation(ent.Owner);
 
             var load = data.Load;
-            var text = $"Load: {load:F2}";
+            var text = $"Load: {load:N0}";
             var screenPos = args.ViewportControl.WorldToScreen(worldPos);
             args.ScreenHandle.DrawString(_font, screenPos, text, Color.Gold);
         }
