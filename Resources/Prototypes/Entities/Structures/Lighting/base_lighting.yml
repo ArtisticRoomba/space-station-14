@@ -108,6 +108,8 @@
     containers:
       light_bulb: !type:ContainerSlot
   - type: ApcPowerReceiver
+    needsPower: false
+  - type: PoweredLightLowPower
   - type: ExtensionCableReceiver
   - type: DeviceNetwork
     deviceNetId: Wireless
