@@ -210,6 +210,7 @@ namespace Content.Server.Power.Pow3r
                     continue;
 
                 load.ReceivingPower = load.DesiredPower * supplyRatio;
+                load.DeficitFactor = supplyRatio;
             }
 
             // Distribute supply to batteries

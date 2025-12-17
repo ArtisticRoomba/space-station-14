@@ -394,6 +394,7 @@ namespace Content.Server.Power.Pow3r
 
             // == Runtime parameters ==
             [ViewVariables(VVAccess.ReadWrite)] public float ReceivingPower;
+            [ViewVariables(VVAccess.ReadWrite)] public float DeficitFactor;
 
             [ViewVariables] [JsonIgnore] public NodeId LinkedNetwork;
         }
