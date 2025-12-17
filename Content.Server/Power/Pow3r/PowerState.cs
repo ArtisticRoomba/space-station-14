@@ -504,6 +504,17 @@ namespace Content.Server.Power.Pow3r
             /// </summary>
             [ViewVariables] public float LastCombinedMaxSupply = 0f;
 
+            /// <summary>
+            /// Percent of demand that this network is currently meeting.
+            /// This value is always between 0 and 1. If less than 1, the network is in deficit.
+            /// </summary>
+            /// <remarks>Calculating this factor for every load might be quite expensive
+            /// if there are a lot of loads on the grid. Considering that deficit ratios are
+            /// almost the same for most devices that would want to know this value,
+            /// it makes sense to calculate the deficit at the network level.</remarks>
+            [ViewVariables]
+            public float DeficitFactor = 1f;
+
             [ViewVariables] [JsonIgnore] public int Height;
         }
     }

@@ -271,7 +271,8 @@ namespace Content.Server.Power.EntitySystems
                 InStorageCurrent = storageCurrentJ,
                 InStorageMax = storageMaxJ,
                 OutStorageCurrent = outStorageCurrentJ,
-                OutStorageMax = outStorageMaxJ
+                OutStorageMax = outStorageMaxJ,
+                DeficitFactor = network.DeficitFactor,
             };
         }
 
@@ -595,6 +596,7 @@ namespace Content.Server.Power.EntitySystems
         public float InStorageMax;
         public float OutStorageCurrent;
         public float OutStorageMax;
+        public float DeficitFactor;
     }
 
 }

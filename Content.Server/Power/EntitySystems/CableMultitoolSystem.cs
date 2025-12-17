@@ -90,7 +90,8 @@ namespace Content.Server.Power.EntitySystems
                     ("storagem", ps.InStorageMax),
                     ("storageoc", ps.OutStorageCurrent),
                     ("storageor", outStorageRatio),
-                    ("storageom", ps.OutStorageMax)
+                    ("storageom", ps.OutStorageMax),
+                    ("deficitfactor", ps.DeficitFactor)
                 );
             }
             return Loc.GetString("cable-multitool-system-internal-error-no-power-node");

@@ -104,7 +104,8 @@ From Batteries: {ps.SupplyBatteries:G3}
 Theoretical Supply: {ps.SupplyTheoretical:G3}
 Ideal Consumption: {ps.Consumption:G3}
 Input Storage: {ps.InStorageCurrent:G3} / {ps.InStorageMax:G3} ({storageRatio:P1})
-Output Storage: {ps.OutStorageCurrent:G3} / {ps.OutStorageMax:G3} ({outStorageRatio:P1})";
+Output Storage: {ps.OutStorageCurrent:G3} / {ps.OutStorageMax:G3} ({outStorageRatio:P1})
+Deficit Factor: {ps.DeficitFactor:P1}";
         }
     }
 }

@@ -200,6 +200,7 @@ namespace Content.Server.Power.Pow3r
                 return;
 
             var supplyRatio = met / demand;
+            network.DeficitFactor = supplyRatio;
             // if supply ratio == 1 (or is close to) we could skip some math for each load & battery.
 
             // Distribute supply to loads.
