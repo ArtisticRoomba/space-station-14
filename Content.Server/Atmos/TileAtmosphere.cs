@@ -1,5 +1,6 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Serialization;
 using Content.Shared.Atmos;
 
 namespace Content.Server.Atmos;
@@ -98,6 +99,12 @@ public sealed class TileAtmosphere : IGasMixtureHolder
     [ViewVariables]
     [Access(typeof(AtmosphereSystem), Other = AccessPermissions.ReadExecute)]
     public MonstermosInfo MonstermosInfo;
+
+    /// <summary>
+    /// Information that is necessary to support the multithreaded processing of LINDA
+    /// through its various preprocessing/main processing stages.
+    /// </summary>
+    public LindaInfo LindaInfo;
 
     /// <summary>
     /// Current <see cref="Hotspot"/> information for this tile.
