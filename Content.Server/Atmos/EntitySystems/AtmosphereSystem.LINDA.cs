@@ -3,6 +3,7 @@ using Content.Server.Atmos.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Threading;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Atmos.EntitySystems;
@@ -138,6 +139,7 @@ public sealed partial class AtmosphereSystem
             tile.AirArchived = new GasMixture(tile.Air);
 
         tile.ArchivedCycle = fireCount;
+        tile.LindaInfo = default;
     }
 
     private void LastShareCheck(TileAtmosphere tile)
@@ -403,6 +405,173 @@ public sealed partial class AtmosphereSystem
      The downside is that there's a lot of early return shit in LINDA that makes vectorizing it *on top of*
      multithreading it a big pain. But I've done this same thing before in DeltaPressure so let's see how it goes.
      */
+
+    private void PreProcessCell(
+        Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> ent,
+        TileAtmosphere tile,
+        int fireCount)
+    {
+        var gridAtmosphere = ent.Comp1;
+        // Can't process a tile without air
+        if (tile.Air == null)
+        {
+            // Critical section: Disposal of active group that is shared among multiple tiles.
+            RemoveActiveTile(gridAtmosphere, tile);
+            gridAtmosphere.LindaPostRunTiles.Remove(tile);
+            return;
+        }
+
+        if (tile.ArchivedCycle < fireCount)
+            Archive(tile, fireCount);
+
+        tile.CurrentCycle = fireCount;
+
+        for (var i = 0; i < Atmospherics.Directions; i++)
+        {
+            var direction = (AtmosDirection)(1 << i);
+            if (!tile.AdjacentBits.IsFlagSet(direction))
+                continue;
+            var enemyTile = tile.AdjacentTiles[i];
+
+            // If the tile is null or has no air, we don't do anything for it.
+            if (enemyTile?.Air == null)
+                continue;
+            if (fireCount <= enemyTile.CurrentCycle)
+                continue;
+            Archive(enemyTile, fireCount);
+
+            var shouldShareAir = false;
+
+            if (ExcitedGroups && tile.ExcitedGroup != null && enemyTile.ExcitedGroup != null)
+            {
+                if (tile.ExcitedGroup != enemyTile.ExcitedGroup)
+                {
+                    // Critical section: Merging two active groups.
+                    ExcitedGroupMerge(gridAtmosphere, tile.ExcitedGroup, enemyTile.ExcitedGroup);
+                }
+
+                shouldShareAir = true;
+            }
+            else if (CompareExchange(tile, enemyTile) != GasCompareResult.NoExchange)
+            {
+                // Critical section: Adding tiles to the ActiveTiles hashset.
+                AddActiveTile(gridAtmosphere, enemyTile);
+                if (ExcitedGroups)
+                {
+                    var excitedGroup = tile.ExcitedGroup;
+                    excitedGroup ??= enemyTile.ExcitedGroup;
+
+                    if (excitedGroup == null)
+                    {
+                        excitedGroup = new ExcitedGroup();
+                        gridAtmosphere.ExcitedGroups.Add(excitedGroup);
+                    }
+
+                    if (tile.ExcitedGroup == null)
+                        ExcitedGroupAddTile(excitedGroup, tile);
+
+                    if (enemyTile.ExcitedGroup == null)
+                        ExcitedGroupAddTile(excitedGroup, enemyTile);
+                }
+
+                shouldShareAir = true;
+            }
+
+            if (shouldShareAir)
+                tile.LindaInfo.ShouldShareAir |= direction;
+        }
+
+        if (tile.LindaInfo.ShouldShareAir != AtmosDirection.Invalid)
+        {
+            gridAtmosphere.LindaShareAirTiles.Add(tile);
+        }
+    }
+
+    private void ProcessShareAir(TileAtmosphere tile)
+    {
+        var adjacentTileLength = 0;
+        for (var i = 0; i < Atmospherics.Directions; i++)
+        {
+            var direction = (AtmosDirection)(1 << i);
+            if (tile.AdjacentBits.IsFlagSet(direction))
+                adjacentTileLength++;
+        }
+
+        for (var i = 0; i < Atmospherics.Directions; i++)
+        {
+            var direction = (AtmosDirection)(1 << i);
+            if (!tile.LindaInfo.ShouldShareAir.IsFlagSet(direction))
+                continue;
+
+            var enemyTile = tile.AdjacentTiles[i];
+            if (enemyTile?.Air == null)
+                continue;
+
+            tile.LindaInfo.ComputedDifference[i] = Share(tile, enemyTile, adjacentTileLength);
+        }
+    }
+
+    private sealed class LindaParallelJob(
+        AtmosphereSystem system,
+        GridAtmosphereComponent atmosphere,
+        int startIndex,
+        int cvarBatchSize) : IParallelRobustJob
+    {
+        public int BatchSize => cvarBatchSize;
+
+        public void Execute(int index)
+        {
+            var tile = atmosphere.LindaShareAirTiles[startIndex + index];
+            system.ProcessShareAir(tile);
+        }
+    }
+
+    private void PostProcessCell(
+        Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> ent,
+        TileAtmosphere tile)
+    {
+        for (var i = 0; i < Atmospherics.Directions; i++)
+        {
+            var direction = (AtmosDirection)(1 << i);
+            if (!tile.LindaInfo.ShouldShareAir.IsFlagSet(direction))
+                continue;
+
+            // Monstermos already handles this, so let's not handle it ourselves.
+            if (!MonstermosEqualization)
+            {
+                var difference = tile.LindaInfo.ComputedDifference[i];
+                if (difference >= 0)
+                {
+                    ConsiderPressureDifference(ent.Comp1, tile, direction, difference);
+                }
+                else
+                {
+                    var enemyTile = tile.AdjacentTiles[i];
+                    if (enemyTile?.Air == null)
+                        continue;
+
+                    ConsiderPressureDifference(ent.Comp1, enemyTile, i.ToOppositeDir(), -difference);
+                }
+            }
+
+            LastShareCheck(tile);
+        }
+
+        if (tile.Air != null)
+            React(tile.Air, tile);
+
+        InvalidateVisuals(ent, tile);
+
+        var remove = true;
+        if (tile.Air!.Temperature > Atmospherics.MinimumTemperatureStartSuperConduction)
+        {
+            if (ConsiderSuperconductivity(ent.Comp1, tile, true))
+                remove = false;
+        }
+
+        if (ExcitedGroups && tile.ExcitedGroup == null && remove)
+            RemoveActiveTile(ent.Comp1, tile);
+    }
 
     #endregion
 }

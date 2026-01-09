@@ -14,10 +14,10 @@ namespace Content.Server.Atmos.Serialization;
 public struct LindaInfo
 {
     /// <summary>
-    /// Whether LINDA will perform air sharing with other tiles this processing run.
+    /// In which directions LINDA should hare air to.
     /// </summary>
     [ViewVariables]
-    public bool ShareAir;
+    public AtmosDirection ShouldShareAir = AtmosDirection.Invalid;
 
     /// <summary>
     /// The mole differences from each direction
@@ -28,6 +28,12 @@ public struct LindaInfo
     public ComputedDistanceHolder ComputedDifference;
 
     public ArchivedGasMixture ArchivedGasMixture;
+
+    public LindaInfo()
+    {
+        ComputedDifference = default;
+        ArchivedGasMixture = default;
+    }
 }
 
 /// <summary>
