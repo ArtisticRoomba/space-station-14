@@ -162,7 +162,7 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to be unblocked before spawning an airtight entity.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to be completely unblocked before spawning an airtight entity.");
 
@@ -173,7 +173,7 @@ public sealed class AirtightTest : AtmosTest
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 Assert.That(curTile, Is.Not.Null, $"Center tile does not hold expected reference to adjacent tile in direction {direction}.");
             }
         }
@@ -195,7 +195,7 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to remain stale immediately after spawn before atmos tick.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to still show non-airtight state before an atmos tick.");
 
@@ -206,7 +206,7 @@ public sealed class AirtightTest : AtmosTest
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 Assert.That(curTile, Is.Not.Null, $"Center tile does not hold expected reference to adjacent tile in direction {direction}.");
             }
         }
@@ -227,7 +227,7 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to reflect airtightness after atmos tick.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.Invalid),
                 "Expected tile to reflect airtight state after atmos tick.");
 
@@ -238,7 +238,7 @@ public sealed class AirtightTest : AtmosTest
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 Assert.That(curTile, Is.Null, $"Center tile holds unexpected reference to adjacent tile in direction {direction}.");
             }
         }
@@ -314,7 +314,7 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to remain stale immediately after deletion before atmos tick.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.Invalid),
                 "Expected tile to still show airtight state before atmos tick after deletion.");
 
@@ -325,7 +325,7 @@ public sealed class AirtightTest : AtmosTest
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 Assert.That(curTile, Is.Null, $"Center tile holds unexpected reference to adjacent tile in direction {direction}.");
             }
         }
@@ -340,7 +340,7 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to reflect deletion after atmos tick.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to reflect non-airtight state after atmos tick.");
 
@@ -351,7 +351,7 @@ public sealed class AirtightTest : AtmosTest
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 Assert.That(curTile, Is.Not.Null, $"Center tile does not hold expected reference to adjacent tile in direction {direction}.");
             }
         }
@@ -389,14 +389,14 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to be completely unblocked before spawning an airtight entity.");
 
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 Assert.That(curTile, Is.Not.Null, $"Center tile does not hold expected reference to adjacent tile in direction {direction}.");
             }
         }
@@ -411,14 +411,14 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to still show non-airtight state before an atmos tick.");
 
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 Assert.That(curTile, Is.Not.Null, $"Center tile does not hold expected reference to adjacent tile in direction {direction}.");
             }
         }
@@ -428,14 +428,14 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All & ~atmosDirection),
                 "Expected tile to reflect airtight state after atmos tick.");
 
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 if (direction == atmosDirection)
                 {
                     Assert.That(curTile, Is.Null, $"Center tile holds unexpected reference to adjacent tile in direction {direction}.");
@@ -480,14 +480,14 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All & ~atmosDirection),
                 "Expected tile to remain stale immediately after deletion before an atmos tick.");
 
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 if (direction == atmosDirection)
                 {
                     Assert.That(curTile, Is.Null, $"Center tile holds unexpected reference to adjacent tile in direction {direction}.");
@@ -505,14 +505,14 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(tile.Adjacency.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to reflect non-airtight state after deletion after atmos tick.");
 
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection)(1 << i);
-                var curTile = tile.AdjacentTiles[i];
+                var curTile = tile.Adjacency[i];
                 Assert.That(curTile, Is.Not.Null, $"Center tile does not hold expected reference to adjacent tile in direction {direction}.");
             }
         }
