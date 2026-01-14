@@ -135,7 +135,7 @@ public sealed partial class AtmosphereSystem
             if (tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread)
             {
                 var radiatedTemperature = tile.Air.Temperature * Atmospherics.FireSpreadRadiosityScale;
-                foreach (var otherTile in tile.AdjacentTiles)
+                foreach (var otherTile in tile.Adjacency)
                 {
                     // TODO ATMOS: This is sus. Suss this out.
                     // Spread this fire to other tiles by exposing them to a hotspot if air can flow there.

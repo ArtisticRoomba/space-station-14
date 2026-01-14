@@ -77,20 +77,12 @@ public sealed class TileAtmosphere : IGasMixtureHolder
     public bool Space;
 
     /// <summary>
-    /// Cached adjacent <see cref="TileAtmosphere"/> tiles for this tile.
-    /// Ordered in the same order as <see cref="Atmospherics.Directions"/>
-    /// (should be North, South, East, West).
-    /// Adjacent tiles can be null if air cannot flow to them.
+    /// Information about adjacent tiles for this tile, such as which tiles are adjacent and whether air can flow to them.
     /// </summary>
+    /// <remarks>Do not confuse with indexing <see cref="TileAdjacencyHolder"/> by-index between
+    /// indexing <see cref="TileAdjacencyHolder.AdjacentTiles"/> by-index.</remarks>
     [ViewVariables]
-    public readonly TileAtmosphere?[] AdjacentTiles = new TileAtmosphere[Atmospherics.Directions];
-
-    /// <summary>
-    /// Neighbouring tiles to which air can flow. This is a combination of this tile's unblocked direction, and the
-    /// unblocked directions on adjacent tiles.
-    /// </summary>
-    [ViewVariables]
-    public AtmosDirection AdjacentBits = AtmosDirection.Invalid;
+    public TileAdjacencyHolder Adjacency = new();
 
     /// <summary>
     /// Current <see cref="MonstermosInfo"/> information for this tile.

@@ -171,7 +171,7 @@ public sealed partial class AtmosphereSystem
         if (activate)
             AddActiveTile(atmos, tile);
 
-        tile.AdjacentBits = AtmosDirection.Invalid;
+        tile.Adjacency.SetInvalid();
         for (var i = 0; i < Atmospherics.Directions; i++)
         {
             var direction = (AtmosDirection)(1 << i);
@@ -184,8 +184,8 @@ public sealed partial class AtmosphereSystem
             }
             else if (!atmos.Tiles.TryGetValue(adjacentIndices, out adjacent))
             {
-                tile.AdjacentBits &= ~direction;
-                tile.AdjacentTiles[i] = null;
+                tile.Adjacency.AndFlag(~direction);
+                tile.Adjacency.AdjacentTiles[i] = null;
                 continue;
             }
 
@@ -199,28 +199,31 @@ public sealed partial class AtmosphereSystem
             if (adjBlockDirs.IsFlagSet(oppositeDirection) || blockedDirs.IsFlagSet(direction))
             {
                 // Adjacency is blocked by some airtight entity.
-                tile.AdjacentBits &= ~direction;
-                adjacent.AdjacentBits &= ~oppositeDirection;
-                tile.AdjacentTiles[i] = null;
-                adjacent.AdjacentTiles[oppositeIndex] = null;
+                tile.Adjacency.AndFlag(~direction);
+                adjacent.Adjacency.AndFlag(~oppositeDirection);
             }
             else
             {
                 // No airtight entity in the way.
-                tile.AdjacentBits |= direction;
-                adjacent.AdjacentBits |= oppositeDirection;
-                tile.AdjacentTiles[i] = adjacent;
-                adjacent.AdjacentTiles[oppositeIndex] = tile;
+                tile.Adjacency.OrFlag(direction);
+                adjacent.Adjacency.OrFlag(oppositeDirection);
             }
 
-            DebugTools.Assert(!(tile.AdjacentBits.IsFlagSet(direction) ^
-                                adjacent.AdjacentBits.IsFlagSet(oppositeDirection)));
+            // Still set the adjacent tiles, just with the adjacency bits marking that air can't flow there.
+            // The Adjacency struct is designed such that the adjacent tiles are always populated, even if air can't flow there.
+            // This is to avoid having to check the dict every time we want to access an adjacent tile if we cant find the ref,
+            // using the adjacency bits instead to check if air can flow there or not.
+            tile.Adjacency.AdjacentTiles[i] = adjacent;
+            adjacent.Adjacency.AdjacentTiles[oppositeIndex] = tile;
 
-            if (!adjacent.AdjacentBits.IsFlagSet(adjacent.MonstermosInfo.CurrentTransferDirection))
+            DebugTools.Assert(!(tile.Adjacency.AdjacentBits.IsFlagSet(direction) ^
+                                adjacent.Adjacency.AdjacentBits.IsFlagSet(oppositeDirection)));
+
+            if (!adjacent.Adjacency.AdjacentBits.IsFlagSet(adjacent.MonstermosInfo.CurrentTransferDirection))
                 adjacent.MonstermosInfo.CurrentTransferDirection = AtmosDirection.Invalid;
         }
 
-        if (!tile.AdjacentBits.IsFlagSet(tile.MonstermosInfo.CurrentTransferDirection))
+        if (!tile.Adjacency.AdjacentBits.IsFlagSet(tile.MonstermosInfo.CurrentTransferDirection))
             tile.MonstermosInfo.CurrentTransferDirection = AtmosDirection.Invalid;
     }
 
@@ -272,7 +275,7 @@ public sealed partial class AtmosphereSystem
         tile.ArchivedCycle = 0;
 
         var count = 0;
-        foreach (var adj in tile.AdjacentTiles)
+        foreach (var adj in tile.Adjacency.AdjacentTiles)
         {
             if (adj?.Air != null)
                 count++;
@@ -284,7 +287,7 @@ public sealed partial class AtmosphereSystem
         var ratio = 1f / count;
         var totalTemperature = 0f;
 
-        foreach (var adj in tile.AdjacentTiles)
+        foreach (var adj in tile.Adjacency.AdjacentTiles)
         {
             if (adj?.Air == null)
                 continue;

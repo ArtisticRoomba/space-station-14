@@ -420,7 +420,7 @@ public partial class AtmosphereSystem
 
         return !grid.Comp.Tiles.TryGetValue(tile, out var atmosTile)
             ? TileMixtureEnumerator.Empty
-            : new TileMixtureEnumerator(atmosTile.AdjacentTiles);
+            : new TileMixtureEnumerator(atmosTile.Adjacency.ToArray());
     }
 
     /// <summary>

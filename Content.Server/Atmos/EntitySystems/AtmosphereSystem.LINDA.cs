@@ -29,15 +29,15 @@ namespace Content.Server.Atmos.EntitySystems
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection) (1 << i);
-                if(tile.AdjacentBits.IsFlagSet(direction))
+                if(tile.Adjacency.AdjacentBits.IsFlagSet(direction))
                     adjacentTileLength++;
             }
 
             for(var i = 0; i < Atmospherics.Directions; i++)
             {
                 var direction = (AtmosDirection) (1 << i);
-                if (!tile.AdjacentBits.IsFlagSet(direction)) continue;
-                var enemyTile = tile.AdjacentTiles[i];
+                if (!tile.Adjacency.AdjacentBits.IsFlagSet(direction)) continue;
+                var enemyTile = tile.Adjacency[i];
 
                 // If the tile is null or has no air, we don't do anything for it.
                 if(enemyTile?.Air == null) continue;

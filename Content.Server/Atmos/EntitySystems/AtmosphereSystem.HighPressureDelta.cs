@@ -141,9 +141,9 @@ namespace Content.Server.Atmos.EntitySystems
                 for (var i = 0; i < 3; i++)
                 {
                     if (curTile.PressureDirection == AtmosDirection.Invalid
-                        || !curTile.AdjacentBits.IsFlagSet(curTile.PressureDirection))
+                        || !curTile.Adjacency.AdjacentBits.IsFlagSet(curTile.PressureDirection))
                         break;
-                    curTile = curTile.AdjacentTiles[curTile.PressureDirection.ToIndex()]!;
+                    curTile = curTile.Adjacency[curTile.PressureDirection.ToIndex()]!;
                 }
 
                 if (curTile != tile)
