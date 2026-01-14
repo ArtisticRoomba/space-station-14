@@ -79,8 +79,8 @@ public sealed class TileAtmosphere : IGasMixtureHolder
     /// <summary>
     /// Information about adjacent tiles for this tile, such as which tiles are adjacent and whether air can flow to them.
     /// </summary>
-    /// <remarks>Do not confuse with indexing <see cref="TileAdjacencyHolder"/> by-index between
-    /// indexing <see cref="TileAdjacencyHolder.AdjacentTiles"/> by-index.</remarks>
+    /// <remarks>Do not confuse indexing <see cref="TileAdjacencyHolder"/> between
+    /// indexing <see cref="TileAdjacencyHolder.AdjacentTiles"/>.</remarks>
     [ViewVariables]
     public TileAdjacencyHolder Adjacency = new();
 
