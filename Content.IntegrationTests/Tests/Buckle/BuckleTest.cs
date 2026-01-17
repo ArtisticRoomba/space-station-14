@@ -1,9 +1,9 @@
 using System.Numerics;
 using Content.Server.Body.Systems;
-using Content.Shared.Buckle;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
+using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -107,8 +107,7 @@ namespace Content.IntegrationTests.Tests.Buckle
                     Assert.That(standingState.Down(human), Is.False);
                     Assert.That(
                         (xformSystem.GetWorldPosition(human) - xformSystem.GetWorldPosition(chair)).LengthSquared,
-                        Is.LessThanOrEqualTo(0)
-                    );
+                        Is.LessThanOrEqualTo(0));
 
                     // Side effects of buckling for the strap
                     Assert.That(strap.BuckledEntities, Does.Contain(human));
@@ -133,6 +132,7 @@ namespace Content.IntegrationTests.Tests.Buckle
             {
 #pragma warning disable NUnit2045 // Interdependent asserts.
                 Assert.That(buckle.Buckled);
+
                 // Still buckled
 #pragma warning restore NUnit2045
 

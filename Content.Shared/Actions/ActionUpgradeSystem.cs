@@ -22,7 +22,7 @@ public sealed class ActionUpgradeSystem : EntitySystem
     private void OnActionUpgradeEvent(EntityUid uid, ActionUpgradeComponent component, ActionUpgradeEvent args)
     {
         if (!CanUpgrade(args.NewLevel, component.EffectedLevels, out var newActionProto)
-            || _actions.GetAction(uid) is not {} action)
+            || _actions.GetAction(uid) is not { } action)
             return;
 
         var originalContainer = action.Comp.Container;
@@ -52,7 +52,6 @@ public sealed class ActionUpgradeSystem : EntitySystem
         upgradeComp.Level = args.NewLevel;
 
         // TODO: Preserve ordering of actions
-
         Del(uid);
     }
 
@@ -147,10 +146,10 @@ public sealed class ActionUpgradeSystem : EntitySystem
             newLevel = actionUpgradeComponent.Level + 1;
 
         actionUpgradeComponent.Level = newLevel;
-        // RaiseActionUpgradeEvent(newLevel, actionId.Value);
 
+        // RaiseActionUpgradeEvent(newLevel, actionId.Value);
         if (!CanUpgrade(newLevel, actionUpgradeComponent.EffectedLevels, out var newActionPrototype)
-            || _actions.GetAction(actionId) is not {} action)
+            || _actions.GetAction(actionId) is not { } action)
             return null;
 
         newActionProto ??= newActionPrototype;
@@ -183,7 +182,6 @@ public sealed class ActionUpgradeSystem : EntitySystem
         upgradeComp.Level = newLevel;
 
         // TODO: Preserve ordering of actions
-
         Del(actionId);
 
         return upgradedActionId.Value;

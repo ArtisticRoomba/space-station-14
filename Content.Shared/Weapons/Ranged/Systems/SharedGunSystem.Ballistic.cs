@@ -213,6 +213,7 @@ public abstract partial class SharedGunSystem
     private void OnBallisticInit(Entity<BallisticAmmoProviderComponent> ent, ref ComponentInit args)
     {
         ent.Comp.Container = Containers.EnsureContainer<Container>(ent, "ballistic-ammo");
+
         // TODO: This is called twice though we need to support loading appearance data (and we need to call it on MapInit
         // to ensure it's correct).
         UpdateBallisticAppearance(ent);

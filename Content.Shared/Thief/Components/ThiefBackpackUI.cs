@@ -8,8 +8,10 @@ public sealed class ThiefBackpackBoundUserInterfaceState : BoundUserInterfaceSta
 {
     public readonly Dictionary<int, ThiefBackpackSetInfo> Sets;
     public int MaxSelectedSets;
+
     // Name UI field set by ThiefUndeterminedBackpackComponent
     public LocId ToolName;
+
     // Description UI field set by ThiefUndeterminedBackpackComponent
     public LocId ToolDesc;
 

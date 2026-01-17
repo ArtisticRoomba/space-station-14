@@ -131,6 +131,7 @@ public abstract class SharedWeatherSystem : EntitySystem
                 {
                     SetState(uid, WeatherState.Ending, comp, weather, weatherProto);
                 }
+
                 // Starting up
                 else
                 {

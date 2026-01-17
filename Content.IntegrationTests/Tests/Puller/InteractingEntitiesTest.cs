@@ -26,7 +26,8 @@ public sealed class InteractingEntitiesTest : InteractionTest
         var pullSys = SEntMan.System<PullingSystem>();
         await Server.WaitAssertion(() =>
         {
-            Assert.That(pullSys.TryStartPull(puller, ToServer(Target.Value)),
+            Assert.That(
+                pullSys.TryStartPull(puller, ToServer(Target.Value)),
                 $"{puller} failed to start pulling {Target}");
         });
 

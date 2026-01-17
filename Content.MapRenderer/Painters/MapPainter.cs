@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Numerics;
-using System.IO;
 using System.Threading.Tasks;
 using Content.Client.Markers;
 using Content.IntegrationTests;
@@ -51,6 +51,7 @@ namespace Content.MapRenderer.Painters
                 Connected = true,
                 Destructive = true,
                 Fresh = true,
+
                 // Seriously whoever made MapPainter use GameMapPrototype I wish you step on a lego one time.
                 Map = _map is RenderMapPrototype prototype ? prototype.Prototype : PoolManager.TestMap,
             };
@@ -196,6 +197,7 @@ namespace Content.MapRenderer.Painters
                     Console.WriteLine($"Warning: Grid {uid} was empty. Skipping image rendering.");
                     continue;
                 }
+
                 var tileXSize = grid.TileSize * TilePainter.TileImageSize;
                 var tileYSize = grid.TileSize * TilePainter.TileImageSize;
 
@@ -207,7 +209,7 @@ namespace Content.MapRenderer.Painters
                 var h = (maxY - minY + 1) * tileYSize;
                 var customOffset = new Vector2();
 
-                //MapGrids don't have LocalAABB, so we offset them to align the bottom left corner with 0,0 coordinates
+                // MapGrids don't have LocalAABB, so we offset them to align the bottom left corner with 0,0 coordinates
                 if (grid.LocalAABB.IsEmpty())
                     customOffset = new Vector2(-minX, -minY);
 

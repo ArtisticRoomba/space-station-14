@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     trait_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     profile_id = table.Column<int>(type: "INTEGER", nullable: false),
-                    trait_name = table.Column<string>(type: "TEXT", nullable: false)
+                    trait_name = table.Column<string>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {

@@ -76,7 +76,6 @@ namespace Content.Shared.Atmos.EntitySystems
             // TODO change fire color based on temps
             // But also: dont dirty on a 0.01 kelvin change in temperatures.
             // Either have a temp tolerance, or map temperature -> byte levels
-
             public GasOverlayData(byte fireState, byte[] opacity)
             {
                 FireState = fireState;

@@ -49,15 +49,18 @@ public abstract class AtmosTest : InteractionTest
 
         using (Assert.EnterMultipleScope())
         {
-            Assert.That(gridAtmosComp,
-                    Is.Not.Null,
-                    "Loaded map doesn't have a GridAtmosphereComponent on its grid. " +
+            Assert.That(
+                gridAtmosComp,
+                Is.Not.Null,
+                "Loaded map doesn't have a GridAtmosphereComponent on its grid. " +
                     "Did you forget to override TestMapPath with a proper atmospherics testing map?");
-            Assert.That(overlayComp,
+            Assert.That(
+                overlayComp,
                 Is.Not.Null,
                 "Loaded map doesn't have a GasTileOverlayComponent on its grid. " +
                 "Did you forget to override TestMapPath with a proper atmospherics testing map?");
-            Assert.That(mapGridComp,
+            Assert.That(
+                mapGridComp,
                 Is.Not.Null,
                 "Loaded map doesn't have a MapGridComponent on its grid. " +
                 "Did you forget to override TestMapPath with a proper atmospherics testing map?");
@@ -90,6 +93,7 @@ public abstract class AtmosTest : InteractionTest
                 return true;
             }
         }
+
         marker = EntityUid.Invalid;
         return false;
     }
@@ -119,7 +123,8 @@ public abstract class AtmosTest : InteractionTest
     /// </summary>
     protected void AssertMixMoles(GasMixture mix1, GasMixture mix2, float tolerance)
     {
-        Assert.That(MathHelper.CloseToPercent(mix1.TotalMoles, mix2.TotalMoles, tolerance),
+        Assert.That(
+            MathHelper.CloseToPercent(mix1.TotalMoles, mix2.TotalMoles, tolerance),
             $"GasMixtures do not match. Got {mix1.TotalMoles} and {mix2.TotalMoles} moles");
     }
 }

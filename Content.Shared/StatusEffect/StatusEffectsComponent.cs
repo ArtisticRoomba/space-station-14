@@ -19,7 +19,7 @@ namespace Content.Shared.StatusEffect
     }
 
     [RegisterComponent]
-    public sealed partial class ActiveStatusEffectsComponent : Component {}
+    public sealed partial class ActiveStatusEffectsComponent : Component { }
 
     /// <summary>
     ///     Holds information about an active status effect.

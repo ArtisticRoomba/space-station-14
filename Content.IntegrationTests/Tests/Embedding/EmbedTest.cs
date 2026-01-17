@@ -30,8 +30,10 @@ public sealed class EmbedTest : InteractionTest
 
         // Give the player the embeddable to throw
         var projectile = await PlaceInHands(EmbeddableProtoId);
-        Assert.That(TryComp<EmbeddableProjectileComponent>(projectile, out var embedComp),
+        Assert.That(
+            TryComp<EmbeddableProjectileComponent>(projectile, out var embedComp),
             $"{EmbeddableProtoId} does not have EmbeddableProjectileComponent");
+
         // Make sure the projectile isn't already embedded into anything
         Assert.That(embedComp.EmbeddedIntoUid, Is.Null,
             $"Projectile already embedded into {SEntMan.ToPrettyString(embedComp.EmbeddedIntoUid)}");
@@ -64,8 +66,10 @@ public sealed class EmbedTest : InteractionTest
 
         // Give the player the embeddable to throw
         var projectile = await PlaceInHands(EmbeddableProtoId);
-        Assert.That(TryComp<EmbeddableProjectileComponent>(projectile, out var embedComp),
+        Assert.That(
+            TryComp<EmbeddableProjectileComponent>(projectile, out var embedComp),
             $"{EmbeddableProtoId} does not have EmbeddableProjectileComponent");
+
         // Make sure the projectile isn't already embedded into anything
         Assert.That(embedComp.EmbeddedIntoUid, Is.Null,
             $"Projectile already embedded into {SEntMan.ToPrettyString(embedComp.EmbeddedIntoUid)}");
@@ -104,8 +108,10 @@ public sealed class EmbedTest : InteractionTest
 
         // Give the player the embeddable to throw
         var projectile1 = await PlaceInHands(EmbeddableProtoId);
-        Assert.That(TryComp<EmbeddableProjectileComponent>(projectile1, out var embedComp),
+        Assert.That(
+            TryComp<EmbeddableProjectileComponent>(projectile1, out var embedComp),
             $"{EmbeddableProtoId} does not have EmbeddableProjectileComponent.");
+
         // Make sure the projectile isn't already embedded into anything
         Assert.That(embedComp.EmbeddedIntoUid, Is.Null,
             $"Projectile already embedded into {SEntMan.ToPrettyString(embedComp.EmbeddedIntoUid)}.");
@@ -115,7 +121,8 @@ public sealed class EmbedTest : InteractionTest
 
         // Give the player a second embeddable to throw
         var projectile2 = await PlaceInHands(EmbeddableProtoId);
-        Assert.That(TryComp<EmbeddableProjectileComponent>(projectile1, out var embedComp2),
+        Assert.That(
+            TryComp<EmbeddableProjectileComponent>(projectile1, out var embedComp2),
             $"{EmbeddableProtoId} does not have EmbeddableProjectileComponent.");
 
         // Wait a moment for the projectile to hit and embed
@@ -124,7 +131,8 @@ public sealed class EmbedTest : InteractionTest
         // Make sure the projectile is embedded into the target
         Assert.That(embedComp.EmbeddedIntoUid, Is.EqualTo(ToServer(Target)),
             "First projectile not embedded into target.");
-        Assert.That(TryComp<EmbeddedContainerComponent>(out var containerComp),
+        Assert.That(
+            TryComp<EmbeddedContainerComponent>(out var containerComp),
             "Target was not given EmbeddedContainerComponent.");
         Assert.That(containerComp.EmbeddedObjects, Does.Contain(ToServer(projectile1)),
             "Target is not tracking the first projectile as embedded.");
@@ -157,16 +165,19 @@ public sealed class EmbedTest : InteractionTest
             "Target EmbeddedObjects contains an invalid entity.");
         foreach (var embedded in containerComp.EmbeddedObjects)
         {
-            Assert.That(!SEntMan.Deleted(embedded),
+            Assert.That(
+                !SEntMan.Deleted(embedded),
                 "Target EmbeddedObjects contains a deleted entity.");
         }
+
         Assert.That(containerComp.EmbeddedObjects, Has.Count.EqualTo(1),
             "Target EmbeddedObjects count did not decrease after deleting first projectile.");
 
         // Delete the second projectile
         await Delete(projectile2);
 
-        Assert.That(!SEntMan.HasComponent<EmbeddedContainerComponent>(ToServer(Target)),
+        Assert.That(
+            !SEntMan.HasComponent<EmbeddedContainerComponent>(ToServer(Target)),
             "Target did not remove EmbeddedContainerComponent after both projectiles were deleted.");
     }
 }

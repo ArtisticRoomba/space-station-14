@@ -32,7 +32,7 @@ public sealed class AdminCommandPermissions
                 {
                     if (!AdminCommands.TryGetValue(cmd, out var exFlags))
                     {
-                        AdminCommands.Add(cmd, new[] {flags});
+                        AdminCommands.Add(cmd, new[] { flags});
                     }
                     else
                     {

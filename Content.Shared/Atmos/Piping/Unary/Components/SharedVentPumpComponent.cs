@@ -16,7 +16,6 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         public bool PressureLockoutOverride { get; set; } = false;
 
         // Presets for 'dumb' air alarm modes
-
         public static GasVentPumpData FilterModePreset = new GasVentPumpData
         {
             Enabled = true,

@@ -1,4 +1,3 @@
-using Content.Shared.Popups;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Alert;
@@ -7,6 +6,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Maps;
 using Content.Shared.Paper;
 using Content.Shared.Physics;
+using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -39,8 +39,8 @@ public sealed class MimePowersSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        // Queue to track whether mimes can retake vows yet
 
+        // Queue to track whether mimes can retake vows yet
         var query = EntityQueryEnumerator<MimePowersComponent>();
         while (query.MoveNext(out var uid, out var mime))
         {
@@ -88,6 +88,7 @@ public sealed class MimePowersSystem : EntitySystem
             return;
 
         var xform = Transform(ent);
+
         // Get the tile in front of the mime
         var offsetValue = xform.LocalRotation.ToWorldVec();
         var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
@@ -108,6 +109,7 @@ public sealed class MimePowersSystem : EntitySystem
 
         // Make sure we set the invisible wall to despawn properly
         PredictedSpawnAtPosition(ent.Comp.WallPrototype, _turf.GetTileCenter(tile.Value));
+
         // Handle args so cooldown works
         args.Handled = true;
     }

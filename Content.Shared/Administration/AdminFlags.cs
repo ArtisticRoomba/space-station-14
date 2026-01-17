@@ -100,9 +100,9 @@
         Stealth = 1 << 16,
 
         ///<summary>
-		/// Allows you to use Admin chat
-		///</summary>
-		Adminchat = 1 << 17,
+        /// Allows you to use Admin chat
+        ///</summary>
+        Adminchat = 1 << 17,
 
         ///<summary>
         /// Permits the visibility of Pii in game and on SS14 Admin

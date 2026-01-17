@@ -204,7 +204,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     deleted = table.Column<bool>(type: "boolean", nullable: false),
                     deleted_by_id = table.Column<Guid>(type: "uuid", nullable: true),
                     deleted_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    seen = table.Column<bool>(type: "boolean", nullable: false)
+                    seen = table.Column<bool>(type: "boolean", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -257,7 +257,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     expiration_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     deleted = table.Column<bool>(type: "boolean", nullable: false),
                     deleted_by_id = table.Column<Guid>(type: "uuid", nullable: true),
-                    deleted_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                    deleted_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                 },
                 constraints: table =>
                 {

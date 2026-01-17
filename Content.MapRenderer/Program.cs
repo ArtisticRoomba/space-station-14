@@ -225,7 +225,7 @@ namespace Content.MapRenderer
                                 {
                                     Method = WebpEncodingMethod.BestQuality,
                                     FileFormat = WebpFileFormatType.Lossless,
-                                    TransparentColorMode = WebpTransparentColorMode.Preserve
+                                    TransparentColorMode = WebpTransparentColorMode.Preserve,
                                 };
 
                                 await grid.SaveAsync(savePath, encoder);

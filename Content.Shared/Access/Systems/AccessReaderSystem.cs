@@ -15,8 +15,8 @@ using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Content.Shared.StationRecords;
 using Content.Shared.Tag;
-using Robust.Shared.Containers;
 using Robust.Shared.Collections;
+using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -423,6 +423,7 @@ public sealed class AccessReaderSystem : EntitySystem
                 tags = new(tags);
                 owned = true;
             }
+
             // then merge
             tags.UnionWith(targetTags);
         }

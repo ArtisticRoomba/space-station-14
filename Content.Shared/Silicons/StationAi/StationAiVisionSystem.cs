@@ -210,7 +210,6 @@ public sealed class StationAiVisionSystem : EntitySystem
         }
 
         // Wait for seed job here
-
         for (var i = _job.Vis1.Count; i < _job.Data.Count; i++)
         {
             _job.Vis1.Add(new Dictionary<Vector2i, int>());
@@ -347,7 +346,6 @@ public sealed class StationAiVisionSystem : EntitySystem
             }
 
             // Code based upon https://github.com/OpenDreamProject/OpenDream/blob/c4a3828ccb997bf3722673620460ebb11b95ccdf/OpenDreamShared/Dream/ViewAlgorithm.cs
-
             var range = seed.Comp.Range;
             var vis1 = Vis1[index];
             var vis2 = Vis2[index];

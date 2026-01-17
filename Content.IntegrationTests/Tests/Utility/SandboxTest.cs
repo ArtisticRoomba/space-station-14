@@ -17,7 +17,6 @@ public sealed class SandboxTest
         // Not using PoolManager.GetServerClient() because we want to avoid having to unnecessarily create & destroy a
         // server. This all becomes unnecessary if ever the test becomes non-destructive or the no-server option
         // actually creates a pair without a server.
-
         var logHandler = new PoolTestLogHandler("CLIENT");
         logHandler.ActivateContext(TestContext.Out);
         var options = new RobustIntegrationTest.ClientIntegrationOptions
@@ -27,9 +26,9 @@ public sealed class SandboxTest
             ContentAssemblies = new[]
             {
                 typeof(Shared.Entry.EntryPoint).Assembly,
-                typeof(Client.Entry.EntryPoint).Assembly
+                typeof(Client.Entry.EntryPoint).Assembly,
             },
-            Options = new GameControllerOptions { LoadConfigAndUserData = false }
+            Options = new GameControllerOptions { LoadConfigAndUserData = false },
         };
 
         options.BeforeStart += () =>
@@ -42,7 +41,7 @@ public sealed class SandboxTest
                     IoCManager.Resolve<ILogManager>().GetSawmill("loc").Level = LogLevel.Error;
                     IoCManager.Resolve<IConfigurationManager>()
                         .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);
-                }
+                },
             });
         };
 

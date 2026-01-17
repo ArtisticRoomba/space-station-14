@@ -64,5 +64,4 @@ public sealed class ChameleonJobLoadoutTest : InteractionTest
     {
         return job.StartingGear != null && ProtoMan.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID));
     }
-
 }

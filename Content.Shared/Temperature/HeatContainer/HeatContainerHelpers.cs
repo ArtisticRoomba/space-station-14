@@ -34,6 +34,7 @@ public static partial class HeatContainerHelpers
     public static float AddHeatQuery(this ref HeatContainer c, float dQ)
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(c.HeatCapacity);
+
         // Don't allow the temperature to go below the absolute minimum.
         return Math.Max(0f, c.Temperature + dQ / c.HeatCapacity);
     }

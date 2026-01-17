@@ -1,6 +1,6 @@
-﻿using Content.Shared.Trigger.Components;
+﻿using Content.Shared.Examine;
+using Content.Shared.Trigger.Components;
 using Content.Shared.Trigger.Components.Triggers;
-using Content.Shared.Examine;
 using Content.Shared.Verbs;
 
 namespace Content.Shared.Trigger.Systems;
@@ -117,7 +117,6 @@ public sealed partial class TriggerSystem
             return;
 
         // This is somewhat inefficient, but its good enough. This is run rarely, and the lists should be short.
-
         ent.Comp.DelayOptions.Sort();
         Dirty(ent);
 
@@ -170,6 +169,7 @@ public sealed partial class TriggerSystem
             {
                 var user = TerminatingOrDeleted(timer.User) ? null : timer.User;
                 Trigger(uid, user, timer.KeyOut);
+
                 // Remove after triggering to prevent it from starting the timer again
                 RemComp<ActiveTimerTriggerComponent>(uid);
                 if (TryComp<AppearanceComponent>(uid, out var appearance))

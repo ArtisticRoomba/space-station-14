@@ -28,7 +28,6 @@ public sealed partial class GasTankComponent : Component, IGasMixtureHolder
     public SoundSpecifier? DisconnectSound;
 
     // Cancel toggles sounds if we re-toggle again.
-
     public EntityUid? ConnectStream;
     public EntityUid? DisconnectStream;
 

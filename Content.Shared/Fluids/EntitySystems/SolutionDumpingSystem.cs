@@ -99,6 +99,7 @@ public sealed class SolutionDumpingSystem : EntitySystem
             targetSol.AddSolution(
                 _solContainer.SplitSolution(sourceEnt.Value, sourceEnt.Value.Comp.Solution.Volume),
                 _protoMan);
+
             // Solution.AddSolution doesn't dirty targetSol for us
             Dirty(targetSolEnt.Value);
         }

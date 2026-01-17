@@ -24,7 +24,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     exempt_flags = table.Column<int>(type: "integer", nullable: false),
                     severity = table.Column<int>(type: "integer", nullable: false),
                     auto_delete = table.Column<bool>(type: "boolean", nullable: false),
-                    hidden = table.Column<bool>(type: "boolean", nullable: false)
+                    hidden = table.Column<bool>(type: "boolean", nullable: false),
                 },
                 constraints: table =>
                 {

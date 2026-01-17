@@ -24,7 +24,6 @@ public abstract class BaseQueryUpdateXATSystem<T> : BaseXATSystem<T> where T : C
         base.Update(frameTime);
 
         // TODO: add a way to defer triggering artifacts to the end of the Update loop
-
         var query = EntityQueryEnumerator<T, XenoArtifactNodeComponent>();
         while (query.MoveNext(out var uid, out var comp, out var node))
         {

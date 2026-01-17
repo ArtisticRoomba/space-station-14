@@ -112,7 +112,7 @@ public sealed class EntityPainter
             var dir = _sprite.LayerGetDirectionCount((SpriteComponent.Layer)layer) switch
             {
                 0 => 0,
-                _ => (int)layer.EffectiveDirection(worldRotation)
+                _ => (int)layer.EffectiveDirection(worldRotation),
             };
 
             var (x, y, width, height) = GetRsiFrame(rsi, image, entity, layer, dir);

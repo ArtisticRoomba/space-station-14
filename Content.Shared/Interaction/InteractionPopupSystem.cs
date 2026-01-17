@@ -59,7 +59,6 @@ public sealed class InteractionPopupSystem : EntitySystem
 
         //Handling does nothing and this thing annoyingly plays way too often.
         // HUH? What does this comment even mean?
-
         if (HasComp<SleepingComponent>(uid))
             return;
 
@@ -80,7 +79,6 @@ public sealed class InteractionPopupSystem : EntitySystem
 
         // TODO: Should be an attempt event
         // TODO: Need to handle pausing with an accumulator.
-
         var msg = ""; // Stores the text to be shown in the popup message
         SoundSpecifier? sfx = null; // Stores the filepath of the sound to be played
 

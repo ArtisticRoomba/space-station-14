@@ -100,6 +100,7 @@ namespace Content.Tests.Shared.Utility
 
         [Parallelizable]
         [Test]
+
         // Testing odd max on even levels
         [TestCase(0, 5, 2, ExpectedResult = 0)]
         [TestCase(1, 5, 2, ExpectedResult = 0)]
@@ -107,6 +108,7 @@ namespace Content.Tests.Shared.Utility
         [TestCase(3, 5, 2, ExpectedResult = 1)]
         [TestCase(4, 5, 2, ExpectedResult = 1)]
         [TestCase(5, 5, 2, ExpectedResult = 1)]
+
         // Testing even max on odd levels
         [TestCase(0, 6, 3, ExpectedResult = 0)]
         [TestCase(1, 6, 3, ExpectedResult = 0)]
@@ -115,18 +117,21 @@ namespace Content.Tests.Shared.Utility
         [TestCase(4, 6, 3, ExpectedResult = 2)]
         [TestCase(5, 6, 3, ExpectedResult = 2)]
         [TestCase(6, 6, 3, ExpectedResult = 2)]
+
         // Testing even max on even levels
         [TestCase(0, 4, 2, ExpectedResult = 0)]
         [TestCase(1, 4, 2, ExpectedResult = 0)]
         [TestCase(2, 4, 2, ExpectedResult = 1)]
         [TestCase(3, 4, 2, ExpectedResult = 1)]
         [TestCase(4, 4, 2, ExpectedResult = 1)]
+
         // Testing odd max on odd levels
         [TestCase(0, 5, 3, ExpectedResult = 0)]
         [TestCase(1, 5, 3, ExpectedResult = 0)]
         [TestCase(2, 5, 3, ExpectedResult = 1)]
         [TestCase(3, 5, 3, ExpectedResult = 1)]
         [TestCase(4, 5, 3, ExpectedResult = 2)]
+
         // Larger odd max on odd levels
         [TestCase(0, 7, 3, ExpectedResult = 0)]
         [TestCase(1, 7, 3, ExpectedResult = 0)]
@@ -136,6 +141,7 @@ namespace Content.Tests.Shared.Utility
         [TestCase(5, 7, 3, ExpectedResult = 2)]
         [TestCase(6, 7, 3, ExpectedResult = 2)]
         [TestCase(7, 7, 3, ExpectedResult = 2)]
+
         // Testing edge cases
         [TestCase(0.1, 6, 5, ExpectedResult = 0)]
         [TestCase(-32, 6, 5, ExpectedResult = 0)]

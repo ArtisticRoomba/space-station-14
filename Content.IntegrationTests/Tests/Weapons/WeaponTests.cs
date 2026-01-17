@@ -28,7 +28,8 @@ public sealed class WeaponTests : InteractionTest
 
         await Pair.RunSeconds(2f); // Guns have a cooldown when picking them up.
 
-        Assert.That(HasComp<GunRequiresWieldComponent>(mosinNet),
+        Assert.That(
+            HasComp<GunRequiresWieldComponent>(mosinNet),
             "Looks like you've removed the 'GunRequiresWield' component from the mosin sniper." +
             "If this was intentional, please update WeaponTests.cs to reflect this change!");
 
@@ -41,10 +42,12 @@ public sealed class WeaponTests : InteractionTest
         await AttemptShoot(urist, false); // should fail due to not being wielded
         var updatedAmmo = gunSystem.GetAmmoCount(mosinEnt);
 
-        Assert.That(updatedAmmo,
+        Assert.That(
+            updatedAmmo,
             Is.EqualTo(startAmmo),
             "Mosin discharged ammo when the weapon should not have fired!");
-        Assert.That(damageComp.TotalDamage.Value,
+        Assert.That(
+            damageComp.TotalDamage.Value,
             Is.EqualTo(0),
             "Urist took damage when the weapon should not have fired!");
 
@@ -56,7 +59,8 @@ public sealed class WeaponTests : InteractionTest
         updatedAmmo = gunSystem.GetAmmoCount(mosinEnt);
 
         Assert.That(updatedAmmo, Is.EqualTo(startAmmo - 1), "Mosin failed to discharge appropriate amount of ammo!");
-        Assert.That(damageComp.TotalDamage.Value,
+        Assert.That(
+            damageComp.TotalDamage.Value,
             Is.GreaterThan(0),
             "Mosin was fired but urist sustained no damage!");
     }

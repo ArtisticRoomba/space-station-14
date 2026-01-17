@@ -1,10 +1,10 @@
 using Content.Shared.Popups;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.XAE.Components;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Xenoarchaeology.Artifact.XAE;
 
@@ -21,6 +21,7 @@ public sealed class XAERandomTeleportInvokerSystem : BaseXAESystem<XAERandomTele
     {
         if (!_timing.IsFirstTimePredicted)
             return;
+
         // todo: teleport person who activated artifact with artifact itself
         var component = ent.Comp;
 

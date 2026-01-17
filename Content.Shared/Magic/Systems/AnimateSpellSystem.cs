@@ -22,7 +22,6 @@ public sealed class AnimateSpellSystem : EntitySystem
     private void OnAnimate(Entity<AnimateComponent> ent, ref MapInitEvent args)
     {
         // Physics bullshittery necessary for object to behave properly
-
         if (!TryComp<FixturesComponent>(ent, out var fixtures) || !TryComp<PhysicsComponent>(ent, out var physics))
             return;
 

@@ -18,7 +18,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     user_id = table.Column<Guid>(type: "TEXT", nullable: false),
                     path = table.Column<string>(type: "TEXT", nullable: false),
-                    data = table.Column<byte[]>(type: "BLOB", nullable: false)
+                    data = table.Column<byte[]>(type: "BLOB", nullable: false),
                 },
                 constraints: table =>
                 {

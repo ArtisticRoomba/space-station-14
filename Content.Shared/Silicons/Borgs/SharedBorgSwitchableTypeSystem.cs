@@ -15,7 +15,6 @@ namespace Content.Shared.Silicons.Borgs;
 public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 {
     // TODO: Allow borgs to be reset to default configuration.
-
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
     [Dependency] protected readonly IPrototypeManager Prototypes = default!;
@@ -41,7 +40,6 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
     //
     // UI-adjacent code
     //
-
     private void OnMapInit(Entity<BorgSwitchableTypeComponent> ent, ref MapInitEvent args)
     {
         _actionsSystem.AddAction(ent, ref ent.Comp.SelectTypeAction, ActionId);
@@ -82,7 +80,6 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
     //
     // Implementation
     //
-
     protected virtual void SelectBorgModule(
         Entity<BorgSwitchableTypeComponent> ent,
         ProtoId<BorgTypePrototype> borgType)

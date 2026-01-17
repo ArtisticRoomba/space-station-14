@@ -52,8 +52,8 @@ namespace Content.MapRenderer.Painters
                 if (string.IsNullOrWhiteSpace(path))
                     return;
 
-                var x = (int) (tile.X + xOffset + customOffset.X);
-                var y = (int) (tile.Y + yOffset + customOffset.Y);
+                var x = (int)(tile.X + xOffset + customOffset.X);
+                var y = (int)(tile.Y + yOffset + customOffset.Y);
                 var image = images[path][tile.Tile.Variant].CloneAs<Rgba32>();
 
                 switch (tile.Tile.RotationMirroring % 4)
@@ -81,7 +81,7 @@ namespace Content.MapRenderer.Painters
                 i++;
             });
 
-            Console.WriteLine($"{nameof(TilePainter)} painted {i} tiles on grid {gridUid} in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
+            Console.WriteLine($"{nameof(TilePainter)} painted {i} tiles on grid {gridUid} in {(int)stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 
         private Dictionary<string, List<Image>> GetTileImages(
@@ -119,7 +119,7 @@ namespace Content.MapRenderer.Painters
                 }
             }
 
-            Console.WriteLine($"Indexed all tile images in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
+            Console.WriteLine($"Indexed all tile images in {(int)stopwatch.Elapsed.TotalMilliseconds} ms");
 
             return images;
         }

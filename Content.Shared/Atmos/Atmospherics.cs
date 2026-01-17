@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
-// ReSharper disable InconsistentNaming
 
+// ReSharper disable InconsistentNaming
 namespace Content.Shared.Atmos
 {
     /// <summary>

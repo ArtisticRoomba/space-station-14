@@ -64,6 +64,7 @@ public enum SurveillanceCameraVisuals : byte
     Active,
     InUse,
     Disabled,
+
     // Reserved for future use
     Xray,
     Emp

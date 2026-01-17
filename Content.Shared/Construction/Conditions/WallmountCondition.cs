@@ -28,6 +28,7 @@ namespace Content.Shared.Construction.Conditions
 
             // find direction from user to blueprint
             var userToObject = (objWorldPosition - userWorldPosition);
+
             // get direction of the grid being placed on as an offset.
             var gridRotation = transformSystem.GetWorldRotation(location.EntityId);
             var directionWithOffset = gridRotation.RotateVec(direction.ToVec());

@@ -21,7 +21,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 columns: table => new
                 {
                     user_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    flags = table.Column<int>(type: "integer", nullable: false)
+                    flags = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {

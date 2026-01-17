@@ -204,7 +204,7 @@ public sealed partial class MindTests
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Connected = true,
-            DummyTicker = false
+            DummyTicker = false,
         });
         var server = pair.Server;
 
@@ -410,7 +410,7 @@ public sealed partial class MindTests
         {
             DummyTicker = false,
             Connected = true,
-            Dirty = true
+            Dirty = true,
         });
         var server = pair.Server;
 
@@ -418,7 +418,7 @@ public sealed partial class MindTests
         var playerMan = server.ResolveDependency<IPlayerManager>();
         var serverConsole = server.ResolveDependency<IServerConsoleHost>();
 
-        //EntityUid entity = default!;
+        // EntityUid entity = default!;
         EntityUid ghostRole = default!;
         EntityUid ghost = default!;
         EntityUid mindId = default!;
@@ -436,7 +436,6 @@ public sealed partial class MindTests
             //
             // mindSystem.TransferTo(mind, entity);
             // Assert.That(mindSystem.GetMind(entity, mindComp), Is.EqualTo(mind));
-
             var data = player.ContentData();
 
             Assert.That(data?.Mind, Is.Not.EqualTo(null));

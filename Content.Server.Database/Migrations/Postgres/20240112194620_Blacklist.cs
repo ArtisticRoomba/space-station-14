@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 name: "blacklist",
                 columns: table => new
                 {
-                    user_id = table.Column<Guid>(type: "uuid", nullable: false)
+                    user_id = table.Column<Guid>(type: "uuid", nullable: false),
                 },
                 constraints: table =>
                 {

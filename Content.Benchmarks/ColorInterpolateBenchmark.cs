@@ -61,7 +61,6 @@ namespace Content.Benchmarks
             }
         }
 
-
         [Benchmark]
         public void BenchSysVector4In()
         {
@@ -111,8 +110,7 @@ namespace Content.Benchmarks
                 a.R + (b.R - a.R) * lambda,
                 a.G + (b.G - a.G) * lambda,
                 a.B + (b.G - a.B) * lambda,
-                a.A + (b.A - a.A) * lambda
-            );
+                a.A + (b.A - a.A) * lambda);
         }
 
         [MethodImpl(AggressiveOpt)]

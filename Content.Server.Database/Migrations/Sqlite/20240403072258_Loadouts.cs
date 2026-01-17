@@ -17,7 +17,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     profile_role_loadout_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     profile_id = table.Column<int>(type: "INTEGER", nullable: false),
-                    role_name = table.Column<string>(type: "TEXT", nullable: false)
+                    role_name = table.Column<string>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -37,7 +37,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     profile_loadout_group_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     profile_role_loadout_id = table.Column<int>(type: "INTEGER", nullable: false),
-                    group_name = table.Column<string>(type: "TEXT", nullable: false)
+                    group_name = table.Column<string>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -57,7 +57,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     profile_loadout_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     profile_loadout_group_id = table.Column<int>(type: "INTEGER", nullable: false),
-                    loadout_name = table.Column<string>(type: "TEXT", nullable: false)
+                    loadout_name = table.Column<string>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {

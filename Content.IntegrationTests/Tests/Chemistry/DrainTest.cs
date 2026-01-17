@@ -34,7 +34,6 @@ public sealed class DrainTest : InteractionTest
           Quantity: {PuddleVolume}
 ";
 
-
     /// <summary>
     /// Tests that drag drop interactions with drains are working as intended.
     /// </summary>

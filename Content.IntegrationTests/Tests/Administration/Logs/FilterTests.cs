@@ -72,7 +72,7 @@ public sealed class FilterTests
             var both = await sAdminLogSystem.CurrentRoundLogs(new LogFilter
             {
                 Search = commonGuidStr,
-                DateOrder = order
+                DateOrder = order,
             });
 
             foreach (var log in both)

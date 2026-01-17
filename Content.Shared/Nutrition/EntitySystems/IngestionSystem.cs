@@ -422,6 +422,7 @@ public sealed partial class IngestionSystem : EntitySystem
             BreakOnDamage = true,
             MovementThreshold = 0.01f,
             DistanceThreshold = MaxFeedDistance,
+
             // do-after will stop if item is dropped when trying to feed someone else
             // or if the item started out in the user's own hands
             NeedHand = forceFeed || _hands.IsHolding(user, food),
@@ -444,7 +445,6 @@ public sealed partial class IngestionSystem : EntitySystem
     private void OnEdibleIngested(Entity<EdibleComponent> entity, ref IngestedEvent args)
     {
         // This is a lot but there wasn't really a way to separate this from the EdibleComponent otherwise I would've moved it.
-
         if (args.Handled)
             return;
 

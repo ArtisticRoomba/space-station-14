@@ -30,6 +30,7 @@ public abstract class SharedNameIdentifierSystem : EntitySystem
             return;
 
         var format = group.FullName ? "name-identifier-format-full" : "name-identifier-format-append";
+
         // We apply the modifier with a low priority to keep it near the base name
         // "Beep (Si-4562) the zombie" instead of "Beep the zombie (Si-4562)"
         args.AddModifier(format, -10, ("identifier", ent.Comp.FullIdentifier));

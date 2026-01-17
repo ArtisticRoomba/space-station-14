@@ -16,7 +16,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 columns: table => new
                 {
                     player_user_id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    role_id = table.Column<string>(type: "TEXT", nullable: false)
+                    role_id = table.Column<string>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {

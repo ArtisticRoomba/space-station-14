@@ -55,7 +55,7 @@ public class ComponentQueryBenchmark
         _pair.Server.WaitPost(() =>
         {
             var map = new ResPath(Map);
-            var opts = DeserializationOptions.Default with {InitializeMaps = true};
+            var opts = DeserializationOptions.Default with { InitializeMaps = true };
             if (!_entMan.System<MapLoaderSystem>().TryLoadMap(map, out _, out _, opts))
                 throw new Exception("Map load failed");
         }).GetAwaiter().GetResult();
@@ -91,6 +91,7 @@ public class ComponentQueryBenchmark
             if (_clothingQuery.TryGetComponent(uid, out var clothing))
                 hashCode = HashCode.Combine(hashCode, clothing.GetHashCode());
         }
+
         return hashCode;
     }
 
@@ -107,6 +108,7 @@ public class ComponentQueryBenchmark
             if (_mapQuery.TryGetComponent(uid, out var map))
                 hashCode = HashCode.Combine(hashCode, map.GetHashCode());
         }
+
         return hashCode;
     }
 
@@ -123,6 +125,7 @@ public class ComponentQueryBenchmark
             if (_itemQuery.TryGetComponent(uid, out var item))
                 hashCode = HashCode.Combine(hashCode, item.GetHashCode());
         }
+
         return hashCode;
     }
 
@@ -138,6 +141,7 @@ public class ComponentQueryBenchmark
         {
             DoResolve(uid, ref hashCode);
         }
+
         return hashCode;
     }
 

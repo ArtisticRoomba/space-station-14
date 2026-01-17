@@ -47,8 +47,10 @@ public sealed partial class ParcelWrappingSystem : EntitySystem
     public bool IsWrappable(Entity<ParcelWrapComponent> wrapper, EntityUid target)
     {
         return
+
             // Wrapping cannot wrap itself
             wrapper.Owner != target &&
+
             // Wrapper should never be empty, but may as well make sure.
             !_charges.IsEmpty(wrapper.Owner) &&
             _whitelist.CheckBoth(target, wrapper.Comp.Blacklist, wrapper.Comp.Whitelist);

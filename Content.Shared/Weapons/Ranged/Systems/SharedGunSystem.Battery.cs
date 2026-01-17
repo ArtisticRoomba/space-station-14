@@ -1,9 +1,9 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
-using Content.Shared.Projectiles;
 using Content.Shared.Power;
 using Content.Shared.PowerCell;
+using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -88,6 +88,7 @@ public abstract partial class SharedGunSystem
         // Take charge from either the BatteryComponent or PowerCellSlotComponent.
         var ev = new ChangeChargeEvent(-ent.Comp.FireCost * shots);
         RaiseLocalEvent(ent, ref ev);
+
         // UpdateShots is already called by the resulting ChargeChangedEvent
     }
 
@@ -144,6 +145,7 @@ public abstract partial class SharedGunSystem
     {
         // Update the visuals and charge counter UI.
         UpdateShots(ent);
+
         // Queue the update for when the autorecharge reaches enough charge for another shot.
         UpdateNextUpdate(ent, args.CurrentCharge, args.MaxCharge, args.CurrentChargeRate);
     }
@@ -152,6 +154,7 @@ public abstract partial class SharedGunSystem
     {
         // Don't queue any updates if charge is constant.
         ent.Comp.NextUpdate = null;
+
         // ETA of the next full charge.
         if (currentChargeRate > 0f && currentCharge != maxCharge)
         {
@@ -203,6 +206,7 @@ public abstract partial class SharedGunSystem
             UpdateShots((uid, provider));
             provider.NextUpdate += provider.ChargeTime; // Queue another update for when we reach the next full charge.
             Dirty(uid, provider);
+
             // TODO: Stop updating when full or empty.
         }
     }

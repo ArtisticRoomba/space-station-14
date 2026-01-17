@@ -58,7 +58,6 @@ namespace Content.IntegrationTests.Tests.Atmos
                     Assert.That(threshold.LowerBound.Value, Is.EqualTo(1f));
                 }
 
-
                 // test if making the lower bound higher
                 // than upper will adjust the upper value
                 {
@@ -74,7 +73,6 @@ namespace Content.IntegrationTests.Tests.Atmos
                     threshold.SetLimit(AtmosMonitorLimitType.UpperDanger, 1f);
                     Assert.That(threshold.LowerBound.Value, Is.LessThanOrEqualTo(threshold.UpperBound.Value));
                 }
-
 
                 // Check that the warning percentage is calculated correcly
                 {

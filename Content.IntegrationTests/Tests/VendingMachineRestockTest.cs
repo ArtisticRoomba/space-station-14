@@ -238,6 +238,7 @@ namespace Content.IntegrationTests.Tests
                 });
 
                 var systemWires = entitySystemManager.GetEntitySystem<WiresSystem>();
+
                 // Open the panel.
                 systemWires.TogglePanel(machine, machineWiresPanel, true);
 
@@ -311,13 +312,14 @@ namespace Content.IntegrationTests.Tests
 #pragma warning disable NUnit2045
                 Assert.That(!damageResult.Empty, "Received empty damageResult when attempting to damage restock box.");
 
-                Assert.That((int) damageResult.GetTotal(), Is.GreaterThan(0), "Box damage result was not greater than 0.");
+                Assert.That((int)damageResult.GetTotal(), Is.GreaterThan(0), "Box damage result was not greater than 0.");
 #pragma warning restore NUnit2045
             });
             await server.WaitRunTicks(15);
             await server.WaitAssertion(() =>
             {
-                Assert.That(entityManager.Deleted(restock),
+                Assert.That(
+                    entityManager.Deleted(restock),
                     "Restock box was not deleted after being damaged.");
 
                 var totalRamen = 0;

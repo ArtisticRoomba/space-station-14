@@ -22,6 +22,7 @@ public sealed partial class IngestionSystem
     public static readonly ProtoId<EdiblePrototype> Drink = "Drink";
 
     public const float MaxFeedDistance = 1.0f; // We should really have generic interaction ranges like short, medium, long and use those instead...
+
     // BodySystem has no way of telling us where the mouth is so we're making some assumptions.
     public const SlotFlags DefaultFlags = SlotFlags.HEAD | SlotFlags.MASK;
 

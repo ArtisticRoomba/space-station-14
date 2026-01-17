@@ -62,17 +62,21 @@ public sealed class DeviceLinkingTest
 
                         // Spawn the sink entity
                         var sinkEnt = server.EntMan.SpawnEntity(proto.ID, coord);
+
                         // Get the actual sink component, since the one we got from the prototype doesn't have its owner set up
-                        Assert.That(server.EntMan.TryGetComponent<DeviceLinkSinkComponent>(sinkEnt, out var sinkComp),
+                        Assert.That(
+                            server.EntMan.TryGetComponent<DeviceLinkSinkComponent>(sinkEnt, out var sinkComp),
                             $"{proto.ID} does not have a DeviceLinkSinkComponent!");
 
                         // Spawn the tester
                         var sourceEnt = server.EntMan.SpawnEntity(PortTesterProtoId, coord);
-                        Assert.That(server.EntMan.TryGetComponent<DeviceLinkSourceComponent>(sourceEnt, out var sourceComp),
+                        Assert.That(
+                            server.EntMan.TryGetComponent<DeviceLinkSourceComponent>(sourceEnt, out var sourceComp),
                             $"Tester prototype does not have a DeviceLinkSourceComponent!");
 
                         // Create a link from the tester's output to the target port on the sink
-                        deviceLinkSys.SaveLinks(null,
+                        deviceLinkSys.SaveLinks(
+                            null,
                             sourceEnt,
                             sinkEnt,
                             [("Output", port.Id)],
@@ -80,7 +84,8 @@ public sealed class DeviceLinkingTest
                             sinkComp);
 
                         // Send a signal to the port
-                        Assert.DoesNotThrow(() => { deviceLinkSys.InvokePort(sourceEnt, "Output", null, sourceComp); },
+                        Assert.DoesNotThrow(
+                            () => { deviceLinkSys.InvokePort(sourceEnt, "Output", null, sourceComp); },
                             $"Exception thrown while triggering port {port.Id} of sink device {proto.ID}");
 
                         mapSys.DeleteMap(mapId);

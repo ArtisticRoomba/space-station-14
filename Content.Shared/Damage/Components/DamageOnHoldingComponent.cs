@@ -18,6 +18,7 @@ public sealed partial class DamageOnHoldingComponent : Component
     /// </summary>
     [DataField("damage"), ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier Damage = new();
+
     // TODO: make it networked
 
     /// <summary>

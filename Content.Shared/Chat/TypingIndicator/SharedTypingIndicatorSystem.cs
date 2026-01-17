@@ -38,6 +38,7 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
     {
         // when player poses entity we want to make sure that there is typing indicator
         EnsureComp<TypingIndicatorComponent>(ev.Entity);
+
         // we also need appearance component to sync visual state
         EnsureComp<AppearanceComponent>(ev.Entity);
     }

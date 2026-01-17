@@ -112,8 +112,7 @@ public sealed class StationJobsTest
                 .AddPreference("TMime", JobPriority.High)
                 .WithPlayers(
                     new Dictionary<NetUserId, HumanoidCharacterProfile>()
-                    .AddJob("TCaptain", JobPriority.High, CaptainCount)
-                );
+                    .AddJob("TCaptain", JobPriority.High, CaptainCount));
             Assert.That(fakePlayers, Is.Not.Empty);
 
             var start = new Stopwatch();
@@ -133,22 +132,29 @@ public sealed class StationJobsTest
 
                     // Each station should have SOME players.
                     Assert.That(assignedHere, Is.Not.Empty);
+
                     // And it should have at least the minimum players to be considered a "fair" share, as they're all the same.
                     Assert.That(assignedHere, Has.Count.GreaterThanOrEqualTo(TotalPlayers / stations.Count), "Station has too few players.");
+
                     // And it shouldn't have ALL the players, either.
                     Assert.That(assignedHere, Has.Count.LessThan(TotalPlayers), "Station has too many players.");
+
                     // And there should be *A* captain, as there's one player with captain enabled per station.
                     Assert.That(assignedHere.Where(x => x.Value.Item1 == "TCaptain").ToList(), Has.Count.EqualTo(1));
                 }
 
                 // All clown players have assistant as a higher priority.
                 Assert.That(assigned.Values.Select(x => x.Item1).ToList(), Does.Not.Contain("TClown"));
+
                 // Mime isn't an open job-slot at round-start.
                 Assert.That(assigned.Values.Select(x => x.Item1).ToList(), Does.Not.Contain("TMime"));
+
                 // All players have slots they can fill.
                 Assert.That(assigned.Values, Has.Count.EqualTo(TotalPlayers), $"Expected {TotalPlayers} players.");
+
                 // There must be assistants present.
                 Assert.That(assigned.Values.Select(x => x.Item1).ToList(), Does.Contain("TAssistant"));
+
                 // There must be captains present, too.
                 Assert.That(assigned.Values.Select(x => x.Item1).ToList(), Does.Contain("TCaptain"));
             });
@@ -236,7 +242,7 @@ public sealed class StationJobsTest
                         if (!station.StationComponentOverrides.TryGetComponent(name, out var comp))
                             continue;
 
-                        foreach (var (job, array) in ((StationJobsComponent) comp).SetupAvailableJobs)
+                        foreach (var (job, array) in ((StationJobsComponent)comp).SetupAvailableJobs)
                         {
                             Assert.That(array.Length, Is.EqualTo(2));
                             Assert.That(array[0] is -1 or >= 0);

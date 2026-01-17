@@ -72,7 +72,6 @@ whitespace before newlines are ignored.
         // TODO assert text content is correct after fixing that bullshit.
         // Assert.That(richText1?.Text, Is.EqualTo("multiple lines separated by only single newlines make a single rich text control"));
         // Assert.That(richText2?.Text, Is.EqualTo("unless there is a double newline. Also whitespace before newlines are ignored."));
-
         var test1 = ctrl.GetChild(2) as TestControl;
         var test2 = ctrl.GetChild(3) as TestControl;
         var test3 = ctrl.GetChild(4) as TestControl;
@@ -102,7 +101,8 @@ whitespace before newlines are ignored.
 
 #pragma warning disable NUnit2045
         Assert.That(subText, Is.Not.Null);
-        //Assert.That(subText?.Text, Is.EqualTo("some text with a nested control"));
+
+        // Assert.That(subText?.Text, Is.EqualTo("some text with a nested control"));
         Assert.That(subTest, Is.Not.Null);
         Assert.That(subTest?.ChildCount, Is.EqualTo(0));
 #pragma warning restore NUnit2045

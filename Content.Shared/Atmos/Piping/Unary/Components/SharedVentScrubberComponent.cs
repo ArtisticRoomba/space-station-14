@@ -27,7 +27,6 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         };
 
         // Presets for 'dumb' air alarm modes
-
         public static GasVentScrubberData FilterModePreset = new GasVentScrubberData
         {
             Enabled = true,

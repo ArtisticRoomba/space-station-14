@@ -21,6 +21,7 @@ public sealed class CargoTest
 {
     private static readonly HashSet<ProtoId<CargoProductPrototype>> Ignored =
     [
+
         // This is ignored because it is explicitly intended to be able to sell for more than it costs.
         new("FunCrateGambling")
     ];
@@ -57,6 +58,7 @@ public sealed class CargoTest
 
         await pair.CleanReturnAsync();
     }
+
     [Test]
     public async Task NoCargoBountyArbitrageTest()
     {
@@ -207,6 +209,7 @@ public sealed class CargoTest
 
                 entManager.DeleteEntity(ent);
             }
+
             mapSystem.DeleteMap(mapId);
         });
 

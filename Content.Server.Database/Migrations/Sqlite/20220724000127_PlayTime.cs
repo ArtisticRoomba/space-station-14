@@ -17,7 +17,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     player_id = table.Column<Guid>(type: "TEXT", nullable: false),
                     tracker = table.Column<string>(type: "TEXT", nullable: false),
-                    time_spent = table.Column<TimeSpan>(type: "TEXT", nullable: false)
+                    time_spent = table.Column<TimeSpan>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {

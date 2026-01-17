@@ -86,7 +86,7 @@ public abstract class TileAtmosphereTest : AtmosTest
         Assert.That(sourceMix, Is.Not.EqualTo(null));
 
         sourceMix.AdjustMoles(Gas.Plasma, Moles / 10);
-        sourceMix.AdjustMoles(Gas.Oxygen, Moles - Moles / 10);
+        sourceMix.AdjustMoles(Gas.Oxygen, Moles - (Moles / 10));
         sourceMix.Temperature = Atmospherics.FireMinimumTemperatureToExist - 10;
 
         Assert.Multiple(() =>

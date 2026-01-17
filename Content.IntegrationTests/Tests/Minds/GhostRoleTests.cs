@@ -47,7 +47,7 @@ public sealed class GhostRoleTests
         {
             Dirty = true,
             DummyTicker = false,
-            Connected = true
+            Connected = true,
         });
         var server = pair.Server;
         var client = pair.Client;

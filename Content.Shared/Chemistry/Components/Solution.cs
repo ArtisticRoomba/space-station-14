@@ -537,6 +537,7 @@ namespace Content.Shared.Chemistry.Components
                     if (reagent != toRemove.Reagent)
                         continue;
                 }
+
                 //We prepend instead of add to handle the Contents list back-to-front later down.
                 //It makes RemoveSwap safe to use.
                 totalRemoveVolume += quantity.Value;

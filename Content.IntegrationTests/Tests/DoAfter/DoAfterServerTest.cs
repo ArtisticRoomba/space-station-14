@@ -30,7 +30,8 @@ namespace Content.IntegrationTests.Tests.DoAfter
             {
                 return this;
             }
-        };
+        }
+;
 
         [Test]
         public async Task TestSerializable()
@@ -49,7 +50,8 @@ namespace Content.IntegrationTests.Tests.DoAfter
                         if (type.IsAbstract || type == typeof(TestDoAfterEvent))
                             continue;
 
-                        Assert.That(type.HasCustomAttribute<NetSerializableAttribute>()
+                        Assert.That(
+                            type.HasCustomAttribute<NetSerializableAttribute>()
                                     && type.HasCustomAttribute<SerializableAttribute>(),
                             $"{nameof(DoAfterEvent)} is not NetSerializable. Event: {type.Name}");
                     }
@@ -108,7 +110,6 @@ namespace Content.IntegrationTests.Tests.DoAfter
                 Assert.That(!ev.Cancelled);
                 doAfterSystem.Cancel(id);
                 Assert.That(ev.Cancelled);
-
             });
 
             await server.WaitRunTicks(3);

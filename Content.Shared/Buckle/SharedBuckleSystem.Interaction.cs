@@ -153,7 +153,6 @@ public abstract partial class SharedBuckleSystem
             // these two verbs will be identical according to Verb.CompareTo, and only one with actually be added to
             // the verb list. However this should rarely ever be a problem. If it ever is, it could be fixed by
             // appending an integer to verb.Text to distinguish the verbs.
-
             args.Verbs.Add(verb);
         }
 
@@ -190,6 +189,7 @@ public abstract partial class SharedBuckleSystem
                 Act = () => TryBuckle(@using, args.User, args.Target, usingBuckle),
                 Category = VerbCategory.Buckle,
                 Text = Identity.Name(@using, EntityManager),
+
                 // just a held object, the user is probably just trying to sit down.
                 // If the used entity is a person being pulled, prioritize this verb. Conversely, if it is
                 Priority = isPlayer ? 1 : -1

@@ -21,7 +21,6 @@ public sealed class CVarControl : Attribute
         Max = max;
 
         // Not actually sure if its a good idea to throw exceptions in attributes.
-
         if (min != null && max != null)
         {
             if (min.GetType() != max.GetType())

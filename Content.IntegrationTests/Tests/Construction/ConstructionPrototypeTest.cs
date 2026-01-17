@@ -42,7 +42,8 @@ namespace Content.IntegrationTests.Tests.Construction
                     var graph = protoMan.Index<ConstructionGraphPrototype>(construction.Graph);
                     entMan.DeleteEntity(ent);
 
-                    Assert.That(graph.Nodes.ContainsKey(construction.Node),
+                    Assert.That(
+                        graph.Nodes.ContainsKey(construction.Node),
                         $"Found no startNode \"{construction.Node}\" on graph \"{graph.ID}\" for entity \"{proto.ID}\"!");
                 }
             });
@@ -65,7 +66,8 @@ namespace Content.IntegrationTests.Tests.Construction
                     var start = proto.StartNode;
                     var graph = protoMan.Index<ConstructionGraphPrototype>(proto.Graph);
 
-                    Assert.That(graph.Nodes.ContainsKey(start),
+                    Assert.That(
+                        graph.Nodes.ContainsKey(start),
                         $"Found no startNode \"{start}\" on graph \"{graph.ID}\" for construction prototype \"{proto.ID}\"!");
                 }
             });
@@ -87,7 +89,8 @@ namespace Content.IntegrationTests.Tests.Construction
                     var target = proto.TargetNode;
                     var graph = protoMan.Index<ConstructionGraphPrototype>(proto.Graph);
 
-                    Assert.That(graph.Nodes.ContainsKey(target),
+                    Assert.That(
+                        graph.Nodes.ContainsKey(target),
                         $"Found no targetNode \"{target}\" on graph \"{graph.ID}\" for construction prototype \"{proto.ID}\"!");
                 }
             });
@@ -111,7 +114,7 @@ namespace Content.IntegrationTests.Tests.Construction
                     if (proto.Abstract || pair.IsTestPrototype(proto) || !proto.Components.TryGetValue(name, out var reg))
                         continue;
 
-                    var comp = (ConstructionComponent) reg.Component;
+                    var comp = (ConstructionComponent)reg.Component;
                     var target = comp.DeconstructionNode;
                     if (target == null)
                         continue;
@@ -142,7 +145,8 @@ namespace Content.IntegrationTests.Tests.Construction
                     var graph = protoMan.Index<ConstructionGraphPrototype>(proto.Graph);
 
 #pragma warning disable NUnit2045 // Interdependent assertions.
-                    Assert.That(graph.TryPath(start, target, out var path),
+                    Assert.That(
+                        graph.TryPath(start, target, out var path),
                         $"Unable to find path from \"{start}\" to \"{target}\" on graph \"{graph.ID}\"");
                     Assert.That(path, Has.Length.GreaterThanOrEqualTo(1),
                         $"Unable to find path from \"{start}\" to \"{target}\" on graph \"{graph.ID}\".");
@@ -150,9 +154,11 @@ namespace Content.IntegrationTests.Tests.Construction
                     var nextId = next.Entity.GetId(null, null, new(entMan));
                     Assert.That(nextId, Is.Not.Null,
                         $"The next node ({next.Name}) in the path from the start node ({start}) to the target node ({target}) must specify an entity! Graph: {graph.ID}");
-                    Assert.That(protoMan.TryIndex(nextId, out EntityPrototype entity),
+                    Assert.That(
+                        protoMan.TryIndex(nextId, out EntityPrototype entity),
                         $"The next node ({next.Name}) in the path from the start node ({start}) to the target node ({target}) specified an invalid entity prototype ({nextId} [{next.Entity}])");
-                    Assert.That(entity.Components.ContainsKey("Construction"),
+                    Assert.That(
+                        entity.Components.ContainsKey("Construction"),
                         $"The next node ({next.Name}) in the path from the start node ({start}) to the target node ({target}) specified an entity prototype ({next.Entity}) without a ConstructionComponent.");
 #pragma warning restore NUnit2045
                 }

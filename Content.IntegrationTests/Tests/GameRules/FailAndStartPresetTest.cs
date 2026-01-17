@@ -63,7 +63,7 @@ public sealed class FailAndStartPresetTest
             Dirty = true,
             DummyTicker = false,
             Connected = true,
-            InLobby = true
+            InLobby = true,
         });
 
         var server = pair.Server;
@@ -110,7 +110,7 @@ public sealed class FailAndStartPresetTest
         player = pair.Player!.AttachedEntity!.Value;
         Assert.That(entMan.EntityExists(player));
 
-        ticker.SetGamePreset((GamePresetPrototype?) null);
+        ticker.SetGamePreset((GamePresetPrototype?)null);
         server.CfgMan.SetCVar(CCVars.GridFill, false);
         server.CfgMan.SetCVar(CCVars.GameLobbyFallbackEnabled, true);
         server.CfgMan.SetCVar(CCVars.GameLobbyDefaultPreset, "secret");

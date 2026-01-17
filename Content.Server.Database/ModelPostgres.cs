@@ -10,13 +10,14 @@ namespace Content.Server.Database
 {
     public sealed class PostgresServerDbContext : ServerDbContext
     {
-        public PostgresServerDbContext(DbContextOptions<PostgresServerDbContext> options) : base(options)
+        public PostgresServerDbContext(DbContextOptions<PostgresServerDbContext> options)
+            : base(options)
         {
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            ((IDbContextOptionsBuilderInfrastructure) options).AddOrUpdateExtension(new SnakeCaseExtension());
+            ((IDbContextOptionsBuilderInfrastructure)options).AddOrUpdateExtension(new SnakeCaseExtension());
 
             options.ConfigureWarnings(x =>
             {
@@ -42,27 +43,28 @@ namespace Content.Server.Database
             modelBuilder.Entity<ServerBan>().ToTable(t =>
                 t.HasCheckConstraint("AddressNotIPv6MappedIPv4", "NOT inet '::ffff:0.0.0.0/96' >>= address"));
 
-            modelBuilder.Entity<ServerRoleBan>().ToTable( t =>
+            modelBuilder.Entity<ServerRoleBan>().ToTable(t =>
                 t.HasCheckConstraint("AddressNotIPv6MappedIPv4", "NOT inet '::ffff:0.0.0.0/96' >>= address"));
 
             modelBuilder.Entity<Player>().ToTable(t =>
-                t.HasCheckConstraint("LastSeenAddressNotIPv6MappedIPv4",
+                t.HasCheckConstraint(
+                    "LastSeenAddressNotIPv6MappedIPv4",
                     "NOT inet '::ffff:0.0.0.0/96' >>= last_seen_address"));
 
             modelBuilder.Entity<ConnectionLog>().ToTable(t =>
-                t.HasCheckConstraint("AddressNotIPv6MappedIPv4",
+                t.HasCheckConstraint(
+                    "AddressNotIPv6MappedIPv4",
                     "NOT inet '::ffff:0.0.0.0/96' >>= address"));
 
             // ReSharper restore StringLiteralTypo
-
             modelBuilder.Entity<AdminLog>()
                 .HasIndex(l => l.Message)
                 .HasMethod("GIN")
                 .IsTsVectorExpressionIndex("english");
 
-            foreach(var entity in modelBuilder.Model.GetEntityTypes())
+            foreach (var entity in modelBuilder.Model.GetEntityTypes())
             {
-                foreach(var property in entity.GetProperties())
+                foreach (var property in entity.GetProperties())
                 {
                     if (property.FieldInfo?.FieldType == typeof(DateTime) || property.FieldInfo?.FieldType == typeof(DateTime?))
                         property.SetColumnType("timestamp with time zone");
@@ -77,10 +79,10 @@ namespace Content.Server.Database
 
         public override int CountAdminLogs()
         {
-            using var command = new NpgsqlCommand("SELECT reltuples FROM pg_class WHERE relname = 'admin_log';", (NpgsqlConnection?) Database.GetDbConnection());
+            using var command = new NpgsqlCommand("SELECT reltuples FROM pg_class WHERE relname = 'admin_log';", (NpgsqlConnection?)Database.GetDbConnection());
 
             Database.GetDbConnection().Open();
-            var count = Convert.ToInt32((float) (command.ExecuteScalar() ?? 0));
+            var count = Convert.ToInt32((float)(command.ExecuteScalar() ?? 0));
             Database.GetDbConnection().Close();
             return count;
         }

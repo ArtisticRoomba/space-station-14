@@ -28,7 +28,6 @@ namespace Content.Shared.Movement.Components
         // We change which vector we write into based on whether we were sprinting after the previous input.
         //   (well maybe we do but the code is designed such that MoverSystem applies movement speed)
         //   (and I'm not changing that)
-
         public GameTick LastInputTick;
         public ushort LastInputSubTick;
 

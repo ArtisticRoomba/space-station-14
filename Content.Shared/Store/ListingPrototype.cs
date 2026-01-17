@@ -421,6 +421,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
                 if (modifiedAmount < 0)
                 {
                     modifiedAmount = 0;
+
                     // no negative cost allowed
                 }
                 applyTo[currency] = modifiedAmount;

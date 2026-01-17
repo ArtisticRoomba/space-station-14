@@ -43,6 +43,7 @@ public abstract class MovementTest : InteractionTest
         {
             await SetTile(Plating, SEntMan.GetNetCoordinates(pCoords.Offset(new Vector2(i, 0))), MapData.Grid);
         }
+
         AssertGridCount(1);
 
         if (AddWalls)
@@ -74,4 +75,3 @@ public abstract class MovementTest : InteractionTest
         return delta.X;
     }
 }
-

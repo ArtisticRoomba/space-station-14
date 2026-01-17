@@ -49,7 +49,7 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
 
                 foreach (var document in yamlStream.Documents)
                 {
-                    var root = (YamlSequenceNode) document.RootNode;
+                    var root = (YamlSequenceNode)document.RootNode;
 
                     foreach (var node in root.Cast<YamlMappingNode>())
                     {
@@ -145,11 +145,13 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
                 {
                     failureMessages = $"{failureMessages}\nComponent {serverIgnored} was ignored on server, but exists on server";
                 }
+
                 if (!clientComponents.TryGetRegistration(serverIgnored, out _))
                 {
                     failureMessages = $"{failureMessages}\nComponent {serverIgnored} was ignored on server, but does not exist on client";
                 }
             }
+
             Assert.That(failureMessages, Is.Empty);
             await pair.CleanReturnAsync();
         }

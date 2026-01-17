@@ -1,5 +1,5 @@
-using Robust.Shared.Random;
 using Content.Shared.DeviceNetwork.Components;
+using Robust.Shared.Random;
 
 namespace Content.Shared.DeviceNetwork;
 
@@ -201,7 +201,6 @@ public sealed class DeviceNet
             return true;
 
         // remove or add to set of listening devices
-
         HashSet<DeviceNetworkComponent>? devices;
         if (receiveAll)
         {

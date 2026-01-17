@@ -22,7 +22,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     server_ban_hit_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ban_id = table.Column<int>(type: "integer", nullable: false),
-                    connection_id = table.Column<int>(type: "integer", nullable: false)
+                    connection_id = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {

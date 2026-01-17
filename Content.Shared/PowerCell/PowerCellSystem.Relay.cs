@@ -33,6 +33,7 @@ public sealed partial class PowerCellSystem
     private void RelayToCellSlot<T>(Entity<PowerCellComponent> ent, ref T args) where T : notnull
     {
         var parent = Transform(ent).ParentUid;
+
         // Relay the event to the slot entity.
         if (HasComp<PowerCellSlotComponent>(parent))
             RaiseLocalEvent(parent, ref args);

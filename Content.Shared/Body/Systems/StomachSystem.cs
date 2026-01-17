@@ -108,6 +108,7 @@ namespace Content.Shared.Body.Systems
         {
             return Resolve(uid, ref stomach, ref solutions, logMissing: false)
                 && _solutionContainerSystem.ResolveSolution((uid, solutions), DefaultSolutionName, ref stomach.Solution, out var stomachSolution)
+
                 // TODO: For now no partial transfers. Potentially change by design
                 && stomachSolution.CanAddSolution(solution);
         }
@@ -126,6 +127,7 @@ namespace Content.Shared.Body.Systems
             }
 
             _solutionContainerSystem.TryAddSolution(stomach.Solution.Value, solution);
+
             // Add each reagent to ReagentDeltas. Used to track how long each reagent has been in the stomach
             foreach (var reagent in solution.Contents)
             {

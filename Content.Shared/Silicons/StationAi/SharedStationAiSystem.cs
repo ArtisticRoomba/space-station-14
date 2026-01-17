@@ -6,8 +6,8 @@ using Content.Shared.Chat.Prototypes;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
-using Content.Shared.Doors.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.Doors.Systems;
 using Content.Shared.Electrocution;
 using Content.Shared.Intellicard;
 using Content.Shared.Interaction;
@@ -71,7 +71,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     // StationAiWhitelist is a general whitelist to stop it being able to interact with anything
     // StationAiOverlay handles the static overlay. It also handles interaction blocking on client and server
     // for anything under it.
-
     private EntityQuery<BroadphaseComponent> _broadphaseQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
 

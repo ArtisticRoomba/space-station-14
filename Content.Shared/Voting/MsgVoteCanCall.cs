@@ -13,6 +13,7 @@ namespace Content.Shared.Voting
 
         // If true, we can currently call votes.
         public bool CanCall;
+
         // When we can call votes again in server RealTime.
         // Can be null if the reason is something not timeout related.
         public TimeSpan WhenCanCallVote;
@@ -23,7 +24,6 @@ namespace Content.Shared.Voting
 
         // It's possible to be able to call votes but all standard votes to be timed out.
         // In this case you can open the interface and see the timeout listed there, I suppose.
-
         public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
         {
             CanCall = buffer.ReadBoolean();

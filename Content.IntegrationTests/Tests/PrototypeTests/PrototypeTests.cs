@@ -57,6 +57,7 @@ public sealed class PrototypeTests
                     {
                         msg += $" - {errorNode.ErrorReason}\n";
                     }
+
                     Assert.Fail(msg);
                 }
             }
@@ -156,7 +157,7 @@ public sealed class PrototypeTests
         }
 
         Assert.That(obj?.GetType(), Is.EqualTo(proto.GetType()));
-        var deserialized = (IPrototype) obj!;
+        var deserialized = (IPrototype)obj!;
 
         try
         {

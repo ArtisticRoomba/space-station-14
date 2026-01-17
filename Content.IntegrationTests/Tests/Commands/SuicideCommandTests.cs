@@ -68,7 +68,7 @@ public sealed class SuicideCommandTests
         {
             Connected = true,
             Dirty = true,
-            DummyTicker = false
+            DummyTicker = false,
         });
         var server = pair.Server;
         var consoleHost = server.ResolveDependency<IConsoleHost>();
@@ -90,7 +90,6 @@ public sealed class SuicideCommandTests
 
             mobStateComp = entManager.GetComponent<MobStateComponent>(player);
         });
-
 
         // Check that running the suicide command kills the player
         // and properly ghosts them without them being able to return to their body
@@ -119,7 +118,7 @@ public sealed class SuicideCommandTests
         {
             Connected = true,
             Dirty = true,
-            DummyTicker = false
+            DummyTicker = false,
         });
         var server = pair.Server;
         var consoleHost = server.ResolveDependency<IConsoleHost>();
@@ -183,7 +182,7 @@ public sealed class SuicideCommandTests
         {
             Connected = true,
             Dirty = true,
-            DummyTicker = false
+            DummyTicker = false,
         });
         var server = pair.Server;
         var consoleHost = server.ResolveDependency<IConsoleHost>();
@@ -223,7 +222,6 @@ public sealed class SuicideCommandTests
         await pair.CleanReturnAsync();
     }
 
-
     /// <summary>
     /// Run the suicide command while the player is holding an execution-capable weapon
     /// </summary>
@@ -234,7 +232,7 @@ public sealed class SuicideCommandTests
         {
             Connected = true,
             Dirty = true,
-            DummyTicker = false
+            DummyTicker = false,
         });
         var server = pair.Server;
         var consoleHost = server.ResolveDependency<IConsoleHost>();
@@ -309,7 +307,7 @@ public sealed class SuicideCommandTests
         {
             Connected = true,
             Dirty = true,
-            DummyTicker = false
+            DummyTicker = false,
         });
         var server = pair.Server;
         var consoleHost = server.ResolveDependency<IConsoleHost>();

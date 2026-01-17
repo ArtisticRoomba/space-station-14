@@ -42,7 +42,6 @@ public sealed partial class SpeciesPrototype : IPrototype
     // Species implementors can just override SpriteComponent if they want a custom
     // sprite layout, and leave this null. Keep in mind that this will disable
     // sprite accessories.
-
     [DataField("sprites")]
     public ProtoId<HumanoidSpeciesBaseSpritesPrototype> SpriteSet { get; private set; } = default!;
 

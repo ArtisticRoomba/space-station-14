@@ -544,7 +544,6 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         // Pulling confirmed
-
         _interaction.DoContactInteraction(pullableUid, pullerUid);
 
         // Use net entity so it's consistent across client and server.
@@ -564,11 +563,13 @@ public sealed class PullingSystem : EntitySystem
                     pullablePhysics.LocalCenter, pullerPhysics.LocalCenter,
                     id: pullableComp.PullJointId);
             joint.CollideConnected = false;
+
             // This maximum has to be there because if the object is constrained too closely, the clamping goes backwards and asserts.
             // Internally, the joint length has been set to the distance between the pivots.
             // Add an additional 15cm (pretty arbitrary) to the maximum length for the hard limit.
             joint.MaxLength = joint.Length + 0.15f;
             joint.MinLength = 0f;
+
             // Set the spring stiffness to zero. The joint won't have any effect provided
             // the current length is beteen MinLength and MaxLength. At those limits, the
             // joint will have infinite stiffness.

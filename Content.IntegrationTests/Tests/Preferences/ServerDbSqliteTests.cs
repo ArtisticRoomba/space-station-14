@@ -52,7 +52,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                     Color.Aquamarine,
                     Color.Azure,
                     Color.Beige,
-                    new ())
+                    new ()),
             };
         }
 
@@ -72,6 +72,7 @@ namespace Content.IntegrationTests.Tests.Preferences
         {
             var pair = await PoolManager.GetServerClient();
             var db = GetDb(pair.Server);
+
             // Database should be empty so a new GUID should do it.
             Assert.That(await db.GetPlayerPreferencesAsync(NewUserId()), Is.Null);
 

@@ -18,7 +18,7 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
             await using var pair = await PoolManager.GetServerClient(new PoolSettings
             {
                 Connected = true,
-                DummyTicker = false
+                DummyTicker = false,
             });
             var server = pair.Server;
             var client = pair.Client;
@@ -36,6 +36,7 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 playerUid = serverPlayerManager.Sessions.Single().AttachedEntity.GetValueOrDefault();
 #pragma warning disable NUnit2045 // Interdependent assertions.
                 Assert.That(playerUid, Is.Not.EqualTo(default(EntityUid)));
+
                 // Making sure it exists
                 Assert.That(entManager.HasComponent<AlertsComponent>(playerUid));
 #pragma warning restore NUnit2045
@@ -60,12 +61,12 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 var controlled = local.AttachedEntity;
 #pragma warning disable NUnit2045 // Interdependent assertions.
                 Assert.That(controlled, Is.Not.Null);
+
                 // Making sure it exists
                 Assert.That(clientEntManager.HasComponent<AlertsComponent>(controlled.Value));
 #pragma warning restore Nunit2045
 
                 // find the alertsui
-
                 clientAlertsUI = FindAlertsUI(clientUIMgr.ActiveScreen);
                 Assert.That(clientAlertsUI, Is.Not.Null);
 
@@ -85,7 +86,7 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
 
                 // we should be seeing 3 alerts - our health, and the 2 debug alerts, in a specific order.
                 Assert.That(clientAlertsUI.AlertContainer.ChildCount, Is.GreaterThanOrEqualTo(3));
-                var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
+                var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl)c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
                 var expectedIDs = new[] { "HumanHealth", "Debug1", "Debug2" };
                 Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
@@ -102,7 +103,7 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
             {
                 // we should be seeing 2 alerts now because one was cleared
                 Assert.That(clientAlertsUI.AlertContainer.ChildCount, Is.GreaterThanOrEqualTo(2));
-                var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
+                var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl)c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
                 var expectedIDs = new[] { "HumanHealth", "Debug2" };
                 Assert.That(alertIDs, Is.SupersetOf(expectedIDs));

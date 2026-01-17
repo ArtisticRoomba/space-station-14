@@ -16,14 +16,14 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Timing;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Doors.Systems;
 
@@ -554,6 +554,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
             yield break;
 
         var xform = Transform(uid);
+
         // Getting the world bounds from the gridUid allows us to use the version of
         // GetCollidingEntities that returns Entity<PhysicsComponent>
         if (!TryComp<MapGridComponent>(xform.GridUid, out var mapGridComp))
@@ -565,7 +566,6 @@ public abstract partial class SharedDoorSystem : EntitySystem
 
         // TODO SLOTH fix electro's code.
         // ReSharper disable once InconsistentNaming
-
         foreach (var otherPhysics in _doorIntersecting)
         {
             if (otherPhysics.Comp == physics)

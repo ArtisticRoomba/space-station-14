@@ -26,12 +26,10 @@ namespace Content.IntegrationTests.Tests.Construction
                     {
                         prototype = protoA;
                     }
-
                     else if (string.IsNullOrEmpty(protoA) && !string.IsNullOrEmpty(protoB))
                     {
                         prototype = protoB;
                     }
-
                     else
                     {
                         prototype = $"{protoA}, {protoB}";

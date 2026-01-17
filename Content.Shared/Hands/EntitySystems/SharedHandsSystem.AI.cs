@@ -5,7 +5,6 @@ namespace Content.Shared.Hands.EntitySystems;
 
 // These functions are mostly unused except for some AI operator stuff
 // Nothing stops them from being used in general. If they ever get used elsewhere, then this file probably needs to be renamed.
-
 public abstract partial class SharedHandsSystem
 {
     public bool TrySelect(EntityUid uid, EntityUid? entity, HandsComponent? handsComp = null)

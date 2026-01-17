@@ -49,6 +49,7 @@ public sealed class SensorMonitoringIncrementalUpdate : BoundUserInterfaceMessag
     {
         public int NetId;
         public SensorUnit Unit;
+
         // Note: these samples have their time values relative to RelTime.
         // This improves effectiveness of integer compression in NetSerializer.
         public SensorSample[] Samples = Array.Empty<SensorSample>();

@@ -6,8 +6,8 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Power.NodeGroups;
 using Content.Server.Power.Pow3r;
 using Content.Shared.Maps;
-using Content.Shared.Power.Components;
 using Content.Shared.NodeContainer;
+using Content.Shared.Power.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.EntitySerialization;
 
@@ -76,6 +76,7 @@ public sealed class StationPowerTests
             var currentCharge = batterySys.GetCharge((uid, battery));
             networks[group.NetworkNode] = charge + currentCharge;
         }
+
         var totalStartingCharge = networks.MaxBy(n => n.Value).Value;
 
         // Find how much charge all the APC-connected devices would like to use per second.
@@ -132,7 +133,7 @@ public sealed class StationPowerTests
             while (apcQuery.MoveNext(out var uid, out var apc, out var battery))
             {
                 // Uncomment the following line to log starting APC load to the console
-                //Console.WriteLine($"ApcLoad:{mapProtoId}:{uid}:{battery.CurrentSupply}");
+                // Console.WriteLine($"ApcLoad:{mapProtoId}:{uid}:{battery.CurrentSupply}");
                 if (xform.TryGetMapOrGridCoordinates(uid, out var coord))
                 {
                     Assert.That(apc.MaxLoad, Is.GreaterThanOrEqualTo(battery.CurrentSupply),

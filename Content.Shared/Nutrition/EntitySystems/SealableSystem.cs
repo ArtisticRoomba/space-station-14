@@ -1,6 +1,6 @@
 using Content.Shared.Examine;
-using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 

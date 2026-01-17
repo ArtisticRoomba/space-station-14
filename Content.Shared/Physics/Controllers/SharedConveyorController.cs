@@ -251,7 +251,6 @@ public abstract class SharedConveyorController : VirtualController
 
             // Check for blocked, if so then we can't convey at all and just try to sleep
             // Otherwise we may just keep pushing it into the wall
-
             if (!_conveyorQuery.TryComp(other, out var conveyor))
                 continue;
 

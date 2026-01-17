@@ -24,7 +24,7 @@ public sealed partial class RattleOnTriggerComponent : BaseXOnTriggerComponent
     [DataField]
     public Dictionary<MobState, LocId> Messages = new()
     {
-        {MobState.Critical, "rattle-on-trigger-critical-message"},
-        {MobState.Dead, "rattle-on-trigger-dead-message"}
+        { MobState.Critical, "rattle-on-trigger-critical-message"},
+        { MobState.Dead, "rattle-on-trigger-dead-message"}
     };
 }

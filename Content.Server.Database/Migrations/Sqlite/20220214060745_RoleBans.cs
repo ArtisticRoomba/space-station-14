@@ -17,7 +17,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     ban_id = table.Column<int>(type: "INTEGER", nullable: false),
                     unbanning_admin = table.Column<Guid>(type: "TEXT", nullable: true),
-                    unban_time = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    unban_time = table.Column<DateTime>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -44,7 +44,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     reason = table.Column<string>(type: "TEXT", nullable: false),
                     banning_admin = table.Column<Guid>(type: "TEXT", nullable: true),
                     unban_id = table.Column<int>(type: "INTEGER", nullable: true),
-                    role_id = table.Column<string>(type: "TEXT", nullable: false)
+                    role_id = table.Column<string>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {

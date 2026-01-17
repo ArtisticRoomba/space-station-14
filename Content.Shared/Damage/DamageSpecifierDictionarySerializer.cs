@@ -38,6 +38,7 @@ public sealed class DamageSpecifierDictionarySerializer : ITypeReader<Dictionary
         SerializationHookContext hookCtx, ISerializationContext? context = null, ISerializationManager.InstantiationDelegate<Dictionary<string, FixedPoint2>>? instanceProvider = null)
     {
         var dict = instanceProvider != null ? instanceProvider() : new();
+
         // Add all the damage types by just copying the type dictionary (if it is not null).
         if (node.TryGet<MappingDataNode>("types", out var typesNode))
         {

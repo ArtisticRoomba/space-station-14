@@ -3,9 +3,9 @@ using Content.Shared.Rejuvenate;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Timing;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Emp;
@@ -52,6 +52,7 @@ public abstract class SharedEmpSystem : EntitySystem
         {
             TryEmpEffects(uid, energyConsumption, duration, user);
         }
+
         // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
             Spawn(EmpPulseEffectPrototype, mapCoordinates);
@@ -76,6 +77,7 @@ public abstract class SharedEmpSystem : EntitySystem
         {
             TryEmpEffects(uid, energyConsumption, duration, user);
         }
+
         // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
             Spawn(EmpPulseEffectPrototype, coordinates);

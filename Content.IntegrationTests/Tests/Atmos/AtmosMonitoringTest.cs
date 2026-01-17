@@ -42,14 +42,16 @@ public sealed class AtmosMonitoringTest : AtmosTest
         SAtmos.RunProcessingFull(ProcessEnt, MapData.Grid.Owner, SAtmos.AtmosTickRate);
 
         // should be in the middle
-        Assert.That(vec,
+        Assert.That(
+            vec,
             Is.EqualTo(Vector2i.Zero),
             "Air sensor not in expected position on grid (0, 0)");
 
         var atmosMonitor = SEntMan.GetComponent<AtmosMonitorComponent>(airSensorUid);
         var tileMixture = SAtmos.GetTileMixture(airSensorUid);
 
-        Assert.That(tileMixture,
+        Assert.That(
+            tileMixture,
             Is.SameAs(atmosMonitor.TileGas),
             "Atmos monitor's TileGas does not match actual tile mixture after spawn.");
 
@@ -61,9 +63,11 @@ public sealed class AtmosMonitoringTest : AtmosTest
         SAtmos.RunProcessingFull(ProcessEnt, MapData.Grid.Owner, SAtmos.AtmosTickRate);
 
         // the monitor's ref to the gas should be null now
-        Assert.That(atmosMonitor.TileGas,
+        Assert.That(
+            atmosMonitor.TileGas,
             Is.Null,
             "Atmos monitor's TileGas is not null after wall placed on top. Possible dead reference.");
+
         // the actual mixture on the tile should be null now too
         var nullTileMixture = SAtmos.GetTileMixture(airSensorUid);
         Assert.That(nullTileMixture, Is.Null, "Tile mixture is not null after wall placed on top.");
@@ -77,8 +81,10 @@ public sealed class AtmosMonitoringTest : AtmosTest
         // gas mixture should now exist again
         var newTileMixture = SAtmos.GetTileMixture(airSensorUid);
         Assert.That(newTileMixture, Is.Not.Null, "Tile mixture is null after wall removed.");
+
         // monitor's ref to the gas should be back too
-        Assert.That(atmosMonitor.TileGas,
+        Assert.That(
+            atmosMonitor.TileGas,
             Is.SameAs(newTileMixture),
             "Atmos monitor's TileGas does not match actual tile mixture after wall removed.");
     }
@@ -103,14 +109,16 @@ public sealed class AtmosMonitoringTest : AtmosTest
         SAtmos.RunProcessingFull(ProcessEnt, MapData.Grid.Owner, SAtmos.AtmosTickRate);
 
         // should be in the middle
-        Assert.That(vec,
+        Assert.That(
+            vec,
             Is.EqualTo(Vector2i.Zero),
             "Air sensor not in expected position on grid (0, 0)");
 
         var atmosMonitor = SEntMan.GetComponent<AtmosMonitorComponent>(airSensorUid);
         var tileMixture = SAtmos.GetTileMixture(airSensorUid);
 
-        Assert.That(tileMixture,
+        Assert.That(
+            tileMixture,
             Is.SameAs(atmosMonitor.TileGas),
             "Atmos monitor's TileGas does not match actual tile mixture after spawn.");
 
@@ -118,12 +126,14 @@ public sealed class AtmosMonitoringTest : AtmosTest
 
         // EXTREMELY IMPORTANT: The reference to the tile mixture on the tile should be completely different.
         var newTileMixture = SAtmos.GetTileMixture(airSensorUid);
-        Assert.That(newTileMixture,
+        Assert.That(
+            newTileMixture,
             Is.Not.SameAs(tileMixture),
             "Tile mixture is the same instance after fixgridatmos was ran. It should be a new instance.");
 
         // The monitor's ref to the tile mixture should have updated too.
-        Assert.That(atmosMonitor.TileGas,
+        Assert.That(
+            atmosMonitor.TileGas,
             Is.SameAs(newTileMixture),
             "Atmos monitor's TileGas does not match actual tile mixture after fixgridatmos was ran.");
     }

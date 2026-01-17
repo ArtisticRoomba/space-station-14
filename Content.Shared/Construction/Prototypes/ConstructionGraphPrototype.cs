@@ -56,7 +56,7 @@ namespace Content.Shared.Construction.Prototypes
 
         public string[]? PathId(string startNode, string finishNode)
         {
-            if (Path(startNode, finishNode) is not {} path)
+            if (Path(startNode, finishNode) is not { } path)
                 return null;
 
             var nodes = new string[path.Length];
@@ -77,7 +77,6 @@ namespace Content.Shared.Construction.Prototypes
                 return _paths[tuple];
 
             // Get graph given the current start.
-
             Dictionary<ConstructionGraphNode, ConstructionGraphNode?> pathfindingForStart;
             if (_pathfinding.ContainsKey(startNode))
             {
@@ -89,7 +88,6 @@ namespace Content.Shared.Construction.Prototypes
             }
 
             // Follow the chain backwards.
-
             var start = _nodes[startNode];
             var finish = _nodes[finishNode];
 

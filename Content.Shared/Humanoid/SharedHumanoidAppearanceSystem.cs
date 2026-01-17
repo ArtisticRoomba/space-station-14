@@ -195,9 +195,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         ref bool dirty)
     {
 #if DEBUG
-        if (source is {} s)
+        if (source is { } s)
         {
             DebugTools.AssertNotEqual(s, SlotFlags.NONE);
+
             // Check that only a single bit in the bitflag is set
             var powerOfTwo = BitOperations.RoundUpToPowerOf2((uint)s);
             DebugTools.AssertEqual((uint)s, powerOfTwo);
@@ -206,7 +207,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         if (visible)
         {
-            if (source is not {} slot)
+            if (source is not { } slot)
             {
                 dirty |= ent.Comp.PermanentlyHidden.Remove(layer);
             }

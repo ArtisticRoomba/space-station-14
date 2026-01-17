@@ -26,6 +26,7 @@ public sealed partial class DamageableComponent : Component
     ///     If null, all damage types will be supported.
     /// </summary>
     [DataField("damageContainer")]
+
     // ReSharper disable once InconsistentNaming - This is wrong but fixing it is potentially annoying for downstreams.
     public ProtoId<DamageContainerPrototype>? DamageContainerID;
 
@@ -65,6 +66,7 @@ public sealed partial class DamageableComponent : Component
     public FixedPoint2 TotalDamage;
 
     [DataField("radiationDamageTypes")]
+
     // ReSharper disable once UseCollectionExpression - Cannot refactor this as it's a potential sandbox violation.
     public List<ProtoId<DamageTypePrototype>> RadiationDamageTypeIDs = new() { "Radiation" };
 
@@ -73,6 +75,7 @@ public sealed partial class DamageableComponent : Component
     /// </summary>
     ///     TODO: Add support for adding damage types specifically rather than whole damage groups
     [DataField]
+
     // ReSharper disable once UseCollectionExpression - Cannot refactor this as it's a potential sandbox volation.
     public List<ProtoId<DamageGroupPrototype>> PainDamageGroups = new() { "Brute", "Burn" };
 

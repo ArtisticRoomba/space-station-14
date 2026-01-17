@@ -279,7 +279,7 @@ public readonly struct SerializablePlayer
     public SerializablePlayer(ICommonSession player, IEntityManager entityManager)
     {
         UserId = player.UserId.UserId;
-        if (player.AttachedEntity is not {} uid)
+        if (player.AttachedEntity is not { } uid)
             return;
 
         Uid = uid;

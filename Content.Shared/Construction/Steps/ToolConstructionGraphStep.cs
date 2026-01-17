@@ -37,7 +37,7 @@ namespace Content.Shared.Construction.Steps
             return new ConstructionGuideEntry()
             {
                 Localization = "construction-presenter-tool-step",
-                Arguments = new (string, object)[]{("tool", quality.ToolName)},
+                Arguments = new (string, object)[] { ("tool", quality.ToolName)},
                 Icon = quality.Icon,
             };
         }

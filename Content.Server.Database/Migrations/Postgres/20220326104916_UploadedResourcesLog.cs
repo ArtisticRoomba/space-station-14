@@ -19,7 +19,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     user_id = table.Column<Guid>(type: "uuid", nullable: false),
                     path = table.Column<string>(type: "text", nullable: false),
-                    data = table.Column<byte[]>(type: "bytea", nullable: false)
+                    data = table.Column<byte[]>(type: "bytea", nullable: false),
                 },
                 constraints: table =>
                 {

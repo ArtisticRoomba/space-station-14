@@ -19,7 +19,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ban_id = table.Column<int>(type: "integer", nullable: false),
                     unbanning_admin = table.Column<Guid>(type: "uuid", nullable: true),
-                    unban_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    unban_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -46,7 +46,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     reason = table.Column<string>(type: "text", nullable: false),
                     banning_admin = table.Column<Guid>(type: "uuid", nullable: true),
                     unban_id = table.Column<int>(type: "integer", nullable: true),
-                    role_id = table.Column<string>(type: "text", nullable: false)
+                    role_id = table.Column<string>(type: "text", nullable: false),
                 },
                 constraints: table =>
                 {

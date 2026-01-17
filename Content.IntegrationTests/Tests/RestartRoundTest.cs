@@ -13,7 +13,7 @@ namespace Content.IntegrationTests.Tests
             {
                 DummyTicker = false,
                 Connected = true,
-                Dirty = true
+                Dirty = true,
             });
             var server = pair.Server;
             var sysManager = server.ResolveDependency<IEntitySystemManager>();

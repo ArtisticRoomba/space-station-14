@@ -79,7 +79,7 @@ namespace Content.IntegrationTests.Tests.Utility
                 var whitelistInst = new EntityWhitelist
                 {
                     Components = new[] { $"{ValidComponent}" },
-                    Tags = new() { "WhitelistTestValidTag" }
+                    Tags = new() { "WhitelistTestValidTag" },
                 };
 
                 Assert.Multiple(() =>

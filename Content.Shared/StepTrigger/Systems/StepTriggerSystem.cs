@@ -90,6 +90,7 @@ public sealed class StepTriggerSystem : EntitySystem
             return;
 
         var otherXform = Transform(otherUid);
+
         // TODO: This shouldn't be calculating based on world AABBs.
         var ourAabb = _entityLookup.GetAABBNoContainer(uid, ownerXform.LocalPosition, ownerXform.LocalRotation);
         var otherAabb = _entityLookup.GetAABBNoContainer(otherUid, otherXform.LocalPosition, otherXform.LocalRotation);

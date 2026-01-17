@@ -21,7 +21,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 columns: table => new
                 {
                     round_id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                 },
                 constraints: table =>
                 {
@@ -38,7 +38,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     type = table.Column<int>(type: "integer", nullable: false),
                     date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     message = table.Column<string>(type: "text", nullable: false),
-                    json = table.Column<JsonDocument>(type: "jsonb", nullable: false)
+                    json = table.Column<JsonDocument>(type: "jsonb", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -56,7 +56,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 columns: table => new
                 {
                     players_id = table.Column<int>(type: "integer", nullable: false),
-                    rounds_id = table.Column<int>(type: "integer", nullable: false)
+                    rounds_id = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -83,7 +83,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: true),
                     admin_log_id = table.Column<int>(type: "integer", nullable: true),
-                    admin_log_round_id = table.Column<int>(type: "integer", nullable: true)
+                    admin_log_round_id = table.Column<int>(type: "integer", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -101,7 +101,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 {
                     player_user_id = table.Column<Guid>(type: "uuid", nullable: false),
                     log_id = table.Column<int>(type: "integer", nullable: false),
-                    round_id = table.Column<int>(type: "integer", nullable: false)
+                    round_id = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {

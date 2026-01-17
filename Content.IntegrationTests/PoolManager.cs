@@ -101,7 +101,8 @@ public sealed class ContentPoolManager : PoolManager<TestPair>
                 .Append(typeof(PoolManager).Assembly)
                 .ToArray();
 
-        Startup([typeof(Client.Entry.EntryPoint).Assembly],
+        Startup(
+            [typeof(Client.Entry.EntryPoint).Assembly],
             [typeof(Server.Entry.EntryPoint).Assembly],
             shared);
     }

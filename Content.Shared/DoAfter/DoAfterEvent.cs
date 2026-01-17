@@ -58,7 +58,6 @@ public abstract partial class SimpleDoAfterEvent : DoAfterEvent
     // Alternatively, I just need to allow generics to be networked.
     // E.g., then a SimpleDoAfter<TEvent> would just raise a TEvent event.
     // But afaik generic event types currently can't be serialized for networking or YAML.
-
     public override DoAfterEvent Clone() => this;
 }
 

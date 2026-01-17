@@ -20,7 +20,7 @@ namespace Content.IntegrationTests.Tests.Commands
             await using var pair = await PoolManager.GetServerClient(new PoolSettings
             {
                 DummyTicker = false,
-                Dirty = true
+                Dirty = true,
             });
             var server = pair.Server;
 

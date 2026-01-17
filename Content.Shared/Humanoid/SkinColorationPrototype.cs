@@ -107,6 +107,7 @@ public sealed partial class HumanTonedSkinColoration : ISkinColorationStrategy
         var hue = Math.Round(colorValues.X * 360f);
         var sat = Math.Round(colorValues.Y * 100f);
         var val = Math.Round(colorValues.Z * 100f);
+
         // rangeOffset makes it so that this value
         // is 25 <= hue <= 45
         if (hue < 25f || hue > 45f)
@@ -140,7 +141,6 @@ public sealed partial class HumanTonedSkinColoration : ISkinColorationStrategy
         // 0 is 45 - 20 - 100
         // 20 is 25 - 20 - 100
         // 100 is 25 - 100 - 20
-
         var tone = Math.Clamp(color, 0f, 100f);
 
         var rangeOffset = tone - 20f;
@@ -165,6 +165,7 @@ public sealed partial class HumanTonedSkinColoration : ISkinColorationStrategy
     public float ToUnary(Color color)
     {
         var hsv = Color.ToHsv(color);
+
         // check for hue/value first, if hue is lower than this percentage
         // and value is 1.0
         // then it'll be hue
@@ -173,6 +174,7 @@ public sealed partial class HumanTonedSkinColoration : ISkinColorationStrategy
         {
             return Math.Abs(45 - (hsv.X * 360));
         }
+
         // otherwise it'll directly be the saturation
         else
         {

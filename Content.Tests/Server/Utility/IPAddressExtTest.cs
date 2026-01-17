@@ -53,6 +53,7 @@ namespace Content.Tests.Server.Utility
         [TestCase("2001:db8:abcd:0012::0/64", "2001:0DB8:ABCD:0011:FFFF:FFFF:FFFF:FFF0")]
         [TestCase("2001:db8:abcd:0012::0/128", "2001:0DB8:ABCD:0012:0000:0000:0000:0001")]
         [TestCase("2001:db8:abcd:0012::0/128", "10.128.239.50")]
+
         // ReSharper restore StringLiteralTypo
         public void IpV6SubnetMaskDoesNotMatchInvalidIpAddress(string netMask, string ipAddress)
         {

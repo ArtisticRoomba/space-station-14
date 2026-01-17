@@ -199,6 +199,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
             TryFree(ent, ent, ensnare, ensnaringComponent);
 
             args.Handled = true;
+
             // Only one snare at a time.
             break;
         }

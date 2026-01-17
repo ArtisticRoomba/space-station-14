@@ -104,6 +104,7 @@ namespace Content.Shared.Containers.ItemSlots
                     Log.Error(
                         $"Duplicate item slot key. Entity: {Comp<MetaDataComponent>(uid).EntityName} ({uid}), key: {id}");
                 else
+
                     // server state takes priority
                     slot.CopyFrom(existing);
             }
@@ -292,6 +293,7 @@ namespace Content.Shared.Containers.ItemSlots
             bool excludeUserAudio = false)
         {
             bool? inserted = slot.ContainerSlot != null ? _containers.Insert(item, slot.ContainerSlot) : null;
+
             // ContainerSlot automatically raises a directed EntInsertedIntoContainerMessage
 
             // Logging
@@ -543,6 +545,7 @@ namespace Content.Shared.Containers.ItemSlots
         private void Eject(EntityUid uid, ItemSlot slot, EntityUid item, EntityUid? user, bool excludeUserAudio = false)
         {
             bool? ejected = slot.ContainerSlot != null ? _containers.Remove(item, slot.ContainerSlot) : null;
+
             // ContainerSlot automatically raises a directed EntRemovedFromContainerMessage
 
             // Logging
@@ -688,6 +691,7 @@ namespace Content.Shared.Containers.ItemSlots
             foreach (var slot in itemSlots.Slots.Values)
             {
                 if (slot.EjectOnInteract || slot.DisableEject)
+
                     // For this item slot, ejecting/inserting is a primary interaction. Instead of an eject category
                     // alt-click verb, there will be a "Take item" primary interaction verb.
                     continue;

@@ -46,6 +46,7 @@ public sealed class SolutionRegenerationSystem : EntitySystem
 
             // timer ignores if its full, it's just a fixed cycle
             regen.NextRegenTime += regen.Duration;
+
             // Needs to be networked and dirtied so that the client can reroll it during prediction
             Dirty(uid, regen);
             if (!_solutionContainer.ResolveSolution((uid, manager),

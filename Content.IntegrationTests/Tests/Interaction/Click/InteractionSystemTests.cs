@@ -237,7 +237,6 @@ namespace Content.IntegrationTests.Tests.Interaction.Click
             await pair.CleanReturnAsync();
         }
 
-
         [Test]
         public async Task InteractionOutOfRangeTest()
         {
@@ -409,6 +408,5 @@ namespace Content.IntegrationTests.Tests.Interaction.Click
                 InteractHandEvent = null;
             }
         }
-
     }
 }

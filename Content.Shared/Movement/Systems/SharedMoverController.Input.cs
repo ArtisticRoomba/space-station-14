@@ -43,6 +43,7 @@ namespace Content.Shared.Movement.Systems
                 .Bind(EngineKeyFunctions.CameraRotateLeft, new CameraRotateInputCmdHandler(this, Direction.East))
                 .Bind(EngineKeyFunctions.CameraRotateRight, new CameraRotateInputCmdHandler(this, Direction.West))
                 .Bind(EngineKeyFunctions.CameraReset, new CameraResetInputCmdHandler(this))
+
                 // TODO: Relay
                 // Shuttle
                 .Bind(ContentKeyFunctions.ShuttleStrafeUp, new ShuttleInputCmdHandler(this, ShuttleButtons.StrafeUp))
@@ -151,7 +152,7 @@ namespace Content.Shared.Movement.Systems
 
         public bool DiagonalMovementEnabled { get; private set; }
 
-        protected virtual void HandleShuttleInput(EntityUid uid, ShuttleButtons button, ushort subTick, bool state) {}
+        protected virtual void HandleShuttleInput(EntityUid uid, ShuttleButtons button, ushort subTick, bool state) { }
 
         public void RotateCamera(EntityUid uid, Angle angle)
         {
@@ -188,7 +189,6 @@ namespace Content.Shared.Movement.Systems
             // 1. If we go from grid to map then preserve our rotation and continue as usual
             // 2. If we go from grid -> grid then (after lerp time) snap to nearest cardinal (probably imperceptible)
             // 3. If we go from map -> grid then (after lerp time) snap to nearest cardinal
-
             if (mover.RelativeEntity.Equals(relative))
                 return false;
 
@@ -216,6 +216,7 @@ namespace Content.Shared.Movement.Systems
             {
                 mover.TargetRelativeRotation -= diff;
             }
+
             // Snap to nearest cardinal if map -> grid or grid -> grid
             else if (MapGridQuery.HasComp(relative) && (MapQuery.HasComp(mover.RelativeEntity) || MapGridQuery.HasComp(mover.RelativeEntity)))
             {
@@ -424,7 +425,6 @@ namespace Content.Shared.Movement.Systems
         public void SetVelocityDirection(Entity<InputMoverComponent> entity, Direction direction, ushort subTick, bool enabled)
         {
             // Logger.Info($"[{_gameTiming.CurTick}/{subTick}] {direction}: {enabled}");
-
             var bit = direction switch
             {
                 Direction.East => MoveButtons.Right,
@@ -480,7 +480,6 @@ namespace Content.Shared.Movement.Systems
         public virtual void SetSprinting(Entity<InputMoverComponent> entity, ushort subTick, bool walking)
         {
             // Logger.Info($"[{_gameTiming.CurTick}/{subTick}] Sprint: {enabled}");
-
             SetMoveInput(entity, subTick, walking, MoveButtons.Walk);
         }
 
@@ -492,7 +491,6 @@ namespace Content.Shared.Movement.Systems
             // key directions are in screen coordinates
             // _moveDir is in world coordinates
             // if the camera is moved, this needs to be changed
-
             var x = 0;
             x -= HasFlag(buttons, MoveButtons.Left) ? 1 : 0;
             x += HasFlag(buttons, MoveButtons.Right) ? 1 : 0;

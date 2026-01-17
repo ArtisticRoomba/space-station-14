@@ -76,9 +76,10 @@ namespace Content.IntegrationTests.Tests.Access
                 system.TryClearAccesses(reader);
 
                 // test two list
-                var accesses = new List<HashSet<ProtoId<AccessLevelPrototype>>>() {
-                    new HashSet<ProtoId<AccessLevelPrototype>> () { "A" },
-                    new HashSet<ProtoId<AccessLevelPrototype>> () { "B", "C" }
+                var accesses = new List<HashSet<ProtoId<AccessLevelPrototype>>>()
+                {
+                    new HashSet<ProtoId<AccessLevelPrototype>>() { "A" },
+                    new HashSet<ProtoId<AccessLevelPrototype>>() { "B", "C" },
                 };
                 system.TryAddAccesses(reader, accesses);
                 Assert.Multiple(() =>
@@ -107,6 +108,5 @@ namespace Content.IntegrationTests.Tests.Access
             });
             await pair.CleanReturnAsync();
         }
-
     }
 }

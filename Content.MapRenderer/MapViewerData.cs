@@ -26,7 +26,7 @@ public sealed class GridLayer
 
     public GridLayer(RenderedGridImage<Rgba32> gridImage, string url)
     {
-        //Get the internal _uid as string
+        // Get the internal _uid as string
         if (gridImage.GridUid.HasValue)
             GridId = gridImage.GridUid.Value.GetHashCode().ToString();
 
@@ -65,15 +65,15 @@ public sealed class LayerGroup
                 {
                     Url = output.ReferenceResourceFile(resourceManager, new ResPath("/Textures/Parallaxes/layer2.png")),
                     Composition = "lighter",
-                    ParallaxScale = new Position(0.2f, 0.2f)
+                    ParallaxScale = new Position(0.2f, 0.2f),
                 },
                 new()
                 {
                     Url = output.ReferenceResourceFile(resourceManager, new ResPath("/Textures/Parallaxes/layer3.png")),
                     Composition = "lighter",
-                    ParallaxScale = new Position(0.3f, 0.3f)
-                }
-            }
+                    ParallaxScale = new Position(0.3f, 0.3f),
+                },
+            },
         };
     }
 }

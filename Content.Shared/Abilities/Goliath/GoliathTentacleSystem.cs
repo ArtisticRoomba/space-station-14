@@ -32,7 +32,6 @@ public sealed class GoliathTentacleSystem : EntitySystem
             return;
 
         // TODO: animation
-
         _popup.PopupPredicted(Loc.GetString("tentacle-ability-use-popup", ("entity", args.Performer)), args.Performer, args.Performer, type: PopupType.SmallCaution);
         _stun.TryAddStunDuration(args.Performer, TimeSpan.FromSeconds(0.8f));
 

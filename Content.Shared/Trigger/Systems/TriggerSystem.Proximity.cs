@@ -11,6 +11,7 @@ public sealed partial class TriggerSystem
         SubscribeLocalEvent<TriggerOnProximityComponent, StartCollideEvent>(OnProximityStartCollide);
         SubscribeLocalEvent<TriggerOnProximityComponent, EndCollideEvent>(OnProximityEndCollide);
         SubscribeLocalEvent<TriggerOnProximityComponent, MapInitEvent>(OnMapInit);
+
         // Shouldn't need re-anchoring.
         SubscribeLocalEvent<TriggerOnProximityComponent, AnchorStateChangedEvent>(OnProximityAnchor);
     }
@@ -25,6 +26,7 @@ public sealed partial class TriggerSystem
         {
             ent.Comp.Colliding.Clear();
         }
+
         // Re-check for contacts as we cleared them.
         else if (TryComp<PhysicsComponent>(ent, out var body))
         {
@@ -117,6 +119,7 @@ public sealed partial class TriggerSystem
                 continue;
 
             if (curTime < trigger.NextTrigger)
+
                 // The trigger's on cooldown.
                 continue;
 

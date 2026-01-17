@@ -24,8 +24,8 @@ public abstract partial class SharedMapTextComponent : Component
     /// </summary>
     [DataField]
     public LocId LocText = "map-text-default";
-    // TODO VV: LocId editing
 
+    // TODO VV: LocId editing
     [DataField]
     public Color Color = Color.White;
 

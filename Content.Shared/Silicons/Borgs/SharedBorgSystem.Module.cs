@@ -175,6 +175,7 @@ public abstract partial class SharedBorgSystem
                 if (module.Comp.StoredItems.TryGetValue(handId, out var storedItem))
                 {
                     item = storedItem;
+
                     // DoPickup handles removing the item from the container.
                 }
             }

@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore.Design;
 using SQLitePCL;
 
 // ReSharper disable UnusedType.Global
-
 namespace Content.Server.Database;
 
 public sealed class DesignTimeContextFactoryPostgres : IDesignTimeDbContextFactory<PostgresServerDbContext>

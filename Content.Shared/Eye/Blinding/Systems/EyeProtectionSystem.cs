@@ -1,9 +1,9 @@
-using Content.Shared.StatusEffect;
-using Content.Shared.Inventory;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Tools.Components;
-using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Clothing.Components;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Inventory;
+using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.Tools.Components;
 
 namespace Content.Shared.Eye.Blinding.Systems
 {

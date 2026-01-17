@@ -23,7 +23,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     exempt_flags = table.Column<int>(type: "INTEGER", nullable: false),
                     severity = table.Column<int>(type: "INTEGER", nullable: false),
                     auto_delete = table.Column<bool>(type: "INTEGER", nullable: false),
-                    hidden = table.Column<bool>(type: "INTEGER", nullable: false)
+                    hidden = table.Column<bool>(type: "INTEGER", nullable: false),
                 },
                 constraints: table =>
                 {

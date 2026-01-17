@@ -85,6 +85,7 @@ public abstract partial class SharedXenoArtifactSystem
                     x => predecessorNodeIndices.Contains(x) || successorNodeIndices.Contains(x)
                 )
                )
+
                 // we add time on each new trigger, if it is not going to fail us
                 unlockingComp.EndTime += ent.Comp.UnlockStateIncrementPerNode;
         }

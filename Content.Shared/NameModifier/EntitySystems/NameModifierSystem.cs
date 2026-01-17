@@ -73,10 +73,12 @@ public sealed class NameModifierSystem : EntitySystem
 
             // Restore the base name
             _metaData.SetEntityName(entity, entity.Comp.BaseName, meta, raiseEvents: false);
+
             // The component isn't doing anything anymore, so remove it
             RemComp<NameModifierComponent>(entity);
             return;
         }
+
         // We have at least one modifier, so we need to apply it to the entity.
 
         // Get the final name with modifiers applied
@@ -143,9 +145,11 @@ public sealed class RefreshNameModifiersEvent : IInventoryRelayEvent
         {
             // Grab any extra args needed by the Loc string
             var args = modifier.ExtraArgs;
+
             // Add the current version of the entity name as an arg
             Array.Resize(ref args, args.Length + 1);
             args[^1] = ("baseName", name);
+
             // Resolve the Loc string and use the result as the base in the next iteration.
             name = Loc.GetString(modifier.LocId, args);
         }

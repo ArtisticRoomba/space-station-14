@@ -77,6 +77,7 @@ public sealed partial class DoAfterArgs
     #endregion
 
     #region Break/Cancellation Options
+
     // Break the chains
     /// <summary>
     ///     Whether or not this do after requires the user to have hands.

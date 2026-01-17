@@ -32,7 +32,7 @@ public sealed partial class MindTests
         {
             DummyTicker = false,
             Connected = true,
-            Dirty = dirty
+            Dirty = dirty,
         });
 
         var entMan = pair.Server.ResolveDependency<IServerEntityManager>();
@@ -92,7 +92,6 @@ public sealed partial class MindTests
             mindSys.TransferTo(mindId, ghostUid);
             if (oldUid != null)
                 entMan.DeleteEntity(oldUid.Value);
-
         });
 
         await pair.RunTicksSync(5);

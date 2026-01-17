@@ -21,7 +21,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     server_ban_hit_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ban_id = table.Column<int>(type: "INTEGER", nullable: false),
-                    connection_id = table.Column<int>(type: "INTEGER", nullable: false)
+                    connection_id = table.Column<int>(type: "INTEGER", nullable: false),
                 },
                 constraints: table =>
                 {

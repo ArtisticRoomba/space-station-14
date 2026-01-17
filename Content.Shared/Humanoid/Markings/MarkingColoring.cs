@@ -95,7 +95,7 @@ public sealed partial class LayerColoringDefinition
     ///     Coloring types that will be used if main coloring type will return nil
     /// </summary>
     [DataField("fallbackTypes")]
-    public List<LayerColoringType> FallbackTypes = new() {};
+    public List<LayerColoringType> FallbackTypes = new() { };
 
     /// <summary>
     ///     Color that will be used if coloring type and fallback type will return nil
@@ -135,6 +135,7 @@ public abstract partial class LayerColoringType
     public Color? GetColor(Color? skin, Color? eyes, MarkingSet markingSet)
     {
         var color = GetCleanColor(skin, eyes, markingSet);
+
         // Negative color
         if (color != null && Negative)
         {

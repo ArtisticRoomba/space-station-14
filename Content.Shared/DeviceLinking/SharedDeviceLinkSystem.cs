@@ -384,7 +384,6 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
         DeviceLinkSinkComponent sinkComponent)
     {
         // This function gets called on component removal. Beware that TryComp & Resolve may return false.
-
         if (sourceComponent.LinkedPorts.TryGetValue(sinkUid, out var ports))
         {
             foreach (var (sourcePort, sinkPort) in ports)

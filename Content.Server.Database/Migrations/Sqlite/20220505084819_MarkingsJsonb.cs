@@ -30,7 +30,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 table: "profile",
                 type: "TEXT",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: string.Empty);
         }
     }
 }

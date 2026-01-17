@@ -5,7 +5,6 @@ using Content.Shared.Storage;
 namespace Content.Shared.Magic.Events;
 
 // TODO: This class needs combining with InstantSpawnSpellEvent
-
 public sealed partial class WorldSpawnSpellEvent : WorldTargetActionEvent
 {
     /// <summary>

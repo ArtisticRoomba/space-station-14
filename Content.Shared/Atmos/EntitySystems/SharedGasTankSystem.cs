@@ -163,6 +163,7 @@ public abstract class SharedGasTankSystem : EntitySystem
             return false;
 
         user ??= ent.Comp.User;
+
         // Check if the gas tank's user actually has the component that allows them to use a gas tank and mask
         if (TryComp<InternalsComponent>(user, out var userInternalsComp))
         {

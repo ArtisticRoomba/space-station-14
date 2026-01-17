@@ -204,7 +204,7 @@ namespace Content.IntegrationTests.Tests.Power
                 consumer2.DrawRate = loadPower;
             });
 
-            server.RunTicks(1); //let run a tick for PowerNet to process power
+            server.RunTicks(1); // let run a tick for PowerNet to process power
 
             await server.WaitAssertion(() =>
             {
@@ -221,7 +221,6 @@ namespace Content.IntegrationTests.Tests.Power
 
             await pair.CleanReturnAsync();
         }
-
 
         /// <summary>
         ///     Test small power net with a simple deficit of power over the loads.
@@ -266,7 +265,7 @@ namespace Content.IntegrationTests.Tests.Power
                 consumer2.DrawRate = loadPower * 2;
             });
 
-            server.RunTicks(1); //let run a tick for PowerNet to process power
+            server.RunTicks(1); // let run a tick for PowerNet to process power
 
             await server.WaitAssertion(() =>
             {
@@ -322,7 +321,7 @@ namespace Content.IntegrationTests.Tests.Power
             });
 
             // Exact values can/will be off by a tick, add tolerance for that.
-            var tickPeriod = (float) gameTiming.TickPeriod.TotalSeconds;
+            var tickPeriod = (float)gameTiming.TickPeriod.TotalSeconds;
             var tickDev = 400 * tickPeriod * 1.1f;
 
             server.RunTicks(1);
@@ -338,7 +337,7 @@ namespace Content.IntegrationTests.Tests.Power
             });
 
             // run for 0.25 seconds (minus the previous tick)
-            var ticks = (int) Math.Round(0.25 * gameTiming.TickRate) - 1;
+            var ticks = (int)Math.Round(0.25 * gameTiming.TickRate) - 1;
             server.RunTicks(ticks);
 
             await server.WaitAssertion(() =>
@@ -352,10 +351,8 @@ namespace Content.IntegrationTests.Tests.Power
                 });
             });
 
-
-
             // run for 0.75 seconds
-            ticks = (int) Math.Round(0.75 * gameTiming.TickRate);
+            ticks = (int)Math.Round(0.75 * gameTiming.TickRate);
             server.RunTicks(ticks);
 
             await server.WaitAssertion(() =>
@@ -418,7 +415,7 @@ namespace Content.IntegrationTests.Tests.Power
             });
 
             // Exact values can/will be off by a tick, add tolerance for that.
-            var tickPeriod = (float) gameTiming.TickPeriod.TotalSeconds;
+            var tickPeriod = (float)gameTiming.TickPeriod.TotalSeconds;
             var tickDev = 400 * tickPeriod * 1.1f;
 
             server.RunTicks(1);
@@ -434,7 +431,7 @@ namespace Content.IntegrationTests.Tests.Power
             });
 
             // run for 0.25 seconds (minus the previous tick)
-            var ticks = (int) Math.Round(0.25 * gameTiming.TickRate) - 1;
+            var ticks = (int)Math.Round(0.25 * gameTiming.TickRate) - 1;
             server.RunTicks(ticks);
 
             await server.WaitAssertion(() =>
@@ -454,7 +451,7 @@ namespace Content.IntegrationTests.Tests.Power
             });
 
             // run for 0.75 seconds
-            ticks = (int) Math.Round(0.75 * gameTiming.TickRate);
+            ticks = (int)Math.Round(0.75 * gameTiming.TickRate);
             server.RunTicks(ticks);
 
             await server.WaitAssertion(() =>
@@ -467,7 +464,7 @@ namespace Content.IntegrationTests.Tests.Power
                     Assert.That(consumer.ReceivedPower, Is.EqualTo(400).Within(tickDev));
 
                     // Trivial integral to calculate expected power spent.
-                    const double spentExpected = (400 + 100) / 2.0 * 0.75 + 400 * 0.25;
+                    const double spentExpected = ((400 + 100) / 2.0 * 0.75) + (400 * 0.25);
                     var currentCharge = batterySys.GetCharge((generatorEnt, battery));
                     Assert.That(currentCharge, Is.EqualTo(startingCharge - spentExpected).Within(tickDev));
                 });
@@ -480,7 +477,6 @@ namespace Content.IntegrationTests.Tests.Power
         public async Task TestNoDemandRampdown()
         {
             // checks that batteries and supplies properly ramp down if the load is disconnected/disabled.
-
             await using var pair = await PoolManager.GetServerClient();
             var server = pair.Server;
             var mapManager = server.ResolveDependency<IMapManager>();
@@ -617,7 +613,7 @@ namespace Content.IntegrationTests.Tests.Power
             });
 
             // run for 0.5 seconds
-            var ticks = (int) Math.Round(0.5 * gameTiming.TickRate);
+            var ticks = (int)Math.Round(0.5 * gameTiming.TickRate);
             server.RunTicks(ticks);
 
             await server.WaitAssertion(() =>
@@ -693,7 +689,7 @@ namespace Content.IntegrationTests.Tests.Power
             server.RunTicks(gameTiming.TickRate);
 
             // Exact values can/will be off by a tick, add tolerance for that.
-            var tickPeriod = (float) gameTiming.TickPeriod.TotalSeconds;
+            var tickPeriod = (float)gameTiming.TickPeriod.TotalSeconds;
             var tickDev = 400 * tickPeriod * 1.1f;
 
             await server.WaitAssertion(() =>
@@ -777,7 +773,7 @@ namespace Content.IntegrationTests.Tests.Power
             server.RunTicks(gameTiming.TickRate);
 
             // Exact values can/will be off by a tick, add tolerance for that.
-            var tickPeriod = (float) gameTiming.TickPeriod.TotalSeconds;
+            var tickPeriod = (float)gameTiming.TickPeriod.TotalSeconds;
             var tickDev = 400 * tickPeriod * 1.1f;
 
             await server.WaitAssertion(() =>
@@ -855,7 +851,6 @@ namespace Content.IntegrationTests.Tests.Power
                 // so *effectively* it needs 2x as much power from the supply to run.
                 // Assert that both are getting 50% power.
                 // Batteries are empty and only a bridge.
-
                 consumer1.DrawRate = 500;
                 consumer2.DrawRate = 1000;
                 supplier.MaxSupply = 1000;
@@ -951,7 +946,6 @@ namespace Content.IntegrationTests.Tests.Power
 
                 // Consumer wants 2k, supplies can only provide 1k (500 each). Expectation is that batteries will only provide the necessary remaining 1k (500 each).
                 // Previously this failed with a 2x 333 w supplies and 2x 666 w batteries.
-
                 consumer.DrawRate = 2000;
 
                 supplier1.MaxSupply = 500;
@@ -1145,6 +1139,7 @@ namespace Content.IntegrationTests.Tests.Power
 
                 // Cut off the supplier
                 supplier.Enabled = false;
+
                 // Remove tolerance on battery too.
                 netBattery.SupplyRampTolerance = 5;
             });
@@ -1204,11 +1199,13 @@ namespace Content.IntegrationTests.Tests.Power
                 var battery = entityManager.SpawnEntity("FullBatteryDummy", grid.Owner.ToCoordinates(0, 2));
                 var batteryNodeContainer = entityManager.GetComponent<NodeContainerComponent>(battery);
 
-                if (nodeContainer.TryGetNode<CableNode>(entityManager.GetComponent<NodeContainerComponent>(leftEnt),
-                        "power", out var leftN))
+                if (nodeContainer.TryGetNode<CableNode>(
+                    entityManager.GetComponent<NodeContainerComponent>(leftEnt),
+                    "power", out var leftN))
                     leftNode = leftN;
-                if (nodeContainer.TryGetNode<CableNode>(entityManager.GetComponent<NodeContainerComponent>(rightEnt),
-                        "power", out var rightN))
+                if (nodeContainer.TryGetNode<CableNode>(
+                    entityManager.GetComponent<NodeContainerComponent>(rightEnt),
+                    "power", out var rightN))
                     rightNode = rightN;
 
                 if (nodeContainer.TryGetNode<Node>(batteryNodeContainer, "input", out var nInput))
@@ -1279,15 +1276,15 @@ namespace Content.IntegrationTests.Tests.Power
                 batterySys.SetCharge((apcEnt, apcBattery), 0);
             });
 
-            server.RunTicks(5); //let run a few ticks for PowerNets to reevaluate and start charging apc
+            server.RunTicks(5); // let run a few ticks for PowerNets to reevaluate and start charging apc
 
             await server.WaitAssertion(() =>
             {
                 Assert.Multiple(() =>
                 {
                     var currentCharge = batterySys.GetCharge((apcEnt, apcBattery));
-                    Assert.That(substationNetBattery.CurrentSupply, Is.GreaterThan(0)); //substation should be providing power
-                    Assert.That(currentCharge, Is.GreaterThan(0)); //apc battery should have gained charge
+                    Assert.That(substationNetBattery.CurrentSupply, Is.GreaterThan(0)); // substation should be providing power
+                    Assert.That(currentCharge, Is.GreaterThan(0)); // apc battery should have gained charge
                 });
             });
 
@@ -1338,13 +1335,13 @@ namespace Content.IntegrationTests.Tests.Power
                 extensionCableSystem.SetProviderTransferRange(apcExtensionEnt, range);
                 extensionCableSystem.SetReceiverReceptionRange(powerReceiverEnt, range);
 
-                batterySys.SetMaxCharge((apcEnt, battery), 10000);  //arbitrary nonzero amount of charge
-                batterySys.SetCharge((apcEnt, battery), battery.MaxCharge); //fill battery
+                batterySys.SetMaxCharge((apcEnt, battery), 10000);  // arbitrary nonzero amount of charge
+                batterySys.SetCharge((apcEnt, battery), battery.MaxCharge); // fill battery
 
-                receiver.Load = 1; //arbitrary small amount of power
+                receiver.Load = 1; // arbitrary small amount of power
             });
 
-            server.RunTicks(1); //let run a tick for ApcNet to process power
+            server.RunTicks(1); // let run a tick for ApcNet to process power
 
             await server.WaitAssertion(() =>
             {
@@ -1358,6 +1355,5 @@ namespace Content.IntegrationTests.Tests.Power
 
             await pair.CleanReturnAsync();
         }
-
     }
 }

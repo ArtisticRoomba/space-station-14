@@ -53,7 +53,8 @@ namespace Content.Tests.Shared.Gamestates
         {
             protected override IEnumerable<string> TypePrefixes => Prefixes;
 
-            private static readonly string[] Prefixes = {
+            private static readonly string[] Prefixes =
+            {
                 "",
 
                 "Robust.Client.",

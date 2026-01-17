@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using YamlDotNet.RepresentationModel;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Shuttles.Components;
@@ -24,6 +23,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using YamlDotNet.RepresentationModel;
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
@@ -35,13 +35,13 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] NoSpawnMaps =
         {
             "CentComm",
-            "Dart"
+            "Dart",
         };
 
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
-            AdminTestArenaSystem.ArenaMapPath
+            AdminTestArenaSystem.ArenaMapPath,
         };
 
         /// <summary>
@@ -54,12 +54,12 @@ namespace Content.IntegrationTests.Tests
         /// </remarks>
         private static readonly Dictionary<string, HashSet<EntProtoId>> DoNotMapWhitelistSpecific = new()
         {
-            {"/Maps/bagel.yml", ["RubberStampMime"]},
-            {"/Maps/reach.yml", ["HandheldCrewMonitor"]},
-            {"/Maps/Shuttles/ShuttleEvent/honki.yml", ["GoldenBikeHorn", "RubberStampClown"]},
-            {"/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", ["RubberStampSyndicate"]},
-            {"/Maps/Shuttles/ShuttleEvent/cruiser.yml", ["ShuttleGunPerforator"]},
-            {"/Maps/Shuttles/ShuttleEvent/instigator.yml", ["ShuttleGunFriendship"]},
+            { "/Maps/bagel.yml", ["RubberStampMime"] },
+            { "/Maps/reach.yml", ["HandheldCrewMonitor"] },
+            { "/Maps/Shuttles/ShuttleEvent/honki.yml", ["GoldenBikeHorn", "RubberStampClown"] },
+            { "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", ["RubberStampSyndicate"] },
+            { "/Maps/Shuttles/ShuttleEvent/cruiser.yml", ["ShuttleGunPerforator"] },
+            { "/Maps/Shuttles/ShuttleEvent/instigator.yml", ["ShuttleGunFriendship"] },
         };
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
-            "/Maps/Shuttles/AdminSpawn/**" // admin gaming
+            "/Maps/Shuttles/AdminSpawn/**", // admin gaming
         };
 
         /// <summary>
@@ -173,14 +173,17 @@ namespace Content.IntegrationTests.Tests
                         mapSystem.CreateMap(out var mapId);
                         try
                         {
-                            Assert.That(mapLoader.TryLoadGrid(mapId, path, out _),
+                            Assert.That(
+                                mapLoader.TryLoadGrid(mapId, path, out _),
                                 $"Failed to load shuttle {path}, was it saved as a map instead of a grid?");
                         }
                         catch (Exception ex)
                         {
-                            throw new Exception($"Failed to load shuttle {path}, was it saved as a map instead of a grid?",
+                            throw new Exception(
+                                $"Failed to load shuttle {path}, was it saved as a map instead of a grid?",
                                 ex);
                         }
+
                         mapSystem.DeleteMap(mapId);
                     }
                 });
@@ -308,7 +311,8 @@ namespace Content.IntegrationTests.Tests
                     if (!protoManager.TryIndex(protoId, out var proto))
                         continue;
 
-                    Assert.That(!proto.Categories.Contains(dnmCategory) || IsWhitelistedForMap(protoId, map),
+                    Assert.That(
+                        !proto.Categories.Contains(dnmCategory) || IsWhitelistedForMap(protoId, map),
                         $"\nMap {map} contains entities in the DO NOT MAP category ({proto.Name})");
 
                     // The proto id is used on this map, so remove it from the set
@@ -321,7 +325,8 @@ namespace Content.IntegrationTests.Tests
                 $"Map {map} has DO NOT MAP entities whitelisted that are not present in the map: {string.Join(", ", unusedExemptions)}");
         }
 
-        private bool IsPreInit(ResPath map,
+        private bool IsPreInit(
+            ResPath map,
             MapLoaderSystem loader,
             IDependencyCollection deps,
             Dictionary<string, string> renamedPrototypes,
@@ -333,7 +338,8 @@ namespace Content.IntegrationTests.Tests
                 return false;
             }
 
-            var reader = new EntityDeserializer(deps,
+            var reader = new EntityDeserializer(
+                deps,
                 data,
                 DeserializationOptions.Default,
                 renamedPrototypes,
@@ -360,7 +366,7 @@ namespace Content.IntegrationTests.Tests
         {
             await using var pair = await PoolManager.GetServerClient(new PoolSettings
             {
-                Dirty = true // Stations spawn a bunch of nullspace entities and maps like centcomm.
+                Dirty = true, // Stations spawn a bunch of nullspace entities and maps like centcomm.
             });
             var server = pair.Server;
 
@@ -417,11 +423,13 @@ namespace Content.IntegrationTests.Tests
                 if (entManager.TryGetComponent<StationEmergencyShuttleComponent>(station, out var stationEvac))
                 {
                     var shuttlePath = stationEvac.EmergencyShuttlePath;
-                    Assert.That(mapLoader.TryLoadGrid(shuttleMap, shuttlePath, out var shuttle),
+                    Assert.That(
+                        mapLoader.TryLoadGrid(shuttleMap, shuttlePath, out var shuttle),
                         $"Failed to load {shuttlePath}");
 
                     Assert.That(
-                        shuttleSystem.TryFTLDock(shuttle!.Value.Owner,
+                        shuttleSystem.TryFTLDock(
+                            shuttle!.Value.Owner,
                             entManager.GetComponent<ShuttleComponent>(shuttle!.Value.Owner),
                             targetGrid.Value),
                         $"Unable to dock {shuttlePath} to {mapProto}");
@@ -475,8 +483,6 @@ namespace Content.IntegrationTests.Tests
 
             await pair.CleanReturnAsync();
         }
-
-
 
         private static int GetCountLateSpawn<T>(List<EntityUid> gridUids, IEntityManager entManager)
             where T : ISpawnPoint, IComponent
@@ -552,6 +558,7 @@ namespace Content.IntegrationTests.Tests
                 {
                     continue;
                 }
+
                 mapPaths.Add(rootedPath);
             }
 
@@ -567,7 +574,7 @@ namespace Content.IntegrationTests.Tests
                         {
                             InitializeMaps = true,
                             LogOrphanedGrids = false
-                        }
+                        },
                     };
 
                     HashSet<Entity<MapComponent>> maps;

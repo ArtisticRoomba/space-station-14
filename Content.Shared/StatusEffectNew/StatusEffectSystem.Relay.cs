@@ -55,6 +55,7 @@ public sealed partial class StatusEffectsSystem
         {
             RaiseLocalEvent(activeEffect, ref ev);
         }
+
         // and now we copy it back
         args = ev.Args;
     }

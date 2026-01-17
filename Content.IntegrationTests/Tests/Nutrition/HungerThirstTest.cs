@@ -72,7 +72,8 @@ public sealed class HungerThirstTest : InteractionTest
         var drink = await PlaceInHands(_drink);
 
         // Get the solution that can be consumed
-        Assert.That(ingestionSystem.CanConsume(SPlayer, SPlayer, ToServer(drink), out var solution, out _),
+        Assert.That(
+            ingestionSystem.CanConsume(SPlayer, SPlayer, ToServer(drink), out var solution, out _),
             "Unable to get the solution or the entity can not be consumed");
 
         // Find the initial amount of solution in the drink

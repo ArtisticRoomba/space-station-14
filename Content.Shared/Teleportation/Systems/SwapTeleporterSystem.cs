@@ -147,6 +147,7 @@ public sealed class SwapTeleporterSystem : EntitySystem
         comp.TeleportTime = null;
 
         Dirty(uid, comp);
+
         // We can't run the teleport logic on the client due to PVS range issues.
         if (_net.IsClient || comp.LinkedEnt is not { } linkedEnt)
             return;
@@ -213,7 +214,7 @@ public sealed class SwapTeleporterSystem : EntitySystem
         else
             _popup.PopupEntity(Loc.GetString("swap-teleporter-popup-link-destroyed"), ent);
 
-        if (linkedNullable is {} linked)
+        if (linkedNullable is { } linked)
             DestroyLink(linked, user); // the linked one is shown globally
     }
 

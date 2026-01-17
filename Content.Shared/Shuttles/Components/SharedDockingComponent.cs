@@ -4,7 +4,6 @@ namespace Content.Shared.Shuttles.Components
     {
         // Yes I left this in for now because there's no overhead and we'll need a client one later anyway
         // and I was too lazy to delete it.
-
         public abstract bool Docked { get; }
     }
 }

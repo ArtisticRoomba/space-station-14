@@ -22,6 +22,7 @@ public sealed partial class TriggerOnStrappedOrBuckledSystem : TriggerOnXSystem
 
 
     #region Class Methods
+
     // Called by objects entities can be buckled to. (Chairs, surgical tables/)
     private void OnStrapped(Entity<TriggerOnStrappedComponent> ent, ref StrappedEvent args)
     {

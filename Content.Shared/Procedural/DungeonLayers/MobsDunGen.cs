@@ -11,7 +11,6 @@ namespace Content.Shared.Procedural.DungeonLayers;
 public sealed partial class MobsDunGen : IDunGenLayer
 {
     // Counts separate to config to avoid some duplication.
-
     [DataField]
     public int MinCount = 1;
 

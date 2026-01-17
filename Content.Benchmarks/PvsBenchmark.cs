@@ -25,7 +25,6 @@ namespace Content.Benchmarks;
 // in a real mid-late game round, this is probably no longer the case.
 // One way to somewhat offset this is to update the NetEntity assignment to assign random (but still unique) NetEntity uids to entities.
 // This makes the benchmark run noticeably slower.
-
 [Virtual]
 public class PvsBenchmark
 {
@@ -67,7 +66,7 @@ public class PvsBenchmark
         await _pair.Server.WaitPost(() =>
         {
             var path = new ResPath(Map);
-            var opts = DeserializationOptions.Default with {InitializeMaps = true};
+            var opts = DeserializationOptions.Default with { InitializeMaps = true };
             if (!_entMan.System<MapLoaderSystem>().TryLoadMap(path, out _, out _, opts))
                 throw new Exception("Map load failed");
         });
@@ -88,7 +87,7 @@ public class PvsBenchmark
             for (var i = 0; i < PlayerCount; i++)
             {
                 var pos = _spawns[i % _spawns.Length];
-                var uid =_entMan.SpawnEntity("MobHuman", pos);
+                var uid = _entMan.SpawnEntity("MobHuman", pos);
                 _pair.Server.ConsoleHost.ExecuteCommand($"setoutfit {_entMan.GetNetEntity(uid)} CaptainGear");
                 mind.ControlMob(_players[i].UserId, uid);
             }

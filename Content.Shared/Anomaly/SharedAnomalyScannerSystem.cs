@@ -35,6 +35,7 @@ public abstract class SharedAnomalyScannerSystem : EntitySystem
                 continue;
 
             UI.CloseUi(uid, AnomalyScannerUiKey.Key);
+
             // Anomaly over, reset all the appearance data
             Appearance.SetData(uid, AnomalyScannerVisuals.HasAnomaly, false);
             Appearance.SetData(uid, AnomalyScannerVisuals.AnomalyIsSupercritical, false);

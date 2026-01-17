@@ -16,7 +16,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     trait_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     profile_id = table.Column<int>(type: "integer", nullable: false),
-                    trait_name = table.Column<string>(type: "text", nullable: false)
+                    trait_name = table.Column<string>(type: "text", nullable: false),
                 },
                 constraints: table =>
                 {

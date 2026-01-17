@@ -22,7 +22,8 @@ public sealed class CommandLineArguments
         if (args.Count == 0)
         {
             PrintHelp();
-            //Returns true here so the user can select what maps they want to render
+
+            // Returns true here so the user can select what maps they want to render
             return true;
         }
 
@@ -132,5 +133,5 @@ public sealed class CommandLineArgumentException : Exception
 public enum OutputFormat
 {
     png,
-    webp
+    webp,
 }

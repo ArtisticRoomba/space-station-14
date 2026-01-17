@@ -75,7 +75,6 @@ public abstract partial class SharedStackSystem : EntitySystem
         args.Handled = true;
 
         // interaction is done, the rest is just generating a pop-up
-
         var popupPos = args.ClickLocation;
         var userCoords = Transform(args.User).Coordinates;
 
@@ -129,6 +128,7 @@ public abstract partial class SharedStackSystem : EntitySystem
 
         ent.Comp.MaxCountOverride = cast.MaxCountOverride;
         ent.Comp.Unlimited = cast.Unlimited;
+
         // This will change the count and call events.
         SetCount(ent.AsNullable(), cast.Count);
     }
@@ -210,6 +210,7 @@ public abstract partial class SharedStackSystem : EntitySystem
                 Text = amount.ToString(),
                 Category = VerbCategory.Split,
                 Act = () => UserSplit(ent, user, amount),
+
                 // we want to sort by size, not alphabetically by the verb text.
                 Priority = priority
             };

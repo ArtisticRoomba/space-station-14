@@ -16,7 +16,7 @@ public sealed class EuiManagerTest
             await using var pair = await PoolManager.GetServerClient(new PoolSettings
             {
                 Connected = true,
-                Dirty = true
+                Dirty = true,
             });
             var server = pair.Server;
 

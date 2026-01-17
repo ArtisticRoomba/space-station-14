@@ -36,7 +36,8 @@ public sealed partial class TestPair
         // Load our test map in and assert that it exists.
         await Server.WaitAssertion(() =>
         {
-            Assert.That(mapLoaderSys.TryLoadMap(testMapPath, out var map, out var gridSet, deserializationOptions),
+            Assert.That(
+                mapLoaderSys.TryLoadMap(testMapPath, out var map, out var gridSet, deserializationOptions),
                 $"Failed to load map {testMapPath}.");
             Assert.That(gridSet, Is.Not.Empty, "There were no grids loaded from the map!");
 

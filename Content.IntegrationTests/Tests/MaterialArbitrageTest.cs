@@ -86,7 +86,7 @@ public sealed class MaterialArbitrageTest
             if (!proto.Components.TryGetValue(constructionName, out var destructible))
                 continue;
 
-            var comp = (ConstructionComponent) destructible.Component;
+            var comp = (ConstructionComponent)destructible.Component;
             constructionRecipes.Add(proto.ID, comp);
         }
 
@@ -123,13 +123,14 @@ public sealed class MaterialArbitrageTest
                         !spawnProto.Components.TryGetValue(compositionName, out var compositionReg))
                         continue;
 
-                    var mat = (PhysicalCompositionComponent) compositionReg.Component;
+                    var mat = (PhysicalCompositionComponent)compositionReg.Component;
                     foreach (var (matId, amount) in mat.MaterialComposition)
                     {
-                        materials[matId] = materialStep.Amount * amount + materials.GetValueOrDefault(matId);
+                        materials[matId] = (materialStep.Amount * amount) + materials.GetValueOrDefault(matId);
                     }
                 }
             }
+
             constructionMaterials.Add(id, materials);
         }
 
@@ -149,7 +150,6 @@ public sealed class MaterialArbitrageTest
             {
                 var compositionComp = (PhysicalCompositionComponent)compositionReg.Component;
                 baseComposition = compositionComp.MaterialComposition;
-
             }
 
             if (!proto.Components.TryGetValue(refinableName, out var refinableReg))
@@ -182,7 +182,7 @@ public sealed class MaterialArbitrageTest
 
                 foreach (var (matId, amount) in refinedCompositionComp.MaterialComposition)
                 {
-                    composition[matId] = quantity * amount + composition.GetValueOrDefault(matId);
+                    composition[matId] = (quantity * amount) + composition.GetValueOrDefault(matId);
                 }
             }
 
@@ -205,7 +205,7 @@ public sealed class MaterialArbitrageTest
             if (!proto.Components.TryGetValue(destructibleName, out var destructible))
                 continue;
 
-            var comp = (DestructibleComponent) destructible.Component;
+            var comp = (DestructibleComponent)destructible.Component;
 
             var spawnedEnts = new Dictionary<string, float>();
             var spawnedMats = new Dictionary<string, float>();
@@ -213,7 +213,6 @@ public sealed class MaterialArbitrageTest
             // This test just blindly assumes that ALL spawn entity behaviors get triggered. In reality, some entities
             // might only trigger a subset. If that starts being a problem, this test either needs fixing or needs to
             // get an ignored prototypes list.
-
             foreach (var threshold in comp.Thresholds)
             {
                 foreach (var behaviour in threshold.Behaviors)
@@ -223,14 +222,14 @@ public sealed class MaterialArbitrageTest
 
                     foreach (var (key, value) in spawn.Spawn)
                     {
-                        spawnedEnts[key] = spawnedEnts.GetValueOrDefault(key) + (float)(value.Min + value.Max) / 2;
+                        spawnedEnts[key] = spawnedEnts.GetValueOrDefault(key) + ((float)(value.Min + value.Max) / 2);
 
                         if (!compositions.TryGetValue(key, out var composition))
                             continue;
 
                         foreach (var (matId, amount) in composition)
                         {
-                            spawnedMats[matId] = (float)(value.Min + value.Max) / 2 * amount + spawnedMats.GetValueOrDefault(matId);
+                            spawnedMats[matId] = ((float)(value.Min + value.Max) / 2 * amount) + spawnedMats.GetValueOrDefault(matId);
                         }
                     }
                 }
@@ -266,6 +265,7 @@ public sealed class MaterialArbitrageTest
                             server.Log.Info($"Unused lathe recipe? {recipe.ID}?");
                             continue;
                         }
+
                         foreach (var (matId, amount) in recipe.Materials)
                         {
                             var actualAmount = SharedLatheSystem.AdjustMaterial(amount, recipe.ApplyMaterialDiscount, multiplier);
@@ -321,19 +321,19 @@ public sealed class MaterialArbitrageTest
                         !spawnProto.Components.TryGetValue(compositionName, out var compositionReg))
                         continue;
 
-                    var mat = (PhysicalCompositionComponent) compositionReg.Component;
+                    var mat = (PhysicalCompositionComponent)compositionReg.Component;
                     foreach (var (matId, amount) in mat.MaterialComposition)
                     {
-                        materials[matId] = spawnCompletion.Amount * amount + materials.GetValueOrDefault(matId);
+                        materials[matId] = (spawnCompletion.Amount * amount) + materials.GetValueOrDefault(matId);
                     }
                 }
             }
+
             deconstructionMaterials.Add(id, materials);
         }
 
         // This is functionally the same loop as before, but now testing deconstruction rather than destruction.
         // This is pretty brain-dead. In principle construction graphs can have loops and whatnot.
-
         await Assert.MultipleAsync(async () =>
         {
             foreach (var (id, deconstructedMats) in deconstructionMaterials)
@@ -354,6 +354,7 @@ public sealed class MaterialArbitrageTest
                             server.Log.Info($"Unused lathe recipe? {recipe.ID}?");
                             continue;
                         }
+
                         foreach (var (matId, amount) in recipe.Materials)
                         {
                             var actualAmount = SharedLatheSystem.AdjustMaterial(amount, recipe.ApplyMaterialDiscount, multiplier);
@@ -386,7 +387,7 @@ public sealed class MaterialArbitrageTest
             if (!proto.Components.TryGetValue(compositionName, out var composition))
                 continue;
 
-            var comp = (PhysicalCompositionComponent) composition.Component;
+            var comp = (PhysicalCompositionComponent)composition.Component;
             physicalCompositions.Add(proto.ID, comp);
         }
 
@@ -417,6 +418,7 @@ public sealed class MaterialArbitrageTest
                             server.Log.Info($"Unused lathe recipe? {recipe.ID}?");
                             continue;
                         }
+
                         foreach (var (matId, amount) in recipe.Materials)
                         {
                             var actualAmount = SharedLatheSystem.AdjustMaterial(amount, recipe.ApplyMaterialDiscount, multiplier);
@@ -465,6 +467,7 @@ public sealed class MaterialArbitrageTest
                     entManager.DeleteEntity(ent);
                 });
             }
+
             return price;
         }
 
@@ -477,6 +480,7 @@ public sealed class MaterialArbitrageTest
                 var matProto = protoManager.Index<MaterialPrototype>(id);
                 price += num * matProto.Price;
             }
+
             return price;
         }
 #pragma warning restore CS1998
@@ -490,6 +494,7 @@ public sealed class MaterialArbitrageTest
                 var reagentProto = protoManager.Index<ReagentPrototype>(id);
                 price += num.Double() * reagentProto.PricePerUnit;
             }
+
             return price;
         }
 #pragma warning restore CS1998

@@ -25,7 +25,8 @@ namespace Content.IntegrationTests.Tests
                     if (proto.HideSpawnMenu || proto.Abstract || pair.IsTestPrototype(proto) || !proto.Components.ContainsKey("Sprite"))
                         continue;
 
-                    Assert.DoesNotThrow(() =>
+                    Assert.DoesNotThrow(
+                        () =>
                     {
                         var _ = spriteSys.GetPrototypeTextures(proto).ToList();
                     }, "Prototype {0} threw an exception when getting its textures.",

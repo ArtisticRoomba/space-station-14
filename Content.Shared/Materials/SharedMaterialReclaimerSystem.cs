@@ -122,6 +122,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         RaiseLocalEvent(item, ref reclaimedEvent);
 
         var duration = GetReclaimingDuration(uid, item, component);
+
         // if it's instant, don't bother with all the active comp stuff.
         if (duration == TimeSpan.Zero)
         {

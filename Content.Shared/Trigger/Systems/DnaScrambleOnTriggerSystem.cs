@@ -2,8 +2,8 @@ using Content.Shared.DetailExaminable;
 using Content.Shared.Forensics.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Preferences;
 using Content.Shared.Popups;
+using Content.Shared.Preferences;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Network;
 

@@ -1,9 +1,9 @@
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Kitchen.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.FixedPoint;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.FixedPoint;
+using Content.Shared.Kitchen.Components;
 
 namespace Content.Shared.Chemistry.EntitySystems;
 

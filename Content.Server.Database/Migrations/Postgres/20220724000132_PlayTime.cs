@@ -18,7 +18,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     player_id = table.Column<Guid>(type: "uuid", nullable: false),
                     tracker = table.Column<string>(type: "text", nullable: false),
-                    time_spent = table.Column<TimeSpan>(type: "interval", nullable: false)
+                    time_spent = table.Column<TimeSpan>(type: "interval", nullable: false),
                 },
                 constraints: table =>
                 {

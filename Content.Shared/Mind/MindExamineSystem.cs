@@ -100,7 +100,6 @@ public sealed class MindExamineSystem : EntitySystem
         // 3. Dead + Has Session: Player is dead but still connected
         // 4. Alive + No User ID: Entity is alive but has no mind attached to it
         // 5. Alive + No Session: Player disconnected while alive (SSD)
-
         if (dead && hasUserId == null)
             ent.Comp.State = MindState.Irrecoverable;
         else if (dead && !hasActiveSession)

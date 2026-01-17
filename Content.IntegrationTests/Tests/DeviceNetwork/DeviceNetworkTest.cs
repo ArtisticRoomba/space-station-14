@@ -2,9 +2,9 @@ using System.Numerics;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
-using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.IntegrationTests.Tests.DeviceNetwork
 {
@@ -58,7 +58,6 @@ namespace Content.IntegrationTests.Tests.DeviceNetwork
             var deviceNetSystem = entityManager.EntitySysManager.GetEntitySystem<DeviceNetworkSystem>();
             var deviceNetTestSystem = entityManager.EntitySysManager.GetEntitySystem<DeviceNetworkTestSystem>();
 
-
             EntityUid device1 = default;
             EntityUid device2 = default;
             DeviceNetworkComponent networkComponent1 = null;
@@ -69,7 +68,7 @@ namespace Content.IntegrationTests.Tests.DeviceNetwork
             {
                 ["Test"] = testValue,
                 ["testnumber"] = 1,
-                ["testbool"] = true
+                ["testbool"] = true,
             };
 
             await server.WaitAssertion(() =>
@@ -131,7 +130,7 @@ namespace Content.IntegrationTests.Tests.DeviceNetwork
             {
                 ["Test"] = testValue,
                 ["testnumber"] = 1,
-                ["testbool"] = true
+                ["testbool"] = true,
             };
 
             await server.WaitAssertion(() =>
@@ -160,7 +159,6 @@ namespace Content.IntegrationTests.Tests.DeviceNetwork
                     Assert.That(networkComponent1.Address, Is.Not.EqualTo(networkComponent2.Address));
                 });
 
-
                 deviceNetSystem.QueuePacket(device1, networkComponent2.Address, payload, networkComponent2.ReceiveFrequency.Value);
             });
 
@@ -173,7 +171,7 @@ namespace Content.IntegrationTests.Tests.DeviceNetwork
 
                 payload = new NetworkPayload
                 {
-                    ["Wirelesstest"] = 5
+                    ["Wirelesstest"] = 5,
                 };
 
                 wirelessNetworkComponent.Range = 0;
@@ -217,7 +215,7 @@ namespace Content.IntegrationTests.Tests.DeviceNetwork
             {
                 ["Test"] = testValue,
                 ["testnumber"] = 1,
-                ["testbool"] = true
+                ["testbool"] = true,
             };
 
             await server.WaitRunTicks(2);
@@ -257,8 +255,7 @@ namespace Content.IntegrationTests.Tests.DeviceNetwork
 
             await server.WaitAssertion(() =>
             {
-                //CollectionAssert.AreNotEqual(deviceNetTestSystem.LastPayload, payload);
-
+                // CollectionAssert.AreNotEqual(deviceNetTestSystem.LastPayload, payload);
                 entityManager.SpawnEntity("CableApcExtension", coordinates);
 
                 deviceNetSystem.QueuePacket(device1, networkComponent2.Address, payload, networkComponent2.ReceiveFrequency.Value);

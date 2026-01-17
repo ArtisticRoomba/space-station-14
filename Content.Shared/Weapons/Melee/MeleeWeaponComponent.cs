@@ -148,7 +148,6 @@ public sealed partial class MeleeWeaponComponent : Component
     // We do not predict the below sounds in case the client thinks but the server disagrees. If this were the case
     // then a player may doubt if the target actually took damage or not.
     // If overwatch and apex do this then we probably should too.
-
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("soundHit"), AutoNetworkedField]
     public SoundSpecifier? HitSound;

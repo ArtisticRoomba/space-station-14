@@ -50,6 +50,7 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
         if (args.Handled
             || args.Target == null
             || !TryComp<DoorComponent>(args.Target, out var doorComp) // If it isn't a door we don't use it
+
                                                                       // Only able to control doors if they are within your vision and within your max range.
                                                                       // Not affected by mobs or machines anymore.
             || !_examine.InRangeUnOccluded(args.User,
@@ -70,10 +71,12 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
         }
 
         var accessTarget = args.Used;
+
         // This covers the accesses the REMOTE has, and is not effected by the user's ID card.
         if (entity.Comp.IncludeUserAccess) // Allows some door remotes to inherit the user's access.
         {
             accessTarget = args.User;
+
             // This covers the accesses the USER has, which always includes the remote's access since holding a remote acts like holding an ID card.
         }
 

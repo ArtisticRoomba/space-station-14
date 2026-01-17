@@ -105,12 +105,10 @@ public sealed class SaveLoadReparentTest
 
             Assert.That(
                 EnumerateQueryEnumerator(
-                    entities.EntityQueryEnumerator<BodyComponent>()
-                ).Where((e) =>
-                    entities.GetComponent<MetaDataComponent>(e.Uid).EntityPrototype!.Name == "HumanBodyDummy"
-                ),
-                Is.Not.Empty
-            );
+                    entities.EntityQueryEnumerator<BodyComponent>())
+                .Where((e) =>
+                    entities.GetComponent<MetaDataComponent>(e.Uid).EntityPrototype!.Name == "HumanBodyDummy"),
+                Is.Not.Empty);
 
             var mapPath = new ResPath($"/{nameof(SaveLoadReparentTest)}{nameof(Test)}map.yml");
 
@@ -120,10 +118,10 @@ public sealed class SaveLoadReparentTest
             Assert.That(mapLoader.TryLoadMap(mapPath, out var map, out _), Is.True);
 
             var query = EnumerateQueryEnumerator(
-                    entities.EntityQueryEnumerator<BodyComponent>()
-                ).Where((e) =>
-                    entities.GetComponent<MetaDataComponent>(e.Uid).EntityPrototype!.Name == "HumanBodyDummy"
-                ).ToArray();
+                    entities.EntityQueryEnumerator<BodyComponent>())
+                .Where((e) =>
+                    entities.GetComponent<MetaDataComponent>(e.Uid).EntityPrototype!.Name == "HumanBodyDummy")
+                .ToArray();
 
             Assert.That(query, Is.Not.Empty);
             foreach (var (uid, body) in query)

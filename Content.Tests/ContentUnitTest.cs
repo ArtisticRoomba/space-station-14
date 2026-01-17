@@ -31,7 +31,7 @@ namespace Content.Tests
         {
             var l = new List<Assembly>
             {
-                typeof(Content.Shared.Entry.EntryPoint).Assembly
+                typeof(Content.Shared.Entry.EntryPoint).Assembly,
             };
 
             if (Project == UnitTestProject.Server)

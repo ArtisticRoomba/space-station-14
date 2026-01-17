@@ -59,6 +59,7 @@ public abstract class SharedGasPressureRegulatorSystem : EntitySystem
         _adminLogger.Add(LogType.AtmosVolumeChanged,
             LogImpact.Medium,
             $"{ToPrettyString(args.Actor):player} set the pressure threshold on {ToPrettyString(ent):device} to {ent.Comp.Threshold}");
+
         // Dirty the entire entity to ensure we get all of that Fresh:tm: UI info from the server.
         Dirty(ent);
         UpdateUi(ent);

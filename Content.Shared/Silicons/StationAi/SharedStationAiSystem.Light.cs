@@ -6,7 +6,6 @@ namespace Content.Shared.Silicons.StationAi;
 public abstract partial class SharedStationAiSystem
 {
     // Handles light toggling.
-
     private void InitializeLight()
     {
         SubscribeLocalEvent<ItemTogglePointLightComponent, StationAiLightEvent>(OnLight);

@@ -26,6 +26,7 @@ public abstract partial class SharedGravitySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         // Grid Gravity
         SubscribeLocalEvent<GridInitializeEvent>(OnGridInit);
         SubscribeLocalEvent<GravityChangedEvent>(OnGravityChange);

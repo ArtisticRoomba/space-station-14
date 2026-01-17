@@ -1,9 +1,9 @@
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Dataset;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Random.Helpers;
-using Robust.Shared.Random;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Enums;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Shared.Humanoid
 {

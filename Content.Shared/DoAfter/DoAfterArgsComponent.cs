@@ -102,6 +102,7 @@ public sealed partial class DoAfterArgsComponent : Component
     /// </summary>
     [DataField]
     public bool RequireCanInteract = true;
+
     // End Break/Cancellation Options
     #endregion
 

@@ -36,7 +36,8 @@ public sealed class ResearchTest
                             continue;
 
                         Assert.That(tech.Tier, Is.GreaterThan(0), $"Technology {tech} has invalid tier {tech.Tier}.");
-                        Assert.That(discipline.TierPrerequisites.ContainsKey(tech.Tier),
+                        Assert.That(
+                            discipline.TierPrerequisites.ContainsKey(tech.Tier),
                             $"Discipline {discipline.ID} does not have a TierPrerequisites definition for tier {tech.Tier}");
                     }
                 }

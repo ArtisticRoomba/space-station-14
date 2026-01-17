@@ -45,7 +45,7 @@ public sealed class NukeOpsTest
             Dirty = true,
             DummyTicker = false,
             Connected = true,
-            InLobby = true
+            InLobby = true,
         });
 
         var server = pair.Server;
@@ -166,6 +166,7 @@ public sealed class NukeOpsTest
             Assert.That(entMan.EntityExists(grid));
             Assert.That(entMan.HasComponent<MapGridComponent>(grid));
         }
+
         Assert.That(entMan.EntityExists(ruleComp.TargetStation));
 
         Assert.That(entMan.HasComponent<StationDataComponent>(ruleComp.TargetStation));
@@ -223,11 +224,12 @@ public sealed class NukeOpsTest
         {
             total++;
         }
+
         Assert.That(total, Is.GreaterThan(3));
 
         // Check the nukie commander passed basic training and figured out how to breathe.
         var totalSeconds = 30;
-        var totalTicks = (int) Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
+        var totalTicks = (int)Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
         var increment = 5;
         var resp = entMan.GetComponent<RespiratorComponent>(player);
         var damage = entMan.GetComponent<DamageableComponent>(player);
@@ -245,18 +247,21 @@ public sealed class NukeOpsTest
             for (var i = 0; i < nukies.Length - 1; i++)
             {
                 entMan.DeleteEntity(nukies[i]);
-                Assert.That(roundEndSys.IsRoundEndRequested,
+                Assert.That(
+                    roundEndSys.IsRoundEndRequested,
                     Is.False,
                     $"The round ended, but {nukies.Length - i - 1} nukies are still alive!");
             }
+
             // Delete the last nukie and make sure the round ends.
             entMan.DeleteEntity(nukies[^1]);
 
-            Assert.That(roundEndSys.IsRoundEndRequested,
+            Assert.That(
+                roundEndSys.IsRoundEndRequested,
                 "All nukies were deleted, but the round didn't end!");
         });
 
-        ticker.SetGamePreset((GamePresetPrototype?) null);
+        ticker.SetGamePreset((GamePresetPrototype?)null);
         await pair.CleanReturnAsync();
     }
 }

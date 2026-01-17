@@ -14,7 +14,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     assigned_user_id_id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     user_name = table.Column<string>(nullable: false),
-                    user_id = table.Column<Guid>(nullable: false)
+                    user_id = table.Column<Guid>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -32,7 +32,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     ban_time = table.Column<DateTime>(nullable: false),
                     expiration_time = table.Column<DateTime>(nullable: true),
                     reason = table.Column<string>(nullable: false),
-                    banning_admin = table.Column<Guid>(nullable: true)
+                    banning_admin = table.Column<Guid>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -48,7 +48,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     user_id = table.Column<Guid>(nullable: false),
                     user_name = table.Column<string>(nullable: false),
                     time = table.Column<DateTime>(nullable: false),
-                    address = table.Column<string>(nullable: false)
+                    address = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -65,7 +65,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     first_seen_time = table.Column<DateTime>(nullable: false),
                     last_seen_user_name = table.Column<string>(nullable: false),
                     last_seen_time = table.Column<DateTime>(nullable: false),
-                    last_seen_address = table.Column<string>(nullable: false)
+                    last_seen_address = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -79,7 +79,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     preference_id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     user_id = table.Column<Guid>(nullable: false),
-                    selected_character_slot = table.Column<int>(nullable: false)
+                    selected_character_slot = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -94,7 +94,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     ban_id = table.Column<int>(nullable: false),
                     unbanning_admin = table.Column<Guid>(nullable: true),
-                    unban_time = table.Column<DateTime>(nullable: false)
+                    unban_time = table.Column<DateTime>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -124,7 +124,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     eye_color = table.Column<string>(nullable: false),
                     skin_color = table.Column<string>(nullable: false),
                     pref_unavailable = table.Column<int>(nullable: false),
-                    preference_id = table.Column<int>(nullable: false)
+                    preference_id = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -144,7 +144,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     antag_id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     profile_id = table.Column<int>(nullable: false),
-                    antag_name = table.Column<string>(nullable: false)
+                    antag_name = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -165,7 +165,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     profile_id = table.Column<int>(nullable: false),
                     job_name = table.Column<string>(nullable: false),
-                    priority = table.Column<int>(nullable: false)
+                    priority = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {

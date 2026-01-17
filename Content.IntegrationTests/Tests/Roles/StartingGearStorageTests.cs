@@ -1,8 +1,8 @@
 using System.Linq;
-using Content.Shared.Roles;
 using Content.Server.Storage.EntitySystems;
-using Robust.Shared.GameObjects;
+using Content.Shared.Roles;
 using Robust.Shared.Collections;
+using Robust.Shared.GameObjects;
 
 namespace Content.IntegrationTests.Tests.Roles;
 
@@ -59,6 +59,7 @@ public sealed class StartingGearPrototypeStorageTest
 
                         server.EntMan.DeleteEntity(ent);
                     }
+
                     server.EntMan.DeleteEntity(bag);
                 }
             }

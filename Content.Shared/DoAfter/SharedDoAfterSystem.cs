@@ -106,7 +106,6 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         // Note that the client may have correctly predicted the creation of a do-after, but that doesn't guarantee that
         // the contents of the do-after data are correct. So this just takes the brute force approach and completely
         // overwrites the state.
-
         comp.DoAfters.Clear();
         foreach (var (id, doAfter) in state.DoAfters)
         {
@@ -200,7 +199,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     {
         DebugTools.Assert(args.Broadcast || Exists(args.EventTarget) || args.Event.GetType() == typeof(AwaitedDoAfterEvent));
         DebugTools.Assert(args.Event.GetType().HasCustomAttribute<NetSerializableAttribute>()
-            || args.Event.GetType().Namespace is {} ns && ns.StartsWith("Content.IntegrationTests"), // classes defined in tests cannot be marked as serializable.
+            || args.Event.GetType().Namespace is { } ns && ns.StartsWith("Content.IntegrationTests"), // classes defined in tests cannot be marked as serializable.
             $"Do after event is not serializable. Event: {args.Event.GetType()}");
 
         if (!Resolve(args.User, ref comp))
@@ -262,6 +261,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         if (args.Delay <= TimeSpan.Zero || _tag.HasTag(args.User, InstantDoAftersTag))
         {
             RaiseDoAfterEvents(doAfter, comp);
+
             // We don't store instant do-afters. This is just a lazy way of hiding them from client-side visuals.
             return true;
         }

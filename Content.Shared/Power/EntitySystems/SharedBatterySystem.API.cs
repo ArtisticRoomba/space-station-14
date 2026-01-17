@@ -169,6 +169,7 @@ public abstract partial class SharedBatterySystem
             return 0f;
 
         var curTime = _timing.CurTime;
+
         // We have a constant charge rate, so the charge changes linearly over time.
         var dt = (curTime - ent.Comp.LastUpdate).TotalSeconds;
         var charge = Math.Clamp(ent.Comp.LastCharge + (float)(dt * ent.Comp.ChargeRate), 0f, ent.Comp.MaxCharge);

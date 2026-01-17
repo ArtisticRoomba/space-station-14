@@ -99,6 +99,7 @@ public abstract partial class SharedStackSystem
         foreach (var recipientStack in intersecting)
         {
             var otherEnt = recipientStack.Owner;
+
             // if you merge a ton of stacks together, you will end up deleting a few by accident.
             if (TerminatingOrDeleted(otherEnt) || EntityManager.IsQueuedForDeletion(otherEnt))
                 continue;

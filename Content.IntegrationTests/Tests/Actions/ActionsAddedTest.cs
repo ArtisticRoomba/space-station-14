@@ -15,7 +15,6 @@ public sealed class ActionsAddedTest
 {
     // TODO add magboot test (inventory action)
     // TODO add ghost toggle-fov test (client-side action)
-
     [Test]
     public async Task TestCombatActionsAdded()
     {

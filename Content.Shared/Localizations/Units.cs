@@ -68,6 +68,7 @@ namespace Content.Shared.Localizations
 
         public static readonly TypeTable Generic = new TypeTable
         (
+
             // Table layout. Fite me.
             new TypeTable.Entry(range: ( null, 1e-24), factor:  1e24, unit: "si--y"),
             new TypeTable.Entry(range: (1e-24, 1e-21), factor:  1e21, unit: "si--z"),

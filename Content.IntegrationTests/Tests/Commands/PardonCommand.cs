@@ -29,6 +29,7 @@ namespace Content.IntegrationTests.Tests.Commands
             Assert.That(netMan.IsConnected);
 
             Assert.That(sPlayerManager.Sessions, Has.Length.EqualTo(1));
+
             // No bans on record
             Assert.Multiple(async () =>
             {
@@ -51,6 +52,7 @@ namespace Content.IntegrationTests.Tests.Commands
             var banReason = "test";
 
             Assert.That(sPlayerManager.Sessions, Has.Length.EqualTo(1));
+
             // Ban the client for 24 hours
             await server.WaitPost(() => sConsole.ExecuteCommand($"ban {clientSession.Name} {banReason} 1440"));
 

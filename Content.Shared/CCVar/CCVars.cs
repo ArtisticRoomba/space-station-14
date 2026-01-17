@@ -15,7 +15,6 @@ namespace Content.Shared.CCVar;
 public sealed partial class CCVars : CVars
 {
     // Only debug stuff lives here.
-
 #if DEBUG
     [CVarControl(AdminFlags.Debug)]
     public static readonly CVarDef<string> DebugTestCVar =

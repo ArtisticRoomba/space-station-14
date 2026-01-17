@@ -165,7 +165,6 @@ public abstract partial class SharedXenoArtifactSystem
             return false; //Edge already exists
 
         // TODO: add a safety check to prohibit cyclic paths.
-
         ent.Comp.NodeAdjacencyMatrix[fromIdx][toIdx] = true;
         if (dirty)
         {

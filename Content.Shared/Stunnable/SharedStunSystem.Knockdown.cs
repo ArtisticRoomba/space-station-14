@@ -408,6 +408,7 @@ public abstract partial class SharedStunSystem
 
         // If we have a DoAfter, cancel it
         CancelKnockdownDoAfter(entity);
+
         // Remove Component
         RemComp<KnockedDownComponent>(entity);
 

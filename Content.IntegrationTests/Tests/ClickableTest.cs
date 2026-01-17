@@ -13,7 +13,7 @@ namespace Content.IntegrationTests.Tests
         private const double DirNorth = Math.PI;
         private const double DirEast = Math.PI / 2;
         private const double DirSouthEast = Math.PI / 4;
-        private const double DirSouthEastJustShy = Math.PI / 4 - 0.1;
+        private const double DirSouthEastJustShy = (Math.PI / 4) - 0.1;
 
         [Test]
         [TestCase("ClickTestRotatingCornerVisible", 0.25f, 0.25f, DirSouth, 1, ExpectedResult = true)]

@@ -1,7 +1,7 @@
 #nullable enable
 using Content.Server.Stack;
-using Content.Shared.Stacks;
 using Content.Shared.Materials;
+using Content.Shared.Stacks;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -43,14 +43,17 @@ namespace Content.IntegrationTests.Tests.Materials
 
                         var spawned = entityManager.SpawnEntity(proto.StackEntity, coords);
 
-                        Assert.That(entityManager.TryGetComponent<StackComponent>(spawned, out var stack),
+                        Assert.That(
+                            entityManager.TryGetComponent<StackComponent>(spawned, out var stack),
                             $"{proto.ID} 'stack entity' {proto.StackEntity} does not have the stack component");
 
-                        Assert.That(entityManager.HasComponent<MaterialComponent>(spawned),
+                        Assert.That(
+                            entityManager.HasComponent<MaterialComponent>(spawned),
                             $"{proto.ID} 'material stack' {proto.StackEntity} does not have the material component");
 
                         StackPrototype? stackProto = null;
-                        Assert.That(stack?.StackTypeId != null && prototypeManager.TryIndex(stack.StackTypeId, out stackProto),
+                        Assert.That(
+                            stack?.StackTypeId != null && prototypeManager.TryIndex(stack.StackTypeId, out stackProto),
                             $"{proto.ID} material has no stack prototype");
 
                         if (stackProto != null)

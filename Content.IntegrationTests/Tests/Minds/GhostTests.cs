@@ -55,7 +55,7 @@ public sealed class GhostTests
                 DummyTicker = false,
                 Connected = true,
                 Dirty = true
-            })
+            }),
         };
 
         data.SEntMan = data.Pair.Server.ResolveDependency<IServerEntityManager>();
@@ -91,9 +91,11 @@ public sealed class GhostTests
             Assert.That(data.ServerSession.AttachedEntity, Is.EqualTo(data.SPlayerEnt));
             Assert.That(data.ServerSession.AttachedEntity, Is.EqualTo(mind.Comp.CurrentEntity),
                 "Player is not attached to the mind's current entity.");
-            Assert.That(data.SEntMan.EntityExists(mind.Comp.OwnedEntity),
+            Assert.That(
+                data.SEntMan.EntityExists(mind.Comp.OwnedEntity),
                 "The mind's current entity does not exist");
-            Assert.That(mind.Comp.VisitingEntity == null || data.SEntMan.EntityExists(mind.Comp.VisitingEntity),
+            Assert.That(
+                mind.Comp.VisitingEntity == null || data.SEntMan.EntityExists(mind.Comp.VisitingEntity),
                 "The minds visited entity does not exist.");
         });
 
@@ -173,5 +175,4 @@ public sealed class GhostTests
 
         await data.Pair.CleanReturnAsync();
     }
-
 }

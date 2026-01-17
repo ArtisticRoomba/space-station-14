@@ -55,10 +55,12 @@ public sealed class FillLevelSpriteTest
                         {
                             Assert.Fail(@$"{proto.ID} has SolutionContainerVisualsComponent but no fill layer map.");
                         }
+
                         if (!spriteSystem.TryGetLayer(entity, fillLayerId, out var fillLayer, false))
                         {
                             Assert.Fail(@$"{proto.ID} somehow lost a layer.");
                         }
+
                         var rsi = fillLayer.ActualRsi;
 
                         for (var i = 1; i <= visuals.MaxFillLevels; i++)

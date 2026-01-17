@@ -161,6 +161,7 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
 
         ent.Comp.ConnectedAnomaly = anomaly;
         Dirty(ent);
+
         //move the anomaly to the center of the synchronizer, for aesthetics.
         var targetXform = _transform.GetWorldPosition(ent);
         _transform.SetWorldPosition(anomaly, targetXform);

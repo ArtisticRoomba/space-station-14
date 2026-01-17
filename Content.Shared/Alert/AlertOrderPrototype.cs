@@ -98,6 +98,7 @@ namespace Content.Shared.Alert
             if (idy == -1)
                 return -1;
             var result = idx - idy;
+
             // not strictly necessary (we don't care about ones that go at the same index)
             // but it makes the sort stable
             if (result == 0)

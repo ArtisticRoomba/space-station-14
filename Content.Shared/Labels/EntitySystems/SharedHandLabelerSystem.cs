@@ -27,6 +27,7 @@ public abstract class SharedHandLabelerSystem : EntitySystem
         SubscribeLocalEvent<HandLabelerComponent, AfterInteractEvent>(AfterInteractOn);
         SubscribeLocalEvent<HandLabelerComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
         SubscribeLocalEvent<HandLabelerComponent, ExaminedEvent>(OnExamined);
+
         // Bound UI subscriptions
         SubscribeLocalEvent<HandLabelerComponent, HandLabelerLabelChangedMessage>(OnHandLabelerLabelChanged);
         SubscribeLocalEvent<HandLabelerComponent, ComponentGetState>(OnGetState);

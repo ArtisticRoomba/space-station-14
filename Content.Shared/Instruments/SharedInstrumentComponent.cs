@@ -221,6 +221,7 @@ public sealed class MidiTrack
     }
 
     private const string Postfix = "…";
+
     // TODO: Make a general method to use in RT? idk if we have that.
     private string Truncate(string input, int limit)
     {

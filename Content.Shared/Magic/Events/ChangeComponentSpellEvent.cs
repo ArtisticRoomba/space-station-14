@@ -10,7 +10,6 @@ public sealed partial class ChangeComponentsSpellEvent : EntityTargetActionEvent
 {
     // TODO allow it to set component data-fields?
     // for now a Hackish way to do that is to remove & add, but that doesn't allow you to selectively set specific data fields.
-
     [DataField]
     [AlwaysPushInheritance]
     public ComponentRegistry ToAdd = new();

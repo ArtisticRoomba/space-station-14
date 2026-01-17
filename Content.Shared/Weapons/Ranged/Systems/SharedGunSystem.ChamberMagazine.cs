@@ -370,6 +370,7 @@ public abstract partial class SharedGunSystem
             {
                 args.Ammo.Add((chamberEnt.Value, EnsureShootable(chamberEnt.Value)));
             }
+
             // No ammo returned.
             else
             {
@@ -416,6 +417,7 @@ public abstract partial class SharedGunSystem
 
             FinaliseMagazineTakeAmmo(uid, component, ammoEv.Count, ammoEv.Capacity, args.User, appearance);
         }
+
         // If gun doesn't autocycle (e.g. bolt-action weapons) then we leave the chambered entity in there but still return it.
         else if (Containers.TryGetContainer(uid, ChamberSlot, out var container) &&
                  container is ContainerSlot { ContainedEntity: not null } slot)

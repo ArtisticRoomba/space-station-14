@@ -21,7 +21,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 {
                     server_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    name = table.Column<string>(type: "TEXT", nullable: false)
+                    name = table.Column<string>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -30,9 +30,8 @@ namespace Content.Server.Database.Migrations.Sqlite
 
             migrationBuilder.InsertData(
                 "server",
-                new[] {"server_id", "name"},
-                new object[] { 0, "unknown" }
-            );
+                new[] { "server_id", "name" },
+                new object[] { 0, "unknown" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_round_server_id",

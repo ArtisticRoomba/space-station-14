@@ -1,5 +1,5 @@
-using Robust.Shared.GameStates;
 using Content.Shared.Singularity.EntitySystems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Singularity.Components;

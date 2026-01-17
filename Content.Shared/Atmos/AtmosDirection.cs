@@ -16,9 +16,9 @@ namespace Content.Shared.Atmos
         South   = 1 << 1,                   // 2
         East    = 1 << 2,                   // 4
         West    = 1 << 3,                   // 8
+
         // If more directions are added, note that AtmosDirectionHelpers.ToOppositeIndex() expects opposite directions
         // to come in pairs
-
         NorthEast = North | East,           // 5
         SouthEast = South | East,           // 6
         NorthWest = North | West,           // 9

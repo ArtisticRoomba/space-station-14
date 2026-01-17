@@ -1,5 +1,5 @@
-using Content.Shared.GPS.Components;
 using Content.Shared.Examine;
+using Content.Shared.GPS.Components;
 using Robust.Shared.Map;
 
 namespace Content.Shared.GPS.Systems;

@@ -79,7 +79,6 @@ namespace Content.IntegrationTests.Tests
                 pocketItem = entityMan.SpawnEntity("FlashlightDummy", coordinates);
                 var tooBigItem = entityMan.SpawnEntity("ToolboxDummy", coordinates);
 
-
                 Assert.Multiple(() =>
                 {
                     Assert.That(invSystem.CanEquip(human, uniform, "jumpsuit", out _));

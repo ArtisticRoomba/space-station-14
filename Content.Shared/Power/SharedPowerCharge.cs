@@ -20,6 +20,7 @@ public sealed class SwitchChargingMachineMessage : BoundUserInterfaceMessage
 public sealed class PowerChargeState : BoundUserInterfaceState
 {
     public bool On;
+
     // 0 -> 255
     public byte Charge;
     public PowerChargePowerStatus PowerStatus;

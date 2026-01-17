@@ -68,14 +68,12 @@ public sealed class MaskSystem : EntitySystem
     private void OnFolded(Entity<MaskComponent> ent, ref FoldedEvent args)
     {
         // See FoldableClothingComponent
-
         if (!ent.Comp.DisableOnFolded)
             return;
 
         // While folded, we force the mask to be toggled / pulled down, so that its functionality as a mask is disabled,
         // and we also prevent it from being un-toggled. We also automatically untoggle it when it gets unfolded, so it
         // fully returns to its previous state when folded & unfolded.
-
         SetToggled(ent!, args.IsFolded, force: true);
         SetToggleable(ent!, !args.IsFolded);
     }
@@ -107,7 +105,7 @@ public sealed class MaskSystem : EntitySystem
         // Add an easier way to get the entity that is wearing clothing in a valid slot.
         EntityUid? wearer = null;
         if (TryComp(mask, out ClothingComponent? clothing)
-            && clothing.InSlotFlag is {} slotFlag
+            && clothing.InSlotFlag is { } slotFlag
             && clothing.Slots.HasFlag(slotFlag))
         {
             wearer = Transform(mask).ParentUid;

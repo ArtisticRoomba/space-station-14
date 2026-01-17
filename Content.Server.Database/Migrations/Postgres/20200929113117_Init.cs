@@ -16,7 +16,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     assigned_user_id_id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     user_name = table.Column<string>(nullable: false),
-                    user_id = table.Column<Guid>(nullable: false)
+                    user_id = table.Column<Guid>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -32,7 +32,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     user_id = table.Column<Guid>(nullable: false),
                     user_name = table.Column<string>(nullable: false),
                     time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    address = table.Column<IPAddress>(nullable: false)
+                    address = table.Column<IPAddress>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -50,7 +50,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     first_seen_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     last_seen_user_name = table.Column<string>(nullable: false),
                     last_seen_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    last_seen_address = table.Column<IPAddress>(nullable: false)
+                    last_seen_address = table.Column<IPAddress>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -65,7 +65,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     preference_id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     user_id = table.Column<Guid>(nullable: false),
-                    selected_character_slot = table.Column<int>(nullable: false)
+                    selected_character_slot = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -83,7 +83,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     ban_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     expiration_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     reason = table.Column<string>(nullable: false),
-                    banning_admin = table.Column<Guid>(nullable: true)
+                    banning_admin = table.Column<Guid>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -109,7 +109,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     eye_color = table.Column<string>(nullable: false),
                     skin_color = table.Column<string>(nullable: false),
                     pref_unavailable = table.Column<int>(nullable: false),
-                    preference_id = table.Column<int>(nullable: false)
+                    preference_id = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -130,7 +130,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ban_id = table.Column<int>(nullable: false),
                     unbanning_admin = table.Column<Guid>(nullable: true),
-                    unban_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    unban_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -150,7 +150,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     antag_id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     profile_id = table.Column<int>(nullable: false),
-                    antag_name = table.Column<string>(nullable: false)
+                    antag_name = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -171,7 +171,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     profile_id = table.Column<int>(nullable: false),
                     job_name = table.Column<string>(nullable: false),
-                    priority = table.Column<int>(nullable: false)
+                    priority = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {

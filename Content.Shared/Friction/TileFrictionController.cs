@@ -145,6 +145,7 @@ namespace Content.Shared.Friction
             TransformComponent xform)
         {
             var tileModifier = 1f;
+
             // If not on a grid and not in the air then return the map's friction.
             if (!_gridQuery.TryGetComponent(xform.GridUid, out var grid))
             {

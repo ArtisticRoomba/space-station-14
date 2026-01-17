@@ -28,12 +28,15 @@ public sealed class ConstantsTest
                 // number of gas prototypes
                 Assert.That(gasProtos, Has.Count.EqualTo(Atmospherics.TotalNumberOfGases),
                      $"Number of GasPrototypes is not equal to TotalNumberOfGases.");
+
                 // number of gas prototypes used in the atmos system
                 Assert.That(atmosSystem.Gases.Count(), Is.EqualTo(Atmospherics.TotalNumberOfGases),
                      $"AtmosSystem.Gases is not equal to TotalNumberOfGases.");
+
                 // enum mapping gases to their Id
                 Assert.That(Enum.GetValues<Gas>(), Has.Length.EqualTo(Atmospherics.TotalNumberOfGases),
                      $"Gas enum size is not equal to TotalNumberOfGases.");
+
                 // localized abbreviations for UI purposes
                 Assert.That(Atmospherics.GasAbbreviations, Has.Count.EqualTo(Atmospherics.TotalNumberOfGases),
                      $"GasAbbreviations size is not equal to TotalNumberOfGases.");
@@ -48,4 +51,3 @@ public sealed class ConstantsTest
         await pair.CleanReturnAsync();
     }
 }
-

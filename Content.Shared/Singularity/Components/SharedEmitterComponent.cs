@@ -13,6 +13,7 @@ public sealed partial class EmitterComponent : Component
 
     // whether the power switch is in "on"
     [ViewVariables] public bool IsOn;
+
     // Whether the power switch is on AND the machine has enough power (so is actively firing)
     [ViewVariables] public bool IsPowered;
 

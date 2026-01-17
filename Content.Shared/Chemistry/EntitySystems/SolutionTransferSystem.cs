@@ -57,6 +57,7 @@ public sealed class SolutionTransferSystem : EntitySystem
         {
             Text = Loc.GetString("comp-solution-transfer-verb-custom-amount"),
             Category = VerbCategory.SetTransferAmount,
+
             // TODO: remove server check when bui prediction is a thing
             Act = () =>
             {
@@ -106,7 +107,7 @@ public sealed class SolutionTransferSystem : EntitySystem
 
     private void OnAfterInteract(Entity<SolutionTransferComponent> ent, ref AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Target is not {} target)
+        if (!args.CanReach || args.Target is not { } target)
             return;
 
         // We have two cases for interaction:
@@ -114,7 +115,6 @@ public sealed class SolutionTransferSystem : EntitySystem
         // Held Refillable <-- Target Drainable
 
         // In the case where the target has both Refillable and Drainable, Held --> Target takes priority.
-
         if (ent.Comp.CanSend
             && _drainableQuery.TryComp(ent.Owner, out var heldDrainable)
             && _refillableQuery.TryComp(target, out var targetRefillable)
@@ -127,7 +127,7 @@ public sealed class SolutionTransferSystem : EntitySystem
             args.Handled = true; //If we reach this point, the interaction counts as handled.
 
             var transferAmount = ent.Comp.TransferAmount;
-            if (targetRefillable.MaxRefill is {} maxRefill)
+            if (targetRefillable.MaxRefill is { } maxRefill)
                 transferAmount = FixedPoint2.Min(transferAmount, maxRefill);
 
             var transferData = new SolutionTransferData(args.User, ent.Owner, ownerSoln.Value, target, targetSoln.Value, transferAmount);
@@ -167,7 +167,7 @@ public sealed class SolutionTransferSystem : EntitySystem
             args.Handled = true; //If we reach this point, the interaction counts as handled.
 
             var transferAmount = ent.Comp.TransferAmount; // This is the player-configurable transfer amount of "uid," not the target drainable.
-            if (heldRefillable.MaxRefill is {} maxRefill) // if the receiver has a smaller transfer limit, use that instead
+            if (heldRefillable.MaxRefill is { } maxRefill) // if the receiver has a smaller transfer limit, use that instead
                 transferAmount = FixedPoint2.Min(transferAmount, maxRefill);
 
             var transferData = new SolutionTransferData(args.User, target, targetSoln.Value, ent.Owner, ownerSoln.Value, transferAmount);
@@ -338,7 +338,7 @@ public sealed class SolutionTransferSystem : EntitySystem
 
         // Check if the source is cancelling the transfer
         RaiseLocalEvent(data.SourceEntity, ref transferAttempt);
-        if (transferAttempt.CancelReason is {} reason)
+        if (transferAttempt.CancelReason is { } reason)
         {
             _popup.PopupClient(reason, data.SourceEntity, data.User);
             return false;
@@ -353,7 +353,7 @@ public sealed class SolutionTransferSystem : EntitySystem
 
         // Check if the target is cancelling the transfer
         RaiseLocalEvent(data.TargetEntity, ref transferAttempt);
-        if (transferAttempt.CancelReason is {} targetReason)
+        if (transferAttempt.CancelReason is { } targetReason)
         {
             _popup.PopupClient(targetReason, data.TargetEntity, data.User);
             return false;

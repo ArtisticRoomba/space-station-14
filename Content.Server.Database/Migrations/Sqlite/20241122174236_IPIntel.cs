@@ -19,7 +19,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     address = table.Column<string>(type: "TEXT", nullable: false),
                     time = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    score = table.Column<float>(type: "REAL", nullable: false)
+                    score = table.Column<float>(type: "REAL", nullable: false),
                 },
                 constraints: table =>
                 {

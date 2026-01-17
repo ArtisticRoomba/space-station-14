@@ -96,6 +96,7 @@ namespace Content.Benchmarks
             _readStream.Position = 0;
             _read16 = ReadUInt16Byte(_readStream);
         }
+
         [Benchmark]
         public void BenchRead32Byte()
         {
@@ -112,28 +113,28 @@ namespace Content.Benchmarks
 
         private static void WriteUInt16Byte(Stream stream, ushort value)
         {
-            stream.WriteByte((byte) value);
-            stream.WriteByte((byte) (value >> 8));
+            stream.WriteByte((byte)value);
+            stream.WriteByte((byte)(value >> 8));
         }
 
         private static void WriteUInt32Byte(Stream stream, uint value)
         {
-            stream.WriteByte((byte) value);
-            stream.WriteByte((byte) (value >> 8));
-            stream.WriteByte((byte) (value >> 16));
-            stream.WriteByte((byte) (value >> 24));
+            stream.WriteByte((byte)value);
+            stream.WriteByte((byte)(value >> 8));
+            stream.WriteByte((byte)(value >> 16));
+            stream.WriteByte((byte)(value >> 24));
         }
 
         private static void WriteUInt64Byte(Stream stream, ulong value)
         {
-            stream.WriteByte((byte) value);
-            stream.WriteByte((byte) (value >> 8));
-            stream.WriteByte((byte) (value >> 16));
-            stream.WriteByte((byte) (value >> 24));
-            stream.WriteByte((byte) (value >> 32));
-            stream.WriteByte((byte) (value >> 40));
-            stream.WriteByte((byte) (value >> 48));
-            stream.WriteByte((byte) (value >> 56));
+            stream.WriteByte((byte)value);
+            stream.WriteByte((byte)(value >> 8));
+            stream.WriteByte((byte)(value >> 16));
+            stream.WriteByte((byte)(value >> 24));
+            stream.WriteByte((byte)(value >> 32));
+            stream.WriteByte((byte)(value >> 40));
+            stream.WriteByte((byte)(value >> 48));
+            stream.WriteByte((byte)(value >> 56));
         }
 
         private static ushort ReadUInt16Byte(Stream stream)
@@ -146,7 +147,7 @@ namespace Content.Benchmarks
                 if (val == -1)
                     throw new EndOfStreamException();
 
-                a |= (ushort) (val << i);
+                a |= (ushort)(val << i);
             }
 
             return a;
@@ -162,7 +163,7 @@ namespace Content.Benchmarks
                 if (val == -1)
                     throw new EndOfStreamException();
 
-                a |= (uint) val << i;
+                a |= (uint)val << i;
             }
 
             return a;
@@ -178,7 +179,7 @@ namespace Content.Benchmarks
                 if (val == -1)
                     throw new EndOfStreamException();
 
-                a |= (ulong) val << i;
+                a |= (ulong)val << i;
             }
 
             return a;

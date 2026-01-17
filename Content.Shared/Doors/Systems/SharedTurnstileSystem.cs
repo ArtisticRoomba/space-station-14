@@ -95,6 +95,7 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
 
             return;
         }
+
         // if they passed through:
         PlayAnimation(ent, ent.Comp.SpinState);
         _audio.PlayPredicted(ent.Comp.TurnSound, ent, args.OtherEntity);

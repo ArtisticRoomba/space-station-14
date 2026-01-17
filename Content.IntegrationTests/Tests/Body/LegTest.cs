@@ -45,7 +45,8 @@ namespace Content.IntegrationTests.Tests.Body
             {
                 BodyComponent body = null;
 
-                human = entityManager.SpawnEntity("HumanBodyAndAppearanceDummy",
+                human = entityManager.SpawnEntity(
+                    "HumanBodyAndAppearanceDummy",
                     new MapCoordinates(Vector2.Zero, map.MapId));
 
                 Assert.Multiple(() =>

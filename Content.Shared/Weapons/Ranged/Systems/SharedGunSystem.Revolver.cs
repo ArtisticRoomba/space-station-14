@@ -1,17 +1,17 @@
+using System;
+using System.Linq;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Wieldable;
+using Content.Shared.Wieldable.Components;
+using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using System;
-using System.Linq;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Wieldable;
-using Content.Shared.Wieldable.Components;
-using JetBrains.Annotations;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -220,6 +220,7 @@ public partial class SharedGunSystem
         args.Verbs.Add(new AlternativeVerb()
         {
             Text = Loc.GetString("gun-revolver-spin"),
+
             // Category = VerbCategory.G,
             Act = () => SpinRevolver((uid, component), args.User)
         });
@@ -367,6 +368,7 @@ public partial class SharedGunSystem
                 ammoEnt = ent.Comp.AmmoSlots[index]!;
                 ent.Comp.Chambers[index] = false;
             }
+
             // Try to spawn a round if it's available.
             else if (chamber != null)
             {

@@ -204,6 +204,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     {
         if (string.IsNullOrEmpty(message))
             return message;
+
         // Capitalize first letter
         message = OopsConcat(char.ToUpper(message[0]).ToString(), message.Remove(0, 1));
         return message;

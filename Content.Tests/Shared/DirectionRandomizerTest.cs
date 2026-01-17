@@ -51,6 +51,7 @@ public sealed class DirectionRandomizerTest : RobustUnitTest
                 Assert.Fail("Post randomization the enumerator had repeated direction");
             }
         }
+
         // Because of above foreach this asserts
         // rand[1,2,3] - [1,2,3] == {}
         // i.e. randomized set minus original set is empty

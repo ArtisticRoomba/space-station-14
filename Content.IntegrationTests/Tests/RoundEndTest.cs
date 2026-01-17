@@ -32,7 +32,7 @@ namespace Content.IntegrationTests.Tests
             {
                 DummyTicker = false,
                 Connected = true,
-                Dirty = true
+                Dirty = true,
             });
 
             var server = pair.Server;
@@ -65,6 +65,7 @@ namespace Content.IntegrationTests.Tests
                     Assert.That(roundEndSystem.ExpectedCountdownEnd, Is.Not.Null, "Shuttle was called, but countdown time was not set");
                     Assert.That(roundEndSystem.CanCallOrRecall(), Is.False, "Started the shuttle, but didn't have to wait cooldown to press cancel button");
                 });
+
                 // Check that we can't recall the shuttle yet
                 roundEndSystem.CancelRoundEndCountdown();
                 Assert.That(roundEndSystem.ExpectedCountdownEnd, Is.Not.Null, "Shuttle was cancelled, even though the button was on cooldown");
@@ -79,6 +80,7 @@ namespace Content.IntegrationTests.Tests
                     Assert.That(roundEndSystem.CanCallOrRecall(), Is.True, "We waited a while, but the cooldown is not expired");
                     Assert.That(roundEndSystem.ExpectedCountdownEnd, Is.Not.Null, "We were waiting for the cooldown, but the round also ended");
                 });
+
                 // Recall the shuttle, which should trigger the cooldown again
                 roundEndSystem.CancelRoundEndCountdown();
                 Assert.Multiple(() =>
@@ -93,6 +95,7 @@ namespace Content.IntegrationTests.Tests
             await server.WaitAssertion(() =>
             {
                 Assert.That(roundEndSystem.CanCallOrRecall(), Is.True, "We waited a while, but the cooldown is not expired");
+
                 // Press the shuttle call button
                 roundEndSystem.RequestRoundEnd();
             });

@@ -70,6 +70,7 @@ public abstract partial class SharedBorgSystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(chassis);
 
         var sound = active ? chassis.Comp.ActivateSound : chassis.Comp.DeactivateSound;
+
         // If a user is given predict the audio for them, if not keep it unpredicted.
         if (user != null)
             _audio.PlayPredicted(sound, chassis.Owner, user);

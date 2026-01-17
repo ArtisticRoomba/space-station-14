@@ -11,7 +11,6 @@ namespace Content.Shared.Atmos.Prototypes
 
         // TODO: Control gas amount necessary for overlay to appear
         // TODO: Add interfaces for gas behaviours e.g. breathing, burning
-
         [ViewVariables]
         [IdDataField]
         public string ID { get; private set; } = default!;

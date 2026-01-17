@@ -25,8 +25,9 @@ namespace Content.Benchmarks;
 /// </summary>
 [Virtual]
 [GcServer(true)]
-//[MemoryDiagnoser]
-//[ThreadingDiagnoser]
+
+// [MemoryDiagnoser]
+// [ThreadingDiagnoser]
 public class DeltaPressureBenchmark
 {
     /// <summary>
@@ -152,7 +153,9 @@ public class DeltaPressureBenchmark
     {
         await _pair.Server.WaitPost(() =>
         {
-            while (!_atmospereSystem.RunProcessingStage(_testEnt, AtmosphereProcessingState.DeltaPressure)) { }
+            while (!_atmospereSystem.RunProcessingStage(_testEnt, AtmosphereProcessingState.DeltaPressure))
+            {
+            }
         });
     }
 

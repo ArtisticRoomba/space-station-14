@@ -89,12 +89,14 @@ namespace Content.Tests.Shared.Alert
             expectedOrder.Add("Handcuffed");
             expectedOrder.Add("Ensnared");
             expectedOrder.Add("HighPressure");
+
             // stuff with only category + same category ordered by enum value
             expectedOrder.Add("Peckish");
             expectedOrder.Add("Hot");
             expectedOrder.Add("Stun");
             expectedOrder.Add("LowPressure");
             expectedOrder.Add("Cold");
+
             // stuff at end of list ordered by ID
             expectedOrder.Add("PilotingShuttle");
             expectedOrder.Add("Weightless");

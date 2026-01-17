@@ -100,11 +100,10 @@ namespace Content.IntegrationTests.Tests.Networking
 
                 // Client last ran tick 15 meaning it's ahead of the last server tick it processed (12)
                 Assert.That(cGameTiming.CurTick, Is.EqualTo(expected));
-                Assert.That(cGameTiming.LastProcessedTick, Is.EqualTo(new GameTick((uint) (baseTick - cGameStateManager.TargetBufferSize))));
+                Assert.That(cGameTiming.LastProcessedTick, Is.EqualTo(new GameTick((uint)(baseTick - cGameStateManager.TargetBufferSize))));
             });
 
             // *** I am using block scopes to visually distinguish these sections of the test to make it more readable.
-
 
             // Send an event to change the flag and instantly see the effect replicate client side,
             // while it's queued on server and reconciling works (constantly needs re-firing on client).
@@ -117,7 +116,8 @@ namespace Content.IntegrationTests.Tests.Networking
                 Assert.That(clientComponent.Foo, Is.True);
 
                 // Event correctly arrived on client system.
-                Assert.That(clientSystem.EventTriggerList,
+                Assert.That(
+                    clientSystem.EventTriggerList,
                     Is.EquivalentTo(new[] { (clientReceive: expected, true, false, true, true) }));
                 clientSystem.EventTriggerList.Clear();
 
@@ -134,7 +134,8 @@ namespace Content.IntegrationTests.Tests.Networking
                     await client.WaitRunTicks(1);
 
                     // Event got repeated on client as a past prediction.
-                    Assert.That(clientSystem.EventTriggerList,
+                    Assert.That(
+                        clientSystem.EventTriggerList,
                         Is.EquivalentTo(new[] { (clientReceive: expected, false, false, true, true) }));
                     clientSystem.EventTriggerList.Clear();
                 }
@@ -146,7 +147,8 @@ namespace Content.IntegrationTests.Tests.Networking
                     {
                         // Event arrived on server at tick 16.
                         Assert.That(sGameTiming.CurTick, Is.EqualTo(new GameTick(baseTick + 3)));
-                        Assert.That(serverSystem.EventTriggerList,
+                        Assert.That(
+                            serverSystem.EventTriggerList,
                             Is.EquivalentTo(new[] { (clientReceive: expected, true, false, true, true) }));
                     });
                     serverSystem.EventTriggerList.Clear();
@@ -154,7 +156,8 @@ namespace Content.IntegrationTests.Tests.Networking
                     await client.WaitRunTicks(1);
 
                     // Event got repeated on client as a past prediction.
-                    Assert.That(clientSystem.EventTriggerList,
+                    Assert.That(
+                        clientSystem.EventTriggerList,
                         Is.EquivalentTo(new[] { (clientReceive: expected, false, false, true, true) }));
                     clientSystem.EventTriggerList.Clear();
                 }
@@ -198,7 +201,8 @@ namespace Content.IntegrationTests.Tests.Networking
                 });
 
                 // Event correctly arrived on client system.
-                Assert.That(clientSystem.EventTriggerList,
+                Assert.That(
+                    clientSystem.EventTriggerList,
                     Is.EquivalentTo(new[] { (new GameTick(baseTick + 6), true, true, false, false) }));
                 clientSystem.EventTriggerList.Clear();
 
@@ -212,7 +216,8 @@ namespace Content.IntegrationTests.Tests.Networking
                     await client.WaitRunTicks(1);
 
                     // Event got repeated on client as a past prediction.
-                    Assert.That(clientSystem.EventTriggerList,
+                    Assert.That(
+                        clientSystem.EventTriggerList,
                         Is.EquivalentTo(new[] { (new GameTick(baseTick + 6), false, true, false, false) }));
                     clientSystem.EventTriggerList.Clear();
                 }
@@ -224,8 +229,10 @@ namespace Content.IntegrationTests.Tests.Networking
                     {
                         // Event arrived on server at tick 20.
                         Assert.That(sGameTiming.CurTick, Is.EqualTo(new GameTick(baseTick + 7)));
+
                         // But the server didn't listen!
-                        Assert.That(serverSystem.EventTriggerList,
+                        Assert.That(
+                            serverSystem.EventTriggerList,
                             Is.EquivalentTo(new[] { (new GameTick(baseTick + 6), true, true, true, false) }));
                     });
                     serverSystem.EventTriggerList.Clear();
@@ -233,7 +240,8 @@ namespace Content.IntegrationTests.Tests.Networking
                     await client.WaitRunTicks(1);
 
                     // Event got repeated on client as a past prediction.
-                    Assert.That(clientSystem.EventTriggerList,
+                    Assert.That(
+                        clientSystem.EventTriggerList,
                         Is.EquivalentTo(new[] { (new GameTick(baseTick + 6), false, true, false, false) }));
                     clientSystem.EventTriggerList.Clear();
                 }
@@ -265,7 +273,7 @@ namespace Content.IntegrationTests.Tests.Networking
                 // Assert timing is still correct.
                 Assert.That(sGameTiming.CurTick, Is.EqualTo(new GameTick(baseTick + 8)));
                 Assert.That(cGameTiming.CurTick, Is.EqualTo(new GameTick(baseTick + 8 + delta)));
-                Assert.That(cGameTiming.LastProcessedTick, Is.EqualTo(new GameTick((uint) (baseTick + 8 - cGameStateManager.TargetBufferSize))));
+                Assert.That(cGameTiming.LastProcessedTick, Is.EqualTo(new GameTick((uint)(baseTick + 8 - cGameStateManager.TargetBufferSize))));
             });
 
             {
@@ -278,7 +286,8 @@ namespace Content.IntegrationTests.Tests.Networking
                 });
 
                 // Event correctly arrived on client system.
-                Assert.That(clientSystem.EventTriggerList,
+                Assert.That(
+                    clientSystem.EventTriggerList,
                     Is.EquivalentTo(new[] { (new GameTick(baseTick + 10), true, true, false, false) }));
                 clientSystem.EventTriggerList.Clear();
 
@@ -292,7 +301,8 @@ namespace Content.IntegrationTests.Tests.Networking
                     await client.WaitRunTicks(1);
 
                     // Event got repeated on client as a past prediction.
-                    Assert.That(clientSystem.EventTriggerList,
+                    Assert.That(
+                        clientSystem.EventTriggerList,
                         Is.EquivalentTo(new[] { (new GameTick(baseTick + 10), false, true, false, false) }));
                     clientSystem.EventTriggerList.Clear();
                 }
@@ -306,7 +316,8 @@ namespace Content.IntegrationTests.Tests.Networking
                 });
 
                 // Event correctly arrived on client system.
-                Assert.That(clientSystem.EventTriggerList,
+                Assert.That(
+                    clientSystem.EventTriggerList,
                     Is.EquivalentTo(new[] { (new GameTick(baseTick + 11), true, false, true, true) }));
                 clientSystem.EventTriggerList.Clear();
 
@@ -320,10 +331,11 @@ namespace Content.IntegrationTests.Tests.Networking
                     await client.WaitRunTicks(1);
 
                     // Event got repeated on client as a past prediction.
-                    Assert.That(clientSystem.EventTriggerList,
+                    Assert.That(
+                        clientSystem.EventTriggerList,
                         Is.EquivalentTo(new[]
                         {
-                            (new GameTick(baseTick + 10), false, true, false, false), (new GameTick(baseTick + 11), false, false, true, true)
+                            (new GameTick(baseTick + 10), false, true, false, false), (new GameTick(baseTick + 11), false, false, true, true),
                         }));
                     clientSystem.EventTriggerList.Clear();
                 }
@@ -332,17 +344,19 @@ namespace Content.IntegrationTests.Tests.Networking
                 {
                     await server.WaitRunTicks(1);
 
-                    Assert.That(serverSystem.EventTriggerList,
+                    Assert.That(
+                        serverSystem.EventTriggerList,
                         Is.EquivalentTo(new[] { (new GameTick(baseTick + 10), true, true, false, false) }));
                     serverSystem.EventTriggerList.Clear();
 
                     await client.WaitRunTicks(1);
 
                     // Event got repeated on client as a past prediction.
-                    Assert.That(clientSystem.EventTriggerList,
+                    Assert.That(
+                        clientSystem.EventTriggerList,
                         Is.EquivalentTo(new[]
                         {
-                            (new GameTick(baseTick + 10), false, true, false, false), (new GameTick(baseTick + 11), false, false, true, true)
+                            (new GameTick(baseTick + 10), false, true, false, false), (new GameTick(baseTick + 11), false, false, true, true),
                         }));
                     clientSystem.EventTriggerList.Clear();
                 }
@@ -352,17 +366,19 @@ namespace Content.IntegrationTests.Tests.Networking
                 {
                     await server.WaitRunTicks(1);
 
-                    Assert.That(serverSystem.EventTriggerList,
+                    Assert.That(
+                        serverSystem.EventTriggerList,
                         Is.EquivalentTo(new[] { (new GameTick(baseTick + 11), true, false, true, true) }));
                     serverSystem.EventTriggerList.Clear();
 
                     await client.WaitRunTicks(1);
 
                     // Event got repeated on client as a past prediction.
-                    Assert.That(clientSystem.EventTriggerList,
+                    Assert.That(
+                        clientSystem.EventTriggerList,
                         Is.EquivalentTo(new[]
                         {
-                            (new GameTick(baseTick + 11), false, false, true, true)
+                            (new GameTick(baseTick + 11), false, false, true, true),
                         }));
                     clientSystem.EventTriggerList.Clear();
                 }

@@ -26,6 +26,7 @@ public sealed class MobThresholdsTest
             {
                 // See which mob states are mapped to alerts
                 var alertStates = comp.StateAlertDict.Keys;
+
                 // Check each mob state that this mob can be in
                 foreach (var (_, state) in comp.Thresholds)
                 {

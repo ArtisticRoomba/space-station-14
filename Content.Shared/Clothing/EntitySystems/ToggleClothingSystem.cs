@@ -28,6 +28,7 @@ public sealed class ToggleClothingSystem : EntitySystem
     private void OnMapInit(Entity<ToggleClothingComponent> ent, ref MapInitEvent args)
     {
         var (uid, comp) = ent;
+
         // test funny
         if (string.IsNullOrEmpty(comp.Action))
             return;

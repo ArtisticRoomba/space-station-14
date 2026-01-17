@@ -62,6 +62,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         // Shouldn't need re-anchoring.
         SubscribeLocalEvent<PuddleComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<PuddleComponent, SolutionContainerChangedEvent>(OnSolutionUpdate);
@@ -202,7 +203,6 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             // Make blood stand out more
             // Kinda EH
             // Could potentially do alpha per-solution but future problem.
-
             color = solution.GetColorWithout(_prototypeManager, _standoutReagents);
             color = color.WithAlpha(0.7f);
 
@@ -238,18 +238,23 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
         // Stores how many units of slippery reagents a puddle has
         var slipperyUnits = FixedPoint2.Zero;
+
         // Stores how many units of super slippery reagents a puddle has
         var superSlipperyUnits = FixedPoint2.Zero;
 
         // These three values will be averaged later and all start at zero so the calculations work
         // A cumulative weighted amount of minimum speed to slip values
         var puddleFriction = FixedPoint2.Zero;
+
         // A cumulative weighted amount of minimum speed to slip values
         var slipStepTrigger = FixedPoint2.Zero;
+
         // A cumulative weighted amount of launch multipliers from slippery reagents
         var launchMult = FixedPoint2.Zero;
+
         // A cumulative weighted amount of stun times from slippery reagents
         var stunTimer = TimeSpan.Zero;
+
         // A cumulative weighted amount of knockdown times from slippery reagents
         var knockdownTimer = TimeSpan.Zero;
 
@@ -281,8 +286,10 @@ public abstract partial class SharedPuddleSystem : EntitySystem
                 continue;
 
             slipperyUnits += quantity;
+
             // Aggregate launch speed based on quantity
             launchMult += reagentProto.SlipData.LaunchForwardsMultiplier * quantity;
+
             // Aggregate stun times based on quantity
             stunTimer += reagentProto.SlipData.StunTime * (float)quantity;
             knockdownTimer += reagentProto.SlipData.KnockdownTime * (float)quantity;

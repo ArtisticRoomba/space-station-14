@@ -9,12 +9,11 @@ using Content.Shared.Roles;
 using Content.Shared.Timing;
 using Content.Shared.Trigger.Components;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Timing;
 using Robust.Shared.Random;
-using Robust.Shared.Audio.Systems;
-
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Trigger.Systems;
 

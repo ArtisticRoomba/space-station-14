@@ -269,6 +269,7 @@ public sealed partial class GunComponent : Component
 public enum SelectiveFire : byte
 {
     Invalid = 0,
+
     // Combat mode already functions as the equivalent of Safety
     SemiAuto = 1 << 0,
     Burst = 1 << 1,

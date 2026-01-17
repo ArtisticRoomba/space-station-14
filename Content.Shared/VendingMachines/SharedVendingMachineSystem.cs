@@ -417,6 +417,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                 }
 
                 if (inventory.TryGetValue(id, out var entry))
+
                     // Prevent a machine's stock from going over three times
                     // the prototype's normal amount. This is an arbitrary
                     // number and meant to be a convenience for someone

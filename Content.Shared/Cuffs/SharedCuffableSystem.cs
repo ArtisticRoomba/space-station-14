@@ -251,7 +251,6 @@ namespace Content.Shared.Cuffs
             if (args.User.Value == uid && !component.CanStillInteract)
             {
                 //TODO: UX feedback. Simply blocking the normal interaction feels like an interface bug
-
                 args.Cancelled = true;
             }
 
@@ -283,6 +282,7 @@ namespace Content.Shared.Cuffs
                 DoContactInteraction = true,
                 Text = Loc.GetString("uncuff-verb-get-data-text")
             };
+
             //TODO VERB ICON add uncuffing symbol? may re-use the alert symbol showing that you are currently cuffed?
             args.Verbs.Add(verb);
         }
@@ -383,7 +383,6 @@ namespace Content.Shared.Cuffs
                 {
                     // TODO Fix popup message wording
                     // This message assumes that the user being handcuffed is the one that caused the handcuff to fail.
-
                     _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-message",
                         ("targetName", Identity.Name(target, EntityManager, user))), user, user);
                     _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-other-message",
@@ -436,7 +435,6 @@ namespace Content.Shared.Cuffs
 
             // TODO we probably don't just want to use the generic virtual-item entity, and instead
             // want to add our own item, so that use-in-hand triggers an uncuff attempt and the like.
-
             if (!TryComp<HandsComponent>(uid, out var handsComponent))
                 return;
 
@@ -725,6 +723,7 @@ namespace Content.Shared.Cuffs
             }
 
             var shoved = false;
+
             // if combat mode is on, shove the person.
             if (_combatMode.IsInCombatMode(user) && target != user && user != null)
             {

@@ -1,8 +1,12 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Actions;
 using Content.Shared.Coordinates;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Polymorph.Components;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
@@ -12,10 +16,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
-using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Item.ItemToggle;
-using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Shared.Polymorph.Systems;
 
@@ -70,7 +70,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     private void OnDisguiseDamaged(Entity<ChameleonDisguiseComponent> ent, ref DamageChangedEvent args)
     {
         // this mirrors damage 1:1
-        if (args.DamageDelta is {} damage)
+        if (args.DamageDelta is { } damage)
             _damageable.TryChangeDamage(ent.Comp.User, damage);
     }
 
@@ -102,7 +102,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnInteract(Entity<ChameleonProjectorComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target is not {} target)
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
         args.Handled = true;
@@ -163,7 +163,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnToggleNoRot(Entity<ChameleonProjectorComponent> ent, ref DisguiseToggleNoRotEvent args)
     {
-        if (ent.Comp.Disguised is not {} uid)
+        if (ent.Comp.Disguised is not { } uid)
             return;
 
         var xform = Transform(uid);
@@ -174,7 +174,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnToggleAnchored(Entity<ChameleonProjectorComponent> ent, ref DisguiseToggleAnchoredEvent args)
     {
-        if (ent.Comp.Disguised is not {} uid)
+        if (ent.Comp.Disguised is not { } uid)
             return;
 
         var xform = Transform(uid);
@@ -304,7 +304,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     /// </summary>
     public void RevealProjector(Entity<ChameleonProjectorComponent> ent)
     {
-        if (ent.Comp.Disguised is {} user)
+        if (ent.Comp.Disguised is { } user)
             TryReveal(user);
     }
 

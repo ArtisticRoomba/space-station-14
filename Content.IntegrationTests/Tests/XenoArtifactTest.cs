@@ -115,6 +115,7 @@ public sealed class XenoArtifactTest
             // Assert that successors and direct successors are counted correctly for node 1.
             Assert.That(artifactSystem.GetDirectSuccessorNodes(artifactEnt, node1!.Value).Count, Is.EqualTo(1));
             Assert.That(artifactSystem.GetSuccessorNodes(artifactEnt, node1!.Value).Count, Is.EqualTo(2));
+
             // Assert that we didn't somehow get predecessors on node 1.
             Assert.That(artifactSystem.GetDirectPredecessorNodes(artifactEnt, node1!.Value), Is.Empty);
             Assert.That(artifactSystem.GetPredecessorNodes(artifactEnt, node1!.Value), Is.Empty);
@@ -122,6 +123,7 @@ public sealed class XenoArtifactTest
             // Assert that successors and direct successors are counted correctly for node 2.
             Assert.That(artifactSystem.GetDirectSuccessorNodes(artifactEnt, node2!.Value), Has.Count.EqualTo(1));
             Assert.That(artifactSystem.GetSuccessorNodes(artifactEnt, node2!.Value), Has.Count.EqualTo(1));
+
             // Assert that predecessors and direct predecessors are counted correctly for node 2.
             Assert.That(artifactSystem.GetDirectPredecessorNodes(artifactEnt, node2!.Value), Has.Count.EqualTo(1));
             Assert.That(artifactSystem.GetPredecessorNodes(artifactEnt, node2!.Value), Has.Count.EqualTo(1));
@@ -129,6 +131,7 @@ public sealed class XenoArtifactTest
             // Assert that successors and direct successors are counted correctly for node 3.
             Assert.That(artifactSystem.GetDirectSuccessorNodes(artifactEnt, node3!.Value), Is.Empty);
             Assert.That(artifactSystem.GetSuccessorNodes(artifactEnt, node3!.Value), Is.Empty);
+
             // Assert that predecessors and direct predecessors are counted correctly for node 3.
             Assert.That(artifactSystem.GetDirectPredecessorNodes(artifactEnt, node3!.Value), Has.Count.EqualTo(1));
             Assert.That(artifactSystem.GetPredecessorNodes(artifactEnt, node3!.Value), Has.Count.EqualTo(2));
@@ -302,7 +305,6 @@ public sealed class XenoArtifactTest
             Assert.That(artifactSystem.GetPredecessorNodes(artifactEnt, node3.Value), Is.Empty);
             Assert.That(artifactSystem.GetSuccessorNodes(artifactEnt, node4!.Value), Is.Empty);
             Assert.That(artifactSystem.GetPredecessorNodes(artifactEnt, node4!.Value), Is.Empty);
-
         });
         await server.WaitRunTicks(1);
 
@@ -335,7 +337,7 @@ public sealed class XenoArtifactTest
             Assert.That(artifactSystem.AddNode(artifactEnt, "TestArtifactNode", out var node7, false));
             Assert.That(artifactSystem.AddNode(artifactEnt, "TestArtifactNode", out var node8, false));
 
-            //                       /----( 6 )
+            // /----( 6 )
             //           /----[*3 ]-/----( 7 )----( 8 )
             //          /
             //         /           /----[*5 ]
@@ -365,7 +367,6 @@ public sealed class XenoArtifactTest
             ];
             Assert.That(artifactEnt.Comp.CachedActiveNodes, Is.SupersetOf(expectedActiveNodes));
             Assert.That(artifactEnt.Comp.CachedActiveNodes, Has.Count.EqualTo(expectedActiveNodes.Length));
-
         });
         await server.WaitRunTicks(1);
 
@@ -410,7 +411,6 @@ public sealed class XenoArtifactTest
             Assert.That(grouped[0].Count(), Is.EqualTo(2));
             Assert.That(grouped[1].Count(), Is.GreaterThanOrEqualTo(2)); // tree is attempting sometimes to get wider (so it will look like a tree)
             Assert.That(grouped[2].Count(), Is.LessThanOrEqualTo(2)); // maintain same width or, if we used 3 nodes on previous layer - we only have 1 left!
-
         });
         await server.WaitRunTicks(1);
 

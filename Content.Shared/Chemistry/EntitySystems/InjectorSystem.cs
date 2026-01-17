@@ -302,6 +302,7 @@ public sealed partial class InjectorSystem : EntitySystem
         // Check if the target is either the user or downed.
         if (user == target) // Self-injections take priority.
             doAfterTime *= activeMode.SelfModifier;
+
         // Technically, both can be true, but that is probably a balance nightmare.
         else if (_standingState.IsDown(target))
             doAfterTime *= activeMode.DownedModifier;
@@ -558,6 +559,7 @@ public sealed partial class InjectorSystem : EntitySystem
         }
 
         var applicableTargetSolution = targetSolution.Comp.Solution;
+
         // If a whitelist exists, remove all non-whitelisted reagents from the target solution temporarily
         var temporarilyRemovedSolution = new Solution();
         if (injector.Comp.ReagentWhitelist is { } reagentWhitelist)
@@ -567,6 +569,7 @@ public sealed partial class InjectorSystem : EntitySystem
 
         // If transferAmount is null, fallback to 5 units.
         var plannedTransferAmount = injector.Comp.CurrentTransferAmount ?? FixedPoint2.New(5);
+
         // Get transfer amount. It may be smaller than _transferAmount if not enough room, also make sure there's room in the injector
         var realTransferAmount = FixedPoint2.Min(plannedTransferAmount,
             applicableTargetSolution.Volume,
@@ -647,8 +650,8 @@ public sealed partial class InjectorSystem : EntitySystem
     {
         // Leave some DNA from the injectee on it
         _forensics.TransferDna(injector, target);
-        // Reset the delay, if present.
 
+        // Reset the delay, if present.
         _useDelay.TryResetDelay(injector);
 
         // Automatically set syringe to draw after completely draining it.

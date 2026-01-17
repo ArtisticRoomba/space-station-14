@@ -79,6 +79,7 @@ public abstract class SharedChargesSystem : EntitySystem
         {
             ent.Comp.LastCharges = ent.Comp.MaxCharges;
         }
+
         // If -1 used then we don't want any.
         else if (ent.Comp.LastCharges < 0)
         {
@@ -125,6 +126,7 @@ public abstract class SharedChargesSystem : EntitySystem
             action.Comp1.LastUpdate = _timing.CurTime;
             action.Comp1.LastCharges = action.Comp1.MaxCharges;
         }
+
         // If it has auto-recharge then make up the difference.
         else if (Resolve(action.Owner, ref action.Comp2, false))
         {

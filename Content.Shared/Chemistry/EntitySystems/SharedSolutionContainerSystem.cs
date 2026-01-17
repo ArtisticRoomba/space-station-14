@@ -712,7 +712,6 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
     // Thermal energy and temperature management.
     // TODO: ENERGY CONSERVATION!!! Nuke this once we have HeatContainers and use methods which properly conserve energy and model heat transfer correctly!
-
     #region Thermal Energy and Temperature
 
     /// <summary>
@@ -844,14 +843,12 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             }
 
             // Push amount of reagent
-
             args.PushMarkup(Loc.GetString(entity.Comp.LocVolume,
                                 ("fillLevel", ExaminedVolume(entity, solution, args.Examiner)),
                                 ("current", solution.Volume),
                                 ("max", solution.MaxVolume)));
 
             // Push the physical description of the primary reagent
-
             var colorHex = solution.GetColor(PrototypeManager)
                 .ToHexNoAlpha(); //TODO: If the chem has a dark color, the examine text becomes black on a black background, which is unreadable.
 

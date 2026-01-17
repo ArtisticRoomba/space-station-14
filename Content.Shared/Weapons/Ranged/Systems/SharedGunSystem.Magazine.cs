@@ -37,7 +37,6 @@ public abstract partial class SharedGunSystem
     private void OnMagazineUse(EntityUid uid, MagazineAmmoProviderComponent component, UseInHandEvent args)
     {
         // not checking for args.Handled or marking as such because we only relay the event to the magazine entity
-
         var magEnt = GetMagazineEntity(uid);
 
         if (magEnt == null)
@@ -136,8 +135,8 @@ public abstract partial class SharedGunSystem
 
         // Pass the event onwards.
         RaiseLocalEvent(magEntity.Value, args);
-        // Should be Dirtied by what other ammoprovider is handling it.
 
+        // Should be Dirtied by what other ammoprovider is handling it.
         var ammoEv = new GetAmmoCountEvent();
         RaiseLocalEvent(magEntity.Value, ref ammoEv);
         FinaliseMagazineTakeAmmo(uid, component, ammoEv.Count, ammoEv.Capacity, args.User, appearance);

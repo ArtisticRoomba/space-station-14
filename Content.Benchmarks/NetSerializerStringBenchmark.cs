@@ -12,7 +12,6 @@ using Robust.Shared.Analyzers;
 namespace Content.Benchmarks
 {
     // Code for the *Slow and *Unsafe implementations taken from NetSerializer, licensed under the MIT license.
-
     [MemoryDiagnoser]
     [Virtual]
     public class NetSerializerStringBenchmark
@@ -83,13 +82,13 @@ namespace Content.Benchmarks
         {
             if (value == null)
             {
-                Primitives.WritePrimitive(stream, (uint) 0);
+                Primitives.WritePrimitive(stream, 0U);
                 return;
             }
 
             if (value.Length == 0)
             {
-                Primitives.WritePrimitive(stream, (uint) 1);
+                Primitives.WritePrimitive(stream, 1U);
                 return;
             }
 
@@ -98,8 +97,8 @@ namespace Content.Benchmarks
             var totalChars = value.Length;
             var totalBytes = Encoding.UTF8.GetByteCount(value);
 
-            Primitives.WritePrimitive(stream, (uint) totalBytes + 1);
-            Primitives.WritePrimitive(stream, (uint) totalChars);
+            Primitives.WritePrimitive(stream, (uint)totalBytes + 1);
+            Primitives.WritePrimitive(stream, (uint)totalChars);
 
             var totalRead = 0;
             ReadOnlySpan<char> span = value;
@@ -139,7 +138,7 @@ namespace Content.Benchmarks
 
             Primitives.ReadPrimitive(stream, out uint totalChars);
 
-            value = string.Create((int) totalChars, ((int) totalBytes, stream), StringSpanRead);
+            value = string.Create((int)totalChars, ((int)totalBytes, stream), StringSpanRead);
         }
 
         private static void StringSpanRead(Span<char> span, (int totalBytes, Stream stream) tuple)
@@ -148,8 +147,8 @@ namespace Content.Benchmarks
 
             // ReSharper disable VariableHidesOuterVariable
             var (totalBytes, stream) = tuple;
-            // ReSharper restore VariableHidesOuterVariable
 
+            // ReSharper restore VariableHidesOuterVariable
             var totalBytesRead = 0;
             var totalCharsRead = 0;
             var writeBufStart = 0;
@@ -160,7 +159,8 @@ namespace Content.Benchmarks
                 var bytesReadLeft = Math.Min(buf.Length, bytesLeft);
                 var writeSlice = buf[writeBufStart..(bytesReadLeft - writeBufStart)];
                 var bytesInBuffer = stream.Read(writeSlice);
-                if (bytesInBuffer == 0) throw new EndOfStreamException();
+                if (bytesInBuffer == 0)
+                    throw new EndOfStreamException();
 
                 var readFromStream = bytesInBuffer + writeBufStart;
                 var final = readFromStream == bytesLeft;
@@ -196,12 +196,12 @@ namespace Content.Benchmarks
         {
             if (value == null)
             {
-                Primitives.WritePrimitive(stream, (uint) 0);
+                Primitives.WritePrimitive(stream, 0U);
                 return;
             }
             else if (value.Length == 0)
             {
-                Primitives.WritePrimitive(stream, (uint) 1);
+                Primitives.WritePrimitive(stream, 1U);
                 return;
             }
 
@@ -209,8 +209,8 @@ namespace Content.Benchmarks
 
             var len = encoding.GetByteCount(value);
 
-            Primitives.WritePrimitive(stream, (uint) len + 1);
-            Primitives.WritePrimitive(stream, (uint) value.Length);
+            Primitives.WritePrimitive(stream, (uint)len + 1);
+            Primitives.WritePrimitive(stream, (uint)value.Length);
 
             var buf = new byte[len];
 
@@ -246,7 +246,7 @@ namespace Content.Benchmarks
 
             while (l < len)
             {
-                var r = stream.Read(buf, l, (int) len - l);
+                var r = stream.Read(buf, l, (int)len - l);
                 if (r == 0)
                     throw new EndOfStreamException();
                 l += r;
@@ -277,6 +277,7 @@ namespace Content.Benchmarks
                     return _encoder;
                 }
             }
+
             public Decoder Decoder
             {
                 get
@@ -294,6 +295,7 @@ namespace Content.Benchmarks
                     return _byteBuffer;
                 }
             }
+
             public char[] CharBuffer
             {
                 get
@@ -311,12 +313,12 @@ namespace Content.Benchmarks
         {
             if (value == null)
             {
-                Primitives.WritePrimitive(stream, (uint) 0);
+                Primitives.WritePrimitive(stream, 0U);
                 return;
             }
             else if (value.Length == 0)
             {
-                Primitives.WritePrimitive(stream, (uint) 1);
+                Primitives.WritePrimitive(stream, 1U);
                 return;
             }
 
@@ -333,8 +335,8 @@ namespace Content.Benchmarks
             fixed (char* ptr = value)
                 totalBytes = encoder.GetByteCount(ptr, totalChars, true);
 
-            Primitives.WritePrimitive(stream, (uint) totalBytes + 1);
-            Primitives.WritePrimitive(stream, (uint) totalChars);
+            Primitives.WritePrimitive(stream, (uint)totalBytes + 1);
+            Primitives.WritePrimitive(stream, (uint)totalChars);
 
             var p = 0;
             var completed = false;
@@ -388,7 +390,7 @@ namespace Content.Benchmarks
             else
                 chars = new char[totalChars];
 
-            var streamBytesLeft = (int) totalBytes;
+            var streamBytesLeft = (int)totalBytes;
 
             var cp = 0;
 
@@ -413,19 +415,18 @@ namespace Content.Benchmarks
                         bytesInBuffer - p,
                         chars,
                         cp,
-                        (int) totalChars - cp,
+                        (int)totalChars - cp,
                         flush,
                         out var bytesConverted,
                         out var charsConverted,
-                        out completed
-                    );
+                        out completed);
 
                     p += bytesConverted;
                     cp += charsConverted;
                 }
             }
 
-            value = new string(chars, 0, (int) totalChars);
+            value = new string(chars, 0, (int)totalChars);
         }
     }
 }

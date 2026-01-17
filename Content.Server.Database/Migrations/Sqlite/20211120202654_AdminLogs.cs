@@ -19,7 +19,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 columns: table => new
                 {
                     round_id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
                 },
                 constraints: table =>
                 {
@@ -35,7 +35,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     type = table.Column<int>(type: "INTEGER", nullable: false),
                     date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     message = table.Column<string>(type: "TEXT", nullable: false),
-                    json = table.Column<string>(type: "jsonb", nullable: false)
+                    json = table.Column<string>(type: "jsonb", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -53,7 +53,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 columns: table => new
                 {
                     players_id = table.Column<int>(type: "INTEGER", nullable: false),
-                    rounds_id = table.Column<int>(type: "INTEGER", nullable: false)
+                    rounds_id = table.Column<int>(type: "INTEGER", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -80,7 +80,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: true),
                     admin_log_id = table.Column<int>(type: "INTEGER", nullable: true),
-                    admin_log_round_id = table.Column<int>(type: "INTEGER", nullable: true)
+                    admin_log_round_id = table.Column<int>(type: "INTEGER", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -98,7 +98,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 {
                     player_user_id = table.Column<Guid>(type: "TEXT", nullable: false),
                     log_id = table.Column<int>(type: "INTEGER", nullable: false),
-                    round_id = table.Column<int>(type: "INTEGER", nullable: false)
+                    round_id = table.Column<int>(type: "INTEGER", nullable: false),
                 },
                 constraints: table =>
                 {

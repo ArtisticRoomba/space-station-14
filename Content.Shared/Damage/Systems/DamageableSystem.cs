@@ -79,10 +79,10 @@ public sealed partial class DamageableSystem : EntitySystem
                 ent.Comp.DamageModifierSetId,
                 ent.Comp.HealthBarThreshold
             );
+
             // TODO BODY SYSTEM pass damage onto body system
             // BOBBY WHEN? 😭
             // BOBBY SOON 🫡
-
             return;
         }
 

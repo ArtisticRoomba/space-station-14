@@ -69,7 +69,6 @@ public sealed class WireLayoutTest
             // Assert.That(wires.TryGetLayout("WireLayoutTest", out var layout1));
             // Assert.That(wires.TryGetLayout("WireLayoutTest2", out var layout2));
             // Assert.That(wires.TryGetLayout("WireLayoutTest3", out var layout3));
-
             Assert.Multiple(() =>
             {
                 // Entity 1.

@@ -207,7 +207,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     deleted = table.Column<bool>(type: "INTEGER", nullable: false),
                     deleted_by_id = table.Column<Guid>(type: "TEXT", nullable: true),
                     deleted_at = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    seen = table.Column<bool>(type: "INTEGER", nullable: false)
+                    seen = table.Column<bool>(type: "INTEGER", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -260,7 +260,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     expiration_time = table.Column<DateTime>(type: "TEXT", nullable: true),
                     deleted = table.Column<bool>(type: "INTEGER", nullable: false),
                     deleted_by_id = table.Column<Guid>(type: "TEXT", nullable: true),
-                    deleted_at = table.Column<DateTime>(type: "TEXT", nullable: true)
+                    deleted_at = table.Column<DateTime>(type: "TEXT", nullable: true),
                 },
                 constraints: table =>
                 {

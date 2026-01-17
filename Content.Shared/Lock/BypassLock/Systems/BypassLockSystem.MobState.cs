@@ -30,6 +30,7 @@ public sealed partial class BypassLockSystem
             args.Verb.Disabled = true;
             args.Verb.Message = Loc.GetString("bypass-lock-disabled-healthy");
         }
+
         // Show verb of using the wrong tool when the target is critical.
         else if (target.Comp.RequiredMobState.Contains(mobState.CurrentState) && !args.RightTool)
         {

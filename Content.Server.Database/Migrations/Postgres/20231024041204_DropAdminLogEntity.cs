@@ -26,7 +26,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     admin_log_id = table.Column<int>(type: "integer", nullable: true),
                     admin_log_round_id = table.Column<int>(type: "integer", nullable: true),
-                    name = table.Column<string>(type: "text", nullable: true)
+                    name = table.Column<string>(type: "text", nullable: true),
                 },
                 constraints: table =>
                 {

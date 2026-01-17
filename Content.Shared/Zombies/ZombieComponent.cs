@@ -36,9 +36,9 @@ public sealed partial class ZombieComponent : Component
     {
         DamageDict = new ()
         {
-            {"Slash", 0.5},
-            {"Piercing", 0.3},
-            {"Blunt", 0.1},
+            { "Slash", 0.5},
+            { "Piercing", 0.3},
+            { "Blunt", 0.1},
         }
     };
 

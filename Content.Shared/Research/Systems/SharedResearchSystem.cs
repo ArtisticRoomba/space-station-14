@@ -121,7 +121,6 @@ public abstract class SharedResearchSystem : EntitySystem
         var tier = 2; //tier 1 is always given
 
         // todo this might break if you have hidden technologies. i'm not sure
-
         while (tier <= highestTier)
         {
             // we need to get the tech for the tier 1 below because that's

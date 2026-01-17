@@ -18,7 +18,6 @@ namespace Content.Shared.Clothing;
 public sealed class LoadoutSystem : EntitySystem
 {
     // Shared so we can predict it for placement manager.
-
     [Dependency] private readonly ActorSystem _actors = default!;
     [Dependency] private readonly SharedStationSpawningSystem _station = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;

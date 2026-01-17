@@ -257,9 +257,9 @@ namespace Content.Shared.Interaction
         {
             if (_gameTiming.ApplyingState)
                 return; // The changes are already networked with the same gamestate as the container event.
+
             // Other than the two cases above this is not a container event, but adding and removing hands is networked similarly
             // and removing hands causes items to be dropped.
-
             if (!item.DeleteOnDrop)
                 RemCompDeferred<UnremoveableComponent>(uid);
             else
@@ -307,11 +307,12 @@ namespace Content.Shared.Interaction
             // InteractionActivate() should check that the item is accessible. So.. if a user wants to lie about an
             // in-reach item being used in a slot... that should have no impact. This is functionally the same as if
             // they had somehow directly clicked on that item.
-
             if (msg.AltInteract)
+
                 // Use 'UserInteraction' function - behaves as if the user alt-clicked the item in the world.
                 UserInteraction(user.Value, itemXform.Coordinates, item, msg.AltInteract);
             else
+
                 // User used 'E'. We want to activate it, not simulate clicking on the item
                 InteractionActivate(user.Value, item);
         }
@@ -536,6 +537,7 @@ namespace Content.Shared.Interaction
                 return;
 
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
+
             // Else we run Activate.
             InteractionActivate(user,
                 target,
@@ -778,6 +780,7 @@ namespace Content.Shared.Interaction
             // that means we wouldn't be able to easily check overlap interactions.
             if (range > 0f &&
                 _fixtureQuery.TryComp(origin, out var fixtureA) &&
+
                 // These fixture counts are stuff that has the component but no fixtures for <reasons> (e.g. buttons).
                 // At least until they get removed.
                 fixtureA.FixtureCount > 0 &&
@@ -803,16 +806,19 @@ namespace Content.Shared.Interaction
                 {
                     inRange = false;
                 }
+
                 // Overlap, early out and no raycast.
                 else if (overlapCheck && distance.Equals(0f))
                 {
                     return true;
                 }
+
                 // Entity can bypass range checks.
                 else if (!ShouldCheckAccess(origin))
                 {
                     return true;
                 }
+
                 // Out of range so don't raycast.
                 else if (distance > range)
                 {
@@ -825,6 +831,7 @@ namespace Content.Shared.Interaction
                     range = (originPos.Position - targetPos.Position).Length();
                 }
             }
+
             // No fixtures, e.g. wallmounts.
             else
             {
@@ -900,7 +907,6 @@ namespace Content.Shared.Interaction
             else if (_wallMountQuery.TryComp(target, out var wallMount))
             {
                 // wall-mount exemptions may be restricted to a specific angle range.da
-
                 bool ignoreAnchored;
                 if (wallMount.Arc >= Math.Tau)
                     ignoreAnchored = true;
@@ -1062,6 +1068,7 @@ namespace Content.Shared.Interaction
                 return true;
 
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
+
             // all interactions should only happen when in range / unobstructed, so no range check is needed
             var interactUsingEvent = new InteractUsingEvent(user, used, target, clickLocation);
             RaiseLocalEvent(target, interactUsingEvent, true);
@@ -1071,6 +1078,7 @@ namespace Content.Shared.Interaction
 
             DoContactInteraction(user, used, interactUsingEvent);
             DoContactInteraction(user, target, interactUsingEvent);
+
             // Contact interactions are currently only used for forensics, so we don't raise used -> target
             if (interactUsingEvent.Handled || userInteractUsingEvent.Handled)
                 return true;
@@ -1106,6 +1114,7 @@ namespace Content.Shared.Interaction
             if (canReach)
             {
                 DoContactInteraction(user, target, afterInteractEvent);
+
                 // Contact interactions are currently only used for forensics, so we don't raise used -> target
             }
 
@@ -1123,6 +1132,7 @@ namespace Content.Shared.Interaction
             if (canReach)
             {
                 DoContactInteraction(user, target, afterInteractUsingEvent);
+
                 // Contact interactions are currently only used for forensics, so we don't raise used -> target
             }
 
@@ -1201,6 +1211,7 @@ namespace Content.Shared.Interaction
                 return false;
 
             DoContactInteraction(user, used);
+
             // Still need to call this even without checkUseDelay in case this gets relayed from Activate.
             if (delayComponent != null)
                 _useDelay.TryResetDelay(used, component: delayComponent);
@@ -1248,6 +1259,7 @@ namespace Content.Shared.Interaction
             }
 
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));
+
             // else, default to activating the item
             return InteractionActivate(user, used, false, false, false, checkDeletion: false);
         }

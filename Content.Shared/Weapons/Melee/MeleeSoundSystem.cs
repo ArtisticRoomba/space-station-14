@@ -43,6 +43,7 @@ public sealed class MeleeSoundSystem : EntitySystem
 
         // hitting can obv destroy an entity so we play at coords and not following them
         var coords = Transform(targetUid).Coordinates;
+
         // Play sound based off of highest damage type.
         if (TryComp<MeleeSoundComponent>(targetUid, out var damageSoundComp))
         {
@@ -95,6 +96,7 @@ public sealed class MeleeSoundSystem : EntitySystem
                 case "Cold":
                     _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Items/welder.ogg"), targetUid, userUid, AudioParams.Default.WithVariation(DamagePitchVariation));
                     break;
+
                 // No damage, fallback to tappies
                 case null:
                     _audio.PlayPredicted(new SoundCollectionSpecifier("WeakHit"), targetUid, userUid, AudioParams.Default.WithVariation(DamagePitchVariation));

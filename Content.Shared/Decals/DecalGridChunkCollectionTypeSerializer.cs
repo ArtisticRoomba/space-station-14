@@ -96,6 +96,7 @@ namespace Content.Shared.Decals
             var decalLookup = new Dictionary<uint, Decal>();
 
             var allData = new MappingDataNode();
+
             // Want consistent chunk + decal ordering so diffs aren't mangled
             var nodes = new SequenceDataNode();
 
@@ -131,6 +132,7 @@ namespace Content.Shared.Decals
                 foreach (var uid in uids)
                 {
                     var decal = decalLookup[uid];
+
                     // Inline coordinates
                     decks.Add(uid.ToString(), serializationManager.WriteValue(decal.Coordinates, alwaysWrite, context));
                 }

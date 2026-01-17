@@ -77,7 +77,6 @@ public sealed class FollowerSystem : EntitySystem
         // TODO WeakEntityReference
         // We need some way to store entity references in a way that doesn't imply that the entity still exists.
         // Then we wouldn't have to deal with this shit.
-
         var maps = ev.Entities.Select(x => Transform(x).MapUid).ToHashSet();
 
         var query = AllEntityQuery<FollowerComponent, TransformComponent, MetaDataComponent>();

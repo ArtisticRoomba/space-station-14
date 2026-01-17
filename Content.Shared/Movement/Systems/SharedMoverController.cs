@@ -254,6 +254,7 @@ public abstract partial class SharedMoverController : VirtualController
         ContentTileDefinition? tileDef = null;
 
         var touching = false;
+
         // Whether we use tilefriction or not
         if (weightless || inAirHelpless)
         {
@@ -281,6 +282,7 @@ public abstract partial class SharedMoverController : VirtualController
                 else
                     friction = moveSpeedComponent?.WeightlessFrictionNoInput ?? _airDamping;
             }
+
             // Otherwise use the off-grid values.
             else
             {

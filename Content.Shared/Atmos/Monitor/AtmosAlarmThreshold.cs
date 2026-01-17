@@ -311,7 +311,7 @@ public readonly partial struct AlarmThresholdSetting: IEquatable<AlarmThresholdS
     [DataField("threshold")]
     public float Value { get; init; } = 1;
 
-    public static AlarmThresholdSetting Disabled = new() {Enabled = false, Value = 0};
+    public static AlarmThresholdSetting Disabled = new() { Enabled = false, Value = 0};
 
     public AlarmThresholdSetting()
     {
@@ -329,12 +329,12 @@ public readonly partial struct AlarmThresholdSetting: IEquatable<AlarmThresholdS
 
     public AlarmThresholdSetting WithThreshold(float threshold)
     {
-        return this with {Value = threshold};
+        return this with { Value = threshold};
     }
 
     public AlarmThresholdSetting WithEnabled(bool enabled)
     {
-        return this with {Enabled = enabled};
+        return this with { Enabled = enabled};
     }
 
     public bool Equals(AlarmThresholdSetting other)

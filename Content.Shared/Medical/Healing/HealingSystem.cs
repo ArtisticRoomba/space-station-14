@@ -241,8 +241,8 @@ public sealed class HealingSystem : EntitySystem
             return 1;
 
         var percentDamage = (float)(ent.Comp1.TotalDamage / amount);
-        //basically make it scale from 1 to the multiplier.
 
+        //basically make it scale from 1 to the multiplier.
         var output = percentDamage * (mod - 1) + 1;
         return Math.Max(output, 1);
     }

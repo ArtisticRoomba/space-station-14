@@ -13,7 +13,7 @@ public sealed class ServerReloginTest
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Connected = true,
-            DummyTicker = false
+            DummyTicker = false,
         });
         var server = pair.Server;
         var client = pair.Client;
@@ -30,7 +30,7 @@ public sealed class ServerReloginTest
             originalMaxPlayers = serverConfig.GetCVar(CCVars.SoftMaxPlayers);
             username = serverPlayerMgr.Sessions.First().Name;
 
-            //No new players are allowed, but since our client was already playing, they should be able to get in
+            // No new players are allowed, but since our client was already playing, they should be able to get in
             serverConfig.SetCVar(CCVars.SoftMaxPlayers, 0);
         });
 
@@ -59,7 +59,7 @@ public sealed class ServerReloginTest
             // Check that we were able to reconnect
             Assert.That(serverPlayerMgr.PlayerCount, Is.EqualTo(1));
 
-            //Put the cvar back, so other tests can still use this server
+            // Put the cvar back, so other tests can still use this server
             serverConfig.SetCVar(CCVars.SoftMaxPlayers, originalMaxPlayers);
         });
 

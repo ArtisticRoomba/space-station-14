@@ -167,6 +167,7 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
     {
         // mark the user as not wearing a suit
         _ninja.AssignSuit(user, null);
+
         // disable glove abilities
         if (user.Comp.Gloves is { } uid)
             _toggle.TryDeactivate(uid, user: user);

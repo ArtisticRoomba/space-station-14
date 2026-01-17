@@ -33,11 +33,13 @@ public sealed class RetractableItemActionTest : InteractionTest
 
             // Find the component
             Assert.That(armBladeActionProto.TryGetComponent<RetractableItemActionComponent>(out var actionComp, SEntMan.ComponentFactory));
+
             // Get the item protoId from the component
             var spawnedProtoId = actionComp!.SpawnedPrototype;
 
             // Add the action to the player
             var actionUid = actionsSystem.AddAction(playerUid, ArmBladeActionProtoId);
+
             // Make sure the player has the action now
             Assert.That(actionUid, Is.Not.Null, "Failed to add action to player.");
             var actionEnt = actionsSystem.GetAction(actionUid);

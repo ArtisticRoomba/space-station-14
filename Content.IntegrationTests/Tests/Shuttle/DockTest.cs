@@ -52,7 +52,6 @@ public sealed class DockTest : ContentUnitTest
             // Tetris tests
             // Grid1 is a vertical I
             // Grid2 is a T
-
             var tiles1 = new List<(Vector2i Index, Tile Tile)>()
             {
                 new(new Vector2i(0, 0), new Tile(1)),

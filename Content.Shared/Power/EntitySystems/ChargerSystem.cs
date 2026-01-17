@@ -179,7 +179,6 @@ public sealed class ChargerSystem : EntitySystem
     private void OnStatusChanged(Entity<InsideChargerComponent> ent, ref BatteryStateChangedEvent args)
     {
         // If the battery is full update the visuals and power draw of the charger.
-
         var chargerUid = Transform(ent).ParentUid;
         if (!TryComp<ChargerComponent>(chargerUid, out var chargerComp))
             return;

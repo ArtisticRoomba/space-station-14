@@ -69,9 +69,11 @@ public enum ComponentExistsSetting : byte
     // If one of the components exist, skip adding it and continue adding the rest.
     // If all components already exist, disable the verb.
     Skip = 0,
+
     // If a component already exists, replace it with the new one.
     // The verb is always enabled.
     Replace = 1,
+
     // Disable the verb if any one of the components already exists.
     Block = 2,
 }

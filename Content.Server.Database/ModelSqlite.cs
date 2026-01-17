@@ -15,7 +15,8 @@ namespace Content.Server.Database
 {
     public sealed class SqliteServerDbContext : ServerDbContext
     {
-        public SqliteServerDbContext(DbContextOptions<SqliteServerDbContext> options) : base(options)
+        public SqliteServerDbContext(DbContextOptions<SqliteServerDbContext> options)
+            : base(options)
         {
 #if USE_SYSTEM_SQLITE
             SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_sqlite3());
@@ -24,7 +25,7 @@ namespace Content.Server.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            ((IDbContextOptionsBuilderInfrastructure) options).AddOrUpdateExtension(new SnakeCaseExtension());
+            ((IDbContextOptionsBuilderInfrastructure)options).AddOrUpdateExtension(new SnakeCaseExtension());
 
             options.ConfigureWarnings(x =>
             {
@@ -54,8 +55,7 @@ namespace Content.Server.Database
 
             var ipMaskConverter = new ValueConverter<NpgsqlInet, string>(
                 v => InetToString(v.Address, v.Netmask),
-                v => StringToInet(v)
-            );
+                v => StringToInet(v));
 
             modelBuilder
                 .Entity<ServerBan>()
@@ -96,7 +96,8 @@ namespace Content.Server.Database
             return AdminLog.Count();
         }
 
-        private static string InetToString(IPAddress address, int mask) {
+        private static string InetToString(IPAddress address, int mask)
+        {
             if (address.IsIPv4MappedToIPv6)
             {
                 // Fix IPv6-mapped IPv4 addresses
@@ -104,21 +105,22 @@ namespace Content.Server.Database
                 address = address.MapToIPv4();
                 mask -= 96;
             }
+
             return $"{address}/{mask}";
         }
 
-        private static NpgsqlInet StringToInet(string inet) {
+        private static NpgsqlInet StringToInet(string inet)
+        {
             var idx = inet.IndexOf('/', StringComparison.Ordinal);
             return new NpgsqlInet(
                 IPAddress.Parse(inet.AsSpan(0, idx)),
-                byte.Parse(inet.AsSpan(idx + 1), provider: CultureInfo.InvariantCulture)
-            );
+                byte.Parse(inet.AsSpan(idx + 1), provider: CultureInfo.InvariantCulture));
         }
 
         private static string JsonDocumentToString(JsonDocument document)
         {
             using var stream = new MemoryStream();
-            using var writer = new Utf8JsonWriter(stream, new JsonWriterOptions {Indented = false});
+            using var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = false });
 
             document.WriteTo(writer);
             writer.Flush();
@@ -139,7 +141,7 @@ namespace Content.Server.Database
             }
 
             using var stream = new MemoryStream();
-            using var writer = new Utf8JsonWriter(stream, new JsonWriterOptions {Indented = false});
+            using var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = false });
 
             document.WriteTo(writer);
             writer.Flush();

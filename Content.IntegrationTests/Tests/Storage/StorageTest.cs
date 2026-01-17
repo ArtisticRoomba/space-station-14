@@ -39,7 +39,8 @@ public sealed class StorageTest
                     !proto.TryGetComponent<ItemComponent>("Item", out var item))
                     continue;
 
-                Assert.That(itemSys.GetSizePrototype(storage.MaxItemSize.Value).Weight,
+                Assert.That(
+                    itemSys.GetSizePrototype(storage.MaxItemSize.Value).Weight,
                     Is.LessThanOrEqualTo(itemSys.GetSizePrototype(item.Size).Weight),
                     $"Found storage arbitrage on {proto.ID}");
             }
@@ -153,7 +154,8 @@ public sealed class StorageTest
                     if (entryItem == null)
                         continue;
 
-                    Assert.That(protoMan.Index(entryItem.Size).Weight,
+                    Assert.That(
+                        protoMan.Index(entryItem.Size).Weight,
                         Is.LessThanOrEqualTo(protoMan.Index(maxSize.Value).Weight),
                         $"Entity {proto.ID} has storage-fill item, {entry.PrototypeId}, that is too large");
                 }
@@ -194,6 +196,7 @@ public sealed class StorageTest
                     $"{proto.ID} storage fill is too large.");
             });
         }
+
         await pair.CleanReturnAsync();
     }
 
@@ -210,7 +213,6 @@ public sealed class StorageTest
 
         if (getCount)
             return entry.Amount;
-
 
         if (proto.TryGetComponent<ItemComponent>("Item", out var item))
             return itemSystem.GetItemShape(item).GetArea() * entry.Amount;

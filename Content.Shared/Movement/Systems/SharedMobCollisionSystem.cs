@@ -96,6 +96,7 @@ public abstract class SharedMobCollisionSystem : EntitySystem
             {
                 SetColliding((uid, comp), false, 1f);
             }
+
             // Apply the mob collision; if it's too low ignore it (e.g. if mob friction would overcome it).
             // This is so we don't spam velocity changes every tick. It's not that expensive for physics but
             // avoids the networking side.

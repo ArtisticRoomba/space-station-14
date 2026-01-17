@@ -23,6 +23,7 @@ public sealed class RadiationPulseSystem : EntitySystem
         {
             component.VisualDuration = despawn.Lifetime;
         }
+
         // try to get radiation range or keep default visual range
         if (TryComp<RadiationSourceComponent>(uid, out var radSource))
         {

@@ -148,7 +148,6 @@ public abstract class SharedRoleSystem : EntitySystem
         //TODO don't let a prototype being added a second time
         //If that was somehow to occur, a second mindrole for that comp would be created
         //Meaning any mind role checks could return wrong results, since they just return the first match they find
-
         if (!PredictedTrySpawnInContainer(protoId, mindId, MindComponent.MindRoleContainerId, out var mindRoleId))
         {
             Log.Error($"Failed to add role {protoId} to {ToPrettyString(mindId)} : Could not spawn the role entity inside the container");
@@ -169,7 +168,6 @@ public abstract class SharedRoleSystem : EntitySystem
         var update = MindRolesUpdate((mindId, mind));
 
         // RoleType refresh, Role time tracking, Update Admin playerlist
-
         var message = new RoleAddedEvent(mindId, mind, update, silent);
         RaiseLocalEvent(mindId, message, true);
 
@@ -295,6 +293,7 @@ public abstract class SharedRoleSystem : EntitySystem
             return false;
 
         var delete = new List<EntityUid>();
+
         // If there were no matches and thus no mind role entity names, we'll need the component's name, to report what role failed to be removed
         var original = "'" + typeof(T).Name + "'";
         var deleteName = original;
@@ -322,9 +321,11 @@ public abstract class SharedRoleSystem : EntitySystem
         // If there were matches for deletion, this will run, and we get a new name to replace the original input
         if (name == original)
             name = "'" + newName + "'";
+
         // It is theoretically possible to get multiple matches
         // If they have different names, then we want all of them listed
         else if (!name.Contains(newName))
+
             // and we can't just drop the multiple names within a single ' ' section later, because that would
             // make it look like it's one name that is just formatted to look like a list
             name = name + ", " + "'" + newName + "'";
@@ -460,6 +461,7 @@ public abstract class SharedRoleSystem : EntitySystem
         [NotNullWhen(true)] out Entity<MindRoleComponent>? role)
     {
         role = null;
+
         // All MindRoles have this component, it would just return the first one.
         // Order might not be what is expected.
         // Better to report null

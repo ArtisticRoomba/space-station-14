@@ -22,7 +22,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 {
                     server_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    name = table.Column<string>(type: "text", nullable: false)
+                    name = table.Column<string>(type: "text", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -31,9 +31,8 @@ namespace Content.Server.Database.Migrations.Postgres
 
             migrationBuilder.InsertData(
                 "server",
-                new[] {"server_id", "name"},
-                new object[] { 0, "unknown" }
-            );
+                new[] { "server_id", "name" },
+                new object[] { 0, "unknown" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_round_server_id",

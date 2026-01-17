@@ -107,7 +107,6 @@ public abstract class SharedTrayScannerSystem : EntitySystem
 
         // We don't remove from _activeScanners on disabled, because the update function will handle that, as well as
         // managing the revealed subfloor entities
-
         if (TryComp<AppearanceComponent>(uid, out var appearance))
         {
             _appearance.SetData(uid, TrayScannerVisual.Visual, scanner.Enabled ? TrayScannerVisual.On : TrayScannerVisual.Off, appearance);

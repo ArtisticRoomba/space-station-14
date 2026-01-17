@@ -25,7 +25,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     deleted = table.Column<bool>(type: "INTEGER", nullable: false),
                     deleted_by_id = table.Column<Guid>(type: "TEXT", nullable: true),
                     deleted_at = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    shown_to_player = table.Column<bool>(type: "INTEGER", nullable: false)
+                    shown_to_player = table.Column<bool>(type: "INTEGER", nullable: false),
                 },
                 constraints: table =>
                 {

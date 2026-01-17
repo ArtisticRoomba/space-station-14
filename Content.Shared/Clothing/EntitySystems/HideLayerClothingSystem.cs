@@ -95,7 +95,6 @@ public sealed class HideLayerClothingSystem : EntitySystem
     {
         // TODO Generalize this
         // I.e., make this and mask component use some generic toggleable.
-
         if (!clothing.Comp1.HideOnToggle)
             return true;
 

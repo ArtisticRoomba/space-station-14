@@ -43,6 +43,7 @@ public sealed partial class TraitsRequirement : JobRequirement
         if (!Inverted)
         {
             reason = FormattedMessage.FromMarkupPermissive($"{Loc.GetString("role-timer-whitelisted-traits")}\n{sb}");
+
             //at least one of
             foreach (var trait in Traits)
             {

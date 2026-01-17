@@ -32,7 +32,7 @@ public sealed class DungeonTests
                 for (var i = 0; i < pack.Rooms.Count; i++)
                 {
                     var room = pack.Rooms[i];
-                    var bounds = (Box2) room;
+                    var bounds = (Box2)room;
 
                     for (var j = 0; j < rooms.Count; j++)
                     {
@@ -43,7 +43,8 @@ public sealed class DungeonTests
                     rooms.Add(bounds);
 
                     // Inclusive of upper bounds as it's the edge
-                    Assert.That(room.Left >= 0 &&
+                    Assert.That(
+                        room.Left >= 0 &&
                                 room.Bottom >= 0 &&
                                 room.Right <= pack.Size.X &&
                                 room.Top <= pack.Size.Y, $"Found invalid room {room} on DungeonRoomPack {pack.ID}");

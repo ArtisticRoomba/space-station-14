@@ -268,6 +268,7 @@ public abstract class SharedPortalSystem : EntitySystem
                 // newCoords is not a wall
                 break;
             }
+
             // after "MaxRandomTeleportAttempts" attempts, end up in the walls
         }
 

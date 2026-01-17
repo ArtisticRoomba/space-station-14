@@ -29,6 +29,7 @@ public class GasReactionBenchmark
     // Grid and tile for reactions that need a holder
     private EntityUid _testGrid = default!;
     private TileAtmosphere _testTile = default!;
+
     // Reaction instances
     private PlasmaFireReaction _plasmaFireReaction = default!;
     private TritiumFireReaction _tritiumFireReaction = default!;
@@ -37,6 +38,7 @@ public class GasReactionBenchmark
     private AmmoniaOxygenReaction _ammoniaOxygenReaction = default!;
     private N2ODecompositionReaction _n2oDecompositionReaction = default!;
     private WaterVaporReaction _waterVaporReaction = default!;
+
     // Gas mixtures for each reaction type
     private GasMixture _plasmaFireMixture = default!;
     private GasMixture _tritiumFireMixture = default!;
@@ -82,7 +84,7 @@ public class GasReactionBenchmark
         // Temperature must be > PlasmaMinimumBurnTemperature for reaction to occur
         _plasmaFireMixture = new GasMixture(Atmospherics.CellVolume)
         {
-            Temperature = Atmospherics.PlasmaMinimumBurnTemperature + 100f // ~673K
+            Temperature = Atmospherics.PlasmaMinimumBurnTemperature + 100f, // ~673K
         };
         _plasmaFireMixture.AdjustMoles(Gas.Plasma, 20f);
         _plasmaFireMixture.AdjustMoles(Gas.Oxygen, 100f);
@@ -91,7 +93,7 @@ public class GasReactionBenchmark
         // Temperature must be > FireMinimumTemperatureToExist for reaction to occur
         _tritiumFireMixture = new GasMixture(Atmospherics.CellVolume)
         {
-            Temperature = Atmospherics.FireMinimumTemperatureToExist + 100f // ~473K
+            Temperature = Atmospherics.FireMinimumTemperatureToExist + 100f, // ~473K
         };
         _tritiumFireMixture.AdjustMoles(Gas.Tritium, 20f);
         _tritiumFireMixture.AdjustMoles(Gas.Oxygen, 100f);
@@ -100,7 +102,7 @@ public class GasReactionBenchmark
         // Optimal temperature for efficiency (80% of max efficiency temp)
         _frezonProductionMixture = new GasMixture(Atmospherics.CellVolume)
         {
-            Temperature = Atmospherics.FrezonProductionMaxEfficiencyTemperature * 0.8f // ~48K
+            Temperature = Atmospherics.FrezonProductionMaxEfficiencyTemperature * 0.8f, // ~48K
         };
         _frezonProductionMixture.AdjustMoles(Gas.Oxygen, 50f);
         _frezonProductionMixture.AdjustMoles(Gas.Tritium, 50f);
@@ -110,7 +112,7 @@ public class GasReactionBenchmark
         // Temperature must be > FrezonCoolLowerTemperature (23.15K) for reaction to occur
         _frezonCoolantMixture = new GasMixture(Atmospherics.CellVolume)
         {
-            Temperature = Atmospherics.T20C + 50f // ~343K
+            Temperature = Atmospherics.T20C + 50f, // ~343K
         };
         _frezonCoolantMixture.AdjustMoles(Gas.Frezon, 30f);
         _frezonCoolantMixture.AdjustMoles(Gas.Nitrogen, 100f);
@@ -118,7 +120,7 @@ public class GasReactionBenchmark
         // Ammonia + Oxygen reaction (concentration-dependent, no temp requirement)
         _ammoniaOxygenMixture = new GasMixture(Atmospherics.CellVolume)
         {
-            Temperature = Atmospherics.T20C + 100f // ~393K
+            Temperature = Atmospherics.T20C + 100f, // ~393K
         };
         _ammoniaOxygenMixture.AdjustMoles(Gas.Ammonia, 40f);
         _ammoniaOxygenMixture.AdjustMoles(Gas.Oxygen, 40f);
@@ -126,14 +128,14 @@ public class GasReactionBenchmark
         // N2O Decomposition (no temperature requirement, just needs N2O moles)
         _n2oDecompositionMixture = new GasMixture(Atmospherics.CellVolume)
         {
-            Temperature = Atmospherics.T20C + 100f // ~393K
+            Temperature = Atmospherics.T20C + 100f, // ~393K
         };
         _n2oDecompositionMixture.AdjustMoles(Gas.NitrousOxide, 100f);
 
         // Water Vapor - needs water vapor to condense
         _waterVaporMixture = new GasMixture(Atmospherics.CellVolume)
         {
-            Temperature = Atmospherics.T20C
+            Temperature = Atmospherics.T20C,
         };
         _waterVaporMixture.AdjustMoles(Gas.WaterVapor, 50f);
     }
@@ -144,7 +146,7 @@ public class GasReactionBenchmark
         var testIndices = new Vector2i(0, 0);
         _testTile = new TileAtmosphere(_testGrid, testIndices, new GasMixture(Atmospherics.CellVolume)
         {
-            Temperature = Atmospherics.T20C
+            Temperature = Atmospherics.T20C,
         });
     }
 

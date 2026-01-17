@@ -86,7 +86,7 @@ namespace Content.IntegrationTests.Tests.Interaction
                 });
 
                 // Move them out of range
-                xformSys.SetLocalPosition(origin, xform.LocalPosition + new Vector2(InteractionRangeDivided15 + HumanRadius * 2f, 0f), xform);
+                xformSys.SetLocalPosition(origin, xform.LocalPosition + new Vector2(InteractionRangeDivided15 + (HumanRadius * 2f), 0f), xform);
 
                 Assert.Multiple(() =>
                 {

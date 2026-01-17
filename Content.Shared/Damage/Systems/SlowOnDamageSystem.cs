@@ -59,7 +59,6 @@ public sealed class SlowOnDamageSystem : EntitySystem
     {
         // We -could- only refresh if it crossed a threshold but that would kind of be a lot of duplicated
         // code and this isn't a super hot path anyway since basically only humans have this
-
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 

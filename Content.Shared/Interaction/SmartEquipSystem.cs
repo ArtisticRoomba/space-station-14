@@ -120,7 +120,6 @@ public sealed class SmartEquipSystem : EntitySystem
         // 4) has an item, with no special storage components
         //    - with hand item: fail
         //    - without hand item: try to put the item into your hand
-
         _inventory.TryGetSlotEntity(uid, equipmentSlot, out var slotEntity);
         var emptyEquipmentSlotString = Loc.GetString("smart-equip-empty-equipment-slot", ("slotName", equipmentSlot));
 

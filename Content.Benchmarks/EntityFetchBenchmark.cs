@@ -245,7 +245,6 @@ namespace Content.Benchmarks
             }
         }
 
-
         private readonly struct DictEntityUid : IEquatable<DictEntityUid>
         {
             public readonly int Value;

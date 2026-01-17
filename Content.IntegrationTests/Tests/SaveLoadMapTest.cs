@@ -42,6 +42,7 @@ namespace Content.IntegrationTests.Tests
                     xformSystem.SetWorldPosition(mapGrid, new Vector2(10, 10));
                     mapSystem.SetTile(mapGrid, new Vector2i(0, 0), new Tile(typeId: 1, flags: 1, variant: 255));
                 }
+
                 {
                     var mapGrid = mapManager.CreateGridEntity(mapId);
                     xformSystem.SetWorldPosition(mapGrid, new Vector2(-8, -8));
@@ -79,6 +80,7 @@ namespace Content.IntegrationTests.Tests
                         Assert.That(mapSystem.GetTileRef(gridUid, mapGrid, new Vector2i(0, 0)).Tile, Is.EqualTo(new Tile(typeId: 1, flags: 1, variant: 255)));
                     });
                 }
+
                 {
                     if (!mapManager.TryFindGridAt(newMap, new Vector2(-8, -8), out var gridUid, out var mapGrid) ||
                         !sEntities.TryGetComponent<TransformComponent>(gridUid, out var gridXform))

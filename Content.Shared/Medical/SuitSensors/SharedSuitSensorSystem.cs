@@ -146,6 +146,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
         ent.Comp.PreviousControlsLocked = ent.Comp.ControlsLocked;
         ent.Comp.ControlsLocked = true;
+
         // SetSensor already calls Dirty
     }
 

@@ -129,11 +129,11 @@ public sealed class VendingInteractionTest : InteractionTest
 
         // Make sure the stock decreased
         Assert.That(items.First().Amount, Is.EqualTo(4), "Stocked item count did not decrease.");
+
         // Make sure the dispensed item was spawned in to the world
         await AssertEntityLookup(
             ("APCBasic", 1),
-            (VendedItemProtoId, 1)
-        );
+            (VendedItemProtoId, 1));
     }
 
     [Test]

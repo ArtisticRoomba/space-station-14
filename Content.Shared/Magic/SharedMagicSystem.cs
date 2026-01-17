@@ -156,7 +156,7 @@ public abstract class SharedMagicSystem : EntitySystem
         switch (data)
         {
             case TargetCasterPos:
-                return new List<EntityCoordinates>(1) {casterXform.Coordinates};
+                return new List<EntityCoordinates>(1) { casterXform.Coordinates};
             case TargetInFrontSingle:
             {
                 var directionPos = casterXform.Coordinates.Offset(casterXform.LocalRotation.ToWorldVec().Normalized());
@@ -219,6 +219,7 @@ public abstract class SharedMagicSystem : EntitySystem
                 throw new ArgumentOutOfRangeException();
         }
     }
+
     // End Instant Spawn Spells
     #endregion
     #region World Spawn Spells
@@ -263,6 +264,7 @@ public abstract class SharedMagicSystem : EntitySystem
             offsetCoords = offsetCoords.Offset(offsetVector2);
         }
     }
+
     // End World Spawn Spells
     #endregion
     #region Projectile Spells
@@ -285,6 +287,7 @@ public abstract class SharedMagicSystem : EntitySystem
                          fromMap.Position;
         _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, 25f);
     }
+
     // End Projectile Spells
     #endregion
     #region Change Component Spells
@@ -299,6 +302,7 @@ public abstract class SharedMagicSystem : EntitySystem
         RemoveComponents(ev.Target, ev.ToRemove);
         AddComponents(ev.Target, ev.ToAdd);
     }
+
     // End Change Component Spells
     #endregion
     #region Teleport Spells
@@ -330,6 +334,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _transform.SwapPositions(ev.Performer, ev.Target);
     }
+
     // End Teleport Spells
     #endregion
     #region Spell Helpers
@@ -375,6 +380,7 @@ public abstract class SharedMagicSystem : EntitySystem
                 RemComp(target, registration.Type);
         }
     }
+
     // End Spell Helpers
     #endregion
     #region Touch Spells
@@ -432,6 +438,7 @@ public abstract class SharedMagicSystem : EntitySystem
                 _lock.Unlock(target, performer, lockComp);
         }
     }
+
     // End Knock Spells
     #endregion
     #region Charge Spells
@@ -460,6 +467,7 @@ public abstract class SharedMagicSystem : EntitySystem
         else if (TryComp<LimitedChargesComponent>(wand, out var charges))
             _charges.AddCharges((wand.Value, charges), ev.Charge);
     }
+
     // End Charge Spells
     #endregion
     #region Global Spells
@@ -508,7 +516,6 @@ public abstract class SharedMagicSystem : EntitySystem
         // Need performer mind, but target mind is unnecessary, such as taking over a NPC
         // Need to get target mind before putting performer mind into their body if they have one
         // Thus, assign bool before first transfer, then check afterwards
-
         if (!_mind.TryGetMind(ev.Performer, out var perMind, out var perMindComp))
             return;
 
@@ -526,6 +533,7 @@ public abstract class SharedMagicSystem : EntitySystem
     }
 
     #endregion
+
     // End Spells
     #endregion
 

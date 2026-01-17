@@ -51,7 +51,6 @@ public sealed class StoreTests
 
         Assert.That(mapSystem.IsInitialized(testMap.MapId));
 
-
         EntityUid human = default;
         EntityUid uniform = default;
         EntityUid pda = default;
@@ -88,19 +87,18 @@ public sealed class StoreTests
                 $"After applying discount total discounted items count was expected to be '6' "
                 + $"but was actually {discountComponent.Discounts.Count}- this can be due to discount "
                 + $"categories settings (maxItems, weight) not being realistically set, or default "
-                + $"discounted count being changed from '6' in StoreDiscountSystem.InitializeDiscounts."
-            );
+                + $"discounted count being changed from '6' in StoreDiscountSystem.InitializeDiscounts.");
             var discountedListingItems = storeComponent.FullListingsCatalog
                                                        .Where(x => x.IsCostModified)
                                                        .OrderBy(x => x.ID)
                                                        .ToArray();
-            Assert.That(discountComponent.Discounts
+            Assert.That(
+                discountComponent.Discounts
                                          .Select(x => x.ListingId.Id),
                 Is.EquivalentTo(discountedListingItems.Select(x => x.ID)),
                 $"{nameof(StoreComponent)}.{nameof(StoreComponent.FullListingsCatalog)} does not contain all "
                 + $"items that are marked as discounted, or they don't have flag '{nameof(ListingDataWithCostModifiers.IsCostModified)}'"
-                + $"flag as 'true'. This marks the fact that cost modifier of discount is not applied properly!"
-            );
+                + $"flag as 'true'. This marks the fact that cost modifier of discount is not applied properly!");
 
             // The storeComponent returns discounted items with conditions randomly, so we remove these to sanitize the data.
             foreach (var discountedItem in discountedListingItems)
@@ -126,8 +124,7 @@ public sealed class StoreTests
                     Assert.That(plainDiscountedCost.Value, Is.GreaterThanOrEqualTo(discountDownTo.Value), "Expected discounted cost to be greater then DiscountDownTo value.");
                     Assert.That(plainDiscountedCost.Value, Is.LessThan(prototypeCost.Value), "Expected discounted cost to be lower then prototype cost.");
 
-
-                    var buyMsg = new StoreBuyListingMessage(discountedListingItem.ID){Actor = human};
+                    var buyMsg = new StoreBuyListingMessage(discountedListingItem.ID) { Actor = human };
                     server.EntMan.EventBus.RaiseLocalEvent(pda, buyMsg);
 
                     var newBalance = storeComponent.Balance[UplinkSystem.TelecrystalCurrencyPrototype];
@@ -135,8 +132,7 @@ public sealed class StoreTests
                     Assert.That(
                         discountedListingItem.IsCostModified,
                         Is.False,
-                        $"Expected item cost to not be modified after Buying discounted item."
-                    );
+                        $"Expected item cost to not be modified after Buying discounted item.");
                     var costAfterBuy = discountedListingItem.Cost[UplinkSystem.TelecrystalCurrencyPrototype];
                     Assert.That(costAfterBuy.Value, Is.EqualTo(prototypeCost.Value), "Expected cost after discount refund to be equal to prototype cost.");
 
@@ -154,19 +150,16 @@ public sealed class StoreTests
                     Assert.That(
                         discountComponent.Discounts.First(x => x.ListingId == discountedListingItem.ID).Count,
                         Is.EqualTo(0),
-                        "Discounted count should still be zero even after refund."
-                    );
+                        "Discounted count should still be zero even after refund.");
 
                     Assert.That(
                         discountedListingItem.IsCostModified,
                         Is.False,
-                        $"Expected item cost to not be modified after Buying discounted item (even after refund was done)."
-                    );
+                        $"Expected item cost to not be modified after Buying discounted item (even after refund was done).");
                     var costAfterRefund = discountedListingItem.Cost[UplinkSystem.TelecrystalCurrencyPrototype];
                     Assert.That(costAfterRefund.Value, Is.EqualTo(prototypeCost.Value), "Expected cost after discount refund to be equal to prototype cost.");
                 });
             }
-
         });
 
         await pair.CleanReturnAsync();

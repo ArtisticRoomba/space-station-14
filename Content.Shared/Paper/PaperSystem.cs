@@ -1,17 +1,17 @@
 using System.Linq;
 using Content.Shared.Administration.Logs;
-using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Tag;
-using Robust.Shared.Player;
+using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
-using static Content.Shared.Paper.PaperComponent;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using static Content.Shared.Paper.PaperComponent;
 
 namespace Content.Shared.Paper;
 
@@ -222,14 +222,17 @@ public sealed class PaperSystem : EntitySystem
             return;
         }
         var dataset = _protoMan.Index(ent.Comp.Dataset);
+
         // Intentionally not using the Pick overload that directly takes a LocalizedDataset,
         // because we want to get multiple attributes from the same pick.
         var pick = _random.Pick(dataset.Values);
 
         // Name
         _metaSystem.SetEntityName(ent, Loc.GetString(pick));
+
         // Description
         _metaSystem.SetEntityDescription(ent, Loc.GetString($"{pick}.desc"));
+
         // Content
         SetContent((ent, paperComp), Loc.GetString($"{pick}.content"));
 
@@ -254,6 +257,7 @@ public sealed class PaperSystem : EntitySystem
             if (entity.Comp.StampState == null && TryComp<AppearanceComponent>(entity, out var appearance))
             {
                 entity.Comp.StampState = spriteStampState;
+
                 // Would be nice to be able to display multiple sprites on the paper
                 // but most of the existing images overlap
                 _appearance.SetData(entity, PaperVisuals.Stamp, entity.Comp.StampState, appearance);

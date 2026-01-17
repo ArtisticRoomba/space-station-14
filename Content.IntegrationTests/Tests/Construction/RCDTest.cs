@@ -110,8 +110,7 @@ public sealed class RCDTest : InteractionTest
         await RunSeconds(settingAirlock.Delay + 1); // wait for the construction to finish
         await AssertEntityLookup(
             (settingWall.Prototype, 1),
-            (settingAirlock.Prototype, 1)
-            );
+            (settingAirlock.Prototype, 1));
 
         // Check that the airlock is in the correct tile.
         var airlockUid = await FindEntity(settingAirlock.Prototype);

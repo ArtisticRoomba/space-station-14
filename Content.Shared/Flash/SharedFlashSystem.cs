@@ -1,5 +1,7 @@
+using System.Linq;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Flash.Components;
@@ -7,7 +9,9 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Light;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -19,10 +23,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System.Linq;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Clothing.Components;
 
 namespace Content.Shared.Flash;
 
@@ -48,6 +48,7 @@ public abstract class SharedFlashSystem : EntitySystem
 
     // The tag to add when a flash has no charges left.
     private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
+
     // The key string for the status effect.
     public ProtoId<StatusEffectPrototype> FlashedKey = "Flashed";
 

@@ -15,7 +15,7 @@ namespace Content.Shared.Decals
         [DataField("zIndex")] public  int ZIndex;
         [DataField("cleanable")] public  bool Cleanable;
 
-        public Decal() {}
+        public Decal() { }
 
         public Decal(Vector2 coordinates, string id, Color? color, Angle angle, int zIndex, bool cleanable)
         {

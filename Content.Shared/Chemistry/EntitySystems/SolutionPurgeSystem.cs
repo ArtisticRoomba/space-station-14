@@ -35,6 +35,7 @@ public sealed class SolutionPurgeSystem : EntitySystem
 
             // timer ignores if it's empty, it's just a fixed cycle
             purge.NextPurgeTime += purge.Duration;
+
             // Needs to be networked and dirtied so that the client can reroll it during prediction
             Dirty(uid, purge);
 

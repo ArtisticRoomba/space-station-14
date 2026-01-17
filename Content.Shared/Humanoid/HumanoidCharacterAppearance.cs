@@ -145,7 +145,6 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             .WithBlue(RandomizeColor(newHairColor.B));
 
         // TODO: Add random markings
-
         var newEyeColor = random.Pick(_realisticEyeColors);
 
         var protoMan = IoCManager.Resolve<IPrototypeManager>();

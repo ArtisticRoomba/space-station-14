@@ -290,6 +290,7 @@ public sealed partial class ClimbSystem : VirtualController
         var worldDirection = _xformSystem.GetWorldPosition(climbable) - worldPos;
         var distance = worldDirection.Length();
         var parentRot = worldRot - xform.LocalRotation;
+
         // Need direction relative to climber's parent.
         var localDirection = (-parentRot).RotateVec(worldDirection);
 
@@ -298,6 +299,7 @@ public sealed partial class ClimbSystem : VirtualController
         {
             climbing.NextTransition = null;
         }
+
         // VirtualController over to the thing.
         else
         {

@@ -13,7 +13,6 @@ public sealed class DamageSpecifierTest
     {
         // Test basic math operations.
         // I've already nearly broken these once. When editing the operators.
-
         DamageSpecifier input1 = new() { DamageDict = Input1 };
         DamageSpecifier input2 = new() { DamageDict = Input2 };
         DamageSpecifier output1 = new() { DamageDict = Output1 };
@@ -43,7 +42,7 @@ public sealed class DamageSpecifierTest
     {
         { "A", 1.5f },
         { "B", 2 },
-        { "C", 3 }
+        { "C", 3 },
     };
 
     private static readonly Dictionary<string, FixedPoint2> Input2 = new()
@@ -51,28 +50,28 @@ public sealed class DamageSpecifierTest
         { "A", 1 },
         { "B", 2 },
         { "C", 5 },
-        { "D", 0.05f }
+        { "D", 0.05f },
     };
 
     private static readonly Dictionary<string, FixedPoint2> Output1 = new()
     {
         { "A", -1.5f },
         { "B", -2 },
-        { "C", -3 }
+        { "C", -3 },
     };
 
     private static readonly Dictionary<string, FixedPoint2> Output2 = new()
     {
         { "A", 0.75f },
         { "B", 1 },
-        { "C", 1.5 }
+        { "C", 1.5 },
     };
 
     private static readonly Dictionary<string, FixedPoint2> Output3 = new()
     {
         { "A", 3f },
         { "B", 4 },
-        { "C", 6 }
+        { "C", 6 },
     };
 
     private static readonly Dictionary<string, FixedPoint2> Output4 = new()
@@ -80,7 +79,7 @@ public sealed class DamageSpecifierTest
         { "A", 0.5f },
         { "B", 0 },
         { "C", -2 },
-        { "D", -0.05f }
+        { "D", -0.05f },
     };
 
     private static readonly Dictionary<string, FixedPoint2> Output5 = new()
@@ -88,6 +87,6 @@ public sealed class DamageSpecifierTest
         { "A", 0.25f },
         { "B", 0 },
         { "C", -0.25f },
-        { "D", -0.05f }
+        { "D", -0.05f },
     };
 }

@@ -25,7 +25,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     admin_log_id = table.Column<int>(type: "INTEGER", nullable: true),
                     admin_log_round_id = table.Column<int>(type: "INTEGER", nullable: true),
-                    name = table.Column<string>(type: "TEXT", nullable: true)
+                    name = table.Column<string>(type: "TEXT", nullable: true),
                 },
                 constraints: table =>
                 {

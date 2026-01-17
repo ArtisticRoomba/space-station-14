@@ -69,7 +69,6 @@ public sealed class FluidSpill
             entityManager.SpawnEntity("WallReinforced", mapSystem.GridTileToLocal(grid, grid.Comp, new Vector2i(1, 0)));
         });
 
-
         var puddleOrigin = new Vector2i(0, 0);
         await server.WaitAssertion(() =>
         {
@@ -82,7 +81,7 @@ public sealed class FluidSpill
 #pragma warning restore NUnit2045
         });
 
-        var sTimeToWait = (int) Math.Ceiling(2f * gameTiming.TickRate);
+        var sTimeToWait = (int)Math.Ceiling(2f * gameTiming.TickRate);
         await server.WaitRunTicks(sTimeToWait);
 
         await server.WaitAssertion(() =>

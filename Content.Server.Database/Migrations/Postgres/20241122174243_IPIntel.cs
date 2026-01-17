@@ -21,7 +21,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     address = table.Column<IPAddress>(type: "inet", nullable: false),
                     time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    score = table.Column<float>(type: "real", nullable: false)
+                    score = table.Column<float>(type: "real", nullable: false),
                 },
                 constraints: table =>
                 {

@@ -49,6 +49,7 @@ namespace Content.IntegrationTests.Tests
                 {
                     mapSystem.CreateMap(out var mapId);
                     var grid = mapManager.CreateGridEntity(mapId);
+
                     // TODO: Fix this better in engine.
                     mapSystem.SetTile(grid.Owner, grid.Comp, Vector2i.Zero, new Tile(1));
                     var coord = new EntityCoordinates(grid.Owner, 0, 0);
@@ -332,12 +333,14 @@ namespace Content.IntegrationTests.Tests
             {
                 sb.AppendLine(entMan.ToPrettyString(addedEnt));
             }
+
             if (removedEnts.Any())
                 sb.AppendLine("Listing removed entities:");
             foreach (var removedEnt in removedEnts)
             {
                 sb.AppendLine("\t" + entMan.ToPrettyString(removedEnt));
             }
+
             return sb.ToString();
         }
 
@@ -354,6 +357,7 @@ namespace Content.IntegrationTests.Tests
                         return true;
                 }
             }
+
             foreach (var property in component.GetType().GetProperties())
             {
                 foreach (var attribute in property.GetCustomAttributes(true))
@@ -365,6 +369,7 @@ namespace Content.IntegrationTests.Tests
                         return true;
                 }
             }
+
             return false;
         }
 
@@ -435,7 +440,8 @@ namespace Content.IntegrationTests.Tests
 
                         logmill.Debug($"Adding component: {name}");
 
-                        Assert.DoesNotThrow(() =>
+                        Assert.DoesNotThrow(
+                            () =>
                             {
                                 entityManager.AddComponent(entity, component);
                             }, "Component '{0}' threw an exception.",

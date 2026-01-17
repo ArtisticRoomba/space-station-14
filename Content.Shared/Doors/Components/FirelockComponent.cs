@@ -33,6 +33,7 @@ namespace Content.Shared.Doors.Components
         [DataField("temperatureThreshold"), ViewVariables(VVAccess.ReadWrite)]
         [GuidebookData]
         public float TemperatureThreshold = 330;
+
         // this used to check for hot-spots, but because accessing that data is a a mess this now just checks
         // temperature. This does mean a cold room will trigger hot-air pop-ups
 

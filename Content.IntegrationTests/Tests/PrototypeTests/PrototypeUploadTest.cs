@@ -36,7 +36,7 @@ public sealed class PrototypeUploadTest
     [TestOf(typeof(LoadPrototypeCommand))]
     public async Task TestFileUpload()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings {Connected = true});
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
         var sCompFact = pair.Server.ResolveDependency<IComponentFactory>();
         var cCompFact = pair.Client.ResolveDependency<IComponentFactory>();
 
@@ -65,7 +65,6 @@ public sealed class PrototypeUploadTest
         Assert.That(pair.Client.ProtoMan.TryIndex<EntityPrototype>(IdD, out var cProtoD));
 
         // Arbitrarily choosing TagComponent to check that inheritance works for uploaded prototypes.
-
         await pair.Server.WaitPost(() =>
         {
             Assert.That(sProtoA!.TryGetComponent<TagComponent>(out _, sCompFact), Is.True);

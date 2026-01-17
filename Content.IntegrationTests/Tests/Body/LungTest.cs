@@ -1,17 +1,17 @@
+using System.Linq;
+using System.Numerics;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared;
 using Robust.Shared.Configuration;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using System.Linq;
-using System.Numerics;
-using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
 
 namespace Content.IntegrationTests.Tests.Body
@@ -107,7 +107,6 @@ namespace Content.IntegrationTests.Tests.Body
             });
 
             // --- End setup
-
             var inhaleCycles = 100;
             for (var i = 0; i < inhaleCycles; i++)
             {
@@ -115,15 +114,13 @@ namespace Content.IntegrationTests.Tests.Body
                 await PoolManager.WaitUntil(server, () => resp.Status == RespiratorStatus.Exhaling);
                 Assert.That(
                     GetMapMoles(), Is.LessThan(startingMoles),
-                    "Did not inhale in any gas"
-                );
+                    "Did not inhale in any gas");
 
                 // Breathe out
                 await PoolManager.WaitUntil(server, () => resp.Status == RespiratorStatus.Inhaling);
                 Assert.That(
                     GetMapMoles(), Is.EqualTo(startingMoles).Within(0.0002),
-                    "Did not exhale as much gas as was inhaled"
-                );
+                    "Did not exhale as much gas as was inhaled");
             }
 
             await pair.CleanReturnAsync();

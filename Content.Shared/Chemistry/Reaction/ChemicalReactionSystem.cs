@@ -142,7 +142,6 @@ namespace Content.Shared.Chemistry.Reaction
                 {
                     // catalyst is not consumed, so will not limit the reaction. But it still needs to be present, and
                     // for quantized reactions we need to have a minimum amount
-
                     if (reactantQuantity == FixedPoint2.Zero || reaction.Quantized && reactantQuantity < reactantCoefficient)
                         return false;
 

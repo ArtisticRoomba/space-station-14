@@ -25,7 +25,6 @@ public class DeviceNetworkingBenchmark
     private readonly List<EntityUid> _targetEntities = new();
     private readonly List<EntityUid> _targetWirelessEntities = new();
 
-
     private NetworkPayload _payload = default!;
 
     [TestPrototypes]
@@ -50,9 +49,9 @@ public class DeviceNetworkingBenchmark
       range: 100
         ";
 
-    //public static IEnumerable<int> EntityCountSource { get; set; }
+    // public static IEnumerable<int> EntityCountSource { get; set; }
 
-    //[ParamsSource(nameof(EntityCountSource))]
+    // [ParamsSource(nameof(EntityCountSource))]
     public int EntityCount = 500;
 
     [GlobalSetup]
@@ -74,7 +73,7 @@ public class DeviceNetworkingBenchmark
             {
                 ["Test"] = testValue,
                 ["testnumber"] = 1,
-                ["testbool"] = true
+                ["testbool"] = true,
             };
 
             _sourceEntity = entityManager.SpawnEntity("DummyNetworkDevicePrivate", MapCoordinates.Nullspace);

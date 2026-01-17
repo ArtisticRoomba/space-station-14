@@ -13,7 +13,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 name: "whitelist",
                 columns: table => new
                 {
-                    user_id = table.Column<Guid>(type: "TEXT", nullable: false)
+                    user_id = table.Column<Guid>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {

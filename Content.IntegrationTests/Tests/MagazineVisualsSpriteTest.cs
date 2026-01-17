@@ -29,9 +29,11 @@ public sealed class MagazineVisualsSpriteTest
                     var uid = client.EntMan.Spawn(proto.ID);
                     var visuals = client.EntMan.GetComponent<MagazineVisualsComponent>(uid);
 
-                    Assert.That(client.EntMan.TryGetComponent(uid, out SpriteComponent sprite),
+                    Assert.That(
+                        client.EntMan.TryGetComponent(uid, out SpriteComponent sprite),
                         @$"{proto.ID} has MagazineVisualsComponent but no SpriteComponent.");
-                    Assert.That(client.EntMan.HasComponent<AppearanceComponent>(uid),
+                    Assert.That(
+                        client.EntMan.HasComponent<AppearanceComponent>(uid),
                         @$"{proto.ID} has MagazineVisualsComponent but no AppearanceComponent.");
 
                     toTest.Clear();
@@ -53,7 +55,8 @@ public sealed class MagazineVisualsSpriteTest
                         for (var i = start; i < visuals.MagSteps; i++)
                         {
                             var state = $"{visuals.MagState}{midfix}-{i}";
-                            Assert.That(rsi.TryGetState(state, out _),
+                            Assert.That(
+                                rsi.TryGetState(state, out _),
                                 @$"{proto.ID} has MagazineVisualsComponent with MagSteps = {visuals.MagSteps}, but {rsi.Path} doesn't have state {state}!");
                         }
 

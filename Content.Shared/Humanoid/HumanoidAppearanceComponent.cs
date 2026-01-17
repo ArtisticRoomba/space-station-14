@@ -25,7 +25,6 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public HashSet<HumanoidVisualLayers> PermanentlyHidden = new();
 
     // Couldn't these be somewhere else?
-
     [DataField, AutoNetworkedField]
     public Gender Gender;
 

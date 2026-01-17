@@ -30,7 +30,6 @@ public abstract partial class SharedPathfindingSystem
             // Also, there *is* the reason of performance. If used for cell-based
             // raycasts, for example, then perfect diagonals will check half as many
             // cells.
-
             while (dx --> 0)
             {
                 ax += xinc;
@@ -43,7 +42,6 @@ public abstract partial class SharedPathfindingSystem
         }
 
         // Handle all other lines
-
         side = -1 * ((dx == 0 ? yinc : xinc) - 1);
 
         i     = dx + dy;

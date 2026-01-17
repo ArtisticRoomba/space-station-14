@@ -28,6 +28,7 @@ public sealed partial class OpenableSystem : EntitySystem
 
         SubscribeLocalEvent<OpenableComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<OpenableComponent, UseInHandEvent>(OnUse);
+
         // always try to unlock first before opening
         SubscribeLocalEvent<OpenableComponent, ActivateInWorldEvent>(OnActivated, after: new[] { typeof(LockSystem) });
         SubscribeLocalEvent<OpenableComponent, ExaminedEvent>(OnExamined);

@@ -13,7 +13,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 {
                     admin_rank_id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    name = table.Column<string>(nullable: false)
+                    name = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -26,7 +26,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 {
                     user_id = table.Column<Guid>(nullable: false),
                     title = table.Column<string>(nullable: true),
-                    admin_rank_id = table.Column<int>(nullable: true)
+                    admin_rank_id = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -46,7 +46,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     admin_rank_flag_id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     flag = table.Column<string>(nullable: false),
-                    admin_rank_id = table.Column<int>(nullable: false)
+                    admin_rank_id = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -67,7 +67,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     flag = table.Column<string>(nullable: false),
                     negative = table.Column<bool>(nullable: false),
-                    admin_id = table.Column<Guid>(nullable: false)
+                    admin_id = table.Column<Guid>(nullable: false),
                 },
                 constraints: table =>
                 {

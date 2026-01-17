@@ -1,4 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Numerics;
+using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Prototypes;
@@ -18,9 +21,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using System.Linq;
-using System.Numerics;
-using Content.Shared.Actions;
 
 namespace Content.Shared.Anomaly;
 
@@ -365,6 +365,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             if (Timing.CurTime <= super.EndTime)
                 continue;
             DoAnomalySupercriticalEvent(ent, anom);
+
             // Removal of the supercritical component is handled by DoAnomalySupercriticalEvent
         }
     }

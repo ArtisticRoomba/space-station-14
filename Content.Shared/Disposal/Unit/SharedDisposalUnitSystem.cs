@@ -638,6 +638,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
             component.NextPressurized += TimeSpan.FromSeconds(1f / PressurePerSecond);
 
         component.Engaged = false;
+
         // stop queuing NOW
         component.NextFlush = null;
 
@@ -783,6 +784,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
             DoContactInteraction = true,
             Text = Loc.GetString("disposal-self-insert-verb-get-data-text")
         };
+
         // TODO VERB ICON
         // TODO VERB CATEGORY
         // create a verb category for "enter"?

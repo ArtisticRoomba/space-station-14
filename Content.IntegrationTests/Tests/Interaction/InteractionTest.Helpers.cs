@@ -44,7 +44,8 @@ public abstract partial class InteractionTest
 
         await Client.WaitPost(() =>
         {
-            Assert.That(CConSys.TrySpawnGhost(proto, CEntMan.GetCoordinates(TargetCoords), Direction.South, out var clientTarget),
+            Assert.That(
+                CConSys.TrySpawnGhost(proto, CEntMan.GetCoordinates(TargetCoords), Direction.South, out var clientTarget),
                 Is.EqualTo(shouldSucceed));
 
             if (!shouldSucceed)
@@ -342,7 +343,6 @@ public abstract partial class InteractionTest
 
         // The target is a client-side entity, so we will just attempt to start construction under the assumption that
         // it is a construction ghost.
-
         await Client.WaitPost(() => CConSys.TryStartConstruction(CTarget!.Value));
         await RunTicks(5);
 
@@ -420,7 +420,8 @@ public abstract partial class InteractionTest
         var screenX = CDragDropSys.Deadzone + 1f;
 
         // Start drag
-        await SetKey(EngineKeyFunctions.Use,
+        await SetKey(
+            EngineKeyFunctions.Use,
             BoundKeyState.Down,
             NetPosition(source),
             source,
@@ -429,7 +430,8 @@ public abstract partial class InteractionTest
         await RunTicks(3);
 
         // End drag
-        await SetKey(EngineKeyFunctions.Use,
+        await SetKey(
+            EngineKeyFunctions.Use,
             BoundKeyState.Up,
             NetPosition(target),
             target,
@@ -851,7 +853,8 @@ public abstract partial class InteractionTest
     /// <param name="uid">The entity at which the events are supposed to be directed</param>
     /// <param name="count">How many new events are expected</param>
     /// <param name="clear">Whether to clear all previously recorded events before invoking the delegate</param>
-    protected async Task AssertAssertionFiresEvent<TEvent>(Action act,
+    protected async Task AssertAssertionFiresEvent<TEvent>(
+        Action act,
         EntityUid? uid = null,
         int count = 1,
         bool clear = true)
@@ -1292,10 +1295,10 @@ public abstract partial class InteractionTest
     {
         function ??= EngineKeyFunctions.UIClick;
         var screenCoords = new ScreenCoordinates(
-            control.GlobalPixelPosition + control.PixelSize / 2,
+            control.GlobalPixelPosition + (control.PixelSize / 2),
             control.Window?.Id ?? default);
 
-        var relativePos = screenCoords.Position / control.UIScale - control.GlobalPosition;
+        var relativePos = (screenCoords.Position / control.UIScale) - control.GlobalPosition;
         var relativePixelPos = screenCoords.Position - control.GlobalPixelPosition;
 
         var args = new GUIBoundKeyEventArgs(
@@ -1449,7 +1452,6 @@ public abstract partial class InteractionTest
         return window != null;
     }
 
-
     /// <summary>
     /// Attempts to find client-side UI widget.
     /// </summary>
@@ -1523,8 +1525,6 @@ public abstract partial class InteractionTest
     #endregion
 
     #region Inputs
-
-
 
     /// <summary>
     ///     Make the client press and then release a key. This assumes the key is currently released.

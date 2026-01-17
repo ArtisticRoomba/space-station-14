@@ -1,6 +1,6 @@
-using Content.Shared.Storage.EntitySystems;
-using Content.Shared.Interaction;
 using Content.Shared.IgnitionSource.Components;
+using Content.Shared.Interaction;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Shared.IgnitionSource.EntitySystems;
 

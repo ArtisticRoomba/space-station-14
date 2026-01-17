@@ -65,6 +65,7 @@ namespace Content.IntegrationTests.Tests.Tag
             await server.WaitAssertion(() =>
             {
                 var tagSystem = entManager.GetEntitySystem<TagSystem>();
+
                 // Has one tag, the starting tag
                 Assert.That(sTagComponent.Tags, Has.Count.EqualTo(1));
                 sPrototypeManager.Index<TagPrototype>(StartingTag);

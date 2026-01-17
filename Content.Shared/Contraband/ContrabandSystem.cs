@@ -92,6 +92,7 @@ public sealed class ContrabandSystem : EntitySystem
         }
 
         var jobs = component.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
+
         // if it is fully restricted, you're department-less, or your department isn't in the allowed list, you cannot carry it. Otherwise, you can.
         var carryingMessage = Loc.GetString("contraband-examine-text-avoid-carrying-around");
         var iconTexture = "/Textures/Interface/VerbIcons/lock-red.svg.192dpi.png";

@@ -222,6 +222,7 @@ public sealed partial class DamageableSystem
         while (remaining > 0)
         {
             var count = keys.Count;
+
             // We do this to ensure that we always round up when dividing to avoid excess loops.
             // We already have logic to prevent healing more than we have.
             var maxHeal = count == 1 ? remaining : (remaining + FixedPoint2.Epsilon * (count - 1)) / count;
@@ -230,12 +231,14 @@ public sealed partial class DamageableSystem
             for (var i = count - 1; i >= 0; i--)
             {
                 var type = keys[i];
+
                 // This is the amount we're trying to heal, capped by maxHeal
                 var heal = damage.DamageDict[type] + damageChange.DamageDict[type];
 
                 // Don't go above max, if we don't go above max
                 if (heal > maxHeal)
                     heal = maxHeal;
+
                 // If we're not above max, we will heal it fully and don't need to enumerate anymore!
                 else
                     keys.RemoveAt(i);

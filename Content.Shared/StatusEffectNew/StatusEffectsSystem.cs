@@ -91,6 +91,7 @@ public sealed partial class StatusEffectsSystem : EntitySystem
     {
         ent.Comp.ActiveStatusEffects =
             _container.EnsureContainer<Container>(ent, StatusEffectContainerComponent.ContainerId);
+
         // We show the contents of the container to allow status effects to have visible sprites.
         ent.Comp.ActiveStatusEffects.ShowContents = true;
         ent.Comp.ActiveStatusEffects.OccludesLight = false;

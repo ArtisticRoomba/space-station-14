@@ -20,6 +20,7 @@ internal sealed class StoreOnCollideSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<StoreOnCollideComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<StoreOnCollideComponent, StorageAfterOpenEvent>(AfterOpen);
+
         // TODO: Add support to stop colliding after throw, wands will need a WandComp
     }
 

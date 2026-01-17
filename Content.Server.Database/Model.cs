@@ -15,7 +15,8 @@ namespace Content.Server.Database
 {
     public abstract class ServerDbContext : DbContext
     {
-        protected ServerDbContext(DbContextOptions options) : base(options)
+        protected ServerDbContext(DbContextOptions options)
+            : base(options)
         {
         }
 
@@ -54,15 +55,15 @@ namespace Content.Server.Database
                 .IsUnique();
 
             modelBuilder.Entity<Profile>()
-                .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
+                .HasIndex(p => new { p.Slot, PrefsId = p.PreferenceId })
                 .IsUnique();
 
             modelBuilder.Entity<Antag>()
-                .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.AntagName})
+                .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.AntagName })
                 .IsUnique();
 
             modelBuilder.Entity<Trait>()
-                .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.TraitName})
+                .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.TraitName })
                 .IsUnique();
 
             modelBuilder.Entity<ProfileRoleLoadout>()
@@ -110,15 +111,15 @@ namespace Content.Server.Database
                 .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<AdminFlag>()
-                .HasIndex(f => new {f.Flag, f.AdminId})
+                .HasIndex(f => new { f.Flag, f.AdminId })
                 .IsUnique();
 
             modelBuilder.Entity<AdminRankFlag>()
-                .HasIndex(f => new {f.Flag, f.AdminRankId})
+                .HasIndex(f => new { f.Flag, f.AdminRankId })
                 .IsUnique();
 
             modelBuilder.Entity<AdminLog>()
-                .HasKey(log => new {log.RoundId, log.Id});
+                .HasKey(log => new { log.RoundId, log.Id });
 
             modelBuilder.Entity<AdminLog>()
                 .Property(log => log.Id);
@@ -143,7 +144,7 @@ namespace Content.Server.Database
                 .HasIndex(round => round.StartDate);
 
             modelBuilder.Entity<AdminLogPlayer>()
-                .HasKey(logPlayer => new {logPlayer.RoundId, logPlayer.LogId, logPlayer.PlayerUserId});
+                .HasKey(logPlayer => new { logPlayer.RoundId, logPlayer.LogId, logPlayer.PlayerUserId });
 
             modelBuilder.Entity<ServerBan>()
                 .HasIndex(p => p.PlayerUserId);
@@ -206,7 +207,6 @@ namespace Content.Server.Database
 
             // SetNull is necessary for created by/edited by-s here,
             // so you can safely delete admins (GDPR right to erasure) while keeping the notes intact
-
             modelBuilder.Entity<AdminNote>()
                 .HasOne(note => note.Player)
                 .WithMany(player => player.AdminNotesReceived)
@@ -293,7 +293,8 @@ namespace Content.Server.Database
 
             // A message cannot be "dismissed" without also being "seen".
             modelBuilder.Entity<AdminMessage>().ToTable(t =>
-                t.HasCheckConstraint("NotDismissedAndSeen",
+                t.HasCheckConstraint(
+                    "NotDismissedAndSeen",
                     "NOT dismissed OR seen"));
 
             modelBuilder.Entity<ServerBan>()
@@ -442,7 +443,7 @@ namespace Content.Server.Database
         Never = 0,
         Low = 1,
         Medium = 2,
-        High = 3
+        High = 3,
     }
 
     public class Antag
@@ -754,7 +755,7 @@ namespace Content.Server.Database
     public enum ServerBanExemptFlags
     {
         // @formatter:off
-        None       = 0,
+        None = 0,
 
         /// <summary>
         /// Ban is a datacenter range, connections usually imply usage of a VPN service.
@@ -781,6 +782,7 @@ namespace Content.Server.Database
         /// Represents having all possible exemption flags.
         /// </summary>
         All = int.MaxValue,
+
         // @formatter:on
     }
 
@@ -832,7 +834,7 @@ namespace Content.Server.Database
         public string Reason { get; set; } = null!;
 
         /// <summary>
-        /// The severity of the incident
+        /// The severity of the incident.
         /// </summary>
         public NoteSeverity Severity { get; set; }
 
@@ -845,7 +847,7 @@ namespace Content.Server.Database
         public Player? CreatedBy { get; set; }
 
         /// <summary>
-        /// User ID of the admin that last edited the note
+        /// User ID of the admin that last edited the note.
         /// </summary>
         [ForeignKey("LastEditedBy")]
         public Guid? LastEditedById { get; set; }
@@ -853,7 +855,7 @@ namespace Content.Server.Database
         public Player? LastEditedBy { get; set; }
 
         /// <summary>
-        /// When the ban was last edited
+        /// When the ban was last edited.
         /// </summary>
         public DateTime? LastEditedAt { get; set; }
 
@@ -874,12 +876,12 @@ namespace Content.Server.Database
         /// This isn't done automatically by the game,
         /// you will need to set up something like a cron job to clear this from your database,
         /// using a command like this:
-        /// psql -d ss14 -c "DELETE FROM server_ban WHERE auto_delete AND expiration_time &lt; NOW()"
+        /// psql -d ss14 -c "DELETE FROM server_ban WHERE auto_delete AND expiration_time &lt; NOW()".
         /// </remarks>
         public bool AutoDelete { get; set; }
 
         /// <summary>
-        /// Whether to display this ban in the admin remarks (notes) panel
+        /// Whether to display this ban in the admin remarks (notes) panel.
         /// </summary>
         public bool Hidden { get; set; }
 
@@ -986,10 +988,12 @@ namespace Content.Server.Database
          * Edit: It has
          */
         BabyJail = 4,
+
         /// Results from rejected connections with external API checking tools
         IPChecks = 5,
+
         /// Results from rejected connections who are authenticated but have no modern hwid associated with them.
-        NoHwid = 6
+        NoHwid = 6,
     }
 
     public class ServerBanHit
@@ -1247,7 +1251,7 @@ namespace Content.Server.Database
         /// The reason for the ban.
         /// </summary>
         /// <seealso cref="ServerBan.Reason"/>
-        public string Reason { get; set; } = "";
+        public string Reason { get; set; } = string.Empty;
 
         /// <summary>
         /// Exemptions granted to the ban.
@@ -1256,7 +1260,7 @@ namespace Content.Server.Database
         public ServerBanExemptFlags ExemptFlags { get; set; }
 
         /// <summary>
-        /// Severity of the ban
+        /// Severity of the ban.
         /// </summary>
         /// <seealso cref="ServerBan.Severity"/>
         public NoteSeverity Severity { get; set; }
@@ -1309,7 +1313,7 @@ namespace Content.Server.Database
 
 
     /// <summary>
-    ///  Cache for the IPIntel system
+    ///  Cache for the IPIntel system.
     /// </summary>
     public class IPIntelCache
     {
@@ -1326,7 +1330,7 @@ namespace Content.Server.Database
         public DateTime Time { get; set; }
 
         /// <summary>
-        /// The score IPIntel returned
+        /// The score IPIntel returned.
         /// </summary>
         public float Score { get; set; }
     }

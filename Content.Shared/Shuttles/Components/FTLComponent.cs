@@ -15,7 +15,6 @@ namespace Content.Shared.Shuttles.Components;
 public sealed partial class FTLComponent : Component
 {
     // TODO Full game save / add datafields
-
     [ViewVariables]
     public FTLState State = FTLState.Available;
 

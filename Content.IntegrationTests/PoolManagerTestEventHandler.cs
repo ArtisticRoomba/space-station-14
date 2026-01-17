@@ -11,6 +11,7 @@ public sealed class PoolManagerTestEventHandler
     public void Setup()
     {
         PoolManager.Startup();
+
         // If the tests seem to be stuck, we try to end it semi-nicely
         _ = Task.Delay(MaximumTotalTestingTimeLimit).ContinueWith(_ =>
         {

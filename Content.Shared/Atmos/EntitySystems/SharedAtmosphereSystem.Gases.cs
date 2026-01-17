@@ -26,6 +26,7 @@ public abstract partial class SharedAtmosphereSystem
         foreach (var gas in Enum.GetValues<Gas>())
         {
             var idx = (int)gas;
+
             // Log an error if the corresponding prototype isn't found
             if (!_prototypeManager.TryIndex<GasPrototype>(gas.ToString(), out var gasPrototype))
             {

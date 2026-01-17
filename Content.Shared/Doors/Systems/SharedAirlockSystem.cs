@@ -1,8 +1,8 @@
 using Content.Shared.Doors.Components;
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Prying.Components;
 using Content.Shared.Wires;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Doors.Systems;
@@ -40,7 +40,6 @@ public abstract class SharedAirlockSystem : EntitySystem
         // only block based on bolts / power status when initially closing the door, not when its already
         // mid-transition. Particularly relevant for when the door was pried-closed with a crowbar, which bypasses
         // the initial power-check.
-
         if (TryComp(uid, out DoorComponent? door)
             && !args.Partial
             && !CanChangeState(uid, airlock))
@@ -60,6 +59,7 @@ public abstract class SharedAirlockSystem : EntitySystem
         {
             _wiresSystem.ChangePanelVisibility(uid, wiresPanel, component.OpenPanelVisible || args.State != DoorState.Open);
         }
+
         // If the door is closed, we should look if the bolt was locked while closing
         UpdateAutoClose(uid, component);
 

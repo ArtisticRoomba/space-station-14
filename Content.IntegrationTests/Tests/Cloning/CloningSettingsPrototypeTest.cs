@@ -26,16 +26,16 @@ public sealed class CloningSettingsPrototypeTest
                 {
                     foreach (var compName in proto.Components)
                     {
-                        Assert.That(compFactory.TryGetRegistration(compName, out _),
-                            $"Failed to find a component named {compName} for {nameof(CloningSettingsPrototype)} \"{proto.ID}\""
-                        );
+                        Assert.That(
+                            compFactory.TryGetRegistration(compName, out _),
+                            $"Failed to find a component named {compName} for {nameof(CloningSettingsPrototype)} \"{proto.ID}\"");
                     }
 
                     foreach (var eventCompName in proto.EventComponents)
                     {
-                        Assert.That(compFactory.TryGetRegistration(eventCompName, out _),
-                            $"Failed to find a component named {eventCompName} for {nameof(CloningSettingsPrototype)} \"{proto.ID}\""
-                        );
+                        Assert.That(
+                            compFactory.TryGetRegistration(eventCompName, out _),
+                            $"Failed to find a component named {eventCompName} for {nameof(CloningSettingsPrototype)} \"{proto.ID}\"");
                     }
                 }
             });

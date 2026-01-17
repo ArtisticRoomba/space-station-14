@@ -47,6 +47,7 @@ public abstract class SharedGasMinerSystem : EntitySystem
                 GasMinerState.Disabled => Loc.GetString("gas-miner-state-disabled-text"),
                 GasMinerState.Idle => Loc.GetString("gas-miner-state-idle-text"),
                 GasMinerState.Working => Loc.GetString("gas-miner-state-working-text"),
+
                 // C# pattern matching is not exhaustive for enums
                 _ => throw new IndexOutOfRangeException(nameof(component.MinerState)),
             });

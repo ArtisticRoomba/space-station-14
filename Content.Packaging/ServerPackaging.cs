@@ -57,7 +57,7 @@ public static class ServerPackaging
         "ru",
         "tr",
         "zh-Hans",
-        "zh-Hant"
+        "zh-Hant",
     };
 
     public static async Task PackageServer(bool skipBuild, bool hybridAcz, IPackageLogger logger, string configuration, List<string>? platforms = null)
@@ -105,8 +105,8 @@ public static class ServerPackaging
                     $"/p:TargetOs={platform.TargetOs}",
                     "/t:Rebuild",
                     "/p:FullRelease=true",
-                    "/m"
-                }
+                    "/m",
+                },
             });
 
             await PublishClientServer(platform.Rid, platform.TargetOs, configuration);
@@ -142,8 +142,8 @@ public static class ServerPackaging
                 $"/p:TargetOs={targetOs}",
                 "/p:FullRelease=True",
                 "/m",
-                "RobustToolbox/Robust.Server/Robust.Server.csproj"
-            }
+                "RobustToolbox/Robust.Server/Robust.Server.csproj",
+            },
         });
     }
 

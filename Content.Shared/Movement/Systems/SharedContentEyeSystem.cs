@@ -96,7 +96,7 @@ public abstract class SharedContentEyeSystem : EntitySystem
 
     private void OnPvsScale(RequestPvsScaleEvent ev, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity is {} uid && _admin.HasAdminFlag(args.SenderSession, EyeFlag))
+        if (args.SenderSession.AttachedEntity is { } uid && _admin.HasAdminFlag(args.SenderSession, EyeFlag))
             _eye.SetPvsScale(uid, ev.Scale);
     }
 

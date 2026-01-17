@@ -15,6 +15,7 @@ namespace Content.Shared.DeviceNetwork.Components
             Apc,
             AtmosDevices,
             Reserved = 100,
+
             // Ids outside this enum may exist
             // This exists to let yml use nice names instead of numbers
         }

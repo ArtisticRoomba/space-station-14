@@ -41,7 +41,7 @@ public sealed partial class SerializationTest
         var data = new TestData
         {
             Value = TestEnum.Cc,
-            Sequence = [TestEnum.Dd, TestEnum.Aa]
+            Sequence = [TestEnum.Dd, TestEnum.Aa],
         };
 
         node = seriMan.WriteValue(data, notNullableOverride: true);

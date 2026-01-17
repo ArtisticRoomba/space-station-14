@@ -21,7 +21,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     ban_time = table.Column<DateTime>(type: "TEXT", nullable: false),
                     expiration_time = table.Column<DateTime>(type: "TEXT", nullable: true),
                     reason = table.Column<string>(type: "TEXT", nullable: false),
-                    banning_admin = table.Column<Guid>(type: "TEXT", nullable: true)
+                    banning_admin = table.Column<Guid>(type: "TEXT", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -37,7 +37,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     ban_id = table.Column<int>(type: "INTEGER", nullable: false),
                     unbanning_admin = table.Column<Guid>(type: "TEXT", nullable: true),
-                    unban_time = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    unban_time = table.Column<DateTime>(type: "TEXT", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -112,7 +112,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     expiration_time = table.Column<DateTime>(type: "TEXT", nullable: true),
                     hwid = table.Column<byte[]>(type: "BLOB", nullable: true),
                     reason = table.Column<string>(type: "TEXT", nullable: false),
-                    user_id = table.Column<Guid>(type: "TEXT", nullable: true)
+                    user_id = table.Column<Guid>(type: "TEXT", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -127,7 +127,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .Annotation("Sqlite:Autoincrement", true),
                     ban_id = table.Column<int>(type: "INTEGER", nullable: false),
                     unban_time = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    unbanning_admin = table.Column<Guid>(type: "TEXT", nullable: true)
+                    unbanning_admin = table.Column<Guid>(type: "TEXT", nullable: true),
                 },
                 constraints: table =>
                 {

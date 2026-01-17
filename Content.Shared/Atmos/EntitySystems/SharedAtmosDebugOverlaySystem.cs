@@ -33,6 +33,7 @@ namespace Content.Shared.Atmos.EntitySystems
             public NetEntity GridId { get; }
 
             public Vector2i BaseIdx { get; }
+
             // LocalViewRange*LocalViewRange
             public AtmosDebugOverlayData?[] OverlayData { get; }
 

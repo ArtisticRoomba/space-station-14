@@ -6,7 +6,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests.Chemistry;
 
-
 // We are adding two non-reactive solutions in these tests
 // To ensure volume(A) + volume(B) = volume(A+B)
 // reactions can change this assumption
@@ -122,7 +121,8 @@ public sealed class SolutionSystemTests
                 .TryGetSolution(beaker, "beaker", out var solutionEnt, out var solution));
 
             solution.AddSolution(originalWater, protoMan);
-            Assert.That(containerSystem
+            Assert.That(
+                containerSystem
                 .TryAddSolution(solutionEnt.Value, oilAdded), Is.False);
 
             var water = solution.GetTotalPrototypeQuantity(Water);
@@ -143,7 +143,6 @@ public sealed class SolutionSystemTests
     {
         await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
-
 
         var entityManager = server.ResolveDependency<IEntityManager>();
         var protoMan = server.ResolveDependency<IPrototypeManager>();
@@ -222,7 +221,8 @@ public sealed class SolutionSystemTests
                 .TryGetSolution(beaker, "beaker", out var solutionEnt, out var solution));
 
             solution.AddSolution(originalWater, protoMan);
-            Assert.That(containerSystem
+            Assert.That(
+                containerSystem
                 .TryMixAndOverflow(solutionEnt.Value, oilAdded, threshold, out _),
                 Is.False);
         });

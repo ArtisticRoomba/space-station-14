@@ -14,6 +14,7 @@ public sealed class AdminLogOnTriggerSystem : XOnTriggerSystem<AdminLogOnTrigger
             ent.Comp.LogImpact,
             $"{ToPrettyString(args.User)} sent a trigger using {ToPrettyString(ent)}: {Loc.GetString(ent.Comp.Message)}"
             );
+
         // Intentionally does not handle the event since this shouldn't affect the gamestate.
     }
 }

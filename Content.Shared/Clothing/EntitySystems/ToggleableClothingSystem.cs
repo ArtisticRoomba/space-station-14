@@ -101,6 +101,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         {
             BreakOnDamage = true,
             BreakOnMove = true,
+
             // This should just re-use the BUI range checks & cancel the do after if the BUI closes. But that is all
             // server-side at the moment.
             // TODO BUI REFACTOR.
@@ -169,7 +170,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
         // delete the attached entity. We do this regardless of whether or not the attached entity is currently
         // "outside" of the container or not. This means that if a hardsuit takes too much damage, the helmet will also
         // automatically be deleted.
-
         _actionsSystem.RemoveAction(component.ActionEntity);
 
         if (component.ClothingUid != null && !_netMan.IsClient)
@@ -187,7 +187,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
         // toggleable clothing component. This means if you had a hard-suit helmet that took too much damage, you would
         // still be left with a suit that was simply missing a helmet. There is currently no way to fix a partially
         // broken suit like this.
-
         if (!TryComp(component.AttachedUid, out ToggleableClothingComponent? toggleComp))
             return;
 
@@ -272,7 +271,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
     /// </summary>
     private void OnMapInit(EntityUid uid, ToggleableClothingComponent component, MapInitEvent args)
     {
-        if (component.Container!.ContainedEntity is {} ent)
+        if (component.Container!.ContainedEntity is { } ent)
         {
             DebugTools.Assert(component.ClothingUid == ent, "Unexpected entity present inside of a toggleable clothing container.");
             return;

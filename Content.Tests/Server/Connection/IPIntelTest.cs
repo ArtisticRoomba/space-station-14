@@ -206,6 +206,7 @@ public static class IPIntelTest
     [TestCase("10.0.1.0", ExpectedResult = true)]
     [TestCase("192.168.5.12", ExpectedResult = true)]
     [TestCase("192.167.0.1", ExpectedResult = false)]
+
     // Not an IPv4!
     [TestCase("::1", ExpectedResult = false)]
     public static bool TestIsReservedIpv4(string ipAddress)
@@ -214,6 +215,7 @@ public static class IPIntelTest
     }
 
     [Test]
+
     // IPv4-mapped IPv6 should use IPv4 behavior.
     [TestCase("::ffff:0.0.0.0", ExpectedResult = true)]
     [TestCase("::ffff:0.3.5.7", ExpectedResult = true)]
@@ -222,10 +224,12 @@ public static class IPIntelTest
     [TestCase("::ffff:10.0.1.0", ExpectedResult = true)]
     [TestCase("::ffff:192.168.5.12", ExpectedResult = true)]
     [TestCase("::ffff:192.167.0.1", ExpectedResult = false)]
+
     // Regular IPv6 tests.
     [TestCase("::1", ExpectedResult = true)]
     [TestCase("2001:db8::01", ExpectedResult = true)]
     [TestCase("2a01:4f8:252:4425::1234", ExpectedResult = false)]
+
     // Not an IPv6!
     [TestCase("127.0.0.1", ExpectedResult = false)]
     public static bool TestIsReservedIpv6(string ipAddress)

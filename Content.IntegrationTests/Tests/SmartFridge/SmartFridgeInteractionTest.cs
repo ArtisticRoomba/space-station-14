@@ -63,14 +63,14 @@ public sealed class SmartFridgeInteractionTest : InteractionTest
 
         // assert that the listing is still there
         Assert.That(component.Entries, Is.Not.Empty);
+
         // but empty
         Assert.That(component.ContainedEntries[component.Entries[0]], Is.Empty);
 
         // and that the thing we dispensed is actually around
         await AssertEntityLookup(
             ("APCBasic", 1),
-            (SampleItemProtoId, 1)
-        );
+            (SampleItemProtoId, 1));
     }
 
     [Test]

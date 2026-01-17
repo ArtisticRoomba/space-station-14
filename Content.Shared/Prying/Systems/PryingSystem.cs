@@ -75,6 +75,7 @@ public sealed class PryingSystem : EntitySystem
         {
             if (!string.IsNullOrWhiteSpace(message))
                 _popup.PopupClient(Loc.GetString(message), target, user);
+
             // If we have reached this point we want the event that caused this
             // to be marked as handled.
             return true;
@@ -94,6 +95,7 @@ public sealed class PryingSystem : EntitySystem
 
         // We don't care about displaying a message if no tool was used.
         if (!TryComp<PryUnpoweredComponent>(target, out var unpoweredComp) || !CanPry(target, user, out _, unpoweredComp: unpoweredComp))
+
             // If we have reached this point we want the event that caused this
             // to be marked as handled.
             return true;

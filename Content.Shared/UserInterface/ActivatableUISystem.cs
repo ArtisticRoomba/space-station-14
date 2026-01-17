@@ -74,6 +74,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         {
             Act = () => InteractUI(args.User, uid, component),
             Text = Loc.GetString(component.VerbText),
+
             // TODO VERB ICON find a better icon
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
         });
@@ -88,6 +89,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         {
             Act = () => InteractUI(args.User, uid, component),
             Text = Loc.GetString(component.VerbText),
+
             // TODO VERB ICON find a better icon
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
         });

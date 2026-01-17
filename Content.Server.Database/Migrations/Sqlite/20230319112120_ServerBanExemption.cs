@@ -21,7 +21,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 columns: table => new
                 {
                     user_id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    flags = table.Column<int>(type: "INTEGER", nullable: false)
+                    flags = table.Column<int>(type: "INTEGER", nullable: false),
                 },
                 constraints: table =>
                 {

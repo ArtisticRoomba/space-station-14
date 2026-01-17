@@ -50,7 +50,7 @@ public sealed class PrototypeSaveTest
 
         await server.WaitRunTicks(5);
 
-        //Generate list of non-abstract prototypes to test
+        // Generate list of non-abstract prototypes to test
         foreach (var prototype in prototypeMan.EnumeratePrototypes<EntityPrototype>())
         {
             if (prototype.Abstract)
@@ -82,7 +82,7 @@ public sealed class PrototypeSaveTest
 
             Assert.Multiple(() =>
             {
-                //Iterate list of prototypes to spawn
+                // Iterate list of prototypes to spawn
                 foreach (var prototype in prototypes)
                 {
                     uid = entityMan.SpawnEntity(prototype.ID, testLocation);
@@ -174,8 +174,9 @@ public sealed class PrototypeSaveTest
             SerializerProvider.RegisterSerializer(this);
         }
 
-        ValidationNode ITypeValidator<EntityUid, ValueDataNode>.Validate(ISerializationManager serializationManager,
-                ValueDataNode node, IDependencyCollection dependencies, ISerializationContext? context)
+        ValidationNode ITypeValidator<EntityUid, ValueDataNode>.Validate(
+            ISerializationManager serializationManager,
+            ValueDataNode node, IDependencyCollection dependencies, ISerializationContext? context)
         {
             return new ValidatedValueNode(node);
         }
@@ -195,7 +196,8 @@ public sealed class PrototypeSaveTest
             return new ValueDataNode(value.ToString());
         }
 
-        EntityUid ITypeReader<EntityUid, ValueDataNode>.Read(ISerializationManager serializationManager,
+        EntityUid ITypeReader<EntityUid, ValueDataNode>.Read(
+            ISerializationManager serializationManager,
             ValueDataNode node,
             IDependencyCollection dependencies,
             SerializationHookContext hookCtx,

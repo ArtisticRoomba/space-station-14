@@ -26,7 +26,6 @@ namespace Content.Server.Database.Migrations.Sqlite
             //     name: "IX_connection_log_server_id",
             //     table: "connection_log",
             //     column: "server_id");
-
             migrationBuilder.AddForeignKey(
                 name: "FK_connection_log_server_server_id",
                 table: "connection_log",
@@ -46,7 +45,6 @@ namespace Content.Server.Database.Migrations.Sqlite
             // migrationBuilder.DropIndex(
             //     name: "IX_connection_log_server_id",
             //     table: "connection_log");
-
             migrationBuilder.DropColumn(
                 name: "server_id",
                 table: "connection_log");

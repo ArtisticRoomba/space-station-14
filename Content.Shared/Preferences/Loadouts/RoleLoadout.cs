@@ -334,7 +334,6 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
     public bool RemoveLoadout(ProtoId<LoadoutGroupPrototype> selectedGroup, ProtoId<LoadoutPrototype> selectedLoadout, IPrototypeManager protoManager)
     {
         // Although this may bring us below minimum we'll let EnsureValid handle it.
-
         var groupLoadouts = SelectedLoadouts[selectedGroup];
 
         for (var i = 0; i < groupLoadouts.Count; i++)

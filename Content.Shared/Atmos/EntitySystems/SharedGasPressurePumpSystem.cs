@@ -19,7 +19,6 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
 
     // TODO: Check enabled for activatableUI
     // TODO: Add activatableUI to it.
-
     public override void Initialize()
     {
         base.Initialize();

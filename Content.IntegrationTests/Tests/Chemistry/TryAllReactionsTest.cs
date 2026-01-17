@@ -1,11 +1,11 @@
-using Content.Shared.Chemistry.Reaction;
+using System.Linq;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reaction;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Linq;
-using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.IntegrationTests.Tests.Chemistry
 {
@@ -38,7 +38,7 @@ namespace Content.IntegrationTests.Tests.Chemistry
 
             foreach (var reactionPrototype in prototypeManager.EnumeratePrototypes<ReactionPrototype>())
             {
-                //since i have no clue how to isolate each loop assert-wise im just gonna throw this one in for good measure
+                // since i have no clue how to isolate each loop assert-wise im just gonna throw this one in for good measure
                 Console.WriteLine($"Testing {reactionPrototype.ID}");
 
                 EntityUid beaker = default;
@@ -60,12 +60,12 @@ namespace Content.IntegrationTests.Tests.Chemistry
 #pragma warning restore NUnit2045
                     }
 
-                    //Get all possible reactions with the current reagents
+                    // Get all possible reactions with the current reagents
                     var possibleReactions = prototypeManager.EnumeratePrototypes<ReactionPrototype>()
                         .Where(x => x.Reactants.All(id => solution.Contents.Any(s => s.Reagent.Prototype == id.Key)))
                         .ToList();
 
-                    //Check if the reaction is the first to occur when heated
+                    // Check if the reaction is the first to occur when heated
                     foreach (var possibleReaction in possibleReactions.OrderBy(r => r.MinimumTemperature))
                     {
                         if (possibleReaction.Priority >= reactionPrototype.Priority && possibleReaction.MinimumTemperature < reactionPrototype.MinimumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
@@ -74,7 +74,7 @@ namespace Content.IntegrationTests.Tests.Chemistry
                         }
                     }
 
-                    //Check if the reaction is the first to occur when freezing
+                    // Check if the reaction is the first to occur when freezing
                     foreach (var possibleReaction in possibleReactions.OrderBy(r => r.MaximumTemperature))
                     {
                         if (possibleReaction.Priority >= reactionPrototype.Priority && possibleReaction.MaximumTemperature > reactionPrototype.MaximumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
@@ -83,7 +83,7 @@ namespace Content.IntegrationTests.Tests.Chemistry
                         }
                     }
 
-                    //Now safe set the temperature and mix the reagents
+                    // Now safe set the temperature and mix the reagents
                     solutionEnt.Value.Comp.Solution.CanReact = true;
                     solutionContainerSystem.SetTemperature(solutionEnt.Value, reactionPrototype.MinimumTemperature);
                     solutionContainerSystem.UpdateChemicals(solutionEnt.Value);
@@ -101,8 +101,8 @@ namespace Content.IntegrationTests.Tests.Chemistry
 
                 await server.WaitAssertion(() =>
                 {
-                    //you just got linq'd fool
-                    //(i'm sorry)
+                    // you just got linq'd fool
+                    // (i'm sorry)
                     var foundProductsMap = reactionPrototype.Products
                         .Concat(reactionPrototype.Reactants.Where(x => x.Value.Catalyst).ToDictionary(x => x.Key, x => x.Value.Amount))
                         .ToDictionary(x => x, _ => false);
@@ -114,10 +114,9 @@ namespace Content.IntegrationTests.Tests.Chemistry
 
                     Assert.That(foundProductsMap.All(x => x.Value));
                 });
-
             }
+
             await pair.CleanReturnAsync();
         }
     }
-
 }

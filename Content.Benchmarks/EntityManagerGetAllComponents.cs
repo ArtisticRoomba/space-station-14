@@ -21,7 +21,7 @@ namespace Content.Benchmarks
         {
             var x = new EntityManagerGetAllComponents
             {
-                N = 500
+                N = 500,
             };
             x.Setup();
             x.Run();

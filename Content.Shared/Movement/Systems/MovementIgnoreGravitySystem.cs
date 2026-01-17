@@ -22,7 +22,6 @@ public sealed class MovementIgnoreGravitySystem : EntitySystem
     private void OnIsWeightless(Entity<MovementIgnoreGravityComponent> entity, ref IsWeightlessEvent args)
     {
         // We don't check if the event has been handled as this component takes precedent over other things.
-
         args.IsWeightless = entity.Comp.Weightless;
         args.Handled = true;
     }

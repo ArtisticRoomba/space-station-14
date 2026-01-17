@@ -23,7 +23,6 @@ public abstract class SharedHugBotSystem : EntitySystem
             return;
 
         // HugBot HTN checks for emag state within its own logic, so we don't need to change anything here.
-
         args.Handled = true;
     }
 }

@@ -39,7 +39,7 @@ public sealed class LoadoutTests
 
     private readonly Dictionary<string, EntProtoId> _expectedEquipment = new()
     {
-        ["jumpsuit"] = "ClothingUniformJumpsuitColorGrey"
+        ["jumpsuit"] = "ClothingUniformJumpsuitColorGrey",
     };
 
     /// <summary>
@@ -82,6 +82,7 @@ public sealed class LoadoutTests
 
                 checkedCount++;
             }
+
             // Make sure the number of items is the same
             Assert.That(checkedCount, Is.EqualTo(_expectedEquipment.Count), "Number of items does not match expected!");
 

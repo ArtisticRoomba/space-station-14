@@ -16,7 +16,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 columns: table => new
                 {
                     player_user_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    role_id = table.Column<string>(type: "text", nullable: false)
+                    role_id = table.Column<string>(type: "text", nullable: false),
                 },
                 constraints: table =>
                 {

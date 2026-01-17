@@ -59,6 +59,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
             ent.Comp.FriendlyFactions.UnionWith(factionData.Friendly);
             ent.Comp.HostileFactions.UnionWith(factionData.Hostile);
         }
+
         // Add additional factions if it is written in prototype
         if (ent.Comp.AddFriendlyFactions != null)
         {
@@ -181,6 +182,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
             return Array.Empty<EntityUid>();
 
         var hostiles = GetNearbyFactions(ent, range, ent.Comp1.HostileFactions)
+
             // ignore mobs that have both hostile faction and the same faction,
             // otherwise having multiple factions is strictly negative
             .Where(target => !IsEntityFriendly((ent, ent.Comp1), target));

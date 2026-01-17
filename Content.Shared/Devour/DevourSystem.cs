@@ -116,6 +116,7 @@ public sealed class DevourSystem : EntitySystem
         {
             _containerSystem.Insert(args.Args.Target.Value, ent.Comp.Stomach);
         }
+
         //TODO: Figure out a better way of removing structures via devour that still entails standing still and waiting for a DoAfter. Somehow.
         //If it's not alive, it must be a structure.
         // Delete if the thing isn't in the stomach storage whitelist (or the stomach whitelist is null/empty)

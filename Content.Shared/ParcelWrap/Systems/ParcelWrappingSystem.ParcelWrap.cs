@@ -113,6 +113,7 @@ public sealed partial class ParcelWrappingSystem
 
         EntityUid spawned;
         var targetTransform = Transform(target);
+
         // Check if the target has a pre-defined parcel type to be used.
         if (TryComp<ParcelWrapOverrideComponent>(target, out var overrideComp))
         {

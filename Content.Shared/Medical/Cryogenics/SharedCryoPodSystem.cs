@@ -313,6 +313,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
             return null;
 
         _container.Remove(contained, cryoPodComponent.BodyContainer);
+
         // InsideCryoPodComponent is removed automatically in its EntGotRemovedFromContainerMessage listener
         // RemComp<InsideCryoPodComponent>(contained);
 

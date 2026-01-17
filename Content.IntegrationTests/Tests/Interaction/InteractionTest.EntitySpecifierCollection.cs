@@ -87,6 +87,7 @@ public abstract partial class InteractionTest
             {
                 Add(id, quantity);
             }
+
             Converted = converted;
         }
 
@@ -97,6 +98,7 @@ public abstract partial class InteractionTest
             {
                 Add(id, -quantity);
             }
+
             Converted = converted;
         }
 
@@ -105,7 +107,7 @@ public abstract partial class InteractionTest
             return new EntitySpecifierCollection()
             {
                 Entities = Entities.ShallowClone(),
-                Converted = Converted
+                Converted = Converted,
             };
         }
 

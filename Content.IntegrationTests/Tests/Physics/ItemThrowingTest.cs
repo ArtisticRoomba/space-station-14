@@ -43,7 +43,8 @@ public sealed class ItemThrowingTest : InteractionTest
     /// I.e., verify that the deletions that happen in the other two tests aren't coincidental.
     /// </summary>
     [Test]
-    //[TestOf(typeof(Egg))]
+
+    // [TestOf(typeof(Egg))]
     public async Task TestEggIsEgg()
     {
         // Setup entities
@@ -108,4 +109,3 @@ public sealed class ItemThrowingTest : InteractionTest
         AssertDeleted(pen);
     }
 }
-

@@ -152,6 +152,7 @@ public abstract class SharedEmitSoundSystem : EntitySystem
             if (predict)
                 _audioSystem.PlayPredicted(component.Sound, coords, user);
             else if (_netMan.IsServer)
+
                 // don't predict sounds that client couldn't have played already
                 _audioSystem.PlayPvs(component.Sound, coords);
         }
@@ -160,6 +161,7 @@ public abstract class SharedEmitSoundSystem : EntitySystem
             if (predict)
                 _audioSystem.PlayPredicted(component.Sound, uid, user);
             else if (_netMan.IsServer)
+
                 // don't predict sounds that client couldn't have played already
                 _audioSystem.PlayPvs(component.Sound, uid);
         }

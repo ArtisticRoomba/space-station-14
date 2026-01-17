@@ -7,11 +7,11 @@ using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Movement.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind.Filters;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Components;
 using Content.Shared.Objectives.Systems;
 using Content.Shared.Players;
 using Content.Shared.Speech;
@@ -219,16 +219,17 @@ public abstract partial class SharedMindSystem : EntitySystem
         //    Mind is an *IC* mind, therefore ghost takeover is IC revival right now.
         //  + Is it necessary to have a reference to a specific 'mind iteration' to cycle when certain events happen?
         //    (If being a borg or AI counts as dead, then this is highly likely, as it's still the same Mind for practical purposes.)
-
         if (mind.OwnedEntity == null)
             return true;
 
         // This can be null if they're deleted (spike / brain nom)
         var targetMobState = EntityManager.GetComponentOrNull<MobStateComponent>(mind.OwnedEntity);
+
         // This can be null if it's a brain (this happens very often)
         // Brains are the result of gibbing so should definitely count as dead
         if (targetMobState == null)
             return true;
+
         // They might actually be alive.
         return _mobState.IsDead(mind.OwnedEntity.Value, targetMobState);
     }
@@ -283,6 +284,7 @@ public abstract partial class SharedMindSystem : EntitySystem
             return;
 
         var oldVisitingEnt = mind.VisitingEntity.Value;
+
         // Null this before removing the component to avoid any infinite loops.
         mind.VisitingEntity = null;
 
@@ -333,9 +335,9 @@ public abstract partial class SharedMindSystem : EntitySystem
     {
     }
 
-    public virtual void ControlMob(EntityUid user, EntityUid target) {}
+    public virtual void ControlMob(EntityUid user, EntityUid target) { }
 
-    public virtual void ControlMob(NetUserId user, EntityUid target) {}
+    public virtual void ControlMob(NetUserId user, EntityUid target) { }
 
     /// <summary>
     /// Tries to create and add an objective from its prototype id.

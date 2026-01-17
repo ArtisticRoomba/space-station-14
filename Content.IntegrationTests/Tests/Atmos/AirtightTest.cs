@@ -162,11 +162,13 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to be unblocked before spawning an airtight entity.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to be completely unblocked before spawning an airtight entity.");
 
-            Assert.That(tile.AirtightData.BlockedDirections,
+            Assert.That(
+                tile.AirtightData.BlockedDirections,
                 Is.EqualTo(AtmosDirection.Invalid),
                 "Expected AirtightData to reflect non-airtight state before spawning an airtight entity.");
 
@@ -195,11 +197,13 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to remain stale immediately after spawn before atmos tick.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to still show non-airtight state before an atmos tick.");
 
-            Assert.That(tile.AirtightData.BlockedDirections,
+            Assert.That(
+                tile.AirtightData.BlockedDirections,
                 Is.EqualTo(AtmosDirection.Invalid),
                 "Expected AirtightData to reflect non-airtight state after spawn before an atmos tick.");
 
@@ -227,11 +231,13 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to reflect airtightness after atmos tick.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.Invalid),
                 "Expected tile to reflect airtight state after atmos tick.");
 
-            Assert.That(tile.AirtightData.BlockedDirections,
+            Assert.That(
+                tile.AirtightData.BlockedDirections,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected AirtightData to reflect airtight state after spawn before an atmos tick.");
 
@@ -314,11 +320,13 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to remain stale immediately after deletion before atmos tick.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.Invalid),
                 "Expected tile to still show airtight state before atmos tick after deletion.");
 
-            Assert.That(tile.AirtightData.BlockedDirections,
+            Assert.That(
+                tile.AirtightData.BlockedDirections,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected AirtightData to reflect non-airtight state before after deletion before an atmos tick.");
 
@@ -340,11 +348,13 @@ public sealed class AirtightTest : AtmosTest
                 "Expected cached AirtightData to reflect deletion after atmos tick.");
 
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to reflect non-airtight state after atmos tick.");
 
-            Assert.That(tile.AirtightData.BlockedDirections,
+            Assert.That(
+                tile.AirtightData.BlockedDirections,
                 Is.EqualTo(AtmosDirection.Invalid),
                 "Expected AirtightData to reflect non-airtight state after atmos tick.");
 
@@ -389,7 +399,8 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to be completely unblocked before spawning an airtight entity.");
 
@@ -411,7 +422,8 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to still show non-airtight state before an atmos tick.");
 
@@ -428,7 +440,8 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All & ~atmosDirection),
                 "Expected tile to reflect airtight state after atmos tick.");
 
@@ -480,7 +493,8 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All & ~atmosDirection),
                 "Expected tile to remain stale immediately after deletion before an atmos tick.");
 
@@ -505,7 +519,8 @@ public sealed class AirtightTest : AtmosTest
         using (Assert.EnterMultipleScope())
         {
             var tile = RelevantAtmos.Comp.Tiles[Vector2i.Zero];
-            Assert.That(tile.AdjacentBits,
+            Assert.That(
+                tile.AdjacentBits,
                 Is.EqualTo(AtmosDirection.All),
                 "Expected tile to reflect non-airtight state after deletion after atmos tick.");
 
@@ -562,18 +577,21 @@ public sealed class AirtightTest : AtmosTest
                 Assert.That(airtight, Is.Not.Null);
 
                 var initial = (AtmosDirection)airtight.InitialAirBlockedDirection;
-                Assert.That(initial,
+                Assert.That(
+                    initial,
                     Is.EqualTo(AtmosDirection.North),
                     "Directional airtight entity should block North on spawn.");
 
-                Assert.That(airtight.AirBlockedDirection,
+                Assert.That(
+                    airtight.AirBlockedDirection,
                     Is.EqualTo(expected),
                     $"Expected AirBlockedDirection to be {expected} after rotating by {degrees} degrees on spawn.");
 
                 // i dont trust you airtightsystem
                 if (degrees is 90f or 270f)
                 {
-                    Assert.That(expected,
+                    Assert.That(
+                        expected,
                         Is.Not.EqualTo(initial),
                         "Rotated directions should differ for 90/270 degrees.");
                 }

@@ -18,7 +18,7 @@ public sealed class AddTests
     {
         AdminLogsEnabled = true,
         DummyTicker = false,
-        Connected = true
+        Connected = true,
     };
 
     [Test]
@@ -45,7 +45,7 @@ public sealed class AddTests
         {
             var logs = sAdminLogSystem.CurrentRoundJson(new LogFilter
             {
-                Search = guid.ToString()
+                Search = guid.ToString(),
             });
 
             await foreach (var json in logs)
@@ -96,7 +96,7 @@ public sealed class AddTests
         {
             var logs = await sAdminLogSystem.CurrentRoundLogs(new LogFilter
             {
-                Search = guid.ToString()
+                Search = guid.ToString(),
             });
 
             if (logs.Count == 0)
@@ -205,7 +205,7 @@ public sealed class AddTests
         {
             Dirty = true,
             InLobby = true,
-            AdminLogsEnabled = true
+            AdminLogsEnabled = true,
         };
 
         await using var pair = await PoolManager.GetServerClient(setting);
@@ -235,7 +235,7 @@ public sealed class AddTests
         {
             var logs = await sAdminLogSystem.CurrentRoundLogs(new LogFilter
             {
-                Search = guid.ToString()
+                Search = guid.ToString(),
             });
 
             if (logs.Count == 0)
@@ -262,6 +262,7 @@ public sealed class AddTests
 
             json.Dispose();
         }
+
         await pair.CleanReturnAsync();
     }
 
@@ -287,7 +288,7 @@ public sealed class AddTests
         {
             var logs = await sAdminLogSystem.CurrentRoundLogs(new LogFilter
             {
-                Search = guid.ToString()
+                Search = guid.ToString(),
             });
 
             if (logs.Count == 0)
@@ -325,7 +326,7 @@ public sealed class AddTests
         {
             var logs = await sAdminLogSystem.CurrentRoundLogs(new LogFilter
             {
-                Search = guid.ToString()
+                Search = guid.ToString(),
             });
 
             if (logs.Count == 0)

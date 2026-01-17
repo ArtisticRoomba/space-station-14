@@ -92,7 +92,6 @@ namespace Content.Shared.Examine
         {
             // TODO occluded container checks
             // also requires checking if the examiner has either a storage or stripping UI open, as the item may be accessible via that UI
-
             if (!Resolve(examiner, ref examinerComp, false))
                 return false;
 

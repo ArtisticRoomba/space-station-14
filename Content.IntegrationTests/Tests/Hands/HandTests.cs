@@ -24,14 +24,13 @@ public sealed class HandTests
       entity_storage: !type:Container
 ";
 
-
     [Test]
     public async Task TestPickupDrop()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Connected = true,
-            DummyTicker = false
+            DummyTicker = false,
         });
         var server = pair.Server;
 
@@ -78,7 +77,7 @@ public sealed class HandTests
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Connected = true,
-            DummyTicker = false
+            DummyTicker = false,
         });
         var server = pair.Server;
         var map = await pair.CreateTestMap();
@@ -99,6 +98,7 @@ public sealed class HandTests
         // spawn the elusive box and crowbar at the coordinates
         await server.WaitPost(() => box = server.EntMan.SpawnEntity("TestPickUpThenDropInContainerTestBox", map.GridCoords));
         await server.WaitPost(() => item = server.EntMan.SpawnEntity("Crowbar", map.GridCoords));
+
         // place the player at the exact same coordinates and have them grab the crowbar
         await server.WaitPost(() =>
         {

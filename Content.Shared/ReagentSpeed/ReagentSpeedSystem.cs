@@ -22,6 +22,7 @@ public sealed class ReagentSpeedSystem : EntitySystem
         {
             var used = solution.RemoveReagent(reagent, ent.Comp.Cost);
             var efficiency = (used / ent.Comp.Cost).Float();
+
             // scale the speed modifier so microdosing has less effect
             var reduction = (1f - fullModifier) * efficiency;
             var modifier = 1f - reduction;
