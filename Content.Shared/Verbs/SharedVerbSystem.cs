@@ -196,6 +196,6 @@ namespace Content.Shared.Verbs
         NoFov = 1 << 0,         // They ignore FoV restrictions
         InContainer = 1 << 1,   // They can see through containers.
         Invisible = 1 << 2,   // They can see entities without sprites and the "HideContextMenu" tag is ignored.
-        All = NoFov | InContainer | Invisible
+        All = NoFov | InContainer | Invisible,
     }
 }

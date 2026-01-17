@@ -33,7 +33,7 @@ public partial class MobStateSystem
         if (!_mobStateQuery.Resolve(entity, ref component))
             return;
 
-        var ev = new UpdateMobStateEvent { Target = entity, Component = component, Origin = origin};
+        var ev = new UpdateMobStateEvent { Target = entity, Component = component, Origin = origin };
         RaiseLocalEvent(entity, ref ev);
         ChangeState(entity, component, ev.State, origin: origin);
     }
@@ -97,12 +97,12 @@ public partial class MobStateSystem
 
     #region Private Implementation
 
-    //Actually change the MobState
+    // Actually change the MobState
     private void ChangeState(EntityUid target, MobStateComponent component, MobState newState, EntityUid? origin = null)
     {
         var oldState = component.CurrentState;
 
-        //make sure we are allowed to enter the new state
+        // make sure we are allowed to enter the new state
         if (oldState == newState || !component.AllowedStates.Contains(newState))
             return;
 

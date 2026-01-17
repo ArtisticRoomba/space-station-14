@@ -8,13 +8,13 @@ namespace Content.Shared.Chemistry
         Color,
         FillFraction,
         BaseOverride,
-        SolutionName
+        SolutionName,
     }
 
     public enum SolutionContainerLayers : byte
     {
         Fill,
         Base,
-        Overlay
+        Overlay,
     }
 }

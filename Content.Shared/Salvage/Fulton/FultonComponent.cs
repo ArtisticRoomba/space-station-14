@@ -41,7 +41,7 @@ public sealed partial class FultonComponent : Component
         {
             "Item",
             "Anchorable"
-        }
+        },
     };
 
     /// <summary>

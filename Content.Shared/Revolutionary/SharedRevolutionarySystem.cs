@@ -70,7 +70,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     /// <returns></returns>
     private bool CanGetState(ICommonSession? player)
     {
-        //Apparently this can be null in replays so I am just returning true.
+        // Apparently this can be null in replays so I am just returning true.
         if (player?.AttachedEntity is not { } uid)
             return true;
 
@@ -79,6 +79,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
 
         return HasComp<ShowAntagIconsComponent>(uid);
     }
+
     /// <summary>
     /// Dirties all the Rev components so they are sent to clients.
     ///

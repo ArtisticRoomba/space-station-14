@@ -16,11 +16,11 @@ public sealed partial class ExaminableHungerComponent : Component
     [DataField]
     public Dictionary<HungerThreshold, LocId> Descriptions = new()
     {
-        { HungerThreshold.Overfed, "examinable-hunger-component-examine-overfed"},
-        { HungerThreshold.Okay, "examinable-hunger-component-examine-okay"},
-        { HungerThreshold.Peckish, "examinable-hunger-component-examine-peckish"},
-        { HungerThreshold.Starving, "examinable-hunger-component-examine-starving"},
-        { HungerThreshold.Dead, "examinable-hunger-component-examine-starving"}
+        { HungerThreshold.Overfed, "examinable-hunger-component-examine-overfed" },
+        { HungerThreshold.Okay, "examinable-hunger-component-examine-okay" },
+        { HungerThreshold.Peckish, "examinable-hunger-component-examine-peckish" },
+        { HungerThreshold.Starving, "examinable-hunger-component-examine-starving" },
+        { HungerThreshold.Dead, "examinable-hunger-component-examine-starving" },
     };
 
     /// <summary>

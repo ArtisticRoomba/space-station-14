@@ -222,7 +222,7 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnMove = true,
             NeedHand = true,
-            DuplicateCondition = DuplicateConditions.SameTool
+            DuplicateCondition = DuplicateConditions.SameTool,
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
@@ -326,7 +326,7 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = true,
             BreakOnHandChange = false, // Allow simultaneously removing multiple items.
-            DuplicateCondition = DuplicateConditions.SameTool
+            DuplicateCondition = DuplicateConditions.SameTool,
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
@@ -429,7 +429,7 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnMove = true,
             NeedHand = true,
-            DuplicateCondition = DuplicateConditions.SameTool
+            DuplicateCondition = DuplicateConditions.SameTool,
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
@@ -540,7 +540,7 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = true,
             BreakOnHandChange = false, // Allow simultaneously removing multiple items.
-            DuplicateCondition = DuplicateConditions.SameTool
+            DuplicateCondition = DuplicateConditions.SameTool,
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);

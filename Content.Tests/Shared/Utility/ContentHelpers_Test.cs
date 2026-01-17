@@ -9,7 +9,7 @@ namespace Content.Tests.Shared.Utility
     [TestOf(typeof(ContentHelpers))]
     public sealed class ContentHelpers_Test
     {
-        public static readonly IEnumerable<(double val, double max, int levels, int expected)> TestData =
+        public static readonly IEnumerable<(double Val, double Max, int Levels, int Expected)> TestData =
             new (double, double, int, int)[]
             {
                 // Testing odd level counts. These are easy.
@@ -45,7 +45,7 @@ namespace Content.Tests.Shared.Utility
                 (10, 10, 6, 5),
             };
 
-        public static readonly IEnumerable<(double val, double max, int levels, int expected)> TestNear =
+        public static readonly IEnumerable<(double Val, double Max, int Levels, int Expected)> TestNear =
             new (double, double, int, int)[]
             {
                 // Testing odd counts
@@ -84,7 +84,7 @@ namespace Content.Tests.Shared.Utility
 
         [Parallelizable]
         [Test]
-        public void Test([ValueSource(nameof(TestData))] (double val, double max, int levels, int expected) data)
+        public void Test([ValueSource(nameof(TestData))] (double Val, double Max, int Levels, int Expected) data)
         {
             (double val, double max, int levels, int expected) = data;
             Assert.That(ContentHelpers.RoundToLevels(val, max, levels), Is.EqualTo(expected));
@@ -92,7 +92,7 @@ namespace Content.Tests.Shared.Utility
 
         [Parallelizable]
         [Test]
-        public void TestNearest([ValueSource(nameof(TestNear))] (double val, double max, int size, int expected) data)
+        public void TestNearest([ValueSource(nameof(TestNear))] (double Val, double Max, int Size, int Expected) data)
         {
             (double val, double max, int size, int expected) = data;
             Assert.That(ContentHelpers.RoundToNearestLevels(val, max, size), Is.EqualTo(expected));

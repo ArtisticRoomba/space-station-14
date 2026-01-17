@@ -330,7 +330,7 @@ public sealed partial class IngestionSystem
         if (!_solutionContainer.TryGetSolution(uid, solutionName, out _, out var solution) || solution.Volume == 0)
             return 0;
 
-        return Math.Max(1, (int) Math.Ceiling((solution.Volume / splitVol).Float()));
+        return Math.Max(1, (int)Math.Ceiling((solution.Volume / splitVol).Float()));
     }
 
     #endregion
@@ -363,7 +363,7 @@ public sealed partial class IngestionSystem
             },
             Icon = proto.VerbIcon,
             Text = Loc.GetString(proto.VerbName),
-            Priority = 2
+            Priority = 2,
         };
 
         return true;

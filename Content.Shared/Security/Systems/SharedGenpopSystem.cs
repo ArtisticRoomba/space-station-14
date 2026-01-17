@@ -242,6 +242,5 @@ public abstract class SharedGenpopSystem : EntitySystem
 
     protected virtual void CreateId(Entity<GenpopLockerComponent> ent, string name, float sentence, string crime)
     {
-
     }
 }

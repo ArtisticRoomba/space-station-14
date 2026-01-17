@@ -5,6 +5,6 @@ namespace Content.Shared.Singularity
     [Serializable, NetSerializable]
     public enum SingularityAppearanceKeys
     {
-        Singularity
+        Singularity,
     }
 }

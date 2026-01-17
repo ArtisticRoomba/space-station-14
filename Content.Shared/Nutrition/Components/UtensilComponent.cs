@@ -45,6 +45,6 @@ namespace Content.Shared.Nutrition.Components
         None = 0,
         Fork = 1,
         Spoon = 1 << 1,
-        Knife = 1 << 2
+        Knife = 1 << 2,
     }
 }

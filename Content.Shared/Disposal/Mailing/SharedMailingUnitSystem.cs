@@ -57,7 +57,7 @@ public abstract class SharedMailingUnitSystem : EntitySystem
                 SendTagRequestResponse(uid, args, component.Tag);
                 break;
             case NetCmdResponse when args.Data.TryGetValue(NetTag, out string? tag):
-                //Add the received tag request response to the list of targets
+                // Add the received tag request response to the list of targets
                 component.TargetList.Add(tag);
                 Dirty(uid, component);
                 break;
@@ -75,7 +75,7 @@ public abstract class SharedMailingUnitSystem : EntitySystem
         var payload = new NetworkPayload
         {
             [DeviceNetworkConstants.Command] = NetCmdResponse,
-            [NetTag] = tag
+            [NetTag] = tag,
         };
 
         _deviceNetworkSystem.QueuePacket(uid, args.Address, payload, args.Frequency);
@@ -111,7 +111,7 @@ public abstract class SharedMailingUnitSystem : EntitySystem
         {
             [DeviceNetworkConstants.Command] = NetCmdSent,
             [NetSrc] = component.Tag,
-            [NetTarget] = component.Target
+            [NetTarget] = component.Target,
         };
 
         _deviceNetworkSystem.QueuePacket(uid, null, payload, null, null, device);
@@ -128,7 +128,7 @@ public abstract class SharedMailingUnitSystem : EntitySystem
 
         var payload = new NetworkPayload
         {
-            [DeviceNetworkConstants.Command] = NetCmdRequest
+            [DeviceNetworkConstants.Command] = NetCmdRequest,
         };
 
         component.TargetList.Clear();

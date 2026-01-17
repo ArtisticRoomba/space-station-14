@@ -2,6 +2,7 @@ using Content.Shared.Alert;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Atmos.Components;
+
 /// <summary>
 /// Allows you to extinguish an object by interacting with it
 /// </summary>

@@ -53,7 +53,6 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
     public HumanoidCharacterAppearance(HumanoidCharacterAppearance other) :
         this(other.HairStyleId, other.HairColor, other.FacialHairStyleId, other.FacialHairColor, other.EyeColor, other.SkinColor, new(other.Markings))
     {
-
     }
 
     public HumanoidCharacterAppearance WithHairStyleName(string newName)
@@ -110,8 +109,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             Color.Black,
             Color.Black,
             skinColor,
-            new()
-        );
+            new());
     }
 
     private static IReadOnlyList<Color> _realisticEyeColors = new List<Color>
@@ -120,7 +118,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         Color.Gray,
         Color.Azure,
         Color.SteelBlue,
-        Color.Black
+        Color.Black,
     };
 
     public static HumanoidCharacterAppearance Random(string species, Sex sex)

@@ -76,6 +76,6 @@ namespace Content.Shared.Communications
     [Serializable, NetSerializable]
     public enum CommunicationsConsoleUiKey
     {
-        Key
+        Key,
     }
 }

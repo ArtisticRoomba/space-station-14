@@ -9,7 +9,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Beeper.Systems;
 
 
-//This handles generic proximity beeper logic
+// This handles generic proximity beeper logic
 public sealed class BeeperSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;

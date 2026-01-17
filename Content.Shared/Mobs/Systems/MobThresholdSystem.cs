@@ -35,6 +35,7 @@ public sealed class MobThresholdSystem : EntitySystem
         {
             thresholds.Add(key, value);
         }
+
         args.State = new MobThresholdsComponentState(thresholds,
             component.TriggersAlerts,
             component.CurrentThresholdState,
@@ -295,6 +296,7 @@ public sealed class MobThresholdSystem : EntitySystem
                 continue;
             threshold.Thresholds.Remove(damageThreshold);
         }
+
         threshold.Thresholds[damage] = mobState;
         Dirty(target, threshold);
         VerifyThresholds(target, threshold);
@@ -409,12 +411,13 @@ public sealed class MobThresholdSystem : EntitySystem
             {
                 percentage = FixedPoint2.Clamp(percentage.Value, 0, 1);
 
-                severity = (short) MathF.Round(
+                severity = (short)MathF.Round(
                     MathHelper.Lerp(
                         _alerts.GetMinSeverity(currentAlert),
                         _alerts.GetMaxSeverity(currentAlert),
                         percentage.Value.Float()));
             }
+
             _alerts.ShowAlert(target, currentAlert, severity);
         }
         else

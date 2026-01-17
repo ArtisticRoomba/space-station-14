@@ -66,6 +66,7 @@ namespace Content.Shared.Chemistry.Reaction
                 var list = dict.GetOrNew(reagent);
                 list.Add(reaction);
             }
+
             _reactionsSingle = dict.ToFrozenDictionary();
 
             dict.Clear();
@@ -77,6 +78,7 @@ namespace Content.Shared.Chemistry.Reaction
                     list.Add(reaction);
                 }
             }
+
             _reactions = dict.ToFrozenDictionary();
         }
 
@@ -107,6 +109,7 @@ namespace Content.Shared.Chemistry.Reaction
                 lowestUnitReactions = FixedPoint2.Zero;
                 return false;
             }
+
             if (solution.Temperature > reaction.MaximumTemperature)
             {
                 lowestUnitReactions = FixedPoint2.Zero;
@@ -157,7 +160,7 @@ namespace Content.Shared.Chemistry.Reaction
             }
 
             if (reaction.Quantized)
-                lowestUnitReactions = (int) lowestUnitReactions;
+                lowestUnitReactions = (int)lowestUnitReactions;
 
             return lowestUnitReactions > 0;
         }
@@ -173,7 +176,7 @@ namespace Content.Shared.Chemistry.Reaction
 
             var energy = reaction.ConserveEnergy ? solution.GetThermalEnergy(_prototypeManager) : 0;
 
-            //Remove reactants
+            // Remove reactants
             foreach (var reactant in reaction.Reactants)
             {
                 if (!reactant.Value.Catalyst)
@@ -183,7 +186,7 @@ namespace Content.Shared.Chemistry.Reaction
                 }
             }
 
-            //Create products
+            // Create products
             var products = new List<string>();
             foreach (var product in reaction.Products)
             {

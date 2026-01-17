@@ -142,8 +142,7 @@ namespace Content.Shared.Interaction
                     CCVars.InteractionRateLimitCount,
                     null,
                     CCVars.InteractionRateLimitAnnounceAdminsDelay,
-                    RateLimitAlertAdmins)
-            );
+                    RateLimitAlertAdmins));
 
             InitializeBlocking();
         }
@@ -274,7 +273,7 @@ namespace Content.Shared.Interaction
                 return true;
             }
 
-            //is this user trying to pull themself?
+            // is this user trying to pull themself?
             if (userEntity.Value == uid)
                 return false;
 
@@ -492,7 +491,7 @@ namespace Content.Shared.Interaction
 
         private bool IsDeleted(EntityUid? uid)
         {
-            //optional / null entities can pass this validation check. I.e., is-deleted returns false for null uids
+            // optional / null entities can pass this validation check. I.e., is-deleted returns false for null uids
             return uid != null && IsDeleted(uid.Value);
         }
 
@@ -618,7 +617,7 @@ namespace Content.Shared.Interaction
         public float UnobstructedDistance(
             MapCoordinates origin,
             MapCoordinates other,
-            int collisionMask = (int) InRangeUnobstructedMask,
+            int collisionMask = (int)InRangeUnobstructedMask,
             Ignored? predicate = null)
         {
             var dir = other.Position - origin.Position;
@@ -690,7 +689,7 @@ namespace Content.Shared.Interaction
                 length = MaxRaycastRange;
             }
 
-            var ray = new CollisionRay(origin.Position, dir.Normalized(), (int) collisionMask);
+            var ray = new CollisionRay(origin.Position, dir.Normalized(), (int)collisionMask);
             var rayResults = _broadphase.IntersectRayWithPredicate(origin.MapId, ray, length, predicate.Invoke, false).ToList();
 
             return rayResults.Count == 0;
@@ -1223,6 +1222,7 @@ namespace Content.Shared.Interaction
 
         #region Hands
         #region Use
+
         /// <summary>
         /// Raises UseInHandEvents and activates the IUse behaviors of an entity
         /// Does not check accessibility or range, for obvious reasons
@@ -1451,7 +1451,7 @@ namespace Content.Shared.Interaction
                 return;
 
             if (!TryComp(uidB, out MetaDataComponent? metaB) || metaB.EntityPaused)
-                return ;
+                return;
 
             // TODO Struct event
             var ev = new ContactInteractionEvent(uidB.Value);
@@ -1548,7 +1548,7 @@ namespace Content.Shared.Interaction
         public EntityUid? Used = null;
 
         public bool Handled => Used != null;
-    };
+    }
 
     /// <summary>
     ///     Raised directed by-ref on an item to determine if hand interactions should go through.

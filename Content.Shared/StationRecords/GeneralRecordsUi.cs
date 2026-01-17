@@ -5,7 +5,7 @@ namespace Content.Shared.StationRecords;
 [Serializable, NetSerializable]
 public enum GeneralStationRecordConsoleKey : byte
 {
-    Key
+    Key,
 }
 
 /// <summary>

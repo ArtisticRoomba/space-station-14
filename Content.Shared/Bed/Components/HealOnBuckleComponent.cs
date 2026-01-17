@@ -29,7 +29,7 @@ namespace Content.Shared.Bed.Components
         /// Next time that <see cref="Damage"/> will be applied.
         /// </summary>
         [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField, AutoNetworkedField]
-        public TimeSpan NextHealTime = TimeSpan.Zero; //Next heal
+        public TimeSpan NextHealTime = TimeSpan.Zero; // Next heal
 
         /// <summary>
         /// Action for the attached entity to be able to sleep.

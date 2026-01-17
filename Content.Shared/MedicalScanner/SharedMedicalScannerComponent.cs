@@ -8,7 +8,7 @@ namespace Content.Shared.MedicalScanner
         [Serializable, NetSerializable]
         public enum MedicalScannerVisuals : byte
         {
-            Status
+            Status,
         }
 
         [Serializable, NetSerializable]

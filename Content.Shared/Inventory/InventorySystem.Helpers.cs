@@ -118,7 +118,7 @@ public partial class InventorySystem
     /// <param name="item">The prototype ID that you want to spawn in the bag.</param>
     public void SpawnItemOnEntity(EntityUid entity, EntProtoId item)
     {
-        //Transform() throws error if TransformComponent doesnt exist
+        // Transform() throws error if TransformComponent doesnt exist
         if (!HasComp<TransformComponent>(entity))
             return;
 
@@ -127,25 +127,22 @@ public partial class InventorySystem
 
         var itemToSpawn = Spawn(item, mapCoords);
 
-        //Try insert into the backpack
+        // Try insert into the backpack
         if (TryGetSlotContainer(entity, "back", out var backSlot, out _)
             && backSlot.ContainedEntity.HasValue
-            && _storageSystem.Insert(backSlot.ContainedEntity.Value, itemToSpawn, out _)
-            )
+            && _storageSystem.Insert(backSlot.ContainedEntity.Value, itemToSpawn, out _))
             return;
 
-        //Try insert into pockets
+        // Try insert into pockets
         if (TryGetSlotContainer(entity, "pocket1", out var pocket1, out _)
-            && _containerSystem.Insert(itemToSpawn, pocket1)
-            )
+            && _containerSystem.Insert(itemToSpawn, pocket1))
             return;
 
         if (TryGetSlotContainer(entity, "pocket2", out var pocket2, out _)
-            && _containerSystem.Insert(itemToSpawn, pocket2)
-            )
+            && _containerSystem.Insert(itemToSpawn, pocket2))
             return;
 
-        //Try insert into hands, or drop on the floor
+        // Try insert into hands, or drop on the floor
         _handsSystem.PickupOrDrop(entity, itemToSpawn, false);
     }
 }

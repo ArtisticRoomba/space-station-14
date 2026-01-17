@@ -6,7 +6,7 @@ namespace Content.Shared.Atmos.Piping.Portable.Components;
 [NetSerializable]
 public enum SpaceHeaterUiKey
 {
-    Key
+    Key,
 }
 
 [Serializable]
@@ -78,7 +78,7 @@ public enum SpaceHeaterMode : byte
 {
     Auto,
     Heat,
-    Cool
+    Cool,
 }
 
 [Serializable, NetSerializable]
@@ -86,5 +86,5 @@ public enum SpaceHeaterPowerLevel : byte
 {
     Low,
     Medium,
-    High
+    High,
 }

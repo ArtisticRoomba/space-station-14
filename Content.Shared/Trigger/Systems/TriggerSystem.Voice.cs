@@ -94,7 +94,7 @@ public sealed partial class TriggerSystem
                 else
                     StartRecording(ent, user);
             },
-            Priority = 1
+            Priority = 1,
         });
 
         if (ent.Comp.DefaultKeyPhrase != null
@@ -119,7 +119,7 @@ public sealed partial class TriggerSystem
             Act = () =>
             {
                 ClearRecording(ent);
-            }
+            },
         });
     }
 

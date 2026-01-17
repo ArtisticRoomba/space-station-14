@@ -19,7 +19,7 @@ public sealed partial class ContainmentFieldGeneratorComponent : Component
     public int PowerBuffer
     {
         get => _powerBuffer;
-        set => _powerBuffer = Math.Clamp(value, 0, 25); //have this decrease over time if not hit by a bolt
+        set => _powerBuffer = Math.Clamp(value, 0, 25); // have this decrease over time if not hit by a bolt
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public sealed partial class ContainmentFieldGeneratorComponent : Component
     /// The masks the raycast should not go through
     /// </summary>
     [DataField("collisionMask")]
-    public int CollisionMask = (int) (CollisionGroup.MobMask | CollisionGroup.Impassable | CollisionGroup.MachineMask | CollisionGroup.Opaque);
+    public int CollisionMask = (int)(CollisionGroup.MobMask | CollisionGroup.Impassable | CollisionGroup.MachineMask | CollisionGroup.Opaque);
 
     /// <summary>
     /// A collection of connections that the generator has based on direction.

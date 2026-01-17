@@ -150,6 +150,7 @@ namespace Content.Shared.Examine
                 if (TryComp<BlurryVisionComponent>(examiner, out var blurry))
                     return Math.Clamp(ExamineRange - blurry.Magnitude * ExamineBlurrinessMult, 2, ExamineRange);
             }
+
             return ExamineRange;
         }
 
@@ -264,7 +265,7 @@ namespace Content.Shared.Examine
             var hasDescription = false;
             var metadata = MetaData(entity);
 
-            //Add an entity description if one is declared
+            // Add an entity description if one is declared
             if (!string.IsNullOrEmpty(metadata.EntityDescription))
             {
                 message.AddText(metadata.EntityDescription);

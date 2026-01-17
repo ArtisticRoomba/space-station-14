@@ -41,10 +41,8 @@ public partial class ListingData : IEquatable<ListingData>
         other.RestockTime,
         other.DiscountDownTo,
         other.DisableRefund,
-        other.ApplyToMob
-    )
+        other.ApplyToMob)
     {
-
     }
 
     public ListingData(
@@ -67,8 +65,7 @@ public partial class ListingData : IEquatable<ListingData>
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
         bool disableRefund,
-        bool applyToMob
-    )
+        bool applyToMob)
     {
         Name = name;
         DiscountCategory = discountCategory;
@@ -217,7 +214,7 @@ public partial class ListingData : IEquatable<ListingData>
         if (listing == null)
             return false;
 
-        //simple conditions
+        // simple conditions
         if (Priority != listing.Priority ||
             Name != listing.Name ||
             Description != listing.Description ||
@@ -308,8 +305,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.RestockTime,
             listingData.DiscountDownTo,
             listingData.DisableRefund,
-            listingData.ApplyToMob
-        )
+            listingData.ApplyToMob)
     {
     }
 
@@ -381,8 +377,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
                 }
 
                 return accumulator;
-            }
-        );
+            });
         var relativeModifiedPercent = new Dictionary<ProtoId<CurrencyPrototype>, float>();
         foreach (var (currency, discountAmount) in modifiersSummaryAbsoluteValues)
         {
@@ -410,8 +405,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
 
     private void ApplyModifier(
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> applyTo,
-        IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> modifier
-    )
+        IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> modifier)
     {
         foreach (var (currency, modifyBy) in modifier)
         {
@@ -424,6 +418,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
 
                     // no negative cost allowed
                 }
+
                 applyTo[currency] = modifiedAmount;
             }
         }

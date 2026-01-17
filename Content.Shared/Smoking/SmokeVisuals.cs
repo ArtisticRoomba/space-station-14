@@ -5,6 +5,6 @@ namespace Content.Shared.Smoking
     [Serializable, NetSerializable]
     public enum SmokeVisuals : byte
     {
-        Color
+        Color,
     }
 }

@@ -94,6 +94,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         {
             RemCompDeferred<ActiveStaminaComponent>(entity);
         }
+
         _alerts.ClearAlert(entity.Owner, entity.Comp.StaminaAlert);
     }
 
@@ -113,7 +114,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
         var curTime = Timing.CurTime;
         var pauseTime = _metadata.GetPauseTime(uid);
-        return MathF.Max(0f, component.StaminaDamage - MathF.Max(0f, (float) (curTime - (component.NextUpdate + pauseTime)).TotalSeconds * component.Decay));
+        return MathF.Max(0f, component.StaminaDamage - MathF.Max(0f, (float)(curTime - (component.NextUpdate + pauseTime)).TotalSeconds * component.Decay));
     }
 
     private void OnRejuvenate(Entity<StaminaComponent> entity, ref RejuvenateEvent args)
@@ -240,7 +241,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             return;
 
         var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, component.CritThreshold - component.StaminaDamage), component.CritThreshold, 7);
-        _alerts.ShowAlert(uid, component.StaminaAlert, (short) severity);
+        _alerts.ShowAlert(uid, component.StaminaAlert, (short)severity);
     }
 
     /// <summary>

@@ -71,6 +71,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
                     break;
                 }
             }
+
             if (allowed)
                 availableRecipes.Add(recipe);
         }
@@ -78,7 +79,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (availableRecipes.Count <= 0)
             return true;
 
-        Metamorf(start, _random.Pick(availableRecipes)); //In general, if there's more than one recipe, the yml-guys screwed up. Maybe some kind of unit test is needed.
+        Metamorf(start, _random.Pick(availableRecipes)); // In general, if there's more than one recipe, the yml-guys screwed up. Maybe some kind of unit test is needed.
         PredictedQueueDel(start.Owner);
         return true;
     }
@@ -87,7 +88,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     {
         var result = PredictedSpawnNextToOrDrop(recipe.Result, start);
 
-        //Try putting in container
+        // Try putting in container
         _transform.DropNextTo(result, (start, Transform(start)));
 
         if (!_solutionContainer.TryGetSolution(result, start.Comp.Solution, out var resultSoln, out var resultSolution))
@@ -96,7 +97,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (!_solutionContainer.TryGetSolution(start.Owner, start.Comp.Solution, out var startSoln, out var startSolution))
             return;
 
-        _solutionContainer.RemoveAllSolution(resultSoln.Value); //Remove all YML reagents
+        _solutionContainer.RemoveAllSolution(resultSoln.Value); // Remove all YML reagents
         resultSoln.Value.Comp.Solution.MaxVolume = startSoln.Value.Comp.Solution.MaxVolume;
         _solutionContainer.TryAddSolution(resultSoln.Value, startSolution);
 
@@ -114,14 +115,14 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (element.Comp2.RequireDead && _mobState.IsAlive(element))
             return false;
 
-        //looking for a suitable FoodSequence prototype
+        // looking for a suitable FoodSequence prototype
         if (!element.Comp1.Entries.TryGetValue(start.Comp.Key, out var elementProto))
             return false;
 
         if (!_proto.Resolve(elementProto, out var elementIndexed))
             return false;
 
-        //if we run out of space, we can still put in one last, final finishing element.
+        // if we run out of space, we can still put in one last, final finishing element.
         if (start.Comp.FoodLayers.Count >= start.Comp.MaxLayers && !elementIndexed.Final || start.Comp.Finished)
         {
             if (user is not null)
@@ -136,15 +137,14 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             return false;
         }
 
-        //Generate new visual layer
+        // Generate new visual layer
         var flip = start.Comp.AllowHorizontalFlip && _random.Prob(0.5f);
         var layer = new FoodSequenceVisualLayer(elementIndexed,
             _random.Pick(elementIndexed.Sprites),
             new Vector2(flip ? -elementIndexed.Scale.X : elementIndexed.Scale.X, elementIndexed.Scale.Y),
             new Vector2(
                 _random.NextFloat(start.Comp.MinLayerOffset.X, start.Comp.MaxLayerOffset.X),
-                _random.NextFloat(start.Comp.MinLayerOffset.Y, start.Comp.MaxLayerOffset.Y))
-        );
+                _random.NextFloat(start.Comp.MinLayerOffset.Y, start.Comp.MaxLayerOffset.Y)));
 
         start.Comp.FoodLayers.Add(layer);
         Dirty(start);

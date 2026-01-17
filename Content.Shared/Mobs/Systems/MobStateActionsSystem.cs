@@ -43,6 +43,7 @@ public sealed class MobStateActionsSystem : EntitySystem
         {
             Del(act);
         }
+
         component.GrantedActions.Clear();
 
         if (!component.Actions.TryGetValue(newMobState, out var toGrant))

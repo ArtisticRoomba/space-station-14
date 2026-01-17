@@ -14,6 +14,7 @@ namespace Content.Shared.Movement.Pulling.Components;
 public sealed partial class PullerComponent : Component
 {
     // My raiding guild
+
     /// <summary>
     /// Next time the puller can throw what is being pulled.
     /// Used to avoid spamming it for infinite spin + velocity.

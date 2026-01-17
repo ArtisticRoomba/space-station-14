@@ -21,22 +21,27 @@ public struct RadiationRay(
     ///     Map on which source and receiver are placed.
     /// </summary>
     public MapId MapId = mapId;
+
     /// <summary>
     ///     Uid of entity with <see cref="RadiationSourceComponent"/>.
     /// </summary>
     public EntityUid SourceUid = sourceUid;
+
     /// <summary>
     ///     World coordinates of radiation source.
     /// </summary>
     public Vector2 Source = source;
+
     /// <summary>
     ///     Uid of entity with radiation receiver component.
     /// </summary>
     public EntityUid DestinationUid = destinationUid;
+
     /// <summary>
     ///     World coordinates of radiation receiver.
     /// </summary>
     public Vector2 Destination = destination;
+
     /// <summary>
     ///     How many rads intensity reached radiation receiver.
     /// </summary>

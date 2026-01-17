@@ -79,6 +79,7 @@ public sealed class BlindableSystem : EntitySystem
         blindable.Comp.EyeDamage += amount;
         UpdateEyeDamage(blindable, true);
     }
+
     private void UpdateEyeDamage(Entity<BlindableComponent?> blindable, bool isDamageChanged)
     {
         if (!Resolve(blindable, ref blindable.Comp, false))
@@ -94,6 +95,7 @@ public sealed class BlindableSystem : EntitySystem
         var ev = new EyeDamageChangedEvent(blindable.Comp.EyeDamage);
         RaiseLocalEvent(blindable.Owner, ref ev);
     }
+
     public void SetMinDamage(Entity<BlindableComponent?> blindable, int amount)
     {
         if (!Resolve(blindable, ref blindable.Comp, false))

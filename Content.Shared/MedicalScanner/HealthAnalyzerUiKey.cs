@@ -5,5 +5,5 @@ namespace Content.Shared.MedicalScanner;
 [Serializable, NetSerializable]
 public enum HealthAnalyzerUiKey : byte
 {
-    Key
+    Key,
 }

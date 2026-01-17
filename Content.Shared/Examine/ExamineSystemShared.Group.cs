@@ -61,6 +61,7 @@ namespace Content.Shared.Examine
 
                 return true;
             }
+
             return false;
         }
 
@@ -76,6 +77,7 @@ namespace Content.Shared.Examine
                 message.AddMarkupOrThrow(Loc.GetString(group.Title));
                 message.PushNewline();
             }
+
             message.AddMessage(GetFormattedMessageFromExamineEntries(group.Entries));
 
             SendExamineTooltip(user, target, message, getVerbs: false, centerAtCursor: false);
@@ -134,6 +136,7 @@ namespace Content.Shared.Examine
                             // Otherwise, just add all information to the examine groups entries, and stop there.
                             examineGroup.Entries.Add(entry);
                         }
+
                         return;
                     }
                 }
@@ -156,7 +159,7 @@ namespace Content.Shared.Examine
                 Message = hoverMessage,
                 Category = VerbCategory.Examine,
                 Icon = new SpriteSpecifier.Texture(new(iconTexture)),
-                HoverVerb = isHoverExamine
+                HoverVerb = isHoverExamine,
             };
 
             verbsEvent.Verbs.Add(examineVerb);

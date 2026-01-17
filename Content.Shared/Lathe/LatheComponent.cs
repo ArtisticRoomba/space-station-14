@@ -72,6 +72,7 @@ namespace Content.Shared.Lathe
         public ProtoId<LatheRecipePrototype>? CurrentRecipe;
 
         #region MachineUpgrading
+
         /// <summary>
         /// A modifier that changes how long it takes to print a recipe
         /// </summary>

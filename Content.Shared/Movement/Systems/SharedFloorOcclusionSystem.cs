@@ -46,6 +46,5 @@ public abstract class SharedFloorOcclusionSystem : EntitySystem
 
     protected virtual void SetEnabled(Entity<FloorOcclusionComponent> entity)
     {
-
     }
 }

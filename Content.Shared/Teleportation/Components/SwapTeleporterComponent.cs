@@ -62,5 +62,5 @@ public sealed partial class SwapTeleporterComponent : Component
 [Serializable, NetSerializable]
 public enum SwapTeleporterVisuals : byte
 {
-    Linked
+    Linked,
 }

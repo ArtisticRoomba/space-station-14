@@ -135,7 +135,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
             ent.Owner, target, ent.Owner)
             {
                 NeedHand = true,
-                BreakOnMove = !ent.Comp.AllowDoAfterMovement
+                BreakOnMove = !ent.Comp.AllowDoAfterMovement,
             });
     }
 

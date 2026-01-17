@@ -131,6 +131,5 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
 
     protected virtual void PlayAnimation(EntityUid uid, string stateId)
     {
-
     }
 }

@@ -43,7 +43,7 @@ public sealed partial class EdibleComponent : Component
     /// Acceptable utensils to use
     /// </summary>
     [DataField]
-    public UtensilType Utensil = UtensilType.Fork; //There are more "solid" than "liquid" food
+    public UtensilType Utensil = UtensilType.Fork; // There are more "solid" than "liquid" food
 
     /// <summary>
     /// Do we need a utensil to access this solution?

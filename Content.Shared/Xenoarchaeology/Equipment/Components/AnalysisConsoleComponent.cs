@@ -31,7 +31,7 @@ public sealed partial class AnalysisConsoleComponent : Component
         Params = new AudioParams
         {
             Volume = 4,
-        }
+        },
     };
 
     /// <summary>
@@ -44,7 +44,7 @@ public sealed partial class AnalysisConsoleComponent : Component
 [Serializable, NetSerializable]
 public enum ArtifactAnalyzerUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]

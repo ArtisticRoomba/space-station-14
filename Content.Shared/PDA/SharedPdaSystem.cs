@@ -21,6 +21,7 @@ namespace Content.Shared.PDA
 
             SubscribeLocalEvent<PdaComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
         }
+
         protected virtual void OnComponentInit(EntityUid uid, PdaComponent pda, ComponentInit args)
         {
             if (pda.IdCard != null)

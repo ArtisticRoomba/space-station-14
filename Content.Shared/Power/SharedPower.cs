@@ -22,7 +22,7 @@ namespace Content.Shared.Power
         ElectrifiedCancel,
         MainWire,
         WireCount,
-        CutWires
+        CutWires,
     }
 
     [Serializable, NetSerializable]
@@ -31,7 +31,7 @@ namespace Content.Shared.Power
         HighVoltage,
         MediumVoltage,
         Apc,
-        ExCable
+        ExCable,
     }
 
     [Serializable, NetSerializable]

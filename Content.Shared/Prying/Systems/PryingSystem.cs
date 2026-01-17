@@ -151,6 +151,7 @@ public sealed class PryingSystem : EntitySystem
         {
             _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user)} is prying {ToPrettyString(target)}");
         }
+
         return _doAfterSystem.TryStartDoAfter(doAfterArgs, out id);
     }
 

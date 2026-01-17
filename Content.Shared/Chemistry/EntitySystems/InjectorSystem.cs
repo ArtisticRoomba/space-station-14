@@ -143,7 +143,7 @@ public sealed partial class InjectorSystem : EntitySystem
                     Dirty(injector);
                 },
 
-                Priority = priority
+                Priority = priority,
             };
             args.Verbs.Add(toggleVerb);
 
@@ -164,7 +164,7 @@ public sealed partial class InjectorSystem : EntitySystem
                     },
 
                     // we want to sort by size, not alphabetically by the verb text.
-                    Priority = priority
+                    Priority = priority,
                 };
                 args.Verbs.Add(verb);
             }
@@ -189,6 +189,7 @@ public sealed partial class InjectorSystem : EntitySystem
     #endregion Events Handling
 
     #region Mob Interaction
+
     /// <summary>
     /// Send informative pop-up messages and wait for a do-after to complete.
     /// </summary>
@@ -372,6 +373,7 @@ public sealed partial class InjectorSystem : EntitySystem
     #endregion Container Interaction
 
     #region Injecting/Drawing
+
     /// <summary>
     /// Depending on the <see cref="InjectorBehavior"/>, this will deal with the result of the DoAfter and draw/inject accordingly.
     /// </summary>
@@ -401,6 +403,7 @@ public sealed partial class InjectorSystem : EntitySystem
                     return TryInject(injector, user, target, refillableSolution.Value, true);
                 break;
             }
+
             case InjectorBehavior.Draw:
             {
                 // Draw from a bloodstream if the target has that
@@ -418,6 +421,7 @@ public sealed partial class InjectorSystem : EntitySystem
                 _popup.PopupClient(Loc.GetString(msg, ("target", Identity.Entity(target, EntityManager))), injector, user);
                 break;
             }
+
             case InjectorBehavior.Dynamic:
             {
                 // If it's a mob, inject. We're using injectableSolution so I don't have to code a sole method for injecting into bloodstreams.
@@ -432,6 +436,7 @@ public sealed partial class InjectorSystem : EntitySystem
                     return TryDraw(injector, user, target, drawableSolution.Value);
                 break;
             }
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -707,6 +712,7 @@ public sealed partial class InjectorSystem : EntitySystem
     #endregion Injecting/Drawing
 
     #region Mode Toggling
+
     /// <summary>
     /// Toggle modes of the injector if possible.
     /// </summary>
@@ -765,6 +771,7 @@ public sealed partial class InjectorSystem : EntitySystem
             ToggleMode(injector, user, proto);
             return;
         }
+
         if (errorMessage != null)
             _popup.PopupClient(Loc.GetString(errorMessage), user, user);
     }

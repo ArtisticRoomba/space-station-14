@@ -62,17 +62,16 @@ public sealed partial class FlatpackCreatorComponent : Component
 [Serializable, NetSerializable]
 public enum FlatpackCreatorUIKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
 public enum FlatpackCreatorVisuals : byte
 {
-    Packing
+    Packing,
 }
 
 [Serializable, NetSerializable]
 public sealed class FlatpackCreatorStartPackBuiMessage : BoundUserInterfaceMessage
 {
-
 }

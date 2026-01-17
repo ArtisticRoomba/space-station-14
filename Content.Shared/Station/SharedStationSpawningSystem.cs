@@ -87,7 +87,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     public void EquipStartingGear(EntityUid entity, LoadoutPrototype loadout, bool raiseEvent = true)
     {
         EquipStartingGear(entity, loadout.StartingGear, raiseEvent);
-        EquipStartingGear(entity, (IEquipmentLoadout) loadout, raiseEvent);
+        EquipStartingGear(entity, (IEquipmentLoadout)loadout, raiseEvent);
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     /// </summary>
     public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true)
     {
-        EquipStartingGear(entity, (IEquipmentLoadout?) startingGear, raiseEvent);
+        EquipStartingGear(entity, (IEquipmentLoadout?)startingGear, raiseEvent);
     }
 
     /// <summary>
@@ -162,7 +162,6 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                     InventorySystem.TryGetSlotEntity(entity, slotName, out var slotEnt, inventoryComponent: inventoryComp) &&
                     _storageQuery.TryComp(slotEnt, out var storage))
                 {
-
                     foreach (var entProto in entProtos)
                     {
                         var spawnedEntity = Spawn(entProto, coords);
@@ -201,7 +200,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 if (!PrototypeManager.Resolve(items.Prototype, out var loadoutPrototype))
                     return null;
 
-                var gear = ((IEquipmentLoadout) loadoutPrototype).GetGear(slot);
+                var gear = ((IEquipmentLoadout)loadoutPrototype).GetGear(slot);
                 if (gear != string.Empty)
                     return gear;
             }

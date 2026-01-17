@@ -64,11 +64,10 @@ public sealed class ChangelingDevourSystem : EntitySystem
         }
     }
 
-    //TODO: Allow doafters to have proper update loop support. Attempt events should not be doing state changes.
+    // TODO: Allow doafters to have proper update loop support. Attempt events should not be doing state changes.
     private void OnConsumeAttemptTick(Entity<ChangelingDevourComponent> ent,
        ref DoAfterAttemptEvent<ChangelingDevourConsumeDoAfterEvent> eventData)
     {
-
         var curTime = _timing.CurTime;
 
         if (curTime < ent.Comp.NextTick)
@@ -89,10 +88,10 @@ public sealed class ChangelingDevourSystem : EntitySystem
 
         foreach (var damagePoints in comp.DamagePerTick.DamageDict)
         {
-
             if (damage.Damage.DamageDict.TryGetValue(damagePoints.Key, out var val) && val > comp.DevourConsumeDamageCap)
                 return;
         }
+
         _damageable.ChangeDamage((target.Value, damage), comp.DamagePerTick, true, true, user);
     }
 

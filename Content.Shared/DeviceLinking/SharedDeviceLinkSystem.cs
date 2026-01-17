@@ -37,7 +37,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     {
         List<EntityUid> invalidSinks = new();
         List<(string, string)> invalidLinks = new();
-        foreach (var (sink, links)  in source.Comp.LinkedPorts)
+        foreach (var (sink, links) in source.Comp.LinkedPorts)
         {
             if (!TryComp(sink, out DeviceLinkSinkComponent? sinkComponent))
             {
@@ -107,6 +107,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     #region Ports
+
     /// <summary>
     /// Convenience function to add several ports to an entity
     /// </summary>
@@ -192,7 +193,8 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     /// <summary>
     /// Convenience function to retrieve the name of a port prototype
     /// </summary>
-    public string PortName<TPort>(string port) where TPort : DevicePortPrototype, IPrototype
+    public string PortName<TPort>(string port)
+        where TPort : DevicePortPrototype, IPrototype
     {
         if (!_prototypeManager.TryIndex<TPort>(port, out var proto))
             return port;
@@ -202,6 +204,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     #endregion
 
     #region Links
+
     /// <summary>
     /// Returns the links of a source
     /// </summary>
@@ -534,6 +537,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     #endregion
 
     #region Sending & Receiving
+
     /// <summary>
     /// Sends a network payload directed at the sink entity.
     /// Just raises a <see cref="SignalReceivedEvent"/> without data if the source or the sink doesn't have a <see cref="DeviceNetworkComponent"/>

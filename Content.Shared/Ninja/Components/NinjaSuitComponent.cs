@@ -58,6 +58,7 @@ public sealed partial class NinjaSuitComponent : Component
     public float EmpCharge = 180f;
 
     // TODO: EmpOnTrigger bruh
+
     /// <summary>
     /// Range of the EMP in tiles.
     /// </summary>

@@ -92,7 +92,6 @@ namespace Content.Shared.Chemistry
     [Serializable, NetSerializable]
     public sealed class ReagentDispenserClearContainerSolutionMessage : BoundUserInterfaceMessage
     {
-
     }
 
     public enum ReagentDispenserDispenseAmount
@@ -143,6 +142,6 @@ namespace Content.Shared.Chemistry
     [Serializable, NetSerializable]
     public enum ReagentDispenserUiKey
     {
-        Key
+        Key,
     }
 }

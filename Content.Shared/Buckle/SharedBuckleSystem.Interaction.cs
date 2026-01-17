@@ -51,7 +51,7 @@ public abstract partial class SharedBuckleSystem
             {
                 BreakOnMove = true,
                 BreakOnDamage = true,
-                AttemptFrequency = AttemptFrequency.EveryTick
+                AttemptFrequency = AttemptFrequency.EveryTick,
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
@@ -146,7 +146,7 @@ public abstract partial class SharedBuckleSystem
                 Category = VerbCategory.Unbuckle,
                 Text = entity == args.User
                     ? Loc.GetString("verb-self-target-pronoun")
-                    : Identity.Name(entity, EntityManager)
+                    : Identity.Name(entity, EntityManager),
             };
 
             // In the event that you have more than once entity with the same name strapped to the same object,
@@ -167,7 +167,7 @@ public abstract partial class SharedBuckleSystem
             {
                 Act = () => TryBuckle(args.User, args.User, args.Target, buckle),
                 Category = VerbCategory.Buckle,
-                Text = Loc.GetString("verb-self-target-pronoun")
+                Text = Loc.GetString("verb-self-target-pronoun"),
             };
             args.Verbs.Add(verb);
         }
@@ -192,7 +192,7 @@ public abstract partial class SharedBuckleSystem
 
                 // just a held object, the user is probably just trying to sit down.
                 // If the used entity is a person being pulled, prioritize this verb. Conversely, if it is
-                Priority = isPlayer ? 1 : -1
+                Priority = isPlayer ? 1 : -1,
             };
 
             args.Verbs.Add(verb);
@@ -211,7 +211,7 @@ public abstract partial class SharedBuckleSystem
         {
             Act = () => TryUnbuckle(uid, args.User, buckleComp: component),
             Text = Loc.GetString("verb-categories-unbuckle"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/unbuckle.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/unbuckle.svg.192dpi.png")),
         };
 
         if (args.Target == args.User && args.Using == null)

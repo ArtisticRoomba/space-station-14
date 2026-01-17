@@ -2,6 +2,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Weapons.Ranged.Components;
 
 namespace Content.Shared.Weapons.Ranged.Events;
+
 /// <summary>
 ///     This event is triggered on an entity right before they shoot a gun.
 /// </summary>

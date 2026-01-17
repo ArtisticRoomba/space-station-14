@@ -52,7 +52,7 @@ public sealed partial class TriggerSystem
         args.Verbs.Add(new AlternativeVerb()
         {
             Text = Loc.GetString(ent.Comp.ToggleVerb),
-            Act = () => Toggle(ent, user)
+            Act = () => Toggle(ent, user),
         });
     }
 
@@ -82,6 +82,7 @@ public sealed partial class TriggerSystem
 
         args.Cancelled |= !rand.Prob(ent.Comp.SuccessChance); // When not successful, Cancelled = true
     }
+
     private void OnMindRoleTriggerAttempt(Entity<MindRoleTriggerConditionComponent> ent, ref AttemptTriggerEvent args)
     {
         if (args.Key != null && !ent.Comp.Keys.Contains(args.Key))
@@ -94,6 +95,7 @@ public sealed partial class TriggerSystem
                 args.Cancelled = true; // the entity has no mind
                 return;
             }
+
             if (!_role.MindHasRole((entMindId, entMindComp), ent.Comp.EntityWhitelist))
             {
                 args.Cancelled = true; // the entity does not have the required role
@@ -108,6 +110,7 @@ public sealed partial class TriggerSystem
                 args.Cancelled = true; // no user or the user has no mind
                 return;
             }
+
             if (!_role.MindHasRole((userMindId, userMindComp), ent.Comp.UserWhitelist))
             {
                 args.Cancelled = true; // the user does not have the required role

@@ -37,7 +37,6 @@ public sealed class EntityTableContext
 
     public EntityTableContext()
     {
-
     }
 
     public EntityTableContext(Dictionary<string, object> data)

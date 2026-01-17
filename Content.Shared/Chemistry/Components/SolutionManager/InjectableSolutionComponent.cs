@@ -6,7 +6,6 @@
 [RegisterComponent]
 public sealed partial class InjectableSolutionComponent : Component
 {
-
     /// <summary>
     /// Solution name which can be added with syringes.
     /// </summary>

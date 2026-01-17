@@ -40,9 +40,10 @@ public abstract class SharedCorporealSystem : EntitySystem
         {
             var fixture = fixtures.Fixtures.First();
 
-            _physics.SetCollisionMask(uid, fixture.Key, fixture.Value, (int) (CollisionGroup.SmallMobMask | CollisionGroup.GhostImpassable), fixtures);
-            _physics.SetCollisionLayer(uid, fixture.Key, fixture.Value, (int) CollisionGroup.SmallMobLayer, fixtures);
+            _physics.SetCollisionMask(uid, fixture.Key, fixture.Value, (int)(CollisionGroup.SmallMobMask | CollisionGroup.GhostImpassable), fixtures);
+            _physics.SetCollisionLayer(uid, fixture.Key, fixture.Value, (int)CollisionGroup.SmallMobLayer, fixtures);
         }
+
         _movement.RefreshMovementSpeedModifiers(uid);
     }
 
@@ -54,10 +55,11 @@ public abstract class SharedCorporealSystem : EntitySystem
         {
             var fixture = fixtures.Fixtures.First();
 
-            _physics.SetCollisionMask(uid, fixture.Key, fixture.Value, (int) CollisionGroup.GhostImpassable, fixtures);
+            _physics.SetCollisionMask(uid, fixture.Key, fixture.Value, (int)CollisionGroup.GhostImpassable, fixtures);
             _physics.SetCollisionLayer(uid, fixture.Key, fixture.Value, 0, fixtures);
         }
-        component.MovementSpeedDebuff = 1; //just so we can avoid annoying code elsewhere
+
+        component.MovementSpeedDebuff = 1; // just so we can avoid annoying code elsewhere
         _movement.RefreshMovementSpeedModifiers(uid);
     }
 }

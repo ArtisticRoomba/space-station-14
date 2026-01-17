@@ -306,7 +306,7 @@ public abstract partial class SharedStunSystem
             DamageThreshold = 5,
             CancelDuplicate = true,
             RequireCanInteract = false,
-            BreakOnHandChange = true
+            BreakOnHandChange = true,
         };
 
         // If we try standing don't try standing again

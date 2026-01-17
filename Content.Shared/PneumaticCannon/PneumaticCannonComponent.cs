@@ -15,7 +15,7 @@ public sealed partial class PneumaticCannonComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public PneumaticCannonPower Power = PneumaticCannonPower.Medium;
 
-    [DataField("toolModifyPower", customTypeSerializer:typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
+    [DataField("toolModifyPower", customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
     public string ToolModifyPower = "Anchoring";
 
     /// <summary>
@@ -61,5 +61,5 @@ public enum PneumaticCannonPower : byte
     Low = 0,
     Medium = 1,
     High = 2,
-    Len = 3 // used for length calc
+    Len = 3, // used for length calc
 }

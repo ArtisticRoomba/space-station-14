@@ -46,7 +46,7 @@ public sealed partial class CryostorageComponent : Component
 [Serializable, NetSerializable]
 public enum CryostorageVisuals : byte
 {
-    Full
+    Full,
 }
 
 [Serializable, NetSerializable]
@@ -96,7 +96,7 @@ public sealed class CryostorageRemoveItemBuiMessage : BoundUserInterfaceMessage
     public enum RemovalType : byte
     {
         Hand,
-        Inventory
+        Inventory,
     }
 
     public CryostorageRemoveItemBuiMessage(NetEntity storedEntity, string key, RemovalType type)
@@ -110,5 +110,5 @@ public sealed class CryostorageRemoveItemBuiMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public enum CryostorageUIKey : byte
 {
-    Key
+    Key,
 }

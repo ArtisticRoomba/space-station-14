@@ -24,4 +24,4 @@ public sealed partial class ActiveInputMoverComponent : Component
     /// </remarks>
     [DataField, ViewVariables]
     public EntityUid? RelayedFrom;
-};
+}

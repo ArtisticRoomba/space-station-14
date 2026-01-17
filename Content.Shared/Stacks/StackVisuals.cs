@@ -9,11 +9,12 @@ namespace Content.Shared.Stacks
         /// The amount of elements in the stack
         /// </summary>
         Actual,
+
         /// <summary>
         /// The total amount of elements in the stack. If unspecified, the visualizer assumes
         /// it's StackComponent.LayerStates.Count
         /// </summary>
         MaxCount,
-        Hide
+        Hide,
     }
 }

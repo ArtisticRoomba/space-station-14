@@ -115,7 +115,7 @@ public enum ClothingMask : byte
 {
     NoMask = 0,
     UniformFull,
-    UniformTop
+    UniformTop,
 }
 
 [Serializable, NetSerializable]

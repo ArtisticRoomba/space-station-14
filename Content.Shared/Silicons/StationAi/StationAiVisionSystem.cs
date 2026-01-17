@@ -257,6 +257,7 @@ public sealed class StationAiVisionSystem : EntitySystem
                     return true;
             }
         }
+
         return false;
     }
 

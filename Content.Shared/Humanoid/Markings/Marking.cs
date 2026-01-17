@@ -105,6 +105,7 @@ namespace Content.Shared.Humanoid.Markings
             {
                 return false;
             }
+
             return MarkingId.Equals(other.MarkingId)
                 && _markingColors.SequenceEqual(other._markingColors)
                 && Visible.Equals(other.Visible)

@@ -399,7 +399,7 @@ namespace Content.Shared.Movement.Systems
             {
                 walk = mover.CurTickWalkMovement;
                 sprint = mover.CurTickSprintMovement;
-                remainingFraction = (ushort.MaxValue - mover.LastInputSubTick) / (float) ushort.MaxValue;
+                remainingFraction = (ushort.MaxValue - mover.LastInputSubTick) / (float)ushort.MaxValue;
             }
 
             var curDir = DirVecForButtons(mover.HeldMoveButtons) * remainingFraction;
@@ -431,7 +431,7 @@ namespace Content.Shared.Movement.Systems
                 Direction.North => MoveButtons.Up,
                 Direction.West => MoveButtons.Left,
                 Direction.South => MoveButtons.Down,
-                _ => throw new ArgumentException(nameof(direction))
+                _ => throw new ArgumentException(nameof(direction)),
             };
 
             SetMoveInput(entity, subTick, enabled, bit);
@@ -444,7 +444,7 @@ namespace Content.Shared.Movement.Systems
 
             if (subTick >= entity.Comp.LastInputSubTick)
             {
-                var fraction = (subTick - entity.Comp.LastInputSubTick) / (float) ushort.MaxValue;
+                var fraction = (subTick - entity.Comp.LastInputSubTick) / (float)ushort.MaxValue;
 
                 ref var lastMoveAmount = ref entity.Comp.Sprinting ? ref entity.Comp.CurTickSprintMovement : ref entity.Comp.CurTickWalkMovement;
 
@@ -647,5 +647,4 @@ namespace Content.Shared.Movement.Systems
         RotateRight = 1 << 5,
         Brake = 1 << 6,
     }
-
 }

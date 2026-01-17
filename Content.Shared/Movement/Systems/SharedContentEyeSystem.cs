@@ -36,9 +36,9 @@ public abstract class SharedContentEyeSystem : EntitySystem
         SubscribeAllEvent<RequestEyeEvent>(OnRequestEye);
 
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.ZoomIn, InputCmdHandler.FromDelegate(ZoomIn, handle:false))
-            .Bind(ContentKeyFunctions.ZoomOut, InputCmdHandler.FromDelegate(ZoomOut, handle:false))
-            .Bind(ContentKeyFunctions.ResetZoom, InputCmdHandler.FromDelegate(ResetZoom, handle:false))
+            .Bind(ContentKeyFunctions.ZoomIn, InputCmdHandler.FromDelegate(ZoomIn, handle: false))
+            .Bind(ContentKeyFunctions.ZoomOut, InputCmdHandler.FromDelegate(ZoomOut, handle: false))
+            .Bind(ContentKeyFunctions.ResetZoom, InputCmdHandler.FromDelegate(ResetZoom, handle: false))
             .Register<SharedContentEyeSystem>();
 
         Log.Level = LogLevel.Info;

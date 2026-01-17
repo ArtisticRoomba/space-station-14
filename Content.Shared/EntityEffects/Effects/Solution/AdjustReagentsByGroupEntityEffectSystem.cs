@@ -40,7 +40,6 @@ public sealed partial class AdjustReagentsByGroupEntityEffectSystem : EntityEffe
 /// <inheritdoc cref="EntityEffect"/>
 public sealed partial class AdjustReagentsByGroup : EntityEffectBase<AdjustReagentsByGroup>
 {
-
     /// <summary>
     ///     The metabolism group being adjusted. All reagents in an affected solution with this group will be adjusted.
     /// </summary>

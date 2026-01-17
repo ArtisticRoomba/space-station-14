@@ -13,7 +13,6 @@ namespace Content.Shared.NukeOps;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class NukeOperativeComponent : Component
 {
-
     /// <summary>
     ///
     /// </summary>

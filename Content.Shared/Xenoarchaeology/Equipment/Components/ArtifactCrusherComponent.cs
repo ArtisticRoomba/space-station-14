@@ -114,5 +114,5 @@ public sealed partial class ArtifactCrusherComponent : Component
 [Serializable, NetSerializable]
 public enum ArtifactCrusherVisuals : byte
 {
-    Crushing
+    Crushing,
 }

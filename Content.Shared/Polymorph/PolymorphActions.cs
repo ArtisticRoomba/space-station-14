@@ -20,5 +20,4 @@ public sealed partial class PolymorphActionEvent : InstantActionEvent
 
 public sealed partial class RevertPolymorphActionEvent : InstantActionEvent
 {
-
 }

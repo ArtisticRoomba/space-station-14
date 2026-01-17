@@ -18,7 +18,7 @@ public sealed partial class LockComponent : Component
     /// </summary>
     [DataField("locked"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public bool Locked  = true;
+    public bool Locked = true;
 
     /// <summary>
     /// If true, will show verbs to lock and unlock the item. Otherwise, it will not.
@@ -92,7 +92,7 @@ public sealed partial class LockComponent : Component
     [DataField("lockingSound"), ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier? LockSound = new SoundPathSpecifier("/Audio/Machines/door_lock_on.ogg")
     {
-        Params = AudioParams.Default.WithVolume(-5f)
+        Params = AudioParams.Default.WithVolume(-5f),
     };
 
     /// <summary>
@@ -181,5 +181,5 @@ public sealed partial class UnlockDoAfter : DoAfterEvent
 [Serializable]
 public enum LockVisuals : byte
 {
-    Locked
+    Locked,
 }

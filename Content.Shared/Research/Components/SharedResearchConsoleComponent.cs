@@ -22,7 +22,6 @@ namespace Content.Shared.Research.Components
     [Serializable, NetSerializable]
     public sealed class ConsoleServerSelectionMessage : BoundUserInterfaceMessage
     {
-
     }
 
     [Serializable, NetSerializable]

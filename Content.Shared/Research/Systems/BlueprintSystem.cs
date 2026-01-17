@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Lathe;
@@ -7,7 +8,6 @@ using Content.Shared.Research.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Shared.Research.Systems;
 

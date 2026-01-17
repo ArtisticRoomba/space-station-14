@@ -5,7 +5,7 @@ namespace Content.Shared.MachineLinking;
 [Serializable, NetSerializable]
 public enum SignalTimerUiKey : byte
 {
-    Key
+    Key,
 }
 
 /// <summary>
@@ -64,5 +64,4 @@ public sealed class SignalTimerDelayChangedMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public sealed class SignalTimerStartMessage : BoundUserInterfaceMessage
 {
-
 }

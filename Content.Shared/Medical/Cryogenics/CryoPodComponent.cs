@@ -115,13 +115,13 @@ public sealed partial class CryoPodComponent : Component
 public enum CryoPodVisuals : byte
 {
     ContainsEntity,
-    IsOn
+    IsOn,
 }
 
 [Serializable, NetSerializable]
 public enum CryoPodUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]

@@ -5,7 +5,7 @@ namespace Content.Shared.VoiceMask;
 [Serializable, NetSerializable]
 public enum VoiceMaskUIKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]

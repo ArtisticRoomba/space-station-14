@@ -58,6 +58,7 @@ public abstract class SharedOreSiloSystem : EntitySystem
             {
                 inverseMats.Add(mat, -amount);
             }
+
             _materialStorage.TryChangeMaterialAmount(client, inverseMats, localOnly: true);
             _materialStorage.TryChangeMaterialAmount(ent.Owner, clientMats);
 
@@ -89,7 +90,6 @@ public abstract class SharedOreSiloSystem : EntitySystem
 
     protected virtual void UpdateOreSiloUi(Entity<OreSiloComponent> ent)
     {
-
     }
 
     private void OnGetStoredMaterials(Entity<OreSiloClientComponent> ent, ref GetStoredMaterialsEvent args)

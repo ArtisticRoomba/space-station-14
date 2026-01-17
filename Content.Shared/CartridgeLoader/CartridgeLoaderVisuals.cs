@@ -5,5 +5,5 @@ namespace Content.Shared.CartridgeLoader;
 [Serializable, NetSerializable]
 public enum CartridgeLoaderVisuals
 {
-    CartridgeInserted
+    CartridgeInserted,
 }

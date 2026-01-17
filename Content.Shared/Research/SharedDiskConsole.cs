@@ -5,7 +5,7 @@ namespace Content.Shared.Research;
 [Serializable, NetSerializable]
 public enum DiskConsoleUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
@@ -26,5 +26,4 @@ public sealed class DiskConsoleBoundUserInterfaceState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class DiskConsolePrintDiskMessage : BoundUserInterfaceMessage
 {
-
 }

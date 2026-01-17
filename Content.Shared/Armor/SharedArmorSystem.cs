@@ -87,8 +87,7 @@ public abstract class SharedArmorSystem : EntitySystem
             var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
             msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
                 ("type", armorType),
-                ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))
-            ));
+                ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))));
         }
 
         foreach (var flatArmor in armorModifiers.FlatReduction)
@@ -98,8 +97,7 @@ public abstract class SharedArmorSystem : EntitySystem
             var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
             msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
                 ("type", armorType),
-                ("value", flatArmor.Value)
-            ));
+                ("value", flatArmor.Value)));
         }
 
         return msg;

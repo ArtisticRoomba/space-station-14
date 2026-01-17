@@ -57,7 +57,7 @@ public sealed partial class ReactionMixerSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnDropItem = true,
             BreakOnHandChange = true,
-            BreakOnMove = true
+            BreakOnMove = true,
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);

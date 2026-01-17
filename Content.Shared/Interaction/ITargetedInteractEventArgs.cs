@@ -6,6 +6,7 @@
         /// Performer of the attack
         /// </summary>
         EntityUid User { get; }
+
         /// <summary>
         /// Target of the attack
         /// </summary>

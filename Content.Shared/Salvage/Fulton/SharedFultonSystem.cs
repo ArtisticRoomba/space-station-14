@@ -23,13 +23,13 @@ namespace Content.Shared.Salvage.Fulton;
 public abstract partial class SharedFultonSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private   readonly MetaDataSystem _metadata = default!;
+    [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private   readonly FoldableSystem _foldable = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly FoldableSystem _foldable = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
-    [Dependency] private   readonly SharedPopupSystem _popup = default!;
-    [Dependency] private   readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
@@ -75,7 +75,7 @@ public abstract partial class SharedFultonSystem : EntitySystem
             Act = () =>
             {
                 Unfulton(uid);
-            }
+            },
         });
     }
 
@@ -203,6 +203,7 @@ public abstract partial class SharedFultonSystem : EntitySystem
     }
 
     // Animations aren't really good for networking hence this.
+
     /// <summary>
     /// Tells clients to play the fulton animation.
     /// </summary>

@@ -15,7 +15,7 @@ public abstract partial class SharedEmergencyLightComponent : Component
 public enum EmergencyLightVisuals
 {
     On,
-    Color
+    Color,
 }
 
 public enum EmergencyLightVisualLayers

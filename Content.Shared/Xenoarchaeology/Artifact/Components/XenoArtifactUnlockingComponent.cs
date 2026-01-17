@@ -37,7 +37,7 @@ public sealed partial class XenoArtifactUnlockingComponent : Component
         {
             Variation = 0.1f,
             Volume = 3f
-        }
+        },
     };
 
     /// <summary>
@@ -49,6 +49,6 @@ public sealed partial class XenoArtifactUnlockingComponent : Component
         Params = new()
         {
             Variation = 0.1f
-        }
+        },
     };
 }

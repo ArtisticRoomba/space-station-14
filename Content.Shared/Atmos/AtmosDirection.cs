@@ -12,10 +12,10 @@ namespace Content.Shared.Atmos
     public enum AtmosDirection
     {
         Invalid = 0,                        // 0
-        North   = 1 << 0,                   // 1
-        South   = 1 << 1,                   // 2
-        East    = 1 << 2,                   // 4
-        West    = 1 << 3,                   // 8
+        North = 1 << 0,                   // 1
+        South = 1 << 1,                   // 2
+        East = 1 << 2,                   // 4
+        West = 1 << 3,                   // 8
 
         // If more directions are added, note that AtmosDirectionHelpers.ToOppositeIndex() expects opposite directions
         // to come in pairs
@@ -41,7 +41,7 @@ namespace Content.Shared.Atmos
                 AtmosDirection.NorthWest => AtmosDirection.SouthEast,
                 AtmosDirection.SouthEast => AtmosDirection.NorthWest,
                 AtmosDirection.SouthWest => AtmosDirection.NorthEast,
-                _ => throw new ArgumentOutOfRangeException(nameof(direction))
+                _ => throw new ArgumentOutOfRangeException(nameof(direction)),
             };
         }
 
@@ -58,7 +58,7 @@ namespace Content.Shared.Atmos
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static AtmosDirection ToOppositeDir(this int index)
         {
-            return (AtmosDirection) (1 << (index ^ 1));
+            return (AtmosDirection)(1 << (index ^ 1));
         }
 
         public static Direction ToDirection(this AtmosDirection direction)
@@ -74,7 +74,7 @@ namespace Content.Shared.Atmos
                 AtmosDirection.SouthEast => Direction.SouthEast,
                 AtmosDirection.SouthWest => Direction.SouthWest,
                 AtmosDirection.Invalid => Direction.Invalid,
-                _ => throw new ArgumentOutOfRangeException(nameof(direction))
+                _ => throw new ArgumentOutOfRangeException(nameof(direction)),
             };
         }
 
@@ -91,7 +91,7 @@ namespace Content.Shared.Atmos
                 Direction.SouthEast => AtmosDirection.SouthEast,
                 Direction.SouthWest => AtmosDirection.SouthWest,
                 Direction.Invalid => AtmosDirection.Invalid,
-                _ => throw new ArgumentOutOfRangeException(nameof(direction))
+                _ => throw new ArgumentOutOfRangeException(nameof(direction)),
             };
         }
 

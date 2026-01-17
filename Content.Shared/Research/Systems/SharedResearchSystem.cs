@@ -44,6 +44,7 @@ public abstract class SharedResearchSystem : EntitySystem
 
             component.CurrentTechnologyCards.Add(selected.ID);
         }
+
         Dirty(uid, component);
     }
 
@@ -118,7 +119,7 @@ public abstract class SharedResearchSystem : EntitySystem
         }
 
         var highestTier = techDiscipline.TierPrerequisites.Keys.Max();
-        var tier = 2; //tier 1 is always given
+        var tier = 2; // tier 1 is always given
 
         // todo this might break if you have hidden technologies. i'm not sure
         while (tier <= highestTier)
@@ -131,7 +132,7 @@ public abstract class SharedResearchSystem : EntitySystem
             if (allTierTech.Count == 0)
                 break;
 
-            var percent = (float) unlockedTierTech.Count / allTierTech.Count;
+            var percent = (float)unlockedTierTech.Count / allTierTech.Count;
             if (percent < techDiscipline.TierPrerequisites[tier])
                 break;
 
@@ -177,6 +178,7 @@ public abstract class SharedResearchSystem : EntitySystem
                 description.AddMarkupOrThrow(Loc.GetString("research-console-prereqs-list-entry",
                     ("text", Loc.GetString(techProto.Name))));
             }
+
             description.PushNewline();
         }
 
@@ -188,6 +190,7 @@ public abstract class SharedResearchSystem : EntitySystem
             description.AddMarkupOrThrow(Loc.GetString("research-console-unlocks-list-entry",
                 ("name", _lathe.GetRecipeName(recipeProto))));
         }
+
         foreach (var generic in technology.GenericUnlocks)
         {
             description.PushNewline();
@@ -267,6 +270,7 @@ public abstract class SharedResearchSystem : EntitySystem
             if (!hasTechElsewhere)
                 entity.Comp.UnlockedRecipes.Remove(recipe);
         }
+
         Dirty(entity, entity.Comp);
         UpdateTechnologyCards(entity, entity);
         return true;

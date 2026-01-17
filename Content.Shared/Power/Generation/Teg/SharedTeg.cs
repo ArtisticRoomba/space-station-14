@@ -21,7 +21,7 @@ public enum TegVisualLayers
 {
     PowerOutput,
     CirculatorBase,
-    CirculatorLight
+    CirculatorLight,
 }
 
 /// <summary>
@@ -32,5 +32,5 @@ public enum TegCirculatorSpeed
 {
     SpeedStill,
     SpeedSlow,
-    SpeedFast
+    SpeedFast,
 }

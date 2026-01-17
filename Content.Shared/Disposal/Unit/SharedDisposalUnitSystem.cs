@@ -43,23 +43,23 @@ public sealed partial class DisposalDoAfterEvent : SimpleDoAfterEvent
 public abstract class SharedDisposalUnitSystem : EntitySystem
 {
     [Dependency] protected readonly ActionBlockerSystem ActionBlockerSystem = default!;
-    [Dependency] private   readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] protected readonly MetaDataSystem Metadata = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private   readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private   readonly ClimbSystem _climb = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly ClimbSystem _climb = default!;
     [Dependency] protected readonly SharedContainerSystem Containers = default!;
     [Dependency] protected readonly SharedJointSystem Joints = default!;
-    [Dependency] private   readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private   readonly SharedDisposalTubeSystem _disposalTubeSystem = default!;
-    [Dependency] private   readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedDisposalTubeSystem _disposalTubeSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-    [Dependency] private   readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private   readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     protected static TimeSpan ExitAttemptDelay = TimeSpan.FromSeconds(0.5);
 
@@ -122,7 +122,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
             {
                 Act = () => TryEjectContents(uid, component),
                 Category = VerbCategory.Eject,
-                Text = Loc.GetString("disposal-eject-verb-get-data-text")
+                Text = Loc.GetString("disposal-eject-verb-get-data-text"),
             };
             args.Verbs.Add(ejectVerb);
         }
@@ -148,7 +148,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
                 _handsSystem.TryDropIntoContainer((args.User, args.Hands), args.Using.Value, component.Container, checkActionBlocker: false);
                 _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(args.User):player} inserted {ToPrettyString(args.Using.Value)} into {ToPrettyString(uid)}");
                 AfterInsert(uid, component, args.Using.Value, args.User);
-            }
+            },
         };
 
         args.Verbs.Add(insertVerb);
@@ -273,7 +273,6 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
 
     protected virtual void UpdateUI(Entity<DisposalUnitComponent> entity)
     {
-
     }
 
     /// <summary>
@@ -651,7 +650,6 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
 
     protected virtual void HandleAir(EntityUid uid, DisposalUnitComponent component, TransformComponent xform)
     {
-
     }
 
     public void ManualEngage(EntityUid uid, DisposalUnitComponent component, MetaDataComponent? metadata = null)
@@ -782,7 +780,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         {
             Act = () => TryInsert(uid, args.User, args.User),
             DoContactInteraction = true,
-            Text = Loc.GetString("disposal-self-insert-verb-get-data-text")
+            Text = Loc.GetString("disposal-self-insert-verb-get-data-text"),
         };
 
         // TODO VERB ICON

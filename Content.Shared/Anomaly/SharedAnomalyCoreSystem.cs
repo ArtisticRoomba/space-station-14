@@ -97,7 +97,7 @@ public sealed class SharedAnomalyCoreSystem : EntitySystem
             if (component.IsDecayed)
                 continue;
 
-            //When time runs out, we completely decompose
+            // When time runs out, we completely decompose
             if (component.DecayMoment < _gameTiming.CurTime)
                 Decay(uid, component);
         }

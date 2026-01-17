@@ -6,7 +6,6 @@ namespace Content.Shared.Voting;
 [Serializable, NetSerializable]
 public sealed class VotePlayerListRequestEvent : EntityEventArgs
 {
-
 }
 
 [Serializable, NetSerializable]

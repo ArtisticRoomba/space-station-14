@@ -49,7 +49,7 @@ public sealed class UiButtonPressedMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public enum AmeControllerUiKey
 {
-    Key
+    Key,
 }
 
 public enum UiButton

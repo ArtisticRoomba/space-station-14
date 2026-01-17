@@ -8,5 +8,4 @@ namespace Content.Shared.Cargo.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CashComponent : Component
 {
-
 }

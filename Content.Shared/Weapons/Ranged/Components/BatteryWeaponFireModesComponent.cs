@@ -53,5 +53,5 @@ public sealed partial class BatteryWeaponFireMode
 [Serializable, NetSerializable]
 public enum BatteryWeaponFireModeVisuals : byte
 {
-    State
+    State,
 }

@@ -36,7 +36,7 @@ public abstract partial class SharedActionsSystem
             DistanceThreshold = ent.Comp.DistanceThreshold,
             BreakOnDamage = ent.Comp.BreakOnDamage,
             DamageThreshold = ent.Comp.DamageThreshold,
-            RequireCanInteract = ent.Comp.RequireCanInteract
+            RequireCanInteract = ent.Comp.RequireCanInteract,
         };
 
         return _doAfter.TryStartDoAfter(doAfterArgs, performer);

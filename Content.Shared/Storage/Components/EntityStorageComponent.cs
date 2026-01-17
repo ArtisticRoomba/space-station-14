@@ -70,11 +70,11 @@ public sealed partial class EntityStorageComponent : Component, IGasMixtureHolde
     [DataField, AutoNetworkedField]
     public bool OpenOnMove = true;
 
-    //The offset for where items are emptied/vacuumed for the EntityStorage.
+    // The offset for where items are emptied/vacuumed for the EntityStorage.
     [DataField]
     public Vector2 EnteringOffset = new(0, 0);
 
-    //The collision groups checked, so that items are depositied or grabbed from inside walls.
+    // The collision groups checked, so that items are depositied or grabbed from inside walls.
     [DataField]
     public CollisionGroup EnteringOffsetCollisionFlags = CollisionGroup.Impassable | CollisionGroup.MidImpassable;
 

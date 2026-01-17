@@ -8,7 +8,7 @@ public enum ToggleMode
 {
     Toggle,
     On,
-    Off
+    Off,
 }
 
 [Serializable, NetSerializable]

@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Fax.Components;
+
 /// <summary>
 /// Entity with this component can be faxed.
 /// </summary>

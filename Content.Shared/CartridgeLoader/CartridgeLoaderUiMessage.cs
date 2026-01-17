@@ -22,5 +22,5 @@ public enum CartridgeUiMessageAction
     Deactivate,
     Install,
     Uninstall,
-    UIReady
+    UIReady,
 }

@@ -203,7 +203,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         args.Used ??= activeHeldItem;
     }
 
-    //TODO: Actually shows all items/clothing/etc.
+    // TODO: Actually shows all items/clothing/etc.
     private void HandleExamined(EntityUid examinedUid, HandsComponent handsComp, ExaminedEvent args)
     {
         var heldItemNames = EnumerateHeld((examinedUid, handsComp))

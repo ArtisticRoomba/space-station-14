@@ -74,7 +74,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="singularity">The state of the singularity to change the level of.</param>
     public void SetLevel(EntityUid uid, byte value, SingularityComponent? singularity = null)
     {
-        if(!Resolve(uid, ref singularity))
+        if (!Resolve(uid, ref singularity))
             return;
 
         value = MathHelper.Clamp(value, MinSingularityLevel, MaxSingularityLevel);
@@ -97,7 +97,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="singularity">The state of the singularity to change the radioactivity of.</param>
     public void SetRadsPerLevel(EntityUid uid, float value, SingularityComponent? singularity = null)
     {
-        if(!Resolve(uid, ref singularity))
+        if (!Resolve(uid, ref singularity))
             return;
 
         var oldValue = singularity.RadsPerLevel;
@@ -168,7 +168,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="rads">The state of the radioactivity of the singularity to update.</param>
     private void UpdateRadiation(EntityUid uid, SingularityComponent? singularity = null, RadiationSourceComponent? rads = null)
     {
-        if(!Resolve(uid, ref singularity, ref rads, logMissing: false))
+        if (!Resolve(uid, ref singularity, ref rads, logMissing: false))
             return;
         rads.Intensity = singularity.Level * singularity.RadsPerLevel;
     }
@@ -176,6 +176,7 @@ public abstract class SharedSingularitySystem : EntitySystem
 #endregion Getters/Setters
 
 #region Derivations
+
     /// <summary>
     /// The scaling factor for the size of a singularities gravity well.
     /// </summary>
@@ -238,7 +239,7 @@ public abstract class SharedSingularitySystem : EntitySystem
             4 => MathF.Sqrt(10.0f),
             5 => MathF.Sqrt(12.0f),
             6 => MathF.Sqrt(12.0f),
-            _ => -1.0f
+            _ => -1.0f,
         };
     }
 
@@ -257,12 +258,13 @@ public abstract class SharedSingularitySystem : EntitySystem
             4 => 16200000f,
             5 => 180000000f,
             6 => 180000000f,
-            _ => -1.0f
+            _ => -1.0f,
         };
     }
 #endregion Derivations
 
 #region Serialization
+
     /// <summary>
     /// A state wrapper used to sync the singularity between the server and client.
     /// </summary>
@@ -282,6 +284,7 @@ public abstract class SharedSingularitySystem : EntitySystem
 #endregion Serialization
 
 #region EventHandlers
+
     /// <summary>
     /// Syncs other components with the state of the singularity via event on startup.
     /// </summary>

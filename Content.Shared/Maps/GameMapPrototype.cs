@@ -62,7 +62,7 @@ public sealed partial class GameMapPrototype : IPrototype
             ID = ID,
             MapName = MapName,
             MapPath = mapPath,
-            _stations = _stations
+            _stations = _stations,
         };
     }
 }

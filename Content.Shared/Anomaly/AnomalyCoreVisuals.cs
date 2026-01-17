@@ -5,5 +5,5 @@ namespace Content.Shared.Anomaly;
 [Serializable, NetSerializable]
 public enum AnomalyCoreVisuals : byte
 {
-    Decaying
+    Decaying,
 }

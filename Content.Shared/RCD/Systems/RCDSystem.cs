@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Construction;
@@ -21,7 +22,6 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using System.Linq;
 
 namespace Content.Shared.RCD.Systems;
 
@@ -143,6 +143,7 @@ public sealed class RCDSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("rcd-component-no-valid-grid"), uid, user);
             return;
         }
+
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
@@ -218,7 +219,7 @@ public sealed class RCDSystem : EntitySystem
             BreakOnMove = true,
             AttemptFrequency = AttemptFrequency.EveryTick,
             CancelDuplicate = false,
-            BlockDuplicate = false
+            BlockDuplicate = false,
         };
 
         args.Handled = true;
@@ -416,7 +417,7 @@ public sealed class RCDSystem : EntitySystem
             // Check rule: Respect baseTurf and baseWhitelist
             if (prototype.Prototype != null && _tileDefMan.TryGetDefinition(prototype.Prototype, out var replacementDef))
             {
-                var replacementContentDef = (ContentTileDefinition) replacementDef;
+                var replacementContentDef = (ContentTileDefinition)replacementDef;
 
                 if (replacementContentDef.BaseTurf != tileDef.ID && !replacementContentDef.BaseWhitelist.Contains(tileDef.ID))
                 {
@@ -489,7 +490,7 @@ public sealed class RCDSystem : EntitySystem
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
                     // Continue if no collision is possible
-                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) prototype.CollisionMask) == 0)
+                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)prototype.CollisionMask) == 0)
                         continue;
 
                     // Continue if our custom collision bounds are not intersected
@@ -580,7 +581,7 @@ public sealed class RCDSystem : EntitySystem
                 if (!_tileDefMan.TryGetDefinition(prototype.Prototype, out var tileDef))
                     return;
 
-                _tile.ReplaceTile(tile, (ContentTileDefinition) tileDef, gridUid, mapGrid);
+                _tile.ReplaceTile(tile, (ContentTileDefinition)tileDef, gridUid, mapGrid);
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {gridUid} {position} to {prototype.Prototype}");
                 break;
 

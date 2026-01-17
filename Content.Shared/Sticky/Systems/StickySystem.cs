@@ -58,7 +58,7 @@ public sealed class StickySystem : EntitySystem
             DoContactInteraction = true,
             Text = Loc.GetString(comp.VerbText),
             Icon = comp.VerbIcon,
-            Act = () => StartUnsticking(ent, user)
+            Act = () => StartUnsticking(ent, user),
         });
     }
 

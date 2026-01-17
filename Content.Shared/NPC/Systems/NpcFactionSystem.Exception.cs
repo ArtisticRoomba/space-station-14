@@ -1,5 +1,5 @@
-using Content.Shared.NPC.Components;
 using System.Linq;
+using Content.Shared.NPC.Components;
 
 namespace Content.Shared.NPC.Systems;
 

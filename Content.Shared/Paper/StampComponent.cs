@@ -22,7 +22,7 @@ public partial struct StampDisplayInfo
 
     [DataField("stampedColor")]
     public Color StampedColor;
-};
+}
 
 [RegisterComponent]
 public sealed partial class StampComponent : Component

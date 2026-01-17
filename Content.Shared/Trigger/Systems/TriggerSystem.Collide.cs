@@ -21,8 +21,7 @@ public sealed partial class TriggerSystem
         if (
             args.OurFixtureId == ent.Comp.FixtureID
             && (!ent.Comp.IgnoreOtherNonHard || args.OtherFixture.Hard)
-            && (ent.Comp.MaxTriggers == null || ent.Comp.MaxTriggers > 0)
-        )
+            && (ent.Comp.MaxTriggers == null || ent.Comp.MaxTriggers > 0))
         {
             if (ent.Comp.MaxTriggers != null)
             {
@@ -31,6 +30,7 @@ public sealed partial class TriggerSystem
                 if (ent.Comp.MaxTriggers <= 0)
                     RemCompDeferred<TriggerOnCollideComponent>(ent);
             }
+
             Trigger(ent.Owner, args.OtherEntity, ent.Comp.KeyOut);
         }
     }
@@ -42,7 +42,7 @@ public sealed partial class TriggerSystem
 
     private void OnTimedCollide(Entity<TriggerOnTimedCollideComponent> ent, ref StartCollideEvent args)
     {
-        //Ensures the trigger entity will have an active component
+        // Ensures the trigger entity will have an active component
         EnsureComp<ActiveTriggerOnTimedCollideComponent>(ent);
         var otherUID = args.OtherEntity;
         if (ent.Comp.Colliding.ContainsKey(otherUID))

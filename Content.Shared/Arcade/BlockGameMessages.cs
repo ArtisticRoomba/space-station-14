@@ -30,7 +30,7 @@ namespace Content.Shared.Arcade
         {
             GameField,
             HoldBlock,
-            NextBlock
+            NextBlock,
         }
 
         [Serializable, NetSerializable]
@@ -86,7 +86,7 @@ namespace Content.Shared.Arcade
             Game,
             Pause,
             Gameover,
-            Highscores
+            Highscores,
         }
 
         [Serializable, NetSerializable]

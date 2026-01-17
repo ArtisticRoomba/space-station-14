@@ -16,12 +16,12 @@ public static class UserInputParser
     {
         new NumberFormatInfo()
         {
-            NumberDecimalSeparator = "."
+            NumberDecimalSeparator = ".",
         },
         new NumberFormatInfo()
         {
             NumberDecimalSeparator = ","
-        }
+        },
     };
 
     public static bool TryFloat(ReadOnlySpan<char> text, out float result)

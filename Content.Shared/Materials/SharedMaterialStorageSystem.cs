@@ -100,7 +100,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     public int GetMaterialAmount(EntityUid uid, string material, MaterialStorageComponent? component = null, bool localOnly = false)
     {
         if (!Resolve(uid, ref component))
-            return 0; //you have nothing
+            return 0; // you have nothing
         return GetStoredMaterials((uid, component), localOnly).GetValueOrDefault(material, 0);
     }
 
@@ -119,6 +119,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     }
 
     // TODO: Revisit this if we ever decide to do things with storage limits. As it stands, the feature is unused.
+
     /// <summary>
     /// Tests if a specific amount of volume will fit in the storage.
     /// </summary>
@@ -221,7 +222,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (!CanChangeMaterialAmount(uid, materialId, volume, component, localOnly))
             return false;
 
-        var changeEv = new ConsumeStoredMaterialsEvent((uid, component), new() { { materialId, volume}}, localOnly);
+        var changeEv = new ConsumeStoredMaterialsEvent((uid, component), new() { { materialId, volume } }, localOnly);
         RaiseLocalEvent(uid, ref changeEv);
         var remaining = changeEv.Materials.Values.First();
 
@@ -373,6 +374,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
             _prototype.TryIndex<MaterialPrototype>(composition.MaterialComposition.Keys.First(), out var lastMat);
             insertingComp.MaterialColor = lastMat?.Color;
         }
+
         _appearance.SetData(receiver, MaterialStorageVisuals.Inserting, true);
         Dirty(receiver, insertingComp);
 

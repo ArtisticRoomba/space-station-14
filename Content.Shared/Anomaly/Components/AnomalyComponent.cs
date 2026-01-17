@@ -45,6 +45,7 @@ public sealed partial class AnomalyComponent : Component
     public float Severity = 0f;
 
     #region Health
+
     /// <summary>
     /// The internal "health" of an anomaly.
     /// Ranges from 0 to 1.
@@ -69,6 +70,7 @@ public sealed partial class AnomalyComponent : Component
     #endregion
 
     #region Growth
+
     /// <summary>
     /// If the <see cref="Stability"/> of the anomaly exceeds this value, it
     /// becomes unstable and starts increasing in <see cref="Severity"/>.
@@ -84,6 +86,7 @@ public sealed partial class AnomalyComponent : Component
     #endregion
 
     #region Pulse
+
     /// <summary>
     /// The time at which the next artifact pulse will occur.
     /// </summary>
@@ -188,6 +191,7 @@ public sealed partial class AnomalyComponent : Component
     public AnomalousParticleType TransformationParticleType;
 
     #region Points and Vessels
+
     /// <summary>
     /// The vessel that the anomaly is connceted to. Stored so that multiple
     /// vessels cannot connect to the same anomaly.
@@ -254,6 +258,7 @@ public sealed partial class AnomalyComponent : Component
     #endregion
 
     #region Floating Animation
+
     /// <summary>
     /// How long it takes to go from the bottom of the animation to the top.
     /// </summary>

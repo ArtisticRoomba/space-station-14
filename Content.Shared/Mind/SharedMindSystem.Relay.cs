@@ -15,7 +15,8 @@ public abstract partial class SharedMindSystem : EntitySystem
         SubscribeLocalEvent<MindContainerComponent, RefreshNameModifiersEvent>(RelayRefToMind);
     }
 
-    protected void RelayToMind<T>(EntityUid uid, MindContainerComponent component, T args) where T : class
+    protected void RelayToMind<T>(EntityUid uid, MindContainerComponent component, T args)
+        where T : class
     {
         var ev = new MindRelayedEvent<T>(args);
 
@@ -28,7 +29,8 @@ public abstract partial class SharedMindSystem : EntitySystem
         }
     }
 
-    protected void RelayRefToMind<T>(EntityUid uid, MindContainerComponent component, ref T args) where T : class
+    protected void RelayRefToMind<T>(EntityUid uid, MindContainerComponent component, ref T args)
+        where T : class
     {
         var ev = new MindRelayedEvent<T>(args);
 

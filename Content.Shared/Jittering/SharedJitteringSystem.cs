@@ -56,7 +56,7 @@ namespace Content.Shared.Jittering
             {
                 var jittering = Comp<JitteringComponent>(uid);
 
-                if(forceValueChange || jittering.Amplitude < amplitude)
+                if (forceValueChange || jittering.Amplitude < amplitude)
                     jittering.Amplitude = amplitude;
 
                 if (forceValueChange || jittering.Frequency < frequency)

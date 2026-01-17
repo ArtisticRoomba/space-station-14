@@ -29,6 +29,7 @@ public sealed partial class SpamEmitSoundComponent : BaseEmitSoundComponent
     public TimeSpan MaxInterval = TimeSpan.FromSeconds(2);
 
     // Always Pvs.
+
     /// <summary>
     /// Content of a popup message to display whenever the sound plays.
     /// </summary>

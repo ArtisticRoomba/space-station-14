@@ -7,14 +7,14 @@ namespace Content.Shared.Anomaly;
 public enum AnomalyVisuals : byte
 {
     IsPulsing,
-    Supercritical
+    Supercritical,
 }
 
 [Serializable, NetSerializable]
 public enum AnomalyVisualLayers : byte
 {
     Base,
-    Animated
+    Animated,
 }
 
 [Serializable, NetSerializable]
@@ -42,7 +42,7 @@ public enum AnomalousParticleType : byte
     Epsilon,
     Zeta,
     Sigma,
-    Default
+    Default,
 }
 
 [Serializable, NetSerializable]
@@ -55,25 +55,25 @@ public enum AnomalyVesselVisuals : byte
 [Serializable, NetSerializable]
 public enum AnomalyVesselVisualLayers : byte
 {
-    Base
+    Base,
 }
 
 [Serializable, NetSerializable]
 public enum AnomalyGeneratorVisuals : byte
 {
-    Generating
+    Generating,
 }
 
 [Serializable, NetSerializable]
 public enum AnomalyGeneratorVisualLayers : byte
 {
-    Base
+    Base,
 }
 
 [Serializable, NetSerializable]
 public enum AnomalyScannerUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
@@ -114,7 +114,7 @@ public sealed class AnomalyScannerUserInterfaceState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public enum AnomalyGeneratorUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
@@ -137,5 +137,4 @@ public sealed class AnomalyGeneratorUserInterfaceState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class AnomalyGeneratorGenerateButtonPressedEvent : BoundUserInterfaceMessage
 {
-
 }

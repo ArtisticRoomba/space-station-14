@@ -65,7 +65,7 @@ public sealed partial class StrapComponent : Component
     /// The sound to be played when a mob is buckled
     /// </summary>
     [DataField]
-    public SoundSpecifier BuckleSound  = new SoundPathSpecifier("/Audio/Effects/buckle.ogg");
+    public SoundSpecifier BuckleSound = new SoundPathSpecifier("/Audio/Effects/buckle.ogg");
 
     /// <summary>
     /// The sound to be played when a mob is unbuckled
@@ -107,12 +107,12 @@ public enum StrapPosition
     /// <summary>
     /// Makes the mob lie down
     /// </summary>
-    Down
+    Down,
 }
 
 [Serializable, NetSerializable]
 public enum StrapVisuals : byte
 {
     RotationAngle,
-    State
+    State,
 }

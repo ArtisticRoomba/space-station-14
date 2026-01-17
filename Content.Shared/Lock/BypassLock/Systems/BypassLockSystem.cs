@@ -52,7 +52,7 @@ public sealed partial class BypassLockSystem : EntitySystem
                 used,
                 user,
                 target,
-                (float) target.Comp.BypassDelay.TotalSeconds,
+                (float)target.Comp.BypassDelay.TotalSeconds,
                 target.Comp.BypassingTool,
                 new ForceOpenLockDoAfterEvent()))
         {

@@ -1,7 +1,7 @@
+using System.Numerics;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Numerics;
 
 namespace Content.Shared.Nutrition.Prototypes;
 

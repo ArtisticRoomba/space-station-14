@@ -5,7 +5,7 @@ namespace Content.Shared.Temperature;
 [Serializable, NetSerializable]
 public enum EntityHeaterVisuals
 {
-    Setting
+    Setting,
 }
 
 /// <summary>
@@ -17,5 +17,5 @@ public enum EntityHeaterSetting
     Off,
     Low,
     Medium,
-    High
+    High,
 }

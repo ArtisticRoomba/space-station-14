@@ -5,6 +5,5 @@ namespace Content.Shared.Eui
     [Serializable, NetSerializable]
     public abstract class EuiStateBase
     {
-
     }
 }

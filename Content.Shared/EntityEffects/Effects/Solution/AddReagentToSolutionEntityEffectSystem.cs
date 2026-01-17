@@ -6,6 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityEffects.Effects.Solution;
 
 // TODO: This should be removed and changed to an "AbsorbentSolutionComponent"
+
 /// <summary>
 /// Creates a reagent in a specified solution owned by this entity.
 /// Quantity is modified by scale.

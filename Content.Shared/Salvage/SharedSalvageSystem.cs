@@ -28,7 +28,7 @@ public abstract partial class SharedSalvageSystem : EntitySystem
     public string GetFTLName(LocalizedDatasetPrototype dataset, int seed)
     {
         var random = new System.Random(seed);
-        return $"{Loc.GetString(dataset.Values[random.Next(dataset.Values.Count)])}-{random.Next(10, 100)}-{(char) (65 + random.Next(26))}";
+        return $"{Loc.GetString(dataset.Values[random.Next(dataset.Values.Count)])}-{random.Next(10, 100)}-{(char)(65 + random.Next(26))}";
     }
 
     public SalvageMission GetMission(SalvageDifficultyPrototype difficulty, int seed)
@@ -73,7 +73,8 @@ public abstract partial class SharedSalvageSystem : EntitySystem
         return new SalvageMission(seed, dungeon.ID, faction.ID, biome.ID, air.ID, temp.Temperature, light.Color, duration, mods);
     }
 
-    public T GetBiomeMod<T>(string biome, System.Random rand, ref float rating) where T : class, IPrototype, IBiomeSpecificMod
+    public T GetBiomeMod<T>(string biome, System.Random rand, ref float rating)
+        where T : class, IPrototype, IBiomeSpecificMod
     {
         var mods = _proto.EnumeratePrototypes<T>().ToList();
         mods.Sort((x, y) => string.Compare(x.ID, y.ID, StringComparison.Ordinal));
@@ -92,7 +93,8 @@ public abstract partial class SharedSalvageSystem : EntitySystem
         throw new InvalidOperationException();
     }
 
-    public T GetMod<T>(System.Random rand, ref float rating) where T : class, IPrototype, ISalvageMod
+    public T GetMod<T>(System.Random rand, ref float rating)
+        where T : class, IPrototype, ISalvageMod
     {
         var mods = _proto.EnumeratePrototypes<T>().ToList();
         mods.Sort((x, y) => string.Compare(x.ID, y.ID, StringComparison.Ordinal));

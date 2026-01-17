@@ -9,5 +9,4 @@ namespace Content.Shared.Weapons.Melee.Components;
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedWieldableSystem))]
 public sealed partial class MeleeRequiresWieldComponent : Component
 {
-
 }

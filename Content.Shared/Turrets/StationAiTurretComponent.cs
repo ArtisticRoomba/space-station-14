@@ -8,5 +8,4 @@ namespace Content.Shared.Turrets;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StationAiTurretComponent : Component
 {
-
 }

@@ -70,10 +70,9 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false
-    )
+        bool ignoreGlobalModifiers = false)
     {
-        //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
+        // ! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
         return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
     }
@@ -96,10 +95,9 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false
-    )
+        bool ignoreGlobalModifiers = false)
     {
-        //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
+        // ! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
         newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
         return !newDamage.Empty;
@@ -122,8 +120,7 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false
-    )
+        bool ignoreGlobalModifiers = false)
     {
         var damageDone = new DamageSpecifier();
 
@@ -144,8 +141,7 @@ public sealed partial class DamageableSystem
         {
             if (
                 ent.Comp.DamageModifierSetId != null &&
-                _prototypeManager.Resolve(ent.Comp.DamageModifierSetId, out var modifierSet)
-            )
+                _prototypeManager.Resolve(ent.Comp.DamageModifierSetId, out var modifierSet))
                 damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
 
             // TODO DAMAGE
@@ -371,8 +367,7 @@ public sealed partial class DamageableSystem
         // Checks for changes first since they're unlikely in normal play.
         if (
             MathHelper.CloseToPercent(UniversalAllDamageModifier, 1f) &&
-            MathHelper.CloseToPercent(UniversalAllHealModifier, 1f)
-        )
+            MathHelper.CloseToPercent(UniversalAllHealModifier, 1f))
             return damage;
 
         foreach (var (key, value) in damage.DamageDict)

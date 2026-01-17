@@ -97,7 +97,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             Audio.PlayPvs(component.PulseSound, uid);
 
         var pulse = EnsureComp<AnomalyPulsingComponent>(uid);
-        pulse.EndTime  = Timing.CurTime + pulse.PulseDuration;
+        pulse.EndTime = Timing.CurTime + pulse.PulseDuration;
         Appearance.SetData(uid, AnomalyVisuals.IsPulsing, true);
 
         var powerMod = 1f;
@@ -106,6 +106,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             var beh = _prototype.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
             powerMod = beh.PulsePowerModifier;
         }
+
         var ev = new AnomalyPulseEvent(uid, component.Stability, component.Severity, powerMod);
         RaiseLocalEvent(uid, ref ev, true);
     }
@@ -129,7 +130,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (HasComp<AnomalySupercriticalComponent>(ent))
             return;
 
-        if(!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp))
             return;
 
         AdminLog.Add(LogType.Anomaly, LogImpact.High, $"Anomaly {ToPrettyString(ent.Owner)} began to go supercritical.");
@@ -307,12 +308,13 @@ public abstract class SharedAnomalySystem : EntitySystem
 
         var lenght = (component.MaxPulseLength - component.MinPulseLength) * modifier + component.MinPulseLength;
 
-        //Apply behavior modifier
+        // Apply behavior modifier
         if (component.CurrentBehavior != null)
         {
             var behavior = _prototype.Index(component.CurrentBehavior.Value);
             lenght *= behavior.PulseFrequencyModifier;
         }
+
         return lenght;
     }
 
@@ -393,7 +395,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             return null;
 
         // How many spawn points we will be aiming to return
-        var amount = (int) (MathHelper.Lerp(settings.MinAmount, settings.MaxAmount, severity * stability * powerModifier) + 0.5f);
+        var amount = (int)(MathHelper.Lerp(settings.MinAmount, settings.MaxAmount, severity * stability * powerModifier) + 0.5f);
 
         // When the entity is in a container or buckled (such as a hosted anomaly), local coordinates will not be comparable
         // to tile coordinates.
@@ -423,7 +425,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             var tileWorldPos = _map.GridTileToWorldPos(xform.GridUid.Value, grid, tileref.GridIndices);
             var distance = Vector2.Distance(tileWorldPos, worldPos);
 
-            //cut outer & inner circle
+            // cut outer & inner circle
             if (distance > settings.MaxRange || distance < settings.MinRange)
             {
                 tilerefs.Remove(tileref);
@@ -440,12 +442,13 @@ public abstract class SharedAnomalySystem : EntitySystem
 
                     if (body.BodyType != BodyType.Static ||
                         !body.Hard ||
-                        (body.CollisionLayer & (int) CollisionGroup.Impassable) == 0)
+                        (body.CollisionLayer & (int)CollisionGroup.Impassable) == 0)
                         continue;
 
                     valid = false;
                     break;
                 }
+
                 if (!valid)
                 {
                     tilerefs.Remove(tileref);
@@ -455,6 +458,7 @@ public abstract class SharedAnomalySystem : EntitySystem
 
             resultList.Add(tileref);
         }
+
         return resultList;
     }
 
@@ -479,7 +483,7 @@ public abstract class SharedAnomalySystem : EntitySystem
 
     public AnomalyStabilityVisuals GetStabilityVisualOrStable(Entity<AnomalyComponent?> ent)
     {
-        if(TryGetStabilityVisual(ent, out var visual))
+        if (TryGetStabilityVisual(ent, out var visual))
             return visual.Value;
 
         return AnomalyStabilityVisuals.Stable;

@@ -11,10 +11,11 @@ namespace Content.Shared.Arcade
             /// Blinks when any invincible flag is set
             /// </summary>
             HealthManager,
+
             /// <summary>
             /// Blinks when Overflow flag is set
             /// </summary>
-            HealthLimiter
+            HealthLimiter,
         }
 
         [Serializable, NetSerializable]
@@ -24,7 +25,7 @@ namespace Content.Shared.Arcade
             Heal,
             Recharge,
             NewGame,
-            RequestData
+            RequestData,
         }
 
         [Serializable, NetSerializable]

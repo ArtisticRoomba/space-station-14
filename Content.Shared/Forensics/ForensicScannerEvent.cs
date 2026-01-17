@@ -38,7 +38,7 @@ namespace Content.Shared.Forensics
     [Serializable, NetSerializable]
     public enum ForensicScannerUiKey : byte
     {
-        Key
+        Key,
     }
 
     [Serializable, NetSerializable]

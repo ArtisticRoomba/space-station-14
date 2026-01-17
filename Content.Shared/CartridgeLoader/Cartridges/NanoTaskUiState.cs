@@ -11,7 +11,7 @@ public enum NanoTaskPriority : byte
     High,
     Medium,
     Low,
-};
+}
 
 /// <summary>
 ///     The data relating to a single NanoTask item, but not its identifier
@@ -51,11 +51,12 @@ public sealed partial class NanoTaskItem
         IsTaskDone = isTaskDone;
         Priority = priority;
     }
+
     public bool Validate()
     {
         return Description.Length <= MaximumStringLength && TaskIsFor.Length <= MaximumStringLength;
     }
-};
+}
 
 /// <summary>
 ///     Pairs a NanoTask item and its identifier
@@ -71,7 +72,7 @@ public sealed partial class NanoTaskItemAndId
         Id = id;
         Data = data;
     }
-};
+}
 
 /// <summary>
 ///     The UI state of the NanoTask

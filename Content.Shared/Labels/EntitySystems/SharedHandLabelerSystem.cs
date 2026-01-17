@@ -105,7 +105,7 @@ public abstract class SharedHandLabelerSystem : EntitySystem
                 {
                     AddLabelTo(ent, user, target);
                 },
-                Text = Loc.GetString("hand-labeler-add-label-text")
+                Text = Loc.GetString("hand-labeler-add-label-text"),
             };
 
             args.Verbs.Add(labelVerb);

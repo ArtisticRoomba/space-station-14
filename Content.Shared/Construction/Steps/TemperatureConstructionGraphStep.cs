@@ -26,7 +26,7 @@ namespace Content.Shared.Construction.Steps
             return new ConstructionGuideEntry()
             {
                 Localization = "construction-presenter-temperature-step",
-                Arguments = new (string, object)[] { ("temperature", guideTemperature) }
+                Arguments = new (string, object)[] { ("temperature", guideTemperature) },
             };
         }
     }

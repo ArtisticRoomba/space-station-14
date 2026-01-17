@@ -112,7 +112,7 @@ namespace Content.Shared.Entry
             {
                 foreach (var node in sequence.Sequence)
                 {
-                    var path = new ResPath(((ValueDataNode) node).Value);
+                    var path = new ResPath(((ValueDataNode)node).Value);
 
                     if (string.IsNullOrEmpty(path.Extension))
                     {
@@ -141,8 +141,9 @@ namespace Content.Shared.Entry
                 if (documents == null)
                     continue;
 
-                sequence.Add((SequenceDataNode) documents.Root);
+                sequence.Add((SequenceDataNode)documents.Root);
             }
+
             return true;
         }
     }

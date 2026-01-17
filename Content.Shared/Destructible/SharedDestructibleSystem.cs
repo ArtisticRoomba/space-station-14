@@ -34,7 +34,6 @@ public abstract class SharedDestructibleSystem : EntitySystem
 /// </summary>
 public sealed class DestructionAttemptEvent : CancellableEntityEventArgs
 {
-
 }
 
 /// <summary>
@@ -42,7 +41,6 @@ public sealed class DestructionAttemptEvent : CancellableEntityEventArgs
 /// </summary>
 public sealed class DestructionEventArgs : EntityEventArgs
 {
-
 }
 
 /// <summary>
@@ -50,5 +48,4 @@ public sealed class DestructionEventArgs : EntityEventArgs
 /// </summary>
 public sealed class BreakageEventArgs : EntityEventArgs
 {
-
 }

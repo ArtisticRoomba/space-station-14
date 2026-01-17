@@ -28,5 +28,5 @@ public sealed partial class LinkedEntityComponent : Component
 [Serializable, NetSerializable]
 public enum LinkedEntityVisuals : byte
 {
-    HasAnyLinks
+    HasAnyLinks,
 }

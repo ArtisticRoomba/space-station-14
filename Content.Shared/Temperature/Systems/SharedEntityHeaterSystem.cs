@@ -52,7 +52,7 @@ public abstract partial class SharedEntityHeaterSystem : EntitySystem
             Act = () =>
             {
                 ChangeSetting(ent, nextSetting, user);
-            }
+            },
         });
     }
 

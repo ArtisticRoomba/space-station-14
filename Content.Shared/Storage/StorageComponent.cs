@@ -22,6 +22,7 @@ namespace Content.Shared.Storage
         public const byte ChunkSize = 8;
 
         // No datafield because we can just derive it from stored items.
+
         /// <summary>
         /// Bitmask of occupied tiles
         /// </summary>
@@ -299,13 +300,13 @@ namespace Content.Shared.Storage
         Open,
         HasContents,
         StorageUsed,
-        Capacity
+        Capacity,
     }
 
     [Serializable, NetSerializable]
     public enum StorageDefaultOrientation : byte
     {
         Horizontal,
-        Vertical
+        Vertical,
     }
 }

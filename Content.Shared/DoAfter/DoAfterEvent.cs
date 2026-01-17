@@ -15,7 +15,8 @@ public abstract partial class DoAfterEvent : HandledEntityEventArgs
     [NonSerialized]
     public DoAfter DoAfter = default!;
 
-    //TODO: User pref to toggle repeat on specific doafters
+    // TODO: User pref to toggle repeat on specific doafters
+
     /// <summary>
     ///     If set to true while handling this event, then the DoAfter will automatically be repeated.
     /// </summary>
@@ -72,7 +73,8 @@ public sealed partial class AwaitedDoAfterEvent : SimpleDoAfterEvent
 ///     This event will optionally get raised every tick while a do-after is in progress to check whether the do-after
 ///     should be canceled.
 /// </summary>
-public sealed partial class DoAfterAttemptEvent<TEvent> : CancellableEntityEventArgs where TEvent : DoAfterEvent
+public sealed partial class DoAfterAttemptEvent<TEvent> : CancellableEntityEventArgs
+    where TEvent : DoAfterEvent
 {
     /// <summary>
     ///     The do after that triggered this event.

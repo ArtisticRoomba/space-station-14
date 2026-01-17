@@ -1,6 +1,7 @@
 ﻿using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityConditions.Conditions;
+
 ///<summary>
 /// A basic summary of this condition.
 /// </summary>

@@ -180,7 +180,7 @@ public sealed class SimpleCensor : IChatCensor
             var endOfFoundWord = 0;
             var foundIndex = input.IndexOf(word, endOfFoundWord, StringComparison.OrdinalIgnoreCase);
 
-            while(foundIndex > -1)
+            while (foundIndex > -1)
             {
                 endOfFoundWord = foundIndex + wordLength;
 
@@ -209,7 +209,7 @@ public sealed class SimpleCensor : IChatCensor
             var endOfFoundWord = 0;
             var foundIndex = input.IndexOf(word, endOfFoundWord, StringComparison.OrdinalIgnoreCase);
 
-            while(foundIndex > -1)
+            while (foundIndex > -1)
             {
                 endOfFoundWord = foundIndex + wordLength;
 
@@ -331,7 +331,7 @@ public sealed class SimpleCensor : IChatCensor
                 ['3'] = 'e',
                 ['5'] = 's',
                 ['9'] = 'g',
-                ['<'] = 'c'
+                ['<'] = 'c',
             }.ToFrozenDictionary();
         }
 

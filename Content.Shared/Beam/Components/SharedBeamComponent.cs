@@ -2,6 +2,7 @@
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Beam.Components;
+
 /// <summary>
 /// Use this as a generic beam. Not for something like a laser gun, more for something continuous like lightning.
 /// </summary>

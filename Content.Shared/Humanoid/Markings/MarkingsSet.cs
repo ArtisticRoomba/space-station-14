@@ -292,8 +292,7 @@ public sealed partial class MarkingSet
                             prototype,
                             skinColor,
                             eyeColor,
-                            this
-                        );
+                            this);
                     var marking = new Marking(points.DefaultMarkings[index], colors);
 
                     AddBack(category, marking);

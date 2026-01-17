@@ -1,7 +1,7 @@
+using System.Linq;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using System.Linq;
 
 namespace Content.Shared.Chemistry.Reagent;
 

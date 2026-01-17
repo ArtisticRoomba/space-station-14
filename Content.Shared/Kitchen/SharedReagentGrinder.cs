@@ -65,20 +65,20 @@ namespace Content.Shared.Kitchen
     [Serializable, NetSerializable]
     public enum ReagentGrinderVisualState : byte
     {
-        BeakerAttached
+        BeakerAttached,
     }
 
     [Serializable, NetSerializable]
     public enum GrinderProgram : byte
     {
         Grind,
-        Juice
+        Juice,
     }
 
     [NetSerializable, Serializable]
     public enum ReagentGrinderUiKey : byte
     {
-        Key
+        Key,
     }
 
     [Serializable, NetSerializable]
@@ -86,7 +86,7 @@ namespace Content.Shared.Kitchen
     {
         Off,
         Grind,
-        Juice
+        Juice,
     }
 
     [NetSerializable, Serializable]

@@ -32,6 +32,7 @@ namespace Content.Shared.Construction.Conditions
                 if (tile.ID == targetTile)
                     return true;
             }
+
             return false;
         }
 

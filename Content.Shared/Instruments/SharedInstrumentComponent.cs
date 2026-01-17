@@ -178,6 +178,7 @@ public sealed class MidiTrack
     /// The first specified Track Name
     /// </summary>
     public string? TrackName;
+
     /// <summary>
     /// The first specified instrument name
     /// </summary>

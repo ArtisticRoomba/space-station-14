@@ -1,7 +1,7 @@
+using System.Text;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using System.Text;
 namespace Content.Shared.Cargo
 {
     [DataDefinition, NetSerializable, Serializable]
@@ -51,7 +51,7 @@ namespace Content.Shared.Cargo
         // public int RequesterId;
         [DataField]
         public string Reason { get; private set; }
-        public  bool Approved;
+        public bool Approved;
         [DataField]
         public string? Approver;
 
@@ -85,10 +85,12 @@ namespace Content.Shared.Cargo
             {
                 sb.Append($"{fullName} ");
             }
+
             if (!string.IsNullOrWhiteSpace(jobTitle))
             {
                 sb.Append($"({jobTitle})");
             }
+
             Approver = sb.ToString();
         }
     }

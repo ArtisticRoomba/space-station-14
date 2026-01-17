@@ -42,6 +42,7 @@ public static class Identity
         {
             return identName;
         }
+
         if (uidName == identName)
         {
             return uidName;

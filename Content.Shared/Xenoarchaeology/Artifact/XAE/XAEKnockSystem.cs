@@ -9,6 +9,7 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAE;
 public sealed class XAEKnockSystem : BaseXAESystem<XAEKnockComponent>
 {
     [Dependency] private readonly SharedMagicSystem _magic = default!;
+
     /// <inheritdoc />
     protected override void OnActivated(Entity<XAEKnockComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {

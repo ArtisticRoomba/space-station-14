@@ -443,6 +443,7 @@ namespace Content.Shared.Chemistry.Components
                 var old = Contents[i];
                 Contents[i] = new ReagentQuantity(old.Reagent, old.Quantity * scale);
             }
+
             ValidateSolution();
         }
 
@@ -538,8 +539,8 @@ namespace Content.Shared.Chemistry.Components
                         continue;
                 }
 
-                //We prepend instead of add to handle the Contents list back-to-front later down.
-                //It makes RemoveSwap safe to use.
+                // We prepend instead of add to handle the Contents list back-to-front later down.
+                // It makes RemoveSwap safe to use.
                 totalRemoveVolume += quantity.Value;
                 reagentIndices.Insert(0, i);
             }
@@ -579,6 +580,7 @@ namespace Content.Shared.Chemistry.Components
                 Volume -= splitQuantity;
                 removedQuantity += splitQuantity;
             }
+
             ValidateSolution();
 
             return removedQuantity;
@@ -794,7 +796,7 @@ namespace Content.Shared.Chemistry.Components
             var effVol = Volume.Value;
             Volume -= toTake;
             var remaining = (long)toTake.Value;
-            for (var i = Contents.Count - 1; i >= 0; i--)// iterate backwards because of remove swap.
+            for (var i = Contents.Count - 1; i >= 0; i--) // iterate backwards because of remove swap.
             {
                 var (reagent, quantity) = Contents[i];
 
@@ -916,6 +918,7 @@ namespace Content.Shared.Chemistry.Components
                 var interpolateValue = quantity.Float() / runningTotalQuantity.Float();
                 mixColor = Color.InterpolateBetween(mixColor, proto.SubstanceColor, interpolateValue);
             }
+
             return mixColor;
         }
 
@@ -959,6 +962,7 @@ namespace Content.Shared.Chemistry.Components
                 var interpolateValue = quantity.Float() / runningTotalQuantity.Float();
                 mixColor = Color.InterpolateBetween(mixColor, proto.SubstanceColor, interpolateValue);
             }
+
             return mixColor;
         }
 
@@ -1000,6 +1004,7 @@ namespace Content.Shared.Chemistry.Components
                 var proto = protoMan.Index<ReagentPrototype>(reagent.Prototype);
                 dict[proto] = quantity + dict.GetValueOrDefault(proto);
             }
+
             return dict;
         }
 
@@ -1010,6 +1015,7 @@ namespace Content.Shared.Chemistry.Components
                 var old = Contents[i];
                 Contents[i] = new ReagentQuantity(new ReagentId(old.Reagent.Prototype, data), old.Quantity);
             }
+
             ValidateSolution();
         }
     }

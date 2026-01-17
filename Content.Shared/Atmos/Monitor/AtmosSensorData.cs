@@ -28,18 +28,22 @@ public sealed class AtmosSensorData : IAtmosDeviceData
     ///     Current pressure detected by this sensor.
     /// </summary>
     public float Pressure { get; }
+
     /// <summary>
     ///     Current temperature detected by this sensor.
     /// </summary>
     public float Temperature { get; }
+
     /// <summary>
     ///     Current amount of moles detected by this sensor.
     /// </summary>
     public float TotalMoles { get; }
+
     /// <summary>
     ///     Current alarm state of this sensor. Does not reflect the highest alarm state on the network.
     /// </summary>
     public AtmosAlarmType AlarmState { get; }
+
     /// <summary>
     ///     Current number of gases on this sensor.
     /// </summary>

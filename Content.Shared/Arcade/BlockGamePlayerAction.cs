@@ -18,6 +18,6 @@ namespace Content.Shared.Arcade
         Pause,
         Unpause,
         Hold,
-        ShowHighscores
+        ShowHighscores,
     }
 }

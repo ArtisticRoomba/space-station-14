@@ -201,8 +201,7 @@ public sealed partial class StatusEffectsSystem : EntitySystem
         EntProtoId effectProto,
         [NotNullWhen(true)] out EntityUid? statusEffect,
         TimeSpan? duration = null,
-        TimeSpan? delay = null
-    )
+        TimeSpan? delay = null)
     {
         statusEffect = null;
 

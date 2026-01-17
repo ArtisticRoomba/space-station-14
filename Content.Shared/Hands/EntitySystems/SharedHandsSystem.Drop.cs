@@ -51,7 +51,7 @@ public abstract partial class SharedHandsSystem
 
     private bool ShouldIgnoreRestrictions(EntityUid user)
     {
-        //Checks if the Entity is something that shouldn't care about drop distance or walls ie Aghost
+        // Checks if the Entity is something that shouldn't care about drop distance or walls ie Aghost
         return !_tagSystem.HasTag(user, BypassDropChecksTag);
     }
 

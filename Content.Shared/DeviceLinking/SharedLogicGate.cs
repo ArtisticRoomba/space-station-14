@@ -14,7 +14,7 @@ public enum LogicGate : byte
     Xor,
     Nor,
     Nand,
-    Xnor
+    Xnor,
 }
 
 /// <summary>
@@ -26,7 +26,7 @@ public enum LogicGateVisuals : byte
     Gate,
     InputA,
     InputB,
-    Output
+    Output,
 }
 
 /// <summary>
@@ -38,7 +38,7 @@ public enum LogicGateLayers : byte
     Gate,
     InputA,
     InputB,
-    Output
+    Output,
 }
 
 /// <summary>
@@ -50,5 +50,5 @@ public enum SignalState : byte
 {
     Momentary, // Instantaneous pulse high, compatibility behavior
     Low,
-    High
+    High,
 }

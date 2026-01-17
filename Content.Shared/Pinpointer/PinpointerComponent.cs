@@ -71,5 +71,5 @@ public enum Distance : byte
     Reached,
     Close,
     Medium,
-    Far
+    Far,
 }

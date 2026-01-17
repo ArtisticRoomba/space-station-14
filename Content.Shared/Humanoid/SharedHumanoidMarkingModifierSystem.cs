@@ -6,7 +6,7 @@ namespace Content.Shared.Humanoid;
 [Serializable, NetSerializable]
 public enum HumanoidMarkingModifierKey
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
@@ -46,8 +46,7 @@ public sealed class HumanoidMarkingModifierState : BoundUserInterfaceState
         string species,
         Sex sex,
         Color skinColor,
-        Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> customBaseLayers
-    )
+        Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> customBaseLayers)
     {
         MarkingSet = markingSet;
         Species = species;

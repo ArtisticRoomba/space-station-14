@@ -45,6 +45,7 @@ namespace Content.Shared.Examine
 
         // TODO custom type serializer, or just make this work via some other automatic grouping process that doesn't
         // rely on manually specifying component names in yaml.
+
         /// <summary>
         ///     A list of all components this ExamineGroup encompasses.
         /// </summary>
@@ -109,5 +110,4 @@ namespace Content.Shared.Examine
             Component = default!;
         }
     }
-
 }

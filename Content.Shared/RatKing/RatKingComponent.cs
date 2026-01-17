@@ -97,7 +97,7 @@ public sealed partial class RatKingComponent : Component
         { RatKingOrderType.Stay, "RatKingCommandStay" },
         { RatKingOrderType.Follow, "RatKingCommandFollow" },
         { RatKingOrderType.CheeseEm, "RatKingCommandCheeseEm" },
-        { RatKingOrderType.Loose, "RatKingCommandLoose" }
+        { RatKingOrderType.Loose, "RatKingCommandLoose" },
     };
 }
 
@@ -107,5 +107,5 @@ public enum RatKingOrderType : byte
     Stay,
     Follow,
     CheeseEm,
-    Loose
+    Loose,
 }

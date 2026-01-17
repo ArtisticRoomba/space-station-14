@@ -160,6 +160,7 @@ public abstract class SharedIdCardSystem : EntitySystem
             _adminLogger.Add(LogType.Identity, LogImpact.Low,
                 $"{ToPrettyString(player.Value):player} has changed the job title of {ToPrettyString(uid):entity} to {jobTitle} ");
         }
+
         return true;
     }
 
@@ -254,6 +255,7 @@ public abstract class SharedIdCardSystem : EntitySystem
             _adminLogger.Add(LogType.Identity, LogImpact.Low,
                 $"{ToPrettyString(player.Value):player} has changed the name of {ToPrettyString(uid):entity} to {fullName} ");
         }
+
         return true;
     }
 

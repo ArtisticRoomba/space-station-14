@@ -18,6 +18,7 @@ public abstract class SharedStationRecordsSystem : EntitySystem
     {
         return new StationRecordKey(input.Item2, GetEntity(input.Item1));
     }
+
     public (NetEntity, uint) Convert(StationRecordKey input)
     {
         return (GetNetEntity(input.OriginStation), input.Id);
@@ -30,6 +31,7 @@ public abstract class SharedStationRecordsSystem : EntitySystem
         {
             result.Add(Convert(entry));
         }
+
         return result;
     }
 
@@ -40,6 +42,7 @@ public abstract class SharedStationRecordsSystem : EntitySystem
         {
             result.Add(Convert(entry));
         }
+
         return result;
     }
 

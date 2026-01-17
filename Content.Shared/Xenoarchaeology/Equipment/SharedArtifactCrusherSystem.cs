@@ -97,7 +97,7 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
         {
             Text = Loc.GetString("artifact-crusher-verb-start-crushing"),
             Priority = 2,
-            Act = () => StartCrushing((ent, ent.Comp, entityStorageComp), user)
+            Act = () => StartCrushing((ent, ent.Comp, entityStorageComp), user),
         };
         args.Verbs.Add(verb);
     }
@@ -162,6 +162,7 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
                 {
                     _damageable.TryChangeDamage(contained, crusher.CrushingDamage);
                 }
+
                 crusher.NextSecond += TimeSpan.FromSeconds(1);
                 Dirty(uid, crusher);
             }

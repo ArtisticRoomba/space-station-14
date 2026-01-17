@@ -313,7 +313,7 @@ public abstract partial class SharedMindSystem : EntitySystem
         if (mindId == null || !Resolve(mindId.Value, ref mind, false))
             return;
 
-        TransferTo(mindId.Value, null, createGhost:false, mind: mind);
+        TransferTo(mindId.Value, null, createGhost: false, mind: mind);
         SetUserId(mindId.Value, null, mind: mind);
     }
 
@@ -391,17 +391,20 @@ public abstract partial class SharedMindSystem : EntitySystem
         return true;
     }
 
-    public bool TryGetObjectiveComp<T>(EntityUid uid, [NotNullWhen(true)] out T? objective) where T : IComponent
+    public bool TryGetObjectiveComp<T>(EntityUid uid, [NotNullWhen(true)] out T? objective)
+        where T : IComponent
     {
         if (TryGetMind(uid, out var mindId, out var mind) && TryGetObjectiveComp(mindId, out objective, mind))
         {
             return true;
         }
+
         objective = default;
         return false;
     }
 
-    public bool TryGetObjectiveComp<T>(EntityUid mindId, [NotNullWhen(true)] out T? objective, MindComponent? mind = null) where T : IComponent
+    public bool TryGetObjectiveComp<T>(EntityUid mindId, [NotNullWhen(true)] out T? objective, MindComponent? mind = null)
+        where T : IComponent
     {
         if (Resolve(mindId, ref mind))
         {
@@ -414,6 +417,7 @@ public abstract partial class SharedMindSystem : EntitySystem
                 }
             }
         }
+
         objective = default;
         return false;
     }

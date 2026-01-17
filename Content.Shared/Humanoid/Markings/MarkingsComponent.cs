@@ -21,6 +21,4 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("layerPoints")]
         public Dictionary<MarkingCategories, MarkingPoints> LayerPoints = new();
     }
-
-
 }

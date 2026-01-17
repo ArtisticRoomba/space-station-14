@@ -134,7 +134,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
             {
                 TryDisguise(ent, user, target);
             },
-            Text = Loc.GetString("chameleon-projector-set-disguise")
+            Text = Loc.GetString("chameleon-projector-set-disguise"),
         });
     }
 
@@ -316,7 +316,8 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     /// <remarks>
     /// This would probably be a good thing to add to engine in the future.
     /// </remarks>
-    protected bool CopyComp<T>(Entity<ChameleonDisguiseComponent> ent) where T: Component, new()
+    protected bool CopyComp<T>(Entity<ChameleonDisguiseComponent> ent)
+        where T : Component, new()
     {
         if (!GetSrcComp<T>(ent.Comp, out var src))
             return true;
@@ -332,7 +333,8 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     /// <summary>
     /// Try to get a single component from the source entity/prototype.
     /// </summary>
-    private bool GetSrcComp<T>(ChameleonDisguiseComponent comp, [NotNullWhen(true)] out T? src) where T : Component, new()
+    private bool GetSrcComp<T>(ChameleonDisguiseComponent comp, [NotNullWhen(true)] out T? src)
+        where T : Component, new()
     {
         if (TryComp(comp.SourceEntity, out src))
             return true;

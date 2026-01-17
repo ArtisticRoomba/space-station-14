@@ -48,26 +48,26 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly IMapManager MapManager = default!;
-    [Dependency] private   readonly INetManager _netMan = default!;
-    [Dependency] private   readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private   readonly IRobustRandom _random = default!;
+    [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
     [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;
-    [Dependency] private   readonly SharedHandsSystem _hands = default!;
-    [Dependency] private   readonly InventorySystem _inventory = default!;
-    [Dependency] private   readonly MeleeSoundSystem _meleeSound = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly MeleeSoundSystem _meleeSound = default!;
     [Dependency] protected readonly MobStateSystem MobState = default!;
-    [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] protected readonly SharedCombatModeSystem CombatMode = default!;
     [Dependency] protected readonly SharedInteractionSystem Interaction = default!;
-    [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-    [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private   readonly DamageExamineSystem _damageExamine = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
 
-    private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
+    private const int AttackMask = (int)(CollisionGroup.MobMask | CollisionGroup.Opaque);
 
     /// <summary>
     /// Maximum amount of targets allowed for a wide-attack.
@@ -139,6 +139,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
     }
+
     private void OnMeleeSelected(EntityUid uid, MeleeWeaponComponent component, HandSelectedEvent args)
     {
         var attackRate = GetAttackRate(uid, args.User, component);
@@ -515,6 +516,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     LogImpact.Low,
                     $"{ToPrettyString(user):actor} melee attacked (light) using {ToPrettyString(meleeUid):tool} and missed");
             }
+
             var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, null);
             RaiseLocalEvent(meleeUid, missEvent);
             _meleeSound.PlaySwingSound(user, meleeUid, component);
@@ -532,7 +534,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var targets = new List<EntityUid>(1)
         {
-            target.Value
+            target.Value,
         };
 
         var weapon = GetEntity(ev.Weapon);
@@ -550,7 +552,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
+        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin: user, ignoreResistances: resistanceBypass))
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
@@ -616,6 +618,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     LogImpact.Low,
                     $"{ToPrettyString(user):actor} melee attacked (heavy) using {ToPrettyString(meleeUid):tool} and missed");
             }
+
             var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, direction);
             RaiseLocalEvent(meleeUid, missEvent);
 
@@ -750,7 +753,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     {
         // TODO: This is pretty sucky.
         var widthRad = arcWidth;
-        var increments = 1 + 35 * (int) Math.Ceiling(widthRad / (2 * Math.PI));
+        var increments = 1 + 35 * (int)Math.Ceiling(widthRad / (2 * Math.PI));
         var increment = widthRad / increments;
         var baseAngle = angle - widthRad / 2;
 
@@ -946,7 +949,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         if (eventArgs.IsStunned)
         {
-
             PopupSystem.PopupEntity(Loc.GetString("stunned-component-disarm-success-others", ("source", userEnt), ("target", targetEnt)), targetEnt, Filter.PvsExcept(user), true, PopupType.LargeCaution);
             PopupSystem.PopupCursor(Loc.GetString("stunned-component-disarm-success", ("target", targetEnt)), user, PopupType.Large);
 
@@ -994,7 +996,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         {
             if (itemToggleMelee.ActivatedDamage != null)
             {
-                //Setting deactivated damage to the weapon's regular value before changing it.
+                // Setting deactivated damage to the weapon's regular value before changing it.
                 itemToggleMelee.DeactivatedDamage ??= meleeWeapon.Damage;
                 meleeWeapon.Damage = itemToggleMelee.ActivatedDamage;
                 DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.Damage));
@@ -1008,7 +1010,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             if (itemToggleMelee.ActivatedSoundOnHitNoDamage != null)
             {
-                //Setting the deactivated sound on no damage hit to the weapon's regular value before changing it.
+                // Setting the deactivated sound on no damage hit to the weapon's regular value before changing it.
                 itemToggleMelee.DeactivatedSoundOnHitNoDamage ??= meleeWeapon.NoDamageSound;
                 meleeWeapon.NoDamageSound = itemToggleMelee.ActivatedSoundOnHitNoDamage;
                 DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.NoDamageSound));
@@ -1016,7 +1018,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             if (itemToggleMelee.ActivatedSoundOnSwing != null)
             {
-                //Setting the deactivated sound on no damage hit to the weapon's regular value before changing it.
+                // Setting the deactivated sound on no damage hit to the weapon's regular value before changing it.
                 itemToggleMelee.DeactivatedSoundOnSwing ??= meleeWeapon.SwingSound;
                 meleeWeapon.SwingSound = itemToggleMelee.ActivatedSoundOnSwing;
                 DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.SwingSound));

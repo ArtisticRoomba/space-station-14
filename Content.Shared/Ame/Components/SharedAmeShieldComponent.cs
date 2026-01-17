@@ -11,7 +11,7 @@ public partial class SharedAmeShieldComponent : Component
 public enum AmeShieldVisuals
 {
     Core,
-    CoreState
+    CoreState,
 }
 
 [Serializable, NetSerializable]
@@ -19,5 +19,5 @@ public enum AmeCoreState
 {
     Off,
     Weak,
-    Strong
+    Strong,
 }

@@ -236,6 +236,7 @@ namespace Content.Shared.Movement.Systems
             ModifyAcceleration(modifier, modifier);
         }
     }
+
     [ByRefEvent]
     public record struct RefreshFrictionModifiersEvent : IInventoryRelayEvent
     {
@@ -258,6 +259,7 @@ namespace Content.Shared.Movement.Systems
         {
             Acceleration *= acceleration;
         }
-        SlotFlags IInventoryRelayEvent.TargetSlots =>  ~SlotFlags.POCKET;
+
+        SlotFlags IInventoryRelayEvent.TargetSlots => ~SlotFlags.POCKET;
     }
 }

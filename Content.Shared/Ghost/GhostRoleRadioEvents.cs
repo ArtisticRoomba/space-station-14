@@ -17,5 +17,5 @@ public sealed class GhostRoleRadioMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public enum GhostRoleRadioUiKey : byte
 {
-    Key
+    Key,
 }

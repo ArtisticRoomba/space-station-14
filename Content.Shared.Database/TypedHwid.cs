@@ -43,7 +43,7 @@ public sealed class ImmutableTypedHwid(ImmutableArray<byte> hwid, HwidType type)
     private static int GetBase64ByteLength(string value)
     {
         // Why is .NET like this man wtf.
-        return 3 * (value.Length / 4) - value.TakeLast(2).Count(c => c == '=');
+        return (3 * (value.Length / 4)) - value.TakeLast(2).Count(c => c == '=');
     }
 }
 

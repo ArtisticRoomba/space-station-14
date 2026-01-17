@@ -6,5 +6,5 @@ namespace Content.Shared.Spreader;
 public enum KudzuVisuals : byte
 {
     GrowthLevel,
-    Variant
+    Variant,
 }

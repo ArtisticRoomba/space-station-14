@@ -12,6 +12,7 @@ namespace Content.Shared.DoAfter;
 public sealed partial class DoAfterArgsComponent : Component
 {
     #region DoAfterArgsSettings
+
     /// <summary>
     /// <inheritdoc cref="DoAfterArgs.AttemptFrequency"/>
     /// </summary>
@@ -43,6 +44,7 @@ public sealed partial class DoAfterArgsComponent : Component
     public bool Repeat;
 
     #region Break/Cancellation Options
+
     /// <summary>
     /// <inheritdoc cref="DoAfterArgs.NeedHand"/>
     /// </summary>

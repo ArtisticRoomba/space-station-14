@@ -98,7 +98,7 @@ public abstract class SharedPoweredLightSystem : EntitySystem
 
         var userUid = args.User;
 
-        //removing a broken/burned bulb, so allow instant removal
+        // removing a broken/burned bulb, so allow instant removal
         if (TryComp<LightBulbComponent>(bulbUid.Value, out var bulb) && bulb.State != LightBulbState.Normal)
         {
             args.Handled = EjectBulb(uid, userUid, light) != null;
@@ -305,6 +305,7 @@ public abstract class SharedPoweredLightSystem : EntitySystem
                     SetLight(uid, false, light: light);
                     _appearance.SetData(uid, PoweredLightVisuals.BulbState, PoweredLightState.Off, appearance);
                 }
+
                 break;
             case LightBulbState.Broken:
                 SetLight(uid, false, light: light);

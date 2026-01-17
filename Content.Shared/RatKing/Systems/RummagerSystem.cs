@@ -10,7 +10,7 @@ namespace Content.Shared.RatKing.Systems;
 
 public sealed class RummagerSystem : EntitySystem
 {
-    [Dependency] private readonly EntityTableSystem _entityTable =  default!;
+    [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -49,7 +49,7 @@ public sealed class RummagerSystem : EntitySystem
                     BreakOnMove = true,
                     DistanceThreshold = 2f
                 });
-            }
+            },
         });
     }
 

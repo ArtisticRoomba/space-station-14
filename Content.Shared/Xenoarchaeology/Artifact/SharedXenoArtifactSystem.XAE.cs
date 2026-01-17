@@ -58,8 +58,7 @@ public abstract partial class SharedXenoArtifactSystem
         EntityUid? user,
         EntityUid? target,
         EntityCoordinates coordinates,
-        bool consumeDurability = true
-    )
+        bool consumeDurability = true)
     {
         XenoArtifactComponent xenoArtifactComponent = artifact;
         if (xenoArtifactComponent.Suppressed)
@@ -86,8 +85,7 @@ public abstract partial class SharedXenoArtifactSystem
             artifact,
             user,
             target,
-            coordinates
-        );
+            coordinates);
         RaiseLocalEvent(artifact, ref ev);
 
         if (user.HasValue)
@@ -114,8 +112,7 @@ public abstract partial class SharedXenoArtifactSystem
         EntityUid? user,
         EntityUid? target,
         EntityCoordinates coordinates,
-        bool consumeDurability = true
-    )
+        bool consumeDurability = true)
     {
         if (node.Comp.Degraded)
             return false;
@@ -123,8 +120,7 @@ public abstract partial class SharedXenoArtifactSystem
         _adminLogger.Add(
             LogType.ArtifactNode,
             LogImpact.Low,
-            $"{ToPrettyString(artifact.Owner)} node {ToPrettyString(node)} got activated at {coordinates}"
-        );
+            $"{ToPrettyString(artifact.Owner)} node {ToPrettyString(node)} got activated at {coordinates}");
         if (consumeDurability)
         {
             AdjustNodeDurability((node, node.Comp), -1);
@@ -150,13 +146,11 @@ public readonly record struct XenoArtifactNodeActivatedEvent(
     Entity<XenoArtifactNodeComponent> Node,
     EntityUid? User,
     EntityUid? Target,
-    EntityCoordinates Coordinates
-);
+    EntityCoordinates Coordinates);
 
 [ByRefEvent]
 public readonly record struct XenoArtifactActivatedEvent(
     Entity<XenoArtifactComponent> Artifact,
     EntityUid? User,
     EntityUid? Target,
-    EntityCoordinates Coordinates
-);
+    EntityCoordinates Coordinates);

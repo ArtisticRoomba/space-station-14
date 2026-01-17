@@ -5,6 +5,6 @@ namespace Content.Shared.MachineLinking
     [Serializable, NetSerializable]
     public enum SignalLinkerUiKey
     {
-        Key
+        Key,
     }
 }

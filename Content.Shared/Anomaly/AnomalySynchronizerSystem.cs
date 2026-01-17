@@ -162,7 +162,7 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
         ent.Comp.ConnectedAnomaly = anomaly;
         Dirty(ent);
 
-        //move the anomaly to the center of the synchronizer, for aesthetics.
+        // move the anomaly to the center of the synchronizer, for aesthetics.
         var targetXform = _transform.GetWorldPosition(ent);
         _transform.SetWorldPosition(anomaly, targetXform);
 
@@ -173,8 +173,8 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
         _audio.PlayPredicted(ent.Comp.ConnectedSound, ent, user);
     }
 
-    //TODO: disconnection from the anomaly should also be triggered if the anomaly is far away from the synchronizer.
-    //Currently only bluespace anomaly can do this, but for some reason it is the only one that cannot be connected to the synchronizer.
+    // TODO: disconnection from the anomaly should also be triggered if the anomaly is far away from the synchronizer.
+    // Currently only bluespace anomaly can do this, but for some reason it is the only one that cannot be connected to the synchronizer.
     private void DisconnectFromAnomaly(Entity<AnomalySynchronizerComponent> ent, EntityUid? user = null)
     {
         if (ent.Comp.ConnectedAnomaly == null)
@@ -218,10 +218,10 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
             if (!_power.IsPowered(uid))
                 continue;
 
-            //The superscritical port is invoked not at the AnomalySupercriticalEvent,
-            //but at the moment the growth animation starts. Otherwise, there is no point in this port.
-            //ATTENTION! the console command supercriticalanomaly does not work here,
-            //as it forcefully causes growth to start without increasing severity.
+            // The superscritical port is invoked not at the AnomalySupercriticalEvent,
+            // but at the moment the growth animation starts. Otherwise, there is no point in this port.
+            // ATTENTION! the console command supercriticalanomaly does not work here,
+            // as it forcefully causes growth to start without increasing severity.
             if (args.Severity >= 1)
                 _deviceLink.InvokePort(uid, component.SupercritPort);
         }

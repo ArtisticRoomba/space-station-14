@@ -5,6 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityEffects.Effects.StatusEffects;
 
 // TODO: When Jittering is moved to new Status, make this use StatusEffectsContainerComponent.
+
 /// <summary>
 /// Applies the Jittering Status Effect to this entity.
 /// The amount of time the Jittering is applied is modified by scale.

@@ -28,6 +28,7 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
                 {
                     return solution;
                 }
+
                 break;
             case GrinderProgram.Juice:
                 return ent.Comp.JuiceSolution;

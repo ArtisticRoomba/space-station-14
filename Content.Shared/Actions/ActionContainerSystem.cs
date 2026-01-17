@@ -47,7 +47,7 @@ public sealed class ActionContainerSystem : EntitySystem
         if (!TryComp<ActionsContainerComponent>(mindId, out var mindActionContainerComp))
             return;
 
-        if (!HasComp<GhostComponent>(uid) && mindActionContainerComp.Container.ContainedEntities.Count > 0 )
+        if (!HasComp<GhostComponent>(uid) && mindActionContainerComp.Container.ContainedEntities.Count > 0)
             _actions.GrantContainedActions(uid, mindId);
     }
 

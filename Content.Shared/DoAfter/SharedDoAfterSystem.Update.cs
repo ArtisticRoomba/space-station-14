@@ -57,6 +57,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
                     comp.DoAfters.Remove(doAfter.Index);
                     dirty = true;
                 }
+
                 continue;
             }
 
@@ -67,6 +68,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
                     comp.DoAfters.Remove(doAfter.Index);
                     dirty = true;
                 }
+
                 continue;
             }
 
@@ -112,7 +114,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         else
             RaiseLocalEvent(doAfter.AttemptEvent);
 
-        var ev = (CancellableEntityEventArgs) doAfter.AttemptEvent;
+        var ev = (CancellableEntityEventArgs)doAfter.AttemptEvent;
         if (!ev.Cancelled)
             return true;
 
@@ -150,11 +152,11 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     {
         var args = doAfter.Args;
 
-        //re-using xformQuery for Exists() checks.
+        // re-using xformQuery for Exists() checks.
         if (args.Used is { } used && !xformQuery.HasComponent(used))
             return true;
 
-        if (args.EventTarget is { Valid: true} eventTarget && !xformQuery.HasComponent(eventTarget))
+        if (args.EventTarget is { Valid: true } eventTarget && !xformQuery.HasComponent(eventTarget))
             return true;
 
         if (!xformQuery.TryGetComponent(args.User, out var userXform))

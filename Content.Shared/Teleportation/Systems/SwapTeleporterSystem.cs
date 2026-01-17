@@ -99,7 +99,7 @@ public sealed class SwapTeleporterSystem : EntitySystem
             Act = () =>
             {
                 DestroyLink((uid, comp), user);
-            }
+            },
         });
     }
 
@@ -247,7 +247,7 @@ public sealed class SwapTeleporterSystem : EntitySystem
             if (_timing.CurTime < comp.NextTeleportUse)
             {
                 args.PushMarkup(Loc.GetString("swap-teleporter-examine-time-remaining",
-                    ("second", (int) ((comp.NextTeleportUse - _timing.CurTime).TotalSeconds + 0.5f))));
+                    ("second", (int)((comp.NextTeleportUse - _timing.CurTime).TotalSeconds + 0.5f))));
             }
         }
     }

@@ -7,7 +7,8 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
 /// Base type for xeno artifact trigger systems. Each system should work with 1 trigger mechanics.
 /// </summary>
 /// <typeparam name="T">Type of XAT component that system will work with.</typeparam>
-public abstract class BaseXATSystem<T> : EntitySystem where T : Component
+public abstract class BaseXATSystem<T> : EntitySystem
+    where T : Component
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly SharedXenoArtifactSystem XenoArtifact = default!;
@@ -27,7 +28,8 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
     /// </summary>
     /// <typeparam name="TEvent">Type of event to sub for.</typeparam>
     /// <param name="eventHandler">Delegate that handles event.</param>
-    protected void XATSubscribeDirectEvent<TEvent>(XATEventHandler<TEvent> eventHandler) where TEvent : notnull
+    protected void XATSubscribeDirectEvent<TEvent>(XATEventHandler<TEvent> eventHandler)
+        where TEvent : notnull
     {
         SubscribeLocalEvent<T, XenoArchNodeRelayedEvent<TEvent>>((uid, component, args) =>
         {
@@ -83,6 +85,6 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
     protected delegate void XATEventHandler<TEvent>(
         Entity<XenoArtifactComponent> artifact,
         Entity<T, XenoArtifactNodeComponent> node,
-        ref TEvent args
-    ) where TEvent : notnull;
+        ref TEvent args)
+        where TEvent : notnull;
 }

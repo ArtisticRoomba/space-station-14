@@ -65,7 +65,8 @@ public sealed partial class SharedEntityConditionsSystem : EntitySystem, IEntity
     /// <summary>
     /// Raises a condition to an entity. You should not be calling this unless you know what you're doing.
     /// </summary>
-    public bool RaiseConditionEvent<T>(EntityUid target, T effect) where T : EntityConditionBase<T>
+    public bool RaiseConditionEvent<T>(EntityUid target, T effect)
+        where T : EntityConditionBase<T>
     {
         var effectEv = new EntityConditionEvent<T>(effect);
         RaiseLocalEvent(target, ref effectEv);
@@ -78,13 +79,16 @@ public sealed partial class SharedEntityConditionsSystem : EntitySystem, IEntity
 /// </summary>
 /// <typeparam name="T">The Component that is required for the effect</typeparam>
 /// <typeparam name="TCon">The Condition we're testing</typeparam>
-public abstract partial class EntityConditionSystem<T, TCon> : EntitySystem where T : Component where TCon : EntityConditionBase<TCon>
+public abstract partial class EntityConditionSystem<T, TCon> : EntitySystem
+    where T : Component
+    where TCon : EntityConditionBase<TCon>
 {
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<T, EntityConditionEvent<TCon>>(Condition);
     }
+
     protected abstract void Condition(Entity<T> entity, ref EntityConditionEvent<TCon> args);
 }
 
@@ -93,14 +97,16 @@ public abstract partial class EntityConditionSystem<T, TCon> : EntitySystem wher
 /// </summary>
 public interface IEntityConditionRaiser
 {
-    bool RaiseConditionEvent<T>(EntityUid target, T effect) where T : EntityConditionBase<T>;
+    bool RaiseConditionEvent<T>(EntityUid target, T effect)
+        where T : EntityConditionBase<T>;
 }
 
 /// <summary>
 /// Used to store an <see cref="EntityCondition"/> so it can be raised without losing the type of the condition.
 /// </summary>
 /// <typeparam name="T">The Condition wer are raising.</typeparam>
-public abstract partial class EntityConditionBase<T> : EntityCondition where T : EntityConditionBase<T>
+public abstract partial class EntityConditionBase<T> : EntityCondition
+    where T : EntityConditionBase<T>
 {
     public override bool RaiseEvent(EntityUid target, IEntityConditionRaiser raiser)
     {
@@ -137,7 +143,8 @@ public abstract partial class EntityCondition
 /// </summary>
 /// <param name="Condition">The Condition we're checking</param>
 [ByRefEvent]
-public record struct EntityConditionEvent<T>(T Condition) where T : EntityConditionBase<T>
+public record struct EntityConditionEvent<T>(T Condition)
+    where T : EntityConditionBase<T>
 {
     /// <summary>
     /// The result of our check, defaults to false if nothing handles it.

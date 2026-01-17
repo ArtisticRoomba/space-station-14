@@ -16,11 +16,10 @@ public sealed class SimpleCensorTests
     }
 
     // Basics - use custom dictionary
-
     [Test]
     public void CanCensorMultipleWordInstances()
     {
-        var sut= new SimpleCensor().WithCustomDictionary(["amogus"]);
+        var sut = new SimpleCensor().WithCustomDictionary(["amogus"]);
         var output = sut.Censor("amogus hello amogus");
 
         Assert.That(output, Is.EqualTo("****** hello ******"));
@@ -29,7 +28,7 @@ public sealed class SimpleCensorTests
     [Test]
     public void CanCensorMultipleWords()
     {
-        var sut= new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
+        var sut = new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
         var output = sut.Censor("amogus hello sus");
 
         Assert.That(output, Is.EqualTo("****** hello ***"));
@@ -38,7 +37,7 @@ public sealed class SimpleCensorTests
     [Test]
     public void CanUseDifferentCensorSymbols()
     {
-        var sut= new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
+        var sut = new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
         var output = sut.Censor("amogus hello sus", '#');
 
         Assert.That(output, Is.EqualTo("###### hello ###"));
@@ -47,7 +46,7 @@ public sealed class SimpleCensorTests
     [Test]
     public void CanCatchCapitalizedWords()
     {
-        var sut= new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
+        var sut = new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
         var output = sut.Censor("AMOGUS hello SUS");
 
         Assert.That(output, Is.EqualTo("****** hello ***"));
@@ -56,7 +55,7 @@ public sealed class SimpleCensorTests
     [Test]
     public void CanCatchWordsWithSomeCaptialsInThem()
     {
-        var sut= new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
+        var sut = new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
         var output = sut.Censor("AmoGuS hello SuS");
 
         Assert.That(output, Is.EqualTo("****** hello ***"));
@@ -65,14 +64,13 @@ public sealed class SimpleCensorTests
     [Test]
     public void CanCatchWordsHiddenInsideOtherWords()
     {
-        var sut= new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
+        var sut = new SimpleCensor().WithCustomDictionary(["amogus", "sus"]);
         var output = sut.Censor("helamoguslo suspicious");
 
         Assert.That(output, Is.EqualTo("hel******lo ***picious"));
     }
 
     // Sanitizing Leetspeak
-
     [Test]
     public void CanSanitizeLeetspeak()
     {
@@ -101,7 +99,6 @@ public sealed class SimpleCensorTests
     }
 
     // Sanitizing special characters
-
     [Test]
     public void DoesNotSanitizeOutUncensoredSpecialCharacters()
     {
@@ -121,7 +118,6 @@ public sealed class SimpleCensorTests
     }
 
     // Unicode ranges
-
     [Test]
     public void SanitizesOutNonLatinCharaters()
     {

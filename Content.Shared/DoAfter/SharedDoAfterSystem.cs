@@ -152,6 +152,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     }
 
     #region Creation
+
     /// <summary>
     ///     Tasks that are delayed until the specified time has passed
     ///     These can be potentially cancelled by the user moving or when other things happen.
@@ -307,7 +308,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         return IsDuplicate(args, otherArgs, otherArgs.DuplicateCondition);
     }
 
-    private bool IsDuplicate(DoAfterArgs args, DoAfterArgs otherArgs, DuplicateConditions conditions )
+    private bool IsDuplicate(DoAfterArgs args, DoAfterArgs otherArgs, DuplicateConditions conditions)
     {
         if ((conditions & DuplicateConditions.SameTarget) != 0
             && args.Target != otherArgs.Target)
@@ -333,6 +334,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     #endregion
 
     #region Cancellation
+
     /// <summary>
     ///     Cancels an active DoAfter.
     /// </summary>
@@ -372,6 +374,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     #endregion
 
     #region Query
+
     /// <summary>
     ///     Returns the current status of a DoAfter
     /// </summary>

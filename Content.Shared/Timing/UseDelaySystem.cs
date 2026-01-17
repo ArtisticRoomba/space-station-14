@@ -39,7 +39,7 @@ public sealed class UseDelaySystem : EntitySystem
     {
         args.State = new UseDelayComponentState()
         {
-            Delays = ent.Comp.Delays
+            Delays = ent.Comp.Delays,
         };
     }
 
@@ -142,6 +142,7 @@ public sealed class UseDelaySystem : EntitySystem
             if (entry.Value.EndTime > last.EndTime)
                 last = entry.Value;
         }
+
         return last;
     }
 
@@ -185,6 +186,7 @@ public sealed class UseDelaySystem : EntitySystem
             entry.StartTime = curTime;
             entry.EndTime = curTime - _metadata.GetPauseTime(ent) + entry.Length;
         }
+
         Dirty(ent);
     }
 }

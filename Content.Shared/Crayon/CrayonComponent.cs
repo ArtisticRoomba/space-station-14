@@ -104,6 +104,7 @@ public sealed class CrayonUsedMessage : BoundUserInterfaceMessage
 public sealed class CrayonBoundUserInterfaceState : BoundUserInterfaceState
 {
     public string Selected;
+
     /// <summary>
     /// Can the color can be changed
     /// </summary>

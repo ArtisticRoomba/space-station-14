@@ -47,7 +47,7 @@ public sealed partial class DamageableComponent : Component
     /// <remarks>
     ///     If this data-field is specified, this allows damageable components to be initialized with non-zero damage.
     /// </remarks>
-    [DataField(readOnly: true)] //TODO FULL GAME SAVE
+    [DataField(readOnly: true)] // TODO FULL GAME SAVE
     public DamageSpecifier Damage = new();
 
     /// <summary>

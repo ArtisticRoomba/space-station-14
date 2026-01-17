@@ -434,6 +434,7 @@ public sealed class LockSystem : EntitySystem
                 ent,
                 args.User);
         }
+
         args.Cancelled = true;
     }
 

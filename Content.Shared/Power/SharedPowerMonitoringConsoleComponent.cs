@@ -157,5 +157,5 @@ public enum PowerMonitoringFlags : byte
 [Serializable, NetSerializable]
 public enum PowerMonitoringConsoleUiKey
 {
-    Key
+    Key,
 }

@@ -8,5 +8,4 @@ namespace Content.Shared.IconSmoothing;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SmoothEdgeComponent : Component
 {
-
 }

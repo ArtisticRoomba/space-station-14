@@ -20,6 +20,7 @@ namespace Content.Shared.Kitchen
 
             Recipes.Sort(new RecipeComparer());
         }
+
         /// <summary>
         /// Check if a prototype ids appears in any of the recipes that exist.
         /// </summary>

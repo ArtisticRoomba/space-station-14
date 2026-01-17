@@ -47,8 +47,7 @@ public sealed partial class DamageableSystem : EntitySystem
         Entity<DamageableComponent> ent,
         DamageSpecifier? damageDelta = null,
         bool interruptsDoAfters = true,
-        EntityUid? origin = null
-    )
+        EntityUid? origin = null)
     {
         ent.Comp.Damage.GetDamagePerGroup(_prototypeManager, ent.Comp.DamagePerGroup);
         ent.Comp.TotalDamage = ent.Comp.Damage.GetTotal();
@@ -60,8 +59,7 @@ public sealed partial class DamageableSystem : EntitySystem
                 ent,
                 DamageVisualizerKeys.DamageUpdateGroups,
                 new DamageVisualizerGroupData(ent.Comp.DamagePerGroup.Keys.ToList()),
-                appearance
-            );
+                appearance);
         }
 
         // TODO DAMAGE
@@ -77,8 +75,7 @@ public sealed partial class DamageableSystem : EntitySystem
                 ent.Comp.Damage.DamageDict,
                 ent.Comp.DamageContainerID,
                 ent.Comp.DamageModifierSetId,
-                ent.Comp.HealthBarThreshold
-            );
+                ent.Comp.HealthBarThreshold);
 
             // TODO BODY SYSTEM pass damage onto body system
             // BOBBY WHEN? 😭
@@ -91,7 +88,6 @@ public sealed partial class DamageableSystem : EntitySystem
             ent.Comp.Damage.DamageDict.ShallowClone(),
             ent.Comp.DamageContainerID,
             ent.Comp.DamageModifierSetId,
-            ent.Comp.HealthBarThreshold
-        );
+            ent.Comp.HealthBarThreshold);
     }
 }

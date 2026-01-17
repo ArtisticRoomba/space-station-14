@@ -111,6 +111,7 @@ public abstract partial class SharedStackSystem
             if (stack.Count <= 0)
                 break;
         }
+
         return merged;
     }
 
@@ -158,6 +159,7 @@ public abstract partial class SharedStackSystem
     }
 
     // TODO
+
     /// <summary>
     /// Increase a stack count by an amount, and spawn new entities if above the max.
     /// </summary>

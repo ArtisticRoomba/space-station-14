@@ -9,7 +9,6 @@ namespace Content.Shared.Light.Components;
 [NetworkedComponent]
 public abstract partial class SharedExpendableLightComponent : Component
 {
-
     [ViewVariables(VVAccess.ReadOnly)]
     public ExpendableLightState CurrentState;
 
@@ -48,7 +47,7 @@ public abstract partial class SharedExpendableLightComponent : Component
 public enum ExpendableLightVisuals
 {
     State,
-    Behavior
+    Behavior,
 }
 
 [Serializable, NetSerializable]
@@ -57,5 +56,5 @@ public enum ExpendableLightState
     BrandNew,
     Lit,
     Fading,
-    Dead
+    Dead,
 }

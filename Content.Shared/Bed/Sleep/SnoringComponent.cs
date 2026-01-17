@@ -8,5 +8,4 @@ namespace Content.Shared.Bed.Sleep;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SnoringComponent : Component
 {
-
 }

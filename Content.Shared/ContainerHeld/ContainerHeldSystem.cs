@@ -28,6 +28,7 @@ public sealed class ContainerHeldSystem : EntitySystem
         {
             return;
         }
+
         if (_storage.GetCumulativeItemAreas(uid) >= comp.Threshold)
         {
             _item.SetHeldPrefix(uid, "full", component: item);

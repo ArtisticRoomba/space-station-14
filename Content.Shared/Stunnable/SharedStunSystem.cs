@@ -85,16 +85,19 @@ public abstract partial class SharedStunSystem : EntitySystem
                 {
                     break;
                 }
+
             case MobState.Critical:
                 {
                     _status.TryRemoveStatusEffect(uid, StunId);
                     break;
                 }
+
             case MobState.Dead:
                 {
                     _status.TryRemoveStatusEffect(uid, StunId);
                     break;
                 }
+
             case MobState.Invalid:
             default:
                 return;

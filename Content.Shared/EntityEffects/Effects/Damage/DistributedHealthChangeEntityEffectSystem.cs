@@ -76,8 +76,7 @@ public sealed partial class DistributedHealthChange : EntityEffectBase<Distribut
                 Loc.GetString("health-change-display",
                     ("kind", groupProto.LocalizedName),
                     ("amount", MathF.Abs(amount.Float() * mod)),
-                    ("deltasign", sign)
-                ));
+                    ("deltasign", sign)));
         }
 
         // We use health change since in practice it's not even and distributed is a mouthful.

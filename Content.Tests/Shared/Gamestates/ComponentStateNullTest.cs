@@ -20,7 +20,7 @@ namespace Content.Tests.Shared.Gamestates
             foreach (var compType in comps)
             {
                 // Any component should be able to be instantiated without DI injection.
-                _ = (IComponent) Activator.CreateInstance(compType);
+                _ = (IComponent)Activator.CreateInstance(compType);
             }
         }
 
@@ -55,7 +55,7 @@ namespace Content.Tests.Shared.Gamestates
 
             private static readonly string[] Prefixes =
             {
-                "",
+                string.Empty,
 
                 "Robust.Client.",
                 "Content.Client.",

@@ -125,7 +125,7 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
         if (!Resolve(implant, ref implant.Comp))
             return;
 
-        //If the target doesn't have the implanted component, add it.
+        // If the target doesn't have the implanted component, add it.
         var implantedComp = EnsureComp<ImplantedComponent>(target);
 
         implant.Comp.ImplantedEntity = target;

@@ -86,7 +86,6 @@ public abstract class SharedTemperatureSystem : EntitySystem
 
     public virtual void ChangeHeat(EntityUid uid, float heatAmount, bool ignoreHeatResistance = false, TemperatureComponent? temperature = null)
     {
-
     }
 
     public float GetHeatCapacity(EntityUid uid, TemperatureComponent? comp = null, PhysicsComponent? physics = null)

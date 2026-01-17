@@ -32,6 +32,7 @@ public sealed class ReactiveSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
     }
 }
+
 public enum ReactionMethod
 {
 Touch,

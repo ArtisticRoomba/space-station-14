@@ -15,7 +15,6 @@ public sealed class KnockdownOnTriggerSystem : XOnTriggerSystem<KnockdownOnTrigg
                         ent.Comp.Refresh,
                         ent.Comp.AutoStand,
                         ent.Comp.Drop,
-                        true
-                        );
+                        true);
     }
 }

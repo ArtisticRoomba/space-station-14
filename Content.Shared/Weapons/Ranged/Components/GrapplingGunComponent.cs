@@ -26,7 +26,7 @@ public sealed partial class GrapplingGunComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("reelSound"), AutoNetworkedField]
     public SoundSpecifier? ReelSound = new SoundPathSpecifier("/Audio/Weapons/reel.ogg")
     {
-        Params = AudioParams.Default.WithLoop(true)
+        Params = AudioParams.Default.WithLoop(true),
     };
 
     [ViewVariables(VVAccess.ReadWrite), DataField("cycleSound"), AutoNetworkedField]

@@ -87,6 +87,7 @@ public sealed partial class StoreComponent : Component
     public EntityUid? StartingMap;
 
     #region audio
+
     /// <summary>
     /// The sound played to the buyer when a purchase is succesfully made.
     /// </summary>

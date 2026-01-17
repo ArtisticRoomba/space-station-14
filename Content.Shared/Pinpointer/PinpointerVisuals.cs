@@ -7,12 +7,12 @@ namespace Content.Shared.Pinpointer
     {
         IsActive,
         ArrowAngle,
-        TargetDistance
+        TargetDistance,
     }
 
     public enum PinpointerLayers : byte
     {
         Base,
-        Screen
+        Screen,
     }
 }

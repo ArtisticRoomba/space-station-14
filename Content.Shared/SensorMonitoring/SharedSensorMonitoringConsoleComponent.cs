@@ -59,7 +59,7 @@ public sealed class SensorMonitoringIncrementalUpdate : BoundUserInterfaceMessag
 [Serializable, NetSerializable]
 public enum SensorMonitoringConsoleUiKey
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
@@ -95,7 +95,7 @@ public enum SensorUnit : byte
     /// <summary>
     /// Energy in Joules (J).
     /// </summary>
-    EnergyJ
+    EnergyJ,
 }
 
 [Serializable, NetSerializable]

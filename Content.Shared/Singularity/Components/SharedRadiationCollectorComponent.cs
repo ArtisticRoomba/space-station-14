@@ -16,6 +16,6 @@ namespace Content.Shared.Singularity.Components
         Active = (1<<0),
         Activating = (1<<1) | Active,
         Deactivating = (1<<1),
-        Deactive = 0
+        Deactive = 0,
     }
 }

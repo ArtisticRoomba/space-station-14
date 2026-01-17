@@ -38,7 +38,7 @@ public abstract partial class InventorySystem
 
     private void InitializeEquip()
     {
-        //these events ensure that the client also gets its proper events raised when getting its containerstate updated
+        // these events ensure that the client also gets its proper events raised when getting its containerstate updated
         SubscribeLocalEvent<InventoryComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<InventoryComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
 
@@ -130,7 +130,7 @@ public abstract partial class InventorySystem
     {
         if (!Resolve(target, ref inventory, false))
         {
-            if(!silent)
+            if (!silent)
                 _popup.PopupCursor(Loc.GetString("inventory-component-can-equip-cannot"));
             return false;
         }
@@ -141,14 +141,14 @@ public abstract partial class InventorySystem
 
         if (!TryGetSlotContainer(target, slot, out var slotContainer, out var slotDefinition, inventory))
         {
-            if(!silent)
+            if (!silent)
                 _popup.PopupCursor(Loc.GetString("inventory-component-can-equip-cannot"));
             return false;
         }
 
         if (!force && !CanEquip(actor, target, itemUid, slot, out var reason, slotDefinition, inventory, clothing))
         {
-            if(!silent)
+            if (!silent)
                 _popup.PopupCursor(Loc.GetString(reason));
             return false;
         }
@@ -178,7 +178,7 @@ public abstract partial class InventorySystem
 
         if (!_containerSystem.Insert(itemUid, slotContainer))
         {
-            if(!silent)
+            if (!silent)
                 _popup.PopupCursor(Loc.GetString("inventory-component-can-unequip-cannot"));
             return false;
         }
@@ -306,6 +306,7 @@ public abstract partial class InventorySystem
             reason = itemAttemptEvent.Reason ?? reason;
             return false;
         }
+
         return true;
     }
 
@@ -397,14 +398,14 @@ public abstract partial class InventorySystem
 
         if (!Resolve(target, ref inventory, false))
         {
-            if(!silent)
+            if (!silent)
                 _popup.PopupCursor(Loc.GetString("inventory-component-can-unequip-cannot"));
             return false;
         }
 
         if (!TryGetSlotContainer(target, slot, out var slotContainer, out var slotDefinition, inventory))
         {
-            if(!silent)
+            if (!silent)
                 _popup.PopupCursor(Loc.GetString("inventory-component-can-unequip-cannot"));
             return false;
         }
@@ -416,12 +417,12 @@ public abstract partial class InventorySystem
 
         if (!force && !CanUnequip(actor, target, slot, out var reason, slotContainer, slotDefinition, inventory))
         {
-            if(!silent)
+            if (!silent)
                 _popup.PopupCursor(Loc.GetString(reason));
             return false;
         }
 
-        //we need to do this to make sure we are 100% removing this entity, since we are now dropping dependant slots
+        // we need to do this to make sure we are 100% removing this entity, since we are now dropping dependant slots
         if (!force && !_containerSystem.CanRemove(removedItem.Value, slotContainer))
             return false;
 
@@ -458,7 +459,7 @@ public abstract partial class InventorySystem
         {
             if (slotDef != slotDefinition && slotDef.DependsOn == slotDefinition.Name)
             {
-                //this recursive call might be risky
+                // this recursive call might be risky
                 TryUnequip(actor, target, slotDef.Name, out _, ref itemsDropped, true, true, predicted, inventory, reparent: reparent);
             }
         }

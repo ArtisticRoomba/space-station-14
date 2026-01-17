@@ -41,11 +41,11 @@ public sealed partial class WeldableComponent : Component
 [Serializable, NetSerializable]
 public enum WeldableVisuals : byte
 {
-    IsWelded
+    IsWelded,
 }
 
 [Serializable, NetSerializable]
 public enum WeldableLayers : byte
 {
-    BaseWelded
+    BaseWelded,
 }

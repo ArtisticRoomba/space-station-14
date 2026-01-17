@@ -9,7 +9,7 @@ public sealed record GasThermoMachineData(float EnergyDelta);
 [NetSerializable]
 public enum ThermomachineUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable]

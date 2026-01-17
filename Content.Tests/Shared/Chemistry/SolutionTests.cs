@@ -203,7 +203,7 @@ public sealed class SolutionTests : ContentUnitTest
 
         solution.RemoveSolution(FixedPoint2.New(500));
 
-        //Check that edited solution is correct
+        // Check that edited solution is correct
         Assert.That(solution.GetTotalPrototypeQuantity(Water).Int(), Is.EqualTo(200));
         Assert.That(solution.Volume.Int(), Is.EqualTo(200));
     }
@@ -215,7 +215,7 @@ public sealed class SolutionTests : ContentUnitTest
 
         solution.RemoveSolution(FixedPoint2.New(1000));
 
-        //Check that edited solution is correct
+        // Check that edited solution is correct
         Assert.That(solution.GetTotalPrototypeQuantity(Water).Int(), Is.EqualTo(0));
         Assert.That(solution.Volume.Int(), Is.EqualTo(0));
     }
@@ -421,7 +421,6 @@ public sealed class SolutionTests : ContentUnitTest
     }
 
     // Tests concerning thermal energy and temperature.
-
     #region Thermal Energy and Temperature
 
     [Test]

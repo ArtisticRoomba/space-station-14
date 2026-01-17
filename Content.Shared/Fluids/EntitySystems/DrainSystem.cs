@@ -80,7 +80,7 @@ public sealed class DrainSystem : EntitySystem
                 Empty((target, drain), user, used);
             },
             Impact = LogImpact.Low,
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/eject.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
         };
         args.Verbs.Add(verb);
     }

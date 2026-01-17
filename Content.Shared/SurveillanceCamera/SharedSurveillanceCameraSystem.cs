@@ -25,7 +25,7 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
         AlternativeVerb verb = new()
         {
             Text = Loc.GetString("surveillance-camera-setup"),
-            Act = () => OpenSetupInterface(uid, args.User, component)
+            Act = () => OpenSetupInterface(uid, args.User, component),
         };
         args.Verbs.Add(verb);
     }
@@ -55,7 +55,7 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
 public enum SurveillanceCameraVisualsKey : byte
 {
     Key,
-    Layer
+    Layer,
 }
 
 [Serializable, NetSerializable]
@@ -67,5 +67,5 @@ public enum SurveillanceCameraVisuals : byte
 
     // Reserved for future use
     Xray,
-    Emp
+    Emp,
 }

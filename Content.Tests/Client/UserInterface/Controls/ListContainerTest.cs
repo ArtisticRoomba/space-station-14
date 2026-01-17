@@ -68,7 +68,7 @@ public sealed class ListContainerTest : RobustUnitTest
         root.Arrange(new UIBox2(0, 0, x, y));
 
         list.Add(new(0));
-        list.Add(new (1));
+        list.Add(new(1));
         listContainer.PopulateList(list);
         root.Arrange(new UIBox2(0, 0, x, y));
 
@@ -138,7 +138,7 @@ public sealed class ListContainerTest : RobustUnitTest
         listContainer.PopulateList(list);
         root.Arrange(new UIBox2(0, 0, 50, 60));
 
-        var scrollbar = (ScrollBar) listContainer.Children.Last(c => c is ScrollBar);
+        var scrollbar = (ScrollBar)listContainer.Children.Last(c => c is ScrollBar);
 
         // Test that 6th button is not visible when scrolled
         scrollbar.Value = 5;
@@ -189,7 +189,7 @@ public sealed class ListContainerTest : RobustUnitTest
         listContainer.PopulateList(list);
         root.Arrange(new UIBox2(0, 0, 50, 60));
 
-        var scrollbar = (ScrollBar) listContainer.Children.Last(c => c is ScrollBar);
+        var scrollbar = (ScrollBar)listContainer.Children.Last(c => c is ScrollBar);
 
         var scrollValue = 9;
 
@@ -279,7 +279,7 @@ public sealed class ListContainerTest : RobustUnitTest
         listContainer.PopulateList(list);
         root.Arrange(new UIBox2(0, 0, 50, height));
 
-        var scrollbar = (ScrollBar) listContainer.Children.Last(c => c is ScrollBar);
+        var scrollbar = (ScrollBar)listContainer.Children.Last(c => c is ScrollBar);
 
         var children = listContainer.Children.ToList();
         if (children[0] is not ListContainerButton oldButton)

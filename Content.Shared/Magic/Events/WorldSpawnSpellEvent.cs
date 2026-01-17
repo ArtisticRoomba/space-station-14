@@ -15,6 +15,7 @@ public sealed partial class WorldSpawnSpellEvent : WorldTargetActionEvent
 
     // TODO: This offset is liable for deprecation.
     // TODO: Target tile via code instead?
+
     /// <summary>
     /// The offset the prototypes will spawn in on relative to the one prior.
     /// Set to 0,0 to have them spawn on the same tile.

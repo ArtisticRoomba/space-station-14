@@ -1,10 +1,10 @@
+using System.Numerics;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
-using System.Numerics;
 
 namespace Content.Shared.Weapons.Melee;
 
@@ -17,6 +17,7 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {

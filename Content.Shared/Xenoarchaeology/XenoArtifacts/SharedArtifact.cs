@@ -7,5 +7,5 @@ public enum SharedArtifactsVisuals : byte
 {
     SpriteIndex,
     IsActivated,
-    IsUnlocking
+    IsUnlocking,
 }

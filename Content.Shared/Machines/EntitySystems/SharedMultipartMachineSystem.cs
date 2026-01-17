@@ -80,8 +80,7 @@ public abstract class SharedMultipartMachineSystem : EntitySystem
     public bool TryGetPartEntity(
         Entity<MultipartMachineComponent?> ent,
         Enum part,
-        [NotNullWhen(true)] out EntityUid? entity
-    )
+        [NotNullWhen(true)] out EntityUid? entity)
     {
         entity = null;
         if (!Resolve(ent, ref ent.Comp))

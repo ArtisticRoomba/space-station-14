@@ -7,6 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Trigger.Components.Effects;
 
 // TODO some sort of struct like DamageSpecifier but for explosions.
+
 /// <summary>
 /// Will explode the entity using this component's explosion specifications.
 /// If TargetUser is true, they'll explode instead.

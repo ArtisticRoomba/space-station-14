@@ -8,6 +8,7 @@ namespace Content.Shared.Electrocution
     {
         // Technically, people could cheat and figure out which budget insulated gloves are gud and which ones are bad.
         // We might want to rethink this a little bit.
+
         /// <summary>
         ///     Siemens coefficient. Zero means completely insulated.
         /// </summary>

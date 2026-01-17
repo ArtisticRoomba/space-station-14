@@ -33,5 +33,5 @@
     public record struct ThrowerImpulseEvent()
     {
         public bool Push;
-    };
+    }
 }

@@ -37,4 +37,4 @@ public partial record struct ItemStorageLocation
         return Rotation == other?.Rotation &&
                Position == other.Value.Position;
     }
-};
+}

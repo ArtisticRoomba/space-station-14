@@ -1,10 +1,10 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using NUnit.Framework;
 using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
-using Content.Shared.FixedPoint;
 
 namespace Content.Tests.Shared
 {
@@ -39,7 +39,7 @@ namespace Content.Tests.Shared
             _damageSpec += new DamageSpecifier(_prototypeManager.Index(SlashDamageType), -1); // already exists in brute
         }
 
-        //Check that DamageSpecifier will split groups and can do arithmetic operations
+        // Check that DamageSpecifier will split groups and can do arithmetic operations
         [Test]
         public void DamageSpecifierTest()
         {
@@ -118,7 +118,7 @@ namespace Content.Tests.Shared
             Assert.That(damage, Is.EqualTo(FixedPoint2.New(4)));
         }
 
-        //Check that DamageSpecifier will be properly adjusted by a resistance set
+        // Check that DamageSpecifier will be properly adjusted by a resistance set
         [Test]
         public void ModifierSetTest()
         {
@@ -128,9 +128,9 @@ namespace Content.Tests.Shared
             // Create a modifier set
             var modifierSet = _prototypeManager.Index<DamageModifierSetPrototype>(ModifierTestSetId);
 
-            //damage is initially   20 / 20 / 10 / 30
-            //Each time we subtract -5 /  0 /  8 /  0.5
-            //then multiply by       1 / -2 /  3 /  1.5
+            // damage is initially   20 / 20 / 10 / 30
+            // Each time we subtract -5 /  0 /  8 /  0.5
+            // then multiply by       1 / -2 /  3 /  1.5
 
             // Apply once
             damageSpec = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet);

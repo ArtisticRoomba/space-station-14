@@ -58,7 +58,7 @@ public sealed class ChangelingClonerSystem : EntitySystem
             ChangelingClonerState.Empty => "changeling-cloner-component-empty",
             ChangelingClonerState.Filled => "changeling-cloner-component-filled",
             ChangelingClonerState.Spent => "changeling-cloner-component-spent",
-            _ => "error"
+            _ => "error",
         };
 
         args.PushMarkup(Loc.GetString(msg));

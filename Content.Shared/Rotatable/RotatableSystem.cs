@@ -52,7 +52,7 @@ public sealed class RotatableSystem : EntitySystem
             Category = VerbCategory.Rotate,
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/flip.svg.192dpi.png")),
             Priority = -3, // show flip last
-            DoContactInteraction = true
+            DoContactInteraction = true,
         };
         args.Verbs.Add(verb);
     }

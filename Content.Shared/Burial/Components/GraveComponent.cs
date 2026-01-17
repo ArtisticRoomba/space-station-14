@@ -26,7 +26,7 @@ public sealed partial class GraveComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public SoundPathSpecifier DigSound = new SoundPathSpecifier("/Audio/Items/shovel_dig.ogg")
     {
-        Params = AudioParams.Default.WithLoop(true)
+        Params = AudioParams.Default.WithLoop(true),
     };
 
     /// <summary>

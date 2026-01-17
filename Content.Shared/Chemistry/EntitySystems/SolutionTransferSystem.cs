@@ -63,7 +63,7 @@ public sealed class SolutionTransferSystem : EntitySystem
             {
                 _ui.OpenUi(ent.Owner, TransferAmountUiKey.Key, @event.User);
             },
-            Priority = 1
+            Priority = 1,
         });
 
         // Add specific transfer verbs according to the container's size
@@ -124,7 +124,7 @@ public sealed class SolutionTransferSystem : EntitySystem
                 out var targetSoln,
                 out _))
         {
-            args.Handled = true; //If we reach this point, the interaction counts as handled.
+            args.Handled = true; // If we reach this point, the interaction counts as handled.
 
             var transferAmount = ent.Comp.TransferAmount;
             if (targetRefillable.MaxRefill is { } maxRefill)
@@ -164,7 +164,7 @@ public sealed class SolutionTransferSystem : EntitySystem
                 out ownerSoln,
                 out var solution))
         {
-            args.Handled = true; //If we reach this point, the interaction counts as handled.
+            args.Handled = true; // If we reach this point, the interaction counts as handled.
 
             var transferAmount = ent.Comp.TransferAmount; // This is the player-configurable transfer amount of "uid," not the target drainable.
             if (heldRefillable.MaxRefill is { } maxRefill) // if the receiver has a smaller transfer limit, use that instead

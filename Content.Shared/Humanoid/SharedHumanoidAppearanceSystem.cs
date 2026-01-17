@@ -447,8 +447,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 prototype,
                 profile.Appearance.SkinColor,
                 profile.Appearance.EyeColor,
-                humanoid.MarkingSet
-            );
+                humanoid.MarkingSet);
             AddMarking(uid, marking.MarkingId, markingColors, false);
         }
 
@@ -504,6 +503,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         {
             return;
         }
+
         humanoid.MarkingSet.EnsureDefault(humanoid.SkinColor, humanoid.EyeColor, _markingManager);
     }
 

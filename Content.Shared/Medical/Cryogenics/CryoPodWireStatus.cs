@@ -3,8 +3,8 @@
 namespace Content.Shared.Medical.Cryogenics
 {
     [Serializable, NetSerializable]
-    public enum CryoPodWireActionKey: byte
+    public enum CryoPodWireActionKey : byte
     {
-        Key
+        Key,
     }
 }

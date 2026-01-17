@@ -34,7 +34,7 @@ public abstract class SharedMorgueSystem : EntitySystem
             MorgueContents.HasSoul => "morgue-entity-storage-component-on-examine-details-body-has-soul",
             MorgueContents.HasContents => "morgue-entity-storage-component-on-examine-details-has-contents",
             MorgueContents.HasMob => "morgue-entity-storage-component-on-examine-details-body-has-no-soul",
-            _ => "morgue-entity-storage-component-on-examine-details-empty"
+            _ => "morgue-entity-storage-component-on-examine-details-empty",
         };
 
         args.PushMarkup(Loc.GetString(text));

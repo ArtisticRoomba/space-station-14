@@ -26,8 +26,7 @@ public abstract class SharedGasThermoMachineSystem : EntitySystem
                 out var str,
                 ("machineName", !IsHeater(thermoMachine) ? "freezer" : "heater"),
                 ("tempColor", !IsHeater(thermoMachine) ? "deepskyblue" : "red"),
-                ("temp", Math.Round(thermoMachine.TargetTemperature, 2))
-            ))
+                ("temp", Math.Round(thermoMachine.TargetTemperature, 2))))
         {
             args.PushMarkup(str);
         }

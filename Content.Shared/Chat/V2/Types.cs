@@ -11,27 +11,33 @@ public enum MessageType : byte
     /// Chat for announcements like CentCom telling you to stop sending them memes.
     /// </summary>
     Announcement,
+
     /// <summary>
     /// Chat that ghosts use to complain about being gibbed.
     /// </summary>
     DeadChat,
+
     /// <summary>
     /// Chat that mimes use to evade their vow.
     /// </summary>
     Emote,
+
     /// <summary>
     /// Chat that players use to make lame jokes to people nearby.
     /// </summary>
     Local,
+
     /// <summary>
     /// Chat that players use to complain about shitsec/admins/antags/balance/etc.
     /// </summary>
     Looc,
+
     /// <summary>
     /// Chat that players use to say "HELP MAINT", or plead to call the shuttle because a beaker spilled.
     /// </summary>
     /// <remarks>This does not tell you what radio channel has been chatted on!</remarks>
     Radio,
+
     /// <summary>
     /// Chat that is used exclusively by syndie tots to collaborate on whatever tots do.
     /// </summary>
@@ -45,6 +51,7 @@ public enum MessageType : byte
     /// Chat that is sent to exactly one player; almost exclusively used for admemes and prayer responses.
     /// </summary>
     Subtle,
+
     /// <summary>
     /// Chat that is sent by automata, like when a vending machine thanks you for your unwise purchases.
     /// </summary>

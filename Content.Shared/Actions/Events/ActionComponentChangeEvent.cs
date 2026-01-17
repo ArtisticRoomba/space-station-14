@@ -17,7 +17,6 @@ public partial class ActionComponentChangeEvent : InstantActionEvent
 /// </summary>
 public sealed partial class RelayedActionComponentChangeEvent : ActionComponentChangeEvent
 {
-
 }
 
 [ByRefEvent]

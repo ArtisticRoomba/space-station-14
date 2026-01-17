@@ -23,7 +23,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             PressureChecks = VentPressureBound.ExternalBound,
             ExternalPressureBound = Atmospherics.OneAtmosphere,
             InternalPressureBound = 0f,
-            PressureLockoutOverride = false
+            PressureLockoutOverride = false,
         };
 
         public static GasVentPumpData FillModePreset = new GasVentPumpData
@@ -34,7 +34,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             PressureChecks = VentPressureBound.ExternalBound,
             ExternalPressureBound = Atmospherics.OneAtmosphere * 50,
             InternalPressureBound = 0f,
-            PressureLockoutOverride = true
+            PressureLockoutOverride = true,
         };
 
         public static GasVentPumpData PanicModePreset = new GasVentPumpData
@@ -45,7 +45,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             PressureChecks = VentPressureBound.ExternalBound,
             ExternalPressureBound = Atmospherics.OneAtmosphere,
             InternalPressureBound = 0f,
-            PressureLockoutOverride = false
+            PressureLockoutOverride = false,
         };
 
         public static GasVentPumpData ReplaceModePreset = new GasVentPumpData
@@ -57,7 +57,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             PressureChecks = VentPressureBound.ExternalBound,
             ExternalPressureBound = Atmospherics.OneAtmosphere,
             InternalPressureBound = 0f,
-            PressureLockoutOverride = false
+            PressureLockoutOverride = false,
         };
     }
 
@@ -72,7 +72,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
     [Serializable, NetSerializable]
     public enum VentPressureBound : sbyte
     {
-        NoBound       = 0,
+        NoBound = 0,
         InternalBound = 1,
         ExternalBound = 2,
         Both = 3,

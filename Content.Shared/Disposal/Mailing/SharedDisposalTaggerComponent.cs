@@ -38,13 +38,13 @@ namespace Content.Shared.Disposal.Components
         [Serializable, NetSerializable]
         public enum UiAction
         {
-            Ok
+            Ok,
         }
 
         [Serializable, NetSerializable]
         public enum DisposalTaggerUiKey
         {
-            Key
+            Key,
         }
     }
 }

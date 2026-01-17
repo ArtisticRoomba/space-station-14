@@ -114,5 +114,5 @@ public enum StackLayerFunction : byte
     // Arbitrarily thresholds the stack amount for each layer.
     // Expects entity to have StackLayerThresholdComponent.
     // </summary>
-    Threshold
+    Threshold,
 }

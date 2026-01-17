@@ -1,4 +1,3 @@
-
 namespace Content.Shared.Preferences
 {
     public enum JobPriority
@@ -7,6 +6,6 @@ namespace Content.Shared.Preferences
         Never = 0,
         Low = 1,
         Medium = 2,
-        High = 3
+        High = 3,
     }
 }

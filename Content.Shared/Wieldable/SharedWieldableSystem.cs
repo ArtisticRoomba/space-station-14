@@ -180,7 +180,7 @@ public abstract class SharedWieldableSystem : EntitySystem
             Text = component.Wielded ? Loc.GetString("wieldable-verb-text-unwield") : Loc.GetString("wieldable-verb-text-wield"),
             Act = component.Wielded
                 ? () => TryUnwield(uid, component, args.User)
-                : () => TryWield(uid, component, args.User)
+                : () => TryWield(uid, component, args.User),
         };
 
         args.Verbs.Add(verb);
@@ -267,6 +267,7 @@ public abstract class SharedWieldableSystem : EntitySystem
                     ("number", component.FreeHandsRequired), ("item", uid));
                 _popup.PopupClient(message, user, user);
             }
+
             return false;
         }
 
@@ -310,7 +311,7 @@ public abstract class SharedWieldableSystem : EntitySystem
         if (component.WieldSound != null)
             _audio.PlayPredicted(component.WieldSound, used, user);
 
-        //This section handles spawning the virtual item(s) to occupy the required additional hand(s).
+        // This section handles spawning the virtual item(s) to occupy the required additional hand(s).
         var virtuals = new ValueList<EntityUid>();
         for (var i = 0; i < component.FreeHandsRequired; i++)
         {

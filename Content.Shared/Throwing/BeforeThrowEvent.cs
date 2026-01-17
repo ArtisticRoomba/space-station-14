@@ -15,7 +15,7 @@ public struct BeforeThrowEvent
 
     public EntityUid ItemUid { get; set; }
     public Vector2 Direction { get; }
-    public float ThrowSpeed { get; set;}
+    public float ThrowSpeed { get; set; }
     public EntityUid PlayerUid { get; }
 
     public bool Cancelled = false;

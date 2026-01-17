@@ -45,6 +45,7 @@ namespace Content.Shared.Movement.Components
         public bool HasDirectionalMovement => (HeldMoveButtons & MoveButtons.AnyDirection) != MoveButtons.None;
 
         // I don't know if we even need this networked? It's mostly so conveyors can calculate properly.
+
         /// <summary>
         /// Direction to move this tick.
         /// </summary>

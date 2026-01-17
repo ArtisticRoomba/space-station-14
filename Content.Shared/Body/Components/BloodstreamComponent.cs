@@ -94,6 +94,7 @@ public sealed partial class BloodstreamComponent : Component
     public DamageSpecifier BloodlossHealDamage = new();
 
     // TODO shouldn't be hardcoded, should just use some organ simulation like bone marrow or smth.
+
     /// <summary>
     /// How much reagent of blood should be restored each update interval?
     /// </summary>

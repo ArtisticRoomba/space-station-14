@@ -9,5 +9,4 @@ namespace Content.Shared.Movement.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MovementAlwaysTouchingComponent : Component
 {
-
 }

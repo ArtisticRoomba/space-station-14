@@ -120,14 +120,17 @@ public enum QuickDialogEntryType
     /// Any integer.
     /// </summary>
     Integer,
+
     /// <summary>
     /// Any floating point value.
     /// </summary>
     Float,
+
     /// <summary>
     /// Maximum of 100 characters string.
     /// </summary>
     ShortText,
+
     /// <summary>
     /// Maximum of 2,000 characters string.
     /// </summary>

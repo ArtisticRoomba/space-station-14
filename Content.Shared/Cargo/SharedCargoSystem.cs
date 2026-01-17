@@ -45,7 +45,7 @@ public abstract class SharedCargoSystem : EntitySystem
     {
         var distribution = new Dictionary<ProtoId<CargoAccountPrototype>, double>
         {
-            { stationBank.Comp.PrimaryAccount, stationBank.Comp.PrimaryCut }
+            { stationBank.Comp.PrimaryAccount, stationBank.Comp.PrimaryCut },
         };
         var remaining = 1.0 - stationBank.Comp.PrimaryCut;
 
@@ -54,6 +54,7 @@ public abstract class SharedCargoSystem : EntitySystem
             var existing = distribution.GetOrNew(account);
             distribution[account] = existing + remaining * percentage;
         }
+
         return distribution;
     }
 
@@ -166,7 +167,7 @@ public abstract class SharedCargoSystem : EntitySystem
         UpdateBankAccount(
             ent,
             balanceAdded,
-            new Dictionary<ProtoId<CargoAccountPrototype>, double> { { account, 1} },
+            new Dictionary<ProtoId<CargoAccountPrototype>, double> { { account, 1 } },
             dirty: dirty);
     }
 
@@ -189,7 +190,7 @@ public abstract class SharedCargoSystem : EntitySystem
 
         foreach (var (account, percent) in accountDistribution)
         {
-            var accountBalancedAdded = (int) Math.Round(percent * balanceAdded);
+            var accountBalancedAdded = (int)Math.Round(percent * balanceAdded);
             ent.Comp.Accounts[account] += accountBalancedAdded;
         }
 
@@ -209,13 +210,13 @@ public enum CargoConsoleUiKey : byte
     Orders,
     Bounty,
     Shuttle,
-    Telepad
+    Telepad,
 }
 
 [NetSerializable, Serializable]
 public enum CargoPalletConsoleUiKey : byte
 {
-    Sale
+    Sale,
 }
 
 [Serializable, NetSerializable]
@@ -224,10 +225,10 @@ public enum CargoTelepadState : byte
     Unpowered,
     Idle,
     Teleporting,
-};
+}
 
 [Serializable, NetSerializable]
 public enum CargoTelepadVisuals : byte
 {
     State,
-};
+}

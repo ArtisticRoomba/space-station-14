@@ -3,6 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Light.Components;
 
 // All content light code is terrible and everything is baked-in. Power code got predicted before light code did.
+
 /// <summary>
 /// Handles turning a pointlight on / off based on power. Nothing else
 /// </summary>

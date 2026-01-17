@@ -66,8 +66,7 @@ public abstract class SharedRingerSystem : EntitySystem
                     Filter.Empty().AddInRange(_xform.GetMapCoordinates(uid, xform), ringer.Range),
                     uid,
                     true,
-                    AudioParams.Default.WithMaxDistance(ringer.Range).WithVolume(ringer.Volume)
-                );
+                    AudioParams.Default.WithMaxDistance(ringer.Range).WithVolume(ringer.Volume));
             }
 
             // Schedule next note
@@ -289,5 +288,5 @@ public enum Note : byte
     F,
     Fsharp,
     G,
-    Gsharp
+    Gsharp,
 }

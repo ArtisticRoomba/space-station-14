@@ -7,7 +7,7 @@ namespace Content.Shared.PDA
     public sealed class PdaUpdateState : CartridgeLoaderUiState // WTF is this. what. I ... fuck me I just want net entities to work
 
         // TODO purge this shit
-        //AAAAAAAAAAAAAAAA
+        // AAAAAAAAAAAAAAAA
     {
         public bool FlashlightEnabled;
         public bool HasPen;

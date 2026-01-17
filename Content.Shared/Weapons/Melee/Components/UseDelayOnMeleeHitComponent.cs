@@ -8,5 +8,4 @@ namespace Content.Shared.Weapons.Melee.Components;
 [RegisterComponent, NetworkedComponent, Access(typeof(UseDelayOnMeleeHitSystem))]
 public sealed partial class UseDelayOnMeleeHitComponent : Component
 {
-
 }

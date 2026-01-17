@@ -205,6 +205,7 @@ namespace Content.Shared.Verbs
         }
 
         // I hate this. Please somebody allow generics to be networked.
+
         /// <summary>
         ///     Collection of all verb types,
         /// </summary>
@@ -223,7 +224,7 @@ namespace Content.Shared.Verbs
             typeof(AlternativeVerb),
             typeof(ActivationVerb),
             typeof(ExamineVerb),
-            typeof(EquipmentVerb)
+            typeof(EquipmentVerb),
         };
     }
 

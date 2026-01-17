@@ -206,6 +206,5 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
 
     protected virtual void UpdateUI(Entity<SmartFridgeComponent> ent)
     {
-
     }
 }

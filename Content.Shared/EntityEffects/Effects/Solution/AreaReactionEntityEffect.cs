@@ -30,8 +30,7 @@ public sealed partial class AreaReactionEffect : EntityEffectBase<AreaReactionEf
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("entity-effect-guidebook-area-reaction",
-            ("duration", Duration)
-        );
+            ("duration", Duration));
 
     public override LogImpact? Impact => LogImpact.High;
 }

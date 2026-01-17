@@ -67,6 +67,7 @@ namespace Content.Shared.Alert
             {
                 return idx;
             }
+
             if (alert.Category != null &&
                 _categoryToIdx.TryGetValue(alert.Category.Value, out idx))
             {

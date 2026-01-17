@@ -4,6 +4,7 @@ using Content.Shared.Temperature.Systems;
 namespace Content.Shared.EntityEffects.Effects;
 
 // TODO: When we get a proper temperature/energy struct combine this with the solution temperature effect!!!
+
 /// <summary>
 /// Adjusts the temperature of this entity.
 /// </summary>

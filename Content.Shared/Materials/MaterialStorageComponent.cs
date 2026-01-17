@@ -72,7 +72,7 @@ public sealed partial class MaterialStorageComponent : Component
 [Serializable, NetSerializable]
 public enum MaterialStorageVisuals : byte
 {
-    Inserting
+    Inserting,
 }
 
 /// <summary>

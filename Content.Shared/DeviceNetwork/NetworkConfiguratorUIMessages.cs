@@ -7,7 +7,7 @@ public enum NetworkConfiguratorUiKey
 {
     List,
     Configure,
-    Link
+    Link,
 }
 
 [Serializable, NetSerializable]
@@ -18,7 +18,7 @@ public enum NetworkConfiguratorButtonKey
     Edit,
     Clear,
     Copy,
-    Show
+    Show,
 }
 
 /// <summary>
@@ -57,7 +57,6 @@ public sealed class NetworkConfiguratorButtonPressedMessage : BoundUserInterface
 [Serializable, NetSerializable]
 public sealed class NetworkConfiguratorClearLinksMessage : BoundUserInterfaceMessage
 {
-
 }
 
 [Serializable, NetSerializable]

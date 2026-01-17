@@ -38,5 +38,5 @@ public sealed class DoorElectronicsConfigurationState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public enum DoorElectronicsConfigurationUiKey : byte
 {
-    Key
+    Key,
 }

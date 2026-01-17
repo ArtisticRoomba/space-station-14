@@ -11,6 +11,7 @@ namespace Content.Shared.Random.Rules;
 public sealed partial class NearbyAccessRule : RulesRule
 {
     // This exists because of door electronics contained inside doors.
+
     /// <summary>
     /// Does the access entity need to be anchored.
     /// </summary>

@@ -37,7 +37,7 @@ public sealed class NodeScannerSystem : EntitySystem
             var artifactCoordinates = Transform(attachedArtifact).Coordinates;
             if (!_transform.InRange(artifactCoordinates, transform.Coordinates, scanner.MaxLinkedRange))
             {
-                //scanner is too far, disconnect
+                // scanner is too far, disconnect
                 RemCompDeferred(uid, connected);
             }
         }
@@ -68,7 +68,7 @@ public sealed class NodeScannerSystem : EntitySystem
         var verb = new UtilityVerb
         {
             Act = () => Attach((uid, component), (args.Target, unlockingComponent), args.User),
-            Text = Loc.GetString("node-scan-tooltip")
+            Text = Loc.GetString("node-scan-tooltip"),
         };
 
         args.Verbs.Add(verb);
@@ -77,8 +77,7 @@ public sealed class NodeScannerSystem : EntitySystem
     private void Attach(
         Entity<NodeScannerComponent> device,
         Entity<XenoArtifactUnlockingComponent?> unlockingEnt,
-        EntityUid actor
-    )
+        EntityUid actor)
     {
         if (!_timing.IsFirstTimePredicted)
             return;

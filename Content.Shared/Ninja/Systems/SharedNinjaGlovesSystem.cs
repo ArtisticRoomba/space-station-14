@@ -119,6 +119,7 @@ public abstract class SharedNinjaGlovesSystem : EntitySystem
     }
 
     // TODO: generic event thing
+
     /// <summary>
     /// GloveCheck but for abilities stored on the player, skips some checks.
     /// Intended to be more generic, doesn't require the user to be a ninja or have any ninja equipment.

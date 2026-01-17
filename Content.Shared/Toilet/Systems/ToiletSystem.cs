@@ -66,6 +66,7 @@ public sealed class ToiletSystem : EntitySystem
             toggleVerb.Icon =
                 new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/open.svg.192dpi.png"));
         }
+
         args.Verbs.Add(toggleVerb);
     }
 

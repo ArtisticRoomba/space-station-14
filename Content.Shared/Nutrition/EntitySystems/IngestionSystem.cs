@@ -171,6 +171,7 @@ public sealed partial class IngestionSystem : EntitySystem
     #region BodySystem
 
     // TODO: The IsDigestibleBy bools should be API but they're too specific to the BodySystem to be API. Requires BodySystem rework.
+
     /// <summary>
     /// Generic method which takes a list of stomachs, and checks if a given food item passes any stomach's whitelist
     /// in a given list of stomachs.

@@ -122,7 +122,7 @@ public sealed partial class DisposalUnitComponent : Component
     {
         VisualState,
         Handle,
-        Light
+        Light,
     }
 
     [Serializable, NetSerializable]
@@ -131,14 +131,14 @@ public sealed partial class DisposalUnitComponent : Component
         UnAnchored,
         Anchored,
         OverlayFlushing,
-        OverlayCharging
+        OverlayCharging,
     }
 
     [Serializable, NetSerializable]
     public enum HandleState : byte
     {
         Normal,
-        Engaged
+        Engaged,
     }
 
     [Serializable, NetSerializable]
@@ -148,7 +148,7 @@ public sealed partial class DisposalUnitComponent : Component
         Off = 0,
         Charging = 1 << 0,
         Full = 1 << 1,
-        Ready = 1 << 2
+        Ready = 1 << 2,
     }
 
     [Serializable, NetSerializable]
@@ -156,7 +156,7 @@ public sealed partial class DisposalUnitComponent : Component
     {
         Eject,
         Engage,
-        Power
+        Power,
     }
 
     /// <summary>
@@ -176,7 +176,7 @@ public sealed partial class DisposalUnitComponent : Component
     [Serializable, NetSerializable]
     public enum DisposalUnitUiKey : byte
     {
-        Key
+        Key,
     }
 }
 
@@ -193,5 +193,5 @@ public enum DisposalsPressureState : byte
     /// <summary>
     /// FlushDelay has elapsed and now we're transitioning back to Ready.
     /// </summary>
-    Pressurizing
+    Pressurizing,
 }

@@ -31,7 +31,7 @@ public sealed class XAEShuffleSystem : BaseXAESystem<XAEShuffleComponent>
     /// <inheritdoc />
     protected override void OnActivated(Entity<XAEShuffleComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {
-        if(!_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted)
             return;
 
         List<Entity<TransformComponent>> toShuffle = new();

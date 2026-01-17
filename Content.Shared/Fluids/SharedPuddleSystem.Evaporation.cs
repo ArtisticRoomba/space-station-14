@@ -88,6 +88,7 @@ public abstract partial class SharedPuddleSystem
             if (solProto.EvaporationSpeed > FixedPoint2.Zero)
                 evaporatingReagents.Add(solProto.ID);
         }
+
         return evaporatingReagents.ToArray();
     }
 
@@ -99,6 +100,7 @@ public abstract partial class SharedPuddleSystem
             if (solProto.Absorbent)
                 absorbentReagents.Add(solProto.ID);
         }
+
         return absorbentReagents.ToArray();
     }
 
@@ -121,6 +123,7 @@ public abstract partial class SharedPuddleSystem
                 evaporatingSpeeds.Add(solProto.ID, solProto.EvaporationSpeed);
             }
         }
+
         return evaporatingSpeeds;
     }
 }

@@ -24,15 +24,15 @@ public sealed partial class EnsnareableDoAfterEvent : SimpleDoAfterEvent
 
 public abstract class SharedEnsnareableSystem : EntitySystem
 {
-    [Dependency] private   readonly AlertsSystem _alerts = default!;
-    [Dependency] private   readonly MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private   readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
 
     public override void Initialize()
     {
@@ -243,13 +243,13 @@ public abstract class SharedEnsnareableSystem : EntitySystem
     /// <param name="component">The ensnaring component</param>
     public bool TryEnsnare(EntityUid target, EntityUid ensnare, EnsnaringComponent component)
     {
-        //Don't do anything if they don't have the ensnareable component.
+        // Don't do anything if they don't have the ensnareable component.
         if (!TryComp<EnsnareableComponent>(target, out var ensnareable))
             return false;
 
         var numEnsnares = ensnareable.Container.ContainedEntities.Count;
 
-        //Don't do anything if the maximum number of ensnares is applied.
+        // Don't do anything if the maximum number of ensnares is applied.
         if (numEnsnares >= component.MaxEnsnares)
             return false;
 

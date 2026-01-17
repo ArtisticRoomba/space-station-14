@@ -7,6 +7,7 @@ public enum LogType
     /// Test logs. DO NOT USE!!!
     /// </summary>
     Unknown = 0,
+
     // DamageChange = 1
 
     /// <summary>

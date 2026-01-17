@@ -59,16 +59,19 @@ public enum ArtifactState
 {
     /// <summary> Unused default. </summary>
     None,
+
     /// <summary> Artifact is ready to start unlocking. </summary>
     Ready,
+
     /// <summary> Artifact is in unlocking state, listening to any additional trigger. </summary>
     Unlocking,
+
     /// <summary> Artifact unlocking is on cooldown, nodes could not be triggered. </summary>
-    Cooldown
+    Cooldown,
 }
 
 [Serializable, NetSerializable]
 public enum NodeScannerUiKey : byte
 {
-    Key
+    Key,
 }

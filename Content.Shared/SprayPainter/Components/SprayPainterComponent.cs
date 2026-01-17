@@ -117,10 +117,12 @@ public enum DecalPaintMode : byte
     /// Clicking on the floor does nothing.
     /// </summary>
     Off = 0,
+
     /// <summary>
     /// Clicking on the floor adds a decal at the requested spot (or snapped to the grid)
     /// </summary>
     Add = 1,
+
     /// <summary>
     /// Clicking on the floor removes all decals at the requested spot (or snapped to the grid)
     /// </summary>

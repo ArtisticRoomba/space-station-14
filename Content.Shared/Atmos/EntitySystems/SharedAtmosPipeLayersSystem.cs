@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -11,7 +12,6 @@ using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Atmos.EntitySystems;
 
@@ -106,7 +106,7 @@ public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
                     Act = () =>
                     {
                         _tool.UseTool(tool.Value, user, ent, ent.Comp.Delay, tool.Value.Comp.Qualities, new TrySettingPipeLayerCompletedEvent((AtmosPipeLayer)index));
-                    }
+                    },
                 };
 
                 args.Verbs.Add(v);

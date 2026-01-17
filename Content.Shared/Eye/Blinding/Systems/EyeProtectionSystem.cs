@@ -47,7 +47,7 @@ namespace Content.Shared.Eye.Blinding.Systems
             var ev = new GetEyeProtectionEvent();
             RaiseLocalEvent(args.User, ev);
 
-            var time = (float) (component.StatusEffectTime - ev.Protection).TotalSeconds;
+            var time = (float)(component.StatusEffectTime - ev.Protection).TotalSeconds;
             if (time <= 0)
                 return;
 
@@ -58,6 +58,7 @@ namespace Content.Shared.Eye.Blinding.Systems
             _statusEffectsSystem.TryAddStatusEffect(args.User, TemporaryBlindnessSystem.BlindingStatusEffect,
                 statusTimeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
         }
+
         private void OnWelderToggled(EntityUid uid, RequiresEyeProtectionComponent component, ItemToggledEvent args)
         {
             component.Toggled = args.Activated;

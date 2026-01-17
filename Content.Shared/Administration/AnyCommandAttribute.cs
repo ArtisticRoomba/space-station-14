@@ -11,6 +11,5 @@ namespace Content.Shared.Administration
     [MeansImplicitUse]
     public sealed class AnyCommandAttribute : Attribute
     {
-
     }
 }

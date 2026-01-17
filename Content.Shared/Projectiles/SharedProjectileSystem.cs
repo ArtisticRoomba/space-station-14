@@ -121,7 +121,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         EnsureComp<EmbeddedContainerComponent>(target, out var embeddedContainer);
 
-        //Assert that this entity not embed
+        // Assert that this entity not embed
         DebugTools.AssertEqual(embeddedContainer.EmbeddedObjects.Contains(uid), false);
 
         embeddedContainer.EmbeddedObjects.Add(uid);

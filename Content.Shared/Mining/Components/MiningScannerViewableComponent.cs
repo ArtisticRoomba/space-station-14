@@ -9,5 +9,5 @@ public sealed partial class MiningScannerViewableComponent : Component;
 [Serializable, NetSerializable]
 public enum MiningScannerVisualLayers : byte
 {
-    Overlay
+    Overlay,
 }

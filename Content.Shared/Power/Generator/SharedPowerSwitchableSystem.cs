@@ -39,7 +39,7 @@ public abstract class SharedPowerSwitchableSystem : EntitySystem
                 Cycle(uid, args.User, comp);
             },
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
-            Text = msg
+            Text = msg,
         };
 
         var ev = new SwitchPowerCheckEvent();

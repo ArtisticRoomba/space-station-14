@@ -5,7 +5,7 @@ namespace Content.Shared.Wires
     [Serializable, NetSerializable]
     public enum WireVisVisuals
     {
-        ConnectedMask
+        ConnectedMask,
     }
 
     [Flags]
@@ -16,6 +16,6 @@ namespace Content.Shared.Wires
         North = 1,
         South = 2,
         East = 4,
-        West = 8
+        West = 8,
     }
 }

@@ -6,11 +6,12 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Implants.Components;
+
 /// <summary>
 /// Implanters are used to implant or extract implants from an entity.
 /// Some can be single use (implant only) or some can draw out an implant
 /// </summary>
-//TODO: Rework drawing to work with implant cases when surgery is in
+// TODO: Rework drawing to work with implant cases when surgery is in
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class ImplanterComponent : Component
 {
@@ -43,7 +44,8 @@ public sealed partial class ImplanterComponent : Component
     [DataField]
     public float ImplantTime = 5f;
 
-    //TODO: Remove when surgery is a thing
+    // TODO: Remove when surgery is a thing
+
     /// <summary>
     /// The time it takes to extract an implant from someone
     /// It's excessively long to deter from implant checking any antag
@@ -114,17 +116,17 @@ public sealed partial class ImplanterComponent : Component
 public enum ImplanterToggleMode : byte
 {
     Inject,
-    Draw
+    Draw,
 }
 
 [Serializable, NetSerializable]
 public enum ImplanterVisuals : byte
 {
-    Full
+    Full,
 }
 
 [Serializable, NetSerializable]
 public enum ImplanterImplantOnlyVisuals : byte
 {
-    ImplantOnly
+    ImplantOnly,
 }

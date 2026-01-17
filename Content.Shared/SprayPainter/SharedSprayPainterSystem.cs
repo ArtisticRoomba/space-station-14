@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -13,7 +14,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using System.Linq;
 
 namespace Content.Shared.SprayPainter;
 
@@ -64,6 +64,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
             ent.Comp.StylesByGroup[groupProto.ID] = groupProto.DefaultStyle;
             stylesByGroupPopulated = true;
         }
+
         if (stylesByGroupPopulated)
             Dirty(ent);
 
@@ -131,7 +132,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
             Text = Loc.GetString("spray-painter-verb-toggle-decals"),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
             Act = () => TogglePaintDecals(ent, user),
-            Impact = LogImpact.Low
+            Impact = LogImpact.Low,
         };
         args.Verbs.Add(verb);
     }
@@ -161,6 +162,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
                 pitch = 0.8f;
                 break;
         }
+
         Dirty(ent);
 
         // Make the machine beep.

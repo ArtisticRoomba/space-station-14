@@ -49,6 +49,7 @@ public sealed partial class ScatteringGrenadeComponent : Component
     public bool TriggerContents = true;
 
     #region Trigger time parameters for scattered entities
+
     /// <summary>
     ///  Minimum delay in seconds before any entities start to be triggered.
     /// </summary>
@@ -69,6 +70,7 @@ public sealed partial class ScatteringGrenadeComponent : Component
     #endregion
 
     #region Throwing parameters for the scattered entities
+
     /// <summary>
     /// Should the angle the entities get thrown at be random
     /// instead of uniformly distributed

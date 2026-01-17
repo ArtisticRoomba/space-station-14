@@ -7,5 +7,5 @@ public enum AlertLevelDisplay
 {
     CurrentLevel,
     Layer,
-    Powered
+    Powered,
 }

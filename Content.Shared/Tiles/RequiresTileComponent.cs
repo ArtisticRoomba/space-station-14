@@ -8,5 +8,4 @@ namespace Content.Shared.Tiles;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RequiresTileComponent : Component
 {
-
 }

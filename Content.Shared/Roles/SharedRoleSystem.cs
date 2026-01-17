@@ -145,9 +145,9 @@ public abstract class SharedRoleSystem : EntitySystem
             return;
         }
 
-        //TODO don't let a prototype being added a second time
-        //If that was somehow to occur, a second mindrole for that comp would be created
-        //Meaning any mind role checks could return wrong results, since they just return the first match they find
+        // TODO don't let a prototype being added a second time
+        // If that was somehow to occur, a second mindrole for that comp would be created
+        // Meaning any mind role checks could return wrong results, since they just return the first match they find
         if (!PredictedTrySpawnInContainer(protoId, mindId, MindComponent.MindRoleContainerId, out var mindRoleId))
         {
             Log.Error($"Failed to add role {protoId} to {ToPrettyString(mindId)} : Could not spawn the role entity inside the container");
@@ -180,8 +180,8 @@ public abstract class SharedRoleSystem : EntitySystem
         }
         else
         {
-            //TODO: This is not tied to the player on the Admin Log filters.
-            //Probably only happens when Job Role is added on initial spawn, before the mind entity is put in a mob
+            // TODO: This is not tied to the player on the Admin Log filters.
+            // Probably only happens when Job Role is added on initial spawn, before the mind entity is put in a mob
             Log.Error($"{ToPrettyString(mindId)} does not have an OwnedEntity!");
             _adminLogger.Add(LogType.Mind,
                 LogImpact.Low,
@@ -200,7 +200,7 @@ public abstract class SharedRoleSystem : EntitySystem
         if (!Resolve(ent.Owner, ref ent.Comp))
             return false;
 
-        //get the most important/latest mind role
+        // get the most important/latest mind role
         var (roleType, subtype) = GetRoleTypeByTime(ent.Comp);
 
         if (ent.Comp.RoleType == roleType && ent.Comp.Subtype == subtype)
@@ -284,7 +284,8 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <param name="mind">The mind to remove the role from.</param>
     /// <typeparam name="T">The type of the role to remove.</typeparam>
     /// <returns>True if the role existed and was removed</returns>>
-    public bool MindRemoveRole<T>(Entity<MindComponent?> mind) where T : IComponent
+    public bool MindRemoveRole<T>(Entity<MindComponent?> mind)
+        where T : IComponent
     {
         if (typeof(T) == typeof(MindRoleComponent))
             throw new InvalidOperationException();
@@ -339,7 +340,8 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <param name="mindId">The mind entity</param>
     /// <typeparam name="T">The type of the role to remove.</typeparam>
     /// <returns>True if the role existed and was removed</returns>
-    public bool MindRemoveRole<T>(EntityUid mindId) where T : IComponent
+    public bool MindRemoveRole<T>(EntityUid mindId)
+        where T : IComponent
     {
         if (!TryComp<MindComponent>(mindId, out var mind))
         {
@@ -424,7 +426,8 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <param name="role">The Mind Role entity component</param>
     /// <returns>True if the role is found</returns>
     public bool MindHasRole<T>(Entity<MindComponent?> mind,
-        [NotNullWhen(true)] out Entity<MindRoleComponent, T>? role) where T : IComponent
+        [NotNullWhen(true)] out Entity<MindRoleComponent, T>? role)
+        where T : IComponent
     {
         role = null;
         if (!Resolve(mind.Owner, ref mind.Comp))
@@ -515,19 +518,22 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <param name="mindId">The mind entity</param>
     /// <typeparam name="T">The type of the role to find.</typeparam>
     /// <returns>True if the role is found</returns>
-    public bool MindHasRole<T>(EntityUid mindId) where T : IComponent
+    public bool MindHasRole<T>(EntityUid mindId)
+        where T : IComponent
     {
         return MindHasRole<T>(mindId, out _);
     }
 
-    //TODO: Delete this later
+    // TODO: Delete this later
+
     /// <summary>
     /// Returns the first mind role of a specific type
     /// </summary>
     /// <param name="mindId">The mind entity</param>
     /// <returns>Entity Component of the mind role</returns>
     [Obsolete("Use MindHasRole's output value")]
-    public Entity<MindRoleComponent>? MindGetRole<T>(EntityUid mindId) where T : IComponent
+    public Entity<MindRoleComponent>? MindGetRole<T>(EntityUid mindId)
+        where T : IComponent
     {
         Entity<MindRoleComponent>? result = null;
 
@@ -538,6 +544,7 @@ public abstract class SharedRoleSystem : EntitySystem
             if (HasComp<T>(uid) && TryComp<MindRoleComponent>(uid, out var comp))
                 result = (uid, comp);
         }
+
         return result;
     }
 
@@ -604,6 +611,7 @@ public abstract class SharedRoleSystem : EntitySystem
             if (valid)
                 roleInfo.Add(new RoleInfo(name, comp.Antag, playTimeTracker, prototype));
         }
+
         return roleInfo;
     }
 
@@ -671,6 +679,7 @@ public abstract class SharedRoleSystem : EntitySystem
     // TODO ROLES Change to readonly?
     // Passing around a reference to a prototype's hashset makes me uncomfortable because it might be accidentally
     // mutated.
+
     /// <summary>
     /// Returns the list of requirements for a role, or null. May be altered by requirement overrides.
     /// </summary>
@@ -683,6 +692,7 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     // TODO ROLES Change to readonly?
+
     /// <inheritdoc cref="GetRoleRequirements(JobPrototype)"/>
     public HashSet<JobRequirement>? GetRoleRequirements(AntagPrototype antag)
     {
@@ -693,6 +703,7 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     // TODO ROLES Change to readonly?
+
     /// <inheritdoc cref="GetRoleRequirements(JobPrototype)"/>
     public HashSet<JobRequirement>? GetRoleRequirements(ProtoId<JobPrototype> jobId)
     {
@@ -700,6 +711,7 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     // TODO ROLES Change to readonly?
+
     /// <inheritdoc cref="GetRoleRequirements(JobPrototype)"/>
     public HashSet<JobRequirement>? GetRoleRequirements(ProtoId<AntagPrototype> antagId)
     {
@@ -721,5 +733,4 @@ public abstract class SharedRoleSystem : EntitySystem
 [Serializable, NetSerializable]
 public sealed class MindRoleTypeChangedEvent : EntityEventArgs
 {
-
 }

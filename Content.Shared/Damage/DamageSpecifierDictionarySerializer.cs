@@ -11,7 +11,7 @@ using Robust.Shared.Serialization.TypeSerializers.Interfaces;
 
 namespace Content.Shared.Damage;
 
-//todo writing
+// todo writing
 public sealed class DamageSpecifierDictionarySerializer : ITypeReader<Dictionary<string, FixedPoint2>, MappingDataNode>
 {
     private ITypeValidator<Dictionary<string, FixedPoint2>, MappingDataNode> _damageTypeSerializer = new PrototypeIdDictionarySerializer<FixedPoint2, DamageTypePrototype>();
@@ -72,6 +72,7 @@ public sealed class DamageSpecifierDictionarySerializer : ITypeReader<Dictionary
                     // Key already exists, add values
                     dict[damageType] += damage;
                 }
+
                 remainingDamage -= damage;
                 remainingTypes -= 1;
             }

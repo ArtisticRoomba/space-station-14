@@ -47,7 +47,7 @@ public sealed partial class GenericCounterAlertComponent : Component
         "10",
         "100",
         "1000",
-        "10000"
+        "10000",
     };
 }
 

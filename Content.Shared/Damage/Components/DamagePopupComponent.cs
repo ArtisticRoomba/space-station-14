@@ -30,4 +30,4 @@ public enum DamagePopupType : byte
     Total,
     Delta,
     Hit,
-};
+}

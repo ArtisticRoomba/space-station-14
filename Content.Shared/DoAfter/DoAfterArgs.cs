@@ -47,6 +47,7 @@ public sealed partial class DoAfterArgs
     public bool Hidden;
 
     #region Event options
+
     /// <summary>
     ///     The event that will get raised when the DoAfter has finished. If null, this will simply raise a <see cref="SimpleDoAfterEvent"/>
     /// </summary>
@@ -79,6 +80,7 @@ public sealed partial class DoAfterArgs
     #region Break/Cancellation Options
 
     // Break the chains
+
     /// <summary>
     ///     Whether or not this do after requires the user to have hands.
     /// </summary>
@@ -145,6 +147,7 @@ public sealed partial class DoAfterArgs
     #endregion
 
     #region Duplicates
+
     /// <summary>
     ///     If true, this will prevent duplicate DoAfters from being started See also <see cref="DuplicateConditions"/>.
     /// </summary>
@@ -155,7 +158,8 @@ public sealed partial class DoAfterArgs
     [DataField]
     public bool BlockDuplicate = true;
 
-    //TODO: User pref to not cancel on second use on specific doafters
+    // TODO: User pref to not cancel on second use on specific doafters
+
     /// <summary>
     ///     If true, this will cancel any duplicate DoAfters when attempting to add a new DoAfter. See also
     ///     <see cref="DuplicateConditions"/>.
@@ -241,7 +245,7 @@ public sealed partial class DoAfterArgs
 
     #endregion
 
-    //The almighty pyramid returns.......
+    // The almighty pyramid returns.......
     public DoAfterArgs(DoAfterArgs other)
     {
         User = other.User;
@@ -336,5 +340,5 @@ public enum AttemptFrequency : byte
     /// <summary>
     ///     Raise the attempt event every tick while the DoAfter is running.
     /// </summary>
-    EveryTick = 2
+    EveryTick = 2,
 }

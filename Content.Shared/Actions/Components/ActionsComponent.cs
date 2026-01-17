@@ -47,5 +47,5 @@ public enum ItemActionIconStyle : byte
     /// <summary>
     /// BigAction but no item icon will be shown in the corner.
     /// </summary>
-    NoItem
+    NoItem,
 }

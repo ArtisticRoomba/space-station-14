@@ -142,7 +142,6 @@ public abstract class SharedJobSystem : EntitySystem
 
     public bool MindHasJobWithId(EntityUid? mindId, string prototypeId)
     {
-
         if (mindId is null)
             return false;
 

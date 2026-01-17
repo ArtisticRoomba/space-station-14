@@ -162,7 +162,7 @@ public abstract partial class SharedXenoArtifactSystem
         DebugTools.Assert(toIdx >= 0 && toIdx < ent.Comp.NodeVertices.Length, $"toIdx is out of bounds for toIdx {toIdx}");
 
         if (ent.Comp.NodeAdjacencyMatrix[fromIdx][toIdx])
-            return false; //Edge already exists
+            return false; // Edge already exists
 
         // TODO: add a safety check to prohibit cyclic paths.
         ent.Comp.NodeAdjacencyMatrix[fromIdx][toIdx] = true;
@@ -217,7 +217,7 @@ public abstract partial class SharedXenoArtifactSystem
         DebugTools.Assert(toIdx >= 0 && toIdx < ent.Comp.NodeVertices.Length, $"toIdx is out of bounds for toIdx {toIdx}");
 
         if (!ent.Comp.NodeAdjacencyMatrix[fromIdx][toIdx])
-            return false; //Edge doesn't exist
+            return false; // Edge doesn't exist
 
         ent.Comp.NodeAdjacencyMatrix[fromIdx][toIdx] = false;
 
@@ -244,8 +244,7 @@ public abstract partial class SharedXenoArtifactSystem
         Entity<XenoArtifactComponent?> ent,
         EntProtoId entProtoId,
         [NotNullWhen(true)] out Entity<XenoArtifactNodeComponent>? node,
-        bool dirty = true
-    )
+        bool dirty = true)
     {
         node = null;
         if (!Resolve(ent, ref ent.Comp))
@@ -564,8 +563,7 @@ public abstract partial class SharedXenoArtifactSystem
     public bool NodeHasEdge(
         Entity<XenoArtifactComponent?> ent,
         Entity<XenoArtifactNodeComponent?> from,
-        Entity<XenoArtifactNodeComponent?> to
-    )
+        Entity<XenoArtifactNodeComponent?> to)
     {
         if (!Resolve(ent, ref ent.Comp))
             return new();

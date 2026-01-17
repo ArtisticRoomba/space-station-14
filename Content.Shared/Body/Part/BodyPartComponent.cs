@@ -11,6 +11,7 @@ namespace Content.Shared.Body.Part;
 public sealed partial class BodyPartComponent : Component
 {
     // Need to set this on container changes as it may be several transform parents up the hierarchy.
+
     /// <summary>
     /// Parent body for this part.
     /// </summary>
@@ -21,6 +22,7 @@ public sealed partial class BodyPartComponent : Component
     public BodyPartType PartType = BodyPartType.Other;
 
     // TODO BODY Replace with a simulation of organs
+
     /// <summary>
     ///     Whether or not the owning <see cref="Body"/> will die if all
     ///     <see cref="BodyComponent"/>s of this type are removed from it.
@@ -56,7 +58,7 @@ public sealed partial class BodyPartComponent : Component
 
             foreach (var slotId in Children.Keys)
             {
-                temp.Add((ContainerSlot) containerSystem.GetContainer(Owner, SharedBodySystem.PartSlotContainerIdPrefix+slotId));
+                temp.Add((ContainerSlot)containerSystem.GetContainer(Owner, SharedBodySystem.PartSlotContainerIdPrefix+slotId));
             }
 
             return temp;
@@ -73,7 +75,7 @@ public sealed partial class BodyPartComponent : Component
 
             foreach (var slotId in Organs.Keys)
             {
-                temp.Add((ContainerSlot) containerSystem.GetContainer(Owner, SharedBodySystem.OrganSlotContainerIdPrefix+slotId));
+                temp.Add((ContainerSlot)containerSystem.GetContainer(Owner, SharedBodySystem.OrganSlotContainerIdPrefix+slotId));
             }
 
             return temp;
@@ -96,7 +98,7 @@ public partial struct BodyPartSlot
         Id = id;
         Type = type;
     }
-};
+}
 
 /// <summary>
 /// Contains metadata about an organ part in relation to its slot.
@@ -111,4 +113,4 @@ public partial struct OrganSlot
     {
         Id = id;
     }
-};
+}

@@ -31,12 +31,12 @@ public sealed partial class ClockComponent : Component
 public enum ClockType : byte
 {
     TwelveHour,
-    TwentyFourHour
+    TwentyFourHour,
 }
 
 [Serializable, NetSerializable]
 public enum ClockVisualLayers : byte
 {
     HourHand,
-    MinuteHand
+    MinuteHand,
 }

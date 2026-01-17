@@ -92,9 +92,7 @@ public sealed class PaperSystem : EntitySystem
                 args.PushMarkup(
                     Loc.GetString(
                         "paper-component-examine-detail-has-words",
-                        ("paper", entity)
-                    )
-                );
+                        ("paper", entity)));
             }
 
             if (entity.Comp.StampedBy.Count > 0)
@@ -105,8 +103,7 @@ public sealed class PaperSystem : EntitySystem
                     Loc.GetString(
                         "paper-component-examine-detail-stamped-by",
                         ("paper", entity),
-                        ("stamps", commaSeparated))
-                );
+                        ("stamps", commaSeparated)));
             }
         }
     }
@@ -149,6 +146,7 @@ public sealed class PaperSystem : EntitySystem
                 _uiSystem.OpenUi(entity.Owner, PaperUiKey.Key, args.User);
                 UpdateUserInterface(entity);
             }
+
             args.Handled = true;
             return;
         }
@@ -179,7 +177,7 @@ public sealed class PaperSystem : EntitySystem
         return new StampDisplayInfo
         {
             StampedName = stamp.StampedName,
-            StampedColor = stamp.StampedColor
+            StampedColor = stamp.StampedColor,
         };
     }
 
@@ -221,6 +219,7 @@ public sealed class PaperSystem : EntitySystem
             RemCompDeferred(ent, ent.Comp);
             return;
         }
+
         var dataset = _protoMan.Index(ent.Comp.Dataset);
 
         // Intentionally not using the Pick overload that directly takes a LocalizedDataset,
@@ -263,6 +262,7 @@ public sealed class PaperSystem : EntitySystem
                 _appearance.SetData(entity, PaperVisuals.Stamp, entity.Comp.StampState, appearance);
             }
         }
+
         return true;
     }
 

@@ -9,6 +9,7 @@ namespace Content.Shared.Atmos
     public static class Atmospherics
     {
         #region ATMOS
+
         /// <summary>
         ///     The universal gas constant, in kPa*L/(K*mol)
         /// </summary>
@@ -370,6 +371,6 @@ namespace Content.Shared.Atmos
         WaterVapor = 5,
         Ammonia = 6,
         NitrousOxide = 7,
-        Frezon = 8
+        Frezon = 8,
     }
 }

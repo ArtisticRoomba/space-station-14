@@ -6,7 +6,7 @@ namespace Content.Shared.Medical.CrewMonitoring;
 [Serializable, NetSerializable]
 public enum CrewMonitoringUIKey
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]

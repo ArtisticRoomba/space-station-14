@@ -6,7 +6,7 @@ namespace Content.Shared.Nuke
     public enum NukeVisualLayers
     {
         Base,
-        Unlit
+        Unlit,
     }
 
     [NetSerializable, Serializable]
@@ -21,13 +21,13 @@ namespace Content.Shared.Nuke
     {
         Idle,
         Armed,
-        YoureFucked
+        YoureFucked,
     }
 
     [Serializable, NetSerializable]
     public enum NukeUiKey : byte
     {
-        Key
+        Key,
     }
 
     public enum NukeStatus : byte
@@ -36,7 +36,7 @@ namespace Content.Shared.Nuke
         AWAIT_CODE,
         AWAIT_ARM,
         ARMED,
-        COOLDOWN
+        COOLDOWN,
     }
 
     [Serializable, NetSerializable]

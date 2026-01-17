@@ -4,6 +4,7 @@ namespace Content.Shared.Pointing;
 
 // TODO just make pointing properly predicted?
 // So true
+
 /// <summary>
 ///     Event raised when someone runs the client-side pointing verb.
 /// </summary>

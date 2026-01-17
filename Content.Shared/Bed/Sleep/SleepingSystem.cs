@@ -77,7 +77,7 @@ public sealed partial class SleepingSystem : EntitySystem
         SubscribeLocalEvent<SleepingComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
         SubscribeLocalEvent<SleepingComponent, EmoteAttemptEvent>(OnEmoteAttempt);
 
-        SubscribeLocalEvent<SleepingComponent, BeforeForceSayEvent>(OnChangeForceSay, after: new [] { typeof(PainNumbnessSystem)});
+        SubscribeLocalEvent<SleepingComponent, BeforeForceSayEvent>(OnChangeForceSay, after: new [] { typeof(PainNumbnessSystem) });
     }
 
     private void OnUnbuckleAttempt(Entity<SleepingComponent> ent, ref UnbuckleAttemptEvent args)
@@ -128,6 +128,7 @@ public sealed partial class SleepingSystem : EntitySystem
                 {
                     emitSound.Sound = sleepSound.Snore;
                 }
+
                 emitSound.MinInterval = sleepSound.Interval;
                 emitSound.MaxInterval = sleepSound.MaxInterval;
                 emitSound.PopUp = sleepSound.PopUp;
@@ -226,7 +227,7 @@ public sealed partial class SleepingSystem : EntitySystem
                 TryWakeWithCooldown((ent, ent.Comp), user: user);
             },
             Text = Loc.GetString("action-name-wake"),
-            Priority = 2
+            Priority = 2,
         };
 
         args.Verbs.Add(verb);
@@ -276,6 +277,7 @@ public sealed partial class SleepingSystem : EntitySystem
             RemComp<SleepingComponent>(ent);
             return;
         }
+
         if (TryComp<SpamEmitSoundComponent>(ent, out var spam))
             _emitSound.SetEnabled((ent, spam), args.NewMobState == MobState.Alive);
     }
@@ -338,6 +340,7 @@ public sealed partial class SleepingSystem : EntitySystem
                 _audio.PlayPredicted(ent.Comp.WakeAttemptSound, ent, user);
                 _popupSystem.PopupClient(Loc.GetString("wake-other-failure", ("target", Identity.Entity(ent, EntityManager))), ent, user, PopupType.SmallCaution);
             }
+
             return false;
         }
 

@@ -348,7 +348,7 @@ public sealed class AccessReaderSystem : EntitySystem
 
         var ev = new GetAdditionalAccessEvent
         {
-            Entities = items
+            Entities = items,
         };
         RaiseLocalEvent(uid, ref ev);
 
@@ -356,6 +356,7 @@ public sealed class AccessReaderSystem : EntitySystem
         {
             items.UnionWith(FindPotentialAccessItems(item));
         }
+
         items.Add(uid);
         return items;
     }
@@ -415,6 +416,7 @@ public sealed class AccessReaderSystem : EntitySystem
             // no tags, no problem
             return;
         }
+
         if (tags != null)
         {
             // existing tags, so copy to make sure we own them

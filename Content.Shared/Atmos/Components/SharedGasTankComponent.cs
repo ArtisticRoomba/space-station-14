@@ -5,7 +5,7 @@ namespace Content.Shared.Atmos.Components;
 [Serializable, NetSerializable]
 public enum SharedGasTankUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]

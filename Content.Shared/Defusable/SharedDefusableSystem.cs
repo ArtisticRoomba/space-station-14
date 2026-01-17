@@ -10,13 +10,12 @@ namespace Content.Shared.Defusable;
 /// </remarks>
 public abstract class SharedDefusableSystem : EntitySystem
 {
-
 }
 
 [NetSerializable, Serializable]
 public enum DefusableVisuals
 {
-    Active
+    Active,
 }
 
 [NetSerializable, Serializable]

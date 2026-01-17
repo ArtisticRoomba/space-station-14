@@ -50,6 +50,7 @@ public sealed partial class MovementSpeedModifierEntityEffectSystem : EntityEffe
                         sprintMod,
                         walkMod);
                 }
+
                 break;
             case StatusEffectMetabolismType.Remove:
                 _status.TryRemoveTime(entity, args.Effect.EffectProto, args.Effect.Time * args.Scale);

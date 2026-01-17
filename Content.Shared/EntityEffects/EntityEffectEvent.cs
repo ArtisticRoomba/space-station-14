@@ -7,7 +7,8 @@ namespace Content.Shared.EntityEffects;
 /// <param name="Scale">A strength scalar for the effect, defaults to 1 and typically only goes under for incomplete reactions.</param>
 /// <param name="User">The entity causing the effect.</param>
 [ByRefEvent, Access(typeof(SharedEntityEffectsSystem))]
-public readonly record struct EntityEffectEvent<T>(T Effect, float Scale, EntityUid? User) where T : EntityEffectBase<T>
+public readonly record struct EntityEffectEvent<T>(T Effect, float Scale, EntityUid? User)
+    where T : EntityEffectBase<T>
 {
     /// <summary>
     /// The Condition being raised in this event

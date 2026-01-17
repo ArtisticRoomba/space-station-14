@@ -50,7 +50,7 @@ public sealed partial class SiliconLawset
         return new SiliconLawset()
         {
             Laws = laws,
-            ObeysTo = ObeysTo
+            ObeysTo = ObeysTo,
         };
     }
 }

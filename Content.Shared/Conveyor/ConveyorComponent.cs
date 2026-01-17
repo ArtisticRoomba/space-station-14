@@ -44,7 +44,7 @@ public sealed partial class ConveyorComponent : Component
 [Serializable, NetSerializable]
 public enum ConveyorVisuals : byte
 {
-    State
+    State,
 }
 
 [Serializable, NetSerializable]
@@ -52,6 +52,6 @@ public enum ConveyorState : byte
 {
     Off,
     Forward,
-    Reverse
+    Reverse,
 }
 

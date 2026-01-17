@@ -41,6 +41,7 @@ public sealed class DamageOnHoldingSystem : EntitySystem
             {
                 _damageableSystem.TryChangeDamage(container.Owner, component.Damage, origin: uid);
             }
+
             component.NextDamage = _timing.CurTime + TimeSpan.FromSeconds(component.Interval);
         }
     }

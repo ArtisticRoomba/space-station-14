@@ -5,6 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityEffects.Effects.Solution;
 
 // TODO: Energy conservation!!! Once HeatContainers are merged nuke this and everything in SolutionContainerSystem to respect energy conservation!
+
 /// <summary>
 /// Sets the temperature of this solution to a fixed value.
 /// </summary>

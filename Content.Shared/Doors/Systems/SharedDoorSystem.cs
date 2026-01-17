@@ -93,6 +93,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
                 door.State = DoorState.Open;
                 door.Partial = false;
             }
+
             if (door.State == DoorState.Closing)
             {
                 // force to closed.
@@ -247,6 +248,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
             args.Cancel();
             return;
         }
+
         if (component.State != DoorState.Closed && component.State != DoorState.Welded)
         {
             args.Cancel();
@@ -574,17 +576,17 @@ public abstract partial class SharedDoorSystem : EntitySystem
             if (!otherPhysics.Comp.CanCollide)
                 continue;
 
-            //TODO: Make only shutters ignore these objects upon colliding instead of all airlocks
+            // TODO: Make only shutters ignore these objects upon colliding instead of all airlocks
             // Excludes Glasslayer for windows, GlassAirlockLayer for windoors, TableLayer for tables
-            if (otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.GlassLayer || otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.GlassAirlockLayer || otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.TableLayer)
+            if (otherPhysics.Comp.CollisionLayer == (int)CollisionGroup.GlassLayer || otherPhysics.Comp.CollisionLayer == (int)CollisionGroup.GlassAirlockLayer || otherPhysics.Comp.CollisionLayer == (int)CollisionGroup.TableLayer)
                 continue;
 
             // Ignore low-passable entities.
             if ((otherPhysics.Comp.CollisionMask & (int)CollisionGroup.LowImpassable) == 0)
                 continue;
 
-            //For when doors need to close over conveyor belts
-            if (otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.ConveyorMask)
+            // For when doors need to close over conveyor belts
+            if (otherPhysics.Comp.CollisionLayer == (int)CollisionGroup.ConveyorMask)
                 continue;
 
             if ((physics.CollisionMask & otherPhysics.Comp.CollisionLayer) == 0 && (otherPhysics.Comp.CollisionMask & physics.CollisionLayer) == 0)
@@ -653,7 +655,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
             // Some game modes modify access rules.
             AccessTypes.AllowAllIdExternal => !isExternal || _accessReaderSystem.IsAllowed(user.Value, uid, access),
             AccessTypes.AllowAllNoExternal => !isExternal,
-            _ => _accessReaderSystem.IsAllowed(user.Value, uid, access)
+            _ => _accessReaderSystem.IsAllowed(user.Value, uid, access),
         };
     }
 
@@ -669,21 +671,25 @@ public abstract partial class SharedDoorSystem : EntitySystem
     {
         /// <summary> ID based door access. </summary>
         Id,
+
         /// <summary>
         /// Allows everyone to open doors, except external which airlocks are still handled with ID's
         /// </summary>
         AllowAllIdExternal,
+
         /// <summary>
         /// Allows everyone to open doors, except external airlocks which are never allowed, even if the user has
         /// ID access.
         /// </summary>
         AllowAllNoExternal,
+
         /// <summary> Allows everyone to open all doors. </summary>
-        AllowAll
+        AllowAll,
     }
     #endregion
 
     #region Updating
+
     /// <summary>
     ///     Schedule an open or closed door to progress to the next state after some time.
     /// </summary>
@@ -811,6 +817,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
                     // The door failed to close (blocked?). Try again in one second.
                     door.NextStateChange = time + TimeSpan.FromSeconds(1);
                 }
+
                 break;
 
             case DoorState.Welded:

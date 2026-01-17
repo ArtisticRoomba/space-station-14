@@ -11,7 +11,7 @@ namespace Content.Shared.Humanoid
             {
                 HumanoidVisualLayers.Chest => true,
                 HumanoidVisualLayers.Head => true,
-                _ => false
+                _ => false,
             };
         }
 

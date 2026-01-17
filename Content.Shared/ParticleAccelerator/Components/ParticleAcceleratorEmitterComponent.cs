@@ -22,5 +22,5 @@ public enum ParticleAcceleratorEmitterType
 {
     Port,
     Fore,
-    Starboard
+    Starboard,
 }

@@ -43,5 +43,5 @@ public sealed class GenpopLockerIdConfiguredMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public enum GenpopLockerUiKey : byte
 {
-    Key
+    Key,
 }

@@ -15,6 +15,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Stacks;
 
 // Partial for general system code and event handlers.
+
 /// <summary>
 /// System for handling entities which represent a stack of identical items, usually materials.
 /// </summary>
@@ -141,9 +142,7 @@ public abstract partial class SharedStackSystem : EntitySystem
         args.PushMarkup(
             Loc.GetString("comp-stack-examine-detail-count",
                 ("count", ent.Comp.Count),
-                ("markupCountColor", "lightgray")
-            )
-        );
+                ("markupCountColor", "lightgray")));
     }
 
     private void OnBeforeEaten(Entity<StackComponent> eaten, ref BeforeIngestedEvent args)
@@ -195,7 +194,7 @@ public abstract partial class SharedStackSystem : EntitySystem
             Text = Loc.GetString("comp-stack-split-halve"),
             Category = VerbCategory.Split,
             Act = () => UserSplit(ent, user, ent.Comp.Count / 2),
-            Priority = 1
+            Priority = 1,
         };
         args.Verbs.Add(halve);
 
@@ -212,7 +211,7 @@ public abstract partial class SharedStackSystem : EntitySystem
                 Act = () => UserSplit(ent, user, amount),
 
                 // we want to sort by size, not alphabetically by the verb text.
-                Priority = priority
+                Priority = priority,
             };
 
             priority--;
@@ -230,7 +229,6 @@ public abstract partial class SharedStackSystem : EntitySystem
     /// </remarks>
     protected virtual void UserSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user, int amount)
     {
-
     }
 }
 

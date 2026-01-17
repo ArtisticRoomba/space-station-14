@@ -96,7 +96,7 @@ public sealed class SlipperySystem : EntitySystem
     private bool CanSlip(EntityUid uid, EntityUid toSlip)
     {
         return !_container.IsEntityInContainer(uid)
-                && _status.CanAddStatusEffect(toSlip, SharedStunSystem.StunId); //Should be KnockedDown instead?
+                && _status.CanAddStatusEffect(toSlip, SharedStunSystem.StunId); // Should be KnockedDown instead?
     }
 
     public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true)
@@ -144,8 +144,7 @@ public sealed class SlipperySystem : EntitySystem
                 _movementMod.TryUpdateFrictionModDuration(
                     other,
                     component.FrictionStatusTime,
-                    component.SlipData.SlipFriction
-                );
+                    component.SlipData.SlipFriction);
             }
 
             _stamina.TakeStaminaDamage(other, component.StaminaDamage); // Note that this can StamCrit

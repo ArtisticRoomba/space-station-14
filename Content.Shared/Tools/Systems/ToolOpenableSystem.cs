@@ -124,7 +124,7 @@ public sealed class ToolOpenableSystem : EntitySystem
 
         var toggleVerb = new InteractionVerb
         {
-            IconEntity = GetNetEntity(item)
+            IconEntity = GetNetEntity(item),
         };
 
         if (entity.Comp.IsOpen)

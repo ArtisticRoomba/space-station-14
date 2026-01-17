@@ -267,14 +267,14 @@ public sealed class PullingSystem : EntitySystem
         if (args.User == args.Target)
             return;
 
-        //TODO VERB ICONS add pulling icon
+        // TODO VERB ICONS add pulling icon
         if (component.Puller == args.User)
         {
             Verb verb = new()
             {
                 Text = Loc.GetString("pulling-verb-get-data-text-stop-pulling"),
                 Act = () => TryStopPull(uid, component, user: args.User),
-                DoContactInteraction = false // pulling handle its own contact interaction.
+                DoContactInteraction = false, // pulling handle its own contact interaction.
             };
             args.Verbs.Add(verb);
         }
@@ -284,7 +284,7 @@ public sealed class PullingSystem : EntitySystem
             {
                 Text = Loc.GetString("pulling-verb-get-data-text"),
                 Act = () => TryStartPull(args.User, args.Target),
-                DoContactInteraction = false // pulling handle its own contact interaction.
+                DoContactInteraction = false, // pulling handle its own contact interaction.
             };
             args.Verbs.Add(verb);
         }

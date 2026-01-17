@@ -39,6 +39,7 @@ public abstract class SharedCriminalRecordsConsoleSystem : EntitySystem
                 }
             }
         }
+
         RemComp<CriminalRecordComponent>(uid);
     }
 }

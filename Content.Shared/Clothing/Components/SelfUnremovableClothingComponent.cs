@@ -14,5 +14,4 @@ namespace Content.Shared.Clothing.Components;
 [Access(typeof(SelfUnremovableClothingSystem))]
 public sealed partial class SelfUnremovableClothingComponent : Component
 {
-
 }

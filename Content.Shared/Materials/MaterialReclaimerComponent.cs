@@ -143,11 +143,11 @@ public sealed partial class MaterialReclaimerComponent : Component
 public enum RecyclerVisuals
 {
     Bloody,
-    Broken
+    Broken,
 }
 
 [UsedImplicitly]
 public enum RecyclerVisualLayers : byte
 {
-    Main
+    Main,
 }

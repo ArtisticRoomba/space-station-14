@@ -22,7 +22,7 @@ public sealed partial class DragInsertContainerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DragInsertContainerComponent, DragDropTargetEvent>(OnDragDropOn, before: new [] { typeof(ClimbSystem)});
+        SubscribeLocalEvent<DragInsertContainerComponent, DragDropTargetEvent>(OnDragDropOn, before: new [] { typeof(ClimbSystem) });
         SubscribeLocalEvent<DragInsertContainerComponent, DragInsertContainerDoAfterEvent>(OnDragFinished);
         SubscribeLocalEvent<DragInsertContainerComponent, CanDropTargetEvent>(OnCanDragDropOn);
         SubscribeLocalEvent<DragInsertContainerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb);
@@ -40,12 +40,12 @@ public sealed partial class DragInsertContainerSystem : EntitySystem
         if (comp.EntryDelay <= TimeSpan.Zero ||
             !comp.DelaySelfEntry && args.User == args.Dragged)
         {
-            //instant insertion
+            // instant insertion
             args.Handled = Insert(args.Dragged, args.User, ent, container);
             return;
         }
 
-        //delayed insertion
+        // delayed insertion
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, comp.EntryDelay, new DragInsertContainerDoAfterEvent(), ent, args.Dragged, ent)
         {
             BreakOnDamage = true,
@@ -120,7 +120,7 @@ public sealed partial class DragInsertContainerSystem : EntitySystem
                     },
                     Category = VerbCategory.Eject,
                     Text = Loc.GetString("container-verb-text-empty"),
-                    Priority = 1 // Promote to top to make ejecting the ALT-click action
+                    Priority = 1, // Promote to top to make ejecting the ALT-click action
                 };
                 args.Verbs.Add(verb);
             }
@@ -134,7 +134,7 @@ public sealed partial class DragInsertContainerSystem : EntitySystem
             {
                 Act = () => Insert(user, user, ent, container),
                 Text = Loc.GetString("container-verb-text-enter"),
-                Priority = 2
+                Priority = 2,
             };
             args.Verbs.Add(verb);
         }

@@ -40,7 +40,8 @@ public sealed class GunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<GunUpgradeDamageComponent, GunShotEvent>(OnDamageGunShot);
     }
 
-    private void RelayEvent<T>(Entity<UpgradeableGunComponent> ent, ref T args) where T : notnull
+    private void RelayEvent<T>(Entity<UpgradeableGunComponent> ent, ref T args)
+        where T : notnull
     {
         foreach (var upgrade in GetCurrentUpgrades(ent))
         {

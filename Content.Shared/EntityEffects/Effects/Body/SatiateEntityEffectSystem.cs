@@ -6,6 +6,7 @@ namespace Content.Shared.EntityEffects.Effects.Body;
 
 // TODO: These systems are in the same file since satiation should be one system instead of two. Combine these when that happens.
 // TODO: Arguably oxygen saturation should also be added here...
+
 /// <summary>
 /// Modifies the thirst level of a given entity, multiplied by scale.
 /// </summary>
@@ -37,7 +38,8 @@ public sealed partial class SatiateHungerEntityEffectsSystem : EntityEffectSyste
 /// </summary>
 /// <typeparam name="T">The effect inheriting this BaseEffect</typeparam>
 /// <inheritdoc cref="EntityEffect"/>
-public abstract partial class Satiate<T> : EntityEffectBase<T> where T : EntityEffectBase<T>
+public abstract partial class Satiate<T> : EntityEffectBase<T>
+    where T : EntityEffectBase<T>
 {
     public const float AverageSatiation = 3f; // Magic number. Not sure how it was calculated since I didn't make it.
 

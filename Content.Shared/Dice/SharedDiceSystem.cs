@@ -38,7 +38,7 @@ public abstract class SharedDiceSystem : EntitySystem
 
     private void OnExamined(Entity<DiceComponent> entity, ref ExaminedEvent args)
     {
-        //No details check, since the sprite updates to show the side.
+        // No details check, since the sprite updates to show the side.
         using (args.PushGroup(nameof(DiceComponent)))
         {
             args.PushMarkup(Loc.GetString("dice-component-on-examine-message-part-1", ("sidesAmount", entity.Comp.Sides)));

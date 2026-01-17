@@ -75,8 +75,7 @@ public sealed partial class EvenHealthChange : EntityEffectBase<EvenHealthChange
                 Loc.GetString("health-change-display",
                     ("kind", groupProto.LocalizedName),
                     ("amount", MathF.Abs(amount.Float() * mod)),
-                    ("deltasign", sign)
-                ));
+                    ("deltasign", sign)));
         }
 
         var healsordeals = heals ? deals ? "both" : "heals" : deals ? "deals" : "none";

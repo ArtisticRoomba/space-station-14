@@ -59,6 +59,7 @@ namespace Content.Shared.Damage
             {
                 total += value;
             }
+
             return total;
         }
 
@@ -90,6 +91,7 @@ namespace Content.Shared.Damage
         }
 
         #region constructors
+
         /// <summary>
         ///     Constructor that just results in an empty dictionary.
         /// </summary>
@@ -322,6 +324,7 @@ namespace Content.Shared.Damage
                     containsMemeber = true;
                 }
             }
+
             return containsMemeber;
         }
 
@@ -360,6 +363,7 @@ namespace Content.Shared.Damage
             {
                 newDamage.DamageDict.Add(entry.Key, entry.Value * factor);
             }
+
             return newDamage;
         }
 
@@ -370,6 +374,7 @@ namespace Content.Shared.Damage
             {
                 newDamage.DamageDict.Add(entry.Key, entry.Value * factor);
             }
+
             return newDamage;
         }
 
@@ -380,6 +385,7 @@ namespace Content.Shared.Damage
             {
                 newDamage.DamageDict.Add(entry.Key, entry.Value / factor);
             }
+
             return newDamage;
         }
 
@@ -391,6 +397,7 @@ namespace Content.Shared.Damage
             {
                 newDamage.DamageDict.Add(entry.Key, entry.Value / factor);
             }
+
             return newDamage;
         }
 
@@ -408,6 +415,7 @@ namespace Content.Shared.Damage
                     newDamage.DamageDict[entry.Key] += entry.Value;
                 }
             }
+
             return newDamage;
         }
 
@@ -424,6 +432,7 @@ namespace Content.Shared.Damage
                     newDamage.DamageDict[entry.Key] -= entry.Value;
                 }
             }
+
             return newDamage;
         }
 

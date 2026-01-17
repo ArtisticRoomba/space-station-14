@@ -30,7 +30,8 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary> Relays artifact events for artifact nodes. </summary>
-    protected void XATRelayLocalEvent<T>() where T : notnull
+    protected void XATRelayLocalEvent<T>()
+        where T : notnull
     {
         SubscribeLocalEvent<XenoArtifactComponent, T>(RelayEventToNodes);
     }
@@ -43,7 +44,8 @@ public abstract partial class SharedXenoArtifactSystem
         }
     }
 
-    protected void RelayEventToNodes<T>(Entity<XenoArtifactComponent> ent, ref T args) where T : notnull
+    protected void RelayEventToNodes<T>(Entity<XenoArtifactComponent> ent, ref T args)
+        where T : notnull
     {
         var ev = new XenoArchNodeRelayedEvent<T>(ent, args);
 
@@ -82,9 +84,7 @@ public abstract partial class SharedXenoArtifactSystem
             var successorNodeIndices = GetSuccessorNodes((ent, ent), index);
             if (unlockingComp.TriggeredNodeIndexes.Count == 0
                 || unlockingComp.TriggeredNodeIndexes.All(
-                    x => predecessorNodeIndices.Contains(x) || successorNodeIndices.Contains(x)
-                )
-               )
+                    x => predecessorNodeIndices.Contains(x) || successorNodeIndices.Contains(x)))
 
                 // we add time on each new trigger, if it is not going to fail us
                 unlockingComp.EndTime += ent.Comp.UnlockStateIncrementPerNode;

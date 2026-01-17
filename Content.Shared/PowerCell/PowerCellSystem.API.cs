@@ -87,6 +87,7 @@ public sealed partial class PowerCellSystem
             battery = (ent.Owner, batteryComp);
             return true;
         }
+
         if (TryGetBatteryFromSlot(ent, out battery))
             return true;
 
@@ -197,6 +198,7 @@ public sealed partial class PowerCellSystem
 
             return false;
         }
+
         return true;
     }
 

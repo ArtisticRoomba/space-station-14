@@ -68,7 +68,7 @@ namespace Content.Shared.Random.Helpers
         }
 
         public static T Pick<T>(this IRobustRandom random, Dictionary<T, float> weights)
-            where T: notnull
+            where T : notnull
         {
             var sum = weights.Values.Sum();
             var accumulated = 0f;
@@ -104,6 +104,7 @@ namespace Content.Shared.Random.Helpers
                 pick = default;
                 return false;
             }
+
             pick = PickAndTake(random, weights);
             return true;
         }
@@ -208,6 +209,7 @@ namespace Content.Shared.Random.Helpers
             {
                 hash = (hash << 5) + hash + value;
             }
+
             return hash;
         }
     }

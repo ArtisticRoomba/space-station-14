@@ -25,7 +25,7 @@ public sealed partial class AgeRequirement : JobRequirement
     {
         reason = new FormattedMessage();
 
-        if (profile is null) //the profile could be null if the player is a ghost. In this case we don't need to block the role selection for ghostrole
+        if (profile is null) // the profile could be null if the player is a ghost. In this case we don't need to block the role selection for ghostrole
             return true;
 
         if (!Inverted)

@@ -234,6 +234,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
             {
                 _popup.PopupClient(Loc.GetString("borg-panel-not-open"), chassis, args.User);
             }
+
             return;
         }
 

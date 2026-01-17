@@ -62,7 +62,7 @@ public sealed partial class BlockingSystem : EntitySystem
         component.User = args.User;
         Dirty(uid, component);
 
-        //To make sure that this bodytype doesn't get set as anything but the original
+        // To make sure that this bodytype doesn't get set as anything but the original
         if (TryComp<PhysicsComponent>(args.User, out var physicsComponent) && physicsComponent.BodyType != BodyType.Static && !HasComp<BlockingUserComponent>(args.User))
         {
             var userComp = EnsureComp<BlockingUserComponent>(args.User);
@@ -121,7 +121,7 @@ public sealed partial class BlockingSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, BlockingComponent component, ComponentShutdown args)
     {
-        //In theory the user should not be null when this fires off
+        // In theory the user should not be null when this fires off
         if (component.User != null)
         {
             _actionsSystem.RemoveProvidedActions(component.User.Value, uid);
@@ -151,7 +151,7 @@ public sealed partial class BlockingSystem : EntitySystem
         var msgUser = Loc.GetString("action-popup-blocking-user", ("shield", shieldName));
         var msgOther = Loc.GetString("action-popup-blocking-other", ("blockerName", blockerName), ("shield", shieldName));
 
-        //Don't allow someone to block if they're not parented to a grid
+        // Don't allow someone to block if they're not parented to a grid
         if (xform.GridUid != xform.ParentUid)
         {
             CantBlockError(user);
@@ -165,7 +165,7 @@ public sealed partial class BlockingSystem : EntitySystem
             return false;
         }
 
-        //Don't allow someone to block if someone else is on the same tile
+        // Don't allow someone to block if someone else is on the same tile
         var playerTileRef = _turf.GetTileRef(xform.Coordinates);
         if (playerTileRef != null)
         {
@@ -181,13 +181,14 @@ public sealed partial class BlockingSystem : EntitySystem
             }
         }
 
-        //Don't allow someone to block if they're somehow not anchored.
+        // Don't allow someone to block if they're somehow not anchored.
         _transformSystem.AnchorEntity(user, xform);
         if (!xform.Anchored)
         {
             CantBlockError(user);
             return false;
         }
+
         _actionsSystem.SetToggled(component.BlockingToggleActionEntity, true);
         _popupSystem.PopupPredicted(msgUser, msgOther, user, user);
 
@@ -239,9 +240,9 @@ public sealed partial class BlockingSystem : EntitySystem
         var msgUser = Loc.GetString("action-popup-blocking-disabling-user", ("shield", shieldName));
         var msgOther = Loc.GetString("action-popup-blocking-disabling-other", ("blockerName", blockerName), ("shield", shieldName));
 
-        //If the component blocking toggle isn't null, grab the users SharedBlockingUserComponent and PhysicsComponent
-        //then toggle the action to false, unanchor the user, remove the hard fixture
-        //and set the users bodytype back to their original type
+        // If the component blocking toggle isn't null, grab the users SharedBlockingUserComponent and PhysicsComponent
+        // then toggle the action to false, unanchor the user, remove the hard fixture
+        // and set the users bodytype back to their original type
         if (TryComp<BlockingUserComponent>(user, out var blockingUserComponent) && TryComp<PhysicsComponent>(user, out var physicsComponent))
         {
             if (xform.Anchored)
@@ -308,8 +309,7 @@ public sealed partial class BlockingSystem : EntitySystem
         _examine.AddDetailedExamineVerb(args, component, msg,
             Loc.GetString("blocking-examinable-verb-text"),
             "/Textures/Interface/VerbIcons/dot.svg.192dpi.png",
-            Loc.GetString("blocking-examinable-verb-message")
-        );
+            Loc.GetString("blocking-examinable-verb-message"));
     }
 
     private void AppendCoefficients(DamageModifierSet modifiers, FormattedMessage msg)
@@ -319,8 +319,7 @@ public sealed partial class BlockingSystem : EntitySystem
             msg.PushNewline();
             msg.AddMarkupOrThrow(Robust.Shared.Localization.Loc.GetString("blocking-coefficient-value",
                 ("type", coefficient.Key),
-                ("value", MathF.Round(coefficient.Value * 100, 1))
-            ));
+                ("value", MathF.Round(coefficient.Value * 100, 1))));
         }
 
         foreach (var flat in modifiers.FlatReduction)
@@ -328,8 +327,7 @@ public sealed partial class BlockingSystem : EntitySystem
             msg.PushNewline();
             msg.AddMarkupOrThrow(Robust.Shared.Localization.Loc.GetString("blocking-reduction-value",
                 ("type", flat.Key),
-                ("value", flat.Value)
-            ));
+                ("value", flat.Value)));
         }
     }
 }

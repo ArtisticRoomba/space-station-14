@@ -5,7 +5,7 @@ namespace Content.Shared.DeviceLinking
     [Serializable, NetSerializable]
     public enum TwoWayLeverVisuals : byte
     {
-        State
+        State,
     }
 
     [Serializable, NetSerializable]
@@ -13,6 +13,6 @@ namespace Content.Shared.DeviceLinking
     {
         Middle,
         Right,
-        Left
+        Left,
     }
 }

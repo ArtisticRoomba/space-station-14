@@ -84,7 +84,7 @@ public abstract class SharedCrematoriumSystem : EntitySystem
 
             // TODO VERB ICON add flame/burn symbol?
             Act = () => TryCremate((uid, component, storage), args.User),
-            Impact = LogImpact.High // could be a body? or evidence? I dunno.
+            Impact = LogImpact.High, // could be a body? or evidence? I dunno.
         };
         args.Verbs.Add(verb);
     }
@@ -145,6 +145,7 @@ public abstract class SharedCrematoriumSystem : EntitySystem
                 _container.Remove(item, ent.Comp2.Contents);
                 PredictedDel(item);
             }
+
             PredictedTrySpawnInContainer(ent.Comp1.LeftOverProtoId, ent.Owner, ent.Comp2.Contents.ID, out _);
         }
 

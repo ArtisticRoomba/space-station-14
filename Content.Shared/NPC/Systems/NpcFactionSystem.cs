@@ -1,8 +1,8 @@
+using System.Collections.Frozen;
+using System.Linq;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
-using System.Collections.Frozen;
-using System.Linq;
 
 namespace Content.Shared.NPC.Systems;
 
@@ -65,6 +65,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
         {
             ent.Comp.FriendlyFactions.UnionWith(ent.Comp.AddFriendlyFactions);
         }
+
         if (ent.Comp.AddHostileFactions != null)
         {
             ent.Comp.HostileFactions.UnionWith(ent.Comp.AddHostileFactions);
@@ -311,10 +312,10 @@ public sealed partial class NpcFactionSystem : EntitySystem
     {
         _factions = _proto.EnumeratePrototypes<NpcFactionPrototype>().ToFrozenDictionary(
             faction => faction.ID,
-            faction =>  new FactionData
+            faction => new FactionData
             {
                 Friendly = faction.Friendly.ToHashSet(),
-                Hostile = faction.Hostile.ToHashSet()
+                Hostile = faction.Hostile.ToHashSet(),
             });
 
         var query = AllEntityQuery<NpcFactionMemberComponent>();

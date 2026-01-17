@@ -84,13 +84,13 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         // generate random mode
         if (ent.Comp.RandomMode)
         {
-            //make the sensor mode favor higher levels, except coords.
+            // make the sensor mode favor higher levels, except coords.
             var modesDist = new[]
             {
                 SuitSensorMode.SensorOff,
                 SuitSensorMode.SensorBinary, SuitSensorMode.SensorBinary,
                 SuitSensorMode.SensorVitals, SuitSensorMode.SensorVitals, SuitSensorMode.SensorVitals,
-                SuitSensorMode.SensorCords, SuitSensorMode.SensorCords
+                SuitSensorMode.SensorCords, SuitSensorMode.SensorCords,
             };
             ent.Comp.Mode = _random.Pick(modesDist);
         }
@@ -205,7 +205,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             CreateVerb(ent, args.User, SuitSensorMode.SensorOff),
             CreateVerb(ent, args.User, SuitSensorMode.SensorBinary),
             CreateVerb(ent, args.User, SuitSensorMode.SensorVitals),
-            CreateVerb(ent, args.User, SuitSensorMode.SensorCords)
+            CreateVerb(ent, args.User, SuitSensorMode.SensorCords),
         });
     }
 
@@ -235,7 +235,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             Disabled = ent.Comp.Mode == mode,
             Priority = -(int)mode, // sort them in descending order
             Category = VerbCategory.SetSensor,
-            Act = () => TrySetSensor(ent.AsNullable(), mode, userUid)
+            Act = () => TrySetSensor(ent.AsNullable(), mode, userUid),
         };
     }
 
@@ -283,11 +283,12 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             var doAfterArgs = new DoAfterArgs(EntityManager, userUid, sensors.Comp.SensorsTime, doAfterEvent, sensors)
             {
                 BreakOnMove = true,
-                BreakOnDamage = true
+                BreakOnDamage = true,
             };
 
             _doAfterSystem.TryStartDoAfter(doAfterArgs);
         }
+
         return true;
     }
 

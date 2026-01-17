@@ -23,15 +23,15 @@ namespace Content.Shared.Actions;
 public abstract partial class SharedActionsSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private   readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private   readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private   readonly RotateToFaceSystem _rotateToFace = default!;
-    [Dependency] private   readonly SharedAudioSystem _audio = default!;
-    [Dependency] private   readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private   readonly SharedTransformSystem _transform = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     private EntityQuery<ActionComponent> _actionQuery;
     private EntityQuery<ActionsComponent> _actionsQuery;
@@ -128,7 +128,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
         ent.Comp.Cooldown = new ActionCooldown
         {
             Start = start,
-            End = end
+            End = end,
         };
         DirtyField(ent, ent.Comp, nameof(ActionComponent.Cooldown));
     }
@@ -162,7 +162,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
         ent.Comp.Cooldown = new ActionCooldown
         {
             Start = cooldown.Start,
-            End = GameTiming.CurTime
+            End = GameTiming.CurTime,
         };
         DirtyField(ent, ent.Comp, nameof(ActionComponent.Cooldown));
     }
@@ -257,6 +257,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
     #endregion
 
     #region Execution
+
     /// <summary>
     ///     When receiving a request to perform an action, this validates whether the action is allowed. If it is, it
     ///     will raise the relevant action event
@@ -318,7 +319,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
         {
             Input = ev,
             User = user,
-            Provider = provider
+            Provider = provider,
         };
         RaiseLocalEvent(action, ref validateEv);
         if (validateEv.Invalid)
@@ -577,7 +578,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
         if (action.Comp.RaiseOnAction)
             target = action;
 
-        RaiseLocalEvent(target, (object) ev, broadcast: true);
+        RaiseLocalEvent(target, (object)ev, broadcast: true);
         handled = ev.Handled;
 
         if (!handled)

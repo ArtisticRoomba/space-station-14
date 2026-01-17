@@ -144,6 +144,7 @@ public sealed class ChargerSystem : EntitySystem
         if (!cellSlot.FitsInCharger)
             args.Cancelled = true;
     }
+
     private void OnEmpPulse(Entity<ChargerComponent> ent, ref EmpPulseEvent args)
     {
         args.Affected = true;
@@ -176,6 +177,7 @@ public sealed class ChargerSystem : EntitySystem
 
         args.NewChargeRate += chargerComp.ChargeRate;
     }
+
     private void OnStatusChanged(Entity<InsideChargerComponent> ent, ref BatteryStateChangedEvent args)
     {
         // If the battery is full update the visuals and power draw of the charger.
@@ -221,6 +223,7 @@ public sealed class ChargerSystem : EntitySystem
                 _receiver.SetLoad(ent.Owner, ent.Comp.PassiveDraw);
                 break;
         }
+
         _appearance.SetData(ent.Owner, CellVisual.Light, status, appearance);
     }
 

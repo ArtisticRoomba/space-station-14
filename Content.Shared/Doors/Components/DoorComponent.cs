@@ -79,6 +79,7 @@ public sealed partial class DoorComponent : Component
     #endregion
 
     #region Sounds
+
     /// <summary>
     /// Sound to play when the door opens.
     /// </summary>
@@ -105,6 +106,7 @@ public sealed partial class DoorComponent : Component
     #endregion
 
     #region Crushing
+
     /// <summary>
     ///     This is how long a door-crush will stun you. This also determines how long it takes the door to open up
     ///     again. Total stun time is actually given by this plus <see cref="OpenTimeOne"/>.
@@ -228,6 +230,7 @@ public sealed partial class DoorComponent : Component
     #endregion Graphics
 
     #region Serialization
+
     /// <summary>
     ///     Time until next state change. Because apparently <see cref="IGameTiming.CurTime"/> might not get saved/restored.
     /// </summary>
@@ -293,10 +296,10 @@ public sealed partial class DoorComponent : Component
     public bool ClickOpen = true;
 
     [DataField(customTypeSerializer: typeof(ConstantSerializer<DrawDepthTag>))]
-    public int OpenDrawDepth = (int) DrawDepth.DrawDepth.Doors;
+    public int OpenDrawDepth = (int)DrawDepth.DrawDepth.Doors;
 
     [DataField(customTypeSerializer: typeof(ConstantSerializer<DrawDepthTag>))]
-    public int ClosedDrawDepth = (int) DrawDepth.DrawDepth.Doors;
+    public int ClosedDrawDepth = (int)DrawDepth.DrawDepth.Doors;
 }
 
 [Serializable, NetSerializable]
@@ -308,7 +311,7 @@ public enum DoorState : byte
     Opening,
     Welded,
     Denying,
-    Emagging
+    Emagging,
 }
 
 [Serializable, NetSerializable]

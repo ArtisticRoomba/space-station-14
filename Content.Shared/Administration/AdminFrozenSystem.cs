@@ -70,7 +70,7 @@ public sealed class AdminFrozenSystem : EntitySystem
 
     private void OnInGameOocMessageAttemptBroadcast(ref InGameOocMessageAttemptEvent args)
     {
-        //TODO Player LOOC mute/ban. Session is in the  args, but where to store/check the muted state?
+        // TODO Player LOOC mute/ban. Session is in the  args, but where to store/check the muted state?
     }
 
     private void OnAttempt(EntityUid uid, AdminFrozenComponent component, CancellableEntityEventArgs args)

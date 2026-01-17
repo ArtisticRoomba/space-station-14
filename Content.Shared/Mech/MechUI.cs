@@ -5,7 +5,7 @@ namespace Content.Shared.Mech;
 [Serializable, NetSerializable]
 public enum MechUiKey : byte
 {
-    Key
+    Key,
 }
 
 /// <summary>

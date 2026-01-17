@@ -77,9 +77,7 @@ public abstract partial class SharedBatterySystem : EntitySystem
             Loc.GetString(
                 "examinable-battery-component-examine-detail",
                 ("percent", chargePercentRounded),
-                ("markupPercentColor", "green")
-            )
-        );
+                ("markupPercentColor", "green")));
     }
 
     /// <summary>

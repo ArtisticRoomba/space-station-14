@@ -28,4 +28,4 @@ public sealed partial class GoliathSummonTentacleAction : WorldTargetActionEvent
     /// </summary>
     [DataField]
     public int ExtraSpawns = 3;
-};
+}

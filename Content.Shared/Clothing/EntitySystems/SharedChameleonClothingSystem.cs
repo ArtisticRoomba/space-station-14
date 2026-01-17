@@ -36,7 +36,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
     {
         SlotFlags.All,
         SlotFlags.PREVENTEQUIP,
-        SlotFlags.NONE
+        SlotFlags.NONE,
     };
 
     private static readonly SlotFlags[] Slots = Enum.GetValues<SlotFlags>().Except(IgnoredSlots).ToArray();
@@ -141,7 +141,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
         {
             Text = Loc.GetString("chameleon-component-verb-text"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
-            Act = () => UI.TryToggleUi(ent.Owner, ChameleonUiKey.Key, user)
+            Act = () => UI.TryToggleUi(ent.Owner, ChameleonUiKey.Key, user),
         });
     }
 
@@ -244,6 +244,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
                 {
                     _data.Add(slot, new List<EntProtoId>());
                 }
+
                 _data[slot].Add(proto.ID);
             }
         }

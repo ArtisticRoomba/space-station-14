@@ -8,5 +8,4 @@
 [RegisterComponent]
 public sealed partial class ReproductivePartnerComponent : Component
 {
-
 }

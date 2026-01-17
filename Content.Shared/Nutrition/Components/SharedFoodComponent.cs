@@ -14,7 +14,7 @@ namespace Content.Shared.Nutrition.Components
     public enum OpenableVisuals : byte
     {
         Opened,
-        Layer
+        Layer,
     }
 
     [Serializable, NetSerializable]

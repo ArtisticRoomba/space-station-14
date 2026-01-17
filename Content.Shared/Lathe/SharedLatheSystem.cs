@@ -97,6 +97,7 @@ public abstract class SharedLatheSystem : EntitySystem
             if (_materialStorage.GetMaterialAmount(uid, material) < adjustedAmount * amount)
                 return false;
         }
+
         return true;
     }
 
@@ -112,7 +113,7 @@ public abstract class SharedLatheSystem : EntitySystem
     }
 
     public static int AdjustMaterial(int original, bool reduce, float multiplier)
-        => reduce ? (int) MathF.Ceiling(original * multiplier) : original;
+        => reduce ? (int)MathF.Ceiling(original * multiplier) : original;
 
     protected abstract bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component);
 

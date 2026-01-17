@@ -91,14 +91,14 @@ public abstract class SharedMagicMirrorSystem : EntitySystem
 [Serializable, NetSerializable]
 public enum MagicMirrorUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
 public enum MagicMirrorCategory : byte
 {
     Hair,
-    FacialHair
+    FacialHair,
 }
 
 [Serializable, NetSerializable]

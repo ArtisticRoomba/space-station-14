@@ -16,7 +16,7 @@ namespace Content.Shared.Mobs.Components
     [Access(typeof(MobStateSystem), typeof(MobThresholdSystem))]
     public sealed partial class MobStateComponent : Component
     {
-        //default mobstate is always the lowest state level
+        // default mobstate is always the lowest state level
         [AutoNetworkedField, ViewVariables]
         public MobState CurrentState { get; set; } = MobState.Alive;
 
@@ -26,7 +26,7 @@ namespace Content.Shared.Mobs.Components
             {
                 MobState.Alive,
                 MobState.Critical,
-                MobState.Dead
+                MobState.Dead,
             };
     }
 }

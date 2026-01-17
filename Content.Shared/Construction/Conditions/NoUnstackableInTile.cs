@@ -25,7 +25,7 @@ public sealed partial class NoUnstackableInTile : IConstructionCondition
     {
         return new ConstructionGuideEntry
         {
-            Localization = GuidebookString
+            Localization = GuidebookString,
         };
     }
 }

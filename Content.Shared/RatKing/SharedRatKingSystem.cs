@@ -100,11 +100,9 @@ public abstract class SharedRatKingSystem : EntitySystem
 
     public virtual void UpdateServantNpc(EntityUid uid, RatKingOrderType orderType)
     {
-
     }
 
     public virtual void DoCommandCallout(EntityUid uid, RatKingComponent component)
     {
-
     }
 }

@@ -18,5 +18,5 @@ public sealed partial class FlavorPrototype : IPrototype
 public enum FlavorType : byte
 {
     Base,
-    Complex
+    Complex,
 }

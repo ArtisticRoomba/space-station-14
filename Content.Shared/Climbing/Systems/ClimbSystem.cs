@@ -43,7 +43,7 @@ public sealed partial class ClimbSystem : VirtualController
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
 
     private const string ClimbingFixtureName = "climb";
-    private const int ClimbingCollisionGroup = (int) (CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
+    private const int ClimbingCollisionGroup = (int)(CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
 
     private EntityQuery<ClimbableComponent> _climbableQuery;
     private EntityQuery<FixturesComponent> _fixturesQuery;
@@ -180,7 +180,7 @@ public sealed partial class ClimbSystem : VirtualController
         args.Verbs.Add(new AlternativeVerb
         {
             Act = () => TryClimb(args.User, args.User, args.Target, out _, component),
-            Text = Loc.GetString("comp-climbable-verb-climb")
+            Text = Loc.GetString("comp-climbable-verb-climb"),
         });
     }
 
@@ -231,7 +231,7 @@ public sealed partial class ClimbSystem : VirtualController
         {
             BreakOnMove = true,
             BreakOnDamage = true,
-            DuplicateCondition = DuplicateConditions.SameTool | DuplicateConditions.SameTarget
+            DuplicateCondition = DuplicateConditions.SameTool | DuplicateConditions.SameTarget,
         };
 
         _audio.PlayPredicted(comp.StartClimbSound, climbable, user);
@@ -371,7 +371,7 @@ public sealed partial class ClimbSystem : VirtualController
                 uid,
                 new PhysShapeCircle(0.35f),
                 ClimbingFixtureName,
-                collisionLayer: (int) CollisionGroup.None,
+                collisionLayer: (int)CollisionGroup.None,
                 collisionMask: ClimbingCollisionGroup,
                 hard: false,
                 manager: fixturesComp))

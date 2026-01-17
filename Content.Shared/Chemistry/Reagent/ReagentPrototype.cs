@@ -232,8 +232,7 @@ namespace Content.Shared.Chemistry.Reagent
                 ("conditionCount", effect.Conditions?.Length ?? 0),
                 ("conditions",
                     ContentLocalizationManager.FormatList(
-                        effect.Conditions?.Select(x => x.EntityConditionGuidebookText(prototype)).ToList() ?? new List<string>()
-                    )));
+                        effect.Conditions?.Select(x => x.EntityConditionGuidebookText(prototype)).ToList() ?? new List<string>())));
         }
     }
 

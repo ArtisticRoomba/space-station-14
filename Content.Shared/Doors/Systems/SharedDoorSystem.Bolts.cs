@@ -84,8 +84,7 @@ public abstract partial class SharedDoorSystem
         Entity<DoorBoltComponent> ent,
         bool value,
         EntityUid? user = null,
-        bool predicted = false
-    )
+        bool predicted = false)
     {
         if (!_powerReceiver.IsPowered(ent.Owner))
             return false;

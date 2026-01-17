@@ -15,10 +15,10 @@ public sealed partial class PendingZombieComponent : Component
     /// </summary>
     [DataField("damage")] public DamageSpecifier Damage = new()
     {
-        DamageDict = new ()
+        DamageDict = new()
         {
             { "Poison", 0.3 },
-        }
+        },
     };
 
     /// <summary>
@@ -27,7 +27,7 @@ public sealed partial class PendingZombieComponent : Component
     [DataField("critDamageMultiplier")]
     public float CritDamageMultiplier = 10f;
 
-    [DataField("nextTick", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField("nextTick", customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextTick;
 
     /// <summary>
@@ -61,6 +61,6 @@ public sealed partial class PendingZombieComponent : Component
     public List<string> InfectionWarnings = new()
     {
         "zombie-infection-warning",
-        "zombie-infection-underway"
+        "zombie-infection-underway",
     };
 }

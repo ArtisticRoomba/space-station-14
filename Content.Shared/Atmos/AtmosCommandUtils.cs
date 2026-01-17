@@ -11,13 +11,14 @@ namespace Content.Shared.Atmos
             x = -1;
             if (Enum.TryParse<Gas>(str, true, out var gas))
             {
-                x = (int) gas;
+                x = (int)gas;
             }
             else
             {
                 if (!int.TryParse(str, out x))
                     return false;
             }
+
             return ((x >= 0) && (x < Atmospherics.TotalNumberOfGases));
         }
     }

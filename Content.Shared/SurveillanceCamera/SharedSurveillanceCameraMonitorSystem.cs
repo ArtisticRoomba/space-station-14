@@ -77,7 +77,7 @@ public sealed class SurveillanceCameraDisconnectMessage : BoundUserInterfaceMess
 [Serializable, NetSerializable]
 public enum SurveillanceCameraMonitorUiKey : byte
 {
-    Key
+    Key,
 }
 
 // SETUP
@@ -127,5 +127,5 @@ public sealed class SurveillanceCameraSetupSetNetwork : BoundUserInterfaceMessag
 public enum SurveillanceCameraSetupUiKey : byte
 {
     Camera,
-    Router
+    Router,
 }

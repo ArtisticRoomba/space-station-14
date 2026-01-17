@@ -8,5 +8,4 @@ namespace Content.Shared.Shuttles.Events;
 [Serializable, NetSerializable]
 public sealed class EmergencyShuttleRequestPositionMessage : EntityEventArgs
 {
-
 }

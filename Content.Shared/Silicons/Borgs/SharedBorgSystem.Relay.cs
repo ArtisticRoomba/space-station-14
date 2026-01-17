@@ -11,7 +11,8 @@ public abstract partial class SharedBorgSystem
         SubscribeLocalEvent<BorgChassisComponent, DamageModifyEvent>(RelayToModule);
     }
 
-    protected void RelayToModule<T>(EntityUid uid, BorgChassisComponent component, T args) where T : class
+    protected void RelayToModule<T>(EntityUid uid, BorgChassisComponent component, T args)
+        where T : class
     {
         var ev = new BorgModuleRelayedEvent<T>(args);
 
@@ -21,7 +22,8 @@ public abstract partial class SharedBorgSystem
         }
     }
 
-    protected void RelayRefToModule<T>(EntityUid uid, BorgChassisComponent component, ref T args) where T : class
+    protected void RelayRefToModule<T>(EntityUid uid, BorgChassisComponent component, ref T args)
+        where T : class
     {
         var ev = new BorgModuleRelayedEvent<T>(args);
 

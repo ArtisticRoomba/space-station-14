@@ -5,7 +5,7 @@ namespace Content.Shared.Fax;
 [Serializable, NetSerializable]
 public enum FaxUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]

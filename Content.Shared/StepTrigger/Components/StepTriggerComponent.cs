@@ -63,5 +63,4 @@ public sealed partial class StepTriggerComponent : Component
 [Access(typeof(StepTriggerSystem))]
 public sealed partial class StepTriggerActiveComponent : Component
 {
-
 }

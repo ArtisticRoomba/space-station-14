@@ -10,5 +10,4 @@ namespace Content.Shared.Weapons.Ranged.Components;
 [RegisterComponent, NetworkedComponent, Access(typeof(UseDelayOnShootSystem))]
 public sealed partial class UseDelayOnShootComponent : Component
 {
-
 }

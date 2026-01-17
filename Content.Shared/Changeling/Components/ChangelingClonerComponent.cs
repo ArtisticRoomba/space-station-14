@@ -89,10 +89,12 @@ public enum ChangelingClonerState : byte
     /// No sample taken yet.
     /// </summary>
     Empty,
+
     /// <summary>
     /// Filled with a DNA sample.
     /// </summary>
     Filled,
+
     /// <summary>
     /// Has been used (single use only).
     /// </summary>

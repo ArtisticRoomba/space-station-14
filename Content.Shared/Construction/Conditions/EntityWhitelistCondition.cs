@@ -40,7 +40,7 @@ public sealed partial class EntityWhitelistCondition : IConstructionCondition
         return new ConstructionGuideEntry
         {
             Localization = ConditionString,
-            Icon = ConditionIcon
+            Icon = ConditionIcon,
         };
     }
 }

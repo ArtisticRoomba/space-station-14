@@ -23,7 +23,7 @@ namespace Content.Shared.Construction.Steps
             examinedEvent.PushMarkup(string.IsNullOrEmpty(Name)
                 ? Loc.GetString(
                     "construction-insert-entity-with-component",
-                    ("componentName", Component))// Terrible.
+                    ("componentName", Component)) // Terrible.
                 : Loc.GetString(
                     "construction-insert-exact-entity",
                     ("entityName", Loc.GetString(Name))));

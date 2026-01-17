@@ -26,7 +26,7 @@ public sealed partial class ChemicalPayloadComponent : Component
 [Serializable, NetSerializable]
 public enum ChemicalPayloadVisuals : byte
 {
-    Slots
+    Slots,
 }
 
 [Flags]

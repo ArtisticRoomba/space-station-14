@@ -8,7 +8,7 @@ namespace Content.Shared.Atmos.Visuals;
 [Serializable, NetSerializable]
 public enum SpaceHeaterVisualLayers : byte
 {
-    Main
+    Main,
 }
 
 [Serializable, NetSerializable]

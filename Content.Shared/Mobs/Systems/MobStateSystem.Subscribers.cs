@@ -24,7 +24,7 @@ namespace Content.Shared.Mobs.Systems;
 
 public partial class MobStateSystem
 {
-    //General purpose event subscriptions. If you can avoid it register these events inside their own systems
+    // General purpose event subscriptions. If you can avoid it register these events inside their own systems
     private void SubscribeEvents()
     {
         SubscribeLocalEvent<MobStateComponent, BeforeGettingStrippedEvent>(OnGettingStripped);
@@ -82,7 +82,7 @@ public partial class MobStateSystem
         switch (state)
         {
             case MobState.Alive:
-                //unused
+                // unused
                 break;
             case MobState.Critical:
                 _standing.Stand(target);
@@ -92,7 +92,7 @@ public partial class MobStateSystem
                 _standing.Stand(target);
                 break;
             case MobState.Invalid:
-                //unused
+                // unused
                 break;
             default:
                 throw new NotImplementedException();
@@ -106,7 +106,7 @@ public partial class MobStateSystem
         if (_timing.ApplyingState)
             return;
 
-        _blocker.UpdateCanMove(target); //update movement anytime a state changes
+        _blocker.UpdateCanMove(target); // update movement anytime a state changes
         switch (state)
         {
             case MobState.Alive:
@@ -115,12 +115,14 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             }
+
             case MobState.Critical:
             {
                 Down(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             }
+
             case MobState.Dead:
             {
                 EnsureComp<CollisionWakeComponent>(target);
@@ -128,11 +130,13 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Dead);
                 break;
             }
+
             case MobState.Invalid:
             {
-                //unused;
+                // unused;
                 break;
             }
+
             default:
             {
                 throw new NotImplementedException();

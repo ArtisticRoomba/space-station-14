@@ -48,5 +48,5 @@ public sealed partial class WieldableComponent : Component
 [Serializable, NetSerializable]
 public enum WieldableVisuals : byte
 {
-    Wielded
+    Wielded,
 }

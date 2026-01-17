@@ -27,11 +27,11 @@ public sealed partial class ClearAllOverlaysEvent : InstantActionEvent
 [Serializable, NetSerializable]
 public enum NetworkConfiguratorVisuals
 {
-    Mode
+    Mode,
 }
 
 [Serializable, NetSerializable]
 public enum NetworkConfiguratorLayers
 {
-    ModeLight
+    ModeLight,
 }

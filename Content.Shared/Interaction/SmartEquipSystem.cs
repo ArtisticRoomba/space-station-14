@@ -139,7 +139,7 @@ public sealed class SmartEquipSystem : EntitySystem
             }
 
             _hands.TryDrop((uid, hands), hands.ActiveHandId!);
-            _inventory.TryEquip(uid, handItem.Value, equipmentSlot, predicted: true, checkDoafter:true);
+            _inventory.TryEquip(uid, handItem.Value, equipmentSlot, predicted: true, checkDoafter: true);
             return;
         }
 

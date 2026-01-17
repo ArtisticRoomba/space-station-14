@@ -35,7 +35,8 @@ public abstract class SharedVentriloquistPuppetSystem : EntitySystem
         _blocker.UpdateCanMove(uid);
     }
 
-    private void Cancel<T>(EntityUid uid, VentriloquistPuppetComponent component, T args) where T : CancellableEntityEventArgs
+    private void Cancel<T>(EntityUid uid, VentriloquistPuppetComponent component, T args)
+        where T : CancellableEntityEventArgs
     {
         args.Cancel();
     }

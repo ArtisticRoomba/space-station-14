@@ -36,7 +36,7 @@ public sealed class HealthExaminableSystem : EntitySystem
             Category = VerbCategory.Examine,
             Disabled = !detailsRange,
             Message = detailsRange ? null : Loc.GetString("health-examinable-verb-disabled"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
         };
 
         args.Verbs.Add(verb);
@@ -85,6 +85,7 @@ public sealed class HealthExaminableSystem : EntitySystem
             {
                 first = false;
             }
+
             msg.AddMarkupOrThrow(chosenLocStr);
         }
 

@@ -15,7 +15,7 @@ public sealed partial class LungComponent : Component
     public GasMixture Air = new()
     {
         Volume = 6,
-        Temperature = Atmospherics.NormalBodyTemperature
+        Temperature = Atmospherics.NormalBodyTemperature,
     };
 
     /// <summary>

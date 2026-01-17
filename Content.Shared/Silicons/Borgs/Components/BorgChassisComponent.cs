@@ -51,6 +51,7 @@ public sealed partial class BorgChassisComponent : Component
     public SoundSpecifier DeactivateSound = new SoundPathSpecifier("/Audio/Items/flashlight_off.ogg");
 
     #region Brain
+
     /// <summary>
     /// A whitelist for which entities count as valid brains.
     /// </summary>
@@ -77,6 +78,7 @@ public sealed partial class BorgChassisComponent : Component
     #endregion
 
     #region Modules
+
     /// <summary>
     /// A whitelist for what types of modules can be installed into this borg.
     /// </summary>

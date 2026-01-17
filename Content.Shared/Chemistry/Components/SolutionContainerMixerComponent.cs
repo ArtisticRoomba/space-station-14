@@ -40,5 +40,5 @@ public sealed partial class SolutionContainerMixerComponent : Component
 [Serializable, NetSerializable]
 public enum SolutionContainerMixerVisuals : byte
 {
-    Mixing
+    Mixing,
 }

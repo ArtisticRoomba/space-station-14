@@ -10,7 +10,6 @@ namespace Content.Shared.Clumsy;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ClumsyComponent : Component
 {
-
     // Standard options. Try to fit these in if you can!
 
     /// <summary>

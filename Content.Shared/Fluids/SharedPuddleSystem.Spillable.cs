@@ -63,7 +63,7 @@ public abstract partial class SharedPuddleSystem
 
         Verb verb = new()
         {
-            Text = Loc.GetString("spill-target-verb-get-data-text")
+            Text = Loc.GetString("spill-target-verb-get-data-text"),
         };
 
         // TODO VERB ICONS spill icon? pouring out a glass/beaker?
@@ -93,6 +93,7 @@ public abstract partial class SharedPuddleSystem
                             break;
                         }
                     }
+
                     Dirty(entity, injectorComp);
                 }
             };
@@ -115,6 +116,7 @@ public abstract partial class SharedPuddleSystem
                 });
             };
         }
+
         verb.Impact = LogImpact.Medium; // dangerous reagent reaction are logged separately.
         verb.DoContactInteraction = true;
         args.Verbs.Add(verb);

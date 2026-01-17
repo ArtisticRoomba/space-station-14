@@ -5,7 +5,7 @@ namespace Content.Shared.Mind;
 [Serializable, NetSerializable]
 public enum ToggleableGhostRoleVisuals : byte
 {
-    Status
+    Status,
 }
 
 [Serializable, NetSerializable]
@@ -13,5 +13,5 @@ public enum ToggleableGhostRoleStatus : byte
 {
     Off,
     Searching,
-    On
+    On,
 }

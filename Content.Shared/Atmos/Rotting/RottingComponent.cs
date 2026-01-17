@@ -47,6 +47,6 @@ public sealed partial class RottingComponent : Component
         {
             { "Blunt", 0.06 },
             { "Cellular", 0.06 }
-        }
+        },
     };
 }

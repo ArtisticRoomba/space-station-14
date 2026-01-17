@@ -20,7 +20,7 @@ public sealed partial class LightReplacerComponent : Component
         Params = new()
         {
             Volume = -4f
-        }
+        },
     };
 
     /// <summary>

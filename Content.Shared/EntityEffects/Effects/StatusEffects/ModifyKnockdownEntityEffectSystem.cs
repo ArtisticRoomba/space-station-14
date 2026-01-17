@@ -67,6 +67,5 @@ public sealed partial class ModifyKnockdown : BaseStatusEntityEffect<ModifyKnock
             "entity-effect-guidebook-knockdown",
             ("chance", Probability),
             ("type", Type),
-            ("time", Time.Value.TotalSeconds)
-        );
+            ("time", Time.Value.TotalSeconds));
 }

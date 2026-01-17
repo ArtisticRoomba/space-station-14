@@ -22,5 +22,5 @@ public sealed partial class ItemCabinetComponent : Component
 public enum ItemCabinetVisuals : byte
 {
     ContainsItem,
-    Layer
+    Layer,
 }

@@ -5,6 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Explosion.EntitySystems;
 
 // TODO some sort of struct like DamageSpecifier but for explosions.
+
 /// <summary>
 /// Lets code in shared trigger explosions and handles explosion resistance examining.
 /// All processing is still done clientside.

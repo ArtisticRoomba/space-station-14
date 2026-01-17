@@ -11,7 +11,6 @@ namespace Content.Shared.Kitchen.Components
     [Serializable, NetSerializable]
     public sealed class MicrowaveEjectMessage : BoundUserInterfaceMessage
     {
-
     }
 
     [Serializable, NetSerializable]
@@ -74,13 +73,12 @@ namespace Content.Shared.Kitchen.Components
         Idle,
         Cooking,
         Broken,
-        Bloody
+        Bloody,
     }
 
     [NetSerializable, Serializable]
     public enum MicrowaveUiKey
     {
-        Key
+        Key,
     }
-
 }

@@ -46,6 +46,7 @@ namespace Content.Shared.Slippery
         [DataField, AutoNetworkedField]
         public SlipperyEffectEntry SlipData = new();
     }
+
     /// <summary>
     /// Stores the data for slipperiness that way reagents and this component can use it.
     /// </summary>

@@ -9,7 +9,7 @@ namespace Content.Shared.NodeContainer;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class NodeContainerComponent : Component
 {
-    //HACK: THIS BEING readOnly IS A FILTHY HACK AND I HATE IT --moony
+    // HACK: THIS BEING readOnly IS A FILTHY HACK AND I HATE IT --moony
     [DataField(readOnly: true, serverOnly: true)] public Dictionary<string, Node> Nodes { get; private set; } = new();
 
     [DataField] public bool Examinable = false;

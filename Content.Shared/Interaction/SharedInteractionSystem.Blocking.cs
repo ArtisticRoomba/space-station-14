@@ -8,6 +8,7 @@ using Content.Shared.Movement.Events;
 namespace Content.Shared.Interaction;
 
 // TODO deduplicate with AdminFrozenComponent
+
 /// <summary>
 /// Handles <see cref="BlockMovementComponent"/>, which prevents various
 /// kinds of movement and interactions when attached to an entity.

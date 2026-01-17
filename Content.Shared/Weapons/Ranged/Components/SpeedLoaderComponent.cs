@@ -8,5 +8,4 @@ namespace Content.Shared.Weapons.Ranged.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SpeedLoaderComponent : Component
 {
-
 }

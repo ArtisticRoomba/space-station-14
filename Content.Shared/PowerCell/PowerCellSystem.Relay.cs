@@ -21,7 +21,8 @@ public sealed partial class PowerCellSystem
         SubscribeLocalEvent<PowerCellComponent, RefreshChargeRateEvent>(RelayToCellSlot); // Allow devices to charge/drain inserted batteries
     }
 
-    private void RelayToCell<T>(Entity<PowerCellSlotComponent> ent, ref T args) where T : notnull
+    private void RelayToCell<T>(Entity<PowerCellSlotComponent> ent, ref T args)
+        where T : notnull
     {
         if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.CellSlotId, out var slot) || !slot.Item.HasValue)
             return;
@@ -30,7 +31,8 @@ public sealed partial class PowerCellSystem
         RaiseLocalEvent(slot.Item.Value, ref args);
     }
 
-    private void RelayToCellSlot<T>(Entity<PowerCellComponent> ent, ref T args) where T : notnull
+    private void RelayToCellSlot<T>(Entity<PowerCellComponent> ent, ref T args)
+        where T : notnull
     {
         var parent = Transform(ent).ParentUid;
 

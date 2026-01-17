@@ -130,8 +130,7 @@ public sealed partial class AnchorableSystem : EntitySystem
         _adminLogger.Add(
             LogType.Unanchor,
             LogImpact.Low,
-            $"{ToPrettyString(args.User):user} unanchored {ToPrettyString(uid):anchored} using {ToPrettyString(used):using}"
-        );
+            $"{ToPrettyString(args.User):user} unanchored {ToPrettyString(uid):anchored} using {ToPrettyString(used):using}");
     }
 
     private void OnAnchorComplete(EntityUid uid, AnchorableComponent component, TryAnchorCompletedEvent args)
@@ -182,8 +181,7 @@ public sealed partial class AnchorableSystem : EntitySystem
         _adminLogger.Add(
             LogType.Anchor,
             LogImpact.Low,
-            $"{ToPrettyString(args.User):user} anchored {ToPrettyString(uid):anchored} using {ToPrettyString(used):using}"
-        );
+            $"{ToPrettyString(args.User):user} anchored {ToPrettyString(uid):anchored} using {ToPrettyString(used):using}");
     }
 
     /// <summary>
@@ -377,5 +375,5 @@ public sealed partial class AnchorableSystem : EntitySystem
 [Serializable, NetSerializable]
 public enum AnchorVisuals : byte
 {
-    Anchored
+    Anchored,
 }

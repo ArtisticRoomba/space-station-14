@@ -49,6 +49,7 @@ public sealed partial class MobCollisionComponent : Component
 
     // Yes I know, I will deal with it if I ever refactor collision layers due to misuse.
     // If anything it probably needs some assurance on mobcollisionsystem for it.
+
     /// <summary>
     /// Fixture to listen to for mob collisions.
     /// </summary>

@@ -35,7 +35,7 @@ namespace Content.Shared.Construction.Conditions
         {
             return new ConstructionGuideEntry
             {
-                Localization = "construction-guide-condition-empty-or-window-valid-in-tile"
+                Localization = "construction-guide-condition-empty-or-window-valid-in-tile",
             };
         }
     }

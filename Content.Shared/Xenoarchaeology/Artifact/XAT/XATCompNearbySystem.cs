@@ -18,8 +18,7 @@ public sealed class XATCompNearbySystem : BaseQueryUpdateXATSystem<XATCompNearby
     protected override void UpdateXAT(
         Entity<XenoArtifactComponent> artifact,
         Entity<XATCompNearbyComponent, XenoArtifactNodeComponent> node,
-        float frameTime
-    )
+        float frameTime)
     {
         var compNearbyComponent = node.Comp1;
 

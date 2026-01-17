@@ -2,6 +2,7 @@
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Ensnaring.Components;
+
 /// <summary>
 /// Use this on something you want to use to ensnare an entity with
 /// </summary>

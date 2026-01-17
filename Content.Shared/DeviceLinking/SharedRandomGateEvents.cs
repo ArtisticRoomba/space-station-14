@@ -17,5 +17,5 @@ public sealed class RandomGateProbabilityChangedMessage(float probability) : Bou
 [Serializable, NetSerializable]
 public enum RandomGateUiKey : byte
 {
-    Key
+    Key,
 }

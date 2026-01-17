@@ -41,5 +41,4 @@ public sealed partial class PartAssemblyComponent : Component
 /// </summary>
 public sealed class PartAssemblyPartInsertedEvent
 {
-
 }

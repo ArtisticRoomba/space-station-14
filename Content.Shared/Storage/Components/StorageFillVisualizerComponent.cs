@@ -18,11 +18,11 @@ public sealed partial class StorageFillVisualizerComponent : Component
 [Serializable, NetSerializable]
 public enum StorageFillVisuals : byte
 {
-    FillLevel
+    FillLevel,
 }
 
 [Serializable, NetSerializable]
 public enum StorageFillLayers : byte
 {
-    Fill
+    Fill,
 }

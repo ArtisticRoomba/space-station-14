@@ -4,7 +4,8 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAE;
 /// Base class for 
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public abstract class BaseXAESystem<T> : EntitySystem where T : Component
+public abstract class BaseXAESystem<T> : EntitySystem
+    where T : Component
 {
     /// <inheritdoc/>
     public override void Initialize()

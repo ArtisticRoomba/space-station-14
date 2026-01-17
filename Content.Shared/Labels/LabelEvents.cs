@@ -17,7 +17,7 @@ public enum PaperLabelVisuals : byte
 {
     Layer,
     HasLabel,
-    LabelType
+    LabelType,
 }
 
 [Serializable, NetSerializable]

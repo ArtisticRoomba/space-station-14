@@ -10,8 +10,8 @@ namespace Content.Shared.Speech
         [IdDataField]
         public string ID { get; private set; } = default!;
 
-        //Variation is here instead of in SharedSpeechComponent since some sets of
-        //sounds may require more fine tuned pitch variation than others.
+        // Variation is here instead of in SharedSpeechComponent since some sets of
+        // sounds may require more fine tuned pitch variation than others.
         [DataField("variation")]
         public float Variation { get; set; } = 0.1f;
 

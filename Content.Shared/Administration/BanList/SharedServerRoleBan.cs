@@ -14,5 +14,4 @@ public sealed record SharedServerRoleBan(
     string Reason,
     string? BanningAdminName,
     SharedServerUnban? Unban,
-    string Role
-) : SharedServerBan(Id, UserId, Address, HWId, BanTime, ExpirationTime, Reason, BanningAdminName, Unban);
+    string Role) : SharedServerBan(Id, UserId, Address, HWId, BanTime, ExpirationTime, Reason, BanningAdminName, Unban);

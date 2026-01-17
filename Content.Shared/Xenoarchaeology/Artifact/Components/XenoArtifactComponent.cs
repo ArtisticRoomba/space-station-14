@@ -60,6 +60,7 @@ public sealed partial class XenoArtifactComponent : Component
     public float PriceMultiplier = 0.10f;
 
     #region Unlocking
+
     /// <summary>
     /// How long does the unlocking state last by default.
     /// </summary>
@@ -87,6 +88,7 @@ public sealed partial class XenoArtifactComponent : Component
 
     // NOTE: you should not be accessing any of these values directly. Use the methods in SharedXenoArtifactSystem.Graph
     #region Graph
+
     /// <summary>
     /// List of all nodes currently on this artifact.
     /// Indexes are used as a lookup table for <see cref="NodeAdjacencyMatrix"/>.
@@ -139,7 +141,7 @@ public sealed partial class XenoArtifactComponent : Component
     [DataField]
     public EntityTableSelector EffectsTable = new NestedSelector
     {
-        TableId = "XenoArtifactEffectsDefaultTable"
+        TableId = "XenoArtifactEffectsDefaultTable",
     };
 
     /// <summary>
@@ -158,7 +160,7 @@ public sealed partial class XenoArtifactComponent : Component
         Params = new()
         {
             Variation = 0.1f
-        }
+        },
     };
 
     /// <summary>

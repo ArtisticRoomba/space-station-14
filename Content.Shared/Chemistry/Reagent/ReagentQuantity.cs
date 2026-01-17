@@ -42,6 +42,7 @@ public partial struct ReagentQuantity : IEquatable<ReagentQuantity>, IRobustClon
         {
             copy.Add(item.Clone());
         }
+
         Reagent = new ReagentId(reagentQuantity.Reagent.Prototype, copy);
     }
 

@@ -9,10 +9,12 @@ namespace Content.Shared.APC
         /// APC locks.
         /// </summary>
         LockState,
+
         /// <summary>
         /// APC channels.
         /// </summary>
         ChannelState,
+
         /// <summary>
         /// APC lights/HUD.
         /// </summary>
@@ -26,10 +28,12 @@ namespace Content.Shared.APC
         /// APC is closed.
         /// </summary>
         Closed = 0,
+
         /// <summary>
         /// APC is opened.
         /// </summary>
         Open = 1,
+
         /// <summary>
         /// APC is oaisdoj.
         /// </summary>
@@ -52,10 +56,12 @@ namespace Content.Shared.APC
         /// Bitfield indicating status of APC lock indicator.
         /// </summary>
         Lock = (1<<0),
+
         /// <summary>
         /// Bit state indicating that the given APC lock is unlocked.
         /// </summary>
         Unlocked = None,
+
         /// <summary>
         /// Bit state indicating that the given APC lock is locked.
         /// </summary>
@@ -88,10 +94,12 @@ namespace Content.Shared.APC
         /// Bitfield indicating whether the APC is automatically regulating the given channel.
         /// </summary>
         Control = (1<<0),
+
         /// <summary>
         /// Bit state indicating that the APC has been set to automatically toggle the given channel depending on available power.
         /// </summary>
         Auto = None,
+
         /// <summary>
         /// Bit state indicating that the APC has been set to always provide/not provide power on the given channel if possible.
         /// </summary>
@@ -101,10 +109,12 @@ namespace Content.Shared.APC
         /// Bitfield indicating whether the APC is currently providing power on the given channel.
         /// </summary>
         Power = (1<<1),
+
         /// <summary>
         /// Bit state indicating that the APC is currently not providing power on the given channel.
         /// </summary>
         Off = None,
+
         /// <summary>
         /// Bit state indicating that the APC is currently providing power on the given channel.
         /// </summary>
@@ -119,14 +129,17 @@ namespace Content.Shared.APC
         /// State that indicates the given channel has been automatically disabled.
         /// </summary>
         AutoOff = (Off | Auto),
+
         /// <summary>
         /// State that indicates the given channel has been automatically enabled.
         /// </summary>
         AutoOn = (On | Auto),
+
         /// <summary>
         /// State that indicates the given channel has been manually disabled.
         /// </summary>
         ManualOff = (Off | Manual),
+
         /// <summary>
         /// State that indicates the given channel has been manually enabled.
         /// </summary>
@@ -213,7 +226,7 @@ namespace Content.Shared.APC
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(MainBreaker, Power, (int) ApcExternalPower, Charge, MaxLoad, Tripped);
+            return HashCode.Combine(MainBreaker, Power, (int)ApcExternalPower, Charge, MaxLoad, Tripped);
         }
     }
 

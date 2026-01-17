@@ -16,7 +16,7 @@ namespace Content.Shared.Humanoid
             Color.SandyBrown,
             Color.Brown,
             Color.Wheat,
-            Color.Gray
+            Color.Gray,
         };
     }
 }

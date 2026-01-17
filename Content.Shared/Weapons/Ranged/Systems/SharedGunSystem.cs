@@ -267,7 +267,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         var prevention = new ShotAttemptedEvent
         {
             User = user,
-            Used = gun
+            Used = gun,
         };
         RaiseLocalEvent(gun, ref prevention);
         if (prevention.Cancelled)
@@ -337,6 +337,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             {
                 PopupSystem.PopupClient(attemptEv.Message, gun, user);
             }
+
             gun.Comp.BurstActivated = false;
             gun.Comp.BurstShotsCount = 0;
             gun.Comp.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.Comp.NextFire.TotalSeconds));
@@ -392,6 +393,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             gun.Comp.BurstActivated = true;
         }
+
         if (gun.Comp.BurstActivated)
         {
             gun.Comp.BurstShotsCount += shots;
@@ -509,6 +511,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             ejectAngle += 3.7f; // 212 degrees; casings should eject slightly to the right and behind of a gun
             ThrowingSystem.TryThrow(entity, ejectAngle.ToVec().Normalized() / 100, 5f);
         }
+
         if (playSound && TryComp<CartridgeAmmoComponent>(entity, out var cartridge))
         {
             Audio.PlayPvs(cartridge.EjectSound, entity, AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-1f));
@@ -575,8 +578,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.MinAngle,
             comp.ShotsPerBurst,
             comp.FireRate,
-            comp.ProjectileSpeed
-        );
+            comp.ProjectileSpeed);
 
         RaiseLocalEvent(gun, ref ev);
 
@@ -702,7 +704,7 @@ public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootab
 public record struct ShooterImpulseEvent()
 {
     public bool Push;
-};
+}
 
 public enum EffectLayers : byte
 {

@@ -27,7 +27,7 @@ public sealed class SuitSensorStatus
     public bool IsAlive;
     public int? TotalDamage;
     public int? TotalDamageThreshold;
-    public float? DamagePercentage => TotalDamageThreshold == null || TotalDamage == null ? null : TotalDamage / (float) TotalDamageThreshold;
+    public float? DamagePercentage => TotalDamageThreshold == null || TotalDamage == null ? null : TotalDamage / (float)TotalDamageThreshold;
     public NetCoordinates? Coordinates;
 }
 
@@ -52,7 +52,7 @@ public enum SuitSensorMode : byte
     /// <summary>
     /// Sensor sends vitals status and GPS position
     /// </summary>
-    SensorCords = 3
+    SensorCords = 3,
 }
 
 public static class SuitSensorConstants

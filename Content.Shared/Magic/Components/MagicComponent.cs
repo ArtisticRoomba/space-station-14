@@ -22,6 +22,7 @@ public sealed partial class MagicComponent : Component
     //      May be an action toggle or something
 
     // TODO: List requirements in action desc
+
     /// <summary>
     ///     Does this spell require Wizard Robes & Hat?
     /// </summary>

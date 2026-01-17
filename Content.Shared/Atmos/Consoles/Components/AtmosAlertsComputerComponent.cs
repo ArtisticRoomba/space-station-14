@@ -231,5 +231,5 @@ public enum AtmosAlertsComputerVisuals
 [Serializable, NetSerializable]
 public enum AtmosAlertsComputerUiKey
 {
-    Key
+    Key,
 }

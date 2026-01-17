@@ -321,6 +321,7 @@ public abstract class SharedAbsorbentSystem : EntitySystem
                 var tileRef = _mapSystem.GetTileRef(gridUid.Value, mapGrid, targetXform.Coordinates);
                 Puddle.DoTileReactions(tileRef, absorberSplit);
             }
+
             SolutionContainer.AddSolution(puddle.Solution.Value, absorberSplit);
         }
         else

@@ -33,6 +33,7 @@ public sealed partial class HumanoidSpeciesSpriteLayer : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
+
     /// <summary>
     ///     The base sprite for this sprite layer. This is what
     ///     will replace the empty layer tagged by the enum

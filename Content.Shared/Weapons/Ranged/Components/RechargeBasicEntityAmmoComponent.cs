@@ -19,11 +19,11 @@ public sealed partial class RechargeBasicEntityAmmoComponent : Component
     [AutoNetworkedField]
     public SoundSpecifier? RechargeSound = new SoundPathSpecifier("/Audio/Magic/forcewall.ogg")
     {
-        Params = AudioParams.Default.WithVolume(-5f)
+        Params = AudioParams.Default.WithVolume(-5f),
     };
 
     [ViewVariables(VVAccess.ReadWrite),
-     DataField("nextCharge", customTypeSerializer:typeof(TimeOffsetSerializer)),
+     DataField("nextCharge", customTypeSerializer: typeof(TimeOffsetSerializer)),
     AutoNetworkedField]
     [AutoPausedField]
     public TimeSpan? NextCharge;

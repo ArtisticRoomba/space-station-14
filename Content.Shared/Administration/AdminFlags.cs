@@ -57,7 +57,7 @@
         /// <summary>
         ///     Makes you british.
         /// </summary>
-        //Piss = 1 << 9,
+        // Piss = 1 << 9,
 
         /// <summary>
         ///     Lets you view admin logs.

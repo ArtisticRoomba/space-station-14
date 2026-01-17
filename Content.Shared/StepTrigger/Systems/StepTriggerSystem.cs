@@ -101,6 +101,7 @@ public sealed class StepTriggerSystem : EntitySystem
             {
                 Dirty(uid, component);
             }
+
             return;
         }
 
@@ -245,6 +246,7 @@ public struct StepTriggerAttemptEvent
     public EntityUid Source;
     public EntityUid Tripper;
     public bool Continue;
+
     /// <summary>
     ///     Set by systems which wish to cancel the step trigger event, regardless of event ordering.
     /// </summary>

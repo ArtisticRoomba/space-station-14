@@ -39,13 +39,12 @@ public record struct GetSiliconLawsEvent(EntityUid Entity)
 
 public sealed partial class ToggleLawsScreenEvent : InstantActionEvent
 {
-
 }
 
 [NetSerializable, Serializable]
 public enum SiliconLawsUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]

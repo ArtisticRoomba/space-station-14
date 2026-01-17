@@ -18,5 +18,5 @@ public sealed partial class ReagentTankComponent : Component
 public enum ReagentTankType : byte
 {
     Unspecified,
-    Fuel
+    Fuel,
 }

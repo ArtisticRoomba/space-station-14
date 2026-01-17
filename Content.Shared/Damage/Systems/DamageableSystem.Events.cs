@@ -33,8 +33,7 @@ public sealed partial class DamageableSystem
                 _chemistryGuideData.ReloadAllReagentPrototypes();
                 _explosion.ReloadMap();
             },
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestAllHealModifier,
@@ -43,32 +42,27 @@ public sealed partial class DamageableSystem
                 UniversalAllHealModifier = value;
                 _chemistryGuideData.ReloadAllReagentPrototypes();
             },
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestProjectileDamageModifier,
             value => UniversalProjectileDamageModifier = value,
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestMeleeDamageModifier,
             value => UniversalMeleeDamageModifier = value,
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestProjectileDamageModifier,
             value => UniversalProjectileDamageModifier = value,
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestHitscanDamageModifier,
             value => UniversalHitscanDamageModifier = value,
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestReagentDamageModifier,
@@ -77,8 +71,7 @@ public sealed partial class DamageableSystem
                 UniversalReagentDamageModifier = value;
                 _chemistryGuideData.ReloadAllReagentPrototypes();
             },
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestReagentHealModifier,
@@ -87,8 +80,7 @@ public sealed partial class DamageableSystem
                 UniversalReagentHealModifier = value;
                 _chemistryGuideData.ReloadAllReagentPrototypes();
             },
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestExplosionDamageModifier,
@@ -97,26 +89,22 @@ public sealed partial class DamageableSystem
                 UniversalExplosionDamageModifier = value;
                 _explosion.ReloadMap();
             },
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestThrownDamageModifier,
             value => UniversalThrownDamageModifier = value,
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestTopicalsHealModifier,
             value => UniversalTopicalsHealModifier = value,
-            true
-        );
+            true);
         Subs.CVar(
             _config,
             CCVars.PlaytestMobDamageModifier,
             value => UniversalMobDamageModifier = value,
-            true
-        );
+            true);
     }
 
     /// <summary>
@@ -126,8 +114,7 @@ public sealed partial class DamageableSystem
     {
         if (
             ent.Comp.DamageContainerID is null ||
-            !_prototypeManager.Resolve(ent.Comp.DamageContainerID, out var damageContainerPrototype)
-        )
+            !_prototypeManager.Resolve(ent.Comp.DamageContainerID, out var damageContainerPrototype))
         {
             // No DamageContainerPrototype was given. So we will allow the container to support all damage types
             foreach (var type in _prototypeManager.EnumeratePrototypes<DamageTypePrototype>())
@@ -281,8 +268,7 @@ public sealed class DamageChangedEvent : EntityEventArgs
         DamageableComponent damageable,
         DamageSpecifier? damageDelta,
         bool interruptsDoAfters,
-        EntityUid? origin
-    )
+        EntityUid? origin)
     {
         Damageable = damageable;
         DamageDelta = damageDelta;

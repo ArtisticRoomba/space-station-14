@@ -42,6 +42,7 @@ public sealed class EmagSystem : EntitySystem
         entity.Comp.EmagType &= ~EmagType.Access;
         Dirty(entity);
     }
+
     private void OnAfterInteract(EntityUid uid, EmagComponent comp, AfterInteractEvent args)
     {
         if (!args.CanReach || args.Target is not { } target)
@@ -136,8 +137,9 @@ public enum EmagType
     None = 0,
     All = ~None,
     Interaction = 1 << 1,
-    Access = 1 << 2
+    Access = 1 << 2,
 }
+
 /// <summary>
 /// Shows a popup to emag user (client side only!) and adds <see cref="EmaggedComponent"/> to the entity when handled
 /// </summary>

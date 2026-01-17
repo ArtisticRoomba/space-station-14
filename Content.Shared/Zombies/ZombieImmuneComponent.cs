@@ -8,6 +8,6 @@ namespace Content.Shared.Zombies;
 [RegisterComponent]
 public sealed partial class ZombieImmuneComponent : Component
 {
-    //still no
+    // still no
 }
 

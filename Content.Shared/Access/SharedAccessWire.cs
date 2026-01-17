@@ -8,7 +8,7 @@ public enum AccessWireActionKey : byte
     Key,
     Status,
     Pulsed,
-    PulseCancel
+    PulseCancel,
 }
 
 [Serializable, NetSerializable]
@@ -17,5 +17,5 @@ public enum LogWireActionKey : byte
     Key,
     Status,
     Pulsed,
-    PulseCancel
+    PulseCancel,
 }

@@ -35,7 +35,7 @@ public sealed class IdExaminableSystem : EntitySystem
             Category = VerbCategory.Examine,
             Disabled = !detailsRange,
             Message = detailsRange ? null : Loc.GetString("id-examinable-component-verb-disabled"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/character.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/character.svg.192dpi.png")),
         };
 
         args.Verbs.Add(verb);
@@ -63,6 +63,7 @@ public sealed class IdExaminableSystem : EntitySystem
                 return GetNameAndJob(id);
             }
         }
+
         return null;
     }
 

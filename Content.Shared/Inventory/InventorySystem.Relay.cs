@@ -101,17 +101,20 @@ public partial class InventorySystem
 
     }
 
-    protected void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent
+    protected void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args)
+        where T : IInventoryRelayEvent
     {
         RelayEvent((uid, component), ref args);
     }
 
-    protected void RelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, T args) where T : IInventoryRelayEvent
+    protected void RelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, T args)
+        where T : IInventoryRelayEvent
     {
         RelayEvent((uid, component), args);
     }
 
-    public void RelayEvent<T>(Entity<InventoryComponent> inventory, ref T args) where T : IInventoryRelayEvent
+    public void RelayEvent<T>(Entity<InventoryComponent> inventory, ref T args)
+        where T : IInventoryRelayEvent
     {
         if (args.TargetSlots == SlotFlags.NONE)
             return;
@@ -128,7 +131,8 @@ public partial class InventorySystem
         args = ev.Args;
     }
 
-    public void RelayEvent<T>(Entity<InventoryComponent> inventory, T args) where T : IInventoryRelayEvent
+    public void RelayEvent<T>(Entity<InventoryComponent> inventory, T args)
+        where T : IInventoryRelayEvent
     {
         if (args.TargetSlots == SlotFlags.NONE)
             return;

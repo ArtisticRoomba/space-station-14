@@ -76,7 +76,7 @@ internal sealed class HandheldGrinderSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnDropItem = true,
             BreakOnHandChange = true,
-            BreakOnMove = true
+            BreakOnMove = true,
         };
 
         _doAfter.TryStartDoAfter(doAfter);

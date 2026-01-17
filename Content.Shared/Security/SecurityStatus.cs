@@ -21,5 +21,5 @@ public enum SecurityStatus : byte
     Detained,
     Paroled,
     Discharged,
-    Eliminated
+    Eliminated,
 }

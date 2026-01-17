@@ -225,8 +225,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         (
             var index = message.IndexOf(theWordI);
             index != -1;
-            index = message.IndexOf(theWordI, index + 1)
-        )
+            index = message.IndexOf(theWordI, index + 1))
         {
             // Stops the code If It's tryIng to capItalIze the letter I In the mIddle of words
             // Repeating the code twice is the simplest option
@@ -280,7 +279,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         var rawmsg = message.WrappedMessage;
         var tagStart = rawmsg.IndexOf($"[{outerTag}]");
         var tagEnd = rawmsg.IndexOf($"[/{outerTag}]");
-        if (tagStart < 0 || tagEnd < 0) //If the outer tag is not found, the injection is not performed
+        if (tagStart < 0 || tagEnd < 0) // If the outer tag is not found, the injection is not performed
             return rawmsg;
         tagStart += outerTag.Length + 2;
 
@@ -322,8 +321,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         bool hideLog = false,
         bool checkEmote = true,
         bool ignoreActionBlocker = false,
-        NetUserId? author = null
-        )
+        NetUserId? author = null)
     { }
 
     /// <summary>
@@ -374,8 +372,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         ICommonSession? player = null,
         string? nameOverride = null,
         bool checkRadioPrefix = true,
-        bool ignoreActionBlocker = false
-        )
+        bool ignoreActionBlocker = false)
     { }
 
     /// <summary>
@@ -393,8 +390,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         InGameOOCChatType type,
         bool hideChat,
         IConsoleShell? shell = null,
-        ICommonSession? player = null
-        )
+        ICommonSession? player = null)
     { }
 
     /// <summary>
@@ -410,8 +406,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
-        )
+        Color? colorOverride = null)
     { }
 
     /// <summary>
@@ -460,12 +455,15 @@ public enum ChatTransmitRange : byte
 {
     /// Acts normal, ghosts can hear across the map, etc.
     Normal,
+
     /// Normal but ghosts are still range-limited.
     GhostRangeLimit,
+
     /// Hidden from the chat window.
     HideChat,
+
     /// Ghosts can't hear or see it at all. Regular players can if in-range.
-    NoGhosts
+    NoGhosts,
 }
 
 /// <summary>
@@ -476,7 +474,7 @@ public enum InGameICChatType : byte
 {
     Speak,
     Emote,
-    Whisper
+    Whisper,
 }
 
 /// <summary>
@@ -485,5 +483,5 @@ public enum InGameICChatType : byte
 public enum InGameOOCChatType : byte
 {
     Looc,
-    Dead
+    Dead,
 }

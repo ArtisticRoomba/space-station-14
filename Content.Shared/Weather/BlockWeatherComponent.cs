@@ -8,5 +8,4 @@ namespace Content.Shared.Weather;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BlockWeatherComponent : Component
 {
-
 }

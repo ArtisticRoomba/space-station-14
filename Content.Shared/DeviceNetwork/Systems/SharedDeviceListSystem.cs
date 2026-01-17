@@ -11,6 +11,7 @@ public abstract class SharedDeviceListSystem : EntitySystem
         {
             return new EntityUid[] { };
         }
+
         return component.Devices;
     }
 }
@@ -31,5 +32,5 @@ public enum DeviceListUpdateResult : byte
 {
     NoComponent,
     TooManyDevices,
-    UpdateOk
+    UpdateOk,
 }

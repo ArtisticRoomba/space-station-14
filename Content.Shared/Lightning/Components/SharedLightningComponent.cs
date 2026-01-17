@@ -3,6 +3,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Lightning.Components;
+
 /// <summary>
 /// Handles how lightning acts and is spawned. Use the ShootLightning method to fire lightning from one user to a target.
 /// </summary>
@@ -27,7 +28,7 @@ public abstract partial class SharedLightningComponent : Component
     /// The prototype ID used for arcing bolts. Usually will be the same name as the main proto but it could be flexible.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("lightningPrototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField("lightningPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string LightningPrototype = "Lightning";
 
     /// <summary>
@@ -53,5 +54,5 @@ public abstract partial class SharedLightningComponent : Component
     /// What should this arc to?
     /// </summary>
     [DataField("collisionMask")]
-    public int CollisionMask = (int) (CollisionGroup.MobMask | CollisionGroup.MachineMask);
+    public int CollisionMask = (int)(CollisionGroup.MobMask | CollisionGroup.MachineMask);
 }

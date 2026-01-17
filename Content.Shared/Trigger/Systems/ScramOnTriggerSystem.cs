@@ -45,6 +45,7 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
             args.Handled = true;
         }
     }
+
     /// <summary>
     /// Method to find a random empty tile within a certain radius. Will not select off-grid tiles. Returns
     /// null if no tile is found within a certain number of tries.

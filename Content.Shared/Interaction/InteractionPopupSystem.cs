@@ -57,7 +57,7 @@ public sealed class InteractionPopupSystem : EntitySystem
         if (args.Handled || user == target)
             return;
 
-        //Handling does nothing and this thing annoyingly plays way too often.
+        // Handling does nothing and this thing annoyingly plays way too often.
         // HUH? What does this comment even mean?
         if (HasComp<SleepingComponent>(uid))
             return;

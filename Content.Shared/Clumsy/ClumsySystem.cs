@@ -187,6 +187,7 @@ public sealed class ClumsySystem : EntitySystem
     #endregion
 
     #region Helper functions
+
     /// <summary>
     ///     "Hits" an entites head against the given table.
     /// </summary>

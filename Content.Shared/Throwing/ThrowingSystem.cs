@@ -267,10 +267,12 @@ public enum ThrowingUnanchorStrength : byte
     /// No entites will be unanchored.
     /// </summary>
     None,
+
     /// <summary>
     /// Only entities that can be unanchored (e.g. via wrench) will be unanchored.
     /// </summary>
     Unanchorable,
+
     /// <summary>
     /// All entities will be unanchored.
     /// </summary>

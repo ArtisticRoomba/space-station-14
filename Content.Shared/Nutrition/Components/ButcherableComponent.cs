@@ -47,5 +47,5 @@ public enum ButcheringType : byte
     /// <summary>
     /// E.g. humans.
     /// </summary>
-    Gibber // TODO
+    Gibber, // TODO
 }

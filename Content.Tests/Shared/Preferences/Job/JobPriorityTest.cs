@@ -23,7 +23,7 @@ namespace Content.Tests.Shared.Preferences.Job
                 var priority = priorities[i];
                 var dbPriority = dbPriorities[i];
 
-                Assert.That((int) priority, Is.EqualTo((int) dbPriority));
+                Assert.That((int)priority, Is.EqualTo((int)dbPriority));
                 Assert.That(priority.ToString(), Is.EqualTo(dbPriority.ToString()));
             }
         }

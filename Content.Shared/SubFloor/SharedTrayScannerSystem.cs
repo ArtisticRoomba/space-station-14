@@ -133,5 +133,5 @@ public enum TrayScannerVisual : sbyte
 {
     Visual,
     On,
-    Off
+    Off,
 }

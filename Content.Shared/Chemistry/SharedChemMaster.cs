@@ -219,6 +219,6 @@ namespace Content.Shared.Chemistry
     [Serializable, NetSerializable]
     public enum ChemMasterUiKey
     {
-        Key
+        Key,
     }
 }

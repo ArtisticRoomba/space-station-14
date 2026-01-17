@@ -6,5 +6,5 @@ namespace Content.Shared.Power;
 public enum TeslaCoilVisuals : byte
 {
     Enabled,
-    Lightning
+    Lightning,
 }

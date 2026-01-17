@@ -6,7 +6,7 @@ namespace Content.Shared.MassMedia.Components;
 [Serializable, NetSerializable]
 public enum NewsWriterUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]

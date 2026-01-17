@@ -123,7 +123,7 @@ public sealed class PortableGeneratorComponentBuiState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public enum GeneratorComponentUiKey
 {
-    Key
+    Key,
 }
 
 /// <summary>
@@ -133,7 +133,7 @@ public enum GeneratorComponentUiKey
 public enum GeneratorVisualLayers : byte
 {
     Body,
-    Unlit
+    Unlit,
 }
 
 /// <summary>

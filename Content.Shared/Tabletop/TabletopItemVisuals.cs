@@ -6,6 +6,6 @@ namespace Content.Shared.Tabletop
     public enum TabletopItemVisuals : byte
     {
         Scale,
-        DrawDepth
+        DrawDepth,
     }
 }

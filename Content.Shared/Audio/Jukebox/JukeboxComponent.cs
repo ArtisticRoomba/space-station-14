@@ -63,7 +63,7 @@ public sealed class JukeboxSetTimeMessage(float songTime) : BoundUserInterfaceMe
 [Serializable, NetSerializable]
 public enum JukeboxVisuals : byte
 {
-    VisualState
+    VisualState,
 }
 
 [Serializable, NetSerializable]
@@ -76,5 +76,5 @@ public enum JukeboxVisualState : byte
 
 public enum JukeboxVisualLayers : byte
 {
-    Base
+    Base,
 }

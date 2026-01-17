@@ -120,6 +120,7 @@ public abstract class SharedEmpSystem : EntitySystem
             strMultiplier = resistance.StrengthMultiplier;
             durMultiplier = resistance.DurationMultiplier;
         }
+
         var ev = new EmpPulseEvent(energyConsumption * strMultiplier, false, false, duration * durMultiplier, user);
         RaiseLocalEvent(uid, ref ev);
 

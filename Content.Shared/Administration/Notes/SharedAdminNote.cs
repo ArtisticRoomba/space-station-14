@@ -23,5 +23,4 @@ public sealed record SharedAdminNote(
     string[]? BannedRoles, // Only valid for role bans. List of banned roles
     DateTime? UnbannedTime, // Only valid for bans. Set if unbanned
     string? UnbannedByName, // Only valid for bans. Set if unbanned
-    bool? Seen // Only valid for messages, otherwise should be null. Has the user seen this message?
-    );
+    bool? Seen); // Only valid for messages, otherwise should be null. Has the user seen this message?

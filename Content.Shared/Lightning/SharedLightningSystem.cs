@@ -12,7 +12,7 @@ public abstract class SharedLightningSystem : EntitySystem
     /// <returns>Returns a string "lightning_" + the chosen random number.</returns>
     public string LightningRandomizer()
     {
-        //When the lightning is made with TryCreateBeam, spawns random sprites for each beam to make it look nicer.
+        // When the lightning is made with TryCreateBeam, spawns random sprites for each beam to make it look nicer.
         var spriteStateNumber = _random.Next(1, 12);
         return ("lightning_" + spriteStateNumber);
     }

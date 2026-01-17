@@ -15,6 +15,7 @@ public sealed partial class MeleeWeaponComponent : Component
 {
     // TODO: This is becoming bloated as shit.
     // This should just be its own component for alt attacks.
+
     /// <summary>
     /// Does this entity do a disarm on alt attack.
     /// </summary>
@@ -87,6 +88,7 @@ public sealed partial class MeleeWeaponComponent : Component
     public FixedPoint2 ClickDamageModifier = FixedPoint2.New(1);
 
     // TODO: Temporarily 1.5 until interactionoutline is adjusted to use melee, then probably drop to 1.2
+
     /// <summary>
     /// Nearest edge range to hit an entity.
     /// </summary>

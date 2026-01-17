@@ -39,6 +39,7 @@ namespace Content.Shared.Magic;
 //   Alt idea - make it its own comp and split, like the Charge PR
 // TODO: Move speech to actionComp or again, its own ECS
 // TODO: Use the MagicComp just for pure backend things like spawning patterns?
+
 /// <summary>
 /// Handles learning and using spells (actions)
 /// </summary>
@@ -129,6 +130,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
     #region Spells
     #region Instant Spawn Spells
+
     /// <summary>
     /// Handles the instant action (i.e. on the caster) attempting to spawn an entity.
     /// </summary>
@@ -156,7 +158,7 @@ public abstract class SharedMagicSystem : EntitySystem
         switch (data)
         {
             case TargetCasterPos:
-                return new List<EntityCoordinates>(1) { casterXform.Coordinates};
+                return new List<EntityCoordinates>(1) { casterXform.Coordinates };
             case TargetInFrontSingle:
             {
                 var directionPos = casterXform.Coordinates.Offset(casterXform.LocalRotation.ToWorldVec().Normalized());
@@ -169,6 +171,7 @@ public abstract class SharedMagicSystem : EntitySystem
                 var tileIndex = tileReference.Value.GridIndices;
                 return new List<EntityCoordinates>(1) { _mapSystem.GridTileToLocal(casterXform.GridUid.Value, mapGrid, tileIndex) };
             }
+
             case TargetInFront:
             {
                 var directionPos = casterXform.Coordinates.Offset(casterXform.LocalRotation.ToWorldVec().Normalized());
@@ -199,6 +202,7 @@ public abstract class SharedMagicSystem : EntitySystem
                             coordsMinus,
                         };
                     }
+
                     case Direction.East:
                     case Direction.West:
                     {
@@ -215,6 +219,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
                 return new List<EntityCoordinates>();
             }
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -223,6 +228,7 @@ public abstract class SharedMagicSystem : EntitySystem
     // End Instant Spawn Spells
     #endregion
     #region World Spawn Spells
+
     /// <summary>
     /// Spawns entities from a list within range of click.
     /// </summary>
@@ -307,6 +313,7 @@ public abstract class SharedMagicSystem : EntitySystem
     #endregion
     #region Teleport Spells
     // TODO: Rename to teleport clicked spell?
+
     /// <summary>
     /// Teleports the user to the clicked location
     /// </summary>
@@ -401,6 +408,7 @@ public abstract class SharedMagicSystem : EntitySystem
     // End Touch Spells
     #endregion
     #region Knock Spells
+
     /// <summary>
     /// Opens all doors and locks within range.
     /// </summary>

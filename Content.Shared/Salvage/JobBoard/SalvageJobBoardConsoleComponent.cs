@@ -68,5 +68,5 @@ public sealed class JobBoardPrintLabelMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public enum SalvageJobBoardUiKey : byte
 {
-    Key
+    Key,
 }

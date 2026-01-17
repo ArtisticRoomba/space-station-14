@@ -49,5 +49,5 @@ public enum PaintableVisuals
     /// <summary>
     /// The prototype to base the object's visuals off.
     /// </summary>
-    Prototype
+    Prototype,
 }

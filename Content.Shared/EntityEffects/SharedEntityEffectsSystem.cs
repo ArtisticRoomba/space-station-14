@@ -133,8 +133,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
                 $"Entity effect {effect.GetType().Name:effect}"
                 + $" applied on entity {target:entity}"
                 + $" at {Transform(target).Coordinates:coordinates}"
-                + $" with a scale multiplier of {scale}"
-            );
+                + $" with a scale multiplier of {scale}");
         }
 
         effect.RaiseEvent(target, this, scale, user);
@@ -143,7 +142,8 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     /// <summary>
     /// Raises an effect to an entity. You should not be calling this unless you know what you're doing.
     /// </summary>
-    public void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user) where T : EntityEffectBase<T>
+    public void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user)
+        where T : EntityEffectBase<T>
     {
         var effectEv = new EntityEffectEvent<T>(effect, scale, user);
         RaiseLocalEvent(target, ref effectEv);
@@ -155,7 +155,9 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
 /// </summary>
 /// <typeparam name="T">The Component that is required for the effect</typeparam>
 /// <typeparam name="TEffect">The Entity Effect itself</typeparam>
-public abstract partial class EntityEffectSystem<T, TEffect> : EntitySystem where T : Component where TEffect : EntityEffectBase<TEffect>
+public abstract partial class EntityEffectSystem<T, TEffect> : EntitySystem
+    where T : Component
+    where TEffect : EntityEffectBase<TEffect>
 {
     /// <inheritdoc/>
     public override void Initialize()
@@ -171,5 +173,6 @@ public abstract partial class EntityEffectSystem<T, TEffect> : EntitySystem wher
 /// </summary>
 public interface IEntityEffectRaiser
 {
-    void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user) where T : EntityEffectBase<T>;
+    void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user)
+        where T : EntityEffectBase<T>;
 }

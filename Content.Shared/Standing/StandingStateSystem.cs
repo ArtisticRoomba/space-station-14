@@ -18,7 +18,7 @@ public sealed class StandingStateSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
-    public const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
+    public const int StandingCollisionLayer = (int)CollisionGroup.MidImpassable;
 
     public override void Initialize()
     {
@@ -222,7 +222,7 @@ public sealed class StandAttemptEvent : CancellableEntityEventArgs;
 public sealed class StoodEvent : EntityEventArgs, IInventoryRelayEvent
 {
     public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
-};
+}
 
 /// <summary>
 /// Raised when an entity is not standing

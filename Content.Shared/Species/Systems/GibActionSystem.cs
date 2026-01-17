@@ -36,7 +36,7 @@ public sealed partial class GibActionSystem : EntitySystem
 
         foreach (var allowedState in comp.AllowedStates)
         {
-            if(allowedState == mobState.CurrentState)
+            if (allowedState == mobState.CurrentState)
             {
                 // The mob should never have more than 1 state so I don't see this being an issue
                 _actionsSystem.AddAction(uid, ref comp.ActionEntity, comp.ActionPrototype);

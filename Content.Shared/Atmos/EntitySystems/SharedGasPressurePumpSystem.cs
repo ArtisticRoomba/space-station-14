@@ -12,9 +12,9 @@ namespace Content.Shared.Atmos.EntitySystems;
 
 public abstract class SharedGasPressurePumpSystem : EntitySystem
 {
-    [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private   readonly SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem UserInterfaceSystem = default!;
 
     // TODO: Check enabled for activatableUI
@@ -40,8 +40,7 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
         if (Loc.TryGetString("gas-pressure-pump-system-examined",
                 out var str,
                 ("statusColor", "lightblue"), // TODO: change with pressure?
-                ("pressure", ent.Comp.TargetPressure)
-            ))
+                ("pressure", ent.Comp.TargetPressure)))
         {
             args.PushMarkup(str);
         }

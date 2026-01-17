@@ -5,12 +5,12 @@ namespace Content.Shared.Nutrition.Components;
 [Serializable, NetSerializable]
 public enum FatExtractorVisuals : byte
 {
-    Processing
+    Processing,
 }
 
 public enum FatExtractorVisualLayers : byte
 {
     Light,
     Stack,
-    Smoke
+    Smoke,
 }

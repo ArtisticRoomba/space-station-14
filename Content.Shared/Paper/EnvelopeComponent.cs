@@ -53,7 +53,7 @@ public sealed partial class EnvelopeComponent : Component
     {
         Open,
         Sealed,
-        Torn
+        Torn,
     }
 }
 

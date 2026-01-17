@@ -33,8 +33,7 @@ public sealed class DamageExamineSystem : EntitySystem
             _examine.AddDetailedExamineVerb(args, component, ev.Message,
                 Loc.GetString("damage-examinable-verb-text"),
                 "/Textures/Interface/VerbIcons/smite.svg.192dpi.png",
-                Loc.GetString("damage-examinable-verb-message")
-            );
+                Loc.GetString("damage-examinable-verb-message"));
         }
     }
 
@@ -45,6 +44,7 @@ public sealed class DamageExamineSystem : EntitySystem
         {
             message.PushNewline();
         }
+
         message.AddMessage(markup);
     }
 

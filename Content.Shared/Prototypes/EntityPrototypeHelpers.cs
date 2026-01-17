@@ -6,7 +6,8 @@ namespace Content.Shared.Prototypes
     [UsedImplicitly]
     public static class EntityPrototypeHelpers
     {
-        public static bool HasComponent<T>(this EntityPrototype prototype, IComponentFactory? componentFactory = null) where T : IComponent
+        public static bool HasComponent<T>(this EntityPrototype prototype, IComponentFactory? componentFactory = null)
+            where T : IComponent
         {
             return prototype.HasComponent(typeof(T), componentFactory);
         }
@@ -20,7 +21,8 @@ namespace Content.Shared.Prototypes
             return prototype.Components.ContainsKey(registration.Name);
         }
 
-        public static bool HasComponent<T>(string prototype, IPrototypeManager? prototypeManager = null, IComponentFactory? componentFactory = null) where T : IComponent
+        public static bool HasComponent<T>(string prototype, IPrototypeManager? prototypeManager = null, IComponentFactory? componentFactory = null)
+            where T : IComponent
         {
             return HasComponent(prototype, typeof(T), prototypeManager, componentFactory);
         }

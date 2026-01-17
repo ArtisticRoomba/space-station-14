@@ -120,6 +120,7 @@ public sealed partial class TileHistoryChunk
         {
             History[key] = new List<ProtoId<ContentTileDefinition>>(value);
         }
+
         LastModified = other.LastModified;
     }
 }

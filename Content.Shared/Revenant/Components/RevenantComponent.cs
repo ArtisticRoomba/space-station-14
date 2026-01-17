@@ -27,7 +27,7 @@ public sealed partial class RevenantComponent : Component
     /// <summary>
     /// Prototype to spawn when the entity dies.
     /// </summary>
-    [DataField("spawnOnDeathPrototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField("spawnOnDeathPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string SpawnOnDeathPrototype = "Ectoplasm";
 
     /// <summary>
@@ -58,6 +58,7 @@ public sealed partial class RevenantComponent : Component
     // Step 3: Clicking the entity again begins to harvest the soul, which causes the revenant to become vulnerable
     // Step 4: The second doafter for the harvest completes, killing the target and granting the revenant essence.
     #region Harvest Ability
+
     /// <summary>
     /// The duration of the soul search
     /// </summary>
@@ -79,9 +80,10 @@ public sealed partial class RevenantComponent : Component
     public float MaxEssenceUpgradeAmount = 10;
     #endregion
 
-    //In the nearby radius, causes various objects to be thrown, messed with, and containers opened
-    //Generally just causes a mess
+    // In the nearby radius, causes various objects to be thrown, messed with, and containers opened
+    // Generally just causes a mess
     #region Defile Ability
+
     /// <summary>
     /// The amount of essence that is needed to use the ability.
     /// </summary>
@@ -117,6 +119,7 @@ public sealed partial class RevenantComponent : Component
     #endregion
 
     #region Overload Lights Ability
+
     /// <summary>
     /// The amount of essence that is needed to use the ability.
     /// </summary>
@@ -145,6 +148,7 @@ public sealed partial class RevenantComponent : Component
     #endregion
 
     #region Blight Ability
+
     /// <summary>
     /// The amount of essence that is needed to use the ability.
     /// </summary>
@@ -167,6 +171,7 @@ public sealed partial class RevenantComponent : Component
     #endregion
 
     #region Malfunction Ability
+
     /// <summary>
     /// The amount of essence that is needed to use the ability.
     /// </summary>

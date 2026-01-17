@@ -1,5 +1,4 @@
-﻿
-namespace Content.Shared.Administration
+﻿namespace Content.Shared.Administration
 {
     /// <summary>
     ///     Represents data for a single server admin.
@@ -7,6 +6,7 @@ namespace Content.Shared.Administration
     public sealed class AdminData
     {
         // Can be false if they're de-adminned with the ability to re-admin.
+
         /// <summary>
         ///     Whether the admin is currently active. This can be false if they have de-adminned mid-round.
         /// </summary>

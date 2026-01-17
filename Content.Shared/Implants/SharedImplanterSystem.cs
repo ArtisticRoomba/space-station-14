@@ -67,6 +67,7 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         args.PushMarkup(Loc.GetString("implanter-contained-implant-text", ("desc", component.ImplantData.Item2)));
     }
+
     public bool CheckSameImplant(EntityUid target, EntityUid implant)
     {
         if (!TryComp<ImplantedComponent>(target, out var implanted))
@@ -85,7 +86,7 @@ public abstract class SharedImplanterSystem : EntitySystem
             args.Verbs.Add(new InteractionVerb()
             {
                 Text = Loc.GetString("implanter-set-draw-verb"),
-                Act = () => TryOpenUi(uid, args.User, component)
+                Act = () => TryOpenUi(uid, args.User, component),
             });
         }
     }
@@ -114,8 +115,8 @@ public abstract class SharedImplanterSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    //Instantly implant something and add all necessary components and containers.
-    //Set to draw mode if not implant only
+    // Instantly implant something and add all necessary components and containers.
+    // Set to draw mode if not implant only
     public void Implant(EntityUid user, EntityUid target, EntityUid implanter, ImplanterComponent component)
     {
         if (!CanImplant(user, target, implanter, component, out var implant, out _))
@@ -131,7 +132,7 @@ public abstract class SharedImplanterSystem : EntitySystem
             return;
         }
 
-        //If the target doesn't have the implanted component, add it.
+        // If the target doesn't have the implanted component, add it.
         var implantedComp = EnsureComp<ImplantedComponent>(target);
         var implantContainer = implantedComp.ImplantContainer;
 
@@ -180,8 +181,8 @@ public abstract class SharedImplanterSystem : EntitySystem
             _whitelistSystem.IsWhitelistFailOrNull(blacklist, target);
     }
 
-    //Draw the implant out of the target
-    //TODO: Rework when surgery is in so implant cases can be a thing
+    // Draw the implant out of the target
+    // TODO: Rework when surgery is in so implant cases can be a thing
     public void Draw(EntityUid implanter, EntityUid user, EntityUid target, ImplanterComponent component)
     {
         var implanterContainer = component.ImplanterSlot.ContainerSlot;
@@ -202,7 +203,7 @@ public abstract class SharedImplanterSystem : EntitySystem
                     if (!implantCompQuery.TryGetComponent(implant, out var implantComp))
                         continue;
 
-                    //Don't remove a permanent implant and look for the next that can be drawn
+                    // Don't remove a permanent implant and look for the next that can be drawn
                     if (!_container.CanRemove(implant, implantContainer))
                     {
                         DrawPermanentFailurePopup(implant, target, user);
@@ -213,7 +214,7 @@ public abstract class SharedImplanterSystem : EntitySystem
                     DrawImplantIntoImplanter(implanter, target, implant, implantContainer, implanterContainer, implantComp);
                     permanentFound = implantComp.Permanent;
 
-                    //Break so only one implant is drawn
+                    // Break so only one implant is drawn
                     break;
                 }
 
@@ -236,7 +237,7 @@ public abstract class SharedImplanterSystem : EntitySystem
 
                 if (implant != null && implantCompQuery.TryGetComponent(implant, out var implantComp))
                 {
-                    //Don't remove a permanent implant
+                    // Don't remove a permanent implant
                     if (!_container.CanRemove(implant.Value, implantContainer))
                     {
                         DrawPermanentFailurePopup(implant.Value, target, user);
@@ -387,5 +388,5 @@ public sealed class DeimplantChangeVerbMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public enum DeimplantUiKey : byte
 {
-    Key
+    Key,
 }

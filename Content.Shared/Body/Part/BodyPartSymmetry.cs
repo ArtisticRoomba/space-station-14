@@ -11,6 +11,6 @@ namespace Content.Shared.Body.Part
     {
         None = 0,
         Left,
-        Right
+        Right,
     }
 }

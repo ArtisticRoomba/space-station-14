@@ -29,7 +29,7 @@ public abstract class SharedPriceGunSystem : EntitySystem
                 GetPriceOrBounty((uid, component), args.Target, args.User);
             },
             Text = Loc.GetString("price-gun-verb-text"),
-            Message = Loc.GetString("price-gun-verb-message", ("object", Identity.Entity(args.Target, EntityManager)))
+            Message = Loc.GetString("price-gun-verb-message", ("object", Identity.Entity(args.Target, EntityManager))),
         };
 
         args.Verbs.Add(verb);

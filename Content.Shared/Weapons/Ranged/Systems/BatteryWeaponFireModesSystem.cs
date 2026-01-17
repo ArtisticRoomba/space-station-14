@@ -72,7 +72,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
                 Act = () =>
                 {
                     TrySetFireMode((uid, component), index, args.User);
-                }
+                },
             };
 
             args.Verbs.Add(v);

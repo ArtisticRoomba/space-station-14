@@ -91,7 +91,7 @@ public abstract class SharedRottingSystem : EntitySystem
         {
             >= 2 => "rotting-extremely-bloated",
             >= 1 => "rotting-bloated",
-            _ => "rotting-rotting"
+            _ => "rotting-rotting",
         };
 
         if (!HasComp<MobStateComponent>(uid))
@@ -153,6 +153,7 @@ public abstract class SharedRottingSystem : EntitySystem
             DirtyField(uid, perishable, nameof(PerishableComponent.RotAccumulator));
             return;
         }
+
         var total = (rotting.TotalRotTime + perishable.RotAccumulator) - time;
 
         if (total < perishable.RotAfter)
@@ -173,6 +174,6 @@ public abstract class SharedRottingSystem : EntitySystem
         if (!Resolve(uid, ref comp, ref perishable))
             return 0;
 
-        return (int) (comp.TotalRotTime.TotalSeconds / perishable.RotAfter.TotalSeconds);
+        return (int)(comp.TotalRotTime.TotalSeconds / perishable.RotAfter.TotalSeconds);
     }
 }

@@ -159,11 +159,11 @@ public enum FirelockVisuals : byte
 [Serializable, NetSerializable]
 public enum FirelockVisualLayersPressure : byte
 {
-    Base
+    Base,
 }
 
 [Serializable, NetSerializable]
 public enum FirelockVisualLayersTemperature : byte
 {
-    Base
+    Base,
 }

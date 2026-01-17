@@ -36,6 +36,7 @@ public sealed class BeforeShowTypingIndicatorEvent : IInventoryRelayEvent
         _overrideIndicator = null;
         _latestEquipTime = null;
     }
+
     /// <summary>
     ///     Will only update the time and indicator if the given time is more recent than
     ///     the stored time or if the stored time is null.
@@ -51,8 +52,10 @@ public sealed class BeforeShowTypingIndicatorEvent : IInventoryRelayEvent
             _overrideIndicator = indicator;
             return true;
         }
+
         return false;
     }
+
     public ProtoId<TypingIndicatorPrototype>? GetMostRecentIndicator()
     {
         return _overrideIndicator;

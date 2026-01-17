@@ -51,8 +51,7 @@ public record struct ChameleonControllerOutfitSelectedEvent(
     RoleLoadout? CustomRoleLoadout,
     RoleLoadout? DefaultRoleLoadout,
     StartingGearPrototype? JobStartingGearPrototype,
-    StartingGearPrototype? StartingGearPrototype
-) : IInventoryRelayEvent
+    StartingGearPrototype? StartingGearPrototype) : IInventoryRelayEvent
 {
     SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
 }

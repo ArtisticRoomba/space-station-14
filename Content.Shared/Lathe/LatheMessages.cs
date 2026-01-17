@@ -27,7 +27,6 @@ public sealed class LatheUpdateState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class LatheSyncRequestMessage : BoundUserInterfaceMessage
 {
-
 }
 
 /// <summary>

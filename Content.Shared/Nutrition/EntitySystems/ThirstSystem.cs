@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Alert;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -9,7 +10,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -42,11 +42,12 @@ public sealed class ThirstSystem : EntitySystem
         if (component.CurrentThirst < 0)
         {
             component.CurrentThirst = _random.Next(
-                (int) component.ThirstThresholds[ThirstThreshold.Thirsty] + 10,
-                (int) component.ThirstThresholds[ThirstThreshold.Okay] - 1);
+                (int)component.ThirstThresholds[ThirstThreshold.Thirsty] + 10,
+                (int)component.ThirstThresholds[ThirstThreshold.Okay] - 1);
 
             DirtyField(uid, component, nameof(ThirstComponent.CurrentThirst));
         }
+
         component.NextUpdateTime = _timing.CurTime;
         component.CurrentThirstThreshold = GetThirstThreshold(component, component.CurrentThirst);
         component.LastThirstThreshold = ThirstThreshold.Okay; // TODO: Potentially change this -> Used Okay because no effects.
@@ -100,8 +101,7 @@ public sealed class ThirstSystem : EntitySystem
     {
         component.CurrentThirst = Math.Clamp(amount,
             component.ThirstThresholds[ThirstThreshold.Dead],
-            component.ThirstThresholds[ThirstThreshold.OverHydrated]
-        );
+            component.ThirstThresholds[ThirstThreshold.OverHydrated]);
 
         DirtyField(uid, component, nameof(ThirstComponent.CurrentThirst));
     }

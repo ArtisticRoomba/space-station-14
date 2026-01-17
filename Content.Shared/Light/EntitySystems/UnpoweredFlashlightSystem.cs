@@ -64,9 +64,9 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
         ActivationVerb verb = new()
         {
             Text = Loc.GetString("toggle-flashlight-verb-get-data-text"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
             Act = () => TryToggleLight((uid, component), args.User),
-            Priority = -1 // For things like PDA's, Open-UI and other verbs that should be higher priority.
+            Priority = -1, // For things like PDA's, Open-UI and other verbs that should be higher priority.
         };
 
         args.Verbs.Add(verb);

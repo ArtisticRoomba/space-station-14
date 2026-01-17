@@ -14,12 +14,12 @@ namespace Content.Shared.Atmos.EntitySystems;
 
 public abstract class SharedGasTankSystem : EntitySystem
 {
-    [Dependency] private   readonly SharedActionsSystem _actions = default!;
-    [Dependency] private   readonly SharedAudioSystem _audio = default!;
-    [Dependency] private   readonly SharedContainerSystem _containers = default!;
-    [Dependency] private   readonly SharedInternalsSystem _internals = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private readonly SharedInternalsSystem _internals = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
-    [Dependency] private   readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly UseDelaySystem _delay = default!;
 
     public const string GasTankDelay = "gasTank";
 
@@ -57,7 +57,6 @@ public abstract class SharedGasTankSystem : EntitySystem
 
     public virtual void UpdateUserInterface(Entity<GasTankComponent> ent)
     {
-
     }
 
     private void BeforeUiOpen(Entity<GasTankComponent> ent, ref BeforeActivatableUIOpenEvent args)

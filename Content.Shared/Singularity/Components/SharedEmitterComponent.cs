@@ -102,13 +102,13 @@ public sealed partial class EmitterComponent : Component
 [NetSerializable, Serializable]
 public enum EmitterVisuals : byte
 {
-    VisualState
+    VisualState,
 }
 
 [Serializable, NetSerializable]
 public enum EmitterVisualLayers : byte
 {
-    Lights
+    Lights,
 }
 
 [NetSerializable, Serializable]
@@ -116,5 +116,5 @@ public enum EmitterVisualState
 {
     On,
     Underpowered,
-    Off
+    Off,
 }

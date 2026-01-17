@@ -56,7 +56,8 @@ public sealed class SpellbookSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnDoAfter<T>(Entity<SpellbookComponent> ent, ref T args) where T : DoAfterEvent // Sometimes i despise this language
+    private void OnDoAfter<T>(Entity<SpellbookComponent> ent, ref T args)
+        where T : DoAfterEvent // Sometimes i despise this language
     {
         if (args.Handled || args.Cancelled)
             return;
@@ -100,7 +101,7 @@ public sealed class SpellbookSystem : EntitySystem
         {
             BreakOnMove = true,
             BreakOnDamage = true,
-            NeedHand = true, //What, are you going to read with your eyes only??
+            NeedHand = true, // What, are you going to read with your eyes only??
         };
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);

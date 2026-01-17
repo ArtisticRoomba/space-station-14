@@ -1,4 +1,4 @@
-using  Content.Shared.Inventory;
+using Content.Shared.Inventory;
 
 namespace Content.Shared.Actions;
 
@@ -19,7 +19,6 @@ public sealed class ActionGrantSystem : EntitySystem
 
     private void OnItemGet(Entity<ItemActionGrantComponent> ent, ref GetItemActionsEvent args)
     {
-
         if (!TryComp(ent.Owner, out ActionGrantComponent? grant))
             return;
 

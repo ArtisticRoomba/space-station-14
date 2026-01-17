@@ -79,8 +79,7 @@ public sealed partial class HealthChange : EntityEffectBase<HealthChange>
                     Loc.GetString("health-change-display",
                         ("kind", prototype.Index<DamageTypePrototype>(kind).LocalizedName),
                         ("amount", MathF.Abs(amount.Float() * mod)),
-                        ("deltasign", sign)
-                    ));
+                        ("deltasign", sign)));
             }
 
             var healsordeals = heals ? (deals ? "both" : "heals") : (deals ? "deals" : "none");

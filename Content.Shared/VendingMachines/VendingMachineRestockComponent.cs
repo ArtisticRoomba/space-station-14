@@ -32,7 +32,7 @@ public sealed partial class VendingMachineRestockComponent : Component
         {
             Volume = -2f,
             Variation = 0.2f
-        }
+        },
     };
 
     /// <summary>

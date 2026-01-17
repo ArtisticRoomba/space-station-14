@@ -40,7 +40,7 @@ public sealed partial class GlowEntityEffectSystem : EntityEffectSystem<MetaData
         Color.Green,
         Color.Blue,
         Color.Purple,
-        Color.Pink
+        Color.Pink,
     };
 }
 

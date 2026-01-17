@@ -13,7 +13,7 @@ namespace Content.Shared.Wires
     [Serializable, NetSerializable]
     public enum WiresVisuals : byte
     {
-        MaintenancePanelState
+        MaintenancePanelState,
     }
 
     [Serializable, NetSerializable]
@@ -36,7 +36,7 @@ namespace Content.Shared.Wires
         Off,
         On,
         BlinkingFast,
-        BlinkingSlow
+        BlinkingSlow,
     }
 
     [Serializable, NetSerializable]
@@ -80,7 +80,7 @@ namespace Content.Shared.Wires
         φ,
         χ,
         ψ,
-        ω
+        ω,
     }
 
     [PublicAPI]
@@ -98,7 +98,7 @@ namespace Content.Shared.Wires
         Navy,
         Purple,
         Pink,
-        Fuchsia
+        Fuchsia,
     }
 
     [Serializable, NetSerializable]
@@ -229,7 +229,7 @@ namespace Content.Shared.Wires
                 WireColor.Purple => Color.Purple,
                 WireColor.Pink => Color.Pink,
                 WireColor.Fuchsia => Color.Fuchsia,
-                _ => throw new InvalidOperationException()
+                _ => throw new InvalidOperationException(),
             };
         }
 
@@ -261,7 +261,7 @@ namespace Content.Shared.Wires
                 WireLetter.χ => "wire-letter-name-chi",
                 WireLetter.ψ => "wire-letter-name-psi",
                 WireLetter.ω => "wire-letter-name-omega",
-                _ => throw new InvalidOperationException()
+                _ => throw new InvalidOperationException(),
             });
         }
 
@@ -293,7 +293,7 @@ namespace Content.Shared.Wires
                 WireLetter.χ => 'χ',
                 WireLetter.ψ => 'ψ',
                 WireLetter.ω => 'ω',
-                _ => throw new InvalidOperationException()
+                _ => throw new InvalidOperationException(),
             };
         }
     }

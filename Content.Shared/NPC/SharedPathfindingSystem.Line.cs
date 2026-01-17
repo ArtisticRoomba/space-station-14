@@ -12,10 +12,10 @@ public abstract partial class SharedPathfindingSystem
         if (!callback(start))
             return;
 
-        xinc  = (end.X < start.X) ? -1 : 1;
-        yinc  = (end.Y < start.Y) ? -1 : 1;
-        dx    = xinc * (end.X - start.X);
-        dy    = yinc * (end.Y - start.Y);
+        xinc = (end.X < start.X) ? -1 : 1;
+        yinc = (end.Y < start.Y) ? -1 : 1;
+        dx = xinc * (end.X - start.X);
+        dy = yinc * (end.Y - start.Y);
         var ax = start.X;
         var ay = start.Y;
 
@@ -44,7 +44,7 @@ public abstract partial class SharedPathfindingSystem
         // Handle all other lines
         side = -1 * ((dx == 0 ? yinc : xinc) - 1);
 
-        i     = dx + dy;
+        i = dx + dy;
         error = dx - dy;
 
         dx *= 2;
@@ -54,12 +54,12 @@ public abstract partial class SharedPathfindingSystem
         {
             if (error > 0 || error == side)
             {
-                ax    += xinc;
+                ax += xinc;
                 error -= dy;
             }
             else
             {
-                ay    += yinc;
+                ay += yinc;
                 error += dx;
             }
 

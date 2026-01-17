@@ -13,7 +13,7 @@ public sealed partial class EyeDamageEntityEffectSystem : EntityEffectSystem<Met
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<EyeDamage> args)
     {
-        var amount = (int) Math.Floor(args.Effect.Amount * args.Scale);
+        var amount = (int)Math.Floor(args.Effect.Amount * args.Scale);
         _blindable.AdjustEyeDamage(entity.Owner, amount);
     }
 }

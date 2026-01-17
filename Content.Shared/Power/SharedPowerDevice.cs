@@ -7,6 +7,6 @@ namespace Content.Shared.Power
     {
         VisualState,
         Powered,
-        BatteryPowered
+        BatteryPowered,
     }
 }

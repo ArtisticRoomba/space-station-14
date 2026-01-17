@@ -41,7 +41,7 @@ public sealed class TechnologyDiskSystem : EntitySystem
         var weightedRandom = _protoMan.Index(ent.Comp.TierWeightPrototype);
         var tier = int.Parse(weightedRandom.Pick(_random));
 
-        //get a list of every distinct recipe in all the technologies.
+        // get a list of every distinct recipe in all the technologies.
         var techs = new HashSet<ProtoId<LatheRecipePrototype>>();
         foreach (var tech in _protoMan.EnumeratePrototypes<TechnologyPrototype>())
         {
@@ -54,7 +54,7 @@ public sealed class TechnologyDiskSystem : EntitySystem
         if (techs.Count == 0)
             return;
 
-        //pick one
+        // pick one
         ent.Comp.Recipes = [];
         ent.Comp.Recipes.Add(_random.Pick(techs));
         Dirty(ent);
@@ -76,6 +76,7 @@ public sealed class TechnologyDiskSystem : EntitySystem
                 _research.AddLatheRecipe(target, recipe, database);
             }
         }
+
         _popup.PopupClient(Loc.GetString("tech-disk-inserted"), target, args.User);
         PredictedQueueDel(ent.Owner);
         args.Handled = true;
@@ -89,9 +90,10 @@ public sealed class TechnologyDiskSystem : EntitySystem
             var prototype = _protoMan.Index(ent.Comp.Recipes[0]);
             message = Loc.GetString("tech-disk-examine", ("result", _lathe.GetRecipeName(prototype)));
 
-            if (ent.Comp.Recipes.Count > 1) //idk how to do this well. sue me.
+            if (ent.Comp.Recipes.Count > 1) // idk how to do this well. sue me.
                 message += " " + Loc.GetString("tech-disk-examine-more");
         }
+
         args.PushMarkup(message);
     }
 

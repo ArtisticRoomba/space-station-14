@@ -14,7 +14,6 @@ using Robust.Shared.Timing;
 using Robust.UnitTesting;
 
 // ReSharper disable AccessToModifiedClosure
-
 namespace Content.Tests.Server.Connection;
 
 [TestFixture, TestOf(typeof(IPIntel))]
@@ -45,8 +44,7 @@ public static class IPIntelTest
             cfg,
             logManager,
             new Mock<IChatManager>().Object,
-            gameTiming
-        );
+            gameTiming);
     }
 
     [Test]
@@ -129,7 +127,6 @@ public static class IPIntelTest
         var shouldSucceed = await ipIntel.QueryIPIntelRateLimited(TestIp);
         Assert.That(shouldSucceed.Code, Is.EqualTo(IPIntel.IPIntelResultCode.Success));
     }
-
 
     [Test]
     public static async Task SuddenRateLimitTest()

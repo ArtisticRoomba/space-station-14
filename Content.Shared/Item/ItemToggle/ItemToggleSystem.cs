@@ -11,6 +11,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
 namespace Content.Shared.Item.ItemToggle;
+
 /// <summary>
 /// Handles generic item toggles, like a welder turning on and off, or an e-sword.
 /// </summary>
@@ -99,7 +100,7 @@ public sealed class ItemToggleSystem : EntitySystem
             Act = () =>
             {
                 Toggle((ent.Owner, ent.Comp), user, predicted: ent.Comp.Predictable);
-            }
+            },
         });
     }
 

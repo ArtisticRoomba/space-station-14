@@ -193,7 +193,7 @@ public struct TelephoneCallOptions
 [Serializable, NetSerializable]
 public enum TelephoneVisuals : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
@@ -203,14 +203,14 @@ public enum TelephoneState : byte
     Calling,
     Ringing,
     InCall,
-    EndingCall
+    EndingCall,
 }
 
 [Serializable, NetSerializable]
 public enum TelephoneVolume : byte
 {
     Whisper,
-    Speak
+    Speak,
 }
 
 [Serializable, NetSerializable]

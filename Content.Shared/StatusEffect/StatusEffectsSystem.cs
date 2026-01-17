@@ -138,10 +138,11 @@ namespace Content.Shared.StatusEffect
                 // If they already have the comp, we just won't bother updating anything.
                 if (!HasComp(uid, Factory.GetRegistration(component).Type))
                 {
-                    var newComponent = (Component) Factory.GetComponent(component);
+                    var newComponent = (Component)Factory.GetComponent(component);
                     AddComp(uid, newComponent);
                     status.ActiveEffects[key].RelevantComponent = component;
                 }
+
                 return true;
             }
 
@@ -191,16 +192,16 @@ namespace Content.Shared.StatusEffect
                 status.ActiveEffects[key].CooldownRefresh = refresh;
                 if (refresh)
                 {
-                    //Making sure we don't reset a longer cooldown by applying a shorter one.
+                    // Making sure we don't reset a longer cooldown by applying a shorter one.
                     if ((status.ActiveEffects[key].Cooldown.Item2 - _gameTiming.CurTime) < time)
                     {
-                        //Refresh cooldown time.
+                        // Refresh cooldown time.
                         status.ActiveEffects[key].Cooldown = cooldown;
                     }
                 }
                 else
                 {
-                    //Accumulate cooldown time.
+                    // Accumulate cooldown time.
                     status.ActiveEffects[key].Cooldown.Item2 += time;
                 }
             }

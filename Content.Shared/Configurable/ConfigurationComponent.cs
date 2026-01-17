@@ -62,7 +62,7 @@ namespace Content.Shared.Configurable
         [Serializable, NetSerializable]
         public enum ConfigurationUiKey
         {
-            Key
+            Key,
         }
     }
 }

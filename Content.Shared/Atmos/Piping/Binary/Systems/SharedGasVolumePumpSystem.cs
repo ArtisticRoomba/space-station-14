@@ -37,7 +37,6 @@ public abstract class SharedGasVolumePumpSystem : EntitySystem
 
     protected virtual void UpdateUi(Entity<GasVolumePumpComponent> entity)
     {
-
     }
 
     private void OnToggleStatusMessage(EntityUid uid, GasVolumePumpComponent pump, GasVolumePumpToggleStatusMessage args)
@@ -68,8 +67,7 @@ public abstract class SharedGasVolumePumpSystem : EntitySystem
         if (Loc.TryGetString("gas-volume-pump-system-examined",
                 out var str,
                 ("statusColor", "lightblue"), // TODO: change with volume?
-                ("rate", pump.TransferRate)
-            ))
+                ("rate", pump.TransferRate)))
         {
             args.PushMarkup(str);
         }

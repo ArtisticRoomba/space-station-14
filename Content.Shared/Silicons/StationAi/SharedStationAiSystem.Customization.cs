@@ -1,9 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Holopad;
 using Content.Shared.Mobs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Silicons.StationAi;
 

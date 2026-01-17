@@ -61,7 +61,7 @@ public sealed partial class PaperComponent : Component
     [Serializable, NetSerializable]
     public enum PaperUiKey
     {
-        Key
+        Key,
     }
 
     [Serializable, NetSerializable]
@@ -75,13 +75,13 @@ public sealed partial class PaperComponent : Component
     public enum PaperVisuals : byte
     {
         Status,
-        Stamp
+        Stamp,
     }
 
     [Serializable, NetSerializable]
     public enum PaperStatus : byte
     {
         Blank,
-        Written
+        Written,
     }
 }

@@ -250,7 +250,7 @@ namespace Content.Shared.Cuffs
 
             if (args.User.Value == uid && !component.CanStillInteract)
             {
-                //TODO: UX feedback. Simply blocking the normal interaction feels like an interface bug
+                // TODO: UX feedback. Simply blocking the normal interaction feels like an interface bug
                 args.Cancelled = true;
             }
 
@@ -280,10 +280,10 @@ namespace Content.Shared.Cuffs
             {
                 Act = () => TryUncuff((uid, component), args.User),
                 DoContactInteraction = true,
-                Text = Loc.GetString("uncuff-verb-get-data-text")
+                Text = Loc.GetString("uncuff-verb-get-data-text"),
             };
 
-            //TODO VERB ICON add uncuffing symbol? may re-use the alert symbol showing that you are currently cuffed?
+            // TODO VERB ICON add uncuffing symbol? may re-use the alert symbol showing that you are currently cuffed?
             args.Verbs.Add(verb);
         }
 
@@ -534,7 +534,7 @@ namespace Content.Shared.Cuffs
                 BreakOnWeightlessMove = false,
                 BreakOnDamage = true,
                 NeedHand = true,
-                DistanceThreshold = 1f // shorter than default but still feels good
+                DistanceThreshold = 1f, // shorter than default but still feels good
             };
 
             if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
@@ -646,7 +646,7 @@ namespace Content.Shared.Cuffs
                 BreakOnDamage = true,
                 NeedHand = true,
                 RequireCanInteract = false, // Trust in UncuffAttemptEvent
-                DistanceThreshold = 1f // shorter than default but still feels good
+                DistanceThreshold = 1f, // shorter than default but still feels good
             };
 
             if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
@@ -780,6 +780,7 @@ namespace Content.Shared.Cuffs
                         ("cuffedHandCount", cuffable.CuffedHandCount)), user.Value, user.Value);
                 }
             }
+
             cuff.Removing = false;
         }
 

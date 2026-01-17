@@ -29,6 +29,7 @@ public sealed partial class RoleLoadoutPrototype : IPrototype
     public ProtoId<LocalizedDatasetPrototype>? NameDataset;
 
     // Not required so people can set their names.
+
     /// <summary>
     /// Groups that comprise this role loadout.
     /// </summary>

@@ -25,6 +25,7 @@ public class BasePickupAttemptEvent : CancellableEntityEventArgs
     /// The mob that is picking up the item.
     /// </summary>
     public readonly EntityUid User;
+
     /// <summary>
     /// The item being picked up.
     /// </summary>

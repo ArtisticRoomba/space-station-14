@@ -214,7 +214,7 @@ public partial class SharedGunSystem
             Text = Loc.GetString("gun-revolver-empty"),
             Disabled = !AnyRevolverCartridges(component),
             Act = () => EmptyRevolver((uid, component), args.User),
-            Priority = 1
+            Priority = 1,
         });
 
         args.Verbs.Add(new AlternativeVerb()
@@ -222,7 +222,7 @@ public partial class SharedGunSystem
             Text = Loc.GetString("gun-revolver-spin"),
 
             // Category = VerbCategory.G,
-            Act = () => SpinRevolver((uid, component), args.User)
+            Act = () => SpinRevolver((uid, component), args.User),
         });
     }
 
@@ -471,6 +471,5 @@ public partial class SharedGunSystem
 
     public sealed class RevolverSpinEvent : EntityEventArgs
     {
-
     }
 }

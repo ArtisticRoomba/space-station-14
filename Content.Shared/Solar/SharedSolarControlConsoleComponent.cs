@@ -51,6 +51,6 @@ namespace Content.Shared.Solar
     [Serializable, NetSerializable]
     public enum SolarControlConsoleUiKey
     {
-        Key
+        Key,
     }
 }

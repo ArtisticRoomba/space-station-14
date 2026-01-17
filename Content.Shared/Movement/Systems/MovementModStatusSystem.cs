@@ -49,8 +49,7 @@ public sealed class MovementModStatusSystem : EntitySystem
 
     private void OnRefreshRelay(
         Entity<MovementModStatusEffectComponent> entity,
-        ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args
-    )
+        ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
         args.Args.ModifySpeed(entity.Comp.WalkSpeedModifier, entity.Comp.WalkSpeedModifier);
     }
@@ -82,8 +81,7 @@ public sealed class MovementModStatusSystem : EntitySystem
         EntityUid uid,
         EntProtoId effectProtoId,
         TimeSpan duration,
-        float speedModifier
-    )
+        float speedModifier)
     {
         return TryAddMovementSpeedModDuration(uid, effectProtoId, duration, speedModifier, speedModifier);
     }
@@ -102,8 +100,7 @@ public sealed class MovementModStatusSystem : EntitySystem
         EntProtoId effectProtoId,
         TimeSpan duration,
         float walkSpeedModifier,
-        float sprintSpeedModifier
-    )
+        float sprintSpeedModifier)
     {
         return _status.TryAddStatusEffectDuration(uid, effectProtoId, out var status, duration)
                && TryUpdateMovementStatus(uid, status!.Value, walkSpeedModifier, sprintSpeedModifier);
@@ -122,8 +119,7 @@ public sealed class MovementModStatusSystem : EntitySystem
         EntityUid uid,
         EntProtoId effectProtoId,
         TimeSpan duration,
-        float speedModifier
-    )
+        float speedModifier)
     {
         return TryUpdateMovementSpeedModDuration(uid, effectProtoId, duration, speedModifier, speedModifier);
     }
@@ -143,8 +139,7 @@ public sealed class MovementModStatusSystem : EntitySystem
         EntProtoId effectProtoId,
         TimeSpan? duration,
         float walkSpeedModifier,
-        float sprintSpeedModifier
-    )
+        float sprintSpeedModifier)
     {
         return _status.TryUpdateStatusEffectDuration(uid, effectProtoId, out var status, duration)
                && TryUpdateMovementStatus(uid, status!.Value, walkSpeedModifier, sprintSpeedModifier);
@@ -162,8 +157,7 @@ public sealed class MovementModStatusSystem : EntitySystem
         EntityUid uid,
         Entity<MovementModStatusEffectComponent?> status,
         float walkSpeedModifier,
-        float sprintSpeedModifier
-    )
+        float sprintSpeedModifier)
     {
         if (!Resolve(status, ref status.Comp))
             return false;
@@ -189,8 +183,7 @@ public sealed class MovementModStatusSystem : EntitySystem
     public bool TryUpdateMovementStatus(
         EntityUid uid,
         Entity<MovementModStatusEffectComponent?> status,
-        float speedModifier
-    )
+        float speedModifier)
     {
         return TryUpdateMovementStatus(uid, status, speedModifier, speedModifier);
     }
@@ -199,8 +192,7 @@ public sealed class MovementModStatusSystem : EntitySystem
     public bool TryAddFrictionModDuration(
         EntityUid uid,
         TimeSpan duration,
-        float friction
-    )
+        float friction)
     {
         return TryAddFrictionModDuration(uid, duration, friction, friction);
     }
@@ -218,8 +210,7 @@ public sealed class MovementModStatusSystem : EntitySystem
         EntityUid uid,
         TimeSpan duration,
         float friction,
-        float acceleration
-    )
+        float acceleration)
     {
         return _status.TryAddStatusEffectDuration(uid, StatusEffectFriction, out var status, duration)
                && TrySetFrictionStatus(status.Value, friction, acceleration, uid);
@@ -229,8 +220,7 @@ public sealed class MovementModStatusSystem : EntitySystem
     public bool TryUpdateFrictionModDuration(
         EntityUid uid,
         TimeSpan duration,
-        float friction
-    )
+        float friction)
     {
         return TryUpdateFrictionModDuration(uid,duration, friction, friction);
     }
@@ -248,8 +238,7 @@ public sealed class MovementModStatusSystem : EntitySystem
         EntityUid uid,
         TimeSpan duration,
         float friction,
-        float acceleration
-    )
+        float acceleration)
     {
         return _status.TryUpdateStatusEffectDuration(uid, StatusEffectFriction, out var status, duration)
                && TrySetFrictionStatus(status.Value, friction, acceleration, uid);

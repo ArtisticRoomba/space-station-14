@@ -282,8 +282,7 @@ public abstract partial class SharedGunSystem
     /// </summary>
     public void PauseSelfRefill(
         Entity<BallisticAmmoSelfRefillerComponent> entity,
-        TimeSpan? overridePauseDuration = null
-    )
+        TimeSpan? overridePauseDuration = null)
     {
         if (overridePauseDuration == null && !entity.Comp.FiringPausesAutoRefill)
             return;
@@ -322,8 +321,7 @@ public abstract partial class SharedGunSystem
         Entity<BallisticAmmoProviderComponent> entity,
         EntityUid inserted,
         EntityUid? user,
-        bool suppressInsertionSound = false
-    )
+        bool suppressInsertionSound = false)
     {
         if (!CanInsertBallistic(entity, inserted))
             return false;
@@ -380,8 +378,7 @@ public abstract partial class SharedGunSystem
     }
 
     private void BallisticSelfRefillerUpdate(
-        Entity<BallisticAmmoProviderComponent, BallisticAmmoSelfRefillerComponent> entity
-    )
+        Entity<BallisticAmmoProviderComponent, BallisticAmmoSelfRefillerComponent> entity)
     {
         var ammo = entity.Comp1;
         var refiller = entity.Comp2;

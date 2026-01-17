@@ -47,7 +47,7 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
             SecurityStatus.Suspected => "SecurityIconSuspected",
             SecurityStatus.Hostile => "SecurityIconHostile",
             SecurityStatus.Eliminated => "SecurityIconEliminated",
-            _ => record.StatusIcon
+            _ => record.StatusIcon,
         };
 
         if (previousIcon != record.StatusIcon)
@@ -63,7 +63,7 @@ public struct WantedRecord(GeneralStationRecord targetInfo, SecurityStatus statu
     public string? Reason = reason;
     public string? Initiator = initiator;
     public List<CrimeHistory> History = history;
-};
+}
 
 [ByRefEvent]
 public record struct CriminalRecordChangedEvent(CriminalRecord Record);

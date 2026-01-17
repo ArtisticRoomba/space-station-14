@@ -43,6 +43,7 @@ public sealed partial class CCVars
         CVarDef.Create("movement.minimum_push", 0f, CVar.SERVER | CVar.REPLICATED);
 
     // Really this just exists because hot reloading is cooked on rider.
+
     /// <summary>
     /// Penetration depth cap for considering mob collisions.
     /// </summary>

@@ -7,7 +7,7 @@ namespace Content.Shared.Store;
 [Serializable, NetSerializable]
 public enum StoreUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
@@ -33,7 +33,6 @@ public sealed class StoreUpdateState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class StoreRequestUpdateInterfaceMessage : BoundUserInterfaceMessage
 {
-
 }
 
 [Serializable, NetSerializable]
@@ -62,5 +61,4 @@ public sealed class StoreRequestWithdrawMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public sealed class StoreRequestRefundMessage : BoundUserInterfaceMessage
 {
-
 }

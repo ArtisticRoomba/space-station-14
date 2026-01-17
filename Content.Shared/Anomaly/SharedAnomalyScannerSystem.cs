@@ -63,10 +63,9 @@ public abstract class SharedAnomalyScannerSystem : EntitySystem
             new ScannerDoAfterEvent(),
             uid,
             target: target,
-            used: uid
-        )
+            used: uid)
         {
-            DistanceThreshold = 2f
+            DistanceThreshold = 2f,
         };
         _doAfter.TryStartDoAfter(doAfterArgs);
     }

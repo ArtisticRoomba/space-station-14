@@ -5,5 +5,5 @@ namespace Content.Shared.Botany;
 [Serializable, NetSerializable]
 public enum ProduceVisuals : byte
 {
-    Potency
+    Potency,
 }

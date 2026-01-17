@@ -87,7 +87,7 @@ public sealed class SharedExecutionSystem : EntitySystem
             {
                 BreakOnMove = true,
                 BreakOnDamage = true,
-                NeedHand = true
+                NeedHand = true,
             };
 
         _doAfter.TryStartDoAfter(doAfter);
@@ -158,8 +158,7 @@ public sealed class SharedExecutionSystem : EntitySystem
                Loc.GetString(locString, ("attacker", Identity.Entity(attacker, EntityManager)), ("victim", Identity.Entity(victim, EntityManager)), ("weapon", weapon)),
                attacker,
                attacker,
-               PopupType.MediumCaution
-               );
+               PopupType.MediumCaution);
         }
         else
         {
@@ -167,8 +166,7 @@ public sealed class SharedExecutionSystem : EntitySystem
                Loc.GetString(locString, ("attacker", Identity.Entity(attacker, EntityManager)), ("victim", Identity.Entity(victim, EntityManager)), ("weapon", weapon)),
                attacker,
                attacker,
-               PopupType.MediumCaution
-               );
+               PopupType.MediumCaution);
         }
     }
 
@@ -179,8 +177,7 @@ public sealed class SharedExecutionSystem : EntitySystem
             attacker,
             Filter.PvsExcept(attacker),
             true,
-            PopupType.MediumCaution
-            );
+            PopupType.MediumCaution);
     }
 
     private void OnExecutionDoAfter(Entity<ExecutionComponent> entity, ref ExecutionDoAfterEvent args)

@@ -82,7 +82,7 @@ public sealed partial class DevourerComponent : Component
         Components = new[]
         {
             "MobState",
-        }
+        },
     };
 
     /// <summary>

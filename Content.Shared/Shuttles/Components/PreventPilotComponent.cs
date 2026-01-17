@@ -8,5 +8,4 @@ namespace Content.Shared.Shuttles.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PreventPilotComponent : Component
 {
-
 }

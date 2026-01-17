@@ -4,6 +4,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Ensnaring.Components;
+
 /// <summary>
 /// Use this on an entity that you would like to be ensnared by anything that has the <see cref="EnsnaringComponent"/>
 /// </summary>

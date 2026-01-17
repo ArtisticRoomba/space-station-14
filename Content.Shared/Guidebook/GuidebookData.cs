@@ -90,8 +90,10 @@ public sealed partial class GuidebookData
             {
                 comps.Add(compId, FrozenDictionary.ToFrozenDictionary(compData));
             }
+
             protos.Add(protoId, FrozenDictionary.ToFrozenDictionary(comps));
         }
+
         FrozenData = FrozenDictionary.ToFrozenDictionary(protos);
         Data.Clear();
         IsFrozen = true;

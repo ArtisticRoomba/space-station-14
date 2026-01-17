@@ -86,10 +86,12 @@ public enum BatteryState : byte
     /// Full charge.
     /// </summary>
     Full,
+
     /// <summary>
     /// No charge.
     /// </summary>
     Empty,
+
     /// <summary>
     /// Neither full nor empty.
     /// </summary>

@@ -19,5 +19,5 @@ public sealed class NotekeeperUiMessageEvent : CartridgeMessageEvent
 public enum NotekeeperUiAction
 {
     Add,
-    Remove
+    Remove,
 }

@@ -75,6 +75,7 @@ public sealed class TileSystem : EntitySystem
             {
                 fullHistory[key] = new TileHistoryChunk(value);
             }
+
             args.State = new TileHistoryState(fullHistory);
             return;
         }
@@ -199,7 +200,7 @@ public sealed class TileSystem : EntitySystem
             return false;
 
         var key = tileref.GridIndices;
-        var currentTileDef = (ContentTileDefinition) _tileDefinitionManager[tileref.Tile.TypeId];
+        var currentTileDef = (ContentTileDefinition)_tileDefinitionManager[tileref.Tile.TypeId];
 
         // If the tile we're placing has a baseTurf that matches the tile we're replacing, we don't need to create a history
         // unless the tile already has a history.
@@ -219,18 +220,18 @@ public sealed class TileSystem : EntitySystem
             chunk.LastModified = _timing.CurTick;
             Dirty(grid, history);
 
-            //Create stack if needed
+            // Create stack if needed
             if (!chunk.History.TryGetValue(key, out var stack))
             {
                 stack = new List<ProtoId<ContentTileDefinition>>();
                 chunk.History[key] = stack;
             }
 
-            //Prevent the doomstack
+            // Prevent the doomstack
             if (stack.Count >= _tileStackLimit && _tileStackLimit != 0)
                 return false;
 
-            //Push current tile to the stack, if not empty
+            // Push current tile to the stack, if not empty
             if (!tileref.Tile.IsEmpty)
             {
                 stack.Add(currentTileDef.ID);
@@ -256,7 +257,7 @@ public sealed class TileSystem : EntitySystem
 
         var tileDef = (ContentTileDefinition)_tileDefinitionManager[tileRef.Tile.TypeId];
 
-        //Can't deconstruct anything that doesn't have a base turf.
+        // Can't deconstruct anything that doesn't have a base turf.
         if (tileDef.BaseTurf == null)
             return false;
 
@@ -276,7 +277,7 @@ public sealed class TileSystem : EntitySystem
 
         var chunkIndices = SharedMapSystem.GetChunkIndices(indices, ChunkSize);
 
-        //Pop from stack if we have history
+        // Pop from stack if we have history
         if (historyComp.ChunkHistory.TryGetValue(chunkIndices, out var chunk) &&
             chunk.History.TryGetValue(indices, out var stack) && stack.Count > 0)
         {
@@ -286,7 +287,7 @@ public sealed class TileSystem : EntitySystem
             previousTileId = stack.Last();
             stack.RemoveAt(stack.Count - 1);
 
-            //Clean up empty stacks to avoid memory buildup
+            // Clean up empty stacks to avoid memory buildup
             if (stack.Count == 0)
             {
                 chunk.History.Remove(indices);
@@ -300,25 +301,25 @@ public sealed class TileSystem : EntitySystem
         }
         else
         {
-            //No stack? Assume BaseTurf was the layer below
+            // No stack? Assume BaseTurf was the layer below
             previousTileId = tileDef.BaseTurf.Value;
         }
 
         if (spawnItem)
         {
-            //Actually spawn the relevant tile item at the right position and give it some random offset.
+            // Actually spawn the relevant tile item at the right position and give it some random offset.
             var tileItem = Spawn(tileDef.ItemDropPrototypeName, coordinates);
             Transform(tileItem).LocalRotation = _robustRandom.NextDouble() * Math.Tau;
         }
 
-        //Destroy any decals on the tile
+        // Destroy any decals on the tile
         var decals = _decal.GetDecalsInRange(gridUid, coordinates.SnapToGrid(EntityManager, _mapManager).Position, 0.5f);
         foreach (var (id, _) in decals)
         {
             _decal.RemoveDecal(tileRef.GridUid, id);
         }
 
-        //Replace tile with the one it was placed on
+        // Replace tile with the one it was placed on
         var previousDef = (ContentTileDefinition)_tileDefinitionManager[previousTileId];
         _maps.SetTile(gridUid, mapGrid, indices, new Tile(previousDef.TileId));
 

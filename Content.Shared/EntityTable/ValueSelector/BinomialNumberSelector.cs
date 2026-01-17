@@ -32,6 +32,7 @@ public sealed partial class BinomialNumberSelector : NumberSelector
             if (random.Prob(Chance))
                 count++;
         }
+
         return count;
 
         // get binomialed motherfucker

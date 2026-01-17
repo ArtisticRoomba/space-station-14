@@ -35,20 +35,20 @@ namespace Content.Shared.Cloning.CloningConsole
         OccupantMetaphyiscal,
         ClonerOccupied,
         NoClonerDetected,
-        NoMindDetected
+        NoMindDetected,
     }
 
     [Serializable, NetSerializable]
     public enum CloningConsoleUiKey : byte
     {
-        Key
+        Key,
     }
 
     [Serializable, NetSerializable]
     public enum UiButton : byte
     {
         Clone,
-        Eject
+        Eject,
     }
 
     [Serializable, NetSerializable]

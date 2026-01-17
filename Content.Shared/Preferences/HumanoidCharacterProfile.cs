@@ -36,7 +36,7 @@ namespace Content.Shared.Preferences
         {
             {
                 SharedGameTicker.FallbackOverflowJob, JobPriority.High
-            }
+            },
         };
 
         /// <summary>
@@ -218,8 +218,8 @@ namespace Content.Shared.Preferences
             var species = random.Pick(prototypeManager
                 .EnumeratePrototypes<SpeciesPrototype>()
                 .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
-                .ToArray()
-            ).ID;
+                .ToArray())
+            .ID;
 
             return RandomWithSpecies(species);
         }
@@ -325,7 +325,7 @@ namespace Content.Shared.Preferences
 
             return new(this)
             {
-                _jobPriorities = dictionary
+                _jobPriorities = dictionary,
             };
         }
 
@@ -367,7 +367,7 @@ namespace Content.Shared.Preferences
         {
             return new(this)
             {
-                _antagPreferences = new (antagPreferences),
+                _antagPreferences = new(antagPreferences),
             };
         }
 
@@ -453,8 +453,7 @@ namespace Content.Shared.Preferences
                 "humanoid-character-profile-summary",
                 ("name", Name),
                 ("gender", Gender.ToString().ToLowerInvariant()),
-                ("age", Age)
-            );
+                ("age", Age));
 
         public bool MemberwiseEquals(ICharacterProfile maybeOther)
         {
@@ -490,7 +489,7 @@ namespace Content.Shared.Preferences
                 Sex.Male => Sex.Male,
                 Sex.Female => Sex.Female,
                 Sex.Unsexed => Sex.Unsexed,
-                _ => Sex.Male // Invalid enum values.
+                _ => Sex.Male, // Invalid enum values.
             };
 
             // ensure the species can be that sex and their age fits the founds
@@ -505,7 +504,7 @@ namespace Content.Shared.Preferences
                 Gender.Female => Gender.Female,
                 Gender.Male => Gender.Male,
                 Gender.Neuter => Gender.Neuter,
-                _ => Gender.Epicene // Invalid enum values.
+                _ => Gender.Epicene, // Invalid enum values.
             };
 
             string name;
@@ -558,7 +557,7 @@ namespace Content.Shared.Preferences
             {
                 PreferenceUnavailableMode.StayInLobby => PreferenceUnavailableMode.StayInLobby,
                 PreferenceUnavailableMode.SpawnAsOverflow => PreferenceUnavailableMode.SpawnAsOverflow,
-                _ => PreferenceUnavailableMode.StayInLobby // Invalid enum values.
+                _ => PreferenceUnavailableMode.StayInLobby, // Invalid enum values.
             };
 
             var spawnPriority = SpawnPriority switch
@@ -566,7 +565,7 @@ namespace Content.Shared.Preferences
                 SpawnPriorityPreference.None => SpawnPriorityPreference.None,
                 SpawnPriorityPreference.Arrivals => SpawnPriorityPreference.Arrivals,
                 SpawnPriorityPreference.Cryosleep => SpawnPriorityPreference.Cryosleep,
-                _ => SpawnPriorityPreference.None // Invalid enum values.
+                _ => SpawnPriorityPreference.None, // Invalid enum values.
             };
 
             var priorities = new Dictionary<ProtoId<JobPrototype>, JobPriority>(JobPriorities
@@ -576,7 +575,7 @@ namespace Content.Shared.Preferences
                     JobPriority.Low => true,
                     JobPriority.Medium => true,
                     JobPriority.High => true,
-                    _ => false
+                    _ => false,
                 }));
 
             var hasHighPrio = false;
@@ -691,12 +690,14 @@ namespace Content.Shared.Preferences
         }
 
         // sorry this is kind of weird and duplicated,
+
         /// working inside these non entity systems is a bit wack
         public static string GetName(string species, Gender gender)
         {
             var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
             return namingSystem.GetName(species, gender);
         }
+
         public bool Equals(HumanoidCharacterProfile? other)
         {
             if (other is null)

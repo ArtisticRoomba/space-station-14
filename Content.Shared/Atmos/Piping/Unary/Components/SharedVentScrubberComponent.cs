@@ -23,7 +23,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             Gas.WaterVapor,
             Gas.Ammonia,
             Gas.NitrousOxide,
-            Gas.Frezon
+            Gas.Frezon,
         };
 
         // Presets for 'dumb' air alarm modes
@@ -33,7 +33,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             FilterGases = new(GasVentScrubberData.DefaultFilterGases),
             PumpDirection = ScrubberPumpDirection.Scrubbing,
             VolumeRate = 200f,
-            WideNet = false
+            WideNet = false,
         };
 
         public static GasVentScrubberData WideFilterModePreset = new GasVentScrubberData
@@ -42,7 +42,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             FilterGases = new(GasVentScrubberData.DefaultFilterGases),
             PumpDirection = ScrubberPumpDirection.Scrubbing,
             VolumeRate = 200f,
-            WideNet = true
+            WideNet = true,
         };
 
         public static GasVentScrubberData FillModePreset = new GasVentScrubberData
@@ -52,7 +52,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             FilterGases = new(GasVentScrubberData.DefaultFilterGases),
             PumpDirection = ScrubberPumpDirection.Scrubbing,
             VolumeRate = 200f,
-            WideNet = false
+            WideNet = false,
         };
 
         public static GasVentScrubberData PanicModePreset = new GasVentScrubberData
@@ -62,7 +62,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             FilterGases = new(GasVentScrubberData.DefaultFilterGases),
             PumpDirection = ScrubberPumpDirection.Siphoning,
             VolumeRate = 200f,
-            WideNet = true
+            WideNet = true,
         };
 
         public static GasVentScrubberData ReplaceModePreset = new GasVentScrubberData
@@ -73,7 +73,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             FilterGases = new(GasVentScrubberData.DefaultFilterGases),
             PumpDirection = ScrubberPumpDirection.Siphoning,
             VolumeRate = 200f,
-            WideNet = false
+            WideNet = false,
         };
     }
 

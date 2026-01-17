@@ -12,6 +12,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Animals;
+
 /// <summary>
 ///     Gives the ability to produce milkable reagents;
 ///     produces endlessly if the owner does not have a HungerComponent.
@@ -80,7 +81,7 @@ public sealed class UdderSystem : EntitySystem
                 _hunger.ModifyHunger(uid, -udder.HungerUsage, hunger);
             }
 
-            //TODO: toxins from bloodstream !?
+            // TODO: toxins from bloodstream !?
             _solutionContainerSystem.TryAddReagent(udder.Solution.Value, udder.ReagentId, udder.QuantityPerUpdate, out _);
         }
     }
@@ -146,7 +147,7 @@ public sealed class UdderSystem : EntitySystem
                 AttemptMilk(uid, user, used);
             },
             Text = Loc.GetString("udder-system-verb-milk"),
-            Priority = 2
+            Priority = 2,
         };
         args.Verbs.Add(verb);
     }

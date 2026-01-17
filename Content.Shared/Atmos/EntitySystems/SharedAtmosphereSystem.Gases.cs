@@ -33,6 +33,7 @@ public abstract partial class SharedAtmosphereSystem
                 Log.Error($"Failed to find corresponding {nameof(GasPrototype)} for gas ID {(int)gas} ({gas}) with expected ID \"{gas.ToString()}\". Is your prototype named correctly?");
                 continue;
             }
+
             GasPrototypes[idx] = gasPrototype;
             GasReagents[idx] = gasPrototype.Reagent;
         }

@@ -9,5 +9,4 @@ namespace Content.Shared.Lock;
 [RegisterComponent, NetworkedComponent, Access(typeof(LockSystem))]
 public sealed partial class LockedWiresPanelComponent : Component
 {
-
 }

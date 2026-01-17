@@ -33,7 +33,7 @@ public sealed partial class SunShadowCycleComponent : Component
         new SunShadowCycleDirection(0.5f, new Vector2(0f, -3f), 0.8f),
         new SunShadowCycleDirection(0.75f, new Vector2(3f, -0.1f), 0.5f),
     };
-};
+}
 
 [DataDefinition]
 [Serializable, NetSerializable]
@@ -54,4 +54,4 @@ public partial record struct SunShadowCycleDirection
         Direction = direction;
         Alpha = alpha;
     }
-};
+}

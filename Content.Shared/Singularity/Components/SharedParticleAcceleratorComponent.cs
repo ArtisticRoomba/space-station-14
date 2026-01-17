@@ -5,20 +5,20 @@ namespace Content.Shared.Singularity.Components
     [NetSerializable, Serializable]
     public enum ParticleAcceleratorVisuals
     {
-        VisualState
+        VisualState,
     }
 
     [NetSerializable, Serializable]
     public enum ParticleAcceleratorVisualState
     {
-        //Open, //no prefix
-        //Wired, //w prefix
-        Unpowered, //c prefix
-        Powered, //p prefix
-        Level0, //0 prefix
-        Level1, //1 prefix
-        Level2, //2 prefix
-        Level3 //3 prefix
+        // Open, //no prefix
+        // Wired, //w prefix
+        Unpowered, // c prefix
+        Powered, // p prefix
+        Level0, // 0 prefix
+        Level1, // 1 prefix
+        Level2, // 2 prefix
+        Level3, // 3 prefix
     }
 
     [NetSerializable, Serializable]
@@ -34,7 +34,7 @@ namespace Content.Shared.Singularity.Components
     public enum ParticleAcceleratorVisualLayers
     {
         Base,
-        Unlit
+        Unlit,
     }
 
     [Serializable, NetSerializable]
@@ -55,7 +55,7 @@ namespace Content.Shared.Singularity.Components
         public int PowerDraw;
         public int PowerReceive;
 
-        //dont need a bool for the controlbox because... this is sent to the controlbox :D
+        // dont need a bool for the controlbox because... this is sent to the controlbox :D
         public bool EmitterStarboardExists;
         public bool EmitterForeExists;
         public bool EmitterPortExists;
@@ -118,6 +118,6 @@ namespace Content.Shared.Singularity.Components
     [NetSerializable, Serializable]
     public enum ParticleAcceleratorControlBoxUiKey
     {
-        Key
+        Key,
     }
 }

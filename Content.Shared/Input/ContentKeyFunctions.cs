@@ -107,7 +107,7 @@ namespace Content.Shared.Input
             new[]
             {
                 Hotbar1, Hotbar2, Hotbar3, Hotbar4, Hotbar5, Hotbar6, Hotbar7, Hotbar8, Hotbar9, Hotbar0,
-                HotbarShift1, HotbarShift2, HotbarShift3, HotbarShift4, HotbarShift5, HotbarShift6, HotbarShift7, HotbarShift8, HotbarShift9, HotbarShift0
+                HotbarShift1, HotbarShift2, HotbarShift3, HotbarShift4, HotbarShift5, HotbarShift6, HotbarShift7, HotbarShift8, HotbarShift9, HotbarShift0,
             };
 
         public static readonly BoundKeyFunction Vote0 = "Vote0";

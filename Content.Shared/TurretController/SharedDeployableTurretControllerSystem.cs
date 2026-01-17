@@ -61,8 +61,7 @@ public abstract partial class SharedDeployableTurretControllerSystem : EntitySys
         Entity<DeployableTurretControllerComponent> ent,
         HashSet<ProtoId<AccessLevelPrototype>> exemptions,
         bool enabled,
-        EntityUid? user = null
-    )
+        EntityUid? user = null)
     {
         // Update the controller
         if (!TryComp<TurretTargetSettingsComponent>(ent, out var targetSettings))

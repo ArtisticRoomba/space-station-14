@@ -140,6 +140,7 @@ public sealed class ReflectSystem : EntitySystem
 
         return true;
     }
+
     private bool TryReflectHitscan(
         Entity<ReflectComponent> reflector,
         EntityUid user,

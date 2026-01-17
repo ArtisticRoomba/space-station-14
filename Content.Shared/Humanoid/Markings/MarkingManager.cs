@@ -76,6 +76,7 @@ namespace Content.Shared.Humanoid.Markings
                 {
                     continue;
                 }
+
                 res.Add(key, marking);
             }
 
@@ -258,8 +259,7 @@ namespace Content.Shared.Humanoid.Markings
                 !baseSprites.Sprites.TryGetValue(layer, out var spriteName) ||
                 !prototypeManager.Resolve(spriteName, out HumanoidSpeciesSpriteLayer? sprite) ||
                 sprite == null ||
-                !sprite.MarkingsMatchSkin
-            )
+                !sprite.MarkingsMatchSkin)
             {
                 alpha = 1f;
                 return false;

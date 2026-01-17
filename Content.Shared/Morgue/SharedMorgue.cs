@@ -5,7 +5,7 @@ namespace Content.Shared.Morgue;
 [Serializable, NetSerializable]
 public enum MorgueVisuals : byte
 {
-    Contents
+    Contents,
 }
 
 [Serializable, NetSerializable]

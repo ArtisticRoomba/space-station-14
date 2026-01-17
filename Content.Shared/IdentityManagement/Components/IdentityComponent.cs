@@ -71,7 +71,7 @@ public sealed class IdentityRepresentation
         {
             Gender.Female => Loc.GetString("identity-gender-feminine"),
             Gender.Male => Loc.GetString("identity-gender-masculine"),
-            Gender.Epicene or Gender.Neuter or _ => Loc.GetString("identity-gender-person")
+            Gender.Epicene or Gender.Neuter or _ => Loc.GetString("identity-gender-person"),
         };
 
         // i.e. 'young assistant man' or 'old cargo technician person' or 'middle-aged captain'

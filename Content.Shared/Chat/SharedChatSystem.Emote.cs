@@ -54,8 +54,7 @@ public abstract partial class SharedChatSystem
         bool hideLog = false,
         string? nameOverride = null,
         bool ignoreActionBlocker = false,
-        bool forceEmote = false
-    )
+        bool forceEmote = false)
     {
         if (!_prototypeManager.Resolve<EmotePrototype>(emoteId, out var proto))
             return false;
@@ -84,8 +83,7 @@ public abstract partial class SharedChatSystem
         bool hideLog = false,
         string? nameOverride = null,
         bool ignoreActionBlocker = false,
-        bool forceEmote = false
-    )
+        bool forceEmote = false)
     {
         if (!forceEmote && !AllowedToUseEmote(source, emote))
             return false;
@@ -159,6 +157,7 @@ public abstract partial class SharedChatSystem
         _audio.PlayPvs(sound, uid, param);
         return true;
     }
+
     /// <summary>
     /// Checks if a valid emote was typed, to play sounds and etc and invokes an event.
     /// </summary>
@@ -177,6 +176,7 @@ public abstract partial class SharedChatSystem
         return TryInvokeEmoteEvent(source, emote);
 
     }
+
     /// <summary>
     /// Checks if we can use this emote based on the emotes whitelist, blacklist, and availability to the entity.
     /// </summary>
@@ -232,11 +232,9 @@ public abstract partial class SharedChatSystem
                     Loc.GetString(
                         "chat-system-emote-cancelled-blocked",
                         ("emote", Loc.GetString(proto.Name).ToLower()),
-                        ("blocker", beforeEv.Blocker.Value)
-                    ),
+                        ("blocker", beforeEv.Blocker.Value)),
                     uid,
-                    uid
-                );
+                    uid);
             }
             else
             {
@@ -244,8 +242,7 @@ public abstract partial class SharedChatSystem
                     Loc.GetString("chat-system-emote-cancelled-generic",
                         ("emote", Loc.GetString(proto.Name).ToLower())),
                     uid,
-                    uid
-                );
+                    uid);
             }
 
             return false;

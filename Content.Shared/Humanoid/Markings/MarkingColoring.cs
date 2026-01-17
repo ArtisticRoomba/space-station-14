@@ -31,8 +31,7 @@ public static class MarkingColoring
         MarkingPrototype prototype,
         Color? skinColor,
         Color? eyeColor,
-        MarkingSet markingSet
-    )
+        MarkingSet markingSet)
     {
         var colors = new List<Color>();
 
@@ -46,6 +45,7 @@ public static class MarkingColoring
             {
                 colors.Add(defaultColor);
             }
+
             return colors;
         }
         else
@@ -58,7 +58,7 @@ public static class MarkingColoring
                 {
                     SpriteSpecifier.Rsi rsi => rsi.RsiState,
                     SpriteSpecifier.Texture texture => texture.TexturePath.Filename,
-                    _ => null
+                    _ => null,
                 };
                 if (name == null)
                 {
@@ -77,6 +77,7 @@ public static class MarkingColoring
                     colors.Add(defaultColor);
                 }
             }
+
             return colors;
         }
     }
@@ -116,6 +117,7 @@ public sealed partial class LayerColoringDefinition
                 if (color != null) break;
             }
         }
+
         return color ?? FallbackColor;
     }
 }
@@ -145,6 +147,7 @@ public abstract partial class LayerColoringType
             rcolor.B = 1f-rcolor.B;
             return rcolor;
         }
+
         return color;
     }
 }

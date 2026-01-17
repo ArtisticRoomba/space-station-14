@@ -113,7 +113,7 @@ namespace Content.Shared.VendingMachines
             {
                 Volume = -4f,
                 Variation = 0.15f
-            }
+            },
         };
 
         /// <summary>
@@ -149,6 +149,7 @@ namespace Content.Shared.VendingMachines
         public EntityUid? RestockStream;
 
         #region Client Visuals
+
         /// <summary>
         /// RSI state for when the vending machine is unpowered.
         /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.Base"/>
@@ -234,13 +235,13 @@ namespace Content.Shared.VendingMachines
     {
         Regular,
         Emagged,
-        Contraband
+        Contraband,
     }
 
     [Serializable, NetSerializable]
     public enum VendingMachineVisuals : byte
     {
-        VisualState
+        VisualState,
     }
 
     [Serializable, NetSerializable]
@@ -259,21 +260,23 @@ namespace Content.Shared.VendingMachines
         /// Off / Broken. The other layers will overlay this if the machine is on.
         /// </summary>
         Base,
+
         /// <summary>
         /// Normal / Deny / Eject
         /// </summary>
         BaseUnshaded,
+
         /// <summary>
         /// Screens that are persistent (where the machine is not off or broken)
         /// </summary>
-        Screen
+        Screen,
     }
 
     [Serializable, NetSerializable]
     public enum ContrabandWireKey : byte
     {
         StatusKey,
-        TimeoutKey
+        TimeoutKey,
     }
 
     [Serializable, NetSerializable]
@@ -284,8 +287,7 @@ namespace Content.Shared.VendingMachines
 
     public sealed partial class VendingMachineSelfDispenseEvent : InstantActionEvent
     {
-
-    };
+    }
 
     [Serializable, NetSerializable]
     public sealed class VendingMachineComponentState : ComponentState

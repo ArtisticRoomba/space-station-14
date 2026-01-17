@@ -100,7 +100,7 @@ public enum LightBulbState : byte
 public enum LightBulbVisuals : byte
 {
     State,
-    Color
+    Color,
 }
 
 [Serializable, NetSerializable]

@@ -32,7 +32,7 @@ namespace Content.Shared.Construction.Conditions
         {
             return new ConstructionGuideEntry
             {
-                Localization = "construction-step-condition-no-windows-in-tile"
+                Localization = "construction-step-condition-no-windows-in-tile",
             };
         }
     }

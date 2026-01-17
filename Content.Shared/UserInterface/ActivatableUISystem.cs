@@ -95,7 +95,8 @@ public sealed partial class ActivatableUISystem : EntitySystem
         });
     }
 
-    private bool ShouldAddVerb<T>(EntityUid uid, ActivatableUIComponent component, GetVerbsEvent<T> args) where T : Verb
+    private bool ShouldAddVerb<T>(EntityUid uid, ActivatableUIComponent component, GetVerbsEvent<T> args)
+        where T : Verb
     {
         if (!args.CanAccess)
             return false;
@@ -241,7 +242,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         SetCurrentSingleUser(uiEntity, user, aui);
         _uiSystem.OpenUi(uiEntity, aui.Key, user);
 
-        //Let the component know a user opened it so it can do whatever it needs to do
+        // Let the component know a user opened it so it can do whatever it needs to do
         var aae = new AfterActivatableUIOpenEvent(user);
         RaiseLocalEvent(uiEntity, aae);
 

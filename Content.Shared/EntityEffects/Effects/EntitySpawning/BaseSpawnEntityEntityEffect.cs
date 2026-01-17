@@ -7,7 +7,8 @@ namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
 /// </summary>
 /// <typeparam name="T">The entity effect inheriting this BaseEffect</typeparam>
 /// <inheritdoc cref="EntityEffect"/>
-public abstract partial class BaseSpawnEntityEntityEffect<T> : EntityEffectBase<T> where T : BaseSpawnEntityEntityEffect<T>
+public abstract partial class BaseSpawnEntityEntityEffect<T> : EntityEffectBase<T>
+    where T : BaseSpawnEntityEntityEffect<T>
 {
     /// <summary>
     /// Amount of entities we're spawning

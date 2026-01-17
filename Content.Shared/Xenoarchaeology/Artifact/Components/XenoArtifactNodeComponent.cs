@@ -35,6 +35,7 @@ public sealed partial class XenoArtifactNodeComponent : Component
     public EntityUid? Attached;
 
     #region Durability
+
     /// <summary>
     /// Marker, is durability of node degraded or not.
     /// </summary>
@@ -60,6 +61,7 @@ public sealed partial class XenoArtifactNodeComponent : Component
     #endregion
 
     #region Research
+
     /// <summary>
     /// The amount of points a node is worth with no scaling
     /// </summary>

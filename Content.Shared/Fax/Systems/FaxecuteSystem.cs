@@ -3,6 +3,7 @@ using Content.Shared.Fax.Components;
 using Content.Shared.Popups;
 
 namespace Content.Shared.Fax.Systems;
+
 /// <summary>
 /// System for handling execution of a mob within fax when copy or send attempt is made.
 /// </summary>

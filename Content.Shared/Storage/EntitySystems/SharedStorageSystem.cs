@@ -49,28 +49,28 @@ namespace Content.Shared.Storage.EntitySystems;
 
 public abstract class SharedStorageSystem : EntitySystem
 {
-    [Dependency] private   readonly IConfigurationManager _cfg = default!;
-    [Dependency] private   readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] private   readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     [Dependency] protected readonly ActionBlockerSystem ActionBlocker = default!;
-    [Dependency] private   readonly EntityLookupSystem _entityLookupSystem = default!;
-    [Dependency] private   readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private   readonly InventorySystem _inventory = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] protected readonly SharedEntityStorageSystem EntityStorage = default!;
-    [Dependency] private   readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] protected readonly SharedItemSystem ItemSystem = default!;
-    [Dependency] private   readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private   readonly SharedHandsSystem _sharedHandsSystem = default!;
-    [Dependency] private   readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
-    [Dependency] private   readonly TagSystem _tag = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] protected readonly UseDelaySystem UseDelay = default!;
 
     private EntityQuery<ItemComponent> _itemQuery;
@@ -337,7 +337,7 @@ public abstract class SharedStorageSystem : EntitySystem
                 {
                     OpenStorageUI(uid, args.User, component, false);
                 }
-            }
+            },
         };
 
         if (uiOpen)
@@ -352,6 +352,7 @@ public abstract class SharedStorageSystem : EntitySystem
             verb.Icon = new SpriteSpecifier.Texture(
                 new("/Textures/Interface/VerbIcons/open.svg.192dpi.png"));
         }
+
         args.Verbs.Add(verb);
     }
 
@@ -481,7 +482,7 @@ public abstract class SharedStorageSystem : EntitySystem
             {
                 Text = Loc.GetString("storage-component-transfer-verb"),
                 IconEntity = GetNetEntity(args.Using),
-                Act = () => TransferEntities(uid, args.Target, args.User, component, null, targetStorage, targetLock)
+                Act = () => TransferEntities(uid, args.Target, args.User, component, null, targetStorage, targetLock),
             };
 
             args.Verbs.Add(verb);
@@ -594,7 +595,7 @@ public abstract class SharedStorageSystem : EntitySystem
                     break;
             }
 
-            //If there's only one then let's be generous
+            // If there's only one then let's be generous
             if (_entList.Count >= 1)
             {
                 var doAfterArgs = new DoAfterArgs(EntityManager, args.User, delay * AreaInsertDelayPerItem, new AreaPickupDoAfterEvent(GetNetEntityList(_entList)), uid, target: uid)
@@ -630,8 +631,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
                 var position = TransformSystem.ToCoordinates(
                     parent.IsValid() ? parent : uid,
-                    TransformSystem.GetMapCoordinates(transformEnt)
-                );
+                    TransformSystem.GetMapCoordinates(transformEnt));
 
                 args.Handled = true;
                 if (PlayerInsertEntityInWorld((uid, storageComp), args.User, target))
@@ -682,8 +682,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
             var position = TransformSystem.ToCoordinates(
                 xform.ParentUid.IsValid() ? xform.ParentUid : uid,
-                new MapCoordinates(TransformSystem.GetWorldPosition(targetXform), targetXform.MapID)
-            );
+                new MapCoordinates(TransformSystem.GetWorldPosition(targetXform), targetXform.MapID));
 
             var angle = targetXform.LocalRotation;
 
@@ -1020,6 +1019,7 @@ public abstract class SharedStorageSystem : EntitySystem
         {
             Insert(target, entity, out _, user: user, targetComp, playSound: false);
         }
+
         if (user != null
             && (!_tag.HasTag(user.Value, sourceComp.SilentStorageUserTag)
                 || !_tag.HasTag(user.Value, targetComp.SilentStorageUserTag)))
@@ -1103,6 +1103,7 @@ public abstract class SharedStorageSystem : EntitySystem
             reason = null;
             return false;
         }
+
         CheckingCanInsert = false;
 
         reason = null;
@@ -1291,6 +1292,7 @@ public abstract class SharedStorageSystem : EntitySystem
             _popupSystem.PopupClient(Loc.GetString("comp-storage-cant-insert"), uid, player);
             return false;
         }
+
         return true;
     }
 
@@ -1520,7 +1522,7 @@ public abstract class SharedStorageSystem : EntitySystem
         {
             list = new List<ItemStorageLocation>()
             {
-                location
+                location,
             };
             ent.Comp.SavedLocations[name] = list;
         }

@@ -29,18 +29,18 @@ namespace Content.Shared.Storage.EntitySystems;
 
 public abstract class SharedEntityStorageSystem : EntitySystem
 {
-    [Dependency] private   readonly IGameTiming _timing = default!;
-    [Dependency] private   readonly INetManager _net = default!;
-    [Dependency] private   readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private   readonly SharedAudioSystem _audio = default!;
-    [Dependency] private   readonly SharedContainerSystem _container = default!;
-    [Dependency] private   readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private   readonly SharedJointSystem _joints = default!;
-    [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedJointSystem _joints = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-    [Dependency] private   readonly WeldableSystem _weldable = default!;
+    [Dependency] private readonly WeldableSystem _weldable = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
 
@@ -191,6 +191,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             verb.Icon = new SpriteSpecifier.Texture(
                 new("/Textures/Interface/VerbIcons/open.svg.192dpi.png"));
         }
+
         verb.Act = () => ToggleOpen(args.User, args.Target, component);
         args.Verbs.Add(verb);
     }
@@ -266,8 +267,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         var entities = _lookup.GetEntitiesInRange(
             new EntityCoordinates(uid, component.EnteringOffset),
             component.EnteringRange,
-            LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Sundries
-        );
+            LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Sundries);
 
         // Don't insert the container into itself.
         entities.Remove(uid);
@@ -331,7 +331,6 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         if (_container.IsEntityInContainer(container)
             && _container.TryGetOuterContainer(container, Transform(container), out var outerContainer))
         {
-
             var attemptEvent = new EntityStorageIntoContainerAttemptEvent(outerContainer);
             RaiseLocalEvent(outerContainer.Owner, ref attemptEvent);
             if (!attemptEvent.Cancelled)
@@ -429,8 +428,8 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             return false;
         }
 
-        //Checks to see if the opening position, if offset, is inside of a wall.
-        if (component.EnteringOffset != new Vector2(0, 0) && !HasComp<WallMountComponent>(target)) //if the entering position is offset
+        // Checks to see if the opening position, if offset, is inside of a wall.
+        if (component.EnteringOffset != new Vector2(0, 0) && !HasComp<WallMountComponent>(target)) // if the entering position is offset
         {
             var newCoords = new EntityCoordinates(target, component.EnteringOffset);
             if (!_interaction.InRangeUnobstructed(target, newCoords, 0, collisionMask: component.EnteringOffsetCollisionFlags))

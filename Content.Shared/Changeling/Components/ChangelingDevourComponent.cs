@@ -101,7 +101,7 @@ public sealed partial class ChangelingDevourComponent : Component
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Slash", 10},
+            { "Slash", 10 },
             { "Piercing", 10 },
             { "Blunt", 5 },
         },

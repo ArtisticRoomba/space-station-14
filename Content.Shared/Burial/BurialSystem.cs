@@ -109,7 +109,7 @@ public sealed class BurialSystem : EntitySystem
         if (args.Used != null)
             _storageSystem.ToggleOpen(args.User, uid);
         else
-            _storageSystem.TryOpenStorage(args.User, uid); //can only claw out
+            _storageSystem.TryOpenStorage(args.User, uid); // can only claw out
     }
 
     private void StartDigging(EntityUid uid, EntityUid user, EntityUid? used, GraveComponent component)
@@ -169,7 +169,7 @@ public sealed class BurialSystem : EntitySystem
             NeedHand = false,
             BreakOnMove = true,
             BreakOnHandChange = false,
-            BreakOnDamage = false
+            BreakOnDamage = false,
         };
 
 

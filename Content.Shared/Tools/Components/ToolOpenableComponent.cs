@@ -85,6 +85,6 @@ namespace Content.Shared.Tools.Components
     public enum ToolOpenableVisualState : byte
     {
         Open,
-        Closed
+        Closed,
     }
 }

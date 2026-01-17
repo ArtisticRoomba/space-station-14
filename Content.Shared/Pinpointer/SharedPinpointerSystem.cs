@@ -62,7 +62,6 @@ public abstract class SharedPinpointerSystem : EntitySystem
     /// </summary>
     protected virtual void UpdateDirectionToTarget(EntityUid uid, PinpointerComponent? pinpointer = null)
     {
-
     }
 
     private void OnExamined(EntityUid uid, PinpointerComponent component, ExaminedEvent args)

@@ -24,7 +24,7 @@ public sealed class ActivatableUIOpenAttemptEvent(EntityUid user, bool silent) :
 /// This is raised BEFORE opening a UI! Do not listen and then open / do something use
 /// <see cref="AfterActivatableUIOpenEvent"/> for that.
 /// </summary>
-public sealed class UserOpenActivatableUIAttemptEvent(EntityUid user, EntityUid target, bool silent) : CancellableEntityEventArgs //have to one-up the already stroke-inducing name
+public sealed class UserOpenActivatableUIAttemptEvent(EntityUid user, EntityUid target, bool silent) : CancellableEntityEventArgs // have to one-up the already stroke-inducing name
 {
     /// <summary>
     /// The player trying to open the UI.

@@ -53,6 +53,7 @@ public abstract partial class SharedGunSystem
                 damageSpec = hitscanComp.Damage * Damageable.UniversalHitscanDamageModifier;
             }
         }
+
         if (damageSpec == null)
             return;
 
@@ -94,7 +95,6 @@ public abstract partial class SharedGunSystem
 
     private (EntityUid? Entity, IShootable) GetShootable(BatteryAmmoProviderComponent component, EntityCoordinates coordinates)
     {
-
         var ent = Spawn(component.Prototype, coordinates);
         return (ent, EnsureShootable(ent));
     }
@@ -166,6 +166,7 @@ public abstract partial class SharedGunSystem
             ent.Comp.NextUpdate = Timing.CurTime + TimeSpan.FromSeconds(-(currentCharge % ent.Comp.FireCost) / currentChargeRate);
             ent.Comp.ChargeTime = TimeSpan.FromSeconds(-ent.Comp.FireCost / currentChargeRate);
         }
+
         Dirty(ent);
     }
 

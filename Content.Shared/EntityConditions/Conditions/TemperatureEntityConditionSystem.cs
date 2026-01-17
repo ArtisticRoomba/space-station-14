@@ -47,6 +47,6 @@ public sealed partial class TemperatureCondition : EntityConditionBase<Temperatu
 
     public override string EntityConditionGuidebookText(IPrototypeManager prototype) =>
         Loc.GetString("entity-condition-guidebook-body-temperature",
-            ("max", float.IsPositiveInfinity(Max) ? (float) int.MaxValue : Max),
+            ("max", float.IsPositiveInfinity(Max) ? (float)int.MaxValue : Max),
             ("min", Min));
 }

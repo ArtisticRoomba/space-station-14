@@ -26,7 +26,7 @@ public abstract partial class SharedSalvageSystem
         "BlobAsteroid",
         "ClusterAsteroid",
         "SpindlyAsteroid",
-        "SwissCheeseAsteroid"
+        "SwissCheeseAsteroid",
     };
 
     private readonly ProtoId<WeightedRandomPrototype> _asteroidOreWeights = "AsteroidOre";
@@ -35,7 +35,7 @@ public abstract partial class SharedSalvageSystem
 
     private readonly List<ProtoId<DungeonConfigPrototype>> _debrisConfigs = new()
     {
-        "ChunkDebris"
+        "ChunkDebris",
     };
 
     public ISalvageMagnetOffering GetSalvageOffering(int seed)
@@ -57,7 +57,7 @@ public abstract partial class SharedSalvageSystem
                     MaxOffset = configProto.MaxOffset,
                     MinCount = configProto.MinCount,
                     MinOffset = configProto.MinOffset,
-                    ReserveTiles = configProto.ReserveTiles
+                    ReserveTiles = configProto.ReserveTiles,
                 };
 
                 var count = _asteroidOreCount.Next(rand);
@@ -82,7 +82,7 @@ public abstract partial class SharedSalvageSystem
                 var id = rand.Pick(_debrisConfigs);
                 return new DebrisOffering
                 {
-                    Id = id
+                    Id = id,
                 };
             case SalvageOffering:
                 // Salvage map seed

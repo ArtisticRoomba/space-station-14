@@ -53,7 +53,7 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
             Disabled = !HasAmmo(ent),
             Impact = LogImpact.Low,
-            Act = () => { TryToggleState(ent, user); }
+            Act = () => { TryToggleState(ent, user); },
         };
 
         args.Verbs.Add(verb);

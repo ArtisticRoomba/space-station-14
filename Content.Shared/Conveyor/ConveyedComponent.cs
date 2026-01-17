@@ -9,6 +9,7 @@ namespace Content.Shared.Conveyor;
 public sealed partial class ConveyedComponent : Component
 {
     // TODO: Delete if pulling gets fixed.
+
     /// <summary>
     /// True if currently conveying.
     /// </summary>

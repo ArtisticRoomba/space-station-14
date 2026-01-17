@@ -28,7 +28,7 @@ public sealed partial class MiningScannerViewerComponent : Component
         Params = new AudioParams
         {
             Volume = -3,
-        }
+        },
     };
 
     [DataField]

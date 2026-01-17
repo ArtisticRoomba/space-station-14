@@ -5,7 +5,7 @@ namespace Content.Shared.Disposal.Components
     [Serializable, NetSerializable]
     public enum DisposalTubeVisuals
     {
-        VisualState
+        VisualState,
     }
 
     [Serializable, NetSerializable]

@@ -44,7 +44,7 @@ public sealed class PickRandomSystem : EntitySystem
             Impact = LogImpact.Low,
             Text = Loc.GetString(comp.VerbText),
             Disabled = !enabled,
-            Message = enabled ? null : Loc.GetString(comp.EmptyText, ("storage", uid))
+            Message = enabled ? null : Loc.GetString(comp.EmptyText, ("storage", uid)),
         });
     }
 

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
@@ -9,7 +10,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Silicons.StationAi;
 

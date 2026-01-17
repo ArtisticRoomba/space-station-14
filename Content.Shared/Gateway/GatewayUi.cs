@@ -6,19 +6,19 @@ namespace Content.Shared.Gateway;
 [Serializable, NetSerializable]
 public enum GatewayVisuals : byte
 {
-    Active
+    Active,
 }
 
 [Serializable, NetSerializable]
 public enum GatewayVisualLayers : byte
 {
-    Portal
+    Portal,
 }
 
 [Serializable, NetSerializable]
 public enum GatewayUiKey : byte
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]

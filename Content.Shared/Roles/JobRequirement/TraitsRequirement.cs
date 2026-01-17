@@ -28,7 +28,7 @@ public sealed partial class TraitsRequirement : JobRequirement
     {
         reason = new FormattedMessage();
 
-        if (profile is null) //the profile could be null if the player is a ghost. In this case we don't need to block the role selection for ghostrole
+        if (profile is null) // the profile could be null if the player is a ghost. In this case we don't need to block the role selection for ghostrole
             return true;
 
         var sb = new StringBuilder();
@@ -44,12 +44,13 @@ public sealed partial class TraitsRequirement : JobRequirement
         {
             reason = FormattedMessage.FromMarkupPermissive($"{Loc.GetString("role-timer-whitelisted-traits")}\n{sb}");
 
-            //at least one of
+            // at least one of
             foreach (var trait in Traits)
             {
                 if (profile.TraitPreferences.Contains(trait))
                     return true;
             }
+
             return false;
         }
         else

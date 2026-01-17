@@ -161,6 +161,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
             _adminLogger.Add(LogType.Action, LogImpact.Medium,
                 $"{ToPrettyString(args.User)} inserted {ToPrettyString(args.Args.Target.Value)} into {ToPrettyString(ent.Owner)}");
         }
+
         args.Handled = true;
     }
 
@@ -401,8 +402,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         var beaker = _itemSlots.GetItemOrNull(
             entity.Owner,
             entity.Comp.SolutionContainerName,
-            itemSlotsComponent
-        );
+            itemSlotsComponent);
 
         if (beaker == null
             || !beaker.Value.Valid
@@ -450,7 +450,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
                 Text = Loc.GetString("cryo-pod-verb-noun-occupant"),
                 Category = VerbCategory.Eject,
                 Priority = 1, // Promote to top to make ejecting the ALT-click action
-                Act = () => TryEjectBody(uid, args.User, cryoPodComponent)
+                Act = () => TryEjectBody(uid, args.User, cryoPodComponent),
             });
         }
     }

@@ -48,8 +48,7 @@ public abstract class SharedLightCycleSystem : EntitySystem
             return new Color(
                 (byte)Math.Min(255, color.RByte * colorLevel.R * lightLevel),
                 (byte)Math.Min(255, color.GByte * colorLevel.G * lightLevel),
-                (byte)Math.Min(255, color.BByte * colorLevel.B * lightLevel)
-            );
+                (byte)Math.Min(255, color.BByte * colorLevel.B * lightLevel));
         }
 
         return color;
@@ -60,7 +59,7 @@ public abstract class SharedLightCycleSystem : EntitySystem
     /// </summary>
     public static double CalculateLightLevel(LightCycleComponent comp, float time)
     {
-        var waveLength = MathF.Max(1, (float) comp.Duration.TotalSeconds);
+        var waveLength = MathF.Max(1, (float)comp.Duration.TotalSeconds);
         var crest = MathF.Max(0f, comp.MaxLightLevel);
         var shift = MathF.Max(0f, comp.MinLightLevel);
         return Math.Min(comp.ClipLight, CalculateCurve(time, waveLength, crest, shift, 6));
@@ -75,7 +74,7 @@ public abstract class SharedLightCycleSystem : EntitySystem
     /// </summary>
     public static Color CalculateColorLevel(LightCycleComponent comp, float time)
     {
-        var waveLength = MathF.Max(1f, (float) comp.Duration.TotalSeconds);
+        var waveLength = MathF.Max(1f, (float)comp.Duration.TotalSeconds);
 
         var red = MathF.Min(comp.ClipLevel.R,
             CalculateCurve(time,

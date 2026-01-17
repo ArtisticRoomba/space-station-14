@@ -65,7 +65,7 @@ public sealed partial class CloningPodComponent : Component
 [Serializable, NetSerializable]
 public enum CloningPodVisuals : byte
 {
-    Status
+    Status,
 }
 
 [Serializable, NetSerializable]
@@ -74,5 +74,5 @@ public enum CloningPodStatus : byte
     Idle,
     Cloning,
     Gore,
-    NoMind
+    NoMind,
 }

@@ -153,5 +153,5 @@ public readonly record struct UnbuckledEvent(Entity<StrapComponent> Strap, Entit
 [Serializable, NetSerializable]
 public enum BuckleVisuals
 {
-    Buckled
+    Buckled,
 }

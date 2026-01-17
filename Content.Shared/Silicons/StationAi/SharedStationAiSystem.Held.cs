@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -5,7 +6,6 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -15,7 +15,7 @@ public abstract partial class SharedStationAiSystem
      * Added when an entity is inserted into a StationAiCore.
      */
 
-    //TODO: Fix this, please
+    // TODO: Fix this, please
     private const string JobNameLocId = "job-name-station-ai";
 
     private void InitializeHeld()
@@ -42,6 +42,7 @@ public abstract partial class SharedStationAiSystem
         {
             return;
         }
+
         args.Title = $"{Name(args.ForActor)} ({Loc.GetString(JobNameLocId)})";
         args.Handled = true;
     }
@@ -124,7 +125,7 @@ public abstract partial class SharedStationAiSystem
             return;
 
         ev.Event.User = ev.Actor;
-        RaiseLocalEvent(target.Value, (object) ev.Event);
+        RaiseLocalEvent(target.Value, (object)ev.Event);
     }
 
     private void OnMessageAttempt(Entity<StationAiWhitelistComponent> ent, ref BoundUserInterfaceMessageAttempt ev)
@@ -149,6 +150,7 @@ public abstract partial class SharedStationAiSystem
             {
                 ShowDeviceNotRespondingPopup(ev.Actor);
             }
+
             ev.Cancel();
         }
     }
@@ -197,7 +199,7 @@ public abstract partial class SharedStationAiSystem
                 {
                     _uiSystem.OpenUi(ent.Owner, AiUi.Key, user);
                 }
-            }
+            },
         };
         args.Verbs.Add(verb);
     }
@@ -224,6 +226,7 @@ public sealed class StationAiRadialMessage : BoundUserInterfaceMessage
 }
 
 // Do nothing on server just here for shared move along.
+
 /// <summary>
 /// Raised on client to get the relevant data for radial actions.
 /// </summary>

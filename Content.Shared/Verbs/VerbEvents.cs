@@ -70,7 +70,8 @@ namespace Content.Shared.Verbs
     /// <summary>
     ///     Directed event that requests verbs from any systems/components on a target entity.
     /// </summary>
-    public sealed class GetVerbsEvent<TVerb> : EntityEventArgs where TVerb : Verb
+    public sealed class GetVerbsEvent<TVerb> : EntityEventArgs
+        where TVerb : Verb
     {
         /// <summary>
         ///     Event output. Set of verbs that can be executed.

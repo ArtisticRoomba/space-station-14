@@ -3,5 +3,5 @@
 public enum DateOrder
 {
     Ascending = 0,
-    Descending
+    Descending,
 }

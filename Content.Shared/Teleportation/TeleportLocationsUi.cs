@@ -5,7 +5,7 @@ namespace Content.Shared.Teleportation;
 [Serializable, NetSerializable]
 public enum TeleportLocationUiKey : byte
 {
-    Key
+    Key,
 }
 
 /// <summary>

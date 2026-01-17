@@ -93,7 +93,7 @@ public sealed partial class LabelSystem : EntitySystem
 
     private void OnExamined(Entity<PaperLabelComponent> ent, ref ExaminedEvent args)
     {
-        if (ent.Comp.LabelSlot.Item is not { Valid: true} item)
+        if (ent.Comp.LabelSlot.Item is not { Valid: true } item)
             return;
 
         using (args.PushGroup(nameof(PaperLabelComponent)))
@@ -146,7 +146,8 @@ public sealed partial class LabelSystem : EntitySystem
     /// <summary>
     /// Retrieves a label with the specified component from the default label slot.
     /// </summary>
-    public bool TryGetLabel<T>(Entity<PaperLabelComponent?> ent, [NotNullWhen(true)] out Entity<T>? label) where T : Component
+    public bool TryGetLabel<T>(Entity<PaperLabelComponent?> ent, [NotNullWhen(true)] out Entity<T>? label)
+        where T : Component
     {
         label = null;
         if (!Resolve(ent, ref ent.Comp, false))

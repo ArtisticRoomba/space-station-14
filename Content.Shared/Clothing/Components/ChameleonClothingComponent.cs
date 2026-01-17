@@ -96,5 +96,5 @@ public sealed class ChameleonPrototypeSelectedMessage : BoundUserInterfaceMessag
 [Serializable, NetSerializable]
 public enum ChameleonUiKey : byte
 {
-    Key
+    Key,
 }

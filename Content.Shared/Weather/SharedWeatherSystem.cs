@@ -48,7 +48,7 @@ public abstract class SharedWeatherSystem : EntitySystem
         if (Resolve(uid, ref roofComp, false) && _roof.IsRooved((uid, grid, roofComp), tileRef.GridIndices))
             return false;
 
-        var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];
+        var tileDef = (ContentTileDefinition)_tileDefManager[tileRef.Tile.TypeId];
 
         if (!tileDef.Weather)
             return false;
@@ -75,11 +75,11 @@ public abstract class SharedWeatherSystem : EntitySystem
 
         if (remaining < WeatherComponent.ShutdownTime)
         {
-            alpha = (float) (remaining / WeatherComponent.ShutdownTime);
+            alpha = (float)(remaining / WeatherComponent.ShutdownTime);
         }
         else if (elapsed < WeatherComponent.StartupTime)
         {
-            alpha = (float) (elapsed / WeatherComponent.StartupTime);
+            alpha = (float)(elapsed / WeatherComponent.StartupTime);
         }
         else
         {

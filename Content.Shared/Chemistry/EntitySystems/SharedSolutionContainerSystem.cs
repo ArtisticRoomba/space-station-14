@@ -46,8 +46,10 @@ public partial record struct SolutionOverflowEvent(Entity<SolutionComponent> Sol
 {
     /// <summary>The solution entity that has been overfilled.</summary>
     public readonly Entity<SolutionComponent> Solution = Solution;
+
     /// <summary>The amount by which the solution entity has been overfilled.</summary>
     public readonly FixedPoint2 Overflow = Overflow;
+
     /// <summary>Whether any of the event handlers for this event have handled overflow behaviour.</summary>
     public bool Handled = false;
 }
@@ -179,8 +181,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         else if (
             ContainerSystem.TryGetContainer(container, $"solution@{name}", out var solutionContainer) &&
             solutionContainer is ContainerSlot solutionSlot &&
-            solutionSlot.ContainedEntity is { } containedSolution
-        )
+            solutionSlot.ContainedEntity is { } containedSolution)
         {
             var attemptEv = new SolutionAccessAttemptEvent(name);
             RaiseLocalEvent(container, ref attemptEv);
@@ -831,7 +832,6 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
         using (args.PushGroup(nameof(ExaminableSolutionComponent)))
         {
-
             var primaryReagent = solution.GetPrimaryReagentId();
 
             // If there's no primary reagent, assume the solution is empty and exit early
@@ -850,7 +850,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
             // Push the physical description of the primary reagent
             var colorHex = solution.GetColor(PrototypeManager)
-                .ToHexNoAlpha(); //TODO: If the chem has a dark color, the examine text becomes black on a black background, which is unreadable.
+                .ToHexNoAlpha(); // TODO: If the chem has a dark color, the examine text becomes black on a black background, which is unreadable.
 
             args.PushMarkup(Loc.GetString(entity.Comp.LocPhysicalQuality,
                                         ("color", colorHex),
@@ -1025,6 +1025,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             if (ContainerSystem.TryGetContainer(entity, $"solution@{name}", out var solutionContainer))
                 ContainerSystem.ShutdownContainer(solutionContainer);
         }
+
         entity.Comp.Containers.Clear();
     }
 
@@ -1083,6 +1084,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             solution = solEnt!.Value.Comp.Solution;
             return true;
         }
+
         solution = EnsureSolutionPrototype((uid, manager), name, maxVol, prototype, out existed);
         return true;
     }
@@ -1117,8 +1119,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         out bool existed,
         [NotNullWhen(true)] out Entity<SolutionComponent>? solutionEntity,
         FixedPoint2 maxVol = default,
-        Solution? prototype = null
-        )
+        Solution? prototype = null)
     {
         existed = true;
         solutionEntity = null;
@@ -1239,6 +1240,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         {
             dissolvedSol.RemoveReagent(reagent, amtChange);
         }
+
         UpdateChemicals(dissolvedSolution);
     }
 

@@ -82,6 +82,7 @@ public sealed class EnvelopeSystem : EntitySystem
         if (_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out var doAfterId))
             ent.Comp.EnvelopeDoAfter = doAfterId;
     }
+
     private void OnDoAfter(Entity<EnvelopeComponent> ent, ref EnvelopeDoAfterEvent args)
     {
         ent.Comp.EnvelopeDoAfter = null;

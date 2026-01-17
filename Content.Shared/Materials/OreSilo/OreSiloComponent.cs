@@ -51,5 +51,5 @@ public sealed class ToggleOreSiloClientMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public enum OreSiloUiKey : byte
 {
-    Key
+    Key,
 }

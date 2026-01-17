@@ -55,8 +55,7 @@ public sealed class XATDamageThresholdReachedSystem : BaseXATSystem<XATDamageThr
 
     private void InvokeTrigger(
         Entity<XenoArtifactComponent> artifact,
-        Entity<XATDamageThresholdReachedComponent, XenoArtifactNodeComponent> node
-    )
+        Entity<XATDamageThresholdReachedComponent, XenoArtifactNodeComponent> node)
     {
         var damageTriggerComponent = node.Comp1;
         damageTriggerComponent.AccumulatedDamage.DamageDict.Clear();

@@ -35,7 +35,7 @@ public sealed partial class ShakeableSystem : EntitySystem
         var shakeVerb = new Verb()
         {
             Text = Loc.GetString(component.ShakeVerbText),
-            Act = () => TryStartShake((args.Target, component), args.User)
+            Act = () => TryStartShake((args.Target, component), args.User),
         };
         args.Verbs.Add(shakeVerb);
     }

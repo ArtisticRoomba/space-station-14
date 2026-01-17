@@ -5,7 +5,7 @@ namespace Content.Shared.Atmos.Monitor.Components;
 [Serializable, NetSerializable]
 public enum SharedAirAlarmInterfaceKey
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
@@ -24,7 +24,7 @@ public enum AirAlarmWireStatus
     Power,
     Access,
     Panic,
-    DeviceSync
+    DeviceSync,
 }
 
 public interface IAtmosDeviceData
@@ -54,6 +54,7 @@ public sealed class AirAlarmUIState : BoundUserInterfaceState
     public int DeviceCount { get; }
     public float PressureAverage { get; }
     public float TemperatureAverage { get; }
+
     /// <summary>
     ///     Every single device data that can be seen from this
     ///     air alarm. This includes vents, scrubbers, and sensors.

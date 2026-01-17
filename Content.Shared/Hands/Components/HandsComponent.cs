@@ -137,7 +137,6 @@ public partial record struct Hand
 
     public Hand()
     {
-
     }
 
     public Hand(HandLocation location, LocId? emptyLabel = null, EntProtoId? emptyRepresentative = null, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
@@ -175,7 +174,7 @@ public enum HandLocation : byte
 {
     Left,
     Middle,
-    Right
+    Right,
 }
 
 /// <summary>
@@ -186,7 +185,7 @@ public enum HandLocation : byte
 public enum HandUILocation : byte
 {
     Left,
-    Right
+    Right,
 }
 
 /// <summary>
@@ -205,7 +204,7 @@ public static class HandLocationExt
             HandLocation.Left => HandUILocation.Left,
             HandLocation.Middle => HandUILocation.Right,
             HandLocation.Right => HandUILocation.Right,
-            _ => throw new ArgumentOutOfRangeException(nameof(location), location, null)
+            _ => throw new ArgumentOutOfRangeException(nameof(location), location, null),
         };
     }
 }

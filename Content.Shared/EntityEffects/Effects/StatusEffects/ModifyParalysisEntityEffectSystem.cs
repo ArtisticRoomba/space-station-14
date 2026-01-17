@@ -45,6 +45,5 @@ public sealed partial class ModifyParalysis : BaseStatusEntityEffect<ModifyParal
             : Loc.GetString(
             "entity-effect-guidebook-paralyze",
             ("chance", Probability),
-            ("time", Time.Value.TotalSeconds)
-        );
+            ("time", Time.Value.TotalSeconds));
 }

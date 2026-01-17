@@ -18,12 +18,12 @@ namespace Content.Shared.Physics.Controllers;
 public abstract class SharedConveyorController : VirtualController
 {
     [Dependency] protected readonly IMapManager MapManager = default!;
-    [Dependency] private   readonly IParallelManager _parallel = default!;
-    [Dependency] private   readonly CollisionWakeSystem _wake = default!;
+    [Dependency] private readonly IParallelManager _parallel = default!;
+    [Dependency] private readonly CollisionWakeSystem _wake = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
-    [Dependency] private   readonly FixtureSystem _fixtures = default!;
-    [Dependency] private   readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private   readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly FixtureSystem _fixtures = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly SharedMoverController _mover = default!;
 
     protected const string ConveyorFixture = "conveyor";
 
@@ -58,7 +58,7 @@ public abstract class SharedConveyorController : VirtualController
 
     private void OnConveyedFriction(Entity<ConveyedComponent> ent, ref TileFrictionEvent args)
     {
-        if(!ent.Comp.Conveying)
+        if (!ent.Comp.Conveying)
             return;
 
         // Conveyed entities don't get friction, they just get wishdir applied so will inherently slowdown anyway.
@@ -320,6 +320,7 @@ public abstract class SharedConveyorController : VirtualController
 
         return true;
     }
+
     private static Vector2 Convey(Vector2 direction, float speed, Vector2 itemRelative)
     {
         if (speed == 0 || direction.LengthSquared() == 0)

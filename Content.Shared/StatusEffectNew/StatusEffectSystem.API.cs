@@ -24,8 +24,7 @@ public sealed partial class StatusEffectsSystem
         EntProtoId effectProto,
         [NotNullWhen(true)] out EntityUid? statusEffect,
         TimeSpan duration,
-        TimeSpan? delay = null
-    )
+        TimeSpan? delay = null)
     {
         if (duration == TimeSpan.Zero)
         {
@@ -65,8 +64,7 @@ public sealed partial class StatusEffectsSystem
         EntProtoId effectProto,
         [NotNullWhen(true)] out EntityUid? statusEffect,
         TimeSpan? duration = null,
-        TimeSpan? delay = null
-    )
+        TimeSpan? delay = null)
     {
         if (duration <= TimeSpan.Zero)
         {
@@ -108,8 +106,7 @@ public sealed partial class StatusEffectsSystem
         EntProtoId effectProto,
         [NotNullWhen(true)] out EntityUid? statusEffect,
         TimeSpan? duration = null,
-        TimeSpan? delay = null
-    )
+        TimeSpan? delay = null)
     {
         if (duration <= TimeSpan.Zero)
         {
@@ -214,8 +211,7 @@ public sealed partial class StatusEffectsSystem
         EntityUid uid,
         EntProtoId effectProto,
         out (EntityUid EffectEnt, TimeSpan? EndEffectTime, TimeSpan? StartEffectTime) time,
-        StatusEffectContainerComponent? container = null
-    )
+        StatusEffectContainerComponent? container = null)
     {
         time = default;
         if (!Resolve(uid, ref container))
@@ -245,7 +241,8 @@ public sealed partial class StatusEffectsSystem
     /// <param name="time">Returns the EntityUid of the status effect with the most time left, and the end effect time
     /// of that status effect.</param>
     /// <returns> True if a status effect entity with the given component exists</returns>
-    public bool TryGetMaxTime<T>(EntityUid uid, out (EntityUid EffectEnt, TimeSpan? EndEffectTime) time) where T : IComponent
+    public bool TryGetMaxTime<T>(EntityUid uid, out (EntityUid EffectEnt, TimeSpan? EndEffectTime) time)
+        where T : IComponent
     {
         time = default;
         if (!TryEffectsWithComp<T>(uid, out var status))
@@ -264,6 +261,7 @@ public sealed partial class StatusEffectsSystem
             if (effect.Comp2.EndEffectTime > time.EndEffectTime)
                 time = (effect.Owner, effect.Comp2.EndEffectTime);
         }
+
         return true;
     }
 
@@ -291,6 +289,7 @@ public sealed partial class StatusEffectsSystem
                 return true;
             }
         }
+
         return false;
     }
 
@@ -330,13 +329,15 @@ public sealed partial class StatusEffectsSystem
                 return true;
             }
         }
+
         return false;
     }
 
     /// <summary>
     /// Checks if the specified component is present on any of the entity's status effects.
     /// </summary>
-    public bool HasEffectComp<T>(EntityUid? target) where T : IComponent
+    public bool HasEffectComp<T>(EntityUid? target)
+        where T : IComponent
     {
         if (!_containerQuery.TryComp(target, out var container))
             return false;
@@ -354,7 +355,8 @@ public sealed partial class StatusEffectsSystem
     /// Returns all status effects that have the specified component.
     /// </summary>
     /// <returns>Returns true if any entity with the specified component is found.</returns>
-    public bool TryEffectsWithComp<T>(EntityUid? target, [NotNullWhen(true)] out HashSet<Entity<T, StatusEffectComponent>>? effects) where T : IComponent
+    public bool TryEffectsWithComp<T>(EntityUid? target, [NotNullWhen(true)] out HashSet<Entity<T, StatusEffectComponent>>? effects)
+        where T : IComponent
     {
         effects = null;
         if (!_containerQuery.TryComp(target, out var container))
@@ -381,7 +383,8 @@ public sealed partial class StatusEffectsSystem
     /// <param name="target">An entity from which status effects are checked.</param>
     /// <param name="endTime">The farthest end time of effects with this component is returned. Can be null if one of the effects is infinite.</param>
     /// <returns>True if effects with the specified component were found, or False if there are no such effects.</returns>
-    public bool TryGetEffectsEndTimeWithComp<T>(EntityUid? target, out TimeSpan? endTime) where T : IComponent
+    public bool TryGetEffectsEndTimeWithComp<T>(EntityUid? target, out TimeSpan? endTime)
+        where T : IComponent
     {
         endTime = _timing.CurTime;
         if (!_containerQuery.TryComp(target, out var container))
@@ -398,7 +401,7 @@ public sealed partial class StatusEffectsSystem
             if (statusComp.EndEffectTime is null)
             {
                 endTime = null;
-                return true; //This effect never ends, so we return null at endTime, but return true that there is time.
+                return true; // This effect never ends, so we return null at endTime, but return true that there is time.
             }
 
             if (statusComp.EndEffectTime > endTime)

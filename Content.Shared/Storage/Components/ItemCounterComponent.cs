@@ -3,7 +3,6 @@ using Content.Shared.Whitelist;
 
 namespace Content.Shared.Storage.Components
 {
-
     /// <summary>
     /// Storage that spawns and counts a single item.
     /// Usually used for things like matchboxes, cigarette packs,

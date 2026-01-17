@@ -65,7 +65,7 @@ public sealed partial class SmartFridgeComponent : Component
         {
             Volume = -4f,
             Variation = 0.15f
-        }
+        },
     };
 
     /// <summary>

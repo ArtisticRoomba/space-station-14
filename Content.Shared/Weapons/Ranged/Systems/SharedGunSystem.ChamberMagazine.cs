@@ -85,7 +85,7 @@ public abstract partial class SharedGunSystem
             Act = () =>
             {
                 UseChambered(uid, component, args.User);
-            }
+            },
         });
     }
 
@@ -139,7 +139,7 @@ public abstract partial class SharedGunSystem
             {
                 // Just toggling might be more user friendly instead of trying to set to whatever they think?
                 ToggleBolt(uid, component, args.User);
-            }
+            },
         });
     }
 

@@ -14,7 +14,7 @@ public sealed partial class StickyVisualizerComponent : Component
     /// What sprite draw depth gets set to when stuck to something.
     /// </summary>
     [DataField]
-    public int StuckDrawDepth = (int) DrawDepth.Overdoors;
+    public int StuckDrawDepth = (int)DrawDepth.Overdoors;
 
     /// <summary>
     /// The sprite's original draw depth before being stuck.
@@ -26,5 +26,5 @@ public sealed partial class StickyVisualizerComponent : Component
 [Serializable, NetSerializable]
 public enum StickyVisuals : byte
 {
-    IsStuck
+    IsStuck,
 }

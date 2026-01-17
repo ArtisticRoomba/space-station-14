@@ -42,7 +42,7 @@ public ref struct LogStringHandler
 
         format = Logger.ConvertName(format);
         if (Values.TryAdd(format, value)
-            || Values[format] is T val && val.Equals(value) )
+            || Values[format] is T val && val.Equals(value))
         {
             return;
         }

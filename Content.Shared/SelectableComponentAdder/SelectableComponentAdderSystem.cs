@@ -61,6 +61,7 @@ public sealed partial class SelectableComponentAdderSystem : EntitySystem
                     if (!EntityManager.HasComponent(target, Factory.GetComponent(component.Key).GetType()))
                         return false;
                 }
+
                 return true;
             case ComponentExistsSetting.Replace:
                 // always allow the verb
@@ -72,6 +73,7 @@ public sealed partial class SelectableComponentAdderSystem : EntitySystem
                     if (EntityManager.HasComponent(target, Factory.GetComponent(component.Key).GetType()))
                         return true;
                 }
+
                 return false;
             default:
                 throw new NotImplementedException();

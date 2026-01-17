@@ -151,5 +151,5 @@ public sealed class DoorRemoteModeChangeMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public enum DoorRemoteUiKey : byte
 {
-    Key
+    Key,
 }

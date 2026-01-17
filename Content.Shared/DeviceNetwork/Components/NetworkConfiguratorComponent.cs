@@ -11,6 +11,7 @@ namespace Content.Shared.DeviceNetwork.Components;
 public sealed partial class NetworkConfiguratorComponent : Component
 {
     // AAAAA ALL OF THESE FAA
+
     /// <summary>
     /// Determines whether the configurator is in linking mode or list mode
     /// </summary>

@@ -49,5 +49,5 @@ public sealed class FundingAllocationConsoleBuiState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public enum FundingAllocationConsoleUiKey : byte
 {
-    Key
+    Key,
 }

@@ -28,6 +28,7 @@ public abstract partial class EntityEffect
     public virtual bool Scaling { get; private set; } = true;
 
     // TODO: This should be an entity condition but guidebook relies on it heavily for formatting...
+
     /// <summary>
     /// Probability of the effect occuring.
     /// </summary>
@@ -50,7 +51,8 @@ public abstract partial class EntityEffect
 /// Used to store an <see cref="EntityEffect"/> so it can be raised without losing the type of the condition.
 /// </summary>
 /// <typeparam name="T">The Condition wer are raising.</typeparam>
-public abstract partial class EntityEffectBase<T> : EntityEffect where T : EntityEffectBase<T>
+public abstract partial class EntityEffectBase<T> : EntityEffect
+    where T : EntityEffectBase<T>
 {
     public override void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user)
     {

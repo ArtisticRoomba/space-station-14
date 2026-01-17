@@ -180,6 +180,7 @@ public sealed partial class TriggerSystem : EntitySystem
 
         return ent.Comp.NextTrigger - _timing.CurTime;
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);

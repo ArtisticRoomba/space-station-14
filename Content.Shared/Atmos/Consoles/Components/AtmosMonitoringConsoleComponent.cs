@@ -253,5 +253,5 @@ public enum AtmosPipeChunkDataFacing : byte
 [Serializable, NetSerializable]
 public enum AtmosMonitoringConsoleUiKey
 {
-    Key
+    Key,
 }

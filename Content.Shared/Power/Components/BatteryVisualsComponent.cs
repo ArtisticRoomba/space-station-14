@@ -23,6 +23,7 @@ public enum BatteryVisuals : byte
     /// Uses a <see cref="BatteryState"/>.
     /// </summary>
     State,
+
     /// <summary>
     /// Is the battery currently charging or discharging?
     /// Uses a <see cref="BatteryChargingState"/>.
@@ -40,10 +41,12 @@ public enum BatteryChargingState : byte
     /// BatteryComponent.ChargeRate &gt; 0
     /// </summary>
     Charging,
+
     /// <summary>
     /// BatteryComponent.ChargeRate &lt; 0
     /// </summary>
     Decharging,
+
     /// <summary>
     /// BatteryComponent.ChargeRate == 0
     /// </summary>

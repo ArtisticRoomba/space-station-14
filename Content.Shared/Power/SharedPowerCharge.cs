@@ -48,7 +48,7 @@ public sealed class PowerChargeState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public enum PowerChargeUiKey
 {
-    Key
+    Key,
 }
 
 [Serializable, NetSerializable]
@@ -56,7 +56,7 @@ public enum PowerChargeVisuals
 {
     State,
     Charge,
-    Active
+    Active,
 }
 
 [Serializable, NetSerializable]
@@ -65,7 +65,7 @@ public enum PowerChargeStatus
     Broken,
     Unpowered,
     Off,
-    On
+    On,
 }
 
 [Serializable, NetSerializable]
@@ -74,5 +74,5 @@ public enum PowerChargePowerStatus : byte
     Off,
     Discharging,
     Charging,
-    FullyCharged
+    FullyCharged,
 }

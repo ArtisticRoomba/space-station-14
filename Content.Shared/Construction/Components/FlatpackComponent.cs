@@ -42,10 +42,10 @@ public sealed partial class FlatpackComponent : Component
 [Serializable, NetSerializable]
 public enum FlatpackVisuals : byte
 {
-    Machine
+    Machine,
 }
 
 public enum FlatpackVisualLayers : byte
 {
-    Overlay
+    Overlay,
 }

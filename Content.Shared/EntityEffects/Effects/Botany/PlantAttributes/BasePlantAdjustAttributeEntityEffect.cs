@@ -8,7 +8,8 @@ namespace Content.Shared.EntityEffects.Effects.Botany.PlantAttributes;
 /// </summary>
 /// <typeparam name="T">The effect inheriting this BaseEffect</typeparam>
 /// <inheritdoc cref="EntityEffect"/>
-public abstract partial class BasePlantAdjustAttribute<T> : EntityEffectBase<T> where T : BasePlantAdjustAttribute<T>
+public abstract partial class BasePlantAdjustAttribute<T> : EntityEffectBase<T>
+    where T : BasePlantAdjustAttribute<T>
 {
     /// <summary>
     /// How much we're adjusting the given attribute by.

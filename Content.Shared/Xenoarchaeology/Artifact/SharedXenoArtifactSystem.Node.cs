@@ -10,7 +10,7 @@ namespace Content.Shared.Xenoarchaeology.Artifact;
 
 public abstract partial class SharedXenoArtifactSystem
 {
-    [Dependency] private readonly EntityTableSystem _entityTable =  default!;
+    [Dependency] private readonly EntityTableSystem _entityTable = default!;
 
     private EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
     private EntityQuery<XenoArtifactNodeComponent> _nodeQuery;
@@ -310,8 +310,7 @@ public abstract partial class SharedXenoArtifactSystem
         var segments = GetSegmentsFromNodes((ent, ent.Comp), entities);
         var netEntities = segments.Select(
             s => s.Select(n => GetNetEntity(n))
-                  .ToList()
-        );
+                  .ToList());
         ent.Comp.CachedSegments.AddRange(netEntities);
 
         Dirty(ent);
@@ -344,8 +343,7 @@ public abstract partial class SharedXenoArtifactSystem
         Entity<XenoArtifactComponent> ent,
         Entity<XenoArtifactNodeComponent> node,
         List<Entity<XenoArtifactNodeComponent>> segment,
-        List<List<Entity<XenoArtifactNodeComponent>>> otherSegments
-    )
+        List<List<Entity<XenoArtifactNodeComponent>>> otherSegments)
     {
         if (otherSegments.Any(s => s.Contains(node)))
             return;

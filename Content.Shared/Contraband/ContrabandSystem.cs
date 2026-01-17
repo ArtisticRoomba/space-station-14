@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
@@ -7,7 +8,6 @@ using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Linq;
 
 namespace Content.Shared.Contraband;
 
@@ -46,7 +46,6 @@ public sealed class ContrabandSystem : EntitySystem
 
     private void OnDetailedExamine(EntityUid ent, ContrabandComponent component, ref GetVerbsEvent<ExamineVerb> args)
     {
-
         if (!_contrabandExamineEnabled)
             return;
 
@@ -102,6 +101,7 @@ public sealed class ContrabandSystem : EntitySystem
             carryingMessage = Loc.GetString("contraband-examine-text-in-the-clear");
             iconTexture = "/Textures/Interface/VerbIcons/unlock-green.svg.192dpi.png";
         }
+
         var examineMarkup = GetContrabandExamine(departmentExamineMessage, carryingMessage);
         _examine.AddHoverExamineVerb(args,
             component,
@@ -116,7 +116,7 @@ public sealed class ContrabandSystem : EntitySystem
         var jobs = allowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
         var localizedJobs = jobs.Select(p => Loc.GetString("contraband-job-plural", ("job", p)));
 
-        //creating a combined list of jobs and departments for the restricted text
+        // creating a combined list of jobs and departments for the restricted text
         var list = ContentLocalizationManager.FormatList(localizedDepartments.Concat(localizedJobs).ToList());
 
         // department restricted text
@@ -149,5 +149,5 @@ public sealed class ContrabandSystem : EntitySystem
 public enum ContrabandItemType
 {
     Item,
-    Reagent
+    Reagent,
 }

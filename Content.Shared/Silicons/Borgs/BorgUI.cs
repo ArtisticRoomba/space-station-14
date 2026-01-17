@@ -5,7 +5,7 @@ namespace Content.Shared.Silicons.Borgs;
 [Serializable, NetSerializable]
 public enum BorgUiKey : byte
 {
-    Key
+    Key,
 }
 
 /// <summary>

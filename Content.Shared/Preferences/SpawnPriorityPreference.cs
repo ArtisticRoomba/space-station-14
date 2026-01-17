@@ -6,6 +6,7 @@ namespace Content.Shared.Preferences
     public enum SpawnPriorityPreference
     {
         ///////////////////////
+
         /// DO NOT TOUCH!!! ///
         ///////////////////////
         None = 0,

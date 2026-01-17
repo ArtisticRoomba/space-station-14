@@ -73,7 +73,7 @@ public sealed partial class TriggerSystem
             Category = TimerOptions,
             Text = Loc.GetString("timer-trigger-verb-cycle"),
             Act = () => CycleDelay(ent, user),
-            Priority = 1
+            Priority = 1,
         });
 
         foreach (var option in ent.Comp.DelayOptions)
@@ -85,7 +85,7 @@ public sealed partial class TriggerSystem
                     Category = TimerOptions,
                     Text = Loc.GetString("timer-trigger-verb-set-current", ("time", option.TotalSeconds)),
                     Disabled = true,
-                    Priority = -100 * (int)option.TotalSeconds
+                    Priority = -100 * (int)option.TotalSeconds,
                 });
             }
             else
@@ -100,7 +100,7 @@ public sealed partial class TriggerSystem
                         ent.Comp.Delay = option;
                         Dirty(ent);
                         _popup.PopupClient(Loc.GetString("timer-trigger-popup-set", ("time", option.TotalSeconds)), user, user);
-                    }
+                    },
                 });
             }
         }

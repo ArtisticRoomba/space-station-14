@@ -15,7 +15,7 @@ public sealed class WeatherTriggerSystem : XOnTriggerSystem<WeatherOnTriggerComp
     {
         var xform = Transform(target);
 
-        if (ent.Comp.Weather == null) //Clear weather if nothing is set
+        if (ent.Comp.Weather == null) // Clear weather if nothing is set
         {
             _weather.SetWeather(xform.MapID, null, null);
             return;
