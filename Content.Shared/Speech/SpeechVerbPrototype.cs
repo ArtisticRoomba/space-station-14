@@ -19,19 +19,19 @@ public sealed partial class SpeechVerbPrototype : IPrototype
     public List<string> SpeechVerbStrings = default!;
 
     /// <summary>
-    ///     Should use of this speech verb bold the corresponding message?
+    ///     Should use of this speech verb bold the corresponding message?.
     /// </summary>
     [DataField("bold")]
     public bool Bold = false;
 
     /// <summary>
-    ///     What font size should be used for the message contents?
+    ///     What font size should be used for the message contents?.
     /// </summary>
     [DataField("fontSize")]
     public int FontSize = 12;
 
     /// <summary>
-    ///     What font prototype ID should be used for the message contents?
+    ///     What font prototype ID should be used for the message contents?.
     /// </summary>
     /// font proto is client only so cant lint this lol sorry
     [DataField("fontId")]

@@ -204,7 +204,7 @@ public abstract class SharedResearchSystem : EntitySystem
     /// <summary>
     ///     Returns whether a technology is unlocked on this database or not.
     /// </summary>
-    /// <returns>Whether it is unlocked or not</returns>
+    /// <returns>Whether it is unlocked or not.</returns>
     public bool IsTechnologyUnlocked(EntityUid uid, TechnologyPrototype technology, TechnologyDatabaseComponent? component = null)
     {
         return Resolve(uid, ref component) && IsTechnologyUnlocked(uid, technology.ID, component);
@@ -213,7 +213,7 @@ public abstract class SharedResearchSystem : EntitySystem
     /// <summary>
     ///     Returns whether a technology is unlocked on this database or not.
     /// </summary>
-    /// <returns>Whether it is unlocked or not</returns>
+    /// <returns>Whether it is unlocked or not.</returns>
     public bool IsTechnologyUnlocked(EntityUid uid, string technologyId, TechnologyDatabaseComponent? component = null)
     {
         return Resolve(uid, ref component, false) && component.UnlockedTechnologies.Contains(technologyId);

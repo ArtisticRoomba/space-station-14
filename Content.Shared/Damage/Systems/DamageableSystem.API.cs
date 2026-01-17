@@ -186,10 +186,10 @@ public sealed partial class DamageableSystem
     /// If one of the damage types of the entity is too low. it will heal that completly and distribute the excess healing among the other damage types.
     /// If the <see cref="amount"/> is larger than the total damage of the entity then it just clears all damage.
     /// </summary>
-    /// <param name="ent">entity to be healed</param>
-    /// <param name="amount">how much to heal. value has to be negative to heal</param>
-    /// <param name="group">from which group to heal. if null, heal from all groups</param>
-    /// <param name="origin">who did the healing</param>
+    /// <param name="ent">entity to be healed.</param>
+    /// <param name="amount">how much to heal. value has to be negative to heal.</param>
+    /// <param name="group">from which group to heal. if null, heal from all groups.</param>
+    /// <param name="origin">who did the healing.</param>
     public DamageSpecifier HealEvenly(
         Entity<DamageableComponent?> ent,
         FixedPoint2 amount,
@@ -260,10 +260,10 @@ public sealed partial class DamageableSystem
     /// (the weight is how much damage of the type there is)
     /// If the <see cref="amount"/> is larger than the total damage of the entity then it just clears all damage.
     /// </summary>
-    /// <param name="ent">entity to be healed</param>
-    /// <param name="amount">how much to heal. value has to be negative to heal</param>
-    /// <param name="group">from which group to heal. if null, heal from all groups</param>
-    /// <param name="origin">who did the healing</param>
+    /// <param name="ent">entity to be healed.</param>
+    /// <param name="amount">how much to heal. value has to be negative to heal.</param>
+    /// <param name="group">from which group to heal. if null, heal from all groups.</param>
+    /// <param name="origin">who did the healing.</param>
     public DamageSpecifier HealDistributed(
         Entity<DamageableComponent?> ent,
         FixedPoint2 amount,
@@ -295,11 +295,11 @@ public sealed partial class DamageableSystem
     /// <summary>
     /// Tries to get damage from an entity with an optional group specifier.
     /// </summary>
-    /// <param name="ent">Entity we're checking the damage on</param>
-    /// <param name="amount">Amount we want the damage to be greater than ideally</param>
-    /// <param name="damage">Damage specifier we're returning with</param>
+    /// <param name="ent">Entity we're checking the damage on.</param>
+    /// <param name="amount">Amount we want the damage to be greater than ideally.</param>
+    /// <param name="damage">Damage specifier we're returning with.</param>
     /// <param name="group">An optional group, note that if it fails to index it will just use all damage.</param>
-    /// <returns>True if the total damage is greater than the specified amount</returns>
+    /// <returns>True if the total damage is greater than the specified amount.</returns>
     public bool TryGetDamageGreaterThan(Entity<DamageableComponent> ent,
         FixedPoint2 amount,
         out DamageSpecifier damage,
@@ -313,10 +313,10 @@ public sealed partial class DamageableSystem
     }
 
     /// <summary>
-    /// Returns a <see cref="DamageSpecifier"/> with all positive damage of the entity from the group specified
+    /// Returns a <see cref="DamageSpecifier"/> with all positive damage of the entity from the group specified.
     /// </summary>
-    /// <param name="ent">entity with damage</param>
-    /// <param name="group">group of damage to get values from</param>
+    /// <param name="ent">entity with damage.</param>
+    /// <param name="group">group of damage to get values from.</param>
     /// <returns></returns>
     public DamageSpecifier GetDamage(Entity<DamageableComponent> ent, ProtoId<DamageGroupPrototype> group)
     {
@@ -339,9 +339,9 @@ public sealed partial class DamageableSystem
     }
 
     /// <summary>
-    /// Returns a <see cref="DamageSpecifier"/> with all positive damage of the entity
+    /// Returns a <see cref="DamageSpecifier"/> with all positive damage of the entity.
     /// </summary>
-    /// <param name="ent">entity with damage</param>
+    /// <param name="ent">entity with damage.</param>
     /// <returns></returns>
     public DamageSpecifier GetDamage(Entity<DamageableComponent> ent)
     {

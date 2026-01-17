@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Radio.Components;
 
 /// <summary>
-///     Listens for local chat messages and relays them to some radio frequency
+///     Listens for local chat messages and relays them to some radio frequency.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedRadioDeviceSystem))]
@@ -33,7 +33,7 @@ public sealed partial class RadioMicrophoneComponent : Component
 
     /// <summary>
     /// Whether or not the speaker must have an
-    /// unobstructed path to the radio to speak
+    /// unobstructed path to the radio to speak.
     /// </summary>
     [DataField]
     public bool UnobstructedRequired = false;

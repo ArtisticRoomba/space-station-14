@@ -9,7 +9,7 @@ namespace Content.Shared.Eye.Blinding.Components;
 public sealed partial class BlindableComponent : Component
 {
     /// <summary>
-    /// How many seconds will be subtracted from each attempt to add blindness to us?
+    /// How many seconds will be subtracted from each attempt to add blindness to us?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("isBlind"), AutoNetworkedField]
     public bool IsBlind;
@@ -38,7 +38,7 @@ public sealed partial class BlindableComponent : Component
     public bool LightSetup = false;
 
     /// <description>
-    /// Gives an extra frame of blindness to reenable light manager during
+    /// Gives an extra frame of blindness to reenable light manager during.
     /// </description>
     [Access(Other = AccessPermissions.ReadWriteExecute)]
     public bool GraceFrame = false;

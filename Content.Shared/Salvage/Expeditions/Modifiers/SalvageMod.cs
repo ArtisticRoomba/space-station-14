@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Salvage.Expeditions.Modifiers;
 
 /// <summary>
-/// Generic modifiers with no additional data
+/// Generic modifiers with no additional data.
 /// </summary>
 [Prototype("salvageMod")]
 public sealed partial class SalvageMod : IPrototype, ISalvageMod

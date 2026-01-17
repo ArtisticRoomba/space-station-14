@@ -10,7 +10,7 @@ namespace Content.Shared.Silicons.Laws.Components;
 public sealed partial class SiliconLawUpdaterComponent : Component
 {
     /// <summary>
-    /// Entities to update
+    /// Entities to update.
     /// </summary>
     [DataField(required: true)]
     public ComponentRegistry Components;

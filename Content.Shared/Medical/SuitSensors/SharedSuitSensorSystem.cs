@@ -268,8 +268,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     /// Works instantly if the user is the player wearing the sensors and will start a DoAfter otherwise.
     /// </summary>
     /// <param name="sensors">Entity and its component that should be changed.</param>
-    /// <param name="mode">Selected mode</param>
-    /// <param name="userUid">userUid, when not equal to the <see cref="SuitSensorComponent.User"/>, creates doafter</param>
+    /// <param name="mode">Selected mode.</param>
+    /// <param name="userUid">userUid, when not equal to the <see cref="SuitSensorComponent.User"/>, creates doafter.</param>
     public bool TrySetSensor(Entity<SuitSensorComponent?> sensors, SuitSensorMode mode, EntityUid userUid)
     {
         if (!Resolve(sensors, ref sensors.Comp, false))
@@ -302,7 +302,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     /// <summary>
     /// Sets mode of the <see cref="SuitSensorComponent"/> of the chosen entity.
-    /// Makes popup when <param name="userUid"> not null
+    /// Makes popup when. <param name="userUid"> not null
     /// </summary>
     /// <param name="sensors">Entity and it's component that should be changed</param>
     /// <param name="mode">Selected mode</param>
@@ -337,10 +337,10 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     }
 
     /// <summary>
-    /// Attempts to get full <see cref="SuitSensorStatus"/> from the <see cref="SuitSensorComponent"/>
+    /// Attempts to get full <see cref="SuitSensorStatus"/> from the <see cref="SuitSensorComponent"/>.
     /// </summary>
-    /// <param name="uid">Entity to get status</param>
-    /// <returns>Full <see cref="SuitSensorStatus"/> of the chosen uid</returns>
+    /// <param name="uid">Entity to get status.</param>
+    /// <returns>Full <see cref="SuitSensorStatus"/> of the chosen uid.</returns>
     public SuitSensorStatus? GetSensorState(Entity<SuitSensorComponent?, TransformComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))

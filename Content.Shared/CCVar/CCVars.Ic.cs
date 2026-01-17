@@ -47,7 +47,7 @@ public sealed partial class CCVars
         CVarDef.Create("ic.punctuation", false, CVar.SERVER);
 
     /// <summary>
-    ///     Enables automatically forcing IC name rules. Uppercases the first letter of the first and last words of the name
+    ///     Enables automatically forcing IC name rules. Uppercases the first letter of the first and last words of the name.
     /// </summary>
     public static readonly CVarDef<bool> ICNameCase =
         CVarDef.Create("ic.name_case", true, CVar.SERVER | CVar.REPLICATED);
@@ -73,20 +73,20 @@ public sealed partial class CCVars
         CVarDef.Create("ic.blacklist_species_new_account", "Diona,Vulpkanin,Vox,SlimePerson", CVar.SERVER);
 
     /// <summary>
-    ///     Control displaying SSD indicators near players
+    ///     Control displaying SSD indicators near players.
     /// </summary>
     public static readonly CVarDef<bool> ICShowSSDIndicator =
         CVarDef.Create("ic.show_ssd_indicator", true, CVar.CLIENTONLY);
 
     /// <summary>
-    ///     Forces SSD characters to sleep after ICSSDSleepTime seconds
+    ///     Forces SSD characters to sleep after ICSSDSleepTime seconds.
     /// </summary>
     public static readonly CVarDef<bool> ICSSDSleep =
         CVarDef.Create("ic.ssd_sleep", true, CVar.SERVER);
 
     /// <summary>
     ///     Time between character getting SSD status and falling asleep
-    ///     Won't work without ICSSDSleep
+    ///     Won't work without ICSSDSleep.
     /// </summary>
     public static readonly CVarDef<float> ICSSDSleepTime =
         CVarDef.Create("ic.ssd_sleep_time", 600f, CVar.SERVER);

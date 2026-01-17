@@ -6,7 +6,7 @@ namespace Content.Shared.EntityEffects.Effects.Botany.PlantAttributes;
 /// A type of <see cref="EntityEffectBase{T}"/> which modifies the attribute of a Seed in a PlantHolder.
 /// These are not modified by scale as botany has no concept of scale.
 /// </summary>
-/// <typeparam name="T">The effect inheriting this BaseEffect</typeparam>
+/// <typeparam name="T">The effect inheriting this BaseEffect.</typeparam>
 /// <inheritdoc cref="EntityEffect"/>
 public abstract partial class BasePlantAdjustAttribute<T> : EntityEffectBase<T>
     where T : BasePlantAdjustAttribute<T>

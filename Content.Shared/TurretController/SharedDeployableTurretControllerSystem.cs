@@ -9,7 +9,7 @@ namespace Content.Shared.TurretController;
 
 /// <summary>
 /// Oversees entities that can change the component values of linked deployable turrets,
-/// specifically their armament and access level exemptions, via an associated UI
+/// specifically their armament and access level exemptions, via an associated UI.
 /// </summary>
 public abstract partial class SharedDeployableTurretControllerSystem : EntitySystem
 {

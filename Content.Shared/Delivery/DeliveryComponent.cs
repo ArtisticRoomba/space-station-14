@@ -31,7 +31,7 @@ public sealed partial class DeliveryComponent : Component
     public int BaseSpesoReward = 500;
 
     /// <summary>
-    /// The base amount of spesos that will be removed from the station bank account on a penalized delivery
+    /// The base amount of spesos that will be removed from the station bank account on a penalized delivery.
     /// </summary>
     [DataField, AutoNetworkedField]
     public int BaseSpesoPenalty = 250;
@@ -57,7 +57,7 @@ public sealed partial class DeliveryComponent : Component
     public EntityUid? RecipientStation;
 
     /// <summary>
-    /// The bank account ID of the account to subtract funds from in case of penalization
+    /// The bank account ID of the account to subtract funds from in case of penalization.
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<CargoAccountPrototype> PenaltyBankAccount = "Cargo";

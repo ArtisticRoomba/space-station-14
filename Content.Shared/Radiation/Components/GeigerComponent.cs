@@ -27,14 +27,14 @@ public sealed partial class GeigerComponent : Component
     public bool IsEnabled;
 
     /// <summary>
-    ///     Should it shows examine message with current radiation level?
+    ///     Should it shows examine message with current radiation level?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public bool ShowExamine;
 
     /// <summary>
-    ///     Should it shows item control when equipped by player?
+    ///     Should it shows item control when equipped by player?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
@@ -85,7 +85,7 @@ public sealed partial class GeigerComponent : Component
     public EntityUid? Stream;
 
     /// <summary>
-    ///     Mark true if the audio should be heard by everyone around the device
+    ///     Mark true if the audio should be heard by everyone around the device.
     /// </summary>
     [DataField]
     public bool BroadcastAudio = false;

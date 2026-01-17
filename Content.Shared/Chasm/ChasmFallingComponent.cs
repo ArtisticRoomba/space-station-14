@@ -17,7 +17,7 @@ public sealed partial class ChasmFallingComponent : Component
     public TimeSpan AnimationTime = TimeSpan.FromSeconds(1.5f);
 
     /// <summary>
-    ///     Time it should take in seconds for the entity to actually delete
+    ///     Time it should take in seconds for the entity to actually delete.
     /// </summary>
     [DataField("deletionTime")]
     public TimeSpan DeletionTime = TimeSpan.FromSeconds(1.8f);
@@ -27,7 +27,7 @@ public sealed partial class ChasmFallingComponent : Component
     public TimeSpan NextDeletionTime = TimeSpan.Zero;
 
     /// <summary>
-    ///     Original scale of the object so it can be restored if the component is removed in the middle of the animation
+    ///     Original scale of the object so it can be restored if the component is removed in the middle of the animation.
     /// </summary>
     public Vector2 OriginalScale = Vector2.Zero;
 

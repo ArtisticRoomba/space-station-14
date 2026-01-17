@@ -28,7 +28,7 @@ public sealed partial class CargoBountyConsoleComponent : Component
     public TimeSpan PrintDelay = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// The sound made when printing occurs
+    /// The sound made when printing occurs.
     /// </summary>
     [DataField("printSound")]
     public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/printer.ogg");

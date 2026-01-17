@@ -28,7 +28,7 @@ public abstract class SharedCartridgeLoaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Marks installed program entities for deletion when the component gets removed
+    /// Marks installed program entities for deletion when the component gets removed.
     /// </summary>
     private void OnComponentRemove(EntityUid uid, CartridgeLoaderComponent loader, ComponentRemove args)
     {
@@ -54,7 +54,7 @@ public abstract class SharedCartridgeLoaderSystem : EntitySystem
 }
 
 /// <summary>
-/// Gets sent to program / cartridge entities when they get inserted or installed
+/// Gets sent to program / cartridge entities when they get inserted or installed.
 /// </summary>
 public sealed class CartridgeAddedEvent : EntityEventArgs
 {
@@ -67,7 +67,7 @@ public sealed class CartridgeAddedEvent : EntityEventArgs
 }
 
 /// <summary>
-/// Gets sent to cartridge entities when they get ejected
+/// Gets sent to cartridge entities when they get ejected.
 /// </summary>
 public sealed class CartridgeRemovedEvent : EntityEventArgs
 {
@@ -80,10 +80,10 @@ public sealed class CartridgeRemovedEvent : EntityEventArgs
 }
 
 /// <summary>
-/// Gets sent to program / cartridge entities when they get activated
+/// Gets sent to program / cartridge entities when they get activated.
 /// </summary>
 /// <remarks>
-/// Don't update the programs ui state in this events listener
+/// Don't update the programs ui state in this events listener.
 /// </remarks>
 public sealed class CartridgeActivatedEvent : EntityEventArgs
 {
@@ -96,7 +96,7 @@ public sealed class CartridgeActivatedEvent : EntityEventArgs
 }
 
 /// <summary>
-/// Gets sent to program / cartridge entities when they get deactivated
+/// Gets sent to program / cartridge entities when they get deactivated.
 /// </summary>
 public sealed class CartridgeDeactivatedEvent : EntityEventArgs
 {
@@ -112,7 +112,7 @@ public sealed class CartridgeDeactivatedEvent : EntityEventArgs
 /// Gets sent to program / cartridge entities when the ui is ready to be updated by the cartridge.
 /// </summary>
 /// <remarks>
-/// This is used for the initial ui state update because updating the ui in the activate event doesn't work
+/// This is used for the initial ui state update because updating the ui in the activate event doesn't work.
 /// </remarks>
 public sealed class CartridgeUiReadyEvent : EntityEventArgs
 {
@@ -126,8 +126,8 @@ public sealed class CartridgeUiReadyEvent : EntityEventArgs
 
 /// <summary>
 /// Gets sent by the cartridge loader system to the cartridge loader entity so another system
-/// can handle displaying the notification
+/// can handle displaying the notification.
 /// </summary>
-/// <param name="Message">The message to be displayed</param>
+/// <param name="Message">The message to be displayed.</param>
 [ByRefEvent]
 public record struct CartridgeLoaderNotificationSentEvent(string Header, string Message);

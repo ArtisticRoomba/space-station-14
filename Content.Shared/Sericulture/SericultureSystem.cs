@@ -51,7 +51,7 @@ public abstract partial class SharedSericultureSystem : EntitySystem
     }
 
     /// <summary>
-    /// Giveths the action to preform sericulture on the entity
+    /// Giveths the action to preform sericulture on the entity.
     /// </summary>
     private void OnMapInit(EntityUid uid, SericultureComponent comp, MapInitEvent args)
     {

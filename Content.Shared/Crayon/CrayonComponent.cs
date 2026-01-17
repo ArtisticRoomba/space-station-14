@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Crayon;
 
 /// <summary>
-/// Component holding the state of a crayon-like component
+/// Component holding the state of a crayon-like component.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedCrayonSystem))]
@@ -30,13 +30,13 @@ public sealed partial class CrayonComponent : Component
     public SoundSpecifier? UseSound;
 
     /// <summary>
-    /// Can the color can be changed?
+    /// Can the color can be changed?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool SelectableColor;
 
     /// <summary>
-    /// Should the crayon be deleted when all charges are consumed?
+    /// Should the crayon be deleted when all charges are consumed?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool DeleteEmpty = true;
@@ -52,7 +52,7 @@ public enum CrayonUiKey : byte
 }
 
 /// <summary>
-/// Used by the client to notify the server about the selected decal ID
+/// Used by the client to notify the server about the selected decal ID.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class CrayonSelectMessage : BoundUserInterfaceMessage
@@ -65,7 +65,7 @@ public sealed class CrayonSelectMessage : BoundUserInterfaceMessage
 }
 
 /// <summary>
-/// Sets the color of the crayon, used by Rainbow Crayon
+/// Sets the color of the crayon, used by Rainbow Crayon.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class CrayonColorMessage : BoundUserInterfaceMessage
@@ -94,7 +94,7 @@ public sealed class CrayonUsedMessage : BoundUserInterfaceMessage
 }
 
 /// <summary>
-/// The state of the crayon UI as sent by the server
+/// The state of the crayon UI as sent by the server.
 /// </summary>
 /// <summary>
 /// TODO: Delete this and use component states and predict the UI.
@@ -106,7 +106,7 @@ public sealed class CrayonBoundUserInterfaceState : BoundUserInterfaceState
     public string Selected;
 
     /// <summary>
-    /// Can the color can be changed
+    /// Can the color can be changed.
     /// </summary>
     public bool SelectableColor;
     public Color Color;

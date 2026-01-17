@@ -60,7 +60,7 @@ namespace Content.Shared.Chemistry.Components
         public float Temperature { get; set; } = 293.15f;
 
         /// <summary>
-        ///     The name of this solution, if it is contained in some <see cref="SolutionContainerManagerComponent"/>
+        ///     The name of this solution, if it is contained in some <see cref="SolutionContainerManagerComponent"/>.
         /// </summary>
         [DataField]
         public string? Name;
@@ -304,7 +304,7 @@ namespace Content.Shared.Chemistry.Components
 
         /// <summary>
         /// Gets the total volume of all reagents in the solution with the given prototype Id.
-        /// If you only want the volume of a single reagent, use <see cref="GetReagentQuantity"/>
+        /// If you only want the volume of a single reagent, use <see cref="GetReagentQuantity"/>.
         /// </summary>
         [Pure]
         public FixedPoint2 GetTotalPrototypeQuantity(params ProtoId<ReagentPrototype>[] prototypes)
@@ -781,7 +781,7 @@ namespace Content.Shared.Chemistry.Components
         /// <summary>
         /// Variant of <see cref="SplitSolution(FixedPoint2)"/> that doesn't return a new solution containing the removed reagents.
         /// </summary>
-        /// <param name="toTake">The quantity of this solution to remove</param>
+        /// <param name="toTake">The quantity of this solution to remove.</param>
         public void RemoveSolution(FixedPoint2 toTake)
         {
             if (toTake <= FixedPoint2.Zero)

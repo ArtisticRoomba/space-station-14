@@ -28,13 +28,13 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     public int MaxLayers = 10;
 
     /// <summary>
-    /// Can we put more layers?
+    /// Can we put more layers?.
     /// </summary>
     [DataField]
     public bool Finished;
 
     /// <summary>
-    /// solution where reagents will be added from newly added ingredients
+    /// solution where reagents will be added from newly added ingredients.
     /// </summary>
     [DataField]
     public string Solution = "food";
@@ -48,19 +48,19 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     public LocId? NameGeneration;
 
     /// <summary>
-    /// the part of the name generation used in the pattern
+    /// the part of the name generation used in the pattern.
     /// </summary>
     [DataField]
     public LocId? NamePrefix;
 
     /// <summary>
-    /// content in the form of all added ingredients will be separated by these symbols
+    /// content in the form of all added ingredients will be separated by these symbols.
     /// </summary>
     [DataField]
     public string? ContentSeparator;
 
     /// <summary>
-    /// the part of the name generation used in the pattern
+    /// the part of the name generation used in the pattern.
     /// </summary>
     [DataField]
     public LocId? NameSuffix;
@@ -100,13 +100,13 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     public Vector2 Offset = Vector2.Zero;
 
     /// <summary>
-    /// each layer will get a random offset in the specified range
+    /// each layer will get a random offset in the specified range.
     /// </summary>
     [DataField]
     public Vector2 MaxLayerOffset = Vector2.Zero;
 
     /// <summary>
-    /// each layer will get a random offset in the specified range
+    /// each layer will get a random offset in the specified range.
     /// </summary>
     [DataField]
     public Vector2 MinLayerOffset = Vector2.Zero;
@@ -121,7 +121,7 @@ public sealed partial class FoodSequenceStartPointComponent : Component
 
 /// <summary>
 /// class that synchronizes with the client
-/// Stores all the necessary information for rendering the FoodSequence element
+/// Stores all the necessary information for rendering the FoodSequence element.
 /// </summary>
 [DataRecord, Serializable, NetSerializable]
 public partial record struct FoodSequenceVisualLayer
@@ -132,12 +132,12 @@ public partial record struct FoodSequenceVisualLayer
     public ProtoId<FoodSequenceElementPrototype> Proto;
 
     /// <summary>
-    /// Sprite rendered in sequence
+    /// Sprite rendered in sequence.
     /// </summary>
     public SpriteSpecifier? Sprite { get; set; } = SpriteSpecifier.Invalid;
 
     /// <summary>
-    /// Relative size of the sprite displayed in FoodSequence
+    /// Relative size of the sprite displayed in FoodSequence.
     /// </summary>
     public Vector2 Scale { get; set; } = Vector2.One;
 

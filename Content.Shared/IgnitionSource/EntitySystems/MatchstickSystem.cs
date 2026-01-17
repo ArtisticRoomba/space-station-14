@@ -39,7 +39,7 @@ public sealed partial class MatchstickSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Try to light a matchstick!
+    ///     Try to light a matchstick!.
     /// </summary>
     /// <param name="matchstick">The matchstick to light.</param>
     /// <param name="user">The user lighting the matchstick can be null if there isn't any user.</param>

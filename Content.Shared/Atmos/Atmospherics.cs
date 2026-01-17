@@ -11,7 +11,7 @@ namespace Content.Shared.Atmos
         #region ATMOS
 
         /// <summary>
-        ///     The universal gas constant, in kPa*L/(K*mol)
+        ///     The universal gas constant, in kPa*L/(K*mol).
         /// </summary>
         public const float R = 8.314462618f;
 
@@ -32,12 +32,12 @@ namespace Content.Shared.Atmos
         public const float TCMB = 2.7f;
 
         /// <summary>
-        ///     0ºC in K
+        ///     0ºC in K.
         /// </summary>
         public const float T0C = 273.15f;
 
         /// <summary>
-        ///     20ºC in K
+        ///     20ºC in K.
         /// </summary>
         public const float T20C = 293.15f;
 
@@ -68,7 +68,7 @@ namespace Content.Shared.Atmos
         public const float BreathPercentage = BreathVolume / CellVolume;
 
         /// <summary>
-        ///     Moles in a 2.5 m^3 cell at 101.325 kPa and 20ºC
+        ///     Moles in a 2.5 m^3 cell at 101.325 kPa and 20ºC.
         /// </summary>
         public const float MolesCellStandard = (OneAtmosphere * CellVolume / (T20C * R));
 
@@ -79,7 +79,7 @@ namespace Content.Shared.Atmos
         public const float MolesCellFreezer = (OneAtmosphere * CellVolume / (FreezerTemp * R));
 
         /// <summary>
-        ///     Moles in a 2.5 m^3 cell at GasMinerDefaultMaxExternalPressure kPa and 20ºC
+        ///     Moles in a 2.5 m^3 cell at GasMinerDefaultMaxExternalPressure kPa and 20ºC.
         /// </summary>
         public const float MolesCellGasMiner = (GasMinerDefaultMaxExternalPressure * CellVolume / (T20C * R));
 
@@ -120,17 +120,17 @@ namespace Content.Shared.Atmos
         public const float HeatCapacityVacuum = 7000f;
 
         /// <summary>
-        ///     Ratio of air that must move to/from a tile to reset group processing
+        ///     Ratio of air that must move to/from a tile to reset group processing.
         /// </summary>
         public const float MinimumAirRatioToSuspend = 0.1f;
 
         /// <summary>
-        ///     Minimum ratio of air that must move to/from a tile
+        ///     Minimum ratio of air that must move to/from a tile.
         /// </summary>
         public const float MinimumAirRatioToMove = 0.001f;
 
         /// <summary>
-        ///     Minimum amount of air that has to move before a group processing can be suspended
+        ///     Minimum amount of air that has to move before a group processing can be suspended.
         /// </summary>
         public const float MinimumAirToSuspend = (MolesCellStandard * MinimumAirRatioToSuspend);
 
@@ -139,7 +139,7 @@ namespace Content.Shared.Atmos
         public const float MinimumMolesDeltaToMove = (MolesCellStandard * MinimumAirRatioToMove);
 
         /// <summary>
-        ///     Minimum temperature difference before group processing is suspended
+        ///     Minimum temperature difference before group processing is suspended.
         /// </summary>
         public const float MinimumTemperatureDeltaToSuspend = 4.0f;
 
@@ -160,12 +160,12 @@ namespace Content.Shared.Atmos
         public const float MinimumHeatCapacity = 0.0003f;
 
         /// <summary>
-        ///     For the purposes of making space "colder"
+        ///     For the purposes of making space "colder".
         /// </summary>
         public const float SpaceHeatCapacity = 7000f;
 
         /// <summary>
-        ///     Dictionary of chemical abbreviations for <see cref="Gas"/>
+        ///     Dictionary of chemical abbreviations for <see cref="Gas"/>.
         /// </summary>
         public static Dictionary<Gas, string> GasAbbreviations = new Dictionary<Gas, string>()
         {
@@ -183,12 +183,12 @@ namespace Content.Shared.Atmos
         #region Excited Groups
 
         /// <summary>
-        ///     Number of full atmos updates ticks before an excited group breaks down (averages gas contents across turfs)
+        ///     Number of full atmos updates ticks before an excited group breaks down (averages gas contents across turfs).
         /// </summary>
         public const int ExcitedGroupBreakdownCycles = 4;
 
         /// <summary>
-        ///     Number of full atmos updates before an excited group dismantles and removes its turfs from active
+        ///     Number of full atmos updates before an excited group dismantles and removes its turfs from active.
         /// </summary>
         public const int ExcitedGroupsDismantleCycles = 16;
 
@@ -205,7 +205,7 @@ namespace Content.Shared.Atmos
         public const int MonstermosTileLimit = 200;
 
         /// <summary>
-        ///     Total number of gases. Increase this if you want to add more!
+        ///     Total number of gases. Increase this if you want to add more!.
         /// </summary>
         public const int TotalNumberOfGases = 9;
 
@@ -216,7 +216,7 @@ namespace Content.Shared.Atmos
         public const int AdjustedNumberOfGases = ((TotalNumberOfGases + 3) / 4) * 4;
 
         /// <summary>
-        ///     Amount of heat released per mole of burnt hydrogen or tritium (hydrogen isotope)
+        ///     Amount of heat released per mole of burnt hydrogen or tritium (hydrogen isotope).
         /// </summary>
         public const float FireHydrogenEnergyReleased = 284e3f; // hydrogen is 284 kJ/mol
         public const float FireMinimumTemperatureToExist = T0C + 100f;
@@ -235,7 +235,7 @@ namespace Content.Shared.Atmos
         public const float PlasmaBurnRateDelta = 9f;
 
         /// <summary>
-        ///     This is calculated to help prevent singlecap bombs (Overpowered tritium/oxygen single tank bombs)
+        ///     This is calculated to help prevent singlecap bombs (Overpowered tritium/oxygen single tank bombs).
         /// </summary>
         public const float MinimumTritiumOxyburnEnergy = 143000f;
 
@@ -272,12 +272,12 @@ namespace Content.Shared.Atmos
         public const float FrezonProductionTritRatio = 50.0f;
 
         /// <summary>
-        ///     1 / X of the tritium is converted into Frezon each tick
+        ///     1 / X of the tritium is converted into Frezon each tick.
         /// </summary>
         public const float FrezonProductionConversionRate = 50f;
 
         /// <summary>
-        ///     The maximum portion of the N2O that can decompose each reaction tick. (50%)
+        ///     The maximum portion of the N2O that can decompose each reaction tick. (50%).
         /// </summary>
         public const float N2ODecompositionRate = 2f;
 
@@ -338,7 +338,7 @@ namespace Content.Shared.Atmos
         public const float NormalBodyTemperature = 37f;
 
         /// <summary>
-        ///     I hereby decree. This is Arbitrary Suck my Dick
+        ///     I hereby decree. This is Arbitrary Suck my Dick.
         /// </summary>
         public const float BreathMolesToReagentMultiplier = 1144;
 
@@ -358,7 +358,7 @@ namespace Content.Shared.Atmos
     }
 
     /// <summary>
-    ///     Gases to Ids. Keep these updated with the prototypes!
+    ///     Gases to Ids. Keep these updated with the prototypes!.
     /// </summary>
     [Serializable, NetSerializable]
     public enum Gas : sbyte

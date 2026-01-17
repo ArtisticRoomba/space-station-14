@@ -29,7 +29,7 @@ namespace Content.Shared.Interaction
         public EntityCoordinates ClickLocation { get; }
 
         /// <summary>
-        /// Is the click location in range without obstructions?
+        /// Is the click location in range without obstructions?.
         /// </summary>
         public bool CanReach { get; }
 

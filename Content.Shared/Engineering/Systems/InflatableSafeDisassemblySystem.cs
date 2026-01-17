@@ -6,7 +6,7 @@ using Content.Shared.Weapons.Melee.Balloon;
 namespace Content.Shared.Engineering.Systems;
 
 /// <summary>
-/// Implements <see cref="InflatableSafeDisassemblyComponent"/>
+/// Implements <see cref="InflatableSafeDisassemblyComponent"/>.
 /// </summary>
 public sealed class InflatableSafeDisassemblySystem : EntitySystem
 {

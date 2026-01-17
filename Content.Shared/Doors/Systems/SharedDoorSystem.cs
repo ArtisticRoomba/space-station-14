@@ -347,13 +347,13 @@ public abstract partial class SharedDoorSystem : EntitySystem
     }
 
     /// <summary>
-    /// Immediately start opening a door
+    /// Immediately start opening a door.
     /// </summary>
-    /// <param name="uid"> The uid of the door</param>
-    /// <param name="door"> The doorcomponent of the door</param>
-    /// <param name="user"> The user (if any) opening the door</param>
+    /// <param name="uid"> The uid of the door.</param>
+    /// <param name="door"> The doorcomponent of the door.</param>
+    /// <param name="user"> The user (if any) opening the door.</param>
     /// <param name="predicted">Whether the interaction would have been
-    /// predicted. See comments in the PlaySound method on the Server system for details</param>
+    /// predicted. See comments in the PlaySound method on the Server system for details.</param>
     public void StartOpening(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool predicted = false)
     {
         if (!Resolve(uid, ref door))
@@ -423,11 +423,11 @@ public abstract partial class SharedDoorSystem : EntitySystem
     }
 
     /// <summary>
-    /// Immediately start closing a door
+    /// Immediately start closing a door.
     /// </summary>
-    /// <param name="uid"> The uid of the door</param>
-    /// <param name="door"> The doorcomponent of the door</param>
-    /// <param name="user"> The user (if any) opening the door</param>
+    /// <param name="uid"> The uid of the door.</param>
+    /// <param name="door"> The doorcomponent of the door.</param>
+    /// <param name="user"> The user (if any) opening the door.</param>
     public bool CanClose(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool partial = false)
     {
         if (!Resolve(uid, ref door))
@@ -465,7 +465,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
 
     /// <summary>
     /// Called when the door is partially closed. This is when the door becomes "solid". If this process fails (e.g., a
-    /// mob entered the door as it was closing), then this returns false. Otherwise, returns true;
+    /// mob entered the door as it was closing), then this returns false. Otherwise, returns true.
     /// </summary>
     public bool OnPartialClose(EntityUid uid, DoorComponent? door = null, PhysicsComponent? physics = null)
     {
@@ -548,7 +548,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Get all entities that collide with this door by more than <see cref="IntersectPercentage"/> percent.\
+    ///     Get all entities that collide with this door by more than <see cref="IntersectPercentage"/> percent.\.
     /// </summary>
     public IEnumerable<EntityUid> GetColliding(EntityUid uid, PhysicsComponent? physics = null)
     {
@@ -626,7 +626,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     #region Access
 
     /// <summary>
-    ///     Does the user have the permissions required to open this door?
+    ///     Does the user have the permissions required to open this door?.
     /// </summary>
     public bool HasAccess(EntityUid uid, EntityUid? user = null, DoorComponent? door = null, AccessReaderComponent? access = null)
     {
@@ -673,7 +673,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         Id,
 
         /// <summary>
-        /// Allows everyone to open doors, except external which airlocks are still handled with ID's
+        /// Allows everyone to open doors, except external which airlocks are still handled with ID's.
         /// </summary>
         AllowAllIdExternal,
 

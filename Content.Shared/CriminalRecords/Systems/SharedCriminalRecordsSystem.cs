@@ -30,7 +30,7 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
     }
 
     /// <summary>
-    /// Decides the icon that should be displayed on the entity based on the security status
+    /// Decides the icon that should be displayed on the entity based on the security status.
     /// </summary>
     public void SetCriminalIcon(string name, SecurityStatus status, EntityUid characterUid)
     {

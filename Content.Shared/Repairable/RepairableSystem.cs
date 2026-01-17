@@ -55,11 +55,11 @@ public sealed partial class RepairableSystem : EntitySystem
     /// <summary>
     /// Repairs some damage of a entity.
     /// The healed amount will be evenly distributed among all damage types the entity has.
-    /// If one of the damage types of the entity is too low. it will heal that completly and distribute the excess healing among the other damage types
+    /// If one of the damage types of the entity is too low. it will heal that completly and distribute the excess healing among the other damage types.
     /// </summary>
-    /// <param name="ent">entity to be repaired</param>
-    /// <param name="damageAmount">how much damage to repair (value have to be negative to repair)</param>
-    /// <param name="user">who is doing the repair</param>
+    /// <param name="ent">entity to be repaired.</param>
+    /// <param name="damageAmount">how much damage to repair (value have to be negative to repair).</param>
+    /// <param name="user">who is doing the repair.</param>
     private void RepairSomeDamage(Entity<DamageableComponent?> ent, float damageAmount, EntityUid user)
     {
         var damageChanged = _damageableSystem.HealEvenly(ent.Owner, damageAmount, origin: user);
@@ -67,11 +67,11 @@ public sealed partial class RepairableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Repairs some damage of a entity
+    /// Repairs some damage of a entity.
     /// </summary>
-    /// <param name="ent">entity to be repaired</param>
-    /// <param name="damageAmount">how much damage to repair (values have to be negative to repair)</param>
-    /// <param name="user">who is doing the repair</param>
+    /// <param name="ent">entity to be repaired.</param>
+    /// <param name="damageAmount">how much damage to repair (values have to be negative to repair).</param>
+    /// <param name="user">who is doing the repair.</param>
     private void RepairSomeDamage(Entity<DamageableComponent?> ent, Damage.DamageSpecifier damageAmount, EntityUid user)
     {
         var damageChanged = _damageableSystem.ChangeDamage(ent.Owner, damageAmount, true, false, origin: user);
@@ -79,10 +79,10 @@ public sealed partial class RepairableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Repairs all damage of a entity
+    /// Repairs all damage of a entity.
     /// </summary>
-    /// <param name="ent">entity to be repaired</param>
-    /// <param name="user">who is doing the repair</param>
+    /// <param name="ent">entity to be repaired.</param>
+    /// <param name="user">who is doing the repair.</param>
     private void RepairAllDamage(Entity<DamageableComponent?> ent, EntityUid user)
     {
         _damageableSystem.ClearAllDamage(ent);
@@ -125,6 +125,6 @@ public readonly record struct RepairedEvent(Entity<RepairableComponent> Ent, Ent
 /// <summary>
 /// Do after event started when you try to fix a entity with RepairableComponent.
 /// This doafter is repeated if the entity has <see cref="AutoDoAfter"> set to true and not all damage was fixed yet.
-/// </summary>
+/// </summary>.
 [Serializable, NetSerializable]
 public sealed partial class RepairDoAfterEvent : SimpleDoAfterEvent;

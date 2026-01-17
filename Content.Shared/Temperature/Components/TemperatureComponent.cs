@@ -22,7 +22,7 @@ public sealed partial class TemperatureComponent : Component
     public float SpecificHeat = 50f;
 
     /// <summary>
-    /// How well does the air surrounding you merge into your body temperature?
+    /// How well does the air surrounding you merge into your body temperature?.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float AtmosTemperatureTransferEfficiency = 0.1f;

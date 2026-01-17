@@ -9,7 +9,7 @@ public sealed class PathPolysRefreshMessage : EntityEventArgs
     public Vector2i Origin;
 
     /// <summary>
-    /// Multi-dimension arrays aren't supported so
+    /// Multi-dimension arrays aren't supported so.
     /// </summary>
     public Dictionary<Vector2i, List<DebugPathPoly>> Polys = new();
 }

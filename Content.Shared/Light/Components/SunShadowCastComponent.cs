@@ -12,7 +12,7 @@ public sealed partial class SunShadowCastComponent : Component
 {
     /// <summary>
     /// Points that will be extruded to draw the shadow color.
-    /// Max <see cref="PhysicsConstants.MaxPolygonVertices"/>
+    /// Max <see cref="PhysicsConstants.MaxPolygonVertices"/>.
     /// </summary>
     [DataField]
     public Vector2[] Points = new[]

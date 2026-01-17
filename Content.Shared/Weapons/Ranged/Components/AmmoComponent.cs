@@ -28,13 +28,13 @@ public sealed partial class CartridgeAmmoComponent : AmmoComponent
     public EntProtoId Prototype;
 
     /// <summary>
-    /// Is this cartridge spent?
+    /// Is this cartridge spent?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Spent;
 
     /// <summary>
-    /// Is this cartridge automatically marked as trash once spent?
+    /// Is this cartridge automatically marked as trash once spent?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool MarkSpentAsTrash = true;

@@ -32,7 +32,7 @@ public sealed partial class WeldableComponent : Component
     public LocId? WeldedExamineMessage = "weldable-component-examine-is-welded";
 
     /// <summary>
-    ///     Is this entity currently welded shut?
+    ///     Is this entity currently welded shut?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsWelded;

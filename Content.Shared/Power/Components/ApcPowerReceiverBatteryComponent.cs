@@ -43,7 +43,7 @@ public sealed partial class ApcPowerReceiverBatteryComponent : Component
 }
 
 /// <summary>
-/// Raised whenever an ApcPowerReceiverBattery starts / stops discharging
+/// Raised whenever an ApcPowerReceiverBattery starts / stops discharging.
 /// </summary>
 [ByRefEvent]
 public readonly record struct ApcPowerReceiverBatteryChangedEvent(bool Enabled);

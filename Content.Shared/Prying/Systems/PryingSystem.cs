@@ -14,7 +14,7 @@ using PryUnpoweredComponent = Content.Shared.Prying.Components.PryUnpoweredCompo
 namespace Content.Shared.Prying.Systems;
 
 /// <summary>
-/// Handles prying of entities (e.g. doors)
+/// Handles prying of entities (e.g. doors).
 /// </summary>
 public sealed class PryingSystem : EntitySystem
 {

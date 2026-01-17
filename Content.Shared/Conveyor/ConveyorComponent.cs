@@ -23,7 +23,7 @@ public sealed partial class ConveyorComponent : Component
     public float Speed = 2f;
 
     /// <summary>
-    ///     The current state of this conveyor
+    ///     The current state of this conveyor.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public ConveyorState State;

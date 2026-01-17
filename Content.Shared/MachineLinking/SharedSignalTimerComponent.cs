@@ -9,7 +9,7 @@ public enum SignalTimerUiKey : byte
 }
 
 /// <summary>
-/// Represents a SignalTimerComponent state that can be sent to the client
+/// Represents a SignalTimerComponent state that can be sent to the client.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class SignalTimerBoundUserInterfaceState : BoundUserInterfaceState

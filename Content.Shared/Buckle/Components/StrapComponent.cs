@@ -20,7 +20,7 @@ public sealed partial class StrapComponent : Component
 
     /// <summary>
     /// Entities that this strap accepts and can buckle
-    /// If null it accepts any entity
+    /// If null it accepts any entity.
     /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist;
@@ -32,7 +32,7 @@ public sealed partial class StrapComponent : Component
     public EntityWhitelist? Blacklist;
 
     /// <summary>
-    /// The change in position to the strapped mob
+    /// The change in position to the strapped mob.
     /// </summary>
     [DataField, AutoNetworkedField]
     public StrapPosition Position = StrapPosition.None;
@@ -44,43 +44,43 @@ public sealed partial class StrapComponent : Component
     public Vector2 BuckleOffset = Vector2.Zero;
 
     /// <summary>
-    /// The angle to rotate the player by when they get strapped
+    /// The angle to rotate the player by when they get strapped.
     /// </summary>
     [DataField]
     public Angle Rotation;
 
     /// <summary>
-    /// The size of the strap which is compared against when buckling entities
+    /// The size of the strap which is compared against when buckling entities.
     /// </summary>
     [DataField]
     public int Size = 100;
 
     /// <summary>
-    /// If disabled, nothing can be buckled on this object, and it will unbuckle anything that's already buckled
+    /// If disabled, nothing can be buckled on this object, and it will unbuckle anything that's already buckled.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
 
     /// <summary>
-    /// The sound to be played when a mob is buckled
+    /// The sound to be played when a mob is buckled.
     /// </summary>
     [DataField]
     public SoundSpecifier BuckleSound = new SoundPathSpecifier("/Audio/Effects/buckle.ogg");
 
     /// <summary>
-    /// The sound to be played when a mob is unbuckled
+    /// The sound to be played when a mob is unbuckled.
     /// </summary>
     [DataField]
     public SoundSpecifier UnbuckleSound = new SoundPathSpecifier("/Audio/Effects/unbuckle.ogg");
 
     /// <summary>
-    /// ID of the alert to show when buckled
+    /// ID of the alert to show when buckled.
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype> BuckledAlertType = "Buckled";
 
     /// <summary>
-    /// How long it takes to buckle someone else into a chair
+    /// How long it takes to buckle someone else into a chair.
     /// </summary>
     [DataField]
     public float BuckleDoafterTime = 2f;
@@ -95,17 +95,17 @@ public sealed partial class StrapComponent : Component
 public enum StrapPosition
 {
     /// <summary>
-    /// (Default) Makes no change to the buckled mob
+    /// (Default) Makes no change to the buckled mob.
     /// </summary>
     None = 0,
 
     /// <summary>
-    /// Makes the mob stand up
+    /// Makes the mob stand up.
     /// </summary>
     Stand,
 
     /// <summary>
-    /// Makes the mob lie down
+    /// Makes the mob lie down.
     /// </summary>
     Down,
 }

@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityEffects.Effects.Atmos;
 
 /// <summary>
-/// See serverside system
+/// See serverside system.
 /// </summary>
 /// <inheritdoc cref="EntityEffect"/>
 public sealed partial class Ignite : EntityEffectBase<Ignite>

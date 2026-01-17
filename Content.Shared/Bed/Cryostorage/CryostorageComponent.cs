@@ -53,12 +53,12 @@ public enum CryostorageVisuals : byte
 public record struct CryostorageContainedPlayerData()
 {
     /// <summary>
-    /// The player's IC name
+    /// The player's IC name.
     /// </summary>
     public string PlayerName = string.Empty;
 
     /// <summary>
-    /// The player's entity
+    /// The player's entity.
     /// </summary>
     public NetEntity PlayerEnt = NetEntity.Invalid;
 

@@ -98,7 +98,7 @@ public sealed partial class CCVars
         GameMapMemoryDepth = CVarDef.Create("game.map_memory_depth", 16, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Is map rotation enabled?
+    ///     Is map rotation enabled?.
     /// </summary>
     public static readonly CVarDef<bool>
         GameMapRotation = CVarDef.Create("game.map_rotation", true, CVar.SERVERONLY);
@@ -116,7 +116,7 @@ public sealed partial class CCVars
         GameRoleLoadoutTimers = CVarDef.Create("game.role_loadout_timers", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    ///     Override default role requirements using a <see cref="JobRequirementOverridePrototype"/>
+    ///     Override default role requirements using a <see cref="JobRequirementOverridePrototype"/>.
     /// </summary>
     public static readonly CVarDef<string>
         GameRoleTimerOverride = CVarDef.Create("game.role_timer_override", "", CVar.SERVER | CVar.REPLICATED);
@@ -174,7 +174,7 @@ public sealed partial class CCVars
     /// <summary>
     ///     Whether or not the panic bunker will count deadminned admins for
     ///     <see cref="PanicBunkerDisableWithAdmins"/> and
-    ///     <see cref="PanicBunkerEnableWithoutAdmins"/>
+    ///     <see cref="PanicBunkerEnableWithoutAdmins"/>.
     /// </summary>
     public static readonly CVarDef<bool> PanicBunkerCountDeadminnedAdmins =
         CVarDef.Create("game.panic_bunker.count_deadminned_admins", false, CVar.SERVERONLY);
@@ -199,7 +199,7 @@ public sealed partial class CCVars
 
     /// <summary>
     ///     A custom message that will be used for connections denied to the panic bunker
-    ///     If not empty, then will overwrite <see cref="PanicBunkerShowReason"/>
+    ///     If not empty, then will overwrite <see cref="PanicBunkerShowReason"/>.
     /// </summary>
     public static readonly CVarDef<string> PanicBunkerCustomReason =
         CVarDef.Create("game.panic_bunker.custom_reason", string.Empty, CVar.SERVERONLY);
@@ -217,31 +217,31 @@ public sealed partial class CCVars
         CVarDef.Create("game.ipintel_enabled", false, CVar.SERVERONLY);
 
     /// <summary>
-    /// Whether clients which are flagged as a VPN will be denied
+    /// Whether clients which are flagged as a VPN will be denied.
     /// </summary>
     public static readonly CVarDef<bool> GameIPIntelRejectBad =
         CVarDef.Create("game.ipintel_reject_bad", true, CVar.SERVERONLY);
 
     /// <summary>
-    /// Whether clients which cannot be checked due to a rate limit will be denied
+    /// Whether clients which cannot be checked due to a rate limit will be denied.
     /// </summary>
     public static readonly CVarDef<bool> GameIPIntelRejectRateLimited =
         CVarDef.Create("game.ipintel_reject_ratelimited", false, CVar.SERVERONLY);
 
     /// <summary>
-    /// Whether clients which cannot be checked due to an error of some form will be denied
+    /// Whether clients which cannot be checked due to an error of some form will be denied.
     /// </summary>
     public static readonly CVarDef<bool> GameIPIntelRejectUnknown =
         CVarDef.Create("game.ipintel_reject_unknown", false, CVar.SERVERONLY);
 
     /// <summary>
-    /// Should an admin message be made if the connection got rejected cause of ipintel?
+    /// Should an admin message be made if the connection got rejected cause of ipintel?.
     /// </summary>
     public static readonly CVarDef<bool> GameIPIntelAlertAdminReject =
         CVarDef.Create("game.ipintel_alert_admin_rejected", false, CVar.SERVERONLY);
 
     /// <summary>
-    /// A contact email to be sent along with the request. Required by IPIntel
+    /// A contact email to be sent along with the request. Required by IPIntel.
     /// </summary>
     public static readonly CVarDef<string> GameIPIntelEmail =
         CVarDef.Create("game.ipintel_contact_email", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
@@ -278,7 +278,7 @@ public sealed partial class CCVars
         CVarDef.Create("game.ipintel_request_backoff_seconds", 30, CVar.SERVERONLY);
 
     /// <summary>
-    /// How much time should pass before we attempt to cleanup the IPIntel table for old ip addresses?
+    /// How much time should pass before we attempt to cleanup the IPIntel table for old ip addresses?.
     /// </summary>
     public static readonly CVarDef<int> GameIPIntelCleanupMins =
         CVarDef.Create("game.ipintel_database_cleanup_mins", 15, CVar.SERVERONLY);
@@ -305,7 +305,7 @@ public sealed partial class CCVars
         CVarDef.Create("game.ipintel_bad_rating", 0.95f, CVar.SERVERONLY);
 
     /// <summary>
-    /// Rating to send an admin warning over, but not reject the connection. Set to 0 to disable
+    /// Rating to send an admin warning over, but not reject the connection. Set to 0 to disable.
     /// </summary>
     public static readonly CVarDef<float> GameIPIntelAlertAdminWarnRating =
         CVarDef.Create("game.ipintel_alert_admin_warn_rating", 0f, CVar.SERVERONLY);
@@ -387,7 +387,7 @@ public sealed partial class CCVars
         CVarDef.Create("game.tabletop_place", false, CVar.SERVERONLY);
 
     /// <summary>
-    ///     If true, contraband severity can be viewed in the examine menu
+    ///     If true, contraband severity can be viewed in the examine menu.
     /// </summary>
     public static readonly CVarDef<bool> ContrabandExamine =
         CVarDef.Create("game.contraband_examine", true, CVar.SERVER | CVar.REPLICATED);
@@ -399,13 +399,13 @@ public sealed partial class CCVars
         CVarDef.Create("game.contraband_examine_only_in_hud", false, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    ///     Size of the lookup area for adding entities to the context menu
+    ///     Size of the lookup area for adding entities to the context menu.
     /// </summary>
     public static readonly CVarDef<float> GameEntityMenuLookup =
         CVarDef.Create("game.entity_menu_lookup", 0.25f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
-    ///     Should the clients window show the server hostname in the title?
+    ///     Should the clients window show the server hostname in the title?.
     /// </summary>
     public static readonly CVarDef<bool> GameHostnameInTitlebar =
         CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);

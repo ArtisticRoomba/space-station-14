@@ -17,20 +17,20 @@ public sealed partial class RadioImplantComponent : Component
 
     /// <summary>
     /// The radio channels that have been added by the implant to a user's ActiveRadioComponent.
-    /// Used to track which channels were successfully added (not already in user)
+    /// Used to track which channels were successfully added (not already in user).
     /// </summary>
     /// <remarks>
-    /// Should not be modified outside RadioImplantSystem.cs
+    /// Should not be modified outside RadioImplantSystem.cs.
     /// </remarks>
     [DataField]
     public HashSet<ProtoId<RadioChannelPrototype>> ActiveAddedChannels = new();
 
     /// <summary>
     /// The radio channels that have been added by the implant to a user's IntrinsicRadioTransmitterComponent.
-    /// Used to track which channels were successfully added (not already in user)
+    /// Used to track which channels were successfully added (not already in user).
     /// </summary>
     /// <remarks>
-    /// Should not be modified outside RadioImplantSystem.cs
+    /// Should not be modified outside RadioImplantSystem.cs.
     /// </remarks>
     [DataField]
     public HashSet<ProtoId<RadioChannelPrototype>> TransmitterAddedChannels = new();

@@ -55,7 +55,7 @@ public sealed partial class IngestionSystem
     }
 
     /// <summary>
-    ///     Block ingestion attempts based on the equipped mask or head-wear
+    ///     Block ingestion attempts based on the equipped mask or head-wear.
     /// </summary>
     private void OnIngestionBlockerAttempt(Entity<IngestionBlockerComponent> entity, ref InventoryRelayedEvent<IngestionAttemptEvent> args)
     {
@@ -148,7 +148,7 @@ public sealed partial class IngestionSystem
     }
 
     /// <remarks>
-    /// I mean you have to eat the *whole* pill no?
+    /// I mean you have to eat the *whole* pill no?.
     /// </remarks>
     private void OnPillBeforeEaten(Entity<PillComponent> ent, ref BeforeIngestedEvent args)
     {

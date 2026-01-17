@@ -11,7 +11,7 @@ namespace Content.Shared.DeviceLinking;
 public sealed partial class DeviceLinkSinkComponent : Component
 {
     /// <summary>
-    /// The ports this sink has
+    /// The ports this sink has.
     /// </summary>
     [DataField]
     public HashSet<ProtoId<SinkPortPrototype>> Ports = new();
@@ -42,7 +42,7 @@ public sealed partial class DeviceLinkSinkComponent : Component
 
     /// <summary>
     /// How high the invoke counter is allowed to get before the links to the sink are removed and the DeviceLinkOverloadedEvent gets raised
-    /// If the invoke limit is smaller than 1 the sink can't overload
+    /// If the invoke limit is smaller than 1 the sink can't overload.
     /// </summary>
     [DataField]
     public int InvokeLimit = 10;

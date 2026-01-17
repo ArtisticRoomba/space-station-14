@@ -116,10 +116,10 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
 
     /// <summary>
     /// Forces an implant into a person
-    /// Good for on spawn related code or admin additions
+    /// Good for on spawn related code or admin additions.
     /// </summary>
-    /// <param name="target">The entity to be implanted</param>
-    /// <param name="implant"> The implant</param>
+    /// <param name="target">The entity to be implanted.</param>
+    /// <param name="implant"> The implant.</param>
     public void ForceImplant(EntityUid target, Entity<SubdermalImplantComponent?> implant)
     {
         if (!Resolve(implant, ref implant.Comp))
@@ -133,10 +133,10 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
     }
 
     /// <summary>
-    /// Force remove a singular implant
+    /// Force remove a singular implant.
     /// </summary>
-    /// <param name="target">the implanted entity</param>
-    /// <param name="implant">the implant</param>
+    /// <param name="target">the implanted entity.</param>
+    /// <param name="implant">the implant.</param>
     public void ForceRemove(Entity<ImplantedComponent?> target, EntityUid implant)
     {
         if (!Resolve(target, ref target.Comp))
@@ -147,9 +147,9 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
     }
 
     /// <summary>
-    /// Removes and deletes implants by force
+    /// Removes and deletes implants by force.
     /// </summary>
-    /// <param name="target">The entity to have implants removed</param>
+    /// <param name="target">The entity to have implants removed.</param>
     public void WipeImplants(Entity<ImplantedComponent?> target)
     {
         if (!Resolve(target, ref target.Comp, false))
@@ -164,18 +164,18 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
 /// Raised on the the implant entity.
 /// </summary>
 /// <remarks>
-/// implant implant implant implant
+/// implant implant implant implant.
 /// </remarks>
 [ByRefEvent]
 public readonly record struct ImplantImplantedEvent
 {
     /// <summary>
-    /// The implant itself
+    /// The implant itself.
     /// </summary>
     public readonly EntityUid Implant;
 
     /// <summary>
-    /// The entity getting implanted
+    /// The entity getting implanted.
     /// </summary>
     public readonly EntityUid Implanted;
 

@@ -330,7 +330,7 @@ namespace Content.Shared.Damage
 
         /// <summary>
         ///     Returns a dictionary using <see cref="DamageGroupPrototype.ID"/> keys, with values calculated by adding
-        ///     up the values for each damage type in that group
+        ///     up the values for each damage type in that group.
         /// </summary>
         /// <remarks>
         ///     If a damage type is associated with more than one supported damage group, it will contribute to the

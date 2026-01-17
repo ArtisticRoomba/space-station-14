@@ -7,7 +7,7 @@ using Content.Shared.Stunnable;
 namespace Content.Shared.Movement.Systems;
 
 /// <summary>
-/// This handles the worm component
+/// This handles the worm component.
 /// </summary>
 public sealed class WormSystem : EntitySystem
 {

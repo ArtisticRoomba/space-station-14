@@ -23,7 +23,7 @@ namespace Content.Shared.Verbs
         public virtual int TypePriority => 0;
 
         /// <summary>
-        ///     Style class for drawing in the context menu
+        ///     Style class for drawing in the context menu.
         /// </summary>
         public string TextStyleClass = DefaultTextStyleClass;
 
@@ -56,7 +56,7 @@ namespace Content.Shared.Verbs
 
         /// <summary>
         ///     Whether a verb is only defined client-side. Note that this has nothing to do with whether the target of
-        ///     the verb is client-side
+        ///     the verb is client-side.
         /// </summary>
         /// <remarks>
         ///     If true, the client will not also ask the server to run this verb when executed locally. This just
@@ -127,7 +127,7 @@ namespace Content.Shared.Verbs
         public virtual bool CloseMenuDefault => true;
 
         /// <summary>
-        ///     How important is this verb, for the purposes of admin logging?
+        ///     How important is this verb, for the purposes of admin logging?.
         /// </summary>
         /// <remarks>
         ///     If this is just opening a UI or ejecting an id card, this should probably be low.
@@ -207,7 +207,7 @@ namespace Content.Shared.Verbs
         // I hate this. Please somebody allow generics to be networked.
 
         /// <summary>
-        ///     Collection of all verb types,
+        ///     Collection of all verb types.
         /// </summary>
         /// <remarks>
         ///     Useful when iterating over verb types, though maybe this should be obtained and stored via reflection or

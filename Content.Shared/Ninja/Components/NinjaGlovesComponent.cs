@@ -17,7 +17,7 @@ namespace Content.Shared.Ninja.Components;
 public sealed partial class NinjaGlovesComponent : Component
 {
     /// <summary>
-    /// Entity of the ninja using these gloves, usually means enabled
+    /// Entity of the ninja using these gloves, usually means enabled.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? User;

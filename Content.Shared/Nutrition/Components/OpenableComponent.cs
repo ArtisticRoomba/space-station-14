@@ -48,14 +48,14 @@ public sealed partial class OpenableComponent : Component
 
     /// <summary>
     /// Text to show in the verb menu for the "Open" action.
-    /// You may want to change this for non-drinks, i.e. "Peel", "Unwrap"
+    /// You may want to change this for non-drinks, i.e. "Peel", "Unwrap".
     /// </summary>
     [DataField]
     public LocId OpenVerbText = "openable-component-verb-open";
 
     /// <summary>
     /// Text to show in the verb menu for the "Close" action.
-    /// You may want to change this for non-drinks, i.e. "Wrap"
+    /// You may want to change this for non-drinks, i.e. "Wrap".
     /// </summary>
     [DataField]
     public LocId CloseVerbText = "openable-component-verb-close";
@@ -67,7 +67,7 @@ public sealed partial class OpenableComponent : Component
     public SoundSpecifier? Sound = new SoundCollectionSpecifier("canOpenSounds");
 
     /// <summary>
-    /// Can this item be closed again after opening?
+    /// Can this item be closed again after opening?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Closeable;

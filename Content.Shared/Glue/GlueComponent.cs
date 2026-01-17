@@ -38,7 +38,7 @@ public sealed partial class GlueComponent : Component
     public FixedPoint2 ConsumptionUnit = FixedPoint2.New(5);
 
     /// <summary>
-    /// Duration per unit
+    /// Duration per unit.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan DurationPerUnit = TimeSpan.FromSeconds(6);

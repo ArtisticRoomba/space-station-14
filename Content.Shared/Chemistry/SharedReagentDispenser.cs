@@ -76,7 +76,7 @@ namespace Content.Shared.Chemistry
     }
 
     /// <summary>
-    ///     Message sent by the user interface to ask the reagent dispenser to eject a container
+    ///     Message sent by the user interface to ask the reagent dispenser to eject a container.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class ReagentDispenserEjectContainerMessage : BoundUserInterfaceMessage

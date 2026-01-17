@@ -241,7 +241,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets the total damage a weapon does, including modifiers like wielding and enablind/disabling
+    /// Gets the total damage a weapon does, including modifiers like wielding and enablind/disabling.
     /// </summary>
     public DamageSpecifier GetDamage(EntityUid uid, EntityUid user, MeleeWeaponComponent? component = null)
     {
@@ -364,7 +364,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     /// <summary>
     /// Called when a windup is finished and an attack is tried.
     /// </summary>
-    /// <returns>True if attack successful</returns>
+    /// <returns>True if attack successful.</returns>
     private bool AttemptAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, AttackEvent attack, ICommonSession? session)
     {
         var curTime = Timing.CurTime;

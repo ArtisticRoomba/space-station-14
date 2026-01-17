@@ -334,7 +334,7 @@ public sealed partial class InjectorSystem : EntitySystem
     /// </summary>
     /// <param name="injector">The injector that is interacting with the container.</param>
     /// <param name="user">The user using the injector.</param>
-    /// <param name="target">The target container,</param>
+    /// <param name="target">The target container.</param>
     /// <param name="doAfterTime">The duration of the resulting DoAfter.</param>
     /// <returns>True if calculating the time was successful, false if not.</returns>
     private bool GetContainerDoAfterTime(Entity<InjectorComponent> injector, EntityUid user, EntityUid target, out TimeSpan doAfterTime)

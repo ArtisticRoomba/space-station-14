@@ -13,7 +13,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Bed.Cryostorage;
 
 /// <summary>
-/// This handles <see cref="CryostorageComponent"/>
+/// This handles <see cref="CryostorageComponent"/>.
 /// </summary>
 public abstract class SharedCryostorageSystem : EntitySystem
 {

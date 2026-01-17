@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Contraband;
 
 /// <summary>
-/// This is a prototype for defining the degree of severity for a particular <see cref="ContrabandComponent"/>
+/// This is a prototype for defining the degree of severity for a particular <see cref="ContrabandComponent"/>.
 /// </summary>
 [Prototype]
 public sealed partial class ContrabandSeverityPrototype : IPrototype
@@ -19,7 +19,7 @@ public sealed partial class ContrabandSeverityPrototype : IPrototype
     public LocId ExamineText;
 
     /// <summary>
-    /// When examining the contraband, should this take into account the viewer's departments and job?
+    /// When examining the contraband, should this take into account the viewer's departments and job?.
     /// </summary>
     [DataField]
     public bool ShowDepartmentsAndJobs;

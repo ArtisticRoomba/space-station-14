@@ -39,7 +39,7 @@ public sealed partial class ChameleonClothingComponent : Component
     public string? RequireTag;
 
     /// <summary>
-    ///     Will component owner be affected by EMP pulses?
+    ///     Will component owner be affected by EMP pulses?.
     /// </summary>
     [DataField]
     public bool AffectedByEmp = true;
@@ -55,13 +55,13 @@ public sealed partial class ChameleonClothingComponent : Component
     /// <summary>
     ///     Should the EMP-change happen continuously, or only once?
     ///     (False = once, True = continuously)
-    ///     Useless without <see cref="AffectedByEmp"/>
+    ///     Useless without <see cref="AffectedByEmp"/>.
     /// </summary>
     [DataField]
     public bool EmpContinuous = true;
 
     /// <summary>
-    ///     When should next EMP-caused appearance change happen?
+    ///     When should next EMP-caused appearance change happen?.
     /// </summary>
     [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextEmpChange = TimeSpan.Zero;

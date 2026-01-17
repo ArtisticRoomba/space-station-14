@@ -9,13 +9,13 @@ namespace Content.Shared.Lathe
     public sealed partial class EmagLatheRecipesComponent : Component
     {
         /// <summary>
-        /// All of the dynamic recipe packs that the lathe is capable to get using EMAG
+        /// All of the dynamic recipe packs that the lathe is capable to get using EMAG.
         /// </summary>
         [DataField, AutoNetworkedField]
         public List<ProtoId<LatheRecipePackPrototype>> EmagDynamicPacks = new();
 
         /// <summary>
-        /// All of the static recipe packs that the lathe is capable to get using EMAG
+        /// All of the static recipe packs that the lathe is capable to get using EMAG.
         /// </summary>
         [DataField, AutoNetworkedField]
         public List<ProtoId<LatheRecipePackPrototype>> EmagStaticPacks = new();

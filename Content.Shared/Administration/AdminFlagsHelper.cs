@@ -14,7 +14,7 @@ namespace Content.Shared.Administration
         private static readonly string[] FlagsNameMap = new string[32];
 
         /// <summary>
-        ///     Every admin flag in the game, at once!
+        ///     Every admin flag in the game, at once!.
         /// </summary>
         public static readonly AdminFlags Everything;
 

@@ -21,7 +21,7 @@ public sealed partial class PrototypeDunGen : IDunGenLayer
 public enum DungeonInheritance : byte
 {
     /// <summary>
-    /// Don't inherit any of the current layer's dungeons for this <see cref="PrototypeDunGen"/>
+    /// Don't inherit any of the current layer's dungeons for this <see cref="PrototypeDunGen"/>.
     /// </summary>
     None,
 

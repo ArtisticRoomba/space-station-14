@@ -42,7 +42,7 @@ public sealed partial class CryoPodComponent : Component
 
     /// <summary>
     /// How often are chemicals transferred from the beaker to the body?
-    /// (injection interval)
+    /// (injection interval).
     /// </summary>
     [DataField]
     public TimeSpan BeakerTransferTime = TimeSpan.FromSeconds(2);
@@ -69,7 +69,7 @@ public sealed partial class CryoPodComponent : Component
     public TimeSpan NextUiUpdateTime = TimeSpan.Zero;
 
     /// <summary>
-    /// How many units to transfer per injection from the beaker to the mob?
+    /// How many units to transfer per injection from the beaker to the mob?.
     /// </summary>
     [DataField]
     public FixedPoint2 BeakerTransferAmount = 1;

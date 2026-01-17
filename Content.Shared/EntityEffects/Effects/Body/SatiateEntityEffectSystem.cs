@@ -36,7 +36,7 @@ public sealed partial class SatiateHungerEntityEffectsSystem : EntityEffectSyste
 /// <summary>
 /// A type of <see cref="EntityEffectBase{T}"/> made for satiation effects.
 /// </summary>
-/// <typeparam name="T">The effect inheriting this BaseEffect</typeparam>
+/// <typeparam name="T">The effect inheriting this BaseEffect.</typeparam>
 /// <inheritdoc cref="EntityEffect"/>
 public abstract partial class Satiate<T> : EntityEffectBase<T>
     where T : EntityEffectBase<T>

@@ -5,7 +5,7 @@ using Content.Shared.PowerCell.Components;
 namespace Content.Shared.PowerCell;
 
 /// <summary>
-/// Handles events to integrate PowerCellDraw with ItemToggle
+/// Handles events to integrate PowerCellDraw with ItemToggle.
 /// </summary>
 public sealed class ToggleCellDrawSystem : EntitySystem
 {

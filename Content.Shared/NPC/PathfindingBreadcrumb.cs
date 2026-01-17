@@ -7,7 +7,7 @@ public struct PathfindingBreadcrumb : IEquatable<PathfindingBreadcrumb>
 {
     /// <summary>
     /// The X and Y index in the point grid.
-    /// The actual coordinates require using <see cref="SharedPathfindingSystem.ChunkSize"/> and <see cref="SharedPathfindingSystem.SubStep"/>
+    /// The actual coordinates require using <see cref="SharedPathfindingSystem.ChunkSize"/> and <see cref="SharedPathfindingSystem.SubStep"/>.
     /// </summary>
     public Vector2i Coordinates;
 
@@ -107,17 +107,17 @@ public enum PathfindingBreadcrumbFlag : ushort
     Space = 1 << 1,
 
     /// <summary>
-    /// Is there a door that is potentially pryable
+    /// Is there a door that is potentially pryable.
     /// </summary>
     Door = 1 << 2,
 
     /// <summary>
-    /// Is there access required
+    /// Is there access required.
     /// </summary>
     Access = 1 << 3,
 
     /// <summary>
-    /// Is there climbing involved
+    /// Is there climbing involved.
     /// </summary>
     Climb = 1 << 4,
 }

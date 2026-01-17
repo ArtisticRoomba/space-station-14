@@ -32,7 +32,7 @@ public sealed partial class RootableComponent : Component
     public ProtoId<AlertPrototype> RootedAlert = "Rooted";
 
     /// <summary>
-    /// Is the entity currently rooted?
+    /// Is the entity currently rooted?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Rooted;

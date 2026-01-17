@@ -19,13 +19,13 @@ public sealed partial class RepulseAttractOnTriggerComponent : BaseXOnTriggerCom
     public float Speed = 5.0f;
 
     /// <summary>
-    /// How close do the entities need to be?
+    /// How close do the entities need to be?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Range = 5.0f;
 
     /// <summary>
-    /// What kind of entities should this effect apply to?
+    /// What kind of entities should this effect apply to?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityWhitelist? Whitelist;

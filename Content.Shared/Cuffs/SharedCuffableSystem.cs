@@ -567,8 +567,8 @@ namespace Content.Shared.Cuffs
         /// <summary>
         /// Checks if the target is handcuffed.
         /// </summary>
-        /// /// <param name="target">The entity to be checked</param>
-        /// <param name="requireFullyCuffed">when true, return false if the target is only partially cuffed (for things with more than 2 hands)</param>
+        /// /// <param name="target">The entity to be checked.</param>
+        /// <param name="requireFullyCuffed">when true, return false if the target is only partially cuffed (for things with more than 2 hands).</param>
         /// <returns></returns>
         public bool IsCuffed(Entity<CuffableComponent> target, bool requireFullyCuffed = true)
         {
@@ -875,7 +875,7 @@ namespace Content.Shared.Cuffs
     public record struct TargetHandcuffedEvent : IInventoryRelayEvent
     {
         /// <summary>
-        /// All slots to relay to
+        /// All slots to relay to.
         /// </summary>
         public SlotFlags TargetSlots { get; set; }
     }

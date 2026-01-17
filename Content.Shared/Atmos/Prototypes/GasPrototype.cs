@@ -22,13 +22,13 @@ namespace Content.Shared.Atmos.Prototypes
         public float SpecificHeat { get; private set; }
 
         /// <summary>
-        /// Heat capacity ratio for gas
+        /// Heat capacity ratio for gas.
         /// </summary>
         [DataField("heatCapacityRatio")]
         public float HeatCapacityRatio { get; private set; } = 1.4f;
 
         /// <summary>
-        /// Molar mass of gas
+        /// Molar mass of gas.
         /// </summary>
         [DataField("molarMass")]
         public float MolarMass { get; set; } = 1f;

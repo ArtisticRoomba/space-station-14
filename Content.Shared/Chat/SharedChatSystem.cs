@@ -140,10 +140,10 @@ public abstract partial class SharedChatSystem : EntitySystem
     ///     Attempts to resolve radio prefixes in chat messages (e.g., remove a leading ":e" and resolve the requested
     ///     channel. Returns true if a radio message was attempted, even if the channel is invalid.
     /// </summary>
-    /// <param name="source">Source of the message</param>
-    /// <param name="input">The message to be modified</param>
-    /// <param name="output">The modified message</param>
-    /// <param name="channel">The channel that was requested, if any</param>
+    /// <param name="source">Source of the message.</param>
+    /// <param name="input">The message to be modified.</param>
+    /// <param name="output">The modified message.</param>
+    /// <param name="channel">The channel that was requested, if any.</param>
     /// <param name="quiet">Whether or not to generate an informative pop-up message.</param>
     /// <returns></returns>
     public bool TryProcessRadioMessage(

@@ -20,7 +20,7 @@ namespace Content.Shared.Access.Systems
     }
 
     /// <summary>
-    /// Represents an <see cref="AgentIDCardComponent"/> state that can be sent to the client
+    /// Represents an <see cref="AgentIDCardComponent"/> state that can be sent to the client.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class AgentIDCardBoundUserInterfaceState : BoundUserInterfaceState

@@ -7,7 +7,7 @@ public abstract class SharedLightningSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
 
     /// <summary>
-    /// Picks a random sprite state for the lightning. It's just data that gets passed to the <see cref="BeamComponent"/>
+    /// Picks a random sprite state for the lightning. It's just data that gets passed to the <see cref="BeamComponent"/>.
     /// </summary>
     /// <returns>Returns a string "lightning_" + the chosen random number.</returns>
     public string LightningRandomizer()

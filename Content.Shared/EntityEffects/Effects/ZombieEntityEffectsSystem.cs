@@ -52,7 +52,7 @@ public sealed partial class CauseZombieInfection : EntityEffectBase<CauseZombieI
 public sealed partial class CureZombieInfection : EntityEffectBase<CureZombieInfection>
 {
     /// <summary>
-    /// Do we also protect against future infections?
+    /// Do we also protect against future infections?.
     /// </summary>
     [DataField]
     public bool Innoculate;

@@ -41,7 +41,7 @@ namespace Content.Shared.Kitchen
         public IReadOnlyDictionary<string, FixedPoint2> IngredientsSolids => _ingsSolids;
 
         /// <summary>
-        /// Is this recipe unavailable in normal circumstances?
+        /// Is this recipe unavailable in normal circumstances?.
         /// </summary>
         [DataField]
         public bool SecretRecipe = false;

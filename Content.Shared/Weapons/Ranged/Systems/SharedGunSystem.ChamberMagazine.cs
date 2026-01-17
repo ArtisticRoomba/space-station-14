@@ -45,7 +45,7 @@ public abstract partial class SharedGunSystem
     }
 
     /// <summary>
-    /// Called when user "Activated In World" (E) with the gun as the target
+    /// Called when user "Activated In World" (E) with the gun as the target.
     /// </summary>
     private void OnChamberActivate(EntityUid uid, ChamberMagazineAmmoProviderComponent component, ActivateInWorldEvent args)
     {
@@ -57,7 +57,7 @@ public abstract partial class SharedGunSystem
     }
 
     /// <summary>
-    /// Called when gun was "Activated In Hand" (Z)
+    /// Called when gun was "Activated In Hand" (Z).
     /// </summary>
     private void OnChamberUse(EntityUid uid, ChamberMagazineAmmoProviderComponent component, UseInHandEvent args)
     {
@@ -72,7 +72,7 @@ public abstract partial class SharedGunSystem
     }
 
     /// <summary>
-    /// Creates "Rack" verb on the gun
+    /// Creates "Rack" verb on the gun.
     /// </summary>
     private void OnChamberActivationVerb(EntityUid uid, ChamberMagazineAmmoProviderComponent component, GetVerbsEvent<ActivationVerb> args)
     {
@@ -125,7 +125,7 @@ public abstract partial class SharedGunSystem
     }
 
     /// <summary>
-    /// Creates "Open/Close bolt" verb on the gun
+    /// Creates "Open/Close bolt" verb on the gun.
     /// </summary>
     private void OnChamberInteractionVerb(EntityUid uid, ChamberMagazineAmmoProviderComponent component, GetVerbsEvent<InteractionVerb> args)
     {
@@ -144,7 +144,7 @@ public abstract partial class SharedGunSystem
     }
 
     /// <summary>
-    /// Updates the bolt to its new state
+    /// Updates the bolt to its new state.
     /// </summary>
     public void SetBoltClosed(EntityUid uid, ChamberMagazineAmmoProviderComponent component, bool value, EntityUid? user = null, AppearanceComponent? appearance = null, ItemSlotsComponent? slots = null)
     {
@@ -256,7 +256,7 @@ public abstract partial class SharedGunSystem
     }
 
     /// <summary>
-    /// Sets the bolt's positional value to the other state
+    /// Sets the bolt's positional value to the other state.
     /// </summary>
     public void ToggleBolt(EntityUid uid, ChamberMagazineAmmoProviderComponent component, EntityUid? user = null)
     {
@@ -267,7 +267,7 @@ public abstract partial class SharedGunSystem
     }
 
     /// <summary>
-    /// Called when the gun was Examined
+    /// Called when the gun was Examined.
     /// </summary>
     private void OnChamberMagazineExamine(EntityUid uid, ChamberMagazineAmmoProviderComponent component, ExaminedEvent args)
     {

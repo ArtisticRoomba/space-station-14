@@ -3,7 +3,7 @@
 namespace Content.Shared.Inventory.Events;
 
 /// <summary>
-/// This event is used to tell the server-inventorysystem someone wants to equip something
+/// This event is used to tell the server-inventorysystem someone wants to equip something.
 /// </summary>
 [NetSerializable, Serializable]
 public sealed class InventoryEquipActEvent : EntityEventArgs

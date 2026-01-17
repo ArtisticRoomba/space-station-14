@@ -29,7 +29,7 @@ public sealed partial class SolutionAmmoProviderComponent : Component
 
     /// <summary>
     /// The max amount of shots the gun can fire.
-    /// used for network prediction
+    /// used for network prediction.
     /// </summary>
     [DataField, AutoNetworkedField]
     public int MaxShots;

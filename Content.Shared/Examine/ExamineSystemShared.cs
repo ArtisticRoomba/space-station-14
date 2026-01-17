@@ -533,7 +533,7 @@ namespace Content.Shared.Examine
 
 
     /// <summary>
-    ///     Event raised directed at an entity that someone is attempting to examine
+    ///     Event raised directed at an entity that someone is attempting to examine.
     /// </summary>
     public sealed class ExamineAttemptEvent : CancellableEntityEventArgs
     {

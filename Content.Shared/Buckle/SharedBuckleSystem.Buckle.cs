@@ -211,15 +211,15 @@ public abstract partial class SharedBuckleSystem
     }
 
     /// <summary>
-    /// Checks whether or not buckling is possible
+    /// Checks whether or not buckling is possible.
     /// </summary>
-    /// <param name="buckleUid"> Uid of the owner of BuckleComponent </param>
+    /// <param name="buckleUid"> Uid of the owner of BuckleComponent. </param>
     /// <param name="user">
     ///     Uid of a third party entity,
     ///     i.e, the uid of someone else you are dragging to a chair.
-    ///     Can equal buckleUid sometimes
+    ///     Can equal buckleUid sometimes.
     /// </param>
-    /// <param name="strapUid"> Uid of the owner of strap component </param>
+    /// <param name="strapUid"> Uid of the owner of strap component. </param>
     /// <param name="strapComp"></param>
     /// <param name="buckleComp"></param>
     private bool CanBuckle(EntityUid buckleUid,
@@ -330,15 +330,15 @@ public abstract partial class SharedBuckleSystem
     }
 
     /// <summary>
-    /// Attempts to buckle an entity to a strap
+    /// Attempts to buckle an entity to a strap.
     /// </summary>
-    /// <param name="buckle"> Uid of the owner of BuckleComponent </param>
+    /// <param name="buckle"> Uid of the owner of BuckleComponent. </param>
     /// <param name="user">
     /// Uid of a third party entity,
     /// i.e, the uid of someone else you are dragging to a chair.
-    /// Can equal buckleUid sometimes
+    /// Can equal buckleUid sometimes.
     /// </param>
-    /// <param name="strap"> Uid of the owner of strap component </param>
+    /// <param name="strap"> Uid of the owner of strap component. </param>
     public bool TryBuckle(EntityUid buckle, EntityUid? user, EntityUid strap, BuckleComponent? buckleComp = null, bool popup = true)
     {
         if (!Resolve(buckle, ref buckleComp, false))
@@ -534,11 +534,11 @@ public abstract partial class SharedBuckleSystem
     }
 
     /// <summary>
-    /// Once the do-after is complete, try to buckle target to chair/bed
+    /// Once the do-after is complete, try to buckle target to chair/bed.
     /// </summary>
-    /// <param name="args.Target"> The person being put in the chair/bed</param>
-    /// <param name="args.User"> The person putting a person in a chair/bed</param>
-    /// <param name="args.Used"> The chair/bed </param>
+    /// <param name="args.Target"> The person being put in the chair/bed.</param>
+    /// <param name="args.User"> The person putting a person in a chair/bed.</param>
+    /// <param name="args.Used"> The chair/bed. </param>
 
     private void OnBuckleDoafter(Entity<BuckleComponent> entity, ref BuckleDoAfterEvent args)
     {
@@ -550,11 +550,11 @@ public abstract partial class SharedBuckleSystem
 
     /// <summary>
     /// If the target being buckled to a chair/bed goes crit or is cuffed
-    /// Cancel the do-after time and try to buckle the target immediately
+    /// Cancel the do-after time and try to buckle the target immediately.
     /// </summary>
-    /// <param name="args.Target"> The person being put in the chair/bed</param>
-    /// <param name="args.User"> The person putting a person in a chair/bed</param>
-    /// <param name="args.Used"> The chair/bed </param>
+    /// <param name="args.Target"> The person being put in the chair/bed.</param>
+    /// <param name="args.User"> The person putting a person in a chair/bed.</param>
+    /// <param name="args.Used"> The chair/bed. </param>
     private void BuckleDoafterEarly(Entity<BuckleComponent> entity, BuckleDoAfterEvent args, CancellableEntityEventArgs ev)
     {
         if (args.Target == null || args.Used == null)

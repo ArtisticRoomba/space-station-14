@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Nutrition.Prototypes;
 
 /// <summary>
-/// Unique data storage block for different FoodSequence layers
+/// Unique data storage block for different FoodSequence layers.
 /// </summary>
 [Prototype]
 public sealed partial class FoodSequenceElementPrototype : IPrototype

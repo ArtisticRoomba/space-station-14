@@ -5,7 +5,7 @@ using Content.Shared.Trigger.Components.Effects;
 namespace Content.Shared.Trigger.Systems;
 
 /// <summary>
-/// This handles <see cref="PopupOnTriggerComponent"/>
+/// This handles <see cref="PopupOnTriggerComponent"/>.
 /// </summary>
 public sealed class PopupOnTriggerSystem : XOnTriggerSystem<PopupOnTriggerComponent>
 {

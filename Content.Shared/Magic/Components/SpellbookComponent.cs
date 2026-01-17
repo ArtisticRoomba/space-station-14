@@ -5,7 +5,7 @@ namespace Content.Shared.Magic.Components;
 /// <summary>
 /// Spellbooks can grant one or more spells to the user. If marked as <see cref="LearnPermanently"/> it will teach
 /// the performer the spells and wipe the book.
-/// Default behavior requires the book to be held in hand
+/// Default behavior requires the book to be held in hand.
 /// </summary>
 [RegisterComponent, Access(typeof(SpellbookSystem))]
 public sealed partial class SpellbookComponent : Component
@@ -31,7 +31,7 @@ public sealed partial class SpellbookComponent : Component
     public float LearnTime = .75f;
 
     /// <summary>
-    ///  If true, the spell action stays even after the book is removed
+    ///  If true, the spell action stays even after the book is removed.
     /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]

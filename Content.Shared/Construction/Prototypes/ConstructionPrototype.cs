@@ -10,7 +10,7 @@ public sealed partial class ConstructionPrototype : IPrototype
     [DataField("conditions")] private List<IConstructionCondition> _conditions = new();
 
     /// <summary>
-    ///     Hide from the construction list
+    ///     Hide from the construction list.
     /// </summary>
     [DataField]
     public bool Hide = false;
@@ -80,13 +80,13 @@ public sealed partial class ConstructionPrototype : IPrototype
     public bool CanRotate = true;
 
     /// <summary>
-    ///     Construction to replace this construction with when the current one is 'flipped'
+    ///     Construction to replace this construction with when the current one is 'flipped'.
     /// </summary>
     [DataField]
     public ProtoId<ConstructionPrototype>? Mirror { get; private set; }
 
     /// <summary>
-    ///     Possible constructions to replace this one with as determined by the placement mode
+    ///     Possible constructions to replace this one with as determined by the placement mode.
     /// </summary>
     [DataField]
     public ProtoId<ConstructionPrototype>[] AlternativePrototypes = [];

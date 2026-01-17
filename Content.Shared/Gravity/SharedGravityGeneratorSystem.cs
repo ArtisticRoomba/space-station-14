@@ -15,7 +15,7 @@ public abstract class SharedGravityGeneratorSystem : EntitySystem
     }
 
     /// <summary>
-    /// Prevent unanchoring when gravity is active
+    /// Prevent unanchoring when gravity is active.
     /// </summary>
     private void OnUnanchorAttempt(Entity<GravityGeneratorComponent> ent, ref UnanchorAttemptEvent args)
     {

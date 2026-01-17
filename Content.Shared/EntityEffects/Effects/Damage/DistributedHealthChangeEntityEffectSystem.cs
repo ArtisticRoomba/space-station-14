@@ -36,7 +36,7 @@ public sealed partial class DistributedHealthChange : EntityEffectBase<Distribut
     public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> Damage = new();
 
     /// <summary>
-    /// Should this effect ignore damage modifiers?
+    /// Should this effect ignore damage modifiers?.
     /// </summary>
     [DataField]
     public bool IgnoreResistances = true;

@@ -9,7 +9,7 @@ namespace Content.Shared.Light.Components;
 
 /// <summary>
 ///     Device that allows user to quikly change bulbs in <see cref="PoweredLightComponent"/>
-///     Can be reloaded by new light tubes or light bulbs
+///     Can be reloaded by new light tubes or light bulbs.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedLightReplacerSystem))]
 public sealed partial class LightReplacerComponent : Component
@@ -24,13 +24,13 @@ public sealed partial class LightReplacerComponent : Component
     };
 
     /// <summary>
-    /// Bulbs that were inserted inside light replacer
+    /// Bulbs that were inserted inside light replacer.
     /// </summary>
     [ViewVariables]
     public Container InsertedBulbs = default!;
 
     /// <summary>
-    /// The default starting bulbs
+    /// The default starting bulbs.
     /// </summary>
     [DataField("contents")]
     public List<EntitySpawnEntry> Contents = new();

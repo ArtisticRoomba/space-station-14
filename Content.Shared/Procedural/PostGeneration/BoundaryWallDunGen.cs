@@ -10,7 +10,7 @@ namespace Content.Shared.Procedural.PostGeneration;
 /// Dungeon data keys are:
 /// - CornerWalls (Optional)
 /// - FallbackTile
-/// - Walls
+/// - Walls.
 /// </remarks>
 public sealed partial class BoundaryWallDunGen : IDunGenLayer
 {

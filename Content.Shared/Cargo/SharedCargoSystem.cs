@@ -39,7 +39,7 @@ public abstract class SharedCargoSystem : EntitySystem
     /// <summary>
     /// For a station, creates a distribution between one the bank's account and the other accounts.
     /// The primary account receives the majority percentage listed on the bank account, with the remaining
-    /// funds distributed to all accounts based on <see cref="StationBankAccountComponent.RevenueDistribution"/>
+    /// funds distributed to all accounts based on <see cref="StationBankAccountComponent.RevenueDistribution"/>.
     /// </summary>
     public Dictionary<ProtoId<CargoAccountPrototype>, double> CreateAccountDistribution(Entity<StationBankAccountComponent> stationBank)
     {
@@ -63,7 +63,7 @@ public abstract class SharedCargoSystem : EntitySystem
     /// </summary>
     /// <param name="station">Station to get bank account info from.</param>
     /// <param name="accountPrototypeId">Bank account prototype ID to get info for.</param>
-    /// <param name="money">The amount of money in the account</param>
+    /// <param name="money">The amount of money in the account.</param>
     /// <returns>Whether or not the bank account exists.</returns>
     public bool TryGetAccount(Entity<StationBankAccountComponent?> station, ProtoId<CargoAccountPrototype> accountPrototypeId, out int money)
     {
@@ -91,9 +91,9 @@ public abstract class SharedCargoSystem : EntitySystem
     /// <summary>
     /// Attempts to adjust the money of a certain bank account.
     /// </summary>
-    /// <param name="station">Station where the bank account is from</param>
-    /// <param name="accountPrototypeId">the id of the bank account</param>
-    /// <param name="money">how much money to set the account to</param>
+    /// <param name="station">Station where the bank account is from.</param>
+    /// <param name="accountPrototypeId">the id of the bank account.</param>
+    /// <param name="money">how much money to set the account to.</param>
     /// <param name="createAccount">Whether or not it should create the account if it doesn't exist.</param>
     /// <param name="dirty">Whether to mark the bank account component as dirty.</param>
     /// <returns>Whether or not setting the value succeeded.</returns>
@@ -126,9 +126,9 @@ public abstract class SharedCargoSystem : EntitySystem
     /// <summary>
     /// Attempts to set the money of a certain bank account.
     /// </summary>
-    /// <param name="station">Station where the bank account is from</param>
-    /// <param name="accountPrototypeId">the id of the bank account</param>
-    /// <param name="money">how much money to set the account to</param>
+    /// <param name="station">Station where the bank account is from.</param>
+    /// <param name="accountPrototypeId">the id of the bank account.</param>
+    /// <param name="money">how much money to set the account to.</param>
     /// <param name="createAccount">Whether or not it should create the account if it doesn't exist.</param>
     /// <param name="dirty">Whether to mark the bank account component as dirty.</param>
     /// <returns>Whether or not setting the value succeeded.</returns>

@@ -430,7 +430,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     /// System iterates through the <see cref="StaminaComponent.StunModifierThresholds"/> to find correct movement modifer.
     /// This modifier is saved to the Stamina Low Status Effect entity's <see cref="MovementModStatusEffectComponent"/>.
     /// </summary>
-    /// <param name="ent">Entity to update</param>
+    /// <param name="ent">Entity to update.</param>
     private void AdjustStatus(Entity<StaminaComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))

@@ -10,13 +10,13 @@ namespace Content.Shared.DoAfter;
 public sealed partial class DoAfterComponent : Component
 {
     /// <summary>
-    /// The id of the next doafter
+    /// The id of the next doafter.
     /// </summary>
     [DataField]
     public ushort NextId;
 
     /// <summary>
-    /// collection of id + doafter
+    /// collection of id + doafter.
     /// </summary>
     [DataField]
     public Dictionary<ushort, DoAfter> DoAfters = new();

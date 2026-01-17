@@ -18,7 +18,7 @@ public sealed partial class FoodSequenceElementComponent : Component
     public Dictionary<ProtoId<TagPrototype>, ProtoId<FoodSequenceElementPrototype>> Entries = new();
 
     /// <summary>
-    /// Which solution we will add to the main dish
+    /// Which solution we will add to the main dish.
     /// </summary>
     [DataField]
     public string Solution = "food";

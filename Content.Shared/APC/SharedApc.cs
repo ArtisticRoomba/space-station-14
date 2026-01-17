@@ -74,7 +74,7 @@ namespace Content.Shared.APC
 
         /// <summary>
         /// The log 2 width in bits of the bitfields indicating the status of an APC lock indicator.
-        /// Used for bit shifting operations (Mask for the state for indicator i is (All << (i << LogWidth))).
+        /// Used for bit shifting operations (Mask for the state for indicator i is (All. << (i << LogWidth))).
         /// </summary>
         LogWidth = 0,
     }
@@ -147,7 +147,7 @@ namespace Content.Shared.APC
 
         /// <summary>
         /// The log 2 width in bits of the bitfields indicating the status of an APC power channel.
-        /// Used for bit shifting operations (Mask for the state for channel i is (All << (i << LogWidth))).
+        /// Used for bit shifting operations (Mask for the state for channel i is (All. << (i << LogWidth))).
         /// </summary>
         LogWidth = 1,
     }
@@ -182,7 +182,7 @@ namespace Content.Shared.APC
         NumStates = 4,
 
         /// <summary>
-        /// APC is emagged (and not displaying other useful power colors at a glance)
+        /// APC is emagged (and not displaying other useful power colors at a glance).
         /// </summary>
         Emag = -1,
     }

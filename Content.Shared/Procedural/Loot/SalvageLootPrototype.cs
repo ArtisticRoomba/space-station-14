@@ -16,7 +16,7 @@ public sealed partial class SalvageLootPrototype : IPrototype
     [DataField("guaranteed")] public bool Guaranteed;
 
     /// <summary>
-    /// All of the loot rules
+    /// All of the loot rules.
     /// </summary>
     [DataField("loots")]
     public List<IDungeonLoot> LootRules = new();

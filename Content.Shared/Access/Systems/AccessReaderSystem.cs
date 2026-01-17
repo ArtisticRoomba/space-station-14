@@ -193,8 +193,8 @@ public sealed class AccessReaderSystem : EntitySystem
     /// then compares it with the all targets accesses to see if it is allowed.
     /// </summary>
     /// <param name="user">The entity that wants access.</param>
-    /// <param name="target">The entity to search for an access reader</param>
-    /// <param name="reader">Optional reader from the target entity</param>
+    /// <param name="target">The entity to search for an access reader.</param>
+    /// <param name="reader">Optional reader from the target entity.</param>
     public bool IsAllowed(EntityUid user, EntityUid target, AccessReaderComponent? reader = null)
     {
         if (!Resolve(target, ref reader, false))
@@ -504,7 +504,7 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Tries to add a collection of access permissions to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// Tries to add a collection of access permissions to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>.
     /// </summary>
     /// <param name="ent">The access reader entity to which the new access permissions are being added.</param>
     /// <param name="accesses">The list of access permissions being added.</param>
@@ -517,7 +517,7 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds a collection of access permissions to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// Adds a collection of access permissions to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>.
     /// </summary>
     /// <param name="ent">The access reader entity to which the new access permissions are being added.</param>
     /// <param name="accesses">The list of access permissions being added.</param>
@@ -554,7 +554,7 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Tries to add an access permission to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// Tries to add an access permission to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>.
     /// </summary>
     /// <param name="ent">The access reader entity to which the access permission is being added.</param>
     /// <param name="access">The access permission being added.</param>
@@ -568,7 +568,7 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds an access permission to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// Adds an access permission to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>.
     /// </summary>
     /// <param name="ent">The access reader entity to which the access permission is being added.</param>
     /// <param name="access">The access permission being added.</param>
@@ -600,7 +600,7 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Tries to remove a collection of access permissions from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// Tries to remove a collection of access permissions from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>.
     /// </summary>
     /// <param name="ent">The access reader entity from which the access permissions are being removed.</param>
     /// <param name="accesses">The list of access permissions being removed.</param>
@@ -613,7 +613,7 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Removes a collection of access permissions from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// Removes a collection of access permissions from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>.
     /// </summary>
     /// <param name="ent">The access reader entity from which the access permissions are being removed.</param>
     /// <param name="accesses">The list of access permissions being removed.</param>
@@ -650,7 +650,7 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Tries to removes an access permission from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// Tries to removes an access permission from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>.
     /// </summary>
     /// <param name="ent">The access reader entity from which the access permission is being removed.</param>
     /// <param name="access">The access permission being removed.</param>
@@ -664,7 +664,7 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Removes an access permission from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// Removes an access permission from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>.
     /// </summary>
     /// <param name="ent">The access reader entity from which the access permission is being removed.</param>
     /// <param name="access">The access permission being removed.</param>
@@ -904,8 +904,8 @@ public sealed class AccessReaderSystem : EntitySystem
     /// <summary>
     /// Logs an access for a specific entity.
     /// </summary>
-    /// <param name="ent">The reader to log the access on</param>
-    /// <param name="accessor">The accessor to log</param>
+    /// <param name="ent">The reader to log the access on.</param>
+    /// <param name="accessor">The accessor to log.</param>
     public void LogAccess(Entity<AccessReaderComponent> ent, EntityUid accessor)
     {
         if (IsPaused(ent) || ent.Comp.LoggingDisabled)
@@ -928,10 +928,10 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Logs an access with a predetermined name
+    /// Logs an access with a predetermined name.
     /// </summary>
-    /// <param name="ent">The reader to log the access on</param>
-    /// <param name="name">The name to log as</param>
+    /// <param name="ent">The reader to log the access on.</param>
+    /// <param name="name">The name to log as.</param>
     public void LogAccess(Entity<AccessReaderComponent> ent, string name, TimeSpan? accessTime = null, bool force = false)
     {
         if (!force)

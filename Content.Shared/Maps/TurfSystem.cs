@@ -10,7 +10,7 @@ using Robust.Shared.Toolshed.Commands.Values;
 namespace Content.Shared.Maps;
 
 /// <summary>
-///     This system provides various useful helper methods for turfs & tiles. Replacement for <see cref="TurfHelpers"/>
+///     This system provides various useful helper methods for turfs & tiles. Replacement for <see cref="TurfHelpers"/>.
 /// </summary>
 public sealed class TurfSystem : EntitySystem
 {
@@ -61,12 +61,12 @@ public sealed class TurfSystem : EntitySystem
     /// <summary>
     ///     Returns true if a given tile is blocked by physics-enabled entities.
     /// </summary>
-    /// <param name="gridUid">The grid that owns the tile</param>
-    /// <param name="indices">The tile indices</param>
-    /// <param name="mask">Collision layers to check</param>
-    /// <param name="grid">Grid component</param>
-    /// <param name="gridXform">Grid's transform</param>
-    /// <param name="minIntersectionArea">Minimum area that must be covered for a tile to be considered blocked</param>
+    /// <param name="gridUid">The grid that owns the tile.</param>
+    /// <param name="indices">The tile indices.</param>
+    /// <param name="mask">Collision layers to check.</param>
+    /// <param name="grid">Grid component.</param>
+    /// <param name="gridXform">Grid's transform.</param>
+    /// <param name="minIntersectionArea">Minimum area that must be covered for a tile to be considered blocked.</param>
     public bool IsTileBlocked(EntityUid gridUid,
         Vector2i indices,
         CollisionGroup mask,
@@ -171,7 +171,7 @@ public sealed class TurfSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Collects all of the entities intersecting with the turf at a given position into a provided <see cref="HashSet{EntityUid}"/>
+    ///     Collects all of the entities intersecting with the turf at a given position into a provided <see cref="HashSet{EntityUid}"/>.
     /// </summary>
     /// <param name="coords">The position of the turf to search for entities.</param>
     /// <param name="intersecting">The hashset used to collect the relevant entities.</param>

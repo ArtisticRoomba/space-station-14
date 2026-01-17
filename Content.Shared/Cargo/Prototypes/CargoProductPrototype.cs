@@ -84,13 +84,13 @@ namespace Content.Shared.Cargo.Prototypes
         public int Cost { get; private set; }
 
         /// <summary>
-        ///     The prototype category of the product. (e.g. Engineering, Medical)
+        ///     The prototype category of the product. (e.g. Engineering, Medical).
         /// </summary>
         [DataField]
         public string Category { get; private set; } = string.Empty;
 
         /// <summary>
-        ///     The prototype group of the product. (e.g. Contraband)
+        ///     The prototype group of the product. (e.g. Contraband).
         /// </summary>
         [DataField]
         public ProtoId<CargoMarketPrototype> Group { get; private set; } = "market";

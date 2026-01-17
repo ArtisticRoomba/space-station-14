@@ -38,7 +38,7 @@ public sealed partial class AddReagentToSolution : EntityEffectBase<AddReagentTo
     public ProtoId<ReagentPrototype> Reagent;
 
     ///<summary>
-    ///     Solution we're looking for
+    ///     Solution we're looking for.
     /// </summary>
     [DataField(required: true)]
     public string? Solution = "reagents";

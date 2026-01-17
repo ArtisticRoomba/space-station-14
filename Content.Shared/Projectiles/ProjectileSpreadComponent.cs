@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Projectiles;
 
 /// <summary>
-/// Spawns a spread of the projectiles when fired
+/// Spawns a spread of the projectiles when fired.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunSystem))]
 public sealed partial class ProjectileSpreadComponent : Component

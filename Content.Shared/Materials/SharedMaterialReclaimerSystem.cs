@@ -143,7 +143,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     /// <remarks>
     /// This doesn't reclaim the entity itself, but rather ends the formal
     /// process started with <see cref="ActiveMaterialReclaimerComponent"/>.
-    /// The actual reclaiming happens in <see cref="Reclaim"/>
+    /// The actual reclaiming happens in <see cref="Reclaim"/>.
     /// </remarks>
     public virtual bool TryFinishProcessItem(EntityUid uid, MaterialReclaimerComponent? component = null, ActiveMaterialReclaimerComponent? active = null)
     {

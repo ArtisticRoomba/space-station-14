@@ -3,7 +3,7 @@
 namespace Content.Shared.Mobs.Components;
 
 /// <summary>
-///     Used for specifying actions that should be automatically added/removed on mob state transitions
+///     Used for specifying actions that should be automatically added/removed on mob state transitions.
 /// </summary>
 /// <remarks>
 ///     Mostly for crit-specific actions.
@@ -20,7 +20,7 @@ public sealed partial class MobStateActionsComponent : Component
     ///   Critical:
     ///   - ActionCritSuccumb
     ///   Alive:
-    ///   - ActionAnimalLayEgg
+    ///   - ActionAnimalLayEgg.
     /// </example>
     [DataField("actions")]
     public Dictionary<MobState, List<string>> Actions = new();

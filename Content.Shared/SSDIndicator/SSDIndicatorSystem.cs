@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.SSDIndicator;
 
 /// <summary>
-///     Handle changing player SSD indicator status
+///     Handle changing player SSD indicator status.
 /// </summary>
 public sealed class SSDIndicatorSystem : EntitySystem
 {

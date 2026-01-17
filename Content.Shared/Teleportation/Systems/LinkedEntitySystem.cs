@@ -39,10 +39,10 @@ public sealed class LinkedEntitySystem : EntitySystem
     ///     Links two entities together. Does not require the existence of <see cref="LinkedEntityComponent"/> on either
     ///     already. Linking is symmetrical, so order doesn't matter.
     /// </summary>
-    /// <param name="first">The first entity to link</param>
-    /// <param name="second">The second entity to link</param>
-    /// <param name="deleteOnEmptyLinks">Whether both entities should now delete once their links are removed</param>
-    /// <returns>Whether linking was successful (e.g. they weren't already linked)</returns>
+    /// <param name="first">The first entity to link.</param>
+    /// <param name="second">The second entity to link.</param>
+    /// <param name="deleteOnEmptyLinks">Whether both entities should now delete once their links are removed.</param>
+    /// <returns>Whether linking was successful (e.g. they weren't already linked).</returns>
     public bool TryLink(EntityUid first, EntityUid second, bool deleteOnEmptyLinks=false)
     {
         var firstLink = EnsureComp<LinkedEntityComponent>(first);
@@ -64,7 +64,7 @@ public sealed class LinkedEntitySystem : EntitySystem
     /// <summary>
     /// Does a one-way link from source to target.
     /// </summary>
-    /// <param name="deleteOnEmptyLinks">Whether both entities should now delete once their links are removed</param>
+    /// <param name="deleteOnEmptyLinks">Whether both entities should now delete once their links are removed.</param>
     public bool OneWayLink(EntityUid source, EntityUid target, bool deleteOnEmptyLinks=false)
     {
         var firstLink = EnsureComp<LinkedEntityComponent>(source);
@@ -81,11 +81,11 @@ public sealed class LinkedEntitySystem : EntitySystem
     ///     Unlinks two entities. Deletes either entity if <see cref="LinkedEntityComponent.DeleteOnEmptyLinks"/>
     ///     was true and its links are now empty. Symmetrical, so order doesn't matter.
     /// </summary>
-    /// <param name="first">The first entity to unlink</param>
-    /// <param name="second">The second entity to unlink</param>
-    /// <param name="firstLink">Resolve comp</param>
-    /// <param name="secondLink">Resolve comp</param>
-    /// <returns>Whether unlinking was successful (e.g. they both were actually linked to one another)</returns>
+    /// <param name="first">The first entity to unlink.</param>
+    /// <param name="second">The second entity to unlink.</param>
+    /// <param name="firstLink">Resolve comp.</param>
+    /// <param name="secondLink">Resolve comp.</param>
+    /// <returns>Whether unlinking was successful (e.g. they both were actually linked to one another).</returns>
     public bool TryUnlink(EntityUid first, EntityUid second,
         LinkedEntityComponent? firstLink = null, LinkedEntityComponent? secondLink = null)
     {

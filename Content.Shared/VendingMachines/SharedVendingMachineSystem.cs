@@ -164,10 +164,10 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     protected virtual void EjectItem(EntityUid uid, VendingMachineComponent? vendComponent = null, bool forceEject = false) { }
 
     /// <summary>
-    /// Checks if the user is authorized to use this vending machine
+    /// Checks if the user is authorized to use this vending machine.
     /// </summary>
     /// <param name="uid"></param>
-    /// <param name="sender">Entity trying to use the vending machine</param>
+    /// <param name="sender">Entity trying to use the vending machine.</param>
     /// <param name="vendComponent"></param>
     public bool IsAuthorized(EntityUid uid, EntityUid sender, VendingMachineComponent? vendComponent = null)
     {
@@ -204,9 +204,9 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     /// or the item doesn't exist in its inventory.
     /// </summary>
     /// <param name="uid"></param>
-    /// <param name="type">The type of inventory the item is from</param>
-    /// <param name="itemId">The prototype ID of the item</param>
-    /// <param name="throwItem">Whether the item should be thrown in a random direction after ejection</param>
+    /// <param name="type">The type of inventory the item is from.</param>
+    /// <param name="itemId">The prototype ID of the item.</param>
+    /// <param name="throwItem">Whether the item should be thrown in a random direction after ejection.</param>
     /// <param name="vendComponent"></param>
     public void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, EntityUid? user = null, VendingMachineComponent? vendComponent = null)
     {
@@ -302,12 +302,12 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     }
 
     /// <summary>
-    /// Checks whether the user is authorized to use the vending machine, then ejects the provided item if true
+    /// Checks whether the user is authorized to use the vending machine, then ejects the provided item if true.
     /// </summary>
     /// <param name="uid"></param>
-    /// <param name="sender">Entity that is trying to use the vending machine</param>
-    /// <param name="type">The type of inventory the item is from</param>
-    /// <param name="itemId">The prototype ID of the item</param>
+    /// <param name="sender">Entity that is trying to use the vending machine.</param>
+    /// <param name="type">The type of inventory the item is from.</param>
+    /// <param name="itemId">The prototype ID of the item.</param>
     /// <param name="component"></param>
     public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, VendingMachineComponent component)
     {

@@ -40,13 +40,13 @@ public sealed partial class StampComponent : Component
     public string StampState { get; set; } = "paper_stamp-generic";
 
     /// <summary>
-    /// The color of the ink used by the stamp in UIs
+    /// The color of the ink used by the stamp in UIs.
     /// </summary>
     [DataField("stampedColor")]
     public Color StampedColor = Color.FromHex("#BB3232"); // StyleNano.DangerousRedFore
 
     /// <summary>
-    /// The sound when stamp stamped
+    /// The sound when stamp stamped.
     /// </summary>
     [DataField("sound")]
     public SoundSpecifier? Sound = null;

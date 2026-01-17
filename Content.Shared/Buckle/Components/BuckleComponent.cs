@@ -29,13 +29,13 @@ public sealed partial class BuckleComponent : Component
     public bool Buckled => BuckledTo != null;
 
     /// <summary>
-    /// Whether or not collisions should be possible with the entity we are strapped to
+    /// Whether or not collisions should be possible with the entity we are strapped to.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool DontCollide;
 
     /// <summary>
-    /// Whether or not we should be allowed to pull the entity we are strapped to
+    /// Whether or not we should be allowed to pull the entity we are strapped to.
     /// </summary>
     [DataField]
     public bool PullStrap;
@@ -67,7 +67,7 @@ public sealed partial class BuckleComponent : Component
     public int Size = 100;
 
     /// <summary>
-    /// Used for client rendering
+    /// Used for client rendering.
     /// </summary>
     [ViewVariables] public int? OriginalDrawDepth;
 }

@@ -25,7 +25,7 @@ public sealed class TransformSpeakerNameEvent : EntityEventArgs, IInventoryRelay
 }
 
 /// <summary>
-/// Raised broadcast in order to transform speech.transmit
+/// Raised broadcast in order to transform speech.transmit.
 /// </summary>
 public sealed class TransformSpeechEvent : CancellableEntityEventArgs, IInventoryRelayEvent
 {

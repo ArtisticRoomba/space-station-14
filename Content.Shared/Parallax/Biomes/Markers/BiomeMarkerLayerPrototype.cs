@@ -24,13 +24,13 @@ public sealed partial class BiomeMarkerLayerPrototype : IBiomeMarkerLayer
     public string? Prototype { get; private set; }
 
     /// <summary>
-    /// Minimum radius between 2 points
+    /// Minimum radius between 2 points.
     /// </summary>
     [DataField("radius")]
     public float Radius = 32f;
 
     /// <summary>
-    /// Maximum amount of group spawns
+    /// Maximum amount of group spawns.
     /// </summary>
     [DataField("maxCount")]
     public int MaxCount = int.MaxValue;

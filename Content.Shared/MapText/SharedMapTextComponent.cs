@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.MapText;
 
 /// <summary>
-/// This is used for displaying text in world space
+/// This is used for displaying text in world space.
 /// </summary>
 
 [NetworkedComponent, Access(typeof(SharedMapTextSystem))]

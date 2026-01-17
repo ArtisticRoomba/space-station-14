@@ -51,10 +51,10 @@ public sealed partial class TargetActionComponent : Component
     public float Range = SharedInteractionSystem.InteractionRange;
 
     /// <summary>
-    ///     If the target is invalid, this bool determines whether the left-click will default to performing a standard-interaction
+    ///     If the target is invalid, this bool determines whether the left-click will default to performing a standard-interaction.
     /// </summary>
     /// <remarks>
-    ///     Interactions will still be blocked if the target-validation generates a pop-up
+    ///     Interactions will still be blocked if the target-validation generates a pop-up.
     /// </remarks>
     [DataField]
     public bool InteractOnMiss;

@@ -49,7 +49,7 @@ public abstract partial class SharedAtmosphereSystem
     /// <summary>
     ///     Calculates the heat capacity for a gas mixture.
     /// </summary>
-    /// <param name="mixture">The mixture whose heat capacity should be calculated</param>
+    /// <param name="mixture">The mixture whose heat capacity should be calculated.</param>
     /// <param name="applyScaling"> Whether the internal heat capacity scaling should be applied. This should not be
     /// used outside of atmospheric related heat transfer.</param>
     /// <returns></returns>
@@ -70,7 +70,7 @@ public abstract partial class SharedAtmosphereSystem
     /// <summary>
     /// Gets the heat capacity for a <see cref="GasMixture"/>.
     /// </summary>
-    /// <param name="moles">The moles array of the <see cref="GasMixture"/></param>
+    /// <param name="moles">The moles array of the <see cref="GasMixture"/>.</param>
     /// <param name="space">Whether this <see cref="GasMixture"/> represents space,
     /// and thus experiences space-specific mechanics (we cheat and make it a bit cooler).</param>
     /// <returns></returns>

@@ -30,13 +30,13 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     public ThrowingUnanchorStrength UnanchorOnHit = ThrowingUnanchorStrength.None;
 
     /// <summary>
-    /// How long should this stun the target, if applicable?
+    /// How long should this stun the target, if applicable?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan? StunTime;
 
     /// <summary>
-    /// Should this also work on a throw-hit?
+    /// Should this also work on a throw-hit?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ActivateOnThrown;

@@ -127,7 +127,7 @@ public abstract class SharedPoweredLightSystem : EntitySystem
 
     /// <summary>
     /// Turns the light on or of when receiving a <see cref="DeviceNetworkConstants.CmdSetState"/> command.
-    /// The light is turned on or of according to the <see cref="DeviceNetworkConstants.StateEnabled"/> value
+    /// The light is turned on or of according to the <see cref="DeviceNetworkConstants.StateEnabled"/> value.
     /// </summary>
     private void OnPacketReceived(EntityUid uid, PoweredLightComponent component, DeviceNetworkPacketEvent args)
     {
@@ -173,7 +173,7 @@ public abstract class SharedPoweredLightSystem : EntitySystem
     /// <summary>
     ///     Ejects the bulb to a mob's hand if possible.
     /// </summary>
-    /// <returns>Bulb uid if it was successfully ejected, null otherwise</returns>
+    /// <returns>Bulb uid if it was successfully ejected, null otherwise.</returns>
     public EntityUid? EjectBulb(EntityUid uid, EntityUid? userUid = null, PoweredLightComponent? light = null)
     {
         if (!Resolve(uid, ref light))
@@ -210,7 +210,7 @@ public abstract class SharedPoweredLightSystem : EntitySystem
 
     /// <summary>
     ///     Try to replace current bulb with a new one
-    ///     If succeed old bulb just drops on floor
+    ///     If succeed old bulb just drops on floor.
     /// </summary>
     public bool ReplaceBulb(EntityUid uid, EntityUid bulb, PoweredLightComponent? light = null)
     {
@@ -219,9 +219,9 @@ public abstract class SharedPoweredLightSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Try to get light bulb inserted in powered light
+    ///     Try to get light bulb inserted in powered light.
     /// </summary>
-    /// <returns>Bulb uid if it exist, null otherwise</returns>
+    /// <returns>Bulb uid if it exist, null otherwise.</returns>
     public EntityUid? GetBulb(EntityUid uid, PoweredLightComponent? light = null)
     {
         if (!Resolve(uid, ref light))
@@ -231,7 +231,7 @@ public abstract class SharedPoweredLightSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Try to break bulb inside light fixture
+    ///     Try to break bulb inside light fixture.
     /// </summary>
     public bool TryDestroyBulb(EntityUid uid, PoweredLightComponent? light = null, EntityUid? user = null)
     {

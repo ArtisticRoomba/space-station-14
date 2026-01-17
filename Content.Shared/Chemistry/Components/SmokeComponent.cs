@@ -6,7 +6,7 @@ namespace Content.Shared.Chemistry.Components;
 
 /// <summary>
 /// Stores solution on an anchored entity that has touch and ingestion reactions
-/// to entities that collide with it. Similar to <see cref="PuddleComponent"/>
+/// to entities that collide with it. Similar to <see cref="PuddleComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SmokeComponent : Component
@@ -27,7 +27,7 @@ public sealed partial class SmokeComponent : Component
 
     /// <summary>
     /// The max rate at which chemicals are transferred from the smoke to the person inhaling it.
-    /// Calculated as (total volume of chemicals in smoke) / (<see cref="Duration"/>)
+    /// Calculated as (total volume of chemicals in smoke) / (<see cref="Duration"/>).
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 TransferRate;

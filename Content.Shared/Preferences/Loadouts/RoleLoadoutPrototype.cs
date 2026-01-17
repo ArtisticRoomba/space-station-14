@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Preferences.Loadouts;
 
 /// <summary>
-/// Corresponds to a Job / Antag prototype and specifies loadouts
+/// Corresponds to a Job / Antag prototype and specifies loadouts.
 /// </summary>
 [Prototype]
 public sealed partial class RoleLoadoutPrototype : IPrototype
@@ -17,13 +17,13 @@ public sealed partial class RoleLoadoutPrototype : IPrototype
     public string ID { get; private set; } = string.Empty;
 
     /// <summary>
-    /// Can the user edit their entity name for this role loadout?
+    /// Can the user edit their entity name for this role loadout?.
     /// </summary>
     [DataField]
     public bool CanCustomizeName;
 
     /// <summary>
-    /// Should we use a random name for this loadout?
+    /// Should we use a random name for this loadout?.
     /// </summary>
     [DataField]
     public ProtoId<LocalizedDatasetPrototype>? NameDataset;

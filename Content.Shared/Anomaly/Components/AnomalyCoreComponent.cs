@@ -4,14 +4,14 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Anomaly.Components;
 
 /// <summary>
-/// This component exists for a limited time, and after it expires it modifies the entity, greatly reducing its value and changing its visuals
+/// This component exists for a limited time, and after it expires it modifies the entity, greatly reducing its value and changing its visuals.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedAnomalyCoreSystem))]
 [AutoGenerateComponentState]
 public sealed partial class AnomalyCoreComponent : Component
 {
     /// <summary>
-    /// Amount of time required for the core to decompose into an inert core
+    /// Amount of time required for the core to decompose into an inert core.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public double TimeToDecay = 600;
@@ -30,13 +30,13 @@ public sealed partial class AnomalyCoreComponent : Component
     public double StartPrice = 10000;
 
     /// <summary>
-    /// The value of the object sought during decaying
+    /// The value of the object sought during decaying.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public double EndPrice = 200;
 
     /// <summary>
-    /// Has the core decayed?
+    /// Has the core decayed?.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]

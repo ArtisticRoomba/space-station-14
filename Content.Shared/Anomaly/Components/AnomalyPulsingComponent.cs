@@ -3,7 +3,7 @@
 namespace Content.Shared.Anomaly.Components;
 
 /// <summary>
-/// This component tracks anomalies that are currently pulsing
+/// This component tracks anomalies that are currently pulsing.
 /// </summary>
 [RegisterComponent, Access(typeof(SharedAnomalySystem)), AutoGenerateComponentPause]
 public sealed partial class AnomalyPulsingComponent : Component
@@ -16,7 +16,7 @@ public sealed partial class AnomalyPulsingComponent : Component
     public TimeSpan EndTime;
 
     /// <summary>
-    /// How long the pulse visual lasts
+    /// How long the pulse visual lasts.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan PulseDuration = TimeSpan.FromSeconds(5);

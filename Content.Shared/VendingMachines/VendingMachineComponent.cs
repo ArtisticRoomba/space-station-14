@@ -11,7 +11,7 @@ namespace Content.Shared.VendingMachines
     public sealed partial class VendingMachineComponent : Component
     {
         /// <summary>
-        /// PrototypeID for the vending machine's inventory, see <see cref="VendingMachineInventoryPrototype"/>
+        /// PrototypeID for the vending machine's inventory, see <see cref="VendingMachineInventoryPrototype"/>.
         /// </summary>
         // Okay so not using ProtoId here is load-bearing because the ProtoId serializer will log errors if the prototype doesn't exist.
         [DataField("pack", customTypeSerializer: typeof(PrototypeIdSerializer<VendingMachineInventoryPrototype>), required: true)]
@@ -42,7 +42,7 @@ namespace Content.Shared.VendingMachines
         public Dictionary<string, VendingMachineInventoryEntry> ContrabandInventory = new();
 
         /// <summary>
-        /// If true then unlocks the <see cref="ContrabandInventory"/>
+        /// If true then unlocks the <see cref="ContrabandInventory"/>.
         /// </summary>
         [DataField]
         public bool Contraband;
@@ -71,7 +71,7 @@ namespace Content.Shared.VendingMachines
         public bool Broken;
 
         /// <summary>
-        /// When true, will forcefully throw any object it dispenses
+        /// When true, will forcefully throw any object it dispenses.
         /// </summary>
         [DataField]
         public bool CanShoot = false;
@@ -102,7 +102,7 @@ namespace Content.Shared.VendingMachines
         public TimeSpan? DispenseOnHitCooldown = TimeSpan.FromSeconds(1.0);
 
         /// <summary>
-        ///     Sound that plays when ejecting an item
+        ///     Sound that plays when ejecting an item.
         /// </summary>
         [DataField]
 
@@ -117,7 +117,7 @@ namespace Content.Shared.VendingMachines
         };
 
         /// <summary>
-        ///     Sound that plays when an item can't be ejected
+        ///     Sound that plays when an item can't be ejected.
         /// </summary>
         [DataField]
 
@@ -137,7 +137,7 @@ namespace Content.Shared.VendingMachines
         public float InitialStockQuality = 1.0f;
 
         /// <summary>
-        ///     While disabled by EMP it randomly ejects items
+        ///     While disabled by EMP it randomly ejects items.
         /// </summary>
         [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
         public TimeSpan NextEmpEject = TimeSpan.Zero;
@@ -152,28 +152,28 @@ namespace Content.Shared.VendingMachines
 
         /// <summary>
         /// RSI state for when the vending machine is unpowered.
-        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.Base"/>
+        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.Base"/>.
         /// </summary>
         [DataField]
         public string? OffState;
 
         /// <summary>
         /// RSI state for the screen of the vending machine
-        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.Screen"/>
+        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.Screen"/>.
         /// </summary>
         [DataField]
         public string? ScreenState;
 
         /// <summary>
         /// RSI state for the vending machine's normal state. Usually a looping animation.
-        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.BaseUnshaded"/>
+        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.BaseUnshaded"/>.
         /// </summary>
         [DataField]
         public string? NormalState;
 
         /// <summary>
         /// RSI state for the vending machine's eject animation.
-        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.BaseUnshaded"/>
+        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.BaseUnshaded"/>.
         /// </summary>
         [DataField]
         public string? EjectState;
@@ -181,14 +181,14 @@ namespace Content.Shared.VendingMachines
         /// <summary>
         /// RSI state for the vending machine's deny animation. Will either be played once as sprite flick
         /// or looped depending on how <see cref="LoopDenyAnimation"/> is set.
-        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.BaseUnshaded"/>
+        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.BaseUnshaded"/>.
         /// </summary>
         [DataField]
         public string? DenyState;
 
         /// <summary>
         /// RSI state for when the vending machine is unpowered.
-        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.Base"/>
+        /// Will be displayed on the layer <see cref="VendingMachineVisualLayers.Base"/>.
         /// </summary>
         [DataField]
         public string? BrokenState;
@@ -262,12 +262,12 @@ namespace Content.Shared.VendingMachines
         Base,
 
         /// <summary>
-        /// Normal / Deny / Eject
+        /// Normal / Deny / Eject.
         /// </summary>
         BaseUnshaded,
 
         /// <summary>
-        /// Screens that are persistent (where the machine is not off or broken)
+        /// Screens that are persistent (where the machine is not off or broken).
         /// </summary>
         Screen,
     }

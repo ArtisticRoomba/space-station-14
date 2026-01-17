@@ -49,7 +49,7 @@ public sealed partial class NpcFactionSystem
     }
 
     /// <summary>
-    /// Returns whether the entity from an enemy faction won't be attacked
+    /// Returns whether the entity from an enemy faction won't be attacked.
     /// </summary>
     public bool IsIgnored(Entity<FactionExceptionComponent?> ent, EntityUid target)
     {
@@ -72,7 +72,7 @@ public sealed partial class NpcFactionSystem
     }
 
     /// <summary>
-    /// Prevents an entity from an enemy faction from being attacked
+    /// Prevents an entity from an enemy faction from being attacked.
     /// </summary>
     public void IgnoreEntity(Entity<FactionExceptionComponent?> ent, Entity<FactionExceptionTrackerComponent?> target)
     {
@@ -83,7 +83,7 @@ public sealed partial class NpcFactionSystem
     }
 
     /// <summary>
-    /// Prevents a list of entities from an enemy faction from being attacked
+    /// Prevents a list of entities from an enemy faction from being attacked.
     /// </summary>
     public void IgnoreEntities(Entity<FactionExceptionComponent?> ent, IEnumerable<EntityUid> ignored)
     {

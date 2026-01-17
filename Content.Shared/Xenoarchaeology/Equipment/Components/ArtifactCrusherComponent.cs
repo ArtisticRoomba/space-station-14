@@ -75,7 +75,7 @@ public sealed partial class ArtifactCrusherComponent : Component
     public Container OutputContainer;
 
     /// <summary>
-    /// The ID for <see cref="OutputContainer"/>
+    /// The ID for <see cref="OutputContainer"/>.
     /// </summary>
     [DataField]
     public string OutputContainerName = "output_container";

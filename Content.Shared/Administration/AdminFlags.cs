@@ -65,7 +65,7 @@
         Logs = 1 << 9,
 
         /// <summary>
-        ///     Lets you modify the round (forcemap, loadgamemap, etc)
+        ///     Lets you modify the round (forcemap, loadgamemap, etc).
         /// </summary>
         Round = 1 << 10,
 
@@ -90,7 +90,7 @@
         EditNotes = 1 << 14,
 
         /// <summary>
-        ///     Lets you Massban, on SS14.Admin
+        ///     Lets you Massban, on SS14.Admin.
         /// </summary>
         MassBan = 1 << 15,
 
@@ -100,12 +100,12 @@
         Stealth = 1 << 16,
 
         ///<summary>
-        /// Allows you to use Admin chat
+        /// Allows you to use Admin chat.
         ///</summary>
         Adminchat = 1 << 17,
 
         ///<summary>
-        /// Permits the visibility of Pii in game and on SS14 Admin
+        /// Permits the visibility of Pii in game and on SS14 Admin.
         ///</summary>
         Pii = 1 << 18,
 

@@ -73,7 +73,7 @@ namespace Content.Shared.Strip.Components
 
     /// <summary>
     ///     Organizes the behavior of DoAfters for <see cref="StrippableSystem">.
-    /// </summary>
+    /// </summary>.
     [Serializable, NetSerializable]
     public sealed partial class StrippableDoAfterEvent : DoAfterEvent
     {

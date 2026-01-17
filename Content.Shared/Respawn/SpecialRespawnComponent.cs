@@ -16,14 +16,14 @@ public sealed partial class SpecialRespawnComponent : Component
     public (EntityUid?, EntityUid?) StationMap;
 
     /// <summary>
-    /// Checks if the entityentity should respawn on the station grid
+    /// Checks if the entityentity should respawn on the station grid.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("respawn")]
     public bool Respawn = true;
 
     /// <summary>
-    /// The prototypeID of the entity to be respawned
+    /// The prototypeID of the entity to be respawned.
     /// </summary>
     [ViewVariables]
     [DataField("prototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]

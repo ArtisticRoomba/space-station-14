@@ -5,39 +5,39 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Power;
 
 /// <summary>
-///     Flags an entity as being a power monitoring console
+///     Flags an entity as being a power monitoring console.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedPowerMonitoringConsoleSystem), Other = AccessPermissions.ReadExecute)]
 public sealed partial class PowerMonitoringConsoleComponent : Component
 {
     /// <summary>
-    /// The EntityUid of the device that is the console's current focus
+    /// The EntityUid of the device that is the console's current focus.
     /// </summary>
     /// <remarks>
-    /// Not-networked - set by the console UI
+    /// Not-networked - set by the console UI.
     /// </remarks>
     [ViewVariables]
     public EntityUid? Focus;
 
     /// <summary>
-    /// The group that the device that is the console's current focus belongs to
+    /// The group that the device that is the console's current focus belongs to.
     /// </summary>
     /// /// <remarks>
-    /// Not-networked - set by the console UI
+    /// Not-networked - set by the console UI.
     /// </remarks>
     [ViewVariables]
     public PowerMonitoringConsoleGroup FocusGroup = PowerMonitoringConsoleGroup.Generator;
 
     /// <summary>
     /// A list of flags relating to currently active events of interest to the console.
-    /// E.g., power sinks, power net anomalies
+    /// E.g., power sinks, power net anomalies.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public PowerMonitoringFlags Flags = PowerMonitoringFlags.None;
 
     /// <summary>
-    /// A dictionary containing all the meta data for tracked power monitoring devices
+    /// A dictionary containing all the meta data for tracked power monitoring devices.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public Dictionary<NetEntity, PowerMonitoringDeviceMetaData> PowerMonitoringDeviceMetaData = new();
@@ -64,7 +64,7 @@ public struct PowerMonitoringDeviceMetaData
 }
 
 /// <summary>
-///     Data from by the server to the client for the power monitoring console UI
+///     Data from by the server to the client for the power monitoring console UI.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class PowerMonitoringConsoleBoundInterfaceState : BoundUserInterfaceState
@@ -94,7 +94,7 @@ public sealed class PowerMonitoringConsoleBoundInterfaceState : BoundUserInterfa
 }
 
 /// <summary>
-///     Contains all the data needed to update a single device on the power monitoring UI
+///     Contains all the data needed to update a single device on the power monitoring UI.
 /// </summary>
 [Serializable, NetSerializable]
 public struct PowerMonitoringConsoleEntry
@@ -116,7 +116,7 @@ public struct PowerMonitoringConsoleEntry
 }
 
 /// <summary>
-///     Triggers the server to send updated power monitoring console data to the client for the single player session
+///     Triggers the server to send updated power monitoring console data to the client for the single player session.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class PowerMonitoringConsoleMessage : BoundUserInterfaceMessage
@@ -132,7 +132,7 @@ public sealed class PowerMonitoringConsoleMessage : BoundUserInterfaceMessage
 }
 
 /// <summary>
-///     Determines how entities are grouped and color coded on the power monitor
+///     Determines how entities are grouped and color coded on the power monitor.
 /// </summary>
 public enum PowerMonitoringConsoleGroup : byte
 {
@@ -152,7 +152,7 @@ public enum PowerMonitoringFlags : byte
 }
 
 /// <summary>
-///     UI key associated with the power monitoring console
+///     UI key associated with the power monitoring console.
 /// </summary>
 [Serializable, NetSerializable]
 public enum PowerMonitoringConsoleUiKey

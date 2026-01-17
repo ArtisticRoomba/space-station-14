@@ -139,28 +139,28 @@ namespace Content.Shared.Chemistry
     }
 
     /// <summary>
-    /// Information about the capacity and contents of a container for display in the UI
+    /// Information about the capacity and contents of a container for display in the UI.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class ContainerInfo
     {
         /// <summary>
-        /// The container name to show to the player
+        /// The container name to show to the player.
         /// </summary>
         public readonly string DisplayName;
 
         /// <summary>
-        /// The currently used volume of the container
+        /// The currently used volume of the container.
         /// </summary>
         public readonly FixedPoint2 CurrentVolume;
 
         /// <summary>
-        /// The maximum volume of the container
+        /// The maximum volume of the container.
         /// </summary>
         public readonly FixedPoint2 MaxVolume;
 
         /// <summary>
-        /// A list of the entities and their sizes within the container
+        /// A list of the entities and their sizes within the container.
         /// </summary>
         public List<(string Id, FixedPoint2 Quantity)>? Entities { get; init; }
 

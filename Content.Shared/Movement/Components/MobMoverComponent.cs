@@ -27,7 +27,7 @@ namespace Content.Shared.Movement.Components
         public EntityCoordinates LastPosition { get; set; }
 
         /// <summary>
-        ///     Used to keep track of how far we have moved before playing a step sound
+        ///     Used to keep track of how far we have moved before playing a step sound.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public float StepSoundDistance

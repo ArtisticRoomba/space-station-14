@@ -281,7 +281,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     /// <summary>
     /// Clears the disguise for the projector, allowing the user to immediately disguise again.
     /// </summary>
-    /// <param name="ent">The entity for which to clear the disguise</param>
+    /// <param name="ent">The entity for which to clear the disguise.</param>
     /// <param name="disguised">The disguised entity.</param>
     private void ClearDisguise(Entity<ChameleonProjectorComponent> ent, Entity<ChameleonDisguisedComponent?> disguised)
     {

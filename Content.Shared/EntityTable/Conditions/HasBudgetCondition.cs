@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityTable.Conditions;
 
 /// <summary>
-/// Condition that only succeeds if a table supplies a sufficient "cost" to a given
+/// Condition that only succeeds if a table supplies a sufficient "cost" to a given.
 /// </summary>
 public sealed partial class HasBudgetCondition : EntityTableCondition
 {

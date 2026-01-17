@@ -29,7 +29,7 @@ public sealed partial class IngestionSystem
     #region Ingestion
 
     /// <summary>
-    /// An entity is trying to ingest another entity in Space Station 14!!!
+    /// An entity is trying to ingest another entity in Space Station 14!!!.
     /// </summary>
     /// <param name="user">The entity who is eating.</param>
     /// <param name="ingested">The entity that is trying to be ingested.</param>
@@ -40,7 +40,7 @@ public sealed partial class IngestionSystem
     }
 
     /// <inheritdoc cref="TryIngest(EntityUid,EntityUid)"/>
-    /// <summary>Overload of TryIngest for if an entity is trying to make another entity ingest an entity</summary>
+    /// <summary>Overload of TryIngest for if an entity is trying to make another entity ingest an entity.</summary>
     /// <param name="user">The entity who is trying to make this happen.</param>
     /// <param name="target">The entity who is being made to ingest something.</param>
     /// <param name="ingested">The entity that is trying to be ingested.</param>
@@ -63,8 +63,8 @@ public sealed partial class IngestionSystem
     /// <summary>
     ///     Check whether we have an open pie-hole that's in range.
     /// </summary>
-    /// <param name="user">The one performing the action</param>
-    /// <param name="target">The target whose mouth is checked</param>
+    /// <param name="user">The one performing the action.</param>
+    /// <param name="target">The target whose mouth is checked.</param>
     /// <returns></returns>
     public bool HasMouthAvailable(EntityUid user, EntityUid target)
     {
@@ -95,8 +95,8 @@ public sealed partial class IngestionSystem
     }
 
     /// <inheritdoc cref="CanConsume(EntityUid,EntityUid)"/>
-    /// <param name="user">The entity that is consuming</param>
-    /// <param name="ingested">The entity that is being consumed</param>
+    /// <param name="user">The entity that is consuming.</param>
+    /// <param name="ingested">The entity that is being consumed.</param>
     public bool CanConsume(EntityUid user, EntityUid ingested)
     {
         return CanConsume(user, user, ingested, out _, out _);
@@ -105,22 +105,22 @@ public sealed partial class IngestionSystem
     /// <summary>
     ///     Checks if we can feed an edible solution from an entity to a target.
     /// </summary>
-    /// <param name="user">The one doing the feeding</param>
+    /// <param name="user">The one doing the feeding.</param>
     /// <param name="target">The one being fed.</param>
     /// <param name="ingested">The food item being eaten.</param>
-    /// <returns>Returns true if the user can feed the target with the ingested entity</returns>
+    /// <returns>Returns true if the user can feed the target with the ingested entity.</returns>
     public bool CanConsume(EntityUid user, EntityUid target, EntityUid ingested)
     {
         return CanConsume(user, target, ingested, out _, out _);
     }
 
     /// <inheritdoc cref="CanConsume(EntityUid,EntityUid,EntityUid)"/>
-    /// <param name="user">The one doing the feeding</param>
+    /// <param name="user">The one doing the feeding.</param>
     /// <param name="target">The one being fed.</param>
     /// <param name="ingested">The food item being eaten.</param>
     /// <param name="solution">The solution we will be consuming from.</param>
     /// <param name="time">The time it takes us to eat this entity if any.</param>
-    /// <returns>Returns true if the user can feed the target with the ingested entity and also returns a solution</returns>
+    /// <returns>Returns true if the user can feed the target with the ingested entity and also returns a solution.</returns>
     public bool CanConsume(EntityUid user,
         EntityUid target,
         EntityUid ingested,
@@ -190,9 +190,9 @@ public sealed partial class IngestionSystem
     /// Gets the total metabolizable nutrition from an entity, checks first if we can metabolize it.
     /// If we can't then it's not worth any nutrition.
     /// </summary>
-    /// <param name="entity">The consumed entity</param>
-    /// <param name="consumer">The entity doing the consuming</param>
-    /// <returns>The amount of nutrition the consumable is worth</returns>
+    /// <param name="entity">The consumed entity.</param>
+    /// <param name="consumer">The entity doing the consuming.</param>
+    /// <returns>The amount of nutrition the consumable is worth.</returns>
     public float TotalNutrition(Entity<EdibleComponent?> entity, EntityUid consumer)
     {
         if (!CanIngest(consumer, entity))
@@ -204,8 +204,8 @@ public sealed partial class IngestionSystem
     /// <summary>
     /// Gets the total metabolizable nutrition from an entity, assumes we can eat and metabolize it.
     /// </summary>
-    /// <param name="entity">The consumed entity</param>
-    /// <returns>The amount of nutrition the consumable is worth</returns>
+    /// <param name="entity">The consumed entity.</param>
+    /// <returns>The amount of nutrition the consumable is worth.</returns>
     public float TotalNutrition(Entity<EdibleComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
@@ -241,9 +241,9 @@ public sealed partial class IngestionSystem
     /// Gets the total metabolizable hydration from an entity, checks first if we can metabolize it.
     /// If we can't then it's not worth any hydration.
     /// </summary>
-    /// <param name="entity">The consumed entity</param>
-    /// <param name="consumer">The entity doing the consuming</param>
-    /// <returns>The amount of hydration the consumable is worth</returns>
+    /// <param name="entity">The consumed entity.</param>
+    /// <param name="consumer">The entity doing the consuming.</param>
+    /// <returns>The amount of hydration the consumable is worth.</returns>
     public float TotalHydration(Entity<EdibleComponent?> entity, EntityUid consumer)
     {
         if (!CanIngest(consumer, entity))
@@ -255,8 +255,8 @@ public sealed partial class IngestionSystem
     /// <summary>
     /// Gets the total metabolizable hydration from an entity, assumes we can eat and metabolize it.
     /// </summary>
-    /// <param name="entity">The consumed entity</param>
-    /// <returns>The amount of hydration the consumable is worth</returns>
+    /// <param name="entity">The consumed entity.</param>
+    /// <returns>The amount of hydration the consumable is worth.</returns>
     public float TotalHydration(Entity<EdibleComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
@@ -295,10 +295,10 @@ public sealed partial class IngestionSystem
     /// <summary>
     /// Checks if the item is currently edible.
     /// </summary>
-    /// <param name="ingested">Entity being ingested</param>
-    /// <param name="user">The entity trying to make the ingestion happening, not necessarily the one eating</param>
-    /// <param name="solution">Solution we're returning</param>
-    /// <param name="time">The time it takes us to eat this entity</param>
+    /// <param name="ingested">Entity being ingested.</param>
+    /// <param name="user">The entity trying to make the ingestion happening, not necessarily the one eating.</param>
+    /// <param name="solution">Solution we're returning.</param>
+    /// <param name="time">The time it takes us to eat this entity.</param>
     public bool CanAccessSolution(Entity<SolutionContainerManagerComponent?> ingested,
         EntityUid user,
         [NotNullWhen(true)] out Entity<SolutionComponent>? solution,
@@ -338,7 +338,7 @@ public sealed partial class IngestionSystem
     #region Edible Types
 
     /// <summary>
-    /// Tries to get the ingestion verbs for a given user entity and ingestible entity
+    /// Tries to get the ingestion verbs for a given user entity and ingestible entity.
     /// </summary>
     /// <param name="user">The one getting the verbs who would be doing the eating.</param>
     /// <param name="ingested">Entity being ingested.</param>
@@ -372,7 +372,7 @@ public sealed partial class IngestionSystem
     /// <summary>
     /// Returns the most accurate edible prototype for an entity if one exists.
     /// </summary>
-    /// <param name="entity">entity who's edible prototype we want</param>
+    /// <param name="entity">entity who's edible prototype we want.</param>
     /// <returns>The best matching prototype if one exists.</returns>
     public ProtoId<EdiblePrototype>? GetEdibleType(Entity<EdibleComponent?> entity)
     {

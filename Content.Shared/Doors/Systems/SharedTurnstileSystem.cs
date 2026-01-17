@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Doors.Systems;
 
 /// <summary>
-/// This handles logic and interactions related to <see cref="TurnstileComponent"/>
+/// This handles logic and interactions related to <see cref="TurnstileComponent"/>.
 /// </summary>
 public abstract partial class SharedTurnstileSystem : EntitySystem
 {

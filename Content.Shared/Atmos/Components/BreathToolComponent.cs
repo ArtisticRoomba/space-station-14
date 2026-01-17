@@ -12,7 +12,7 @@ namespace Content.Shared.Atmos.Components;
 public sealed partial class BreathToolComponent : Component
 {
     /// <summary>
-    /// Tool is functional only in allowed slots
+    /// Tool is functional only in allowed slots.
     /// </summary>
     [DataField]
     public SlotFlags AllowedSlots = SlotFlags.MASK | SlotFlags.HEAD;

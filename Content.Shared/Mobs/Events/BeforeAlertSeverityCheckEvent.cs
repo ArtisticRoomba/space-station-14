@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Mobs.Events;
 
 /// <summary>
-///     Event for allowing the interrupting and change of the mob threshold severity alert
+///     Event for allowing the interrupting and change of the mob threshold severity alert.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class BeforeAlertSeverityCheckEvent(ProtoId<AlertPrototype> currentAlert, short severity) : EntityEventArgs

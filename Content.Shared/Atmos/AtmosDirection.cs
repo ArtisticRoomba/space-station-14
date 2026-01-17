@@ -47,7 +47,7 @@ namespace Content.Shared.Atmos
 
         /// <summary>
         /// This returns the index that corresponds to the opposite direction of some other direction index.
-        /// I.e., <c>1&lt;&lt;OppositeIndex(i) == (1&lt;&lt;i).GetOpposite()</c>
+        /// I.e., <c>1&lt;&lt;OppositeIndex(i) == (1&lt;&lt;i).GetOpposite()</c>.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ToOppositeIndex(this int index)
@@ -118,7 +118,7 @@ namespace Content.Shared.Atmos
         }
 
         /// <summary>
-        /// Converts an angle to a cardinal AtmosDirection
+        /// Converts an angle to a cardinal AtmosDirection.
         /// </summary>
         /// <param name="angle"></param>
         /// <returns></returns>
@@ -128,7 +128,7 @@ namespace Content.Shared.Atmos
         }
 
         /// <summary>
-        /// Converts an angle to an AtmosDirection
+        /// Converts an angle to an AtmosDirection.
         /// </summary>
         /// <param name="angle"></param>
         /// <returns></returns>

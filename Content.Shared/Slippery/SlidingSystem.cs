@@ -59,7 +59,7 @@ public sealed class SlidingSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Updates friction when we collide with a slippery entity
+    ///     Updates friction when we collide with a slippery entity.
     /// </summary>
     private void OnStartCollide(Entity<SlidingComponent> entity, ref StartCollideEvent args)
     {
@@ -71,7 +71,7 @@ public sealed class SlidingSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Update friction when we stop colliding with a slippery entity
+    ///     Update friction when we stop colliding with a slippery entity.
     /// </summary>
     private void OnEndCollide(Entity<SlidingComponent> entity, ref EndCollideEvent args)
     {

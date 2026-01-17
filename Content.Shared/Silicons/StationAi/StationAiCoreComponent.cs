@@ -15,7 +15,7 @@ public sealed partial class StationAiCoreComponent : Component
 
     /// <summary>
     /// Can it move its camera around and interact remotely with things.
-    /// When false, the AI is being projected into a local area, such as a holopad
+    /// When false, the AI is being projected into a local area, such as a holopad.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Remote = true;
@@ -27,31 +27,31 @@ public sealed partial class StationAiCoreComponent : Component
     public EntityUid? RemoteEntity;
 
     /// <summary>
-    /// Prototype that represents the 'eye' of the AI
+    /// Prototype that represents the 'eye' of the AI.
     /// </summary>
     [DataField(readOnly: true)]
     public EntProtoId? RemoteEntityProto = "StationAiHolo";
 
     /// <summary>
-    /// Prototype that represents the physical avatar of the AI
+    /// Prototype that represents the physical avatar of the AI.
     /// </summary>
     [DataField(readOnly: true)]
     public EntProtoId? PhysicalEntityProto = "StationAiHoloLocal";
 
     /// <summary>
-    /// Name of the container slot that holds the inhabiting AI's mind
+    /// Name of the container slot that holds the inhabiting AI's mind.
     /// </summary>
     public const string Container = "station_ai_mind_slot";
 
     /// <summary>
-    /// Name of the container slot that holds the 'brain' used to construct the AI core
+    /// Name of the container slot that holds the 'brain' used to construct the AI core.
     /// </summary>
     public const string BrainContainer = "station_ai_brain_slot";
 }
 
 /// <summary>
-/// This event is raised on a station AI 'eye' that is being replaced with a new one
+/// This event is raised on a station AI 'eye' that is being replaced with a new one.
 /// </summary>
-/// <param name="NewRemoteEntity">The entity UID of the replacement entity</param>
+/// <param name="NewRemoteEntity">The entity UID of the replacement entity.</param>
 [ByRefEvent]
 public record struct StationAiRemoteEntityReplacementEvent(EntityUid? NewRemoteEntity);

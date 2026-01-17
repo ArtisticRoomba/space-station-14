@@ -14,7 +14,7 @@ namespace Content.Shared.Ninja.Components;
 public sealed partial class ItemCreatorComponent : Component
 {
     /// <summary>
-    /// The battery entity to use charge from
+    /// The battery entity to use charge from.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Battery;
@@ -35,7 +35,7 @@ public sealed partial class ItemCreatorComponent : Component
     public float Charge = 14.4f;
 
     /// <summary>
-    /// Item to create with the action
+    /// Item to create with the action.
     /// </summary>
     [DataField(required: true)]
     public EntProtoId SpawnedPrototype = string.Empty;

@@ -27,7 +27,7 @@ public partial class StatusIconData : IComparable<StatusIconData>
     public int Priority = 10;
 
     /// <summary>
-    /// Whether or not to hide the icon to ghosts
+    /// Whether or not to hide the icon to ghosts.
     /// </summary>
     [DataField]
     public bool VisibleToGhosts = true;
@@ -39,7 +39,7 @@ public partial class StatusIconData : IComparable<StatusIconData>
     public bool HideInContainer = true;
 
     /// <summary>
-    /// Whether or not to hide the icon when the entity has an active <see cref="StealthComponent"/>
+    /// Whether or not to hide the icon when the entity has an active <see cref="StealthComponent"/>.
     /// </summary>
     [DataField]
     public bool HideOnStealth = true;
@@ -51,13 +51,13 @@ public partial class StatusIconData : IComparable<StatusIconData>
     public EntityWhitelist? ShowTo;
 
     /// <summary>
-    /// A preference for where the icon will be displayed. None | Left | Right
+    /// A preference for where the icon will be displayed. None | Left | Right.
     /// </summary>
     [DataField]
     public StatusIconLocationPreference LocationPreference = StatusIconLocationPreference.None;
 
     /// <summary>
-    /// The layer the icon is displayed on. Mod is drawn above Base. Base | Mod
+    /// The layer the icon is displayed on. Mod is drawn above Base. Base | Mod.
     /// </summary>
     [DataField]
     public StatusIconLayer Layer = StatusIconLayer.Base;
@@ -80,7 +80,7 @@ public partial class StatusIconData : IComparable<StatusIconData>
 }
 
 /// <summary>
-/// <see cref="StatusIconData"/> but in new convenient prototype form!
+/// <see cref="StatusIconData"/> but in new convenient prototype form!.
 /// </summary>
 public abstract partial class StatusIconPrototype : StatusIconData, IPrototype
 {
@@ -90,7 +90,7 @@ public abstract partial class StatusIconPrototype : StatusIconData, IPrototype
 }
 
 /// <summary>
-/// StatusIcons for showing jobs on the sec HUD
+/// StatusIcons for showing jobs on the sec HUD.
 /// </summary>
 [Prototype]
 public sealed partial class JobIconPrototype : StatusIconPrototype, IInheritingPrototype
@@ -114,14 +114,14 @@ public sealed partial class JobIconPrototype : StatusIconPrototype, IInheritingP
     public string LocalizedJobName => Loc.GetString(JobName);
 
     /// <summary>
-    /// Should the agent ID or ID card console be able to use this job icon?
+    /// Should the agent ID or ID card console be able to use this job icon?.
     /// </summary>
     [DataField]
     public bool AllowSelection = true;
 }
 
 /// <summary>
-/// StatusIcons for the med HUD
+/// StatusIcons for the med HUD.
 /// </summary>
 [Prototype]
 public sealed partial class HealthIconPrototype : StatusIconPrototype, IInheritingPrototype
@@ -137,7 +137,7 @@ public sealed partial class HealthIconPrototype : StatusIconPrototype, IInheriti
 }
 
 /// <summary>
-/// StatusIcons for the beer goggles and fried onion goggles
+/// StatusIcons for the beer goggles and fried onion goggles.
 /// </summary>
 [Prototype]
 public sealed partial class SatiationIconPrototype : StatusIconPrototype, IInheritingPrototype
@@ -153,7 +153,7 @@ public sealed partial class SatiationIconPrototype : StatusIconPrototype, IInher
 }
 
 /// <summary>
-/// StatusIcons for showing the wanted status on the sec HUD
+/// StatusIcons for showing the wanted status on the sec HUD.
 /// </summary>
 [Prototype]
 public sealed partial class SecurityIconPrototype : StatusIconPrototype, IInheritingPrototype
@@ -169,7 +169,7 @@ public sealed partial class SecurityIconPrototype : StatusIconPrototype, IInheri
 }
 
 /// <summary>
-/// StatusIcons for faction membership
+/// StatusIcons for faction membership.
 /// </summary>
 [Prototype]
 public sealed partial class FactionIconPrototype : StatusIconPrototype, IInheritingPrototype
@@ -185,7 +185,7 @@ public sealed partial class FactionIconPrototype : StatusIconPrototype, IInherit
 }
 
 /// <summary>
-/// StatusIcons for debugging purposes
+/// StatusIcons for debugging purposes.
 /// </summary>
 [Prototype]
 public sealed partial class DebugIconPrototype : StatusIconPrototype, IInheritingPrototype
@@ -201,7 +201,7 @@ public sealed partial class DebugIconPrototype : StatusIconPrototype, IInheritin
 }
 
 /// <summary>
-/// StatusIcons for the SSD indicator
+/// StatusIcons for the SSD indicator.
 /// </summary>
 [Prototype]
 public sealed partial class SsdIconPrototype : StatusIconPrototype, IInheritingPrototype

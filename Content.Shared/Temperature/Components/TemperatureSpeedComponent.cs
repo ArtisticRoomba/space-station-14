@@ -17,7 +17,7 @@ public sealed partial class TemperatureSpeedComponent : Component
 
     /// <summary>
     /// The current speed modifier from <see cref="Thresholds"/> we reached.
-    /// Stored and networked so that the client doesn't mispredict temperature
+    /// Stored and networked so that the client doesn't mispredict temperature.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float? CurrentSpeedModifier;

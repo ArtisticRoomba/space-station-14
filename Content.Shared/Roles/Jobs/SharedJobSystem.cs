@@ -45,7 +45,7 @@ public abstract class SharedJobSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets the corresponding Job Prototype to a <see cref="PlayTimeTrackerPrototype"/>
+    /// Gets the corresponding Job Prototype to a <see cref="PlayTimeTrackerPrototype"/>.
     /// </summary>
     /// <param name="trackerProto"></param>
     /// <returns></returns>

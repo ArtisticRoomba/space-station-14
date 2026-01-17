@@ -285,7 +285,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     cref="CanInsert"/> or just use <see cref="TryInsert"/> instead.
         /// </summary>
         /// <param name="excludeUserAudio">If true, will exclude the user when playing sound. Does nothing client-side.
-        /// Useful for predicted interactions</param>
+        /// Useful for predicted interactions.</param>
         private void Insert(EntityUid uid,
             ItemSlot slot,
             EntityUid item,
@@ -349,7 +349,7 @@ namespace Content.Shared.Containers.ItemSlots
         /// <summary>
         ///     Tries to insert item into a specific slot.
         /// </summary>
-        /// <returns>False if failed to insert item</returns>
+        /// <returns>False if failed to insert item.</returns>
         public bool TryInsert(EntityUid uid,
             string id,
             EntityUid item,
@@ -369,7 +369,7 @@ namespace Content.Shared.Containers.ItemSlots
         /// <summary>
         ///     Tries to insert item into a specific slot.
         /// </summary>
-        /// <returns>False if failed to insert item</returns>
+        /// <returns>False if failed to insert item.</returns>
         public bool TryInsert(EntityUid uid,
             ItemSlot slot,
             EntityUid item,
@@ -387,7 +387,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     Tries to insert item into a specific slot from an entity's hand.
         ///     Does not check action blockers.
         /// </summary>
-        /// <returns>False if failed to insert item</returns>
+        /// <returns>False if failed to insert item.</returns>
         public bool TryInsertFromHand(EntityUid uid,
             ItemSlot slot,
             EntityUid user,
@@ -419,9 +419,9 @@ namespace Content.Shared.Containers.ItemSlots
         /// <param name="user">The entity performing the interaction.</param>
         /// <param name="excludeUserAudio">
         ///     If true, will exclude the user when playing sound. Does nothing client-side.
-        ///     Useful for predicted interactions
+        ///     Useful for predicted interactions.
         /// </param>
-        /// <returns>False if failed to insert item</returns>
+        /// <returns>False if failed to insert item.</returns>
         public bool TryInsertEmpty(Entity<ItemSlotsComponent?> ent,
             EntityUid item,
             EntityUid? user,
@@ -541,7 +541,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     probably just use <see cref="TryEject"/> instead.
         /// </summary>
         /// <param name="excludeUserAudio">If true, will exclude the user when playing sound. Does nothing client-side.
-        /// Useful for predicted interactions</param>
+        /// Useful for predicted interactions.</param>
         private void Eject(EntityUid uid, ItemSlot slot, EntityUid item, EntityUid? user, bool excludeUserAudio = false)
         {
             bool? ejected = slot.ContainerSlot != null ? _containers.Remove(item, slot.ContainerSlot) : null;
@@ -560,7 +560,7 @@ namespace Content.Shared.Containers.ItemSlots
         /// <summary>
         ///     Try to eject an item from a slot.
         /// </summary>
-        /// <returns>False if item slot is locked or has no item inserted</returns>
+        /// <returns>False if item slot is locked or has no item inserted.</returns>
         public bool TryEject(EntityUid uid,
             ItemSlot slot,
             EntityUid? user,
@@ -586,7 +586,7 @@ namespace Content.Shared.Containers.ItemSlots
         /// <summary>
         ///     Try to eject item from a slot.
         /// </summary>
-        /// <returns>False if the id is not valid, the item slot is locked, or it has no item inserted</returns>
+        /// <returns>False if the id is not valid, the item slot is locked, or it has no item inserted.</returns>
         public bool TryEject(EntityUid uid,
             string id,
             EntityUid? user,

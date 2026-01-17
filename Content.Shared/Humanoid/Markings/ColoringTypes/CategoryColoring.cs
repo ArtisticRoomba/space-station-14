@@ -3,7 +3,7 @@ using System.Linq;
 namespace Content.Shared.Humanoid.Markings;
 
 /// <summary>
-///     Colors marking in color of first defined marking from specified category (in e.x. from Hair category)
+///     Colors marking in color of first defined marking from specified category (in e.x. from Hair category).
 /// </summary>
 public sealed partial class CategoryColoring : LayerColoringType
 {

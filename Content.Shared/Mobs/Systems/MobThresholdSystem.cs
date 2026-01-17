@@ -59,11 +59,11 @@ public sealed class MobThresholdSystem : EntitySystem
     /// <summary>
     /// Gets the next available state for a mob.
     /// </summary>
-    /// <param name="target">Target entity</param>
-    /// <param name="mobState">Supplied MobState</param>
+    /// <param name="target">Target entity.</param>
+    /// <param name="mobState">Supplied MobState.</param>
     /// <param name="nextState">The following MobState. Can be null if there isn't one.</param>
-    /// <param name="thresholdsComponent">Threshold Component Owned by the target</param>
-    /// <returns>True if the next mob state exists</returns>
+    /// <param name="thresholdsComponent">Threshold Component Owned by the target.</param>
+    /// <returns>True if the next mob state exists.</returns>
     public bool TryGetNextState(
         EntityUid target,
         MobState mobState,
@@ -89,12 +89,12 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     /// <summary>
-    /// Get the Damage Threshold for the appropriate state if it exists
+    /// Get the Damage Threshold for the appropriate state if it exists.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="mobState">MobState we want the Damage Threshold of</param>
-    /// <param name="thresholdComponent">Threshold Component Owned by the target</param>
-    /// <returns>the threshold or 0 if it doesn't exist</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="mobState">MobState we want the Damage Threshold of.</param>
+    /// <param name="thresholdComponent">Threshold Component Owned by the target.</param>
+    /// <returns>the threshold or 0 if it doesn't exist.</returns>
     public FixedPoint2 GetThresholdForState(EntityUid target, MobState mobState,
         MobThresholdsComponent? thresholdComponent = null)
     {
@@ -113,13 +113,13 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     /// <summary>
-    /// Try to get the Damage Threshold for the appropriate state if it exists
+    /// Try to get the Damage Threshold for the appropriate state if it exists.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="mobState">MobState we want the Damage Threshold of</param>
-    /// <param name="threshold">The damage Threshold for the given state</param>
-    /// <param name="thresholdComponent">Threshold Component Owned by the target</param>
-    /// <returns>true if successfully retrieved a threshold</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="mobState">MobState we want the Damage Threshold of.</param>
+    /// <param name="threshold">The damage Threshold for the given state.</param>
+    /// <param name="thresholdComponent">Threshold Component Owned by the target.</param>
+    /// <returns>true if successfully retrieved a threshold.</returns>
     public bool TryGetThresholdForState(EntityUid target, MobState mobState,
         [NotNullWhen(true)] out FixedPoint2? threshold,
         MobThresholdsComponent? thresholdComponent = null)
@@ -141,14 +141,14 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     /// <summary>
-    /// Try to get the a percentage of the Damage Threshold for the appropriate state if it exists
+    /// Try to get the a percentage of the Damage Threshold for the appropriate state if it exists.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="mobState">MobState we want the Damage Threshold of</param>
-    /// <param name="damage">The Damage being applied</param>
-    /// <param name="percentage">Percentage of Damage compared to the Threshold</param>
-    /// <param name="thresholdComponent">Threshold Component Owned by the target</param>
-    /// <returns>true if successfully retrieved a percentage</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="mobState">MobState we want the Damage Threshold of.</param>
+    /// <param name="damage">The Damage being applied.</param>
+    /// <param name="percentage">Percentage of Damage compared to the Threshold.</param>
+    /// <param name="thresholdComponent">Threshold Component Owned by the target.</param>
+    /// <returns>true if successfully retrieved a percentage.</returns>
     public bool TryGetPercentageForState(EntityUid target, MobState mobState, FixedPoint2 damage,
         [NotNullWhen(true)] out FixedPoint2? percentage,
         MobThresholdsComponent? thresholdComponent = null)
@@ -164,10 +164,10 @@ public sealed class MobThresholdSystem : EntitySystem
     /// <summary>
     /// Try to get the Damage Threshold for crit or death. Outputs the first found threshold.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="threshold">The Damage Threshold for incapacitation</param>
-    /// <param name="thresholdComponent">Threshold Component owned by the target</param>
-    /// <returns>true if successfully retrieved incapacitation threshold</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="threshold">The Damage Threshold for incapacitation.</param>
+    /// <param name="thresholdComponent">Threshold Component owned by the target.</param>
+    /// <returns>true if successfully retrieved incapacitation threshold.</returns>
     public bool TryGetIncapThreshold(EntityUid target, [NotNullWhen(true)] out FixedPoint2? threshold,
         MobThresholdsComponent? thresholdComponent = null)
     {
@@ -182,11 +182,11 @@ public sealed class MobThresholdSystem : EntitySystem
     /// <summary>
     /// Try to get a percentage of the Damage Threshold for crit or death. Outputs the first found percentage.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="damage">The damage being applied</param>
-    /// <param name="percentage">Percentage of Damage compared to the Incapacitation Threshold</param>
-    /// <param name="thresholdComponent">Threshold Component Owned by the target</param>
-    /// <returns>true if successfully retrieved incapacitation percentage</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="damage">The damage being applied.</param>
+    /// <param name="percentage">Percentage of Damage compared to the Incapacitation Threshold.</param>
+    /// <param name="thresholdComponent">Threshold Component Owned by the target.</param>
+    /// <returns>true if successfully retrieved incapacitation percentage.</returns>
     public bool TryGetIncapPercentage(EntityUid target, FixedPoint2 damage,
         [NotNullWhen(true)] out FixedPoint2? percentage,
         MobThresholdsComponent? thresholdComponent = null)
@@ -206,12 +206,12 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     /// <summary>
-    /// Try to get the Damage Threshold for death
+    /// Try to get the Damage Threshold for death.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="threshold">The Damage Threshold for death</param>
-    /// <param name="thresholdComponent">Threshold Component owned by the target</param>
-    /// <returns>true if successfully retrieved incapacitation threshold</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="threshold">The Damage Threshold for death.</param>
+    /// <param name="thresholdComponent">Threshold Component owned by the target.</param>
+    /// <returns>true if successfully retrieved incapacitation threshold.</returns>
     public bool TryGetDeadThreshold(EntityUid target, [NotNullWhen(true)] out FixedPoint2? threshold,
         MobThresholdsComponent? thresholdComponent = null)
     {
@@ -223,13 +223,13 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     /// <summary>
-    /// Try to get a percentage of the Damage Threshold for death
+    /// Try to get a percentage of the Damage Threshold for death.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="damage">The damage being applied</param>
-    /// <param name="percentage">Percentage of Damage compared to the Death Threshold</param>
-    /// <param name="thresholdComponent">Threshold Component Owned by the target</param>
-    /// <returns>true if successfully retrieved death percentage</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="damage">The damage being applied.</param>
+    /// <param name="percentage">Percentage of Damage compared to the Death Threshold.</param>
+    /// <param name="thresholdComponent">Threshold Component Owned by the target.</param>
+    /// <returns>true if successfully retrieved death percentage.</returns>
     public bool TryGetDeadPercentage(EntityUid target, FixedPoint2 damage,
         [NotNullWhen(true)] out FixedPoint2? percentage,
         MobThresholdsComponent? thresholdComponent = null)
@@ -249,11 +249,11 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     /// <summary>
-    /// Takes the damage from one entity and scales it relative to the health of another
+    /// Takes the damage from one entity and scales it relative to the health of another.
     /// </summary>
-    /// <param name="target1">The entity whose damage will be scaled</param>
-    /// <param name="target2">The entity whose health the damage will scale to</param>
-    /// <param name="damage">The newly scaled damage. Can be null</param>
+    /// <param name="target1">The entity whose damage will be scaled.</param>
+    /// <param name="target2">The entity whose health the damage will scale to.</param>
+    /// <param name="damage">The newly scaled damage. Can be null.</param>
     public bool GetScaledDamage(EntityUid target1, EntityUid target2, out DamageSpecifier? damage)
     {
         damage = null;
@@ -276,12 +276,12 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     /// <summary>
-    /// Set a MobState Threshold or create a new one if it doesn't exist
+    /// Set a MobState Threshold or create a new one if it doesn't exist.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="damage">Damageable Component owned by the target</param>
-    /// <param name="mobState">MobState Component owned by the target</param>
-    /// <param name="threshold">MobThreshold Component owned by the target</param>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="damage">Damageable Component owned by the target.</param>
+    /// <param name="mobState">MobState Component owned by the target.</param>
+    /// <param name="threshold">MobThreshold Component owned by the target.</param>
     public void SetMobStateThreshold(EntityUid target, FixedPoint2 damage, MobState mobState,
         MobThresholdsComponent? threshold = null)
     {
@@ -304,12 +304,12 @@ public sealed class MobThresholdSystem : EntitySystem
 
     /// <summary>
     /// Checks to see if we should change states based on thresholds.
-    /// Call this if you change the amount of damagable without triggering a damageChangedEvent or if you change
+    /// Call this if you change the amount of damagable without triggering a damageChangedEvent or if you change.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="threshold">Threshold Component owned by the Target</param>
-    /// <param name="mobState">MobState Component owned by the Target</param>
-    /// <param name="damageable">Damageable Component owned by the Target</param>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="threshold">Threshold Component owned by the Target.</param>
+    /// <param name="mobState">MobState Component owned by the Target.</param>
+    /// <param name="damageable">Damageable Component owned by the Target.</param>
     public void VerifyThresholds(EntityUid target, MobThresholdsComponent? threshold = null,
         MobStateComponent? mobState = null, DamageableComponent? damageable = null)
     {
@@ -483,12 +483,12 @@ public sealed class MobThresholdSystem : EntitySystem
 }
 
 /// <summary>
-/// Event that triggers when an entity with a mob threshold is checked
+/// Event that triggers when an entity with a mob threshold is checked.
 /// </summary>
-/// <param name="Target">Target entity</param>
-/// <param name="Threshold">Threshold Component owned by the Target</param>
-/// <param name="MobState">MobState Component owned by the Target</param>
-/// <param name="Damageable">Damageable Component owned by the Target</param>
+/// <param name="Target">Target entity.</param>
+/// <param name="Threshold">Threshold Component owned by the Target.</param>
+/// <param name="MobState">MobState Component owned by the Target.</param>
+/// <param name="Damageable">Damageable Component owned by the Target.</param>
 [ByRefEvent]
 public readonly record struct MobThresholdChecked(EntityUid Target, MobStateComponent MobState,
     MobThresholdsComponent Threshold, DamageableComponent Damageable);

@@ -37,7 +37,7 @@ public abstract class SharedLightBulbSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Set a new color for a light bulb and raise event about change
+    ///     Set a new color for a light bulb and raise event about change.
     /// </summary>
     public void SetColor(EntityUid uid, Color color, LightBulbComponent? bulb = null)
     {
@@ -50,7 +50,7 @@ public abstract class SharedLightBulbSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Set a new state for a light bulb (broken, burned) and raise event about change
+    ///     Set a new state for a light bulb (broken, burned) and raise event about change.
     /// </summary>
     public void SetState(EntityUid uid, LightBulbState state, LightBulbComponent? bulb = null)
     {

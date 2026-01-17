@@ -31,13 +31,13 @@ public sealed partial class LubeComponent : Component
     public FixedPoint2 Consumption = FixedPoint2.New(3);
 
     /// <summary>
-    /// Min slips per unit
+    /// Min slips per unit.
     /// </summary>
     [DataField("minSlips"), ViewVariables(VVAccess.ReadWrite)]
     public int MinSlips = 1;
 
     /// <summary>
-    /// Max slips per unit
+    /// Max slips per unit.
     /// </summary>
     [DataField("maxSlips"), ViewVariables(VVAccess.ReadWrite)]
     public int MaxSlips = 6;

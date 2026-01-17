@@ -19,7 +19,7 @@ public sealed partial class DeliveryBombComponent : Component
     public TimeSpan ExplosionRetryDelay = TimeSpan.FromSeconds(3);
 
     /// <summary>
-    /// The time at which the next retry will happen
+    /// The time at which the next retry will happen.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan NextExplosionRetry;
@@ -31,13 +31,13 @@ public sealed partial class DeliveryBombComponent : Component
     public float ExplosionChance = 0.05f;
 
     /// <summary>
-    /// How much should the chance of explosion increase each failed retry?
+    /// How much should the chance of explosion increase each failed retry?.
     /// </summary>
     [DataField]
     public float ExplosionChanceRetryIncrease = 0.01f;
 
     /// <summary>
-    /// Should this bomb get primed when the delivery is unlocked?
+    /// Should this bomb get primed when the delivery is unlocked?.
     /// </summary>
     [DataField]
     public bool PrimeOnUnlock = true;

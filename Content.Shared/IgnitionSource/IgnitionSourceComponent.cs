@@ -9,7 +9,7 @@ namespace Content.Shared.IgnitionSource;
 public sealed partial class IgnitionSourceComponent : Component
 {
     /// <summary>
-    /// Is this source currently ignited?
+    /// Is this source currently ignited?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Ignited;

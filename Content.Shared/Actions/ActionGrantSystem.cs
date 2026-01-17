@@ -3,7 +3,7 @@ using Content.Shared.Inventory;
 namespace Content.Shared.Actions;
 
 /// <summary>
-/// <see cref="ActionGrantComponent"/>
+/// <see cref="ActionGrantComponent"/>.
 /// </summary>
 public sealed class ActionGrantSystem : EntitySystem
 {

@@ -14,13 +14,13 @@ public sealed partial class AccessGroupPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// The player-visible name of the access level group
+    /// The player-visible name of the access level group.
     /// </summary>
     [DataField]
     public string? Name { get; set; }
 
     /// <summary>
-    /// The access levels associated with this group
+    /// The access levels associated with this group.
     /// </summary>
     [DataField(required: true)]
     public HashSet<ProtoId<AccessLevelPrototype>> Tags = default!;

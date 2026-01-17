@@ -19,7 +19,7 @@ public sealed partial class CluwneComponent : Component
     public TimeSpan DamageGiggleCooldown = TimeSpan.FromSeconds(2);
 
     /// <summary>
-    /// Amount of genetic damage dealt when they revert
+    /// Amount of genetic damage dealt when they revert.
     /// </summary>
     [DataField]
     public DamageSpecifier RevertDamage = new()
@@ -37,13 +37,13 @@ public sealed partial class CluwneComponent : Component
     public float KnockChance = 0.05f;
 
     /// <summary>
-    /// Chance that the Cluwne will randomly giggle
+    /// Chance that the Cluwne will randomly giggle.
     /// </summary>
     [DataField]
     public float GiggleRandomChance = 0.1f;
 
     /// <summary>
-    /// Enable random emoting?
+    /// Enable random emoting?.
     /// </summary>
     [DataField]
     public bool RandomEmote = true;
@@ -55,20 +55,20 @@ public sealed partial class CluwneComponent : Component
     public ProtoId<EmoteSoundsPrototype>? EmoteSoundsId = "Cluwne";
 
     /// <summary>
-    /// Emote to use for the Cluwne Giggling
+    /// Emote to use for the Cluwne Giggling.
     /// </summary>
     [DataField]
     public ProtoId<AutoEmotePrototype>? AutoEmoteId = "CluwneGiggle";
 
     /// <summary>
-    /// Message to popup when the Cluwne is transformed
+    /// Message to popup when the Cluwne is transformed.
     /// </summary>
     [DataField]
     public LocId TransformMessage = "cluwne-transform";
 
     /// <summary>
     /// Name prefix for the Cluwne.
-    /// Example "Urist McHuman" will be "Cluwned Urist McHuman"
+    /// Example "Urist McHuman" will be "Cluwned Urist McHuman".
     /// </summary>
     [DataField]
     public LocId NamePrefix = "cluwne-name-prefix";
@@ -92,19 +92,19 @@ public sealed partial class CluwneComponent : Component
     public SoundSpecifier SpawnSound = new SoundPathSpecifier("/Audio/Items/bikehorn.ogg");
 
     /// <summary>
-    /// Emote to use for the cluwne giggling
+    /// Emote to use for the cluwne giggling.
     /// </summary>
     [DataField]
     public LocId GiggleEmote = "cluwne-giggle-emote";
 
     /// <summary>
-    /// Sound to play when the Cluwne is knocked over and paralyzed
+    /// Sound to play when the Cluwne is knocked over and paralyzed.
     /// </summary>
     [DataField]
     public SoundSpecifier KnockSound = new SoundPathSpecifier("/Audio/Items/airhorn.ogg");
 
     /// <summary>
-    /// Emote thats used when the cluwne getting knocked over
+    /// Emote thats used when the cluwne getting knocked over.
     /// </summary>
     [DataField]
     public LocId KnockEmote = "cluwne-knock-emote";

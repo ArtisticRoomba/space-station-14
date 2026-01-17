@@ -6,13 +6,13 @@ namespace Content.Shared.Stacks
     public enum StackVisuals : byte
     {
         /// <summary>
-        /// The amount of elements in the stack
+        /// The amount of elements in the stack.
         /// </summary>
         Actual,
 
         /// <summary>
         /// The total amount of elements in the stack. If unspecified, the visualizer assumes
-        /// it's StackComponent.LayerStates.Count
+        /// it's StackComponent.LayerStates.Count.
         /// </summary>
         MaxCount,
         Hide,

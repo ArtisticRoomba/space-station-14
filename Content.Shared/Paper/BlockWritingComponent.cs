@@ -9,7 +9,7 @@ namespace Content.Shared.Paper;
 public sealed partial class BlockWritingComponent : Component
 {
     /// <summary>
-    /// What message is displayed when the entity fails to write?
+    /// What message is displayed when the entity fails to write?.
     /// </summary>
     [DataField]
     [AutoNetworkedField]

@@ -6,7 +6,7 @@ namespace Content.Shared.Anomaly.Components;
 
 /// <summary>
 /// This is used for scanning anomalies and
-/// displaying information about them in the ui
+/// displaying information about them in the ui.
 /// </summary>
 [RegisterComponent, Access(typeof(SharedAnomalyScannerSystem))]
 [NetworkedComponent]
@@ -19,13 +19,13 @@ public sealed partial class AnomalyScannerComponent : Component
     public EntityUid? ScannedAnomaly;
 
     /// <summary>
-    /// How long the scan takes
+    /// How long the scan takes.
     /// </summary>
     [DataField]
     public float ScanDoAfterDuration = 5;
 
     /// <summary>
-    /// The sound plays when the scan finished
+    /// The sound plays when the scan finished.
     /// </summary>
     [DataField]
     public SoundSpecifier? CompleteSound = new SoundPathSpecifier("/Audio/Items/beep.ogg");

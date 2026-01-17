@@ -9,7 +9,7 @@ namespace Content.Shared.Trigger.Components.Conditions;
 public sealed partial class ToggleTriggerConditionComponent : BaseTriggerConditionComponent
 {
     /// <summary>
-    /// Is the component currently enabled?
+    /// Is the component currently enabled?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled = true;

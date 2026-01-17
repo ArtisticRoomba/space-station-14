@@ -11,7 +11,7 @@ namespace Content.Shared.SelectableComponentAdder;
 public sealed partial class SelectableComponentAdderComponent : Component
 {
     /// <summary>
-    /// List of verb -> components to add for that verb when selected basically!
+    /// List of verb -> components to add for that verb when selected basically!.
     /// </summary>
     [DataField(required: true)]
     public List<ComponentAdderEntry> Entries = new();
@@ -57,7 +57,7 @@ public sealed partial class ComponentAdderEntry
     public ComponentExistsSetting ComponentExistsBehavior = ComponentExistsSetting.Skip;
 
     /// <summary>
-    /// The priorty of the verb in the list
+    /// The priorty of the verb in the list.
     /// </summary>
     [DataField]
     public int Priority;

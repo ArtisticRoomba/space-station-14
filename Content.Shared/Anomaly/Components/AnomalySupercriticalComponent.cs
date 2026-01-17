@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Anomaly.Components;
 
 /// <summary>
-/// Tracks anomalies going supercritical
+/// Tracks anomalies going supercritical.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedAnomalySystem))]
@@ -20,7 +20,7 @@ public sealed partial class AnomalySupercriticalComponent : Component
     public TimeSpan EndTime;
 
     /// <summary>
-    /// The maximum size the anomaly scales to while going supercritical
+    /// The maximum size the anomaly scales to while going supercritical.
     /// </summary>
     [DataField]
     public float MaxScaleAmount = 3;

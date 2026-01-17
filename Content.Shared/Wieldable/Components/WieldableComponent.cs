@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Wieldable.Components;
 
 /// <summary>
-///     Used for objects that can be wielded in two or more hands,
+///     Used for objects that can be wielded in two or more hands.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedWieldableSystem)), AutoGenerateComponentState]
 public sealed partial class WieldableComponent : Component
@@ -18,7 +18,7 @@ public sealed partial class WieldableComponent : Component
 
     /// <summary>
     ///     Number of free hands required (excluding the item itself) required
-    ///     to wield it
+    ///     to wield it.
     /// </summary>
     [DataField("freeHandsRequired")]
     public int FreeHandsRequired = 1;
@@ -34,7 +34,7 @@ public sealed partial class WieldableComponent : Component
     public bool UnwieldOnUse = true;
 
     /// <summary>
-    ///     Should use delay trigger after the wield/unwield?
+    ///     Should use delay trigger after the wield/unwield?.
     /// </summary>
     [DataField]
     public bool UseDelayOnWield = true;

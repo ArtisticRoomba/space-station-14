@@ -4,7 +4,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Mining;
 
 /// <summary>
-/// This is a prototype for defining ores that generate in rock
+/// This is a prototype for defining ores that generate in rock.
 /// </summary>
 [Prototype]
 public sealed partial class OrePrototype : IPrototype

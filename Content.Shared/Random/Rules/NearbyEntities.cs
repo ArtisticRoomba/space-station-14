@@ -4,7 +4,7 @@ namespace Content.Shared.Random.Rules;
 
 /// <summary>
 /// Checks for entities matching the whitelist in range.
-/// This is more expensive than <see cref="NearbyComponentsRule"/> so prefer that!
+/// This is more expensive than <see cref="NearbyComponentsRule"/> so prefer that!.
 /// </summary>
 public sealed partial class NearbyEntitiesRule : RulesRule
 {

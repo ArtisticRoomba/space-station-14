@@ -13,43 +13,43 @@ public sealed partial class ElectrifiedComponent : Component
     public bool Enabled = true;
 
     /// <summary>
-    /// Should player get damage on collide
+    /// Should player get damage on collide.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool OnBump = true;
 
     /// <summary>
-    /// Should player get damage on attack
+    /// Should player get damage on attack.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool OnAttacked = true;
 
     /// <summary>
-    /// When true - disables power if a window is present in the same tile
+    /// When true - disables power if a window is present in the same tile.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool NoWindowInTile = false;
 
     /// <summary>
-    /// Should player get damage on interact with empty hand
+    /// Should player get damage on interact with empty hand.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool OnHandInteract = true;
 
     /// <summary>
-    /// Should player get damage on interact while holding an object in their hand
+    /// Should player get damage on interact while holding an object in their hand.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool OnInteractUsing = true;
 
     /// <summary>
-    /// Indicates if the entity requires power to function
+    /// Indicates if the entity requires power to function.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool RequirePower = true;
 
     /// <summary>
-    /// Indicates if the entity uses APC power
+    /// Indicates if the entity uses APC power.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool UsesApcPower = false;
@@ -73,25 +73,25 @@ public sealed partial class ElectrifiedComponent : Component
     public string? LowVoltageNode;
 
     /// <summary>
-    /// Damage multiplier for HV electrocution
+    /// Damage multiplier for HV electrocution.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float HighVoltageDamageMultiplier = 3f;
 
     /// <summary>
-    /// Shock time multiplier for HV electrocution
+    /// Shock time multiplier for HV electrocution.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float HighVoltageTimeMultiplier = 2f;
 
     /// <summary>
-    /// Damage multiplier for MV electrocution
+    /// Damage multiplier for MV electrocution.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MediumVoltageDamageMultiplier = 2f;
 
     /// <summary>
-    /// Shock time multiplier for MV electrocution
+    /// Shock time multiplier for MV electrocution.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MediumVoltageTimeMultiplier = 1.5f;

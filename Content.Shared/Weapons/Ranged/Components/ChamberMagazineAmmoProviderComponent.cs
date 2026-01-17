@@ -4,14 +4,14 @@ using Robust.Shared.Audio;
 namespace Content.Shared.Weapons.Ranged.Components;
 
 /// <summary>
-/// Chamber + mags in one package. If you need just magazine then use <see cref="MagazineAmmoProviderComponent"/>
+/// Chamber + mags in one package. If you need just magazine then use <see cref="MagazineAmmoProviderComponent"/>.
 /// </summary>
 [RegisterComponent, AutoGenerateComponentState]
 [Access(typeof(SharedGunSystem))]
 public sealed partial class ChamberMagazineAmmoProviderComponent : MagazineAmmoProviderComponent
 {
     /// <summary>
-    /// If the gun has a bolt and whether that bolt is closed. Firing is impossible
+    /// If the gun has a bolt and whether that bolt is closed. Firing is impossible.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool? BoltClosed = false;

@@ -20,13 +20,13 @@ public sealed partial class SuitSensorComponent : Component
     public bool RandomMode = true;
 
     /// <summary>
-    ///     If true user can't change suit sensor mode
+    ///     If true user can't change suit sensor mode.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ControlsLocked = false;
 
     /// <summary>
-    ///  How much time it takes to change another player's sensors
+    ///  How much time it takes to change another player's sensors.
     /// </summary>
     [DataField]
     public float SensorsTime = 1.75f;
@@ -62,7 +62,7 @@ public sealed partial class SuitSensorComponent : Component
     public EntityUid? User = null;
 
     /// <summary>
-    ///     Next time when sensor updated owners status
+    ///     Next time when sensor updated owners status.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]

@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Chemistry.EntitySystems;
 
 /// <summary>
-/// This handles <see cref="SolutionContainerMixerComponent"/>
+/// This handles <see cref="SolutionContainerMixerComponent"/>.
 /// </summary>
 public abstract class SharedSolutionContainerMixerSystem : EntitySystem
 {

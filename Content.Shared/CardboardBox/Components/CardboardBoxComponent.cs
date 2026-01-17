@@ -13,34 +13,34 @@ namespace Content.Shared.CardboardBox.Components;
 public sealed partial class CardboardBoxComponent : Component
 {
     /// <summary>
-    /// The person in control of this box
+    /// The person in control of this box.
     /// </summary>
     [DataField("mover")]
     public EntityUid? Mover;
 
     /// <summary>
-    /// The entity used for the box opening effect
+    /// The entity used for the box opening effect.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("effect")]
     public string Effect = "Exclamation";
 
     /// <summary>
-    /// Sound played upon effect creation
+    /// Sound played upon effect creation.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("effectSound")]
     public SoundSpecifier? EffectSound;
 
     /// <summary>
-    /// Whether to prevent the box from making the sound and effect
+    /// Whether to prevent the box from making the sound and effect.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("quiet")]
     public bool Quiet = false;
 
     /// <summary>
-    /// How far should the box opening effect go?
+    /// How far should the box opening effect go?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("distance")]
@@ -53,7 +53,7 @@ public sealed partial class CardboardBoxComponent : Component
     public TimeSpan EffectCooldown;
 
     /// <summary>
-    /// Time between sound effects. Prevents effect spam
+    /// Time between sound effects. Prevents effect spam.
     /// </summary>
     [DataField("cooldownDuration")]
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(5f);

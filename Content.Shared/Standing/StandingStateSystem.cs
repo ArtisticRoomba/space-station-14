@@ -217,7 +217,7 @@ public sealed class DownAttemptEvent : CancellableEntityEventArgs;
 public sealed class StandAttemptEvent : CancellableEntityEventArgs;
 
 /// <summary>
-/// Raised when an entity becomes standing
+/// Raised when an entity becomes standing.
 /// </summary>
 public sealed class StoodEvent : EntityEventArgs, IInventoryRelayEvent
 {
@@ -225,7 +225,7 @@ public sealed class StoodEvent : EntityEventArgs, IInventoryRelayEvent
 }
 
 /// <summary>
-/// Raised when an entity is not standing
+/// Raised when an entity is not standing.
 /// </summary>
 public sealed class DownedEvent : EntityEventArgs, IInventoryRelayEvent
 {

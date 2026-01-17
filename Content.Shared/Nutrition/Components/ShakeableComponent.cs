@@ -19,7 +19,7 @@ public sealed partial class ShakeableComponent : Component
     public TimeSpan ShakeDuration = TimeSpan.FromSeconds(1f);
 
     /// <summary>
-    /// Does the entity need to be in the user's hand in order to be shaken?
+    /// Does the entity need to be in the user's hand in order to be shaken?.
     /// </summary>
     [DataField]
     public bool RequireInHand;

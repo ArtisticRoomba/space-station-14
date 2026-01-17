@@ -6,7 +6,7 @@ using Robust.Shared.Audio.Systems;
 namespace Content.Shared.Weapons.Melee;
 
 /// <summary>
-/// This handles <see cref="MeleeSoundComponent"/>
+/// This handles <see cref="MeleeSoundComponent"/>.
 /// </summary>
 public sealed class MeleeSoundSystem : EntitySystem
 {
@@ -17,7 +17,7 @@ public sealed class MeleeSoundSystem : EntitySystem
     /// <summary>
     /// Plays the SwingSound from a weapon component
     /// for immediate feedback, misses and such
-    /// (Swinging a weapon goes "whoosh" whether it hits or not)
+    /// (Swinging a weapon goes "whoosh" whether it hits or not).
     /// </summary>
     public void PlaySwingSound(EntityUid userUid, EntityUid weaponUid, MeleeWeaponComponent weaponComponent)
     {
@@ -27,10 +27,10 @@ public sealed class MeleeSoundSystem : EntitySystem
     /// <summary>
     /// Takes a "damageType" string as an argument and uses it to
     /// search one of the various Dictionaries in the MeleeSoundComponent
-    /// for a sound to play, and falls back if that fails
+    /// for a sound to play, and falls back if that fails.
     /// </summary>
-    /// <param name="damageType"> Serves as a lookup key for a hit sound </param>
-    /// <param name="hitSoundOverride"> A sound can be supplied by the <see cref="MeleeHitEvent"/> itself to override everything else </param>
+    /// <param name="damageType"> Serves as a lookup key for a hit sound. </param>
+    /// <param name="hitSoundOverride"> A sound can be supplied by the <see cref="MeleeHitEvent"/> itself to override everything else. </param>
     public void PlayHitSound(EntityUid targetUid, EntityUid? userUid, string? damageType, SoundSpecifier? hitSoundOverride, MeleeWeaponComponent weaponComponent)
     {
         var hitSound = weaponComponent.HitSound;

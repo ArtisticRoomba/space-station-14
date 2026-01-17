@@ -21,13 +21,13 @@ public sealed partial class HandTeleporterComponent : Component
     public EntityUid? SecondPortal = null;
 
     /// <summary>
-    ///     Should the portals be able to be placed across grids?
+    ///     Should the portals be able to be placed across grids?.
     /// </summary>
     [DataField]
     public bool AllowPortalsOnDifferentGrids;
 
     /// <summary>
-    ///     Should the portals work across maps?
+    ///     Should the portals work across maps?.
     /// </summary>
     [DataField]
     public bool AllowPortalsOnDifferentMaps;

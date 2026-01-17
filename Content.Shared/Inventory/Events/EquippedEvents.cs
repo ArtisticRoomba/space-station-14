@@ -48,7 +48,7 @@ public sealed class DidEquipEvent : EquippedEventBase
 }
 
 /// <summary>
-/// Raised directed on equipment when it's equipped to an equipee
+/// Raised directed on equipment when it's equipped to an equipee.
 /// </summary>
 public sealed class GotEquippedEvent : EquippedEventBase
 {

@@ -99,13 +99,13 @@ public sealed partial class GasTankComponent : Component, IGasMixtureHolder
     public EntityUid? ToggleActionEntity;
 
     /// <summary>
-    ///     Valve to release gas from tank
+    ///     Valve to release gas from tank.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsValveOpen;
 
     /// <summary>
-    ///     Gas release rate in L/s
+    ///     Gas release rate in L/s.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ValveOutputRate = 100f;

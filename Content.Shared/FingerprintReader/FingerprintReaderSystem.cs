@@ -105,7 +105,7 @@ public sealed class FingerprintReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Sets the allowed fingerprints for a fingerprint reader
+    /// Sets the allowed fingerprints for a fingerprint reader.
     /// </summary>
     [PublicAPI]
     public void SetAllowedFingerprints(Entity<FingerprintReaderComponent> target, HashSet<string> fingerprints)
@@ -115,7 +115,7 @@ public sealed class FingerprintReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds an allowed fingerprint to a fingerprint reader
+    /// Adds an allowed fingerprint to a fingerprint reader.
     /// </summary>
     [PublicAPI]
     public void AddAllowedFingerprint(Entity<FingerprintReaderComponent> target, string fingerprint)
@@ -125,7 +125,7 @@ public sealed class FingerprintReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Removes an allowed fingerprint from a fingerprint reader
+    /// Removes an allowed fingerprint from a fingerprint reader.
     /// </summary>
     [PublicAPI]
     public void RemoveAllowedFingerprint(Entity<FingerprintReaderComponent> target, string fingerprint)

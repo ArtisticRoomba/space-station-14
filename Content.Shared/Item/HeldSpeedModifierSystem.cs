@@ -5,7 +5,7 @@ using Content.Shared.Movement.Systems;
 namespace Content.Shared.Item;
 
 /// <summary>
-/// This handles <see cref="HeldSpeedModifierComponent"/>
+/// This handles <see cref="HeldSpeedModifierComponent"/>.
 /// </summary>
 public sealed class HeldSpeedModifierSystem : EntitySystem
 {

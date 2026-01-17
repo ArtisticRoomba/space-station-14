@@ -11,7 +11,7 @@ namespace Content.Shared.Trigger.Components.Effects;
 public sealed partial class StaminaDamageOnTriggerComponent : BaseXOnTriggerComponent
 {
     /// <summary>
-    /// Should the inflicted stamina ignore resistances?
+    /// Should the inflicted stamina ignore resistances?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IgnoreResistances;

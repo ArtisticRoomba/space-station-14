@@ -9,7 +9,7 @@ public enum MechUiKey : byte
 }
 
 /// <summary>
-/// Event raised to collect BUI states for each of the mech's equipment items
+/// Event raised to collect BUI states for each of the mech's equipment items.
 /// </summary>
 public sealed class MechEquipmentUiStateReadyEvent : EntityEventArgs
 {
@@ -17,7 +17,7 @@ public sealed class MechEquipmentUiStateReadyEvent : EntityEventArgs
 }
 
 /// <summary>
-/// Event raised to relay an equipment ui message
+/// Event raised to relay an equipment ui message.
 /// </summary>
 public sealed class MechEquipmentUiMessageRelayEvent : EntityEventArgs
 {
@@ -30,7 +30,7 @@ public sealed class MechEquipmentUiMessageRelayEvent : EntityEventArgs
 }
 
 /// <summary>
-/// UI event raised to remove a piece of equipment from a mech
+/// UI event raised to remove a piece of equipment from a mech.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class MechEquipmentRemoveMessage : BoundUserInterfaceMessage
@@ -44,7 +44,7 @@ public sealed class MechEquipmentRemoveMessage : BoundUserInterfaceMessage
 }
 
 /// <summary>
-/// base for all mech ui messages
+/// base for all mech ui messages.
 /// </summary>
 [Serializable, NetSerializable]
 public abstract class MechEquipmentUiMessage : BoundUserInterfaceMessage
@@ -53,7 +53,7 @@ public abstract class MechEquipmentUiMessage : BoundUserInterfaceMessage
 }
 
 /// <summary>
-/// event raised for the grabber equipment to eject an item from it's storage
+/// event raised for the grabber equipment to eject an item from it's storage.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class MechGrabberEjectMessage : MechEquipmentUiMessage
@@ -68,7 +68,7 @@ public sealed class MechGrabberEjectMessage : MechEquipmentUiMessage
 }
 
 /// <summary>
-/// Event raised for the soundboard equipment to play a sound from its component
+/// Event raised for the soundboard equipment to play a sound from its component.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class MechSoundboardPlayMessage : MechEquipmentUiMessage
@@ -101,7 +101,7 @@ public sealed class MechSoundboardPlayMessage : MechEquipmentUiMessage
 ///    ⠀⠀⢈⠩⠈⠀⠐⠁⠀⢀⠀⠄⡂⠒⠐⠀⠆⠁⠰⠠⠀⢅⠈⠐⠄⢁⢡⠀⠀⠀
 ///    ⠀⠀⢈⡀⠰⡁⠀⠁⠴⠁⠔⠀⠀⠄⠄⡁⠀⠂⠀⠢⠠⠁⠀⠠⠈⠂⠬⠀⠀⠀
 ///    ⠀⠀⠠⡂⢄⠤⠒⣁⠐⢕⢀⡈⡐⡠⠄⢐⠀⠈⠠⠈⡀⠂⢀⣀⠰⠁⠠⠀⠀
-/// trojan horse bui state⠀
+/// trojan horse bui state⠀.
 /// </remarks>
 [Serializable, NetSerializable]
 public sealed class MechBoundUiState : BoundUserInterfaceState

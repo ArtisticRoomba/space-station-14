@@ -12,7 +12,7 @@ namespace Content.Shared.Xenoarchaeology.Equipment.Components;
 public sealed partial class ArtifactAnalyzerComponent : Component
 {
     /// <summary>
-    /// How long it takes to analyze an artifact
+    /// How long it takes to analyze an artifact.
     /// </summary>
     [DataField]
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);

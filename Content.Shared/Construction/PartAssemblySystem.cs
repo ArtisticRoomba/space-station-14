@@ -6,7 +6,7 @@ using Robust.Shared.Containers;
 namespace Content.Shared.Construction;
 
 /// <summary>
-/// This handles <see cref="PartAssemblyComponent"/>
+/// This handles <see cref="PartAssemblyComponent"/>.
 /// </summary>
 public sealed class PartAssemblySystem : EntitySystem
 {

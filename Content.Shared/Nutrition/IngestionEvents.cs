@@ -34,10 +34,10 @@ public record struct EdibleEvent(EntityUid User)
 /// <summary>
 /// Raised when an entity is trying to ingest an entity to see if it has any component that can ingest it.
 /// </summary>
-/// <param name="Handled">Did a system successfully ingest this item?</param>
-/// <param name="User">The entity that is trying to feed and therefore raising the event</param>
-/// <param name="Ingested">What are we trying to ingest?</param>
-/// <param name="Ingest">Should we actually try and ingest? Or are we just testing if it's even possible </param>
+/// <param name="Handled">Did a system successfully ingest this item?.</param>
+/// <param name="User">The entity that is trying to feed and therefore raising the event.</param>
+/// <param name="Ingested">What are we trying to ingest?.</param>
+/// <param name="Ingest">Should we actually try and ingest? Or are we just testing if it's even possible. </param>
 [ByRefEvent]
 public record struct AttemptIngestEvent(EntityUid User, EntityUid Ingested, bool Ingest, bool Handled = false);
 
@@ -61,7 +61,7 @@ public record struct IngestionAttemptEvent(SlotFlags TargetSlots, bool Cancelled
 /// <remarks>This method is currently needed for backwards compatibility with food and drink component.
 ///          It also might be needed in the event items like trash and plushies have their edible component removed.
 ///          There's no way to know whether this event will be made obsolete or not after Food and Drink Components
-///          are removed until after a proper body and digestion rework. Oh well!
+///          are removed until after a proper body and digestion rework. Oh well!.
 /// </remarks>
 [ByRefEvent]
 public record struct IsDigestibleEvent()
@@ -135,19 +135,19 @@ public record struct BeforeIngestedEvent(FixedPoint2 Min, FixedPoint2 Max, Solut
 }
 
 /// <summary>
-/// Raised on an entity while it is eating
+/// Raised on an entity while it is eating.
 /// </summary>
-/// <param name="Food">The item being ingested</param>
-/// <param name="Split">The solution being ingested</param>
-/// <param name="ForceFed">Whether or not we're being forced</param>
+/// <param name="Food">The item being ingested.</param>
+/// <param name="Split">The solution being ingested.</param>
+/// <param name="ForceFed">Whether or not we're being forced.</param>
 [ByRefEvent]
 public record struct IngestingEvent(EntityUid Food, Solution Split, bool ForceFed);
 
 /// <summary>
 /// Raised on an entity when it is being made to be eaten.
 /// </summary>
-/// <param name="User">Who is doing the action?</param>
-/// <param name="Target">Who is doing the eating?</param>
+/// <param name="User">Who is doing the action?.</param>
+/// <param name="Target">Who is doing the eating?.</param>
 /// <param name="Split">The solution we're currently eating.</param>
 /// <param name="ForceFed">Whether we're being fed by someone else, checkec enough I might as well pass it.</param>
 [ByRefEvent]

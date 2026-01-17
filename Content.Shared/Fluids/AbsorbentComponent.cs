@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Fluids;
 
 /// <summary>
-/// For entities that can clean up puddles
+/// For entities that can clean up puddles.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AbsorbentComponent : Component

@@ -13,7 +13,7 @@ namespace Content.Shared.Materials;
 
 /// <summary>
 /// This handles storing materials and modifying their amounts
-/// <see cref="MaterialStorageComponent"/>
+/// <see cref="MaterialStorageComponent"/>.
 /// </summary>
 public abstract class SharedMaterialStorageSystem : EntitySystem
 {
@@ -57,10 +57,10 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets all the materials stored on this entity
+    /// Gets all the materials stored on this entity.
     /// </summary>
     /// <param name="ent"></param>
-    /// <param name="localOnly">Include only materials held "locally", as determined by event subscribers</param>
+    /// <param name="localOnly">Include only materials held "locally", as determined by event subscribers.</param>
     /// <returns></returns>
     public Dictionary<ProtoId<MaterialPrototype>, int> GetStoredMaterials(Entity<MaterialStorageComponent?> ent, bool localOnly = false)
     {
@@ -82,7 +82,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     /// <param name="material"></param>
     /// <param name="component"></param>
     /// <param name="localOnly"></param>
-    /// <returns>The volume of the material</returns>
+    /// <returns>The volume of the material.</returns>
     [PublicAPI]
     public int GetMaterialAmount(EntityUid uid, MaterialPrototype material, MaterialStorageComponent? component = null, bool localOnly = false)
     {
@@ -96,7 +96,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     /// <param name="material"></param>
     /// <param name="component"></param>
     /// <param name="localOnly"></param>
-    /// <returns>The volume of the material</returns>
+    /// <returns>The volume of the material.</returns>
     public int GetMaterialAmount(EntityUid uid, string material, MaterialStorageComponent? component = null, bool localOnly = false)
     {
         if (!Resolve(uid, ref component))
@@ -110,7 +110,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <param name="localOnly"></param>
-    /// <returns>The volume of all materials in the storage</returns>
+    /// <returns>The volume of all materials in the storage.</returns>
     public int GetTotalMaterialAmount(EntityUid uid, MaterialStorageComponent? component = null, bool localOnly = false)
     {
         if (!Resolve(uid, ref component))
@@ -127,7 +127,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     /// <param name="volume"></param>
     /// <param name="component"></param>
     /// <param name="localOnly"></param>
-    /// <returns>If the specified volume will fit</returns>
+    /// <returns>If the specified volume will fit.</returns>
     public bool CanTakeVolume(EntityUid uid, int volume, MaterialStorageComponent? component = null, bool localOnly = false)
     {
         if (!Resolve(uid, ref component))
@@ -157,7 +157,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     /// <param name="volume"></param>
     /// <param name="component"></param>
     /// <param name="localOnly"></param>
-    /// <returns>If the amount can be changed</returns>
+    /// <returns>If the amount can be changed.</returns>
     public bool CanChangeMaterialAmount(EntityUid uid, string materialId, int volume, MaterialStorageComponent? component = null, bool localOnly = false)
     {
         if (!Resolve(uid, ref component))
@@ -178,7 +178,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     /// </summary>
     /// <param name="entity"></param>
     /// <param name="materials"></param>
-    /// <returns>If the amount can be changed</returns>
+    /// <returns>If the amount can be changed.</returns>
     /// <param name="localOnly"></param>
     public bool CanChangeMaterialAmount(Entity<MaterialStorageComponent?> entity, Dictionary<string,int> materials, bool localOnly = false)
     {
@@ -213,7 +213,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     /// <param name="component"></param>
     /// <param name="dirty"></param>
     /// <param name="localOnly"></param>
-    /// <returns>If it was successful</returns>
+    /// <returns>If it was successful.</returns>
     public bool TryChangeMaterialAmount(EntityUid uid, string materialId, int volume, MaterialStorageComponent? component = null, bool dirty = true, bool localOnly = false)
     {
         if (!Resolve(uid, ref component))
@@ -251,7 +251,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     /// Changes the amount of a specific material in the storage.
     /// Still respects the filters in place.
     /// </summary>
-    /// <returns>If the amount can be changed</returns>
+    /// <returns>If the amount can be changed.</returns>
     public bool TryChangeMaterialAmount(Entity<MaterialStorageComponent?> entity, Dictionary<string, int> materials, bool localOnly = false)
     {
         return TryChangeMaterialAmount(entity, materials.Select(p => (new ProtoId<MaterialPrototype>(p.Key), p.Value)).ToDictionary(), localOnly);
@@ -261,7 +261,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     /// Changes the amount of a specific material in the storage.
     /// Still respects the filters in place.
     /// </summary>
-    /// <returns>If the amount can be changed</returns>
+    /// <returns>If the amount can be changed.</returns>
     public bool TryChangeMaterialAmount(
         Entity<MaterialStorageComponent?> entity,
         Dictionary<ProtoId<MaterialPrototype>, int> materials,

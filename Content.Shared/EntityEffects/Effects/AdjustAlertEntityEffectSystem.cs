@@ -40,7 +40,7 @@ public sealed partial class AdjustAlertEntityEffectSysten : EntityEffectSystem<A
 public sealed partial class AdjustAlert : EntityEffectBase<AdjustAlert>
 {
     /// <summary>
-    /// The specific Alert that will be adjusted
+    /// The specific Alert that will be adjusted.
     /// </summary>
     [DataField(required: true)]
     public ProtoId<AlertPrototype> AlertType;

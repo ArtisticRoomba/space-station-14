@@ -34,13 +34,13 @@ public sealed partial class SolutionTemperatureEntityConditionSystem : EntityCon
 public sealed partial class TemperatureCondition : EntityConditionBase<TemperatureCondition>
 {
     /// <summary>
-    /// Minimum allowed temperature
+    /// Minimum allowed temperature.
     /// </summary>
     [DataField]
     public float Min = 0;
 
     /// <summary>
-    /// Maximum allowed temperature
+    /// Maximum allowed temperature.
     /// </summary>
     [DataField]
     public float Max = float.PositiveInfinity;

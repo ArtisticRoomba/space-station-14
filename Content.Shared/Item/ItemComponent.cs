@@ -29,7 +29,7 @@ public sealed partial class ItemComponent : Component
     public string? HeldPrefix;
 
     /// <summary>
-    ///     Rsi of the sprite shown on the player when this item is in their hands. Used to generate a default entry for <see cref="InhandVisuals"/>
+    ///     Rsi of the sprite shown on the player when this item is in their hands. Used to generate a default entry for <see cref="InhandVisuals"/>.
     /// </summary>
     [Access(typeof(SharedItemSystem))]
     [ViewVariables(VVAccess.ReadWrite)]

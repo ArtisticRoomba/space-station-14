@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Movement.Components;
 
 /// <summary>
-/// This is used to apply a friction modifier to an entity temporarily
+/// This is used to apply a friction modifier to an entity temporarily.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(MovementModStatusSystem))]
 public sealed partial class FrictionStatusEffectComponent : Component

@@ -13,7 +13,7 @@ namespace Content.Shared.Anomaly.Components;
 /// This doesn't contain the specific implementations for what
 /// they do, just the generic behaviors associated with them.
 ///
-/// Anomalies and their related components were designed here: https://hackmd.io/@ss14-design/r1sQbkJOs
+/// Anomalies and their related components were designed here: https://hackmd.io/@ss14-design/r1sQbkJOs.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 [Access(typeof(SharedAnomalySystem), typeof(SharedInnerBodyAnomalySystem))]
@@ -27,7 +27,7 @@ public sealed partial class AnomalyComponent : Component
     /// </summary>
     /// <remarks>
     /// Note that this doesn't refer to stability as a percentage: This is an arbitrary
-    /// value that only matters in relation to the <see cref="GrowthThreshold"/> and <see cref="DecayThreshold"/>
+    /// value that only matters in relation to the <see cref="GrowthThreshold"/> and <see cref="DecayThreshold"/>.
     /// </remarks>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float Stability = 0f;
@@ -39,7 +39,7 @@ public sealed partial class AnomalyComponent : Component
     /// values indicate effects of linearly increasing severity.
     /// </summary>
     /// <remarks>
-    /// Wacky-Stability scale lives on in my heart. - emo
+    /// Wacky-Stability scale lives on in my heart. - emo.
     /// </remarks>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float Severity = 0f;
@@ -63,7 +63,7 @@ public sealed partial class AnomalyComponent : Component
     public float DecayThreshold = 0.15f;
 
     /// <summary>
-    /// The amount of health lost when the stability is below the <see cref="DecayThreshold"/>
+    /// The amount of health lost when the stability is below the <see cref="DecayThreshold"/>.
     /// </summary>
     [DataField("healthChangePerSecond"), ViewVariables(VVAccess.ReadWrite)]
     public float HealthChangePerSecond = -0.01f;
@@ -79,7 +79,7 @@ public sealed partial class AnomalyComponent : Component
     public float GrowthThreshold = 0.5f;
 
     /// <summary>
-    /// A coefficient used for calculating the increase in severity when above the GrowthThreshold
+    /// A coefficient used for calculating the increase in severity when above the GrowthThreshold.
     /// </summary>
     [DataField("severityGrowthCoefficient"), ViewVariables(VVAccess.ReadWrite)]
     public float SeverityGrowthCoefficient = 0.07f;
@@ -116,25 +116,25 @@ public sealed partial class AnomalyComponent : Component
     /// The range that an anomaly's stability can vary each pulse. Scales with severity.
     /// </summary>
     /// <remarks>
-    /// This is more likely to trend upwards than donwards, because that's funny
+    /// This is more likely to trend upwards than donwards, because that's funny.
     /// </remarks>
     [DataField]
     public Vector2 PulseStabilityVariation = new(-0.1f, 0.15f);
 
     /// <summary>
-    /// The sound played when an anomaly pulses
+    /// The sound played when an anomaly pulses.
     /// </summary>
     [DataField]
     public SoundSpecifier? PulseSound = new SoundCollectionSpecifier("RadiationPulse");
 
     /// <summary>
-    /// The sound plays when an anomaly goes supercritical
+    /// The sound plays when an anomaly goes supercritical.
     /// </summary>
     [DataField]
     public SoundSpecifier? SupercriticalSound = new SoundCollectionSpecifier("Explosion");
 
     /// <summary>
-    /// The sound plays at the start of the animation when an anomaly goes supercritical
+    /// The sound plays at the start of the animation when an anomaly goes supercritical.
     /// </summary>
     [DataField]
     public SoundSpecifier? SupercriticalSoundAtAnimationStart;
@@ -149,19 +149,19 @@ public sealed partial class AnomalyComponent : Component
     #endregion
 
     /// <summary>
-    /// The range of initial values for stability
+    /// The range of initial values for stability.
     /// </summary>
     /// <remarks>
-    /// +/- 0.2 from perfect stability (0.5)
+    /// +/- 0.2 from perfect stability (0.5).
     /// </remarks>
     [DataField]
     public (float, float) InitialStabilityRange = (0.4f, 0.6f);
 
     /// <summary>
-    /// The range of initial values for severity
+    /// The range of initial values for severity.
     /// </summary>
     /// <remarks>
-    /// Between 0 and 0.5, which should be all mild effects
+    /// Between 0 and 0.5, which should be all mild effects.
     /// </remarks>
     [DataField]
     public (float, float) InitialSeverityRange = (0.1f, 0.5f);
@@ -200,7 +200,7 @@ public sealed partial class AnomalyComponent : Component
     public EntityUid? ConnectedVessel;
 
     /// <summary>
-    /// The minimum amount of research points generated per second
+    /// The minimum amount of research points generated per second.
     /// </summary>
     [DataField]
     public int MinPointsPerSecond = 10;
@@ -214,7 +214,7 @@ public sealed partial class AnomalyComponent : Component
 
     /// <summary>
     /// The multiplier applied to the point value for the
-    /// anomaly being above the <see cref="GrowthThreshold"/>
+    /// anomaly being above the <see cref="GrowthThreshold"/>.
     /// </summary>
     [DataField]
     public float GrowingPointMultiplier = 1.5f;
@@ -244,13 +244,13 @@ public sealed partial class AnomalyComponent : Component
     public float Continuity = 0f;
 
     /// <summary>
-    /// Minimum contituty probability chance, that can be selected by anomaly on MapInit
+    /// Minimum contituty probability chance, that can be selected by anomaly on MapInit.
     /// </summary>
     [DataField]
     public float MinContituty = 0.1f;
 
     /// <summary>
-    /// Maximum contituty probability chance, that can be selected by anomaly on MapInit
+    /// Maximum contituty probability chance, that can be selected by anomaly on MapInit.
     /// </summary>
     [DataField]
     public float MaxContituty = 1.0f;
@@ -283,7 +283,7 @@ public sealed partial class AnomalyComponent : Component
 /// <summary>
 /// Event raised at regular intervals on an anomaly to do whatever its effect is.
 /// </summary>
-/// <param name="Anomaly">The anomaly pulsing</param>
+/// <param name="Anomaly">The anomaly pulsing.</param>
 /// <param name="Stability"></param>
 /// <param name="Severity"></param>
 [ByRefEvent]
@@ -296,7 +296,7 @@ public readonly record struct AnomalyPulseEvent(EntityUid Anomaly, float Stabili
 public readonly record struct AnomalySupercriticalEvent(EntityUid Anomaly, float PowerModifier);
 
 /// <summary>
-/// Event broadcast after an anomaly goes supercritical
+/// Event broadcast after an anomaly goes supercritical.
 /// </summary>
 /// <param name="Anomaly">The anomaly being shut down.</param>
 /// <param name="Supercritical">Whether or not the anomaly shut down passively or via a supercritical event.</param>
@@ -306,7 +306,7 @@ public readonly record struct AnomalyShutdownEvent(EntityUid Anomaly, bool Super
 /// <summary>
 /// Event broadcast when an anomaly's severity is changed.
 /// </summary>
-/// <param name="Anomaly">The anomaly being changed</param>
+/// <param name="Anomaly">The anomaly being changed.</param>
 [ByRefEvent]
 public readonly record struct AnomalySeverityChangedEvent(EntityUid Anomaly, float Stability, float Severity);
 
@@ -319,13 +319,13 @@ public readonly record struct AnomalyStabilityChangedEvent(EntityUid Anomaly, fl
 /// <summary>
 /// Event broadcast when an anomaly's health is changed.
 /// </summary>
-/// <param name="Anomaly">The anomaly being changed</param>
+/// <param name="Anomaly">The anomaly being changed.</param>
 [ByRefEvent]
 public readonly record struct AnomalyHealthChangedEvent(EntityUid Anomaly, float Health);
 
 /// <summary>
 /// Event broadcast when an anomaly's behavior is changed.
-/// This is raised after the relevant components are applied
+/// This is raised after the relevant components are applied.
 /// </summary>
 [ByRefEvent]
 public readonly record struct AnomalyBehaviorChangedEvent(EntityUid Anomaly, ProtoId<AnomalyBehaviorPrototype>? Old, ProtoId<AnomalyBehaviorPrototype>? New);

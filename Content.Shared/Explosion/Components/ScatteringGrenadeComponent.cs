@@ -8,7 +8,7 @@ namespace Content.Shared.Explosion.Components;
 
 /// <summary>
 /// Use this component if the grenade splits into entities that make use of Timers
-/// or if you just want it to throw entities out in the world
+/// or if you just want it to throw entities out in the world.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedScatteringGrenadeSystem))]
 public sealed partial class ScatteringGrenadeComponent : Component
@@ -31,19 +31,19 @@ public sealed partial class ScatteringGrenadeComponent : Component
     public int UnspawnedCount;
 
     /// <summary>
-    /// Max amount of entities inside the container
+    /// Max amount of entities inside the container.
     /// </summary>
     [DataField]
     public int Capacity = 3;
 
     /// <summary>
-    /// Number of grenades currently contained in the cluster (both spawned and unspawned)
+    /// Number of grenades currently contained in the cluster (both spawned and unspawned).
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public int Count => UnspawnedCount + Container.ContainedEntities.Count;
 
     /// <summary>
-    /// Decides if contained entities trigger after getting launched
+    /// Decides if contained entities trigger after getting launched.
     /// </summary>
     [DataField]
     public bool TriggerContents = true;
@@ -57,13 +57,13 @@ public sealed partial class ScatteringGrenadeComponent : Component
     public float DelayBeforeTriggerContents = 1.0f;
 
     /// <summary>
-    /// Maximum delay in seconds to add between individual entity triggers
+    /// Maximum delay in seconds to add between individual entity triggers.
     /// </summary>
     [DataField]
     public float IntervalBetweenTriggersMax;
 
     /// <summary>
-    /// Minimum delay in seconds to add between individual entity triggers
+    /// Minimum delay in seconds to add between individual entity triggers.
     /// </summary>
     [DataField]
     public float IntervalBetweenTriggersMin;
@@ -73,13 +73,13 @@ public sealed partial class ScatteringGrenadeComponent : Component
 
     /// <summary>
     /// Should the angle the entities get thrown at be random
-    /// instead of uniformly distributed
+    /// instead of uniformly distributed.
     /// </summary>
     [DataField]
     public bool RandomAngle;
 
     /// <summary>
-    /// The speed at which the entities get thrown
+    /// The speed at which the entities get thrown.
     /// </summary>
     [DataField]
     public float Velocity = 5;
@@ -91,7 +91,7 @@ public sealed partial class ScatteringGrenadeComponent : Component
     public float Distance = 1f;
 
     /// <summary>
-    /// Should the distance the entities get thrown be random
+    /// Should the distance the entities get thrown be random.
     /// </summary>
     [DataField]
     public bool RandomDistance;
@@ -111,7 +111,7 @@ public sealed partial class ScatteringGrenadeComponent : Component
 
     /// <summary>
     /// Whether the main grenade has been triggered or not
-    /// We need to store this because we are only allowed to spawn and trigger timed entities on the next available frame update
+    /// We need to store this because we are only allowed to spawn and trigger timed entities on the next available frame update.
     /// </summary>
     public bool IsTriggered = false;
 

@@ -50,7 +50,7 @@ public sealed partial class GenericStatusEffect : EntityEffectBase<GenericStatus
     public TimeSpan Time = TimeSpan.FromSeconds(2f);
 
     /// <summary>
-    ///     Should this effect add the status effect, remove time from it, or set its cooldown?
+    ///     Should this effect add the status effect, remove time from it, or set its cooldown?.
     /// </summary>
     [DataField]
     public StatusEffectMetabolismType Type = StatusEffectMetabolismType.Update;

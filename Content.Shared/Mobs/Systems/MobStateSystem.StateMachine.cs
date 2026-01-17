@@ -10,12 +10,12 @@ public partial class MobStateSystem
     #region Public API
 
     /// <summary>
-    /// Check if an Entity can be set to a particular MobState
+    /// Check if an Entity can be set to a particular MobState.
     /// </summary>
-    /// <param name="entity">Target Entity</param>
-    /// <param name="mobState">MobState to check</param>
-    /// <param name="component">MobState Component owned by the target</param>
-    /// <returns>If the entity can be set to that MobState</returns>
+    /// <param name="entity">Target Entity.</param>
+    /// <param name="mobState">MobState to check.</param>
+    /// <param name="component">MobState Component owned by the target.</param>
+    /// <returns>If the entity can be set to that MobState.</returns>
     public bool HasState(EntityUid entity, MobState mobState, MobStateComponent? component = null)
     {
         return _mobStateQuery.Resolve(entity, ref component, false) &&
@@ -25,9 +25,9 @@ public partial class MobStateSystem
     /// <summary>
     /// Run a MobState update check. This will trigger update events if the state has been changed.
     /// </summary>
-    /// <param name="entity">Target Entity we want to change the MobState of</param>
-    /// <param name="component">MobState Component attached to the entity</param>
-    /// <param name="origin">Entity that caused the state update (if applicable)</param>
+    /// <param name="entity">Target Entity we want to change the MobState of.</param>
+    /// <param name="component">MobState Component attached to the entity.</param>
+    /// <param name="origin">Entity that caused the state update (if applicable).</param>
     public void UpdateMobState(EntityUid entity, MobStateComponent? component = null, EntityUid? origin = null)
     {
         if (!_mobStateQuery.Resolve(entity, ref component))
@@ -40,12 +40,12 @@ public partial class MobStateSystem
 
     /// <summary>
     /// Change the MobState without triggering UpdateMobState events.
-    /// WARNING: use this sparingly when you need to override other systems (MobThresholds)
+    /// WARNING: use this sparingly when you need to override other systems (MobThresholds).
     /// </summary>
-    /// <param name="entity">Target Entity we want to change the MobState of</param>
-    /// <param name="mobState">The new MobState we want to set</param>
-    /// <param name="component">MobState Component attached to the entity</param>
-    /// <param name="origin">Entity that caused the state update (if applicable)</param>
+    /// <param name="entity">Target Entity we want to change the MobState of.</param>
+    /// <param name="mobState">The new MobState we want to set.</param>
+    /// <param name="component">MobState Component attached to the entity.</param>
+    /// <param name="origin">Entity that caused the state update (if applicable).</param>
     public void ChangeMobState(EntityUid entity, MobState mobState, MobStateComponent? component = null,
         EntityUid? origin = null)
     {
@@ -62,21 +62,21 @@ public partial class MobStateSystem
     /// <summary>
     /// Called when a new MobState is entered.
     /// </summary>
-    /// <param name="entity">The owner of the MobState Component</param>
-    /// <param name="component">MobState Component owned by the target</param>
-    /// <param name="state">The new MobState</param>
+    /// <param name="entity">The owner of the MobState Component.</param>
+    /// <param name="component">MobState Component owned by the target.</param>
+    /// <param name="state">The new MobState.</param>
     protected virtual void OnEnterState(EntityUid entity, MobStateComponent component, MobState state)
     {
         OnStateEnteredSubscribers(entity, component, state);
     }
 
     /// <summary>
-    ///  Called when this entity changes MobState
+    ///  Called when this entity changes MobState.
     /// </summary>
-    /// <param name="entity">The owner of the MobState Component</param>
-    /// <param name="component">MobState Component owned by the target</param>
-    /// <param name="oldState">The previous MobState</param>
-    /// <param name="newState">The new MobState</param>
+    /// <param name="entity">The owner of the MobState Component.</param>
+    /// <param name="component">MobState Component owned by the target.</param>
+    /// <param name="oldState">The previous MobState.</param>
+    /// <param name="newState">The new MobState.</param>
     protected virtual void OnStateChanged(EntityUid entity, MobStateComponent component, MobState oldState,
         MobState newState)
     {
@@ -85,9 +85,9 @@ public partial class MobStateSystem
     /// <summary>
     /// Called when a new MobState is exited.
     /// </summary>
-    /// <param name="entity">The owner of the MobState Component</param>
-    /// <param name="component">MobState Component owned by the target</param>
-    /// <param name="state">The old MobState</param>
+    /// <param name="entity">The owner of the MobState Component.</param>
+    /// <param name="component">MobState Component owned by the target.</param>
+    /// <param name="state">The old MobState.</param>
     protected virtual void OnExitState(EntityUid entity, MobStateComponent component, MobState state)
     {
         OnStateExitSubscribers(entity, component, state);
@@ -124,12 +124,12 @@ public partial class MobStateSystem
 }
 
 /// <summary>
-/// Event that gets triggered when we want to update the mobstate. This allows for systems to override MobState changes
+/// Event that gets triggered when we want to update the mobstate. This allows for systems to override MobState changes.
 /// </summary>
-/// <param name="Target">The Entity whose MobState is changing</param>
-/// <param name="Component">The MobState Component owned by the Target</param>
-/// <param name="State">The new MobState we want to set</param>
-/// <param name="Origin">Entity that caused the state update (if applicable)</param>
+/// <param name="Target">The Entity whose MobState is changing.</param>
+/// <param name="Component">The MobState Component owned by the Target.</param>
+/// <param name="State">The new MobState we want to set.</param>
+/// <param name="Origin">Entity that caused the state update (if applicable).</param>
 [ByRefEvent]
 public record struct UpdateMobStateEvent(EntityUid Target, MobStateComponent Component, MobState State,
     EntityUid? Origin = null);

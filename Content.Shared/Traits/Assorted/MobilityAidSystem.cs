@@ -5,7 +5,7 @@ using Content.Shared.Wieldable;
 namespace Content.Shared.Traits.Assorted;
 
 /// <summary>
-/// Handles <see cref="MobilityAidComponent"/>
+/// Handles <see cref="MobilityAidComponent"/>.
 /// </summary>
 public sealed class MobilityAidSystem : EntitySystem
 {

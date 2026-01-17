@@ -11,13 +11,13 @@ namespace Content.Shared.Friends.Components;
 public sealed partial class PettableFriendComponent : Component
 {
     /// <summary>
-    /// Localized popup sent when petting for the first time
+    /// Localized popup sent when petting for the first time.
     /// </summary>
     [DataField(required: true)]
     public LocId SuccessString = string.Empty;
 
     /// <summary>
-    /// Localized popup sent when petting multiple times
+    /// Localized popup sent when petting multiple times.
     /// </summary>
     [DataField(required: true)]
     public LocId FailureString = string.Empty;

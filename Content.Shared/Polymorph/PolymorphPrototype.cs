@@ -28,14 +28,14 @@ public sealed partial class PolymorphPrototype : IPrototype, IInheritingPrototyp
 }
 
 /// <summary>
-/// Defines information about the polymorph
+/// Defines information about the polymorph.
 /// </summary>
 [DataDefinition]
 public sealed partial record PolymorphConfiguration
 {
     /// <summary>
     /// What entity the polymorph will turn the target into
-    /// must be in here because it makes no sense if it isn't
+    /// must be in here because it makes no sense if it isn't.
     /// </summary>
     [DataField(required: true, serverOnly: true)]
     public EntProtoId Entity;
@@ -57,14 +57,14 @@ public sealed partial record PolymorphConfiguration
 
     /// <summary>
     /// The duration of the transformation in seconds
-    /// can be null if there is not one
+    /// can be null if there is not one.
     /// </summary>
     [DataField(serverOnly: true)]
     public int? Duration;
 
     /// <summary>
     /// whether or not the target can transform as will
-    /// set to true for things like polymorph spells and curses
+    /// set to true for things like polymorph spells and curses.
     /// </summary>
     [DataField(serverOnly: true)]
     public bool Forced;

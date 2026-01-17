@@ -10,7 +10,7 @@ namespace Content.Shared.Trigger.Components.Triggers;
 public sealed partial class TriggerOnActivateComponent : BaseTriggerOnXComponent
 {
     /// <summary>
-    /// Is this interaction a complex interaction?
+    /// Is this interaction a complex interaction?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool RequireComplex = true;

@@ -6,7 +6,7 @@ namespace Content.Shared.Chemistry.Components;
 public sealed partial class MixableSolutionComponent : Component
 {
     /// <summary>
-    /// Solution name which can be mixed with methods such as blessing
+    /// Solution name which can be mixed with methods such as blessing.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string Solution = "default";

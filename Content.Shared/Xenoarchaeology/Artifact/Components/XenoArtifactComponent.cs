@@ -124,7 +124,7 @@ public sealed partial class XenoArtifactComponent : Component
     public MinMax SegmentSize = new(5, 8);
 
     /// <summary>
-    /// For each "layer" in a segment (set of nodes with equal depth), how many will we generate?
+    /// For each "layer" in a segment (set of nodes with equal depth), how many will we generate?.
     /// </summary>
     [DataField]
     public MinMax NodesPerSegmentLayer = new(1, 3);

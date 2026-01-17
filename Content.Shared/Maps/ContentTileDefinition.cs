@@ -107,13 +107,13 @@ namespace Content.Shared.Maps
         [DataField("isSpace")] public bool MapAtmosphere { get; private set; }
 
         /// <summary>
-        ///     Friction override for mob mover in <see cref="SharedMoverController"/>
+        ///     Friction override for mob mover in <see cref="SharedMoverController"/>.
         /// </summary>
         [DataField("mobFriction")]
         public float? MobFriction { get; private set; }
 
         /// <summary>
-        ///     Accel override for mob mover in <see cref="SharedMoverController"/>
+        ///     Accel override for mob mover in <see cref="SharedMoverController"/>.
         /// </summary>
         [DataField("mobAcceleration")]
         public float? MobAcceleration { get; private set; }

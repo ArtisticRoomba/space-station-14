@@ -22,12 +22,12 @@
     public record struct ThrowItemAttemptEvent(EntityUid User, bool Cancelled = false);
 
     /// <summary>
-    /// Raised when we try to pushback an entity from throwing
+    /// Raised when we try to pushback an entity from throwing.
     /// </summary>
     public sealed class ThrowPushbackAttemptEvent : CancellableEntityEventArgs { }
 
     /// <summary>
-    /// Raised on an entity that is being pushed from a thrown entity
+    /// Raised on an entity that is being pushed from a thrown entity.
     /// </summary>
     [ByRefEvent]
     public record struct ThrowerImpulseEvent()

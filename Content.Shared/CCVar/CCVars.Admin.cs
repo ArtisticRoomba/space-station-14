@@ -11,19 +11,19 @@ public sealed partial class CCVars
         CVarDef.Create("admin.announce_logout", true, CVar.SERVERONLY);
 
     /// <summary>
-    ///     The token used to authenticate with the admin API. Leave empty to disable the admin API. This is a secret! Do not share!
+    ///     The token used to authenticate with the admin API. Leave empty to disable the admin API. This is a secret! Do not share!.
     /// </summary>
     public static readonly CVarDef<string> AdminApiToken =
         CVarDef.Create("admin.api_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     /// <summary>
-    ///     Should users be able to see their own notes? Admins will be able to see and set notes regardless
+    ///     Should users be able to see their own notes? Admins will be able to see and set notes regardless.
     /// </summary>
     public static readonly CVarDef<bool> SeeOwnNotes =
         CVarDef.Create("admin.see_own_notes", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
-    ///     Should the server play a quick sound to the active admins whenever a new player joins?
+    ///     Should the server play a quick sound to the active admins whenever a new player joins?.
     /// </summary>
     public static readonly CVarDef<bool> AdminNewPlayerJoinSound =
         CVarDef.Create("admin.new_player_join_sound", false, CVar.SERVERONLY);
@@ -42,25 +42,25 @@ public sealed partial class CCVars
         CVarDef.Create("admin.note_stale_days", 365.2422, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
-    ///     How much time does the user have to wait in seconds before confirming that they saw an admin message?
+    ///     How much time does the user have to wait in seconds before confirming that they saw an admin message?.
     /// </summary>
     public static readonly CVarDef<float> MessageWaitTime =
         CVarDef.Create("admin.message_wait_time", 3f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
-    ///     Default severity for role bans
+    ///     Default severity for role bans.
     /// </summary>
     public static readonly CVarDef<string> RoleBanDefaultSeverity =
         CVarDef.Create("admin.role_ban_default_severity", "medium", CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    ///     Default severity for department bans
+    ///     Default severity for department bans.
     /// </summary>
     public static readonly CVarDef<string> DepartmentBanDefaultSeverity =
         CVarDef.Create("admin.department_ban_default_severity", "medium", CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    ///     Default severity for server bans
+    ///     Default severity for server bans.
     /// </summary>
     public static readonly CVarDef<string> ServerBanDefaultSeverity =
         CVarDef.Create("admin.server_ban_default_severity", "High", CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
@@ -117,7 +117,7 @@ public sealed partial class CCVars
         CVarDef.Create("admin.alert.particle_accelerator_min_power_state", 5, CVar.SERVERONLY); // strength 4
 
     /// <summary>
-    ///     Should the ban details in admin channel include PII? (IP, HWID, etc)
+    ///     Should the ban details in admin channel include PII? (IP, HWID, etc).
     /// </summary>
     public static readonly CVarDef<bool> AdminShowPIIOnBan =
         CVarDef.Create("admin.show_pii_onban", false, CVar.SERVERONLY);
@@ -159,7 +159,7 @@ public sealed partial class CCVars
     ///     Determines whether admins count towards the total playercount when determining whether the server is over <see cref="SoftMaxPlayers"/>
     ///     Ideally this should be used in conjuction with <see cref="AdminBypassPlayers"/>.
     ///     This also applies to playercount limits in whitelist conditions
-    ///     If false, then admins will not be considered when checking whether the playercount is already above the soft player cap
+    ///     If false, then admins will not be considered when checking whether the playercount is already above the soft player cap.
     /// </summary>
     public static readonly CVarDef<bool> AdminsCountForMaxPlayers =
         CVarDef.Create("admin.admins_count_for_max_players", false, CVar.SERVERONLY);

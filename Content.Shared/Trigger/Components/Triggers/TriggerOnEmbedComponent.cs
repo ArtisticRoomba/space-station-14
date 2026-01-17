@@ -4,7 +4,7 @@ namespace Content.Shared.Trigger.Components.Triggers;
 
 /// <summary>
 /// Triggers when this entity first embeds into something.
-/// User is the item that was embedded or the actual embed depending on <see cref="UserIsEmbed"/>
+/// User is the item that was embedded or the actual embed depending on <see cref="UserIsEmbed"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TriggerOnEmbedComponent : BaseTriggerOnXComponent

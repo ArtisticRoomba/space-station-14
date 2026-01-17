@@ -10,7 +10,7 @@ namespace Content.Shared.Gravity;
 public sealed partial class GravityAffectedComponent : Component
 {
     /// <summary>
-    /// If true, this entity will be considered "weightless"
+    /// If true, this entity will be considered "weightless".
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool Weightless = true;

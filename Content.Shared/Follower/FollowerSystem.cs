@@ -179,8 +179,8 @@ public sealed class FollowerSystem : EntitySystem
     /// <summary>
     ///     Makes an entity follow another entity, by parenting to it.
     /// </summary>
-    /// <param name="follower">The entity that should follow</param>
-    /// <param name="entity">The entity to be followed</param>
+    /// <param name="follower">The entity that should follow.</param>
+    /// <param name="entity">The entity to be followed.</param>
     public void StartFollowingEntity(EntityUid follower, EntityUid entity)
     {
         if (follower == entity || TerminatingOrDeleted(entity))
@@ -245,7 +245,7 @@ public sealed class FollowerSystem : EntitySystem
     /// <summary>
     ///     Forces an entity to stop following another entity, if it is doing so.
     /// </summary>
-    /// <param name="deparent">Should the entity deparent itself</param>
+    /// <param name="deparent">Should the entity deparent itself.</param>
     public void StopFollowingEntity(EntityUid uid, EntityUid target, FollowedComponent? followed = null, bool deparent = true, bool removeComp = true)
     {
         if (!Resolve(target, ref followed, false))

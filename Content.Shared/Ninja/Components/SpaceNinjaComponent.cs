@@ -14,7 +14,7 @@ namespace Content.Shared.Ninja.Components;
 public sealed partial class SpaceNinjaComponent : Component
 {
     /// <summary>
-    /// Currently worn suit
+    /// Currently worn suit.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Suit;
@@ -26,7 +26,7 @@ public sealed partial class SpaceNinjaComponent : Component
     public EntityUid? Gloves;
 
     /// <summary>
-    /// Bound katana, set once picked up and never removed
+    /// Bound katana, set once picked up and never removed.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Katana;

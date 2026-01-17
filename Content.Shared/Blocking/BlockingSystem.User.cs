@@ -92,10 +92,10 @@ public sealed partial class BlockingSystem
 
     /// <summary>
     /// Check for the shield and has the user stop blocking
-    /// Used where you'd like the user to stop blocking, but also don't want to remove the <see cref="BlockingUserComponent"/>
+    /// Used where you'd like the user to stop blocking, but also don't want to remove the <see cref="BlockingUserComponent"/>.
     /// </summary>
-    /// <param name="uid">The user blocking</param>
-    /// <param name="component">The <see cref="BlockingUserComponent"/></param>
+    /// <param name="uid">The user blocking.</param>
+    /// <param name="component">The <see cref="BlockingUserComponent"/>.</param>
     private void UserStopBlocking(EntityUid uid, BlockingUserComponent component)
     {
         if (TryComp<BlockingComponent>(component.BlockingItem, out var blockComp) && blockComp.IsBlocking)

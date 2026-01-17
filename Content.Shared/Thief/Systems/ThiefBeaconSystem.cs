@@ -12,7 +12,7 @@ using Robust.Shared.Audio.Systems;
 namespace Content.Shared.Thief.Systems;
 
 /// <summary>
-/// <see cref="ThiefBeaconComponent"/>
+/// <see cref="ThiefBeaconComponent"/>.
 /// </summary>
 public sealed class ThiefBeaconSystem : EntitySystem
 {

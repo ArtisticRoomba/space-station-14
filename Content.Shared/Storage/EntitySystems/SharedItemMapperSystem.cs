@@ -82,11 +82,11 @@ public abstract class SharedItemMapperSystem : EntitySystem
     /// according to <paramref name="itemMapper"/> definition. It will have O(n*m) time behavior
     /// (n - number of entities in container, and m - number of definitions in <paramref name="showLayers"/>).
     /// </summary>
-    /// <param name="uid">EntityUid used to search the storage</param>
+    /// <param name="uid">EntityUid used to search the storage.</param>
     /// <param name="itemMapper">component that contains definition used to map
     /// <see cref="EntityWhitelist">Whitelist</see> in <see cref="ItemMapperComponent.MapLayers"/> to string.
     /// </param>
-    /// <param name="showLayers">list of <paramref name="itemMapper"/> layers that should be visible</param>
+    /// <param name="showLayers">list of <paramref name="itemMapper"/> layers that should be visible.</param>
     /// <returns>false if <c>msg.Container.Owner</c> is not a storage, true otherwise.</returns>
     private bool TryGetLayers(EntityUid uid, ItemMapperComponent itemMapper, out List<string> showLayers)
     {

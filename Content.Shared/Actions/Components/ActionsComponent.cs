@@ -35,12 +35,12 @@ public sealed class ActionsComponentState : ComponentState
 public enum ItemActionIconStyle : byte
 {
     /// <summary>
-    /// The default - The item icon will be big with a small action icon in the corner
+    /// The default - The item icon will be big with a small action icon in the corner.
     /// </summary>
     BigItem,
 
     /// <summary>
-    /// The action icon will be big with a small item icon in the corner
+    /// The action icon will be big with a small item icon in the corner.
     /// </summary>
     BigAction,
 

@@ -9,7 +9,7 @@ namespace Content.Shared.IgnitionSource.Components;
 public sealed partial class MatchstickComponent : Component
 {
     /// <summary>
-    ///     Current state to matchstick. Can be <code>Unlit</code>, <code>Lit</code> or <code>Burnt</code>.
+    ///     Current state to matchstick. Can be. <code>Unlit</code>. <code>Lit</code> or. <code>Burnt</code>.
     /// </summary>
     [DataField, AutoNetworkedField]
     public SmokableState State = SmokableState.Unlit;

@@ -101,7 +101,7 @@ public abstract partial class SharedHandsSystem
     }
 
     /// <summary>
-    /// Removes the specified hand from the specified entity
+    /// Removes the specified hand from the specified entity.
     /// </summary>
     public virtual void RemoveHand(Entity<HandsComponent?> ent, string handName)
     {
@@ -171,7 +171,7 @@ public abstract partial class SharedHandsSystem
     }
 
     /// <summary>
-    ///     Does this entity have any empty hands, and how many?
+    ///     Does this entity have any empty hands, and how many?.
     /// </summary>
     public int GetEmptyHandCount(Entity<HandsComponent?> entity)
     {
@@ -220,7 +220,7 @@ public abstract partial class SharedHandsSystem
     }
 
     /// <summary>
-    /// Gets the current active hand's Id for the specified entity
+    /// Gets the current active hand's Id for the specified entity.
     /// </summary>
     /// <param name="entity"></param>
     /// <returns></returns>
@@ -233,7 +233,7 @@ public abstract partial class SharedHandsSystem
     }
 
     /// <summary>
-    /// Gets the current active hand's held entity for the specified entity
+    /// Gets the current active hand's held entity for the specified entity.
     /// </summary>
     /// <param name="entity"></param>
     /// <returns></returns>

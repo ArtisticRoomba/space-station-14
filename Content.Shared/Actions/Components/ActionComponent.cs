@@ -52,7 +52,7 @@ public sealed partial class ActionComponent : Component
     public Color OriginalIconColor;
 
     /// <summary>
-    ///     The color the action should turn to when disabled
+    ///     The color the action should turn to when disabled.
     /// </summary>
     [DataField] public Color DisabledIconColor = Color.DimGray;
 
@@ -105,7 +105,7 @@ public sealed partial class ActionComponent : Component
 
     /// <summary>
     ///     Entity to use for the action icon. If no entity is provided and the <see cref="Container"/> differs from
-    ///     <see cref="AttachedEntity"/>, then it will default to using <see cref="Container"/>
+    ///     <see cref="AttachedEntity"/>, then it will default to using <see cref="Container"/>.
     /// </summary>
     public EntityUid? EntityIcon
     {
@@ -152,7 +152,7 @@ public sealed partial class ActionComponent : Component
     public int Priority = 0;
 
     /// <summary>
-    ///     What entity, if any, currently has this action in the actions component?
+    ///     What entity, if any, currently has this action in the actions component?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? AttachedEntity;

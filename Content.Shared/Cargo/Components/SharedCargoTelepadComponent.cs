@@ -16,7 +16,7 @@ public sealed partial class CargoTelepadComponent : Component
     public List<CargoOrderData> CurrentOrders = new();
 
     /// <summary>
-    /// The actual amount of time it takes to teleport from the telepad
+    /// The actual amount of time it takes to teleport from the telepad.
     /// </summary>
     [DataField("delay"), ViewVariables(VVAccess.ReadWrite)]
     public float Delay = 5f;

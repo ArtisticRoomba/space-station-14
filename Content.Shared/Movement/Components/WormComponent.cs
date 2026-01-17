@@ -10,13 +10,13 @@ namespace Content.Shared.Movement.Components;
 public sealed partial class WormComponent : Component
 {
     /// <summary>
-    /// Modifier for KnockedDown Friction, or in this components case, all friction
+    /// Modifier for KnockedDown Friction, or in this components case, all friction.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float FrictionModifier = 1f;
 
     /// <summary>
-    /// Modifier for KnockedDown Movement, or in this components case, all movement
+    /// Modifier for KnockedDown Movement, or in this components case, all movement.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float SpeedModifier = 1f;

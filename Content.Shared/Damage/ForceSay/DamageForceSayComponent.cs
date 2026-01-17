@@ -14,7 +14,7 @@ namespace Content.Shared.Damage.ForceSay;
 public sealed partial class DamageForceSayComponent : Component
 {
     /// <summary>
-    ///     The localization string that the message & suffix will be passed into
+    ///     The localization string that the message & suffix will be passed into.
     /// </summary>
     [DataField]
     public LocId ForceSayMessageWrap = "damage-force-say-message-wrap";
@@ -27,7 +27,7 @@ public sealed partial class DamageForceSayComponent : Component
     public LocId ForceSayMessageWrapNoSuffix = "damage-force-say-message-wrap-no-suffix";
 
     /// <summary>
-    ///     The fluent string prefix to use when picking a random suffix
+    ///     The fluent string prefix to use when picking a random suffix.
     /// </summary>
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> ForceSayStringDataset = "ForceSayStringDataset";

@@ -3,7 +3,7 @@
 /// <summary>
 /// Entity effect that specifically deals with new status effects.
 /// </summary>
-/// <typeparam name="T">The entity effect type, typically for status effects which need systems to pass arguments</typeparam>
+/// <typeparam name="T">The entity effect type, typically for status effects which need systems to pass arguments.</typeparam>
 public abstract partial class BaseStatusEntityEffect<T> : EntityEffectBase<T>
     where T : BaseStatusEntityEffect<T>
 {
@@ -15,7 +15,7 @@ public abstract partial class BaseStatusEntityEffect<T> : EntityEffectBase<T>
     public TimeSpan? Time = TimeSpan.FromSeconds(2);
 
     /// <summary>
-    /// Should this effect add the status effect, remove time from it, or set its cooldown?
+    /// Should this effect add the status effect, remove time from it, or set its cooldown?.
     /// </summary>
     [DataField]
     public StatusEffectMetabolismType Type = StatusEffectMetabolismType.Update;

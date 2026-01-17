@@ -8,7 +8,7 @@ namespace Content.Shared.Magic.Events;
 public sealed partial class WorldSpawnSpellEvent : WorldTargetActionEvent
 {
     /// <summary>
-    /// The list of prototypes this spell will spawn
+    /// The list of prototypes this spell will spawn.
     /// </summary>
     [DataField]
     public List<EntitySpawnEntry> Prototypes = new();
@@ -24,7 +24,7 @@ public sealed partial class WorldSpawnSpellEvent : WorldTargetActionEvent
     public Vector2 Offset;
 
     /// <summary>
-    /// Lifetime to set for the entities to self delete
+    /// Lifetime to set for the entities to self delete.
     /// </summary>
     [DataField]
     public float? Lifetime;

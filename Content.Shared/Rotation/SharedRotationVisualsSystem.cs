@@ -3,7 +3,7 @@ namespace Content.Shared.Rotation;
 public abstract class SharedRotationVisualsSystem : EntitySystem
 {
     /// <summary>
-    /// Sets the rotation an entity will have when it is "horizontal"
+    /// Sets the rotation an entity will have when it is "horizontal".
     /// </summary>
     public void SetHorizontalAngle(Entity<RotationVisualsComponent?> ent, Angle angle)
     {

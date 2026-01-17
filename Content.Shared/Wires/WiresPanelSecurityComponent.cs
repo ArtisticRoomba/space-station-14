@@ -5,7 +5,7 @@ namespace Content.Shared.Wires;
 /// <summary>
 ///     Allows hacking protections to a be added to an entity.
 ///     These safeguards are determined via a construction graph,
-///     so the entity requires <cref="ConstructionComponent"/> for this to function 
+///     so the entity requires <cref="ConstructionComponent"/> for this to function. 
 /// </summary>
 [NetworkedComponent, RegisterComponent]
 [Access(typeof(SharedWiresSystem))]
@@ -13,21 +13,21 @@ namespace Content.Shared.Wires;
 public sealed partial class WiresPanelSecurityComponent : Component
 {
     /// <summary>
-    ///     A verbal description of the wire panel's current security level
+    ///     A verbal description of the wire panel's current security level.
     /// </summary>
     [DataField("examine")]
     [AutoNetworkedField]
     public string? Examine = default!;
 
     /// <summary>
-    ///     Determines whether the wiring is accessible to hackers or not
+    ///     Determines whether the wiring is accessible to hackers or not.
     /// </summary>
     [DataField("wiresAccessible")]
     [AutoNetworkedField]
     public bool WiresAccessible = true;
 
     /// <summary>
-    ///     Name of the construction graph node that the entity will start on
+    ///     Name of the construction graph node that the entity will start on.
     /// </summary>
     [DataField("securityLevel")]
     [AutoNetworkedField]
@@ -35,7 +35,7 @@ public sealed partial class WiresPanelSecurityComponent : Component
 }
 
 /// <summary>
-///     This event gets raised when security settings on a wires panel change
+///     This event gets raised when security settings on a wires panel change.
 /// </summary>
 public sealed class WiresPanelSecurityEvent : EntityEventArgs
 {

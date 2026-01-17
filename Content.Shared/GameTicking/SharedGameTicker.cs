@@ -135,7 +135,7 @@ namespace Content.Shared.GameTicking
         public TimeSpan StartTime { get; }
 
         /// <summary>
-        /// Whether or not the countdown is paused
+        /// Whether or not the countdown is paused.
         /// </summary>
         public bool Paused { get; }
 

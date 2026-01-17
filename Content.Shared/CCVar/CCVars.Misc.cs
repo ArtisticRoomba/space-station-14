@@ -105,7 +105,7 @@ public sealed partial class CCVars
     /// <summary>
     ///     The total minutes that the client has spent since the date of last connection.
     ///     This is reset to 0 when the last connect date is updated.
-    ///     Do not read this value directly, use <code>ClientsidePlaytimeTrackingManager</code> instead.
+    ///     Do not read this value directly, use. <code>ClientsidePlaytimeTrackingManager</code> instead.
     /// </summary>
     public static readonly CVarDef<float> PlaytimeMinutesToday =
         CVarDef.Create("playtime.minutes_today", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);

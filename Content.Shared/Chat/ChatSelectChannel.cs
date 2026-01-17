@@ -12,42 +12,42 @@
         None = 0,
 
         /// <summary>
-        ///     Chat heard by players within earshot
+        ///     Chat heard by players within earshot.
         /// </summary>
         Local = ChatChannel.Local,
 
         /// <summary>
-        ///     Chat heard by players right next to each other
+        ///     Chat heard by players right next to each other.
         /// </summary>
         Whisper = ChatChannel.Whisper,
 
         /// <summary>
-        ///     Radio messages
+        ///     Radio messages.
         /// </summary>
         Radio = ChatChannel.Radio,
 
         /// <summary>
-        ///     Local out-of-character channel
+        ///     Local out-of-character channel.
         /// </summary>
         LOOC = ChatChannel.LOOC,
 
         /// <summary>
-        ///     Out-of-character channel
+        ///     Out-of-character channel.
         /// </summary>
         OOC = ChatChannel.OOC,
 
         /// <summary>
-        ///     Emotes
+        ///     Emotes.
         /// </summary>
         Emotes = ChatChannel.Emotes,
 
         /// <summary>
-        ///     Deadchat
+        ///     Deadchat.
         /// </summary>
         Dead = ChatChannel.Dead,
 
         /// <summary>
-        ///     Admin chat
+        ///     Admin chat.
         /// </summary>
         Admin = ChatChannel.AdminChat,
 

@@ -142,7 +142,7 @@ public sealed partial class MarkingSet
     ///     Filters and colors markings based on species and it's restrictions in the marking's prototype from this marking set.
     /// </summary>
     /// <param name="species">The species to filter.</param>
-    /// <param name="skinColor">The skin color for recoloring (i.e. slimes). Use null if you want only filter markings</param>
+    /// <param name="skinColor">The skin color for recoloring (i.e. slimes). Use null if you want only filter markings.</param>
     /// <param name="markingManager">Marking manager.</param>
     /// <param name="prototypeManager">Prototype manager.</param>
     public void EnsureSpecies(string species, Color? skinColor, MarkingManager? markingManager = null, IPrototypeManager? prototypeManager = null)
@@ -304,9 +304,9 @@ public sealed partial class MarkingSet
     }
 
     /// <summary>
-    ///     How many points are left in this marking set's category
+    ///     How many points are left in this marking set's category.
     /// </summary>
-    /// <param name="category">The category to check</param>
+    /// <param name="category">The category to check.</param>
     /// <returns>A number equal or greater than zero if the category exists, -1 otherwise.</returns>
     public int PointsLeft(MarkingCategories category)
     {
@@ -562,7 +562,7 @@ public sealed partial class MarkingSet
     }
 
     /// <summary>
-    ///     Shifts a marking's rank towards the front of the list
+    ///     Shifts a marking's rank towards the front of the list.
     /// </summary>
     /// <param name="category">The category to shift in.</param>
     /// <param name="idx">Index of the marking.</param>
@@ -582,10 +582,10 @@ public sealed partial class MarkingSet
     }
 
     /// <summary>
-    ///     Shifts a marking's rank upwards from the end of the list
+    ///     Shifts a marking's rank upwards from the end of the list.
     /// </summary>
     /// <param name="category">The category to shift in.</param>
-    /// <param name="idx">Index of the marking from the end</param>
+    /// <param name="idx">Index of the marking from the end.</param>
     public void ShiftRankUpFromEnd(MarkingCategories category, int idx)
     {
         if (!Markings.TryGetValue(category, out var markings))
@@ -597,7 +597,7 @@ public sealed partial class MarkingSet
     }
 
     /// <summary>
-    ///     Shifts a marking's rank towards the end of the list
+    ///     Shifts a marking's rank towards the end of the list.
     /// </summary>
     /// <param name="category">The category to shift in.</param>
     /// <param name="idx">Index of the marking.</param>
@@ -617,10 +617,10 @@ public sealed partial class MarkingSet
     }
 
     /// <summary>
-    ///     Shifts a marking's rank downwards from the end of the list
+    ///     Shifts a marking's rank downwards from the end of the list.
     /// </summary>
     /// <param name="category">The category to shift in.</param>
-    /// <param name="idx">Index of the marking from the end</param>
+    /// <param name="idx">Index of the marking from the end.</param>
     public void ShiftRankDownFromEnd(MarkingCategories category, int idx)
     {
         if (!Markings.TryGetValue(category, out var markings))
@@ -718,7 +718,7 @@ public sealed partial class MarkingSet
     }
 
     /// <summary>
-    ///     Gets a difference of marking categories between two marking sets
+    ///     Gets a difference of marking categories between two marking sets.
     /// </summary>
     /// <param name="other">The other marking set.</param>
     /// <returns>Enumerator of marking categories that were different between the two.</returns>

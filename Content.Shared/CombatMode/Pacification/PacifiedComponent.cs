@@ -45,7 +45,7 @@ public sealed partial class PacifiedComponent : Component
     public TimeSpan? NextPopupTime = null;
 
     /// <summary>
-    /// The last entity attacked, used for popup purposes (avoid spam)
+    /// The last entity attacked, used for popup purposes (avoid spam).
     /// </summary>
     [DataField]
     public EntityUid? LastAttackedEntity = null;

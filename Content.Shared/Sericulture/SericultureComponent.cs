@@ -7,7 +7,7 @@ namespace Content.Shared.Sericulture;
 
 /// <summary>
 /// Should be applied to any mob that you want to be able to produce any material with an action and the cost of hunger.
-/// TODO: Probably adjust this to utilize organs?
+/// TODO: Probably adjust this to utilize organs?.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedSericultureSystem)), AutoGenerateComponentState]
 public sealed partial class SericultureComponent : Component

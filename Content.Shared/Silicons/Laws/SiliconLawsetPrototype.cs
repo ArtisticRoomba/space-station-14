@@ -57,7 +57,7 @@ public sealed partial class SiliconLawset
 
 /// <summary>
 /// This is a prototype for a <see cref="SiliconLawPrototype"/> list.
-/// Cannot be used directly since it is a list of prototype ids rather than List<Siliconlaw>.
+/// Cannot be used directly since it is a list of prototype ids rather than List.<Siliconlaw>.
 /// </summary>
 [Prototype]
 public sealed partial class SiliconLawsetPrototype : IPrototype
@@ -67,7 +67,7 @@ public sealed partial class SiliconLawsetPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// The locstring of the lawset for the guidebook entry, if no name is provided, defaults to the ID
+    /// The locstring of the lawset for the guidebook entry, if no name is provided, defaults to the ID.
     /// </summary>    
     [DataField]
     public LocId? Name = null;

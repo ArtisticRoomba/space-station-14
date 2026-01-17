@@ -38,7 +38,7 @@ public sealed partial class HungerComponent : Component
 
     /// <summary>
     /// The actual amount at which <see cref="LastAuthoritativeHungerValue"/> decays.
-    /// Affected by <seealso cref="CurrentThreshold"/>
+    /// Affected by. <seealso cref="CurrentThreshold"/>
     /// </summary>
     /// <remarks>Any time this is modified, <see cref="HungerSystem.SetAuthoritativeHungerValue"/> should be called.</remarks>
     [DataField("actualDecayRate"), ViewVariables(VVAccess.ReadWrite)]
@@ -47,14 +47,14 @@ public sealed partial class HungerComponent : Component
 
     /// <summary>
     /// The last threshold this entity was at.
-    /// Stored in order to prevent recalculating
+    /// Stored in order to prevent recalculating.
     /// </summary>
     [DataField("lastThreshold"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public HungerThreshold LastThreshold;
 
     /// <summary>
-    /// The current hunger threshold the entity is at
+    /// The current hunger threshold the entity is at.
     /// </summary>
     /// <remarks>Any time this is modified, <see cref="HungerSystem.SetAuthoritativeHungerValue"/> should be called.</remarks>
     [DataField("currentThreshold"), ViewVariables(VVAccess.ReadWrite)]
@@ -62,7 +62,7 @@ public sealed partial class HungerComponent : Component
     public HungerThreshold CurrentThreshold;
 
     /// <summary>
-    /// A dictionary relating HungerThreshold to the amount of <see cref="HungerSystem.GetHunger">current hunger</see> needed for each one
+    /// A dictionary relating HungerThreshold to the amount of <see cref="HungerSystem.GetHunger">current hunger</see> needed for each one.
     /// </summary>
     [DataField("thresholds", customTypeSerializer: typeof(DictionarySerializer<HungerThreshold, float>))]
     [AutoNetworkedField]
@@ -105,14 +105,14 @@ public sealed partial class HungerComponent : Component
     };
 
     /// <summary>
-    /// The amount of slowdown applied when an entity is starving
+    /// The amount of slowdown applied when an entity is starving.
     /// </summary>
     [DataField("starvingSlowdownModifier"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public float StarvingSlowdownModifier = 0.75f;
 
     /// <summary>
-    /// Damage dealt when your current threshold is at HungerThreshold.Dead
+    /// Damage dealt when your current threshold is at HungerThreshold.Dead.
     /// </summary>
     [DataField("starvationDamage")]
     public DamageSpecifier? StarvationDamage;

@@ -10,7 +10,7 @@ namespace Content.Shared.Lightning.Components;
 public abstract partial class SharedLightningComponent : Component
 {
     /// <summary>
-    /// Can this lightning arc?
+    /// Can this lightning arc?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("canArc")]
@@ -38,20 +38,20 @@ public abstract partial class SharedLightningComponent : Component
     public EntityUid? ArcTarget;
 
     /// <summary>
-    /// How far should this lightning go?
+    /// How far should this lightning go?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("maxLength")]
     public float MaxLength = 5f;
 
     /// <summary>
-    /// List of targets that this collided with already
+    /// List of targets that this collided with already.
     /// </summary>
     [DataField("arcTargets")]
     public HashSet<EntityUid> ArcTargets = new();
 
     /// <summary>
-    /// What should this arc to?
+    /// What should this arc to?.
     /// </summary>
     [DataField("collisionMask")]
     public int CollisionMask = (int)(CollisionGroup.MobMask | CollisionGroup.MachineMask);

@@ -11,7 +11,7 @@ public sealed partial class IdentityBlockerComponent : Component
     public bool Enabled = true;
 
     /// <summary>
-    /// What part of your face does this cover? Eyes, mouth, or full?
+    /// What part of your face does this cover? Eyes, mouth, or full?.
     /// </summary>
     [DataField]
     public IdentityBlockerCoverage Coverage = IdentityBlockerCoverage.FULL;

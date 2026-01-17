@@ -266,7 +266,7 @@ public sealed class SolutionTransferSystem : EntitySystem
 
     /// <summary>
     /// Attempt to drain a solution into another, such as pouring a bottle into a glass.
-    /// Includes a pop-up if the transfer failed or succeeded
+    /// Includes a pop-up if the transfer failed or succeeded.
     /// </summary>
     /// <param name="data">The transfer data making up the transfer.</param>
     /// <returns>The actual amount transferred.</returns>
@@ -378,7 +378,7 @@ public sealed class SolutionTransferSystem : EntitySystem
 /// <param name="sourceEntity">The entity holding the solution container which reagents are being moved from.</param>
 /// <param name="source">The entity holding the solution from which reagents are being moved away from.</param>
 /// <param name="targetEntity">The entity holding the solution container which reagents are being moved to.</param>
-/// <param name="target">The entity holding the solution which reagents are being moved to</param>
+/// <param name="target">The entity holding the solution which reagents are being moved to.</param>
 /// <param name="amount">The amount being moved.</param>
 public struct SolutionTransferData(EntityUid user, EntityUid sourceEntity, Entity<SolutionComponent> source, EntityUid targetEntity, Entity<SolutionComponent> target, FixedPoint2 amount)
 {

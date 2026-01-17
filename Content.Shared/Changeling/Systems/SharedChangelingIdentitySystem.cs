@@ -67,9 +67,9 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
     }
 
     /// <summary>
-    /// Cleanup all nullspaced Identities when the changeling no longer exists
+    /// Cleanup all nullspaced Identities when the changeling no longer exists.
     /// </summary>
-    /// <param name="ent">the changeling</param>
+    /// <param name="ent">the changeling.</param>
     public void CleanupChangelingNullspaceIdentities(Entity<ChangelingIdentityComponent> ent)
     {
         if (_net.IsClient)
@@ -153,7 +153,7 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
     }
 
     /// <summary>
-    /// Cleanup all PVS overrides for the owner of the ChangelingIdentity
+    /// Cleanup all PVS overrides for the owner of the ChangelingIdentity.
     /// </summary>
     /// <param name="ent">The changeling storing the identities.</param>
     /// <param name="entityUid"The session you wish to remove the overrides from.</param>

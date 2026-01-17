@@ -45,7 +45,7 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Inverse of <see cref="GetPartSlotContainerId"/>
+    /// Inverse of <see cref="GetPartSlotContainerId"/>.
     /// </summary>
     protected static string? GetPartSlotContainerIdFromContainer(string containerSlotId)
     {

@@ -147,7 +147,7 @@ public sealed partial class PressurizedSolutionSystem : EntitySystem
     #region Public API
 
     /// <summary>
-    /// Does the entity contain a solution capable of being fizzy?
+    /// Does the entity contain a solution capable of being fizzy?.
     /// </summary>
     public bool CanSpray(Entity<PressurizedSolutionComponent?> entity)
     {
@@ -208,7 +208,7 @@ public sealed partial class PressurizedSolutionSystem : EntitySystem
     }
 
     /// <summary>
-    /// What is the current fizziness level of the solution, from 0 to 1?
+    /// What is the current fizziness level of the solution, from 0 to 1?.
     /// </summary>
     public double Fizziness(Entity<PressurizedSolutionComponent?> entity)
     {

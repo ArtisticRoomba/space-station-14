@@ -6,7 +6,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Humanoid;
 
 /// <summary>
-/// A prototype containing a SkinColorationStrategy
+/// A prototype containing a SkinColorationStrategy.
 /// </summary>
 [Prototype]
 public sealed partial class SkinColorationPrototype : IPrototype
@@ -15,52 +15,52 @@ public sealed partial class SkinColorationPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// The skin coloration strategy specified by this prototype
+    /// The skin coloration strategy specified by this prototype.
     /// </summary>
     [DataField(required: true)]
     public ISkinColorationStrategy Strategy = default!;
 }
 
 /// <summary>
-/// The type of input taken by a <see cref="SkinColorationStrategy" />
+/// The type of input taken by a <see cref="SkinColorationStrategy" />.
 /// </summary>
 [Serializable, NetSerializable]
 public enum SkinColorationStrategyInput
 {
     /// <summary>
-    /// A single floating point number from 0 to 100 (inclusive)
+    /// A single floating point number from 0 to 100 (inclusive).
     /// </summary>
     Unary,
 
     /// <summary>
-    /// A <see cref="Color" />
+    /// A <see cref="Color" />.
     /// </summary>
     Color,
 }
 
 /// <summary>
-/// Takes in the given <see cref="SkinColorationStrategyInput" /> and returns an adjusted Color
+/// Takes in the given <see cref="SkinColorationStrategyInput" /> and returns an adjusted Color.
 /// </summary>
 public interface ISkinColorationStrategy
 {
     /// <summary>
-    /// The type of input expected by the implementor; callers should consult InputType before calling the methods that require a given input
+    /// The type of input expected by the implementor; callers should consult InputType before calling the methods that require a given input.
     /// </summary>
     SkinColorationStrategyInput InputType { get; }
 
     /// <summary>
-    /// Returns whether or not the provided <see cref="Color" /> is within bounds of this strategy
+    /// Returns whether or not the provided <see cref="Color" /> is within bounds of this strategy.
     /// </summary>
     bool VerifySkinColor(Color color);
 
     /// <summary>
-    /// Returns the closest skin color that this strategy would provide to the given <see cref="Color" />
+    /// Returns the closest skin color that this strategy would provide to the given <see cref="Color" />.
     /// </summary>
     Color ClosestSkinColor(Color color);
 
     /// <summary>
     /// Returns the input if it passes <see cref="VerifySkinColor">, otherwise returns <see cref="ClosestSkinColor" />
-    /// </summary>
+    /// </summary>.
     Color EnsureVerified(Color color)
     {
         if (VerifySkinColor(color))
@@ -72,7 +72,7 @@ public interface ISkinColorationStrategy
     }
 
     /// <summary>
-    /// Returns a colour representation of the given unary input
+    /// Returns a colour representation of the given unary input.
     /// </summary>
     Color FromUnary(float unary)
     {
@@ -80,7 +80,7 @@ public interface ISkinColorationStrategy
     }
 
     /// <summary>
-    /// Returns a colour representation of the given unary input
+    /// Returns a colour representation of the given unary input.
     /// </summary>
     float ToUnary(Color color)
     {
@@ -89,7 +89,7 @@ public interface ISkinColorationStrategy
 }
 
 /// <summary>
-/// Unary coloration strategy that returns human skin tones, with 0 being lightest and 100 being darkest
+/// Unary coloration strategy that returns human skin tones, with 0 being lightest and 100 being darkest.
 /// </summary>
 [DataDefinition]
 [Serializable, NetSerializable]
@@ -184,7 +184,7 @@ public sealed partial class HumanTonedSkinColoration : ISkinColorationStrategy
 }
 
 /// <summary>
-/// Unary coloration strategy that clamps the color within the HSV colorspace
+/// Unary coloration strategy that clamps the color within the HSV colorspace.
 /// </summary>
 [DataDefinition]
 [Serializable, NetSerializable]
@@ -244,7 +244,7 @@ public sealed partial class ClampedHsvColoration : ISkinColorationStrategy
 }
 
 /// <summary>
-/// Unary coloration strategy that clamps the color within the HSL colorspace
+/// Unary coloration strategy that clamps the color within the HSL colorspace.
 /// </summary>
 [DataDefinition]
 [Serializable, NetSerializable]

@@ -7,7 +7,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Xenoarchaeology.Equipment.Components;
 
 /// <summary>
-/// The console that is used for artifact analysis
+/// The console that is used for artifact analysis.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class AnalysisConsoleComponent : Component

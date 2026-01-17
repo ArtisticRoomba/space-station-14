@@ -260,7 +260,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
 
     /// <summary>
     ///     When receiving a request to perform an action, this validates whether the action is allowed. If it is, it
-    ///     will raise the relevant action event
+    ///     will raise the relevant action event.
     /// </summary>
     private void OnActionRequest(RequestPerformActionEvent ev, EntitySessionEventArgs args)
     {
@@ -271,11 +271,11 @@ public abstract partial class SharedActionsSystem : EntitySystem
     }
 
     /// <summary>
-    /// <see cref="OnActionRequest"/>
+    /// <see cref="OnActionRequest"/>.
     /// </summary>
-    /// <param name="ev">The Request Perform Action Event</param>
-    /// <param name="user">The user/performer of the action</param>
-    /// <param name="skipDoActionRequest">Should this skip the initial doaction request?</param>
+    /// <param name="ev">The Request Perform Action Event.</param>
+    /// <param name="user">The user/performer of the action.</param>
+    /// <param name="skipDoActionRequest">Should this skip the initial doaction request?.</param>
     private bool TryPerformAction(RequestPerformActionEvent ev, EntityUid user, bool skipDoActionRequest = false)
     {
         if (!_actionsQuery.TryComp(user, out var component))
@@ -543,10 +543,10 @@ public abstract partial class SharedActionsSystem : EntitySystem
     /// <summary>
     /// Perform an action, bypassing validation checks.
     /// </summary>
-    /// <param name="performer">The entity performing the action</param>
-    /// <param name="action">The action being performed</param>
-    /// <param name="actionEvent">An event override to perform. If null, uses <see cref="GetEvent"/></param>
-    /// <param name="predicted">If false, prevents playing the action's sound on the client</param>
+    /// <param name="performer">The entity performing the action.</param>
+    /// <param name="action">The action being performed.</param>
+    /// <param name="actionEvent">An event override to perform. If null, uses <see cref="GetEvent"/>.</param>
+    /// <param name="predicted">If false, prevents playing the action's sound on the client.</param>
     public void PerformAction(Entity<ActionsComponent?> performer, Entity<ActionComponent> action, BaseActionEvent? actionEvent = null, bool predicted = true)
     {
         var handled = false;
@@ -616,9 +616,9 @@ public abstract partial class SharedActionsSystem : EntitySystem
     ///     Adds an action to an action holder. If the given entity does not exist, it will attempt to spawn one.
     ///     If the holder has no actions component, this will give them one.
     /// </summary>
-    /// <param name="performer">Entity to receive the actions</param>
-    /// <param name="actionId">Action entity to add</param>
-    /// <param name="component">The <see cref="performer"/>'s action component of </param>
+    /// <param name="performer">Entity to receive the actions.</param>
+    /// <param name="actionId">Action entity to add.</param>
+    /// <param name="component">The <see cref="performer"/>'s action component of. </param>
     /// <param name="actionPrototypeId">The action entity prototype id to use if <see cref="actionId"/> is invalid.</param>
     /// <param name="container">The entity that contains/enables this action (e.g., flashlight).</param>
     public bool AddAction(EntityUid performer,
@@ -710,8 +710,8 @@ public abstract partial class SharedActionsSystem : EntitySystem
     /// <summary>
     ///     Grant pre-existing actions. If the entity has no action component, this will give them one.
     /// </summary>
-    /// <param name="performer">Entity to receive the actions</param>
-    /// <param name="actions">The actions to add</param>
+    /// <param name="performer">Entity to receive the actions.</param>
+    /// <param name="actions">The actions to add.</param>
     /// <param name="container">The entity that enables these actions (e.g., flashlight). May be null (innate actions).</param>
     public void GrantActions(Entity<ActionsComponent?> performer,
         IEnumerable<EntityUid> actions,
@@ -733,7 +733,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
     ///     Grants all actions currently contained in some action-container. If the target entity has no action
     /// component, this will give them one.
     /// </summary>
-    /// <param name="performer">Entity to receive the actions</param>
+    /// <param name="performer">Entity to receive the actions.</param>
     /// <param name="container">The entity that contains thee actions.</param>
     public void GrantContainedActions(Entity<ActionsComponent?> performer, Entity<ActionsContainerComponent?> container)
     {
@@ -1037,7 +1037,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Checks if the action has a cooldown and if it's still active
+    ///     Checks if the action has a cooldown and if it's still active.
     /// </summary>
     public bool IsCooldownActive(ActionComponent action, TimeSpan? curTime = null)
     {

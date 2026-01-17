@@ -24,7 +24,7 @@ public sealed partial class StationAiCustomizationComponent : Component
 }
 
 /// <summary>
-/// Message sent to server that contains a station AI customization that the client has selected
+/// Message sent to server that contains a station AI customization that the client has selected.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class StationAiCustomizationMessage : BoundUserInterfaceMessage
@@ -40,13 +40,13 @@ public sealed class StationAiCustomizationMessage : BoundUserInterfaceMessage
 }
 
 /// <summary>
-/// Event raised when the station AI customization visual state changes
+/// Event raised when the station AI customization visual state changes.
 /// </summary>
 [ByRefEvent]
 public record StationAiCustomizationStateChanged(StationAiState NewState);
 
 /// <summary>
-/// Key for opening the station AI customization UI
+/// Key for opening the station AI customization UI.
 /// </summary>
 [Serializable, NetSerializable]
 public enum StationAiCustomizationUiKey : byte
@@ -55,7 +55,7 @@ public enum StationAiCustomizationUiKey : byte
 }
 
 /// <summary>
-/// The different catagories of station Ai customizations available
+/// The different catagories of station Ai customizations available.
 /// </summary>
 [Serializable, NetSerializable]
 public enum StationAiCustomizationType : byte

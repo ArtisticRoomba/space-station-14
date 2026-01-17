@@ -11,7 +11,7 @@ namespace Content.Shared.NPC.Components;
 public sealed partial class FactionExceptionComponent : Component
 {
     /// <summary>
-    /// Collection of entities that this NPC will refuse to attack
+    /// Collection of entities that this NPC will refuse to attack.
     /// </summary>
     [DataField]
     public HashSet<EntityUid> Ignored = new();

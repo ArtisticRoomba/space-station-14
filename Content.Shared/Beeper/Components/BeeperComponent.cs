@@ -17,7 +17,7 @@ namespace Content.Shared.Beeper.Components;
 public sealed partial class BeeperComponent : Component
 {
     /// <summary>
-    /// How much to scale the interval by (< 0 = min, > 1 = max)
+    /// How much to scale the interval by (.< 0 = min, > 1 = max)
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public FixedPoint2 IntervalScaling = 0;
@@ -35,13 +35,13 @@ public sealed partial class BeeperComponent : Component
     public TimeSpan MinBeepInterval = TimeSpan.FromSeconds(0.25f);
 
     /// <summary>
-    /// Interval for the next beep
+    /// Interval for the next beep.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan Interval;
 
     /// <summary>
-    /// Time when we beeped last
+    /// Time when we beeped last.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan LastBeepTime;
@@ -50,7 +50,7 @@ public sealed partial class BeeperComponent : Component
     public TimeSpan NextBeep => LastBeepTime == TimeSpan.MaxValue ? TimeSpan.MaxValue : LastBeepTime + Interval;
 
     /// <summary>
-    /// Is the beep muted
+    /// Is the beep muted.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool IsMuted;

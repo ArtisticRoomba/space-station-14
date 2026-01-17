@@ -38,7 +38,7 @@ public abstract partial class EntityEffect
     public virtual string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) => null;
 
     /// <summary>
-    /// If this effect is logged, how important is the log?
+    /// If this effect is logged, how important is the log?.
     /// </summary>
     [ViewVariables]
     public virtual LogImpact? Impact => null;

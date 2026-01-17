@@ -54,7 +54,7 @@ public sealed class DevourSystem : EntitySystem
     }
 
     /// <summary>
-    /// The devour action
+    /// The devour action.
     /// </summary>
     private void OnDevourAction(Entity<DevourerComponent> ent, ref DevourActionEvent args)
     {

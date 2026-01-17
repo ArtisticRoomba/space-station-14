@@ -8,7 +8,7 @@ namespace Content.Shared.Chemistry.EntitySystems;
 #region Events
 
 /// <summary>
-/// This event alerts system that the solution was changed
+/// This event alerts system that the solution was changed.
 /// </summary>
 [ByRefEvent]
 public record struct SolutionContainerChangedEvent

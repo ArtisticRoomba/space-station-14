@@ -9,7 +9,7 @@ namespace Content.Shared.Paper;
 public sealed partial class EnvelopeComponent : Component
 {
     /// <summary>
-    /// The current open/sealed/torn state of the envelope
+    /// The current open/sealed/torn state of the envelope.
     /// </summary>
     [ViewVariables, DataField, AutoNetworkedField]
     public EnvelopeState State = EnvelopeState.Open;
@@ -19,31 +19,31 @@ public sealed partial class EnvelopeComponent : Component
 
     /// <summary>
     /// Stores the current sealing/tearing doafter of the envelope
-    /// to prevent doafter spam/prediction issues
+    /// to prevent doafter spam/prediction issues.
     /// </summary>
     [DataField, ViewVariables]
     public DoAfterId? EnvelopeDoAfter;
 
     /// <summary>
-    /// How long it takes to seal the envelope closed
+    /// How long it takes to seal the envelope closed.
     /// </summary>
     [DataField, ViewVariables]
     public TimeSpan SealDelay = TimeSpan.FromSeconds(1);
 
     /// <summary>
-    /// How long it takes to tear open the envelope
+    /// How long it takes to tear open the envelope.
     /// </summary>
     [DataField, ViewVariables]
     public TimeSpan TearDelay = TimeSpan.FromSeconds(1);
 
     /// <summary>
-    /// The sound to play when the envelope is sealed closed
+    /// The sound to play when the envelope is sealed closed.
     /// </summary>
     [DataField, ViewVariables]
     public SoundPathSpecifier? SealSound = new SoundPathSpecifier("/Audio/Effects/packetrip.ogg");
 
     /// <summary>
-    /// The sound to play when the envelope is torn open
+    /// The sound to play when the envelope is torn open.
     /// </summary>
     [DataField, ViewVariables]
     public SoundPathSpecifier? TearSound = new SoundPathSpecifier("/Audio/Effects/poster_broken.ogg");

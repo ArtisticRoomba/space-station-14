@@ -15,12 +15,12 @@ namespace Content.Shared.Inventory.VirtualItem;
 /// In charge of managing virtual items.
 /// Virtual items are used to block a <see cref="SlotButton"/>
 /// or a <see cref="HandButton"/> with a non-existent item that
-/// is a visual copy of another for whatever use
+/// is a visual copy of another for whatever use.
 /// </summary>
 /// <remarks>
 /// The slot visuals are managed by <see cref="HandsUiController"/>
 /// and <see cref="InventoryUiController"/>, see the <see cref="VirtualItemComponent"/>
-/// references there for more information
+/// references there for more information.
 /// </remarks>
 public abstract class SharedVirtualItemSystem : EntitySystem
 {
@@ -98,12 +98,12 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     #region Hands
 
     /// <summary>
-    /// Spawns a virtual item in a empty hand
+    /// Spawns a virtual item in a empty hand.
     /// </summary>
-    /// <param name="blockingEnt">The entity we will make a virtual entity copy of</param>
-    /// <param name="user">The entity that we want to insert the virtual entity</param>
-    /// <param name="dropOthers">Whether or not to try and drop other items to make space</param>
-    /// <param name="silent">If true this won't show a popup when dropping other items</param>
+    /// <param name="blockingEnt">The entity we will make a virtual entity copy of.</param>
+    /// <param name="user">The entity that we want to insert the virtual entity.</param>
+    /// <param name="dropOthers">Whether or not to try and drop other items to make space.</param>
+    /// <param name="silent">If true this won't show a popup when dropping other items.</param>
     public bool TrySpawnVirtualItemInHand(EntityUid blockingEnt, EntityUid user, bool dropOthers = false, bool silent = false)
     {
         return TrySpawnVirtualItemInHand(blockingEnt, user, out _, dropOthers, silent: silent);
@@ -149,7 +149,7 @@ public abstract class SharedVirtualItemSystem : EntitySystem
 
     /// <summary>
     /// Scan the user's hands until we find the virtual entity, if the
-    /// virtual entity is a copy of the matching entity, delete it
+    /// virtual entity is a copy of the matching entity, delete it.
     /// </summary>
     public void DeleteInHandsMatching(EntityUid user, EntityUid matching)
     {
@@ -166,12 +166,12 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     #region Inventory
 
     /// <summary>
-    /// Spawns a virtual item inside a inventory slot
+    /// Spawns a virtual item inside a inventory slot.
     /// </summary>
-    /// <param name="blockingEnt">The entity we will make a virtual entity copy of</param>
-    /// <param name="user">The entity that we want to insert the virtual entity</param>
-    /// <param name="slot">The slot to which we will insert the virtual entity (could be the "shoes" slot, for example)</param>
-    /// <param name="force">Whether or not to force an equip</param>
+    /// <param name="blockingEnt">The entity we will make a virtual entity copy of.</param>
+    /// <param name="user">The entity that we want to insert the virtual entity.</param>
+    /// <param name="slot">The slot to which we will insert the virtual entity (could be the "shoes" slot, for example).</param>
+    /// <param name="force">Whether or not to force an equip.</param>
     public bool TrySpawnVirtualItemInInventory(EntityUid blockingEnt, EntityUid user, string slot, bool force = false)
     {
         return TrySpawnVirtualItemInInventory(blockingEnt, user, slot, force, out _);
@@ -190,11 +190,11 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// <summary>
     /// Scan the user's inventory slots until we find a virtual entity, when
     /// that's done check if the found virtual entity is a copy of our matching entity,
-    /// if it is, delete it
+    /// if it is, delete it.
     /// </summary>
-    /// <param name="user">The entity that we want to delete the virtual entity from</param>
-    /// <param name="matching">The entity that made the virtual entity</param>
-    /// <param name="slotName">Set this param if you have the name of the slot, it avoids unnecessary queries</param>
+    /// <param name="user">The entity that we want to delete the virtual entity from.</param>
+    /// <param name="matching">The entity that made the virtual entity.</param>
+    /// <param name="slotName">Set this param if you have the name of the slot, it avoids unnecessary queries.</param>
     public void DeleteInSlotMatching(EntityUid user, EntityUid matching, string? slotName = null)
     {
         if (slotName != null)
@@ -223,11 +223,11 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     #endregion
 
     /// <summary>
-    /// Spawns a virtual item and setups the component without any special handling
+    /// Spawns a virtual item and setups the component without any special handling.
     /// </summary>
-    /// <param name="blockingEnt">The entity we will make a virtual entity copy of</param>
-    /// <param name="user">The entity that we want to insert the virtual entity</param>
-    /// <param name="virtualItem">The virtual item, if spawned</param>
+    /// <param name="blockingEnt">The entity we will make a virtual entity copy of.</param>
+    /// <param name="user">The entity that we want to insert the virtual entity.</param>
+    /// <param name="virtualItem">The virtual item, if spawned.</param>
     public bool TrySpawnVirtualItem(EntityUid blockingEnt, EntityUid user, [NotNullWhen(true)] out EntityUid? virtualItem)
     {
         var pos = Transform(user).Coordinates;

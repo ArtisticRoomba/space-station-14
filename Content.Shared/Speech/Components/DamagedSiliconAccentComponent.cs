@@ -8,13 +8,13 @@ namespace Content.Shared.Speech.Components;
 public sealed partial class DamagedSiliconAccentComponent : Component
 {
     /// <summary>
-    ///     Enable damage corruption effects
+    ///     Enable damage corruption effects.
     /// </summary>
     [DataField]
     public bool EnableDamageCorruption = true;
 
     /// <summary>
-    ///     Override total damage for damage corruption effects
+    ///     Override total damage for damage corruption effects.
     /// </summary>
     [DataField]
     public FixedPoint2? OverrideTotalDamage;
@@ -34,13 +34,13 @@ public sealed partial class DamagedSiliconAccentComponent : Component
     public FixedPoint2? DamageAtMaxCorruption;
 
     /// <summary>
-    ///     Enable charge level corruption effects
+    ///     Enable charge level corruption effects.
     /// </summary>
     [DataField]
     public bool EnableChargeCorruption = true;
 
     /// <summary>
-    ///     Override charge level for charge level corruption effects
+    ///     Override charge level for charge level corruption effects.
     /// </summary>
     [DataField]
     public float? OverrideChargeLevel;

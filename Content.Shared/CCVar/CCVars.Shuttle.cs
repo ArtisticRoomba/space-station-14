@@ -52,7 +52,7 @@ public sealed partial class CCVars
         CVarDef.Create("shuttle.arrivals_returns", false, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Should all players who spawn at arrivals have godmode until they leave the map?
+    ///     Should all players who spawn at arrivals have godmode until they leave the map?.
     /// </summary>
     public static readonly CVarDef<bool> GodmodeArrivals =
         CVarDef.Create("shuttle.godmode_arrivals", false, CVar.SERVERONLY);
@@ -71,7 +71,7 @@ public sealed partial class CCVars
         CVarDef.Create("shuttle.grid_fill", true, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Whether to automatically preloading grids by GridPreloaderSystem
+    ///     Whether to automatically preloading grids by GridPreloaderSystem.
     /// </summary>
     public static readonly CVarDef<bool> PreloadGrids =
         CVarDef.Create("shuttle.preload_grids", true, CVar.SERVERONLY);
@@ -152,7 +152,7 @@ public sealed partial class CCVars
 
     /// <summary>
     ///     The minimum time for the emergency shuttle to arrive at centcomm.
-    ///     Actual minimum travel time cannot be less than <see cref="ShuttleSystem.DefaultArrivalTime"/>
+    ///     Actual minimum travel time cannot be less than <see cref="ShuttleSystem.DefaultArrivalTime"/>.
     /// </summary>
     public static readonly CVarDef<float> EmergencyShuttleMinTransitTime =
         CVarDef.Create("shuttle.emergency_transit_time_min", 60f, CVar.SERVERONLY);
@@ -226,63 +226,63 @@ public sealed partial class CCVars
         CVarDef.Create("shuttle.impact.minimum_velocity", 15f, CVar.SERVERONLY); // needed so that random space debris can be rammed
 
     /// <summary>
-    /// Multiplier of Kinetic energy required to dismantle a single tile in relation to its mass
+    /// Multiplier of Kinetic energy required to dismantle a single tile in relation to its mass.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> TileBreakEnergyMultiplier =
         CVarDef.Create("shuttle.impact.tile_break_energy", 3000f, CVar.SERVERONLY);
 
     /// <summary>
-    /// Multiplier of damage done to entities on colliding areas
+    /// Multiplier of damage done to entities on colliding areas.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactDamageMultiplier =
         CVarDef.Create("shuttle.impact.damage_multiplier", 0.00005f, CVar.SERVERONLY);
 
     /// <summary>
-    /// Multiplier of additional structural damage to do
+    /// Multiplier of additional structural damage to do.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactStructuralDamage =
         CVarDef.Create("shuttle.impact.structural_damage", 5f, CVar.SERVERONLY);
 
     /// <summary>
-    /// Kinetic energy required to spawn sparks
+    /// Kinetic energy required to spawn sparks.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> SparkEnergy =
         CVarDef.Create("shuttle.impact.spark_energy", 2000000f, CVar.SERVERONLY);
 
     /// <summary>
-    /// Area to consider for impact calculations
+    /// Area to consider for impact calculations.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactRadius =
         CVarDef.Create("shuttle.impact.radius", 4f, CVar.SERVERONLY);
 
     /// <summary>
-    /// Affects slowdown on impact
+    /// Affects slowdown on impact.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactSlowdown =
         CVarDef.Create("shuttle.impact.slowdown", 8f, CVar.SERVERONLY);
 
     /// <summary>
-    /// Minimum velocity change from impact for special throw effects (e.g. stuns, beakers breaking) to occur
+    /// Minimum velocity change from impact for special throw effects (e.g. stuns, beakers breaking) to occur.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactMinThrowVelocity =
         CVarDef.Create("shuttle.impact.min_throw_velocity", 1f, CVar.SERVERONLY); // due to how it works this is about 16 m/s for cargo shuttle
 
     /// <summary>
-    /// Affects how much damage reduction to give to grids with higher mass
+    /// Affects how much damage reduction to give to grids with higher mass.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactMassBias =
         CVarDef.Create("shuttle.impact.mass_bias", 0.65f, CVar.SERVERONLY);
 
     /// <summary>
-    /// How much should total grid inertia affect our collision damage
+    /// How much should total grid inertia affect our collision damage.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactInertiaScaling =

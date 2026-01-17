@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Cargo.Components;
 
 /// <summary>
-/// Makes a sellable object portion out its value to a specified department rather than the station default
+/// Makes a sellable object portion out its value to a specified department rather than the station default.
 /// </summary>
 [RegisterComponent]
 public sealed partial class OverrideSellComponent : Component

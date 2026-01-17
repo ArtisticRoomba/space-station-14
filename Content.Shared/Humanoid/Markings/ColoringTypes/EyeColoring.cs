@@ -1,7 +1,7 @@
 namespace Content.Shared.Humanoid.Markings;
 
 /// <summary>
-///     Colors layer in an eye color
+///     Colors layer in an eye color.
 /// </summary>
 public sealed partial class EyeColoring : LayerColoringType
 {

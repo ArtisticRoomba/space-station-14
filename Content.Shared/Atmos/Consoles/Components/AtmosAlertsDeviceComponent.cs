@@ -7,7 +7,7 @@ namespace Content.Shared.Atmos.Components;
 public sealed partial class AtmosAlertsDeviceComponent : Component
 {
     /// <summary>
-    /// The group that the entity belongs to
+    /// The group that the entity belongs to.
     /// </summary>
     [DataField, ViewVariables]
     public AtmosAlertsComputerGroup Group;

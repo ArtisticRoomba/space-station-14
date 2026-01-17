@@ -13,7 +13,7 @@ namespace Content.Shared.Whitelist;
 ///     entity prototypes that need to be whitelisted, and checking for that.
 /// </summary>
 /// <remarks>
-///     Do not add more conditions like itemsize to the whitelist, this should stay as lightweight as possible!
+///     Do not add more conditions like itemsize to the whitelist, this should stay as lightweight as possible!.
 /// </remarks>
 /// <code>
 /// whitelist:
@@ -25,7 +25,7 @@ namespace Content.Shared.Whitelist;
 ///   - AsteroidRock
 ///   sizes:
 ///   - Tiny
-///   - Large
+///   - Large.
 /// </code>
 [DataDefinition]
 [Serializable, NetSerializable]

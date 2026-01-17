@@ -10,7 +10,7 @@
 /// Detained - the person is detained by security
 /// Paroled - the person is on parole
 /// Discharged - the person has been released from prison
-/// Eliminated - the person has been eliminated and should not be healed
+/// Eliminated - the person has been eliminated and should not be healed.
 /// </summary>
 public enum SecurityStatus : byte
 {

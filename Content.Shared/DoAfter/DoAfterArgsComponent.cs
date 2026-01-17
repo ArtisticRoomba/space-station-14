@@ -5,7 +5,7 @@ namespace Content.Shared.DoAfter;
 
 /// <summary>
 /// For setting DoAfterArgs on an entity level
-/// Would require some setup, will require a rework eventually
+/// Would require some setup, will require a rework eventually.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedDoAfterSystem))]
@@ -38,7 +38,7 @@ public sealed partial class DoAfterArgsComponent : Component
     public bool Hidden;
 
     /// <summary>
-    /// Should this DoAfter repeat after being completed?
+    /// Should this DoAfter repeat after being completed?.
     /// </summary>
     [DataField]
     public bool Repeat;
@@ -109,7 +109,7 @@ public sealed partial class DoAfterArgsComponent : Component
     #endregion
 
     /// <summary>
-    /// What should the delay be reduced to after completion?
+    /// What should the delay be reduced to after completion?.
     /// </summary>
     [DataField]
     public TimeSpan? DelayReduction;

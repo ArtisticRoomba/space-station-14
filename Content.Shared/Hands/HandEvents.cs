@@ -31,7 +31,7 @@ namespace Content.Shared.Hands
         ///     The layers that will be added to the entity that is holding this item.
         /// </summary>
         /// <remarks>
-        ///     Note that the actual ordering of the layers depends on the order in which they are added to this list;
+        ///     Note that the actual ordering of the layers depends on the order in which they are added to this list.
         /// </remarks>
         public List<(string, PrototypeLayerData)> Layers = new();
 
@@ -46,7 +46,7 @@ namespace Content.Shared.Hands
     ///     Raised directed at an item after its visuals have been updated.
     /// </summary>
     /// <remarks>
-    ///     Useful for systems/components that modify the visual layers that an item adds to a player. (e.g. RGB memes)
+    ///     Useful for systems/components that modify the visual layers that an item adds to a player. (e.g. RGB memes).
     /// </remarks>
     public sealed class HeldVisualsUpdatedEvent : EntityEventArgs
     {
@@ -184,7 +184,7 @@ namespace Content.Shared.Hands
     public record struct BeforeEquippingHandEvent(EntityUid Item, bool Cancelled = false);
 
     /// <summary>
-    ///     Raised when putting an entity into a hand slot
+    ///     Raised when putting an entity into a hand slot.
     /// </summary>
     [PublicAPI]
     public abstract class EquippedHandEvent : HandledEntityEventArgs
@@ -296,7 +296,7 @@ namespace Content.Shared.Hands
     }
 
     /// <summary>
-    ///     Event raised by a client when they want to use the currently held item on some other held item
+    ///     Event raised by a client when they want to use the currently held item on some other held item.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class RequestHandInteractUsingEvent : EntityEventArgs
@@ -310,7 +310,7 @@ namespace Content.Shared.Hands
     }
 
     /// <summary>
-    ///     Event raised by a client when they want to move an item held in another hand to their currently active hand
+    ///     Event raised by a client when they want to move an item held in another hand to their currently active hand.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class RequestMoveHandItemEvent : EntityEventArgs

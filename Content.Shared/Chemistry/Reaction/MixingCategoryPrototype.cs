@@ -4,7 +4,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Chemistry.Reaction;
 
 /// <summary>
-/// This is a prototype for a method of chemical mixing, to be used by <see cref="ReactionMixerComponent"/>
+/// This is a prototype for a method of chemical mixing, to be used by <see cref="ReactionMixerComponent"/>.
 /// </summary>
 [Prototype]
 public sealed partial class MixingCategoryPrototype : IPrototype

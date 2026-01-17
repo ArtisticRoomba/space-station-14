@@ -72,13 +72,13 @@ public sealed partial class DrainComponent : Component
     public TimeSpan DrainInterval = TimeSpan.FromSeconds(1);
 
     /// <summary>
-    /// How much time it takes to unclog it with a plunger
+    /// How much time it takes to unclog it with a plunger.
     /// </summary>
     [DataField]
     public float UnclogDuration = 1f;
 
     /// <summary>
-    /// What's the probability of uncloging on each try
+    /// What's the probability of uncloging on each try.
     /// </summary>
     [DataField]
     public float UnclogProbability = 0.75f;

@@ -52,7 +52,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     }
 
     /// <summary>
-    /// Cancels DoAfter if it breaks on damage and it meets the threshold
+    /// Cancels DoAfter if it breaks on damage and it meets the threshold.
     /// </summary>
     private void OnDamage(EntityUid uid, DoAfterComponent component, DamageChangedEvent args)
     {
@@ -182,8 +182,8 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     ///     Attempts to start a new DoAfter. Note that even if this function returns true, an interaction may have
     ///     occured, as starting a duplicate DoAfter may cancel currently running DoAfters.
     /// </summary>
-    /// <param name="args">The DoAfter arguments</param>
-    /// <param name="component">The user's DoAfter component</param>
+    /// <param name="args">The DoAfter arguments.</param>
+    /// <param name="component">The user's DoAfter component.</param>
     /// <returns></returns>
     public bool TryStartDoAfter(DoAfterArgs args, DoAfterComponent? component = null)
         => TryStartDoAfter(args, out _, component);
@@ -192,9 +192,9 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     ///     Attempts to start a new DoAfter. Note that even if this function returns false, an interaction may have
     ///     occured, as starting a duplicate DoAfter may cancel currently running DoAfters.
     /// </summary>
-    /// <param name="args">The DoAfter arguments</param>
-    /// <param name="id">The Id of the newly started DoAfter</param>
-    /// <param name="comp">The user's DoAfter component</param>
+    /// <param name="args">The DoAfter arguments.</param>
+    /// <param name="id">The Id of the newly started DoAfter.</param>
+    /// <param name="comp">The user's DoAfter component.</param>
     /// <returns></returns>
     public bool TryStartDoAfter(DoAfterArgs args, [NotNullWhen(true)] out DoAfterId? id, DoAfterComponent? comp = null)
     {
@@ -376,7 +376,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     #region Query
 
     /// <summary>
-    ///     Returns the current status of a DoAfter
+    ///     Returns the current status of a DoAfter.
     /// </summary>
     public DoAfterStatus GetStatus(DoAfterId? id, DoAfterComponent? comp = null)
     {
@@ -387,7 +387,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Returns the current status of a DoAfter
+    ///     Returns the current status of a DoAfter.
     /// </summary>
     public DoAfterStatus GetStatus(EntityUid entity, ushort id, DoAfterComponent? comp = null)
     {

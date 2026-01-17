@@ -6,13 +6,13 @@ namespace Content.Shared.GameTicking.Components;
 
 /// <summary>
 /// Component attached to all gamerule entities.
-/// Used to both track the entity as well as store basic data
+/// Used to both track the entity as well as store basic data.
 /// </summary>
 [RegisterComponent, EntityCategory("GameRules")]
 public sealed partial class GameRuleComponent : Component
 {
     /// <summary>
-    /// Game time when game rule was activated
+    /// Game time when game rule was activated.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan ActivatedAt;

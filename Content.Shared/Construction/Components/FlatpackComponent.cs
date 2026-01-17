@@ -14,7 +14,7 @@ namespace Content.Shared.Construction.Components;
 public sealed partial class FlatpackComponent : Component
 {
     /// <summary>
-    /// The tool quality that, upon used to interact with this object, will create the <see cref="Entity"/>
+    /// The tool quality that, upon used to interact with this object, will create the <see cref="Entity"/>.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public ProtoId<ToolQualityPrototype> QualityNeeded = "Pulsing";

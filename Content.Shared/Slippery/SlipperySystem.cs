@@ -181,11 +181,11 @@ public sealed class SlipAttemptEvent : EntityEventArgs, IInventoryRelayEvent
 /// <summary>
 /// Raised on an entity that is causing the slip event (e.g, the banana peel), to determine if the slip attempt should be cancelled.
 /// </summary>
-/// <param name="Cancelled">If the slip should be cancelled</param>
+/// <param name="Cancelled">If the slip should be cancelled.</param>
 [ByRefEvent]
 public record struct SlipCausingAttemptEvent (bool Cancelled);
 
 /// Raised on an entity that CAUSED some other entity to slip (e.g., the banana peel).
-/// <param name="Slipped">The entity being slipped</param>
+/// <param name="Slipped">The entity being slipped.</param>
 [ByRefEvent]
 public readonly record struct SlipEvent(EntityUid Slipped);

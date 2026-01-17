@@ -42,7 +42,7 @@ public sealed partial class HandheldLightComponent : Component
 
     /// <summary>
     /// Whether or not the light can be toggled via standard interactions
-    /// (alt verbs, using in hand, etc)
+    /// (alt verbs, using in hand, etc).
     /// </summary>
     [DataField("toggleOnInteract")]
     public bool ToggleOnInteract = true;
@@ -56,13 +56,13 @@ public sealed partial class HandheldLightComponent : Component
     public const int StatusLevels = 6;
 
     /// <summary>
-    /// Specify the ID of the light behaviour to use when the state of the light is Dying
+    /// Specify the ID of the light behaviour to use when the state of the light is Dying.
     /// </summary>
     [DataField("blinkingBehaviourId")]
     public string BlinkingBehaviourId { get; set; } = string.Empty;
 
     /// <summary>
-    /// Specify the ID of the light behaviour to use when the state of the light is LowPower
+    /// Specify the ID of the light behaviour to use when the state of the light is LowPower.
     /// </summary>
     [DataField("radiatingBehaviourId")]
     public string RadiatingBehaviourId { get; set; } = string.Empty;

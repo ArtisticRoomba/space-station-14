@@ -26,25 +26,25 @@ public sealed partial class EmpEntityEffectSystem : EntityEffectSystem<Transform
 public sealed partial class Emp : EntityEffectBase<Emp>
 {
     /// <summary>
-    ///     Impulse range per unit of quantity
+    ///     Impulse range per unit of quantity.
     /// </summary>
     [DataField]
     public float RangeModifier = 0.5f;
 
     /// <summary>
-    ///     Maximum impulse range
+    ///     Maximum impulse range.
     /// </summary>
     [DataField]
     public float MaxRange = 10;
 
     /// <summary>
-    ///     How much energy will be drain from sources
+    ///     How much energy will be drain from sources.
     /// </summary>
     [DataField]
     public float EnergyConsumption = 12500;
 
     /// <summary>
-    ///     Amount of time entities will be disabled
+    ///     Amount of time entities will be disabled.
     /// </summary>
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(15);

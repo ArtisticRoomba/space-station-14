@@ -99,9 +99,9 @@ public partial class InventorySystem
     }
 
     /// <summary>
-    /// Will attempt to spawn a list of items inside of an entities bag, pockets, hands or nearby
+    /// Will attempt to spawn a list of items inside of an entities bag, pockets, hands or nearby.
     /// </summary>
-    /// <param name="entity">The entity that you want to spawn an item on</param>
+    /// <param name="entity">The entity that you want to spawn an item on.</param>
     /// <param name="items">A list of prototype IDs that you want to spawn in the bag.</param>
     public void SpawnItemsOnEntity(EntityUid entity, List<string> items)
     {
@@ -112,9 +112,9 @@ public partial class InventorySystem
     }
 
     /// <summary>
-    /// Will attempt to spawn an item inside of an entities bag, pockets, hands or nearby
+    /// Will attempt to spawn an item inside of an entities bag, pockets, hands or nearby.
     /// </summary>
-    /// <param name="entity">The entity that you want to spawn an item on</param>
+    /// <param name="entity">The entity that you want to spawn an item on.</param>
     /// <param name="item">The prototype ID that you want to spawn in the bag.</param>
     public void SpawnItemOnEntity(EntityUid entity, EntProtoId item)
     {

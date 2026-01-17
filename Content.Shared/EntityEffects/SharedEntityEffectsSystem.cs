@@ -68,9 +68,9 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     /// <summary>
     /// Applies a list of entity effects to a target entity.
     /// </summary>
-    /// <param name="target">Entity being targeted by the effects</param>
-    /// <param name="effects">Effects we're applying to the entity</param>
-    /// <param name="scale">Optional scale multiplier for the effects</param>
+    /// <param name="target">Entity being targeted by the effects.</param>
+    /// <param name="effects">Effects we're applying to the entity.</param>
+    /// <param name="scale">Optional scale multiplier for the effects.</param>
     /// <param name="user">The entity causing the effect.</param>
     public void ApplyEffects(EntityUid target, EntityEffect[] effects, float scale = 1f, EntityUid? user = null)
     {
@@ -84,11 +84,11 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     /// <summary>
     /// Applies an entity effect to a target if all conditions pass.
     /// </summary>
-    /// <param name="target">Target we're applying an effect to</param>
-    /// <param name="effect">Effect we're applying</param>
+    /// <param name="target">Target we're applying an effect to.</param>
+    /// <param name="effect">Effect we're applying.</param>
     /// <param name="scale">Optional scale multiplier for the effect.</param>
     /// <param name="user">The entity causing the effect.</param>
-    /// <returns>True if all conditions pass!</returns>
+    /// <returns>True if all conditions pass!.</returns>
     public bool TryApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f, EntityUid? user = null)
     {
         if (scale < effect.MinScale)
@@ -113,10 +113,10 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
 
     /// <summary>
     /// Applies an <see cref="EntityEffect"/> to a given target.
-    /// This doesn't check conditions so you should only call this if you know what you're doing!
+    /// This doesn't check conditions so you should only call this if you know what you're doing!.
     /// </summary>
-    /// <param name="target">Target we're applying an effect to</param>
-    /// <param name="effect">Effect we're applying</param>
+    /// <param name="target">Target we're applying an effect to.</param>
+    /// <param name="effect">Effect we're applying.</param>
     /// <param name="scale">Optional scale multiplier for the effect.</param>
     /// <param name="user">The entity causing the effect.</param>
     public void ApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f, EntityUid? user = null)
@@ -153,8 +153,8 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
 /// <summary>
 /// This is a basic abstract entity effect containing all the data an entity effect needs to affect entities with effects...
 /// </summary>
-/// <typeparam name="T">The Component that is required for the effect</typeparam>
-/// <typeparam name="TEffect">The Entity Effect itself</typeparam>
+/// <typeparam name="T">The Component that is required for the effect.</typeparam>
+/// <typeparam name="TEffect">The Entity Effect itself.</typeparam>
 public abstract partial class EntityEffectSystem<T, TEffect> : EntitySystem
     where T : Component
     where TEffect : EntityEffectBase<TEffect>

@@ -32,7 +32,7 @@ public sealed partial class ExplosionPrototype : IPrototype
     public float? FireStacks;
 
     /// <summary>
-    ///     Temperature of the explosion
+    ///     Temperature of the explosion.
     /// </summary>
     [DataField]
     public float? Temperature;
@@ -78,7 +78,7 @@ public sealed partial class ExplosionPrototype : IPrototype
     ///     If an explosion finishes in less than this many iterations, play a small sound instead.
     /// </summary>
     /// <remarks>
-    ///     This value is tuned such that a minibomb is considered small, but just about anything larger is normal
+    ///     This value is tuned such that a minibomb is considered small, but just about anything larger is normal.
     /// </remarks>
     [DataField("smallSoundIterationThreshold")]
     public int SmallSoundIterationThreshold = 6;
@@ -106,7 +106,7 @@ public sealed partial class ExplosionPrototype : IPrototype
     public ResPath TexturePath = new("/Textures/Effects/fire.rsi");
 
     /// <summary>
-    ///     How intense does the explosion have to be at a tile to advance to the next fire texture state?
+    ///     How intense does the explosion have to be at a tile to advance to the next fire texture state?.
     /// </summary>
     [DataField("intensityPerState")]
     public float IntensityPerState = 12;
@@ -117,7 +117,7 @@ public sealed partial class ExplosionPrototype : IPrototype
     public int FireStates = 3;
 
     /// <summary>
-    ///     Basic function for linear interpolation of the _tileBreakChance and _tileBreakIntensity arrays
+    ///     Basic function for linear interpolation of the _tileBreakChance and _tileBreakIntensity arrays.
     /// </summary>
     public float TileBreakChance(float intensity)
     {

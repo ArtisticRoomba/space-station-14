@@ -3,7 +3,7 @@
 namespace Content.Shared.Magic.Components;
 
 /// <summary>
-/// The <see cref="SharedMagicSystem"/> checks this if a spell requires wizard clothes
+/// The <see cref="SharedMagicSystem"/> checks this if a spell requires wizard clothes.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedMagicSystem))]

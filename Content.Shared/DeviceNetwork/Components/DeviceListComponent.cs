@@ -21,14 +21,14 @@ public sealed partial class DeviceListComponent : Component
     public int DeviceLimit = 32;
 
     /// <summary>
-    /// Whether the device list is used as an allow or deny list
+    /// Whether the device list is used as an allow or deny list.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField, AutoNetworkedField]
     public bool IsAllowList = true;
 
     /// <summary>
-    /// Whether this device list also handles incoming device net packets
+    /// Whether this device list also handles incoming device net packets.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField, AutoNetworkedField]

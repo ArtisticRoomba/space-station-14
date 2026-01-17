@@ -1,7 +1,7 @@
 namespace Content.Shared.Humanoid.Markings;
 
 /// <summary>
-///     Colors layer in a skin color
+///     Colors layer in a skin color.
 /// </summary>
 public sealed partial class SkinColoring : LayerColoringType
 {

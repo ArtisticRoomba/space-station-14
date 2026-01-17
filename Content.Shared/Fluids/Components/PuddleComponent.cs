@@ -6,7 +6,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Fluids.Components
 {
     /// <summary>
-    /// Puddle on a floor
+    /// Puddle on a floor.
     /// </summary>
     [RegisterComponent, NetworkedComponent, Access(typeof(SharedPuddleSystem))]
     public sealed partial class PuddleComponent : Component

@@ -19,13 +19,13 @@ namespace Content.Shared.Power.Components;
 /// Everything else that only has a constant charge rate (e.g. charging/discharging a battery at a certain wattage) or instantaneous power draw (e.g. shooting a gun) is fine being networked.
 /// However, you should write your systems to avoid using update loops and instead change the battery's charge rate using <see cref="SharedBatterySystem.RefreshChargeRate"/> and
 /// the current charge will automatically be inferred if you use <see cref="SharedBatterySystem.GetCharge"/>.
-/// </remarks>
+/// </remarks>.
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 [Access(typeof(SharedBatterySystem))]
 public sealed partial class BatteryComponent : Component
 {
     /// <summary>
-    /// Maximum charge of the battery in joules (ie. watt seconds)
+    /// Maximum charge of the battery in joules (ie. watt seconds).
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables]
     [GuidebookData]

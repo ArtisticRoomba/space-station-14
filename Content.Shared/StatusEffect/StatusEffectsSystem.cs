@@ -165,7 +165,7 @@ namespace Content.Shared.StatusEffect
         ///     which takes in a component type, if you want to automatically add and remove a component.
         ///
         ///     If the effect already exists, it will simply replace the cooldown with the new one given.
-        ///     If you want special 'effect merging' behavior, do it your own damn self!
+        ///     If you want special 'effect merging' behavior, do it your own damn self!.
         /// </remarks>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.StatusEffectsSystem is required")]
         public bool TryAddStatusEffect(EntityUid uid,
@@ -223,7 +223,7 @@ namespace Content.Shared.StatusEffect
         }
 
         /// <summary>
-        ///     Finds the maximum cooldown among all status effects with the same alert
+        ///     Finds the maximum cooldown among all status effects with the same alert.
         /// </summary>
         /// <remarks>
         ///     This is mostly for stuns, since Stun and Knockdown share an alert key. Other times this pretty much
@@ -327,7 +327,7 @@ namespace Content.Shared.StatusEffect
         ///     Returns whether a given entity has the status effect active.
         /// </summary>
         /// <param name="uid">The entity to check on.</param>
-        /// <param name="key">The status effect ID to check for</param>
+        /// <param name="key">The status effect ID to check for.</param>
         /// <param name="status">The status effect component, should you already have it.</param>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.StatusEffectsSystem is required")]
         public bool HasStatusEffect(EntityUid uid, string key,
@@ -345,7 +345,7 @@ namespace Content.Shared.StatusEffect
         ///     Returns whether a given entity can have a given effect applied to it.
         /// </summary>
         /// <param name="uid">The entity to check on.</param>
-        /// <param name="key">The status effect ID to check for</param>
+        /// <param name="key">The status effect ID to check for.</param>
         /// <param name="status">The status effect component, should you already have it.</param>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.StatusEffectsSystem is required")]
         public bool CanApplyEffect(EntityUid uid, string key, StatusEffectsComponent? status = null)
@@ -484,7 +484,7 @@ namespace Content.Shared.StatusEffect
 
     /// <summary>
     /// Raised on an entity before a status effect is added to determine if adding it should be cancelled.
-    /// Obsolete version of <see cref="BeforeStatusEffectAddedEvent" />
+    /// Obsolete version of <see cref="BeforeStatusEffectAddedEvent" />.
     /// </summary>
     [ByRefEvent, Obsolete("Migration to StatusEffectNew.StatusEffectsSystem is required")]
     public record struct BeforeOldStatusEffectAddedEvent(string EffectKey, bool Cancelled = false);

@@ -177,7 +177,7 @@ public partial class InventorySystem
 ///      This avoids nested inventory relays, and makes it easy to have certain events only handled by the initial
 ///      target entity. E.g. health based movement speed modifiers should not be handled by a hat, even if that hat
 ///      happens to be a dead mouse. Clothing that wishes to modify movement speed must subscribe to
-///      InventoryRelayedEvent&lt;RefreshMovementSpeedModifiersEvent&gt;
+///      InventoryRelayedEvent&lt;RefreshMovementSpeedModifiersEvent&gt.
 /// </remarks>
 public sealed class InventoryRelayedEvent<TEvent> : EntityEventArgs
 {
@@ -203,7 +203,7 @@ public interface IClothingSlots
 public interface IInventoryRelayEvent
 {
     /// <summary>
-    ///     What inventory slots should this event be relayed to, if any?
+    ///     What inventory slots should this event be relayed to, if any?.
     /// </summary>
     /// <remarks>
     ///     In general you may want to exclude <see cref="SlotFlags.POCKET"/>, given that those items are not truly

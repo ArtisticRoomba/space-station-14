@@ -39,7 +39,7 @@ public record struct CanDropTargetEvent(EntityUid User, EntityUid Dragged)
     public bool Handled = false;
 
     /// <summary>
-    /// <see cref="CanDropDraggedEvent"/>
+    /// <see cref="CanDropDraggedEvent"/>.
     /// </summary>
     public bool CanDrop = false;
 }

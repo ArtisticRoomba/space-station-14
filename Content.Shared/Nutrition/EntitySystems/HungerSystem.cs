@@ -77,7 +77,7 @@ public sealed class HungerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds to the current hunger of an entity by the specified value
+    /// Adds to the current hunger of an entity by the specified value.
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="amount"></param>
@@ -90,7 +90,7 @@ public sealed class HungerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Sets the current hunger of an entity to the specified value
+    /// Sets the current hunger of an entity to the specified value.
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="amount"></param>
@@ -181,7 +181,7 @@ public sealed class HungerSystem : EntitySystem
 
     /// <summary>
     /// Gets the hunger threshold for an entity based on the amount of food specified.
-    /// If a specific amount isn't specified, just uses the current hunger of the entity
+    /// If a specific amount isn't specified, just uses the current hunger of the entity.
     /// </summary>
     /// <param name="component"></param>
     /// <param name="food"></param>

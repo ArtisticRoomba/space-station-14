@@ -98,9 +98,9 @@ public sealed class ChangelingDevourSystem : EntitySystem
     /// <summary>
     /// Checkes if the targets outerclothing is beyond a DamageCoefficientThreshold to protect them from being devoured.
     /// </summary>
-    /// <param name="target">The Targeted entity</param>
-    /// <param name="ent">Changelings Devour Component</param>
-    /// <returns>Is the target Protected from the attack</returns>
+    /// <param name="target">The Targeted entity.</param>
+    /// <param name="ent">Changelings Devour Component.</param>
+    /// <returns>Is the target Protected from the attack.</returns>
     private bool IsTargetProtected(EntityUid target, Entity<ChangelingDevourComponent> ent)
     {
         var ev = new CoefficientQueryEvent(SlotFlags.OUTERCLOTHING);

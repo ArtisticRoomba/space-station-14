@@ -10,7 +10,7 @@ namespace Content.Shared.EntityTable.EntitySelectors;
 public abstract partial class EntityTableSelector
 {
     /// <summary>
-    /// The number of times this selector is run
+    /// The number of times this selector is run.
     /// </summary>
     [DataField]
     public NumberSelector Rolls = new ConstantNumberSelector(1);

@@ -82,7 +82,7 @@ public abstract partial class SharedGravitySystem : EntitySystem
     /// <summary>
     /// Refreshes weightlessness status, needs to be called anytime it would change.
     /// </summary>
-    /// <param name="entity">The entity we are updating the weightless status of</param>
+    /// <param name="entity">The entity we are updating the weightless status of.</param>
     public void RefreshWeightless(Entity<GravityAffectedComponent?> entity)
     {
         if (!_weightlessQuery.Resolve(entity, ref entity.Comp))
@@ -96,8 +96,8 @@ public abstract partial class SharedGravitySystem : EntitySystem
     /// This method should only be called if there is no chance something can override the weightless value you're trying to change to.
     /// This is really only the case if you're applying a weightless value that overrides non-conditionally from events or are a grid with the gravity component.
     /// </summary>
-    /// <param name="entity">The entity we are updating the weightless status of</param>
-    /// <param name="weightless">The weightless value we are trying to change to, helps avoid needless networking</param>
+    /// <param name="entity">The entity we are updating the weightless status of.</param>
+    /// <param name="weightless">The weightless value we are trying to change to, helps avoid needless networking.</param>
     public void RefreshWeightless(Entity<GravityAffectedComponent?> entity, bool weightless)
     {
         if (!_weightlessQuery.Resolve(entity, ref entity.Comp))
@@ -241,8 +241,8 @@ public abstract partial class SharedGravitySystem : EntitySystem
 /// <summary>
 /// Raised to determine if an entity's weightlessness is being overwritten by a component or item with a component.
 /// </summary>
-/// <param name="IsWeightless">Whether we should be weightless</param>
-/// <param name="Handled">Whether something is trying to override our weightlessness</param>
+/// <param name="IsWeightless">Whether we should be weightless.</param>
+/// <param name="Handled">Whether something is trying to override our weightlessness.</param>
 [ByRefEvent]
 public record struct IsWeightlessEvent(bool IsWeightless = false, bool Handled = false) : IInventoryRelayEvent
 {

@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityTable.EntitySelectors;
 
 /// <summary>
-/// Gets the spawns from one of the child selectors, based on the weight of the children
+/// Gets the spawns from one of the child selectors, based on the weight of the children.
 /// </summary>
 public sealed partial class GroupSelector : EntityTableSelector
 {

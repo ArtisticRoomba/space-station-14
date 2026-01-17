@@ -25,7 +25,7 @@ public sealed partial class DoAfter
     public TimeSpan StartTime;
 
     /// <summary>
-    ///     The time at which this do after was canceled
+    ///     The time at which this do after was canceled.
     /// </summary>
     [DataField("cancelledTime", customTypeSerializer: typeof(TimeOffsetSerializer), required: true)]
     public TimeSpan? CancelledTime;

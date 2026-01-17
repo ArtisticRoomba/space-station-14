@@ -91,7 +91,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     }
 
     /// <summary>
-    /// <see cref="EquipStartingGear(Robust.Shared.GameObjects.EntityUid,System.Nullable{Robust.Shared.Prototypes.ProtoId{Content.Shared.Roles.StartingGearPrototype}},bool)"/>
+    /// <see cref="EquipStartingGear(Robust.Shared.GameObjects.EntityUid,System.Nullable{Robust.Shared.Prototypes.ProtoId{Content.Shared.Roles.StartingGearPrototype}},bool)"/>.
     /// </summary>
     public void EquipStartingGear(EntityUid entity, ProtoId<StartingGearPrototype>? startingGear, bool raiseEvent = true)
     {
@@ -100,7 +100,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     }
 
     /// <summary>
-    /// <see cref="EquipStartingGear(Robust.Shared.GameObjects.EntityUid,System.Nullable{Robust.Shared.Prototypes.ProtoId{Content.Shared.Roles.StartingGearPrototype}},bool)"/>
+    /// <see cref="EquipStartingGear(Robust.Shared.GameObjects.EntityUid,System.Nullable{Robust.Shared.Prototypes.ProtoId{Content.Shared.Roles.StartingGearPrototype}},bool)"/>.
     /// </summary>
     public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true)
     {
@@ -112,7 +112,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     /// </summary>
     /// <param name="entity">Entity to load out.</param>
     /// <param name="startingGear">Starting gear to use.</param>
-    /// <param name="raiseEvent">Should we raise the event for equipped. Set to false if you will call this manually</param>
+    /// <param name="raiseEvent">Should we raise the event for equipped. Set to false if you will call this manually.</param>
     public void EquipStartingGear(EntityUid entity, IEquipmentLoadout? startingGear, bool raiseEvent = true)
     {
         if (startingGear == null)
@@ -186,7 +186,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     /// <param name="slot">The slot that you want the clothing for.</param>
     /// <returns>
     ///     If there is a value for the given slot, it will return the proto id for that slot.
-    ///     If nothing was found, will return null
+    ///     If nothing was found, will return null.
     /// </returns>
     public string? GetGearForSlot(RoleLoadout? loadout, string slot)
     {

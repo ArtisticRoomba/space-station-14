@@ -22,7 +22,7 @@ public sealed partial class EyeDamageEntityEffectSystem : EntityEffectSystem<Met
 public sealed partial class EyeDamage : EntityEffectBase<EyeDamage>
 {
     /// <summary>
-    /// The amount of eye damage we're adding or removing
+    /// The amount of eye damage we're adding or removing.
     /// </summary>
     [DataField]
     public int Amount = -1;

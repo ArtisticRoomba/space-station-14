@@ -169,10 +169,10 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// </summary>
     /// <param name="entity">Entity we're trying to knockdown.</param>
     /// <param name="time">Time of the knockdown.</param>
-    /// <param name="refresh">Do we refresh their timer, or add to it if one exists?</param>
+    /// <param name="refresh">Do we refresh their timer, or add to it if one exists?.</param>
     /// <param name="autoStand">Whether we should automatically stand when knockdown ends.</param>
-    /// <param name="drop">Should we drop what we're holding?</param>
-    /// <param name="force">Should we force crawling? Even if something tried to block it?</param>
+    /// <param name="drop">Should we drop what we're holding?.</param>
+    /// <param name="force">Should we force crawling? Even if something tried to block it?.</param>
     /// <returns>Returns true if the entity is able to crawl, and was able to be knocked down.</returns>
     public bool TryCrawling(Entity<CrawlerComponent?> entity,
         TimeSpan? time,
@@ -204,11 +204,11 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// <summary>
     ///     Checks if we can knock down an entity to the ground...
     /// </summary>
-    /// <param name="entity">The entity we're trying to knock down</param>
-    /// <param name="time">The time of the knockdown</param>
+    /// <param name="entity">The entity we're trying to knock down.</param>
+    /// <param name="time">The time of the knockdown.</param>
     /// <param name="autoStand">Whether we want to automatically stand when knockdown ends.</param>
     /// <param name="drop">Whether we should drop items.</param>
-    /// <param name="force">Should we force the status effect?</param>
+    /// <param name="force">Should we force the status effect?.</param>
     public bool CanKnockdown(Entity<StandingStateComponent?> entity, ref TimeSpan? time, ref bool autoStand, ref bool drop, bool force = false)
     {
         if (time <= TimeSpan.Zero)
@@ -230,12 +230,12 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// <summary>
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
-    /// <param name="entity">The entity we're trying to knock down</param>
-    /// <param name="time">The time of the knockdown</param>
+    /// <param name="entity">The entity we're trying to knock down.</param>
+    /// <param name="time">The time of the knockdown.</param>
     /// <param name="refresh">Whether we should refresh a running timer or add to it, if one exists.</param>
     /// <param name="autoStand">Whether we want to automatically stand when knockdown ends.</param>
     /// <param name="drop">Whether we should drop items.</param>
-    /// <param name="force">Should we force the status effect?</param>
+    /// <param name="force">Should we force the status effect?.</param>
     public bool TryKnockdown(Entity<CrawlerComponent?> entity, TimeSpan? time, bool refresh = true, bool autoStand = true, bool drop = true, bool force = false)
     {
         if (!CanKnockdown(entity.Owner, ref time, ref autoStand, ref drop, force))

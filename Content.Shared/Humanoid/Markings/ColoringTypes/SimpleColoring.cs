@@ -1,7 +1,7 @@
 namespace Content.Shared.Humanoid.Markings;
 
 /// <summary>
-///     Colors layer in a specified color
+///     Colors layer in a specified color.
 /// </summary>
 public sealed partial class SimpleColoring : LayerColoringType
 {

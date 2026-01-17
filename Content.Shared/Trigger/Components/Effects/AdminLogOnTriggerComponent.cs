@@ -21,13 +21,13 @@ public sealed partial class AdminLogOnTriggerComponent : BaseXOnTriggerComponent
     public LocId Message = string.Empty;
 
     /// <summary>
-    /// What type of action took place?
+    /// What type of action took place?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public LogType LogType = LogType.Trigger;
 
     /// <summary>
-    /// How important is this trigger?
+    /// How important is this trigger?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public LogImpact LogImpact = LogImpact.Low;

@@ -6,13 +6,13 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Light.Components;
 
 /// <summary>
-/// Applies <see cref="SunShadowComponent"/> direction vectors based on a time-offset. Will track <see cref="LightCycleComponent"/> on on MapInit
+/// Applies <see cref="SunShadowComponent"/> direction vectors based on a time-offset. Will track <see cref="LightCycleComponent"/> on on MapInit.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SunShadowCycleComponent : Component
 {
     /// <summary>
-    /// How long an entire cycle lasts
+    /// How long an entire cycle lasts.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan Duration = TimeSpan.FromMinutes(30);

@@ -39,7 +39,7 @@ public sealed partial class EmitterComponent : Component
     public int PowerUseActive = 600;
 
     /// <summary>
-    /// The amount of shots that are fired in a single "burst"
+    /// The amount of shots that are fired in a single "burst".
     /// </summary>
     [DataField]
     public int FireBurstSize = 3;
@@ -63,7 +63,7 @@ public sealed partial class EmitterComponent : Component
     public TimeSpan FireBurstDelayMax = TimeSpan.FromSeconds(10);
 
     /// <summary>
-    /// The visual state that is set when the emitter is turned on
+    /// The visual state that is set when the emitter is turned on.
     /// </summary>
     [DataField]
     public string? OnState = "beam";

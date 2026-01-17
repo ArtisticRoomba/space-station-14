@@ -34,7 +34,7 @@ public sealed partial class StunProviderComponent : Component
     public float StunCharge = 36f;
 
     /// <summary>
-    /// Damage dealt when stunning someone
+    /// Damage dealt when stunning someone.
     /// </summary>
     [DataField]
     public DamageSpecifier StunDamage = new()
@@ -64,7 +64,7 @@ public sealed partial class StunProviderComponent : Component
     public string DelayId = "stun_cooldown";
 
     /// <summary>
-    /// Locale string to popup when there is no power
+    /// Locale string to popup when there is no power.
     /// </summary>
     [DataField(required: true)]
     public LocId NoPowerPopup = string.Empty;

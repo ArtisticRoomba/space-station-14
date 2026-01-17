@@ -37,7 +37,7 @@ public sealed class ActivateInWorldEvent : HandledEntityEventArgs, ITargetedInte
 }
 
 /// <summary>
-/// Event raised on the user when it activates something in the world
+/// Event raised on the user when it activates something in the world.
 /// </summary>
 [PublicAPI]
 public sealed class UserActivateInWorldEvent : HandledEntityEventArgs, ITargetedInteractEventArgs

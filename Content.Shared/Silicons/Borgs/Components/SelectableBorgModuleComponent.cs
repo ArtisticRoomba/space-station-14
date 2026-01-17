@@ -30,7 +30,7 @@ public sealed partial class SelectableBorgModuleComponent : Component
 public sealed partial class BorgModuleActionSelectedEvent : InstantActionEvent;
 
 /// <summary>
-/// Event raised by-ref on a module when it is selected
+/// Event raised by-ref on a module when it is selected.
 /// </summary>
 [ByRefEvent]
 public readonly record struct BorgModuleSelectedEvent(EntityUid Chassis);

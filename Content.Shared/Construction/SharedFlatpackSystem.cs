@@ -143,9 +143,9 @@ public abstract class SharedFlatpackSystem : EntitySystem
     /// <summary>
     /// Tries to get the cost to produce an item, fails if unable to produce it.
     /// </summary>
-    /// <param name="entity">The flatpacking machine</param>
-    /// <param name="machineBoard">The machine board to pack. If null, this implies we are packing a computer board</param>
-    /// <param name="cost">Cost to produce</param>
+    /// <param name="entity">The flatpacking machine.</param>
+    /// <param name="machineBoard">The machine board to pack. If null, this implies we are packing a computer board.</param>
+    /// <param name="cost">Cost to produce.</param>
     public bool TryGetFlatpackCreationCost(Entity<FlatpackCreatorComponent> entity, EntityUid machineBoard, out Dictionary<string, int> cost)
     {
         cost = new();

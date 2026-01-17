@@ -5,19 +5,19 @@ namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
 /// <summary>
 /// A type of <see cref="EntityEffectBase{T}"/> for effects that spawn entities by prototype.
 /// </summary>
-/// <typeparam name="T">The entity effect inheriting this BaseEffect</typeparam>
+/// <typeparam name="T">The entity effect inheriting this BaseEffect.</typeparam>
 /// <inheritdoc cref="EntityEffect"/>
 public abstract partial class BaseSpawnEntityEntityEffect<T> : EntityEffectBase<T>
     where T : BaseSpawnEntityEntityEffect<T>
 {
     /// <summary>
-    /// Amount of entities we're spawning
+    /// Amount of entities we're spawning.
     /// </summary>
     [DataField]
     public int Number = 1;
 
     /// <summary>
-    /// Prototype of the entity we're spawning
+    /// Prototype of the entity we're spawning.
     /// </summary>
     [DataField (required: true)]
     public EntProtoId Entity;

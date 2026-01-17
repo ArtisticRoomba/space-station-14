@@ -104,7 +104,7 @@ namespace Content.Shared.Ghost
 
     /// <summary>
     /// A client to server request to get places a ghost can warp to.
-    /// Response is sent via <see cref="GhostWarpsResponseEvent"/>
+    /// Response is sent via <see cref="GhostWarpsResponseEvent"/>.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class GhostWarpsRequestEvent : EntityEventArgs
@@ -113,7 +113,7 @@ namespace Content.Shared.Ghost
 
     /// <summary>
     /// An individual place a ghost can warp to.
-    /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
+    /// This is used as part of <see cref="GhostWarpsResponseEvent"/>.
     /// </summary>
     [Serializable, NetSerializable]
     public struct GhostWarp
@@ -127,24 +127,24 @@ namespace Content.Shared.Ghost
 
         /// <summary>
         /// The entity representing the warp point.
-        /// This is passed back to the server in <see cref="GhostWarpToTargetRequestEvent"/>
+        /// This is passed back to the server in <see cref="GhostWarpToTargetRequestEvent"/>.
         /// </summary>
         public NetEntity Entity { get; }
 
         /// <summary>
-        /// The display name to be surfaced in the ghost warps menu
+        /// The display name to be surfaced in the ghost warps menu.
         /// </summary>
         public string DisplayName { get; }
 
         /// <summary>
-        /// Whether this warp represents a warp point or a player
+        /// Whether this warp represents a warp point or a player.
         /// </summary>
         public bool IsWarpPoint { get;  }
     }
 
     /// <summary>
     /// A server to client response for a <see cref="GhostWarpsRequestEvent"/>.
-    /// Contains players, and locations a ghost can warp to
+    /// Contains players, and locations a ghost can warp to.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class GhostWarpsResponseEvent : EntityEventArgs
@@ -161,7 +161,7 @@ namespace Content.Shared.Ghost
     }
 
     /// <summary>
-    ///  A client to server request for their ghost to be warped to an entity
+    ///  A client to server request for their ghost to be warped to an entity.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class GhostWarpToTargetRequestEvent : EntityEventArgs
@@ -181,7 +181,7 @@ namespace Content.Shared.Ghost
     public sealed class GhostnadoRequestEvent : EntityEventArgs;
 
     /// <summary>
-    /// A client to server request for their ghost to return to body
+    /// A client to server request for their ghost to return to body.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class GhostReturnToBodyRequest : EntityEventArgs
@@ -189,7 +189,7 @@ namespace Content.Shared.Ghost
     }
 
     /// <summary>
-    /// A server to client update with the available ghost role count
+    /// A server to client update with the available ghost role count.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class GhostUpdateGhostRoleCountEvent : EntityEventArgs

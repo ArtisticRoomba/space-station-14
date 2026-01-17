@@ -437,9 +437,9 @@ public abstract class SharedStorageSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Opens the storage UI for an entity
+    ///     Opens the storage UI for an entity.
     /// </summary>
-    /// <param name="entity">The entity to open the UI for</param>
+    /// <param name="entity">The entity to open the UI for.</param>
     private void OpenStorageUIInternal(EntityUid uid, EntityUid entity, StorageComponent? storageComp = null, bool silent = true)
     {
         if (!Resolve(uid, ref storageComp, false))
@@ -490,9 +490,9 @@ public abstract class SharedStorageSystem : EntitySystem
     }
 
     /// <summary>
-    /// Inserts storable entities into this storage container if possible, otherwise return to the hand of the user
+    /// Inserts storable entities into this storage container if possible, otherwise return to the hand of the user.
     /// </summary>
-    /// <returns>true if inserted, false otherwise</returns>
+    /// <returns>true if inserted, false otherwise.</returns>
     private void OnInteractUsing(EntityUid uid, StorageComponent storageComp, InteractUsingEvent args)
     {
         if (args.Handled || !storageComp.ClickInsert || !CanInteract(args.User, (uid, storageComp), silent: false))
@@ -512,7 +512,7 @@ public abstract class SharedStorageSystem : EntitySystem
     }
 
     /// <summary>
-    /// Sends a message to open the storage UI
+    /// Sends a message to open the storage UI.
     /// </summary>
     private void OnActivate(EntityUid uid, StorageComponent storageComp, ActivateInWorldEvent args)
     {
@@ -1027,16 +1027,16 @@ public abstract class SharedStorageSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Verifies if an entity can be stored and if it fits
+    ///     Verifies if an entity can be stored and if it fits.
     /// </summary>
-    /// <param name="uid">The entity to check</param>
+    /// <param name="uid">The entity to check.</param>
     /// <param name="insertEnt"></param>
-    /// <param name="reason">If returning false, the reason displayed to the player</param>
+    /// <param name="reason">If returning false, the reason displayed to the player.</param>
     /// <param name="storageComp"></param>
     /// <param name="item"></param>
     /// <param name="ignoreStacks"></param>
     /// <param name="ignoreLocation"></param>
-    /// <returns>true if it can be inserted, false otherwise</returns>
+    /// <returns>true if it can be inserted, false otherwise.</returns>
     public bool CanInsert(
         EntityUid uid,
         EntityUid insertEnt,
@@ -1111,7 +1111,7 @@ public abstract class SharedStorageSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Inserts into the storage container at a given location
+    ///     Inserts into the storage container at a given location.
     /// </summary>
     /// <returns>true if the entity was inserted, false otherwise. This will also return true if a stack was partially
     /// inserted.</returns>
@@ -1152,7 +1152,7 @@ public abstract class SharedStorageSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Inserts into the storage container
+    ///     Inserts into the storage container.
     /// </summary>
     /// <returns>true if the entity was inserted, false otherwise. This will also return true if a stack was partially
     /// inserted.</returns>
@@ -1169,10 +1169,10 @@ public abstract class SharedStorageSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Inserts into the storage container
+    ///     Inserts into the storage container.
     /// </summary>
     /// <returns>true if the entity was inserted, false otherwise. This will also return true if a stack was partially
-    /// inserted</returns>
+    /// inserted.</returns>
     public bool Insert(
         EntityUid uid,
         EntityUid insertEnt,
@@ -1245,7 +1245,7 @@ public abstract class SharedStorageSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Inserts an entity into storage from the player's active hand
+    ///     Inserts an entity into storage from the player's active hand.
     /// </summary>
     /// <param name="ent">The storage entity and component to insert into.</param>
     /// <param name="player">The player and hands component to insert the held entity from.</param>
@@ -1279,9 +1279,9 @@ public abstract class SharedStorageSystem : EntitySystem
     ///     <paramref name="toInsert"/> is *NOT* held, see <see cref="PlayerInsertHeldEntity(Entity{StorageComponent?},Entity{HandsComponent?})"/>.
     /// </summary>
     /// <param name="uid"></param>
-    /// <param name="player">The player to insert an entity with</param>
+    /// <param name="player">The player to insert an entity with.</param>
     /// <param name="toInsert"></param>
-    /// <returns>true if inserted, false otherwise</returns>
+    /// <returns>true if inserted, false otherwise.</returns>
     public bool PlayerInsertEntityInWorld(Entity<StorageComponent?> uid, EntityUid player, EntityUid toInsert, bool playSound = true)
     {
         if (!Resolve(uid, ref uid.Comp) || !_interactionSystem.InRangeUnobstructed(player, uid.Owner))

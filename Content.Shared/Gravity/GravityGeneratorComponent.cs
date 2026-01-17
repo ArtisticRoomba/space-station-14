@@ -40,7 +40,7 @@ public sealed partial class GravityGeneratorComponent : Component
     public string CoreActivatedState = "activated";
 
     /// <summary>
-    /// Is the gravity generator currently "producing" gravity?
+    /// Is the gravity generator currently "producing" gravity?.
     /// </summary>
     [DataField, AutoNetworkedField, Access(typeof(SharedGravityGeneratorSystem))]
     public bool GravityActive = false;

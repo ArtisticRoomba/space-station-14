@@ -12,7 +12,7 @@ namespace Content.Shared.Changeling.Components;
 /// An entity with this component works like an implanter:
 /// First you use it on a humanoid to make a copy of their identity, along with all species relevant components,
 /// then use it on someone else to tranform them into a clone of them.
-/// Can be used in combination with <see cref="LimitedChargesComponent"/>
+/// Can be used in combination with <see cref="LimitedChargesComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ChangelingClonerComponent : Component
@@ -46,7 +46,7 @@ public sealed partial class ChangelingClonerComponent : Component
     public TimeSpan DoAfter = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// Can this item be used more than once?
+    /// Can this item be used more than once?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Reusable = true;

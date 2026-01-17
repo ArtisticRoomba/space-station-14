@@ -22,13 +22,13 @@ public sealed partial class SolutionPurgeComponent : Component
     public string Solution = string.Empty;
 
     /// <summary>
-    /// The reagent(s) to be ignored when purging the solution
+    /// The reagent(s) to be ignored when purging the solution.
     /// </summary>
     [DataField]
     public List<ProtoId<ReagentPrototype>> Preserve = [];
 
     /// <summary>
-    /// Amount of reagent(s) that are purged
+    /// Amount of reagent(s) that are purged.
     /// </summary>
     [DataField(required: true)]
     public FixedPoint2 Quantity;

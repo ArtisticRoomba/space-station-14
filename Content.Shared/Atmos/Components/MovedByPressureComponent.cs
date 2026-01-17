@@ -29,7 +29,7 @@ public sealed partial class MovedByPressureComponent : Component
     public int LastHighPressureMovementAirCycle { get; set; } = 0;
 
     /// <summary>
-    /// Used to remember which fixtures we have to remove the table mask from and give it back accordingly
+    /// Used to remember which fixtures we have to remove the table mask from and give it back accordingly.
     /// </summary>
     [DataField]
     public HashSet<string> TableLayerRemoved = new();

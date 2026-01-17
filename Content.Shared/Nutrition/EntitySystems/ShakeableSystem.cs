@@ -114,7 +114,7 @@ public sealed partial class ShakeableSystem : EntitySystem
 
 
     /// <summary>
-    /// Is it possible for the given user to shake the entity?
+    /// Is it possible for the given user to shake the entity?.
     /// </summary>
     public bool CanShake(Entity<ShakeableComponent?> entity, EntityUid? user = null)
     {

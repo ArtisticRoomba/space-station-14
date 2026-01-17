@@ -18,7 +18,7 @@ public sealed partial class InfantComponent : Component
     public TimeSpan InfantDuration = TimeSpan.FromMinutes(3);
 
     /// <summary>
-    /// The base scale of the entity
+    /// The base scale of the entity.
     /// </summary>
     [DataField("defaultScale")]
     public Vector2 DefaultScale = Vector2.One;

@@ -14,7 +14,7 @@ using Robust.Shared.Network;
 namespace Content.Shared.Storage.EntitySystems;
 
 /// <summary>
-/// This handles <see cref="BinComponent"/>
+/// This handles <see cref="BinComponent"/>.
 /// </summary>
 public sealed class BinSystem : EntitySystem
 {
@@ -99,7 +99,7 @@ public sealed class BinSystem : EntitySystem
     /// <summary>
     /// Alt interact acts the same as interacting with your hands normally, but allows fallback interaction if the item
     /// has priority. E.g. a water cup on a water cooler fills itself on a normal click,
-    /// but you can use alternative interactions to restock the cup bin
+    /// but you can use alternative interactions to restock the cup bin.
     /// </summary>
     private void OnAltInteractHand(EntityUid uid, BinComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
@@ -128,7 +128,7 @@ public sealed class BinSystem : EntitySystem
     }
 
     /// <summary>
-    /// Inserts an entity at the top of the bin
+    /// Inserts an entity at the top of the bin.
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="toInsert"></param>

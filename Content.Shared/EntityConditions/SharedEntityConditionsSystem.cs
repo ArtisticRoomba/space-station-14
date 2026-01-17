@@ -12,9 +12,9 @@ public sealed partial class SharedEntityConditionsSystem : EntitySystem, IEntity
     /// <summary>
     /// Checks a list of conditions to verify that they all return true.
     /// </summary>
-    /// <param name="target">Target entity we're checking conditions on</param>
-    /// <param name="conditions">Conditions we're checking</param>
-    /// <returns>Returns true if all conditions return true, false if any fail</returns>
+    /// <param name="target">Target entity we're checking conditions on.</param>
+    /// <param name="conditions">Conditions we're checking.</param>
+    /// <returns>Returns true if all conditions return true, false if any fail.</returns>
     public bool TryConditions(EntityUid target, EntityCondition[]? conditions)
     {
         // If there's no conditions we can't fail any of them...
@@ -33,9 +33,9 @@ public sealed partial class SharedEntityConditionsSystem : EntitySystem, IEntity
     /// <summary>
     /// Checks a list of conditions to see if any are true.
     /// </summary>
-    /// <param name="target">Target entity we're checking conditions on</param>
-    /// <param name="conditions">Conditions we're checking</param>
-    /// <returns>Returns true if any conditions return true</returns>
+    /// <param name="target">Target entity we're checking conditions on.</param>
+    /// <param name="conditions">Conditions we're checking.</param>
+    /// <returns>Returns true if any conditions return true.</returns>
     public bool TryAnyCondition(EntityUid target, EntityCondition[]? conditions)
     {
         // If there's no conditions we can't meet any of them...
@@ -54,9 +54,9 @@ public sealed partial class SharedEntityConditionsSystem : EntitySystem, IEntity
     /// <summary>
     /// Checks a single <see cref="EntityCondition"/> on an entity.
     /// </summary>
-    /// <param name="target">Target entity we're checking conditions on</param>
-    /// <param name="condition">Condition we're checking</param>
-    /// <returns>Returns true if we meet the condition and false otherwise</returns>
+    /// <param name="target">Target entity we're checking conditions on.</param>
+    /// <param name="condition">Condition we're checking.</param>
+    /// <returns>Returns true if we meet the condition and false otherwise.</returns>
     public bool TryCondition(EntityUid target, EntityCondition condition)
     {
         return condition.Inverted != condition.RaiseEvent(target, this);
@@ -77,8 +77,8 @@ public sealed partial class SharedEntityConditionsSystem : EntitySystem, IEntity
 /// <summary>
 /// This is a basic abstract entity effect containing all the data an entity effect needs to affect entities with effects...
 /// </summary>
-/// <typeparam name="T">The Component that is required for the effect</typeparam>
-/// <typeparam name="TCon">The Condition we're testing</typeparam>
+/// <typeparam name="T">The Component that is required for the effect.</typeparam>
+/// <typeparam name="TCon">The Condition we're testing.</typeparam>
 public abstract partial class EntityConditionSystem<T, TCon> : EntitySystem
     where T : Component
     where TCon : EntityConditionBase<TCon>
@@ -127,7 +127,7 @@ public abstract partial class EntityCondition
     public abstract bool RaiseEvent(EntityUid target, IEntityConditionRaiser raiser);
 
     /// <summary>
-    /// If true, invert the result. So false returns true and true returns false!
+    /// If true, invert the result. So false returns true and true returns false!.
     /// </summary>
     [DataField]
     public bool Inverted;
@@ -141,7 +141,7 @@ public abstract partial class EntityCondition
 /// <summary>
 /// An Event carrying an entity effect.
 /// </summary>
-/// <param name="Condition">The Condition we're checking</param>
+/// <param name="Condition">The Condition we're checking.</param>
 [ByRefEvent]
 public record struct EntityConditionEvent<T>(T Condition)
     where T : EntityConditionBase<T>
@@ -153,7 +153,7 @@ public record struct EntityConditionEvent<T>(T Condition)
     public bool Result;
 
     /// <summary>
-    /// The Condition being raised in this event
+    /// The Condition being raised in this event.
     /// </summary>
     public readonly T Condition = Condition;
 }

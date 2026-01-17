@@ -23,13 +23,13 @@ public sealed partial class KnockdownOnTriggerComponent : BaseXOnTriggerComponen
     public bool Refresh = true;
 
     /// <summary>
-    /// Should the entity try and stand automatically?
+    /// Should the entity try and stand automatically?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool AutoStand = true;
 
     /// <summary>
-    /// Should the entity drop their items upon first being knocked down?
+    /// Should the entity drop their items upon first being knocked down?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Drop = true;

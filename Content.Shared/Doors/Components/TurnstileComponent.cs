@@ -58,7 +58,7 @@ public sealed partial class TurnstileComponent : Component
     public SoundSpecifier? TurnSound = new SoundPathSpecifier("/Audio/Items/ratchet.ogg", AudioParams.Default.WithVolume(-6));
 
     /// <summary>
-    /// Sound to play when the turnstile denies entry
+    /// Sound to play when the turnstile denies entry.
     /// </summary>
     [DataField]
     public SoundSpecifier? DenySound = new SoundPathSpecifier("/Audio/Machines/airlock_deny.ogg")

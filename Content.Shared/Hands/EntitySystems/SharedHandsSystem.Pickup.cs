@@ -133,7 +133,7 @@ public abstract partial class SharedHandsSystem
 
     /// <summary>
     ///     Tries to pick up an entity into any hand, forcing to drop an item if there are no free hands
-    ///     By default it does check if it's possible to drop items
+    ///     By default it does check if it's possible to drop items.
     /// </summary>
     public bool TryForcePickupAnyHand(EntityUid uid, EntityUid entity, bool checkActionBlocker = true, HandsComponent? handsComp = null, ItemComponent? item = null)
     {

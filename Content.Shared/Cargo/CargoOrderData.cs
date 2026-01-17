@@ -20,13 +20,13 @@ namespace Content.Shared.Cargo
         public int OrderId { get; private set; }
 
         /// <summary>
-        /// Prototype Id for the item to be created
+        /// Prototype Id for the item to be created.
         /// </summary>
         [DataField]
         public string ProductId { get; private set; }
 
         /// <summary>
-        /// Prototype Name
+        /// Prototype Name.
         /// </summary>
         [DataField]
         public string ProductName { get; private set; }
@@ -39,7 +39,7 @@ namespace Content.Shared.Cargo
         public int OrderQuantity;
 
         /// <summary>
-        /// How many instances of this order that we've already dispatched
+        /// How many instances of this order that we've already dispatched.
         /// </summary>
         [DataField]
         public int NumDispatched = 0;
@@ -56,7 +56,7 @@ namespace Content.Shared.Cargo
         public string? Approver;
 
         /// <summary>
-        /// Which account to deduct funds from when ordering
+        /// Which account to deduct funds from when ordering.
         /// </summary>
         [DataField]
         public ProtoId<CargoAccountPrototype> Account;

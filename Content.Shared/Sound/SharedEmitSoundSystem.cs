@@ -24,7 +24,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Sound;
 
 /// <summary>
-/// Will play a sound on various events if the affected entity has a component derived from BaseEmitSoundComponent
+/// Will play a sound on various events if the affected entity has a component derived from BaseEmitSoundComponent.
 /// </summary>
 [UsedImplicitly]
 public abstract class SharedEmitSoundSystem : EntitySystem

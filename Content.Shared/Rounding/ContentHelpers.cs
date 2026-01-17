@@ -49,13 +49,13 @@
         /// You want the display to match the percentile value as accurately as possible, so that eg.
         /// 95% is rounded up to 5, 89.99% is rounded down to 4, 15% is rounded up to 1 and 5% is rounded down
         /// to 0, in terms of number of segments lit.
-        /// In this case you would use <code>RoundToNearestLevels(value, max, 5)</code>
+        /// In this case you would use. <code>RoundToNearestLevels(value, max, 5)</code>
         /// </example>
         /// <param name="actual">The point to be rounded to the nearest level.</param>
         /// <param name="max">The maximum value of the scale.</param>
         /// <param name="levels">Number of segments the scale is subdivided into.</param>
         /// <returns>The segment <paramref name="actual"/> lies on.</returns>
-        /// <exception cref="ArgumentException">If level is 1 or less</exception>
+        /// <exception cref="ArgumentException">If level is 1 or less.</exception>
         public static int RoundToNearestLevels(double actual, double max, int levels)
         {
             if (levels <= 1)
@@ -88,11 +88,11 @@
         ///
         /// Useful when selecting N sprites for display in stacks, etc.
         /// </summary>
-        /// <param name="actual">How many out of max elements are there</param>
+        /// <param name="actual">How many out of max elements are there.</param>
         /// <param name="max"></param>
         /// <param name="levels"></param>
-        /// <returns>The </returns>
-        /// <exception cref="ArgumentException">if level is one or less</exception>
+        /// <returns>The. </returns>
+        /// <exception cref="ArgumentException">if level is one or less.</exception>
         public static int RoundToEqualLevels(double actual, double max, int levels)
         {
             if (levels <= 1)

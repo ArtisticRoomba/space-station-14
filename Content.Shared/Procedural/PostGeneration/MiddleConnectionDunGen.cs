@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Procedural.PostGeneration;
 
 /// <summary>
-/// Places the specified entities on the middle connections between rooms
+/// Places the specified entities on the middle connections between rooms.
 /// </summary>
 public sealed partial class MiddleConnectionDunGen : IDunGenLayer
 {

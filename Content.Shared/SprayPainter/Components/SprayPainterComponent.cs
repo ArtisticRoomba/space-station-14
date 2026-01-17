@@ -53,7 +53,7 @@ public sealed partial class SprayPainterComponent : Component
 
     /// <summary>
     /// The currently open tab of the painter
-    /// (Are you selecting canister color?)
+    /// (Are you selecting canister color?).
     /// </summary>
     [DataField, AutoNetworkedField]
     public int SelectedTab;
@@ -95,7 +95,7 @@ public sealed partial class SprayPainterComponent : Component
     public int DecalChargeCost = 1;
 
     /// <summary>
-    /// How long does the painter leave items as freshly painted?
+    /// How long does the painter leave items as freshly painted?.
     /// </summary>
     [DataField]
     public TimeSpan FreshPaintDuration = TimeSpan.FromMinutes(15);
@@ -119,12 +119,12 @@ public enum DecalPaintMode : byte
     Off = 0,
 
     /// <summary>
-    /// Clicking on the floor adds a decal at the requested spot (or snapped to the grid)
+    /// Clicking on the floor adds a decal at the requested spot (or snapped to the grid).
     /// </summary>
     Add = 1,
 
     /// <summary>
-    /// Clicking on the floor removes all decals at the requested spot (or snapped to the grid)
+    /// Clicking on the floor removes all decals at the requested spot (or snapped to the grid).
     /// </summary>
     Remove = 2,
 }

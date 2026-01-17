@@ -31,10 +31,10 @@ public sealed class SimpleCensor : IChatCensor
     /// <summary>
     /// Censors the input string.
     /// </summary>
-    /// <param name="input">The input string</param>
-    /// <param name="output">The output string</param>
-    /// <param name="replaceWith">The character to replace with</param>
-    /// <returns>If output is valid</returns>
+    /// <param name="input">The input string.</param>
+    /// <param name="output">The output string.</param>
+    /// <param name="replaceWith">The character to replace with.</param>
+    /// <returns>If output is valid.</returns>
     public bool Censor(string input, out string output, char replaceWith = '*')
     {
         output = Censor(input, replaceWith);
@@ -109,9 +109,9 @@ public sealed class SimpleCensor : IChatCensor
     }
 
     /// <summary>
-    /// Adds a l33tsp34k sanitization rule
+    /// Adds a l33tsp34k sanitization rule.
     /// </summary>
-    /// <returns>The censor for further configuration</returns>
+    /// <returns>The censor for further configuration.</returns>
     public SimpleCensor WithSanitizeLeetSpeak()
     {
         _shouldSanitizeLeetspeak = true;
@@ -120,9 +120,9 @@ public sealed class SimpleCensor : IChatCensor
     }
 
     /// <summary>
-    /// Adds a l33tsp34k sanitization rule
+    /// Adds a l33tsp34k sanitization rule.
     /// </summary>
-    /// <returns>The censor for further configuration</returns>
+    /// <returns>The censor for further configuration.</returns>
     public SimpleCensor WithSanitizeSpecialCharacters()
     {
         _shouldSanitizeSpecialCharacters = true;
@@ -257,7 +257,7 @@ public sealed class SimpleCensor : IChatCensor
     }
 
     /// <summary>
-    /// Returns a string with all characters not in ISO-8851-1 replaced with question marks
+    /// Returns a string with all characters not in ISO-8851-1 replaced with question marks.
     /// </summary>
     private string SanitizeOutBlockedUnicode(string input)
     {

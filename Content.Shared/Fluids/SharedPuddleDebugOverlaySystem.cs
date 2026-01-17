@@ -11,7 +11,7 @@ public abstract class SharedPuddleDebugOverlaySystem : EntitySystem
 }
 
 /// <summary>
-/// Message for disable puddle overlay
+/// Message for disable puddle overlay.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class PuddleOverlayDisableMessage : EntityEventArgs
@@ -19,7 +19,7 @@ public sealed class PuddleOverlayDisableMessage : EntityEventArgs
 }
 
 /// <summary>
-/// Message for puddle overlay display data
+/// Message for puddle overlay display data.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class PuddleOverlayDebugMessage : EntityEventArgs

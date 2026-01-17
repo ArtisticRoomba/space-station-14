@@ -48,10 +48,10 @@ public sealed class IdentityRepresentation
     }
 
     /// <summary>
-    /// Get this identity as a string
+    /// Get this identity as a string.
     /// </summary>
-    /// <param name="trueName">Should we show their "true" name or hide it?</param>
-    /// <param name="nameOverride">A "true name" override</param>
+    /// <param name="trueName">Should we show their "true" name or hide it?.</param>
+    /// <param name="nameOverride">A "true name" override.</param>
     /// <returns></returns>
     public string ToStringKnown(bool trueName, string? nameOverride)
     {

@@ -28,13 +28,13 @@ public sealed partial class SolutionTransferComponent : Component
     public FixedPoint2 MaximumTransferAmount = FixedPoint2.New(100);
 
     /// <summary>
-    ///     Can this entity take reagent from reagent tanks?
+    ///     Can this entity take reagent from reagent tanks?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool CanReceive = true;
 
     /// <summary>
-    ///     Can this entity give reagent to other reagent containers?
+    ///     Can this entity give reagent to other reagent containers?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool CanSend = true;

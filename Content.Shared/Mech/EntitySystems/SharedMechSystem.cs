@@ -25,7 +25,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Mech.EntitySystems;
 
 /// <summary>
-/// Handles all of the interactions, UI handling, and items shennanigans for <see cref="MechComponent"/>
+/// Handles all of the interactions, UI handling, and items shennanigans for <see cref="MechComponent"/>.
 /// </summary>
 public abstract partial class SharedMechSystem : EntitySystem
 {
@@ -283,10 +283,10 @@ public abstract partial class SharedMechSystem : EntitySystem
 
     /// <summary>
     /// Attempts to change the amount of energy in the mech.
-    /// TODO: Power cells are predicted now, so no need to duplicate the charge level
+    /// TODO: Power cells are predicted now, so no need to duplicate the charge level.
     /// </summary>
-    /// <param name="uid">The mech itself</param>
-    /// <param name="delta">The change in energy</param>
+    /// <param name="uid">The mech itself.</param>
+    /// <param name="delta">The change in energy.</param>
     /// <param name="component"></param>
     /// <returns>If the energy was successfully changed.</returns>
     public virtual bool TryChangeEnergy(EntityUid uid, FixedPoint2 delta, MechComponent? component = null)
@@ -306,8 +306,8 @@ public abstract partial class SharedMechSystem : EntitySystem
     /// <summary>
     /// Sets the integrity of the mech.
     /// </summary>
-    /// <param name="uid">The mech itself</param>
-    /// <param name="value">The value the integrity will be set at</param>
+    /// <param name="uid">The mech itself.</param>
+    /// <param name="value">The value the integrity will be set at.</param>
     /// <param name="component"></param>
     public void SetIntegrity(EntityUid uid, FixedPoint2 value, MechComponent? component = null)
     {
@@ -331,10 +331,10 @@ public abstract partial class SharedMechSystem : EntitySystem
     }
 
     /// <summary>
-    /// Checks if the pilot is present
+    /// Checks if the pilot is present.
     /// </summary>
     /// <param name="component"></param>
-    /// <returns>Whether or not the pilot is present</returns>
+    /// <returns>Whether or not the pilot is present.</returns>
     public bool IsEmpty(MechComponent component)
     {
         return component.PilotSlot.ContainedEntity == null;
@@ -356,7 +356,7 @@ public abstract partial class SharedMechSystem : EntitySystem
     }
 
     /// <summary>
-    /// Updates the user interface
+    /// Updates the user interface.
     /// </summary>
     /// <remarks>
     /// This is defined here so that UI updates can be accessed from shared.
@@ -371,7 +371,7 @@ public abstract partial class SharedMechSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="toInsert"></param>
     /// <param name="component"></param>
-    /// <returns>Whether or not the entity was inserted</returns>
+    /// <returns>Whether or not the entity was inserted.</returns>
     public bool TryInsert(EntityUid uid, EntityUid? toInsert, MechComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -390,7 +390,7 @@ public abstract partial class SharedMechSystem : EntitySystem
     }
 
     /// <summary>
-    /// Attempts to eject the current pilot from the mech
+    /// Attempts to eject the current pilot from the mech.
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
@@ -471,7 +471,7 @@ public abstract partial class SharedMechSystem : EntitySystem
 
 /// <summary>
 ///     Event raised when the battery is successfully removed from the mech,
-///     on both success and failure
+///     on both success and failure.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class RemoveBatteryEvent : SimpleDoAfterEvent
@@ -480,7 +480,7 @@ public sealed partial class RemoveBatteryEvent : SimpleDoAfterEvent
 
 /// <summary>
 ///     Event raised when a person removes someone from a mech,
-///     on both success and failure
+///     on both success and failure.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class MechExitEvent : SimpleDoAfterEvent
@@ -488,7 +488,7 @@ public sealed partial class MechExitEvent : SimpleDoAfterEvent
 }
 
 /// <summary>
-///     Event raised when a person enters a mech, on both success and failure
+///     Event raised when a person enters a mech, on both success and failure.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class MechEntryEvent : SimpleDoAfterEvent

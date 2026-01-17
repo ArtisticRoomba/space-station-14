@@ -117,7 +117,7 @@ public abstract partial class SharedBorgSystem
     /// </summary>
     /// <remarks>
     /// TODO: This currently causes mispredicts, but we have no way of knowing on the client if a player is banned.
-    /// Maybe solve this by giving banned players an unborgable trait instead?
+    /// Maybe solve this by giving banned players an unborgable trait instead?.
     /// </remarks>
     public virtual bool CanPlayerBeBorged(ICommonSession session)
     {

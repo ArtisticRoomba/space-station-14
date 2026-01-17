@@ -64,7 +64,7 @@ public sealed partial class PowerSwitchableCable
 
     /// <summary>
     /// Name of the node for the cable.
-    /// Must be a <c>CableDeviceNode</c>
+    /// Must be a <c>CableDeviceNode</c>.
     /// </summary>
     [DataField(required: true)]
     public string Node = string.Empty;

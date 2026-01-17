@@ -68,7 +68,7 @@ public sealed partial class StoreComponent : Component
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> BalanceSpent = new();
 
     /// <summary>
-    ///     Controls if the store allows refunds
+    ///     Controls if the store allows refunds.
     /// </summary>
     [ViewVariables, DataField]
     public bool RefundAllowed;
@@ -81,7 +81,7 @@ public sealed partial class StoreComponent : Component
     public bool OwnerOnly;
 
     /// <summary>
-    ///     The map the store was originally from, used to block refunds if the map is changed
+    ///     The map the store was originally from, used to block refunds if the map is changed.
     /// </summary>
     [DataField]
     public EntityUid? StartingMap;
@@ -97,18 +97,18 @@ public sealed partial class StoreComponent : Component
 }
 
 /// <summary>
-/// Event that is broadcast when a store is added to an entity
+/// Event that is broadcast when a store is added to an entity.
 /// </summary>
 [ByRefEvent]
 public readonly record struct StoreAddedEvent;
 /// <summary>
-/// Event that is broadcast when a store is removed from an entity
+/// Event that is broadcast when a store is removed from an entity.
 /// </summary>
 [ByRefEvent]
 public readonly record struct StoreRemovedEvent;
 
 /// <summary>
-///     Broadcast when an Entity with the <see cref="StoreRefundComponent"/> is deleted
+///     Broadcast when an Entity with the <see cref="StoreRefundComponent"/> is deleted.
 /// </summary>
 [ByRefEvent]
 public readonly struct RefundEntityDeletedEvent

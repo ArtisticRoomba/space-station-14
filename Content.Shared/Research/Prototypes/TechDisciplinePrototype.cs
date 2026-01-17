@@ -22,7 +22,7 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     public string Name = string.Empty;
 
     /// <summary>
-    /// A color used for UI
+    /// A color used for UI.
     /// </summary>
     [DataField("color", required: true)]
     public Color Color;
@@ -35,7 +35,7 @@ public sealed partial class TechDisciplinePrototype : IPrototype
 
     /// <summary>
     /// For each tier a discipline supports, what percentage
-    /// of the previous tier must be unlocked for it to become available
+    /// of the previous tier must be unlocked for it to become available.
     /// </summary>
     [DataField("tierPrerequisites", required: true)]
     public Dictionary<int, float> TierPrerequisites = new();

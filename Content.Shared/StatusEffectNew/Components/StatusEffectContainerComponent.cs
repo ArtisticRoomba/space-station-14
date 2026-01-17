@@ -15,7 +15,7 @@ public sealed partial class StatusEffectContainerComponent : Component
     public const string ContainerId = "status-effects";
 
     /// <summary>
-    /// The actual container holding references to the active status effects
+    /// The actual container holding references to the active status effects.
     /// </summary>
     [ViewVariables]
     public Container? ActiveStatusEffects;

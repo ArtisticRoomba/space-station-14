@@ -10,13 +10,13 @@ namespace Content.Shared.Weapons.Hitscan.Components;
 public sealed partial class HitscanBasicRaycastComponent : Component
 {
     /// <summary>
-    /// Maximum distance the raycast will travel before giving up. Reflections will reset the distance traveled
+    /// Maximum distance the raycast will travel before giving up. Reflections will reset the distance traveled.
     /// </summary>
     [DataField]
     public float MaxDistance = 20.0f;
 
     /// <summary>
-    /// The collision mask the hitscan ray uses to collide with other objects. See the enum for more information
+    /// The collision mask the hitscan ray uses to collide with other objects. See the enum for more information.
     /// </summary>
     [DataField]
     public CollisionGroup CollisionMask = CollisionGroup.Opaque;

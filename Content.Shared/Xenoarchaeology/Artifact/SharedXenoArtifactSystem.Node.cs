@@ -251,7 +251,7 @@ public abstract partial class SharedXenoArtifactSystem
     /// Clears all cached active nodes and rebuilds the list using the current node state.
     /// Active nodes have the following property:
     /// - Are unlocked themselves
-    /// - All successors are also unlocked
+    /// - All successors are also unlocked.
     /// </summary>
     /// <remarks>
     /// You could technically modify this to have a per-node method that only checks direct predecessors

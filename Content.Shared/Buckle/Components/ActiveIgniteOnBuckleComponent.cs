@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Buckle.Components;
 
 /// <summary>
-/// Component for entities that are currently being ignited by <see cref="IgniteOnBuckleComponent"/>
+/// Component for entities that are currently being ignited by <see cref="IgniteOnBuckleComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentPause, AutoGenerateComponentState]

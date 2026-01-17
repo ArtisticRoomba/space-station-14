@@ -11,14 +11,14 @@ namespace Content.Shared.Wires;
 public sealed partial class WiresPanelComponent : Component
 {
     /// <summary>
-    ///     Is the panel open for this entity's wires?
+    ///     Is the panel open for this entity's wires?.
     /// </summary>
     [DataField("open")]
     [AutoNetworkedField]
     public bool Open;
 
     /// <summary>
-    ///     Should this entity's wires panel be visible at all?
+    ///     Should this entity's wires panel be visible at all?.
     /// </summary>
     [ViewVariables]
     [AutoNetworkedField]
@@ -31,7 +31,7 @@ public sealed partial class WiresPanelComponent : Component
     public SoundSpecifier ScrewdriverCloseSound = new SoundPathSpecifier("/Audio/Machines/screwdriverclose.ogg");
 
     /// <summary>
-    /// Amount of times in seconds it takes to open
+    /// Amount of times in seconds it takes to open.
     /// </summary>
     [DataField]
     public TimeSpan OpenDelay = TimeSpan.FromSeconds(1);

@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityTable.Conditions;
 
 /// <summary>
-/// Condition that succeeds only when the specified gamerule has been run under a certain amount of times
+/// Condition that succeeds only when the specified gamerule has been run under a certain amount of times.
 /// </summary>
 /// <remarks>
 /// This is meant to be attached directly to EntSelector. If it is not, then you'll need to specify what rule

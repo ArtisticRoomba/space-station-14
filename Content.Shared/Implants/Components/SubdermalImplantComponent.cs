@@ -8,7 +8,7 @@ namespace Content.Shared.Implants.Components;
 /// <summary>
 /// Subdermal implants get stored in a container on an entity and grant the entity special actions
 /// The actions can be activated via an action, a passive ability (ie tracking), or a reactive ability (ie on death) or some sort of combination
-/// They're added and removed with implanters
+/// They're added and removed with implanters.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SubdermalImplantComponent : Component
@@ -32,13 +32,13 @@ public sealed partial class SubdermalImplantComponent : Component
     public ComponentRegistry ImplantComponents = new();
 
     /// <summary>
-    /// The entity this implant is inside
+    /// The entity this implant is inside.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public EntityUid? ImplantedEntity;
 
     /// <summary>
-    /// Should this implant be removeable?
+    /// Should this implant be removeable?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Permanent = false;
@@ -69,12 +69,12 @@ public sealed partial class SubdermalImplantComponent : Component
 /// Used for opening the storage implant via action.
 /// </summary>
 /// <remarks>
-/// TODO: Delete this and just add a ToggleUIOnTriggerComponent
+/// TODO: Delete this and just add a ToggleUIOnTriggerComponent.
 /// </remarks>
 public sealed partial class OpenStorageImplantEvent : InstantActionEvent;
 
 /// <summary>
-/// Used for triggering trigger events on the implant via action
+/// Used for triggering trigger events on the implant via action.
 /// </summary>
 public sealed partial class ActivateImplantEvent : InstantActionEvent;
 
@@ -82,6 +82,6 @@ public sealed partial class ActivateImplantEvent : InstantActionEvent;
 /// Used for opening the uplink implant via action.
 /// </summary>
 /// <remarks>
-/// TODO: Delete this and just add a ToggleUIOnTriggerComponent
+/// TODO: Delete this and just add a ToggleUIOnTriggerComponent.
 /// </remarks>
 public sealed partial class OpenUplinkImplantEvent : InstantActionEvent;

@@ -16,7 +16,7 @@ namespace Content.Shared.Power.Generator;
 public sealed partial class FuelGeneratorComponent : Component
 {
     /// <summary>
-    /// Is the generator currently running?
+    /// Is the generator currently running?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool On;
@@ -56,7 +56,7 @@ public sealed partial class FuelGeneratorComponent : Component
     public float OptimalBurnRate = 1 / 60.0f; // Once every 60 seconds.
 
     /// <summary>
-    /// A constant used to calculate fuel efficiency in relation to target power output and optimal power output
+    /// A constant used to calculate fuel efficiency in relation to target power output and optimal power output.
     /// </summary>
     [DataField]
     public float FuelEfficiencyConstant = 1.3f;

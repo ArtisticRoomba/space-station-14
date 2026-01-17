@@ -18,7 +18,7 @@ public sealed partial class PaperComponent : Component
     public List<StampDisplayInfo> StampedBy { get; set; } = new();
 
     /// <summary>
-    ///     Stamp to be displayed on the paper, state from bureaucracy.rsi
+    ///     Stamp to be displayed on the paper, state from bureaucracy.rsi.
     /// </summary>
     [DataField("stampState"), AutoNetworkedField]
     public string? StampState { get; set; }

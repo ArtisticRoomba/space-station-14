@@ -41,8 +41,8 @@ public sealed class DamageOnInteractSystem : EntitySystem
     /// proper protection, the user will only be damaged and other interactions
     /// will be cancelled.
     /// </summary>
-    /// <param name="entity">The entity being interacted with</param>
-    /// <param name="args">Contains the user that interacted with the entity</param>
+    /// <param name="entity">The entity being interacted with.</param>
+    /// <param name="args">Contains the user that interacted with the entity.</param>
     private void OnHandInteract(Entity<DamageOnInteractComponent> entity, ref InteractHandEvent args)
     {
         // Stop the interaction if the user attempts to interact with the object before the timer is finished

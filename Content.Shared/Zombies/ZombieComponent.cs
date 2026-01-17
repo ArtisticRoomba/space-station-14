@@ -17,7 +17,7 @@ namespace Content.Shared.Zombies;
 public sealed partial class ZombieComponent : Component
 {
     /// <summary>
-    /// The baseline infection chance you have if you have no protective gear
+    /// The baseline infection chance you have if you have no protective gear.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float BaseZombieInfectionChance = 0.75f;
@@ -46,13 +46,13 @@ public sealed partial class ZombieComponent : Component
     public float ZombieMovementSpeedDebuff = 0.70f;
 
     /// <summary>
-    /// The skin color of the zombie
+    /// The skin color of the zombie.
     /// </summary>
     [DataField("skinColor")]
     public Color SkinColor = new(0.45f, 0.51f, 0.29f);
 
     /// <summary>
-    /// The eye color of the zombie
+    /// The eye color of the zombie.
     /// </summary>
     [DataField("eyeColor")]
     public Color EyeColor = new(0.96f, 0.13f, 0.24f);
@@ -64,31 +64,31 @@ public sealed partial class ZombieComponent : Component
     public string BaseLayerExternal = "MobHumanoidMarkingMatchSkin";
 
     /// <summary>
-    /// The attack arc of the zombie
+    /// The attack arc of the zombie.
     /// </summary>
     [DataField("attackArc", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string AttackAnimation = "WeaponArcBite";
 
     /// <summary>
-    /// The role prototype of the zombie antag role
+    /// The role prototype of the zombie antag role.
     /// </summary>
     [DataField("zombieRoleId", customTypeSerializer: typeof(PrototypeIdSerializer<AntagPrototype>))]
     public string ZombieRoleId = "Zombie";
 
     /// <summary>
-    /// The CustomBaseLayers of the humanoid to restore in case of cloning
+    /// The CustomBaseLayers of the humanoid to restore in case of cloning.
     /// </summary>
     [DataField("beforeZombifiedCustomBaseLayers")]
     public Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> BeforeZombifiedCustomBaseLayers = new();
 
     /// <summary>
-    /// The skin color of the humanoid to restore in case of cloning
+    /// The skin color of the humanoid to restore in case of cloning.
     /// </summary>
     [DataField("beforeZombifiedSkinColor")]
     public Color BeforeZombifiedSkinColor;
 
     /// <summary>
-    /// The eye color of the humanoid to restore in case of cloning
+    /// The eye color of the humanoid to restore in case of cloning.
     /// </summary>
     [DataField("beforeZombifiedEyeColor")]
     public Color BeforeZombifiedEyeColor;
@@ -103,7 +103,7 @@ public sealed partial class ZombieComponent : Component
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "ZombieFaction";
 
     /// <summary>
-    /// Healing each second
+    /// Healing each second.
     /// </summary>
     [DataField("passiveHealing")]
     public DamageSpecifier PassiveHealing = new()
@@ -139,7 +139,7 @@ public sealed partial class ZombieComponent : Component
     };
 
     /// <summary>
-    /// The damage dealt on bite, dehardcoded for your enjoyment
+    /// The damage dealt on bite, dehardcoded for your enjoyment.
     /// </summary>
     [DataField]
     public DamageSpecifier DamageOnBite = new()
@@ -165,7 +165,7 @@ public sealed partial class ZombieComponent : Component
     public SoundSpecifier BiteSound = new SoundPathSpecifier("/Audio/Effects/bite.ogg");
 
     /// <summary>
-    /// The blood reagents of the humanoid to restore in case of cloning
+    /// The blood reagents of the humanoid to restore in case of cloning.
     /// </summary>
     [DataField("beforeZombifiedBloodReagents")]
     public Solution BeforeZombifiedBloodReagents = new();

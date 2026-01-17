@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Movement.Pulling.Components;
 
 /// <summary>
-/// Specifies an entity as being pullable by an entity with <see cref="PullerComponent"/>
+/// Specifies an entity as being pullable by an entity with <see cref="PullerComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(Systems.PullingSystem))]
@@ -26,7 +26,7 @@ public sealed partial class PullableComponent : Component
     public bool BeingPulled => Puller != null;
 
     /// <summary>
-    /// If the physics component has FixedRotation should we keep it upon being pulled
+    /// If the physics component has FixedRotation should we keep it upon being pulled.
     /// </summary>
     [Access(typeof(Systems.PullingSystem), Other = AccessPermissions.ReadExecute)]
     [ViewVariables(VVAccess.ReadWrite), DataField("fixedRotation")]

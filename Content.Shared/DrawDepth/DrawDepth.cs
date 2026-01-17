@@ -53,7 +53,7 @@ namespace Content.Shared.DrawDepth
         DeadMobs = DrawDepthTag.Default - 4,
 
         /// <summary>
-        ///     Allows small mobs like mice and drones to render under tables and chairs but above puddles and vents
+        ///     Allows small mobs like mice and drones to render under tables and chairs but above puddles and vents.
         /// </summary>
         SmallMobs = DrawDepthTag.Default - 3,
 
@@ -84,7 +84,7 @@ namespace Content.Shared.DrawDepth
         WallMountedItems = DrawDepthTag.Default + 2,
 
         /// <summary>
-        ///     To use for objects that would usually fall under SmallObjects, but appear taller than 1 tile. For example: Reagent Grinder
+        ///     To use for objects that would usually fall under SmallObjects, but appear taller than 1 tile. For example: Reagent Grinder.
         /// </summary>
         LargeObjects = DrawDepthTag.Default + 3,
 

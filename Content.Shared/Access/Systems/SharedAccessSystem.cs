@@ -50,7 +50,7 @@ namespace Content.Shared.Access.Systems
         /// <summary>
         ///     Replaces the set of access tags we have with the provided set.
         /// </summary>
-        /// <param name="access">The new access tags</param>
+        /// <param name="access">The new access tags.</param>
         public bool TrySetTags(EntityUid uid, IEnumerable<ProtoId<AccessLevelPrototype>> newTags, AccessComponent? access = null)
         {
             if (!Resolve(uid, ref access))
@@ -66,7 +66,7 @@ namespace Content.Shared.Access.Systems
         /// <summary>
         ///     Gets the set of access tags.
         /// </summary>
-        /// <param name="access">The new access tags</param>
+        /// <param name="access">The new access tags.</param>
         public IEnumerable<ProtoId<AccessLevelPrototype>>? TryGetTags(EntityUid uid, AccessComponent? access = null)
         {
             return !Resolve(uid, ref access) ? null : access.Tags;

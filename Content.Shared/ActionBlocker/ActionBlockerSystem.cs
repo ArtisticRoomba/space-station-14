@@ -72,7 +72,7 @@ namespace Content.Shared.ActionBlocker
         ///     If this is a generic interaction without a target (e.g., stop-drop-and-roll when burning), the target
         ///     may be null. Note that this is checked by <see cref="SharedInteractionSystem"/>. In the majority of
         ///     cases, systems that provide interactions will not need to check this themselves, though they may need to
-        ///     check other blockers like <see cref="CanPickup(EntityUid)"/>
+        ///     check other blockers like <see cref="CanPickup(EntityUid)"/>.
         /// </remarks>
         /// <returns></returns>
         public bool CanInteract(EntityUid user, EntityUid? target)
@@ -122,7 +122,7 @@ namespace Content.Shared.ActionBlocker
         /// Whether a user conscious to perform an action.
         /// </summary>
         /// <remarks>
-        /// This should be used when you want a much more permissive check than <see cref="CanInteract"/>
+        /// This should be used when you want a much more permissive check than <see cref="CanInteract"/>.
         /// </remarks>
         public bool CanConsciouslyPerformAction(EntityUid user)
         {

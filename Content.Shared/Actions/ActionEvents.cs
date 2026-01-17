@@ -176,7 +176,7 @@ public abstract partial class BaseActionEvent : HandledEntityEventArgs
     public Entity<ActionComponent> Action;
 
     /// <summary>
-    /// Should we toggle the action entity?
+    /// Should we toggle the action entity?.
     /// </summary>
     public bool Toggle;
 }

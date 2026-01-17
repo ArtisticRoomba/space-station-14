@@ -7,7 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Movement.Pulling.Components;
 
 /// <summary>
-/// Specifies an entity as being able to pull another entity with <see cref="PullableComponent"/>
+/// Specifies an entity as being able to pull another entity with <see cref="PullableComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 [Access(typeof(PullingSystem))]
@@ -37,7 +37,7 @@ public sealed partial class PullerComponent : Component
     public EntityUid? Pulling;
 
     /// <summary>
-    ///     Does this entity need hands to be able to pull something?
+    ///     Does this entity need hands to be able to pull something?.
     /// </summary>
     [DataField]
     public bool NeedsHands = true;

@@ -11,7 +11,7 @@ namespace Content.Shared.Cargo;
 public readonly partial record struct CargoBountyHistoryData
 {
     /// <summary>
-    /// A unique id used to identify the bounty
+    /// A unique id used to identify the bounty.
     /// </summary>
     [DataField]
     public string Id { get; init; } = string.Empty;
@@ -29,7 +29,7 @@ public readonly partial record struct CargoBountyHistoryData
     public string? ActorName { get; init; } = default;
 
     /// <summary>
-    /// Time when this bounty was completed or skipped
+    /// Time when this bounty was completed or skipped.
     /// </summary>
     [DataField]
     public TimeSpan Timestamp { get; init; } = TimeSpan.MinValue;
@@ -55,12 +55,12 @@ public readonly partial record struct CargoBountyHistoryData
     public enum BountyResult
     {
         /// <summary>
-        /// Bounty was actually fulfilled and the goods sold
+        /// Bounty was actually fulfilled and the goods sold.
         /// </summary>
         Completed = 0,
 
         /// <summary>
-        /// Bounty was explicitly skipped by some actor
+        /// Bounty was explicitly skipped by some actor.
         /// </summary>
         Skipped = 1,
     }

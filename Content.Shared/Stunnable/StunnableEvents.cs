@@ -6,7 +6,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Stunnable;
 
 /// <summary>
-/// This contains all the events raised by the SharedStunSystem
+/// This contains all the events raised by the SharedStunSystem.
 /// </summary>
 
 /// <summary>
@@ -38,7 +38,7 @@ public record struct KnockDownAttemptEvent(bool AutoStand, bool Drop, TimeSpan? 
 public record struct KnockedDownEvent;
 
 /// <summary>
-///     Raised on an entity that needs to refresh its knockdown modifiers
+///     Raised on an entity that needs to refresh its knockdown modifiers.
 /// </summary>
 [ByRefEvent]
 public record struct KnockedDownRefreshEvent()
@@ -48,7 +48,7 @@ public record struct KnockedDownRefreshEvent()
 }
 
 /// <summary>
-///     Raised directed on an entity when it tries to stand up
+///     Raised directed on an entity when it tries to stand up.
 /// </summary>
 /// <param name="Autostand">If the attempt was cancelled, passes a recommended value to change autostand to.</param>
 [ByRefEvent]
@@ -76,7 +76,7 @@ public record struct GetStandUpTimeEvent(TimeSpan DoAfterTime);
 public record struct TryForceStandEvent(float Stamina);
 
 /// <summary>
-///     Raised when you click on the Knocked Down Alert
+///     Raised when you click on the Knocked Down Alert.
 /// </summary>
 public sealed partial class KnockedDownAlertEvent : BaseAlertEvent;
 

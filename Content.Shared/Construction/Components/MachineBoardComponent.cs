@@ -9,7 +9,7 @@ namespace Content.Shared.Construction.Components;
 public sealed partial class MachineBoardComponent : Component
 {
     /// <summary>
-    /// The stacks needed to construct this machine
+    /// The stacks needed to construct this machine.
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<StackPrototype>, int> StackRequirements = new();
@@ -34,7 +34,7 @@ public sealed partial class MachineBoardComponent : Component
 }
 
 /// <summary>
-/// Marker component for any item that's machine board-like without necessarily being a MachineBoardComponent
+/// Marker component for any item that's machine board-like without necessarily being a MachineBoardComponent.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CircuitboardComponent : Component;

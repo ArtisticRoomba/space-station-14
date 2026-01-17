@@ -17,7 +17,7 @@ public sealed partial class GibActionComponent : Component
     public EntityUid? ActionEntity;
 
     /// <summary>
-    /// What mob states the action will appear in
+    /// What mob states the action will appear in.
     /// </summary>
     [DataField("allowedStates"), ViewVariables(VVAccess.ReadWrite)]
     public List<MobState> AllowedStates = new();

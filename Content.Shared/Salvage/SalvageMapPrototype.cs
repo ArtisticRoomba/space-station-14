@@ -9,7 +9,7 @@ public sealed partial class SalvageMapPrototype : IPrototype
     [ViewVariables] [IdDataField] public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// Relative directory path to the given map, i.e. `Maps/Salvage/template.yml`
+    /// Relative directory path to the given map, i.e. `Maps/Salvage/template.yml`.
     /// </summary>
     [DataField(required: true)] public ResPath MapPath;
 

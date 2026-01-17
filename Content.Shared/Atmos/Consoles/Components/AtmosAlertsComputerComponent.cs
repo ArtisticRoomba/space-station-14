@@ -11,19 +11,19 @@ namespace Content.Shared.Atmos.Components;
 public sealed partial class AtmosAlertsComputerComponent : Component
 {
     /// <summary>
-    /// The current entity of interest (selected via the console UI)
+    /// The current entity of interest (selected via the console UI).
     /// </summary>
     [ViewVariables]
     public NetEntity? FocusDevice;
 
     /// <summary>
-    /// A list of all the atmos devices that will be used to populate the nav map
+    /// A list of all the atmos devices that will be used to populate the nav map.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public HashSet<AtmosAlertsDeviceNavMapData> AtmosDevices = new();
 
     /// <summary>
-    /// A list of all the air alarms that have had their alerts silenced on this particular console
+    /// A list of all the air alarms that have had their alerts silenced on this particular console.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public HashSet<NetEntity> SilencedDevices = new();
@@ -33,22 +33,22 @@ public sealed partial class AtmosAlertsComputerComponent : Component
 public struct AtmosAlertsDeviceNavMapData
 {
     /// <summary>
-    /// The entity in question
+    /// The entity in question.
     /// </summary>
     public NetEntity NetEntity;
 
     /// <summary>
-    /// Location of the entity
+    /// Location of the entity.
     /// </summary>
     public NetCoordinates NetCoordinates;
 
     /// <summary>
-    /// Used to determine what map icons to use
+    /// Used to determine what map icons to use.
     /// </summary>
     public AtmosAlertsComputerGroup Group;
 
     /// <summary>
-    /// Populate the atmos monitoring console nav map with a single entity
+    /// Populate the atmos monitoring console nav map with a single entity.
     /// </summary>
     public AtmosAlertsDeviceNavMapData(NetEntity netEntity, NetCoordinates netCoordinates, AtmosAlertsComputerGroup group)
     {
@@ -62,27 +62,27 @@ public struct AtmosAlertsDeviceNavMapData
 public struct AtmosAlertsFocusDeviceData
 {
     /// <summary>
-    /// Focus entity
+    /// Focus entity.
     /// </summary>
     public NetEntity NetEntity;
 
     /// <summary>
-    /// Temperature (K) and related alert state
+    /// Temperature (K) and related alert state.
     /// </summary>
     public (float, AtmosAlarmType) TemperatureData;
 
     /// <summary>
-    /// Pressure (kPA) and related alert state
+    /// Pressure (kPA) and related alert state.
     /// </summary>
     public (float, AtmosAlarmType) PressureData;
 
     /// <summary>
-    /// Moles, percentage, and related alert state, for all detected gases 
+    /// Moles, percentage, and related alert state, for all detected gases.
     /// </summary>
     public Dictionary<Gas, (float, float, AtmosAlarmType)> GasData;
 
     /// <summary>
-    /// Populates the atmos monitoring console focus entry with atmospheric data
+    /// Populates the atmos monitoring console focus entry with atmospheric data.
     /// </summary>
     public AtmosAlertsFocusDeviceData
         (NetEntity netEntity,
@@ -101,22 +101,22 @@ public struct AtmosAlertsFocusDeviceData
 public sealed class AtmosAlertsComputerBoundInterfaceState : BoundUserInterfaceState
 {
     /// <summary>
-    /// A list of all air alarms
+    /// A list of all air alarms.
     /// </summary>
     public AtmosAlertsComputerEntry[] AirAlarms;
 
     /// <summary>
-    /// A list of all fire alarms
+    /// A list of all fire alarms.
     /// </summary>
     public AtmosAlertsComputerEntry[] FireAlarms;
 
     /// <summary>
-    /// Data for the UI focus (if applicable)
+    /// Data for the UI focus (if applicable).
     /// </summary>
     public AtmosAlertsFocusDeviceData? FocusData;
 
     /// <summary>
-    /// Sends data from the server to the client to populate the atmos monitoring console UI
+    /// Sends data from the server to the client to populate the atmos monitoring console UI.
     /// </summary>
     public AtmosAlertsComputerBoundInterfaceState(AtmosAlertsComputerEntry[] airAlarms, AtmosAlertsComputerEntry[] fireAlarms, AtmosAlertsFocusDeviceData? focusData)
     {
@@ -130,37 +130,37 @@ public sealed class AtmosAlertsComputerBoundInterfaceState : BoundUserInterfaceS
 public struct AtmosAlertsComputerEntry
 {
     /// <summary>
-    /// The entity in question
+    /// The entity in question.
     /// </summary>
     public NetEntity NetEntity;
 
     /// <summary>
-    /// Location of the entity
+    /// Location of the entity.
     /// </summary>
     public NetCoordinates Coordinates;
 
     /// <summary>
-    /// The type of entity
+    /// The type of entity.
     /// </summary>
     public AtmosAlertsComputerGroup Group;
 
     /// <summary>
-    /// Current alarm state
+    /// Current alarm state.
     /// </summary>
     public AtmosAlarmType AlarmState;
 
     /// <summary>
-    /// Localised device name
+    /// Localised device name.
     /// </summary>
     public string EntityName;
 
     /// <summary>
-    /// Device network address
+    /// Device network address.
     /// </summary>
     public string Address;
 
     /// <summary>
-    /// Used to populate the atmos monitoring console UI with data from a single air alarm
+    /// Used to populate the atmos monitoring console UI with data from a single air alarm.
     /// </summary>
     public AtmosAlertsComputerEntry
         (NetEntity entity,
@@ -185,7 +185,7 @@ public sealed class AtmosAlertsComputerFocusChangeMessage : BoundUserInterfaceMe
     public NetEntity? FocusDevice;
 
     /// <summary>
-    /// Used to inform the server that the specified focus for the atmos monitoring console has been changed by the client
+    /// Used to inform the server that the specified focus for the atmos monitoring console has been changed by the client.
     /// </summary>
     public AtmosAlertsComputerFocusChangeMessage(NetEntity? focusDevice)
     {
@@ -200,7 +200,7 @@ public sealed class AtmosAlertsComputerDeviceSilencedMessage : BoundUserInterfac
     public bool SilenceDevice = true;
 
     /// <summary>
-    /// Used to inform the server that the client has silenced alerts from the specified device to this atmos monitoring console 
+    /// Used to inform the server that the client has silenced alerts from the specified device to this atmos monitoring console.
     /// </summary>
     public AtmosAlertsComputerDeviceSilencedMessage(NetEntity atmosDevice, bool silenceDevice = true)
     {
@@ -210,7 +210,7 @@ public sealed class AtmosAlertsComputerDeviceSilencedMessage : BoundUserInterfac
 }
 
 /// <summary>
-/// List of all the different atmos device groups
+/// List of all the different atmos device groups.
 /// </summary>
 public enum AtmosAlertsComputerGroup
 {
@@ -226,7 +226,7 @@ public enum AtmosAlertsComputerVisuals
 }
 
 /// <summary>
-/// UI key associated with the atmos monitoring console
+/// UI key associated with the atmos monitoring console.
 /// </summary>
 [Serializable, NetSerializable]
 public enum AtmosAlertsComputerUiKey

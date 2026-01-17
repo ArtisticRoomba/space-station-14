@@ -13,7 +13,7 @@ namespace Content.Shared.Cuffs.Components;
 public sealed partial class CuffableComponent : Component
 {
     /// <summary>
-    /// The current RSI for the handcuff layer
+    /// The current RSI for the handcuff layer.
     /// </summary>
     [DataField("currentRSI"), ViewVariables(VVAccess.ReadWrite)]
     public string? CurrentRSI;
@@ -31,7 +31,7 @@ public sealed partial class CuffableComponent : Component
     public Container Container = default!;
 
     /// <summary>
-    /// Whether or not the entity can still interact (is not cuffed)
+    /// Whether or not the entity can still interact (is not cuffed).
     /// </summary>
     [DataField("canStillInteract"), ViewVariables(VVAccess.ReadWrite)]
     public bool CanStillInteract = true;

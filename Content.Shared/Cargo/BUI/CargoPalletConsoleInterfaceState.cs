@@ -6,17 +6,17 @@ namespace Content.Shared.Cargo.BUI;
 public sealed class CargoPalletConsoleInterfaceState : BoundUserInterfaceState
 {
     /// <summary>
-    /// estimated apraised value of all the entities on top of pallets on the same grid as the console
+    /// estimated apraised value of all the entities on top of pallets on the same grid as the console.
     /// </summary>
     public int Appraisal;
 
     /// <summary>
-    /// number of entities on top of pallets on the same grid as the console
+    /// number of entities on top of pallets on the same grid as the console.
     /// </summary>
     public int Count;
 
     /// <summary>
-    /// are the buttons enabled
+    /// are the buttons enabled.
     /// </summary>
     public bool Enabled;
 

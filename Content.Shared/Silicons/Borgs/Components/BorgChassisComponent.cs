@@ -86,7 +86,7 @@ public sealed partial class BorgChassisComponent : Component
     public EntityWhitelist? ModuleWhitelist;
 
     /// <summary>
-    /// How many modules can be installed in this borg?
+    /// How many modules can be installed in this borg?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public int MaxModules = 3;
@@ -104,7 +104,7 @@ public sealed partial class BorgChassisComponent : Component
     public Container ModuleContainer = default!;
 
     /// <summary>
-    /// How many modules are currently installed?
+    /// How many modules are currently installed?.
     /// </summary>
     [ViewVariables]
     public int ModuleCount => ModuleContainer.ContainedEntities.Count;

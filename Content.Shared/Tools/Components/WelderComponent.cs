@@ -19,7 +19,7 @@ namespace Content.Shared.Tools.Components;
 public sealed partial class WelderComponent : Component
 {
     /// <summary>
-    /// Is the welder currently enabled?
+    /// Is the welder currently enabled?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled;
@@ -51,7 +51,7 @@ public sealed partial class WelderComponent : Component
 
     /// <summary>
     /// Fuel consumption per second while the welder is active.
-    /// In u/s
+    /// In u/s.
     /// </summary>
     [DataField, AutoNetworkedField]
     public FixedPoint2 FuelConsumption = FixedPoint2.New(1.0f);

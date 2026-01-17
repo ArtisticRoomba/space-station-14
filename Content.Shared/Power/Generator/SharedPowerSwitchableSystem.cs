@@ -67,7 +67,7 @@ public abstract class SharedPowerSwitchableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Converts from "hv" to "HV" since for some reason the enum gets made lowercase???
+    /// Converts from "hv" to "HV" since for some reason the enum gets made lowercase???.
     /// </summary>
     public string VoltageString(SwitchableVoltage voltage)
     {

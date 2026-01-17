@@ -3,7 +3,7 @@
 namespace Content.Shared.Research.Components
 {
     /// <summary>
-    /// This is an entity that is able to connect to a <see cref="ResearchServerComponent"/>
+    /// This is an entity that is able to connect to a <see cref="ResearchServerComponent"/>.
     /// </summary>
     [RegisterComponent]
     public sealed partial class ResearchClientComponent : Component
@@ -11,16 +11,16 @@ namespace Content.Shared.Research.Components
         public bool ConnectedToServer => Server != null;
 
         /// <summary>
-        /// The server the client is connected to
+        /// The server the client is connected to.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
         public EntityUid? Server { get; set; }
     }
 
     /// <summary>
-    /// Raised on the client whenever its server is changed
+    /// Raised on the client whenever its server is changed.
     /// </summary>
-    /// <param name="Server">Its new server</param>
+    /// <param name="Server">Its new server.</param>
     [ByRefEvent]
     public readonly record struct ResearchRegistrationChangedEvent(EntityUid? Server);
 

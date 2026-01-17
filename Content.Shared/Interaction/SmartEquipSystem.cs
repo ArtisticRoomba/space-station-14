@@ -16,7 +16,7 @@ using Robust.Shared.Player;
 namespace Content.Shared.Interaction;
 
 /// <summary>
-/// This handles smart equipping or inserting/ejecting from slots through keybinds--generally shift+E and shift+B
+/// This handles smart equipping or inserting/ejecting from slots through keybinds--generally shift+E and shift+B.
 /// </summary>
 public sealed class SmartEquipSystem : EntitySystem
 {

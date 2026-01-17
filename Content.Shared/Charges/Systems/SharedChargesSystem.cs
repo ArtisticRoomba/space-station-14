@@ -187,7 +187,7 @@ public abstract class SharedChargesSystem : EntitySystem
     /// <summary>
     /// Set the number of charges an action has.
     /// </summary>
-    /// <param name="action">The action in question</param>
+    /// <param name="action">The action in question.</param>
     /// <param name="value">
     /// The number of charges. Clamped to [0, MaxCharges].
     /// </param>

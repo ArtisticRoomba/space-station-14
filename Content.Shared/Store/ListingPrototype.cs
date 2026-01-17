@@ -94,7 +94,7 @@ public partial class ListingData : IEquatable<ListingData>
     public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// The name of the listing. If empty, uses the entity's name (if present)
+    /// The name of the listing. If empty, uses the entity's name (if present).
     /// </summary>
     [DataField]
     public string? Name;
@@ -106,7 +106,7 @@ public partial class ListingData : IEquatable<ListingData>
     public ProtoId<DiscountCategoryPrototype>? DiscountCategory;
 
     /// <summary>
-    /// The description of the listing. If empty, uses the entity's description (if present)
+    /// The description of the listing. If empty, uses the entity's description (if present).
     /// </summary>
     [DataField]
     public string? Description;
@@ -158,13 +158,13 @@ public partial class ListingData : IEquatable<ListingData>
 
     /// <summary>
     /// The listing ID of the related upgrade listing. Can be used to link a <see cref="ProductAction"/> to an
-    /// upgrade or to use standalone as an upgrade
+    /// upgrade or to use standalone as an upgrade.
     /// </summary>
     [DataField]
     public ProtoId<ListingPrototype>? ProductUpgradeId;
 
     /// <summary>
-    /// Keeps track of the current action entity this is tied to, for action upgrades
+    /// Keeps track of the current action entity this is tied to, for action upgrades.
     /// </summary>
     [DataField]
     [NonSerialized]
@@ -247,7 +247,7 @@ public partial class ListingData : IEquatable<ListingData>
 }
 
 /// <summary>
-///     Defines a set item listing that is available in a store
+///     Defines a set item listing that is available in a store.
 /// </summary>
 [Prototype]
 [DataDefinition]

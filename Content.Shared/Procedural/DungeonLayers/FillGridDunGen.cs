@@ -8,7 +8,7 @@ namespace Content.Shared.Procedural.DungeonLayers;
 /// </summary>
 /// <remarks>
 /// DungeonData keys are:
-/// - Fill
+/// - Fill.
 /// </remarks>
 public sealed partial class FillGridDunGen : IDunGenLayer
 {

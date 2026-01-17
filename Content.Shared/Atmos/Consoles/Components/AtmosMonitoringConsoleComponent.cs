@@ -11,7 +11,7 @@ namespace Content.Shared.Atmos.Components;
 
 /// <summary>
 /// Entities capable of opening the atmos monitoring console UI
-/// require this component to function correctly
+/// require this component to function correctly.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedAtmosMonitoringConsoleSystem))]
@@ -22,32 +22,32 @@ public sealed partial class AtmosMonitoringConsoleComponent : Component
      */
 
     /// <summary>
-    /// A dictionary of the all the nav map chunks that contain anchored atmos pipes
+    /// A dictionary of the all the nav map chunks that contain anchored atmos pipes.
     /// </summary>
     [ViewVariables]
     public Dictionary<Vector2i, AtmosPipeChunk> AtmosPipeChunks = new();
 
     /// <summary>
-    /// A list of all the atmos devices that will be used to populate the nav map
+    /// A list of all the atmos devices that will be used to populate the nav map.
     /// </summary>
     [ViewVariables]
     public Dictionary<NetEntity, AtmosDeviceNavMapData> AtmosDevices = new();
 
     /// <summary>
-    /// Color of the floor tiles on the nav map screen
+    /// Color of the floor tiles on the nav map screen.
     /// </summary>
     [DataField, ViewVariables]
     public Color NavMapTileColor;
 
     /// <summary>
-    /// Color of the wall lines on the nav map screen
+    /// Color of the wall lines on the nav map screen.
     /// </summary>
     [DataField, ViewVariables]
     public Color NavMapWallColor;
 
     /// <summary>
     /// The next time this component is dirtied, it will force the full state
-    /// to be sent to the client, instead of just the delta state
+    /// to be sent to the client, instead of just the delta state.
     /// </summary>
     [ViewVariables]
     public bool ForceFullUpdate = false;
@@ -57,20 +57,20 @@ public sealed partial class AtmosMonitoringConsoleComponent : Component
 public struct AtmosPipeChunk(Vector2i origin)
 {
     /// <summary>
-    /// Chunk position
+    /// Chunk position.
     /// </summary>
     [ViewVariables]
     public readonly Vector2i Origin = origin;
 
     /// <summary>
     /// Bitmask look up for atmos pipes, 1 for occupied and 0 for empty.
-    /// Indexed by the net ID, layer and color hexcode of the pipe
+    /// Indexed by the net ID, layer and color hexcode of the pipe.
     /// </summary>
     [ViewVariables]
     public Dictionary<AtmosMonitoringConsoleSubnet, ulong> AtmosPipeData = new();
 
     /// <summary>
-    /// The last game tick that the chunk was updated
+    /// The last game tick that the chunk was updated.
     /// </summary>
     [NonSerialized]
     public GameTick LastUpdate;
@@ -80,42 +80,42 @@ public struct AtmosPipeChunk(Vector2i origin)
 public struct AtmosDeviceNavMapData
 {
     /// <summary>
-    /// The entity in question
+    /// The entity in question.
     /// </summary>
     public NetEntity NetEntity;
 
     /// <summary>
-    /// Location of the entity
+    /// Location of the entity.
     /// </summary>
     public NetCoordinates NetCoordinates;
 
     /// <summary>
-    /// The associated pipe network ID
+    /// The associated pipe network ID.
     /// </summary>
     public int NetId = -1;
 
     /// <summary>
-    /// Prototype ID for the nav map blip
+    /// Prototype ID for the nav map blip.
     /// </summary>
     public ProtoId<NavMapBlipPrototype> NavMapBlip;
 
     /// <summary>
-    /// Direction of the entity
+    /// Direction of the entity.
     /// </summary>
     public Direction Direction;
 
     /// <summary>
-    /// Color of the attached pipe
+    /// Color of the attached pipe.
     /// </summary>
     public Color PipeColor;
 
     /// <summary>
-    /// The pipe layer the entity is on
+    /// The pipe layer the entity is on.
     /// </summary>
     public AtmosPipeLayer PipeLayer;
 
     /// <summary>
-    /// Populate the atmos monitoring console nav map with a single entity
+    /// Populate the atmos monitoring console nav map with a single entity.
     /// </summary>
     public AtmosDeviceNavMapData(NetEntity netEntity,
         NetCoordinates netCoordinates,
@@ -139,12 +139,12 @@ public struct AtmosDeviceNavMapData
 public sealed class AtmosMonitoringConsoleBoundInterfaceState : BoundUserInterfaceState
 {
     /// <summary>
-    /// A list of all entries to populate the UI with
+    /// A list of all entries to populate the UI with.
     /// </summary>
     public AtmosMonitoringConsoleEntry[] AtmosNetworks;
 
     /// <summary>
-    /// Sends data from the server to the client to populate the atmos monitoring console UI
+    /// Sends data from the server to the client to populate the atmos monitoring console UI.
     /// </summary>
     public AtmosMonitoringConsoleBoundInterfaceState(AtmosMonitoringConsoleEntry[] atmosNetworks)
     {
@@ -156,62 +156,62 @@ public sealed class AtmosMonitoringConsoleBoundInterfaceState : BoundUserInterfa
 public struct AtmosMonitoringConsoleEntry
 {
     /// <summary>
-    /// The entity in question
+    /// The entity in question.
     /// </summary>
     public NetEntity NetEntity;
 
     /// <summary>
-    /// Location of the entity
+    /// Location of the entity.
     /// </summary>
     public NetCoordinates Coordinates;
 
     /// <summary>
-    /// The associated pipe network ID
+    /// The associated pipe network ID.
     /// </summary>
     public int NetId = -1;
 
     /// <summary>
-    /// Localised device name
+    /// Localised device name.
     /// </summary>
     public string EntityName;
 
     /// <summary>
-    /// Device network address
+    /// Device network address.
     /// </summary>
     public string Address;
 
     /// <summary>
-    /// Temperature (K)
+    /// Temperature (K).
     /// </summary>
     public float TemperatureData;
 
     /// <summary>
-    /// Pressure (kPA)
+    /// Pressure (kPA).
     /// </summary>
     public float PressureData;
 
     /// <summary>
-    /// Total number of mols of gas
+    /// Total number of mols of gas.
     /// </summary>
     public float TotalMolData;
 
     /// <summary>
-    /// Mol and percentage for all detected gases
+    /// Mol and percentage for all detected gases.
     /// </summary>
     public Dictionary<Gas, float> GasData = new();
 
     /// <summary>
-    /// The color to be associated with the pipe network
+    /// The color to be associated with the pipe network.
     /// </summary>
     public Color Color;
 
     /// <summary>
-    /// Indicates whether the entity is powered
+    /// Indicates whether the entity is powered.
     /// </summary>
     public bool IsPowered = true;
 
     /// <summary>
-    /// Used to populate the atmos monitoring console UI with data from a single air alarm
+    /// Used to populate the atmos monitoring console UI with data from a single air alarm.
     /// </summary>
     public AtmosMonitoringConsoleEntry
         (NetEntity entity,
@@ -248,7 +248,7 @@ public enum AtmosPipeChunkDataFacing : byte
 }
 
 /// <summary>
-/// UI key associated with the atmos monitoring console
+/// UI key associated with the atmos monitoring console.
 /// </summary>
 [Serializable, NetSerializable]
 public enum AtmosMonitoringConsoleUiKey

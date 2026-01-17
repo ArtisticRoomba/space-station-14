@@ -71,7 +71,7 @@ public abstract class SharedStationRecordsSystem : EntitySystem
     /// </summary>
     /// <param name="station">The station to get the records from.</param>
     /// <param name="records">Station records component.</param>
-    /// <typeparam name="T">Type of record to fetch</typeparam>
+    /// <typeparam name="T">Type of record to fetch.</typeparam>
     /// <returns>Enumerable of pairs with a station record key, and the entry in question of type T. Always empty on client.</returns>
     public IEnumerable<(uint, T)> GetRecordsOfType<T>(EntityUid station, StationRecordsComponent? records = null)
     {

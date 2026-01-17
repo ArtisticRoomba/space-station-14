@@ -76,7 +76,7 @@ public sealed class FoldableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Set the folded state of the given <see cref="FoldableComponent"/>
+    /// Set the folded state of the given <see cref="FoldableComponent"/>.
     /// </summary>
     public void SetFolded(EntityUid uid, FoldableComponent component, bool folded, EntityUid? user = null)
     {
@@ -128,7 +128,7 @@ public sealed class FoldableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Try to fold/unfold
+    /// Try to fold/unfold.
     /// </summary>
     public bool TrySetFolded(EntityUid uid, FoldableComponent comp, bool state, EntityUid? user = null)
     {

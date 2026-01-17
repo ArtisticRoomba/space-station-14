@@ -13,13 +13,13 @@ namespace Content.Shared.Atmos.Rotting;
 public sealed partial class RottingComponent : Component
 {
     /// <summary>
-    /// Whether or not the rotting should deal damage
+    /// Whether or not the rotting should deal damage.
     /// </summary>
     [DataField]
     public bool DealDamage = true;
 
     /// <summary>
-    /// When the next check will happen for rot progression + effects like damage and ammonia
+    /// When the next check will happen for rot progression + effects like damage and ammonia.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
@@ -32,7 +32,7 @@ public sealed partial class RottingComponent : Component
     public TimeSpan RotUpdateRate = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// How long has this thing been rotting?
+    /// How long has this thing been rotting?.
     /// </summary>
     [DataField]
     public TimeSpan TotalRotTime = TimeSpan.Zero;

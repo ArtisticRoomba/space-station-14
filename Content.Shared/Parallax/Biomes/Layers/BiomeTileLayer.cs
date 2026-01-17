@@ -19,7 +19,7 @@ public sealed partial class BiomeTileLayer : IBiomeLayer
     [DataField] public bool Invert { get; private set; } = false;
 
     /// <summary>
-    /// Which tile variants to use for this layer. Uses all of the tile's variants if none specified
+    /// Which tile variants to use for this layer. Uses all of the tile's variants if none specified.
     /// </summary>
     [DataField]
     public List<byte>? Variants = null;

@@ -27,7 +27,7 @@ public sealed partial class NinjaSuitComponent : Component
     public string DisableDelayId = "suit_powers";
 
     /// <summary>
-    /// The action id for recalling a bound energy katana
+    /// The action id for recalling a bound energy katana.
     /// </summary>
     [DataField]
     public EntProtoId RecallKatanaAction = "ActionRecallKatana";
@@ -43,7 +43,7 @@ public sealed partial class NinjaSuitComponent : Component
     public float RecallCharge = 3.6f;
 
     /// <summary>
-    /// The action id for creating an EMP burst
+    /// The action id for creating an EMP burst.
     /// </summary>
     [DataField]
     public EntProtoId EmpAction = "ActionNinjaEmp";
@@ -66,13 +66,13 @@ public sealed partial class NinjaSuitComponent : Component
     public float EmpRange = 6f;
 
     /// <summary>
-    /// Power consumed from batteries by the EMP
+    /// Power consumed from batteries by the EMP.
     /// </summary>
     [DataField]
     public float EmpConsumption = 100000f;
 
     /// <summary>
-    /// How long the EMP effects last for
+    /// How long the EMP effects last for.
     /// </summary>
     [DataField]
     public TimeSpan EmpDuration = TimeSpan.FromSeconds(60);

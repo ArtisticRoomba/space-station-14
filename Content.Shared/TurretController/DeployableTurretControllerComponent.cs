@@ -8,7 +8,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.TurretController;
 
 /// <summary>
-/// Attached to entities that can set data on linked turret-based entities
+/// Attached to entities that can set data on linked turret-based entities.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedDeployableTurretControllerSystem))]
@@ -24,7 +24,7 @@ public sealed partial class DeployableTurretControllerComponent : Component
     /// <summary>
     /// The last armament state index applied to any linked turrets.
     /// Values greater than zero have no additional effect if the linked turrets
-    /// do not have the <see cref="BatteryWeaponFireModesComponent"/>
+    /// do not have the <see cref="BatteryWeaponFireModesComponent"/>.
     /// </summary>
     /// <remarks>
     /// -1: Inactive, 0: weapon mode A, 1: weapon mode B, etc.

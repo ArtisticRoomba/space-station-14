@@ -191,7 +191,7 @@ public abstract partial class SharedStunSystem
     /// Refreshes the amount of time an entity is knocked down to the inputted time, if it is greater than
     /// the current time left.
     /// </summary>
-    /// <param name="entity">Entity whose timer we're updating</param>
+    /// <param name="entity">Entity whose timer we're updating.</param>
     /// <param name="time">The time we want them to be knocked down for.</param>
     public void RefreshKnockdownTime(Entity<KnockedDownComponent?> entity, TimeSpan time)
     {
@@ -206,7 +206,7 @@ public abstract partial class SharedStunSystem
     /// <summary>
     /// Adds our inputted time to an entity's knocked down timer, or sets it to the given time if their timer has expired.
     /// </summary>
-    /// <param name="entity">Entity whose timer we're updating</param>
+    /// <param name="entity">Entity whose timer we're updating.</param>
     /// <param name="time">The time we want to add to their knocked down timer.</param>
     public void AddKnockdownTime(Entity<KnockedDownComponent?> entity, TimeSpan time)
     {
@@ -229,7 +229,7 @@ public abstract partial class SharedStunSystem
     /// <summary>
     /// Sets the next update datafield of an entity's <see cref="KnockedDownComponent"/> to a specific time.
     /// </summary>
-    /// <param name="entity">Entity whose timer we're updating</param>
+    /// <param name="entity">Entity whose timer we're updating.</param>
     /// <param name="time">The exact time we're setting the next update to.</param>
     private void SetKnockdownNextUpdate(Entity<KnockedDownComponent> entity, TimeSpan time)
     {
@@ -255,7 +255,7 @@ public abstract partial class SharedStunSystem
     /// <summary>
     /// Handles an entity trying to make itself fall down.
     /// </summary>
-    /// <param name="entity">Entity who is trying to fall down</param>
+    /// <param name="entity">Entity who is trying to fall down.</param>
     private void ToggleKnockdown(Entity<CrawlerComponent?, KnockedDownComponent?> entity)
     {
         // We resolve here instead of using TryCrawling to be extra sure someone without crawler can't stand up early.
@@ -330,8 +330,8 @@ public abstract partial class SharedStunSystem
     /// A variant of <see cref="CanStand"/> used when we're actually trying to stand.
     /// Main difference is this one affects autostand datafields and also displays popups.
     /// </summary>
-    /// <param name="entity">Entity we're checking</param>
-    /// <returns>Returns whether the entity is able to stand</returns>
+    /// <param name="entity">Entity we're checking.</param>
+    /// <returns>Returns whether the entity is able to stand.</returns>
     public bool TryStand(Entity<KnockedDownComponent> entity)
     {
         if (!KnockdownOver(entity))
@@ -354,8 +354,8 @@ public abstract partial class SharedStunSystem
     /// <summary>
     /// Checks if an entity is able to stand, returns true if it can, returns false if it cannot.
     /// </summary>
-    /// <param name="entity">Entity we're checking</param>
-    /// <returns>Returns whether the entity is able to stand</returns>
+    /// <param name="entity">Entity we're checking.</param>
+    /// <returns>Returns whether the entity is able to stand.</returns>
     public bool CanStand(Entity<KnockedDownComponent> entity)
     {
         if (!KnockdownOver(entity))

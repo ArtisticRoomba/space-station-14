@@ -10,7 +10,7 @@ namespace Content.Shared.Weapons.Ranged.Components;
 public sealed partial class FlyBySoundComponent : Component
 {
     /// <summary>
-    /// Probability that the sound plays
+    /// Probability that the sound plays.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("prob")]
     public float Prob = 0.10f;

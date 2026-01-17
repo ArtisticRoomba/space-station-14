@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.GameTicking.Rules;
 
 /// <summary>
-/// Gamerule the spawns multiple antags at intervals based on a budget
+/// Gamerule the spawns multiple antags at intervals based on a budget.
 /// </summary>
 [RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class DynamicRuleComponent : Component
@@ -40,19 +40,19 @@ public sealed partial class DynamicRuleComponent : Component
     public int StartingBudgetMax = 350;
 
     /// <summary>
-    /// The time at which the next rule will start
+    /// The time at which the next rule will start.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextRuleTime;
 
     /// <summary>
-    /// Minimum delay between rules
+    /// Minimum delay between rules.
     /// </summary>
     [DataField]
     public TimeSpan MinRuleInterval = TimeSpan.FromMinutes(10);
 
     /// <summary>
-    /// Maximum delay between rules
+    /// Maximum delay between rules.
     /// </summary>
     [DataField]
     public TimeSpan MaxRuleInterval = TimeSpan.FromMinutes(30);
@@ -64,7 +64,7 @@ public sealed partial class DynamicRuleComponent : Component
     public EntityTableSelector Table = new NoneSelector();
 
     /// <summary>
-    /// The rules that have been spawned
+    /// The rules that have been spawned.
     /// </summary>
     [DataField]
     public List<EntityUid> Rules = new();

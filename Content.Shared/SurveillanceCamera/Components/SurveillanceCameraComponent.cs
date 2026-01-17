@@ -35,7 +35,7 @@ public sealed partial class SurveillanceCameraComponent : Component
     public string CameraId = "camera";
 
     /// <summary>
-    /// If true, instead of showing the camera id it will show the entity name
+    /// If true, instead of showing the camera id it will show the entity name.
     /// </summary>
     [DataField]
     public bool UseEntityNameAsCameraId = false;

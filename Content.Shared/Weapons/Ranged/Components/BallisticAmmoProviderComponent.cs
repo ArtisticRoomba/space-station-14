@@ -47,7 +47,7 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     public bool Cycleable = true;
 
     /// <summary>
-    /// Is it okay for this entity to directly transfer its valid ammunition into another provider?
+    /// Is it okay for this entity to directly transfer its valid ammunition into another provider?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public bool MayTransfer;

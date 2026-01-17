@@ -17,13 +17,13 @@ public sealed partial class ActiveRadioComponent : Component
 
     /// <summary>
     /// A toggle for globally receiving all radio channels.
-    /// Overrides <see cref="Channels"/>
+    /// Overrides <see cref="Channels"/>.
     /// </summary>
     [DataField]
     public bool ReceiveAllChannels;
 
     /// <summary>
-    ///     If this radio can hear all messages on all maps
+    ///     If this radio can hear all messages on all maps.
     /// </summary>
     [DataField]
     public bool GlobalReceive = false;

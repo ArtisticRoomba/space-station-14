@@ -6,7 +6,7 @@ namespace Content.Shared.Holopad;
 public sealed partial class HolographicAvatarComponent : Component
 {
     /// <summary>
-    /// The prototype sprite layer data for the hologram
+    /// The prototype sprite layer data for the hologram.
     /// </summary>
     [DataField, AutoNetworkedField]
     public PrototypeLayerData[]? LayerData = null;

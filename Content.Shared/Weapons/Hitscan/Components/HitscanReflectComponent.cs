@@ -16,13 +16,13 @@ public sealed partial class HitscanReflectComponent : Component
     public ReflectType ReflectiveType = ReflectType.Energy;
 
     /// <summary>
-    /// The maximum number of reflections the laser will make. <see cref="CurrentReflections"/>
+    /// The maximum number of reflections the laser will make. <see cref="CurrentReflections"/>.
     /// </summary>
     [DataField]
     public int MaxReflections = 3;
 
     /// <summary>
-    /// Current number of times this hitscan entity was reflected. Will not be more than <see cref="MaxReflections"/>
+    /// Current number of times this hitscan entity was reflected. Will not be more than <see cref="MaxReflections"/>.
     /// </summary>
     [DataField]
     public int CurrentReflections;

@@ -121,9 +121,9 @@ public abstract class SharedAnomalySystem : EntitySystem
     }
 
     /// <summary>
-    /// Begins the animation for going supercritical
+    /// Begins the animation for going supercritical.
     /// </summary>
-    /// <param name="ent">Entity to go supercritical</param>
+    /// <param name="ent">Entity to go supercritical.</param>
     public void StartSupercriticalEvent(Entity<AnomalyComponent?> ent)
     {
         // don't restart it if it's already begun
@@ -149,7 +149,7 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <summary>
     /// Does the supercritical event for the anomaly.
     /// This isn't called once the anomaly reaches the point, but
-    /// after the animation for it going supercritical
+    /// after the animation for it going supercritical.
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
@@ -183,11 +183,11 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <summary>
     /// Ends an anomaly, cleaning up all entities that may be associated with it.
     /// </summary>
-    /// <param name="uid">The anomaly being shut down</param>
+    /// <param name="uid">The anomaly being shut down.</param>
     /// <param name="component"></param>
-    /// <param name="supercritical">Whether or not the anomaly ended via supercritical event</param>
-    /// <param name="spawnCore">Create anomaly cores based on the result of completing an anomaly?</param>
-    /// <param name="logged">Whether or not the anomaly decaying/going supercritical is logged</param>
+    /// <param name="supercritical">Whether or not the anomaly ended via supercritical event.</param>
+    /// <param name="spawnCore">Create anomaly cores based on the result of completing an anomaly?.</param>
+    /// <param name="logged">Whether or not the anomaly decaying/going supercritical is logged.</param>
     public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false)
     {
         if (logged)
@@ -320,10 +320,10 @@ public abstract class SharedAnomalySystem : EntitySystem
 
     /// <summary>
     /// Gets the increase in an anomaly's severity due
-    /// to being above its growth threshold
+    /// to being above its growth threshold.
     /// </summary>
     /// <param name="component"></param>
-    /// <returns>The increase in severity for this anomaly</returns>
+    /// <returns>The increase in severity for this anomaly.</returns>
     private float GetSeverityIncreaseFromGrowth(AnomalyComponent component)
     {
         var score = 1 + Math.Max(component.Stability - component.GrowthThreshold, 0) * 10;
@@ -494,12 +494,12 @@ public abstract class SharedAnomalySystem : EntitySystem
 public partial record struct AnomalySpawnSettings()
 {
     /// <summary>
-    /// should entities block spawning?
+    /// should entities block spawning?.
     /// </summary>
     public bool CanSpawnOnEntities { get; set; } = false;
 
     /// <summary>
-    /// The minimum number of entities that spawn per pulse
+    /// The minimum number of entities that spawn per pulse.
     /// </summary>
     public int MinAmount { get; set; } = 0;
 
@@ -510,7 +510,7 @@ public partial record struct AnomalySpawnSettings()
     public int MaxAmount { get; set; } = 1;
 
     /// <summary>
-    /// The distance from the anomaly in which the entities will not appear
+    /// The distance from the anomaly in which the entities will not appear.
     /// </summary>
     public float MinRange { get; set; } = 0f;
 
@@ -520,27 +520,27 @@ public partial record struct AnomalySpawnSettings()
     public float MaxRange { get; set; } = 1f;
 
     /// <summary>
-    /// Whether or not anomaly spawns entities on Pulse
+    /// Whether or not anomaly spawns entities on Pulse.
     /// </summary>
     public bool SpawnOnPulse { get; set; } = false;
 
     /// <summary>
-    /// Whether or not anomaly spawns entities on SuperCritical
+    /// Whether or not anomaly spawns entities on SuperCritical.
     /// </summary>
     public bool SpawnOnSuperCritical { get; set; } = false;
 
     /// <summary>
-    /// Whether or not anomaly spawns entities when destroyed
+    /// Whether or not anomaly spawns entities when destroyed.
     /// </summary>
     public bool SpawnOnShutdown { get; set; } = false;
 
     /// <summary>
-    /// Whether or not anomaly spawns entities on StabilityChanged
+    /// Whether or not anomaly spawns entities on StabilityChanged.
     /// </summary>
     public bool SpawnOnStabilityChanged { get; set; } = false;
 
     /// <summary>
-    /// Whether or not anomaly spawns entities on SeverityChanged
+    /// Whether or not anomaly spawns entities on SeverityChanged.
     /// </summary>
     public bool SpawnOnSeverityChanged { get; set; } = false;
 }

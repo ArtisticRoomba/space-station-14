@@ -33,7 +33,7 @@ public sealed partial class InjectorModePrototype : IPrototype, IInheritingProto
     public LocId Name;
 
     /// <summary>
-    /// If true, it'll inject the user when used in hand (Default Key: Y/Z)
+    /// If true, it'll inject the user when used in hand (Default Key: Y/Z).
     /// </summary>
     [DataField]
     public bool InjectOnUse;
@@ -102,7 +102,7 @@ public sealed partial class InjectorModePrototype : IPrototype, IInheritingProto
     /// <summary>
     /// The state of the injector. Determines its attack behavior. Containers must have the
     /// right SolutionCaps to support injection/drawing. For InjectOnly injectors this should
-    /// only ever be set to Inject
+    /// only ever be set to Inject.
     /// </summary>
     [DataField]
     public InjectorBehavior Behavior = InjectorBehavior.Inject;

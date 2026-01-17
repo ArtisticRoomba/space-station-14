@@ -15,7 +15,7 @@ public sealed partial class GenpopIdCardComponent : Component
     public string Crime = string.Empty;
 
     /// <summary>
-    /// The length of the sentence
+    /// The length of the sentence.
     /// </summary>
     [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan SentenceDuration;

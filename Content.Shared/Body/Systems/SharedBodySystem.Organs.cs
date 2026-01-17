@@ -159,10 +159,10 @@ public partial class SharedBodySystem
 
     /// <summary>
     /// Returns a list of Entity<<see cref="T"/>, <see cref="OrganComponent"/>>
-    /// for each organ of the body
+    /// for each organ of the body.
     /// </summary>
-    /// <typeparam name="T">The component that we want to return</typeparam>
-    /// <param name="entity">The body to check the organs of</param>
+    /// <typeparam name="T">The component that we want to return.</typeparam>
+    /// <param name="entity">The body to check the organs of.</param>
     public List<Entity<T, OrganComponent>> GetBodyOrganEntityComps<T>(
         Entity<BodyComponent?> entity)
         where T : IComponent

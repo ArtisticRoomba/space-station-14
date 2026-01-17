@@ -81,7 +81,7 @@ public sealed partial class AlertPrototype : IPrototype, IInheritingPrototype
     public short MaxSeverity = -1;
 
     /// <summary>
-    /// Indicates whether this state support severity levels
+    /// Indicates whether this state support severity levels.
     /// </summary>
     public bool SupportsSeverity => MaxSeverity != -1;
 
@@ -98,8 +98,8 @@ public sealed partial class AlertPrototype : IPrototype, IInheritingPrototype
     [DataField]
     public BaseAlertEvent? ClickEvent;
 
-    /// <param name="severity">severity level, if supported by this alert</param>
-    /// <returns>the icon path to the texture for the provided severity level</returns>
+    /// <param name="severity">severity level, if supported by this alert.</param>
+    /// <returns>the icon path to the texture for the provided severity level.</returns>
     public SpriteSpecifier GetIcon(short? severity = null)
     {
         var minIcons = SupportsSeverity

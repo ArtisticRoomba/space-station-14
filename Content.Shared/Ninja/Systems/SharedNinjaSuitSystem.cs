@@ -138,7 +138,7 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Returns true if the suit is currently disabled
+    /// Returns true if the suit is currently disabled.
     /// </summary>
     public bool IsDisabled(Entity<NinjaSuitComponent?, UseDelayComponent?> ent)
     {

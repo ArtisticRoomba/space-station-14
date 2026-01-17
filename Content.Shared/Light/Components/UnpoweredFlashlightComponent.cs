@@ -26,7 +26,7 @@ public sealed partial class UnpoweredFlashlightComponent : Component
 
     /// <summary>
     ///  <see cref="ColorPalettePrototype"/> ID that determines the list
-    /// of colors to select from when we get emagged
+    /// of colors to select from when we get emagged.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<ColorPalettePrototype> EmaggedColorsPrototype = "Emagged";

@@ -5,13 +5,13 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Mech.Equipment.Components;
 
 /// <summary>
-/// A piece of equipment that can be installed into <see cref="MechComponent"/>
+/// A piece of equipment that can be installed into <see cref="MechComponent"/>.
 /// </summary>
 [RegisterComponent]
 public sealed partial class MechEquipmentComponent : Component
 {
     /// <summary>
-    /// How long does it take to install this piece of equipment
+    /// How long does it take to install this piece of equipment.
     /// </summary>
     [DataField("installDuration")] public float InstallDuration = 5;
 
@@ -22,7 +22,7 @@ public sealed partial class MechEquipmentComponent : Component
 }
 
 /// <summary>
-/// Raised on the equipment when the installation is finished successfully
+/// Raised on the equipment when the installation is finished successfully.
 /// </summary>
 public sealed class MechEquipmentInstallFinished : EntityEventArgs
 {

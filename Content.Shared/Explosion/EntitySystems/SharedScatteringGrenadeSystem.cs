@@ -27,7 +27,7 @@ public abstract class SharedScatteringGrenadeSystem : EntitySystem
 
     /// <summary>
     /// Setting the unspawned count based on capacity, so we know how many new entities to spawn
-    /// Update appearance based on initial fill amount
+    /// Update appearance based on initial fill amount.
     /// </summary>
     private void OnScatteringStartup(Entity<ScatteringGrenadeComponent> entity, ref ComponentStartup args)
     {
@@ -42,7 +42,7 @@ public abstract class SharedScatteringGrenadeSystem : EntitySystem
 
     /// <summary>
     /// There are some scattergrenades you can fill up with more grenades (like clusterbangs)
-    /// This covers how you insert more into it
+    /// This covers how you insert more into it.
     /// </summary>
     private void OnScatteringInteractUsing(Entity<ScatteringGrenadeComponent> entity, ref InteractUsingEvent args)
     {
@@ -62,7 +62,7 @@ public abstract class SharedScatteringGrenadeSystem : EntitySystem
     }
 
     /// <summary>
-    /// Update appearance based off of total count of contents
+    /// Update appearance based off of total count of contents.
     /// </summary>
     private void UpdateAppearance(Entity<ScatteringGrenadeComponent> entity)
     {

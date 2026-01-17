@@ -240,7 +240,7 @@ public sealed partial class StatusEffectsSystem
     /// <param name="uid">The target entity on which the effect is applied.</param>
     /// <param name="time">Returns the EntityUid of the status effect with the most time left, and the end effect time
     /// of that status effect.</param>
-    /// <returns> True if a status effect entity with the given component exists</returns>
+    /// <returns> True if a status effect entity with the given component exists.</returns>
     public bool TryGetMaxTime<T>(EntityUid uid, out (EntityUid EffectEnt, TimeSpan? EndEffectTime) time)
         where T : IComponent
     {

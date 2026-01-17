@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Xenoarchaeology.Artifact.Components;
 
 /// <summary>
-/// Stores metadata about a particular artifact node
+/// Stores metadata about a particular artifact node.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedXenoArtifactSystem)), AutoGenerateComponentState]
 public sealed partial class XenoArtifactNodeComponent : Component
@@ -48,7 +48,7 @@ public sealed partial class XenoArtifactNodeComponent : Component
     public int Durability;
 
     /// <summary>
-    /// The maximum amount of times a node can be generically activated before becoming useless
+    /// The maximum amount of times a node can be generically activated before becoming useless.
     /// </summary>
     [DataField, AutoNetworkedField]
     public int MaxDurability = 5;
@@ -63,7 +63,7 @@ public sealed partial class XenoArtifactNodeComponent : Component
     #region Research
 
     /// <summary>
-    /// The amount of points a node is worth with no scaling
+    /// The amount of points a node is worth with no scaling.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float BasePointValue = 4000;

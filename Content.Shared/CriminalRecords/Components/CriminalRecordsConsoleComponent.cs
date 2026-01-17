@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.CriminalRecords.Components;
 
 /// <summary>
-/// A component for Criminal Record Console storing an active station record key and a currently applied filter
+/// A component for Criminal Record Console storing an active station record key and a currently applied filter.
 /// </summary>
 [RegisterComponent]
 [Access(typeof(SharedCriminalRecordsConsoleSystem))]

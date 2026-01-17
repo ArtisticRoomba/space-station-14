@@ -59,7 +59,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         public float MaxTemperature = 593.15f;
 
         /// <summary>
-        /// Last amount of energy added/removed from the attached pipe network
+        /// Last amount of energy added/removed from the attached pipe network.
         /// </summary>
         [DataField]
         public float LastEnergyDelta;
@@ -72,7 +72,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         public float EnergyLeakPercentage;
 
         /// <summary>
-        /// If true, heat is exclusively exchanged with the local atmosphere instead of the inlet pipe air
+        /// If true, heat is exclusively exchanged with the local atmosphere instead of the inlet pipe air.
         /// </summary>
         [DataField]
         public bool Atmospheric;

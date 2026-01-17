@@ -22,7 +22,7 @@ public sealed partial class EventHorizonComponent : Component
     public float Radius;
 
     /// <summary>
-    /// involves periodically destroying tiles within a specified radius
+    /// involves periodically destroying tiles within a specified radius.
     /// </summary>
     [DataField]
     public bool ConsumeTiles = true;

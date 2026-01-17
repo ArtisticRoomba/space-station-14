@@ -46,7 +46,7 @@ public sealed partial class BodyPartComponent : Component
     public Dictionary<string, OrganSlot> Organs = new();
 
     /// <summary>
-    /// These are only for VV/Debug do not use these for gameplay/systems
+    /// These are only for VV/Debug do not use these for gameplay/systems.
     /// </summary>
     [ViewVariables]
     private List<ContainerSlot> BodyPartSlotsVV

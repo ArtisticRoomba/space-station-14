@@ -22,7 +22,7 @@ public sealed partial class MobThresholdsComponent : Component
 
     /// <summary>
     /// The health alert that should be displayed for player controlled entities.
-    /// Used for alternate health alerts (silicons, for example)
+    /// Used for alternate health alerts (silicons, for example).
     /// </summary>
     [DataField("stateAlertDict")]
     public Dictionary<MobState, ProtoId<AlertPrototype>> StateAlertDict = new()

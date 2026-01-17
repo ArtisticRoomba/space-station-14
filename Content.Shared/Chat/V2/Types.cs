@@ -35,7 +35,7 @@ public enum MessageType : byte
     /// <summary>
     /// Chat that players use to say "HELP MAINT", or plead to call the shuttle because a beaker spilled.
     /// </summary>
-    /// <remarks>This does not tell you what radio channel has been chatted on!</remarks>
+    /// <remarks>This does not tell you what radio channel has been chatted on!.</remarks>
     Radio,
 
     /// <summary>

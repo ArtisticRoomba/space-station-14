@@ -10,7 +10,7 @@ namespace Content.Shared.Radio.Components;
 public sealed partial class IntercomComponent : Component
 {
     /// <summary>
-    /// Does this intercom require power to function
+    /// Does this intercom require power to function.
     /// </summary>
     [DataField]
     public bool RequiresPower = true;

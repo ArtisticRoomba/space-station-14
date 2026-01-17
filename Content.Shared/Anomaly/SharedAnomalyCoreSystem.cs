@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Anomaly;
 
 /// <summary>
-/// This component reduces the value of the entity during decay
+/// This component reduces the value of the entity during decay.
 /// </summary>
 public sealed class SharedAnomalyCoreSystem : EntitySystem
 {

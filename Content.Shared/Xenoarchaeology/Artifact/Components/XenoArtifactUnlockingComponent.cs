@@ -10,7 +10,7 @@ namespace Content.Shared.Xenoarchaeology.Artifact.Components;
 public sealed partial class XenoArtifactUnlockingComponent : Component
 {
     /// <summary>
-    /// Indexes corresponding to all of the nodes that have been triggered
+    /// Indexes corresponding to all of the nodes that have been triggered.
     /// </summary>
     [DataField, AutoNetworkedField]
     public HashSet<int> TriggeredNodeIndexes = new();

@@ -24,7 +24,7 @@ public sealed partial class DoorRemoteComponent : Component
     public List<DoorRemoteModeInfo> Options;
 
     /// <summary>
-    /// Does the remote allow the user to control doors that they have access to, even if the remote itself does not?
+    /// Does the remote allow the user to control doors that they have access to, even if the remote itself does not?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IncludeUserAccess;

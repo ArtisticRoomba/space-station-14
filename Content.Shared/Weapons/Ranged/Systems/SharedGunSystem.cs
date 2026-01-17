@@ -68,17 +68,17 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
 
     /// <summary>
-    /// Default projectile speed
+    /// Default projectile speed.
     /// </summary>
     public const float ProjectileSpeed = 40f;
 
     /// <summary>
-    ///     Name of the container slot used as the gun's chamber
+    ///     Name of the container slot used as the gun's chamber.
     /// </summary>
     public const string ChamberSlot = "gun_chamber";
 
     /// <summary>
-    ///     Name of the container slot used as the gun's magazine
+    ///     Name of the container slot used as the gun's magazine.
     /// </summary>
     public const string MagazineSlot = "gun_magazine";
 
@@ -188,9 +188,9 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     ///     Tries to get an entity with <see cref="GunComponent"/> from the specified entity's hands, or from the entity itself.
     /// </summary>
-    /// <param name="entity">Entity that is holding the gun, or is the gun</param>
-    /// <param name="gun">Gun entity to return</param>
-    /// <returns>True if gun was found</returns>
+    /// <param name="entity">Entity that is holding the gun, or is the gun.</param>
+    /// <param name="gun">Gun entity to return.</param>
+    /// <returns>True if gun was found.</returns>
     public bool TryGetGun(EntityUid entity, out Entity<GunComponent> gun)
     {
         gun = default;
@@ -487,7 +487,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     }
 
     /// <summary>
-    /// Drops a single cartridge / shell
+    /// Drops a single cartridge / shell.
     /// </summary>
     protected void EjectCartridge(
         EntityUid entity,

@@ -25,13 +25,13 @@ public sealed partial class CCVars
             CVarDef.Create("ambience.max_sounds", 16, CVar.ARCHIVE | CVar.CLIENTONLY);
 
         /// <summary>
-        ///     The minimum value the user can set for ambience.max_sounds
+        ///     The minimum value the user can set for ambience.max_sounds.
         /// </summary>
         public static readonly CVarDef<int> MinMaxAmbientSourcesConfigured =
             CVarDef.Create("ambience.min_max_sounds_configured", 16, CVar.REPLICATED | CVar.SERVER | CVar.CHEAT);
 
         /// <summary>
-        ///     The maximum value the user can set for ambience.max_sounds
+        ///     The maximum value the user can set for ambience.max_sounds.
         /// </summary>
         public static readonly CVarDef<int> MaxMaxAmbientSourcesConfigured =
             CVarDef.Create("ambience.max_max_sounds_configured", 64, CVar.REPLICATED | CVar.SERVER | CVar.CHEAT);
@@ -61,7 +61,7 @@ public sealed partial class CCVars
             CVarDef.Create("audio.interface_volume", 0.50f, CVar.ARCHIVE | CVar.CLIENTONLY);
 
     /// <summary>
-    ///     Lobby music collection string
+    ///     Lobby music collection string.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<string> LobbyMusicCollection =

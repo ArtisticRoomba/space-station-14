@@ -26,8 +26,8 @@ public abstract class SharedGasPressureRegulatorSystem : EntitySystem
     /// <summary>
     /// Presents predicted examine information to the person examining the valve.
     /// </summary>
-    /// <param name="ent"> <see cref="Entity{T}"/> of the valve</param>
-    /// <param name="args">Event arguments for examination</param>
+    /// <param name="ent"> <see cref="Entity{T}"/> of the valve.</param>
+    /// <param name="args">Event arguments for examination.</param>
     private void OnExamined(Entity<GasPressureRegulatorComponent> ent, ref ExaminedEvent args)
     {
         if (!Transform(ent).Anchored || !args.IsInDetailsRange)

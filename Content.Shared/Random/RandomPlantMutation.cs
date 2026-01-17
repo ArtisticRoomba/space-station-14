@@ -29,13 +29,13 @@ public sealed partial class RandomPlantMutation
     public LocId? Description;
 
     /// <summary>
-    /// The actual EntityEffect to apply to the target
+    /// The actual EntityEffect to apply to the target.
     /// </summary>
     [DataField]
     public EntityEffect Effect = default!;
 
     /// <summary>
-    /// This mutation will target the harvested produce
+    /// This mutation will target the harvested produce.
     /// </summary>
     [DataField]
     public bool AppliesToProduce = true;

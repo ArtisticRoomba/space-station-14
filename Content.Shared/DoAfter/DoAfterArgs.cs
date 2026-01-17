@@ -8,7 +8,7 @@ namespace Content.Shared.DoAfter;
 public sealed partial class DoAfterArgs
 {
     /// <summary>
-    ///     The entity invoking do_after
+    ///     The entity invoking do_after.
     /// </summary>
     [NonSerialized]
     [DataField("user", required: true)]
@@ -17,13 +17,13 @@ public sealed partial class DoAfterArgs
     public NetEntity NetUser;
 
     /// <summary>
-    ///     How long does the do_after require to complete
+    ///     How long does the do_after require to complete.
     /// </summary>
     [DataField(required: true)]
     public TimeSpan Delay;
 
     /// <summary>
-    ///     Applicable target (if relevant)
+    ///     Applicable target (if relevant).
     /// </summary>
     [NonSerialized]
     [DataField]
@@ -49,7 +49,7 @@ public sealed partial class DoAfterArgs
     #region Event options
 
     /// <summary>
-    ///     The event that will get raised when the DoAfter has finished. If null, this will simply raise a <see cref="SimpleDoAfterEvent"/>
+    ///     The event that will get raised when the DoAfter has finished. If null, this will simply raise a <see cref="SimpleDoAfterEvent"/>.
     /// </summary>
     [DataField(required: true)]
     public DoAfterEvent Event = default!;
@@ -103,7 +103,7 @@ public sealed partial class DoAfterArgs
     public bool BreakOnDropItem = true;
 
     /// <summary>
-    ///     If do_after stops when the user or target moves
+    ///     If do_after stops when the user or target moves.
     /// </summary>
     [DataField]
     public bool BreakOnMove;
@@ -116,7 +116,7 @@ public sealed partial class DoAfterArgs
     public bool BreakOnWeightlessMove = true;
 
     /// <summary>
-    ///     Threshold for user and target movement
+    ///     Threshold for user and target movement.
     /// </summary>
     [DataField]
     public float MovementThreshold = 0.3f;
@@ -191,12 +191,12 @@ public sealed partial class DoAfterArgs
     /// <summary>
     ///     Creates a new set of DoAfter arguments.
     /// </summary>
-    /// <param name="user">The user that will perform the DoAfter</param>
-    /// <param name="delay">The time it takes for the DoAfter to complete</param>
+    /// <param name="user">The user that will perform the DoAfter.</param>
+    /// <param name="delay">The time it takes for the DoAfter to complete.</param>
     /// <param name="event">The event that will be raised when the DoAfter has ended (completed or cancelled).</param>
     /// <param name="eventTarget">The entity at which the event will be directed. If null, the event will not be directed.</param>
-    /// <param name="target">The entity being targeted by the DoAFter. Not the same as <see cref="EventTarget"/></param>.
-    /// <param name="used">The entity being used during the DoAfter. E.g., a tool</param>
+    /// <param name="target">The entity being targeted by the DoAFter. Not the same as <see cref="EventTarget"/>.</param>.
+    /// <param name="used">The entity being used during the DoAfter. E.g., a tool.</param>
     public DoAfterArgs(
         IEntityManager entManager,
         EntityUid user,
@@ -225,12 +225,12 @@ public sealed partial class DoAfterArgs
     /// <summary>
     ///     Creates a new set of DoAfter arguments.
     /// </summary>
-    /// <param name="user">The user that will perform the DoAfter</param>
-    /// <param name="seconds">The time it takes for the DoAfter to complete, in seconds</param>
+    /// <param name="user">The user that will perform the DoAfter.</param>
+    /// <param name="seconds">The time it takes for the DoAfter to complete, in seconds.</param>
     /// <param name="event">The event that will be raised when the DoAfter has ended (completed or cancelled).</param>
     /// <param name="eventTarget">The entity at which the event will be directed. If null, the event will not be directed.</param>
-    /// <param name="target">The entity being targeted by the DoAfter. Not the same as <see cref="EventTarget"/></param>.
-    /// <param name="used">The entity being used during the DoAfter. E.g., a tool</param>
+    /// <param name="target">The entity being targeted by the DoAfter. Not the same as <see cref="EventTarget"/>.</param>.
+    /// <param name="used">The entity being used during the DoAfter. E.g., a tool.</param>
     public DoAfterArgs(
         IEntityManager entManager,
         EntityUid user,

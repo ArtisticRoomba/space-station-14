@@ -107,13 +107,13 @@ public sealed class BlindableSystem : EntitySystem
 }
 
 /// <summary>
-///     This event is raised when an entity's blindness changes
+///     This event is raised when an entity's blindness changes.
 /// </summary>
 [ByRefEvent]
 public record struct BlindnessChangedEvent(bool Blind);
 
 /// <summary>
-///     This event is raised when an entity's eye damage changes
+///     This event is raised when an entity's eye damage changes.
 /// </summary>
 [ByRefEvent]
 public record struct EyeDamageChangedEvent(int Damage);

@@ -12,14 +12,14 @@ namespace Content.Shared.Armor;
 public sealed partial class ArmorComponent : Component
 {
     /// <summary>
-    /// The damage reduction
+    /// The damage reduction.
     /// </summary>
     [DataField(required: true)]
     public DamageModifierSet Modifiers = default!;
 
     /// <summary>
     /// A multiplier applied to the calculated point value
-    /// to determine the monetary value of the armor
+    /// to determine the monetary value of the armor.
     /// </summary>
     [DataField]
     public float PriceMultiplier = 1;
@@ -39,12 +39,12 @@ public sealed partial class ArmorComponent : Component
 public record struct ArmorExamineEvent(FormattedMessage Msg);
 
 /// <summary>
-/// A Relayed inventory event, gets the total Armor for all Inventory slots defined by the Slotflags in TargetSlots
+/// A Relayed inventory event, gets the total Armor for all Inventory slots defined by the Slotflags in TargetSlots.
 /// </summary>
 public sealed class CoefficientQueryEvent : EntityEventArgs, IInventoryRelayEvent
 {
     /// <summary>
-    /// All slots to relay to
+    /// All slots to relay to.
     /// </summary>
     public SlotFlags TargetSlots { get; set; }
 

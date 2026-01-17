@@ -17,7 +17,7 @@ public sealed partial class BorgModuleComponent : Component
     public EntityUid? InstalledEntity;
 
     /// <summary>
-    /// Is this module currently installed?
+    /// Is this module currently installed?.
     /// </summary>
     [ViewVariables]
     public bool Installed => InstalledEntity != null;
@@ -44,7 +44,7 @@ public sealed partial class BorgModuleComponent : Component
 public readonly record struct BorgModuleInstalledEvent(EntityUid ChassisEnt);
 
 /// <summary>
-/// Raised on a module when it's uninstalled in order to
+/// Raised on a module when it's uninstalled in order to.
 /// </summary>
 /// <param name="ChassisEnt">The borg the module is being uninstalled from.</param>
 [ByRefEvent]

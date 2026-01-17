@@ -57,12 +57,12 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Adds multiple mind roles to a mind
+    ///     Adds multiple mind roles to a mind.
     /// </summary>
-    /// <param name="mindId">The mind entity to add the role to</param>
-    /// <param name="roles">The list of mind roles to add</param>
-    /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity</param>
-    /// <param name="silent">If true, no briefing will be generated upon receiving the mind role</param>
+    /// <param name="mindId">The mind entity to add the role to.</param>
+    /// <param name="roles">The list of mind roles to add.</param>
+    /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity.</param>
+    /// <param name="silent">If true, no briefing will be generated upon receiving the mind role.</param>
     public void MindAddRoles(EntityUid mindId,
         List<EntProtoId>? roles,
         MindComponent? mind = null,
@@ -78,12 +78,12 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Adds a mind role to a mind
+    ///     Adds a mind role to a mind.
     /// </summary>
-    /// <param name="mindId">The mind entity to add the role to</param>
-    /// <param name="protoId">The mind role to add</param>
-    /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity</param>
-    /// <param name="silent">If true, no briefing will be generated upon receiving the mind role</param>
+    /// <param name="mindId">The mind entity to add the role to.</param>
+    /// <param name="protoId">The mind role to add.</param>
+    /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity.</param>
+    /// <param name="silent">If true, no briefing will be generated upon receiving the mind role.</param>
     public void MindAddRole(EntityUid mindId,
         EntProtoId protoId,
         MindComponent? mind = null,
@@ -96,12 +96,12 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds a Job mind role with the specified job prototype
+    /// Adds a Job mind role with the specified job prototype.
     /// </summary>
-    /// /// <param name="mindId">The mind entity to add the job role to</param>
-    /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity</param>
-    /// <param name="silent">If true, no briefing will be generated upon receiving the mind role</param>
-    /// <param name="jobPrototype">The Job prototype for the new role</param>
+    /// /// <param name="mindId">The mind entity to add the job role to.</param>
+    /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity.</param>
+    /// <param name="silent">If true, no briefing will be generated upon receiving the mind role.</param>
+    /// <param name="jobPrototype">The Job prototype for the new role.</param>
     public void MindAddJobRole(EntityUid mindId,
         MindComponent? mind = null,
         bool silent = false,
@@ -125,7 +125,7 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Creates a Mind Role
+    ///     Creates a Mind Role.
     /// </summary>
     private void MindAddRoleDo(EntityUid mindId,
         EntProtoId protoId,
@@ -190,10 +190,10 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Select the mind's currently "active" mind role entity, and update the mind's role type, if necessary
+    ///     Select the mind's currently "active" mind role entity, and update the mind's role type, if necessary.
     /// </summary>
     /// <returns>
-    ///     True if this changed the mind's role type
+    ///     True if this changed the mind's role type.
     /// </returns>>
     private bool MindRolesUpdate(Entity<MindComponent?> ent)
     {
@@ -211,7 +211,7 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Return the most recently specified role type and subtype, or Neutral
+    ///     Return the most recently specified role type and subtype, or Neutral.
     /// </summary>
     private (ProtoId<RoleTypePrototype>, LocId?) GetRoleTypeByTime(MindComponent mind)
     {
@@ -220,7 +220,7 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Return the most recently specified role type's mind role entity, or null
+    ///     Return the most recently specified role type's mind role entity, or null.
     /// </summary>
     public Entity<MindRoleComponent>? GetRoleCompByTime(MindComponent mind)
     {
@@ -279,11 +279,11 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Finds and removes all mind roles of a specific type
+    /// Finds and removes all mind roles of a specific type.
     /// </summary>
     /// <param name="mind">The mind to remove the role from.</param>
     /// <typeparam name="T">The type of the role to remove.</typeparam>
-    /// <returns>True if the role existed and was removed</returns>>
+    /// <returns>True if the role existed and was removed.</returns>>
     public bool MindRemoveRole<T>(Entity<MindComponent?> mind)
         where T : IComponent
     {
@@ -335,11 +335,11 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Finds and removes all mind roles of a specific type
+    /// Finds and removes all mind roles of a specific type.
     /// </summary>
-    /// <param name="mindId">The mind entity</param>
+    /// <param name="mindId">The mind entity.</param>
     /// <typeparam name="T">The type of the role to remove.</typeparam>
-    /// <returns>True if the role existed and was removed</returns>
+    /// <returns>True if the role existed and was removed.</returns>
     public bool MindRemoveRole<T>(EntityUid mindId)
         where T : IComponent
     {
@@ -353,11 +353,11 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Finds and removes all mind roles of a specific type
+    /// Finds and removes all mind roles of a specific type.
     /// </summary>
-    /// <param name="mind">The mind entity and component</param>
-    /// /// <param name="protoId">The prototype ID of the mind role to be removed</param>
-    /// <returns>True if the role existed and was removed</returns>
+    /// <param name="mind">The mind entity and component.</param>
+    /// /// <param name="protoId">The prototype ID of the mind role to be removed.</param>
+    /// <returns>True if the role existed and was removed.</returns>
     public bool MindRemoveRole(Entity<MindComponent?> mind, EntProtoId<MindRoleComponent> protoId)
     {
         if (!Resolve(mind.Owner, ref mind.Comp))
@@ -419,12 +419,12 @@ public abstract class SharedRoleSystem : EntitySystem
 
     /// <summary>
     /// Finds the first mind role of a specific T type on a mind entity.
-    /// Outputs entity components for the mind role's MindRoleComponent and for T
+    /// Outputs entity components for the mind role's MindRoleComponent and for T.
     /// </summary>
-    /// <param name="mind">The mind entity</param>
+    /// <param name="mind">The mind entity.</param>
     /// <typeparam name="T">The type of the role to find.</typeparam>
-    /// <param name="role">The Mind Role entity component</param>
-    /// <returns>True if the role is found</returns>
+    /// <param name="role">The Mind Role entity component.</param>
+    /// <returns>True if the role is found.</returns>
     public bool MindHasRole<T>(Entity<MindComponent?> mind,
         [NotNullWhen(true)] out Entity<MindRoleComponent, T>? role)
         where T : IComponent
@@ -453,12 +453,12 @@ public abstract class SharedRoleSystem : EntitySystem
 
     /// <summary>
     /// Finds the first mind role of a specific type on a mind entity.
-    /// Outputs an entity component for the mind role's MindRoleComponent
+    /// Outputs an entity component for the mind role's MindRoleComponent.
     /// </summary>
-    /// <param name="mindId">The mind entity</param>
-    /// <param name="type">The Type to look for</param>
-    /// <param name="role">The output role</param>
-    /// <returns>True if the role is found</returns>
+    /// <param name="mindId">The mind entity.</param>
+    /// <param name="type">The Type to look for.</param>
+    /// <param name="role">The output role.</param>
+    /// <returns>True if the role is found.</returns>
     public bool MindHasRole(EntityUid mindId,
         Type type,
         [NotNullWhen(true)] out Entity<MindRoleComponent>? role)
@@ -515,9 +515,9 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <summary>
     /// Finds the first mind role of a specific type on a mind entity.
     /// </summary>
-    /// <param name="mindId">The mind entity</param>
+    /// <param name="mindId">The mind entity.</param>
     /// <typeparam name="T">The type of the role to find.</typeparam>
-    /// <returns>True if the role is found</returns>
+    /// <returns>True if the role is found.</returns>
     public bool MindHasRole<T>(EntityUid mindId)
         where T : IComponent
     {
@@ -527,10 +527,10 @@ public abstract class SharedRoleSystem : EntitySystem
     // TODO: Delete this later
 
     /// <summary>
-    /// Returns the first mind role of a specific type
+    /// Returns the first mind role of a specific type.
     /// </summary>
-    /// <param name="mindId">The mind entity</param>
-    /// <returns>Entity Component of the mind role</returns>
+    /// <param name="mindId">The mind entity.</param>
+    /// <returns>Entity Component of the mind role.</returns>
     [Obsolete("Use MindHasRole's output value")]
     public Entity<MindRoleComponent>? MindGetRole<T>(EntityUid mindId)
         where T : IComponent
@@ -549,10 +549,10 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Reads all Roles of a mind Entity and returns their data as RoleInfo
+    /// Reads all Roles of a mind Entity and returns their data as RoleInfo.
     /// </summary>
-    /// <param name="mind">The mind entity</param>
-    /// <returns>RoleInfo list</returns>
+    /// <param name="mind">The mind entity.</param>
+    /// <returns>RoleInfo list.</returns>
     public List<RoleInfo> MindGetAllRoleInfo(Entity<MindComponent?> mind)
     {
         var roleInfo = new List<RoleInfo>();
@@ -616,10 +616,10 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Does this mind possess an antagonist role
+    /// Does this mind possess an antagonist role.
     /// </summary>
-    /// <param name="mindId">The mind entity</param>
-    /// <returns>True if the mind possesses any antag roles</returns>
+    /// <param name="mindId">The mind entity.</param>
+    /// <returns>True if the mind possesses any antag roles.</returns>
     public bool MindIsAntagonist(EntityUid? mindId)
     {
         if (mindId is null)
@@ -629,10 +629,10 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Does this mind possess an exclusive antagonist role
+    /// Does this mind possess an exclusive antagonist role.
     /// </summary>
-    /// <param name="mindId">The mind entity</param>
-    /// <returns>True if the mind possesses any exclusive antag roles</returns>
+    /// <param name="mindId">The mind entity.</param>
+    /// <returns>True if the mind possesses any exclusive antag roles.</returns>
     public bool MindIsExclusiveAntagonist(EntityUid? mindId)
     {
         if (mindId is null)

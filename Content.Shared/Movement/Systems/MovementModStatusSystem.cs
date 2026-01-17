@@ -149,10 +149,10 @@ public sealed class MovementModStatusSystem : EntitySystem
     /// Updates entity's movement speed using <see cref="MovementModStatusEffectComponent"/> to provided values.
     /// Then refreshes the movement speed of the entity.
     /// </summary>
-    /// <param name="uid">Entity whose component we're updating</param>
-    /// <param name="status">Status effect entity whose modifiers we are updating</param>
-    /// <param name="walkSpeedModifier">New walkSpeedModifer we're applying</param>
-    /// <param name="sprintSpeedModifier">New sprintSpeedModifier we're applying</param>
+    /// <param name="uid">Entity whose component we're updating.</param>
+    /// <param name="status">Status effect entity whose modifiers we are updating.</param>
+    /// <param name="walkSpeedModifier">New walkSpeedModifer we're applying.</param>
+    /// <param name="sprintSpeedModifier">New sprintSpeedModifier we're applying.</param>
     public bool TryUpdateMovementStatus(
         EntityUid uid,
         Entity<MovementModStatusEffectComponent?> status,
@@ -174,8 +174,8 @@ public sealed class MovementModStatusSystem : EntitySystem
     /// Updates entity's movement speed using <see cref="MovementModStatusEffectComponent"/> to provided value.
     /// Then refreshes the movement speed of the entity.
     /// </summary>
-    /// <param name="uid">Entity whose component we're updating</param>
-    /// <param name="status">Status effect entity whose modifiers we are updating</param>
+    /// <param name="uid">Entity whose component we're updating.</param>
+    /// <param name="status">Status effect entity whose modifiers we are updating.</param>
     /// <param name="speedModifier">
     /// Multiplier by which speed should be modified.
     /// Will be applied to both walking and running speed.
@@ -260,7 +260,7 @@ public sealed class MovementModStatusSystem : EntitySystem
     /// </summary>
     /// <param name="status">The status effect entity we're modifying.</param>
     /// <param name="friction">The friction modifier we're applying.</param>
-    /// <param name="acceleration">The acceleration modifier we're applying</param>
+    /// <param name="acceleration">The acceleration modifier we're applying.</param>
     /// <param name="entity">The entity the status effect is attached to that we need to refresh.</param>
     private bool TrySetFrictionStatus(Entity<FrictionStatusEffectComponent?> status, float friction, float acceleration, EntityUid entity)
     {

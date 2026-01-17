@@ -96,14 +96,14 @@ namespace Content.Shared.DeviceNetwork.Components
 
         /// <summary>
         ///     Whether to send the broadcast recipients list to the sender so it can be filtered.
-        /// <see cref="DeviceListSystem"/>
+        /// <see cref="DeviceListSystem"/>.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("sendBroadcastAttemptEvent")]
         public bool SendBroadcastAttemptEvent = false;
 
         /// <summary>
-        ///     Whether this device's address can be saved to device-lists
+        ///     Whether this device's address can be saved to device-lists.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("savableAddress")]

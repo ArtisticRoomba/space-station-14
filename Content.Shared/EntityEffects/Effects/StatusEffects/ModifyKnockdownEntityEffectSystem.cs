@@ -55,7 +55,7 @@ public sealed partial class ModifyKnockdown : BaseStatusEntityEffect<ModifyKnock
     public bool Crawling;
 
     /// <summary>
-    /// Should we drop items when we fall?
+    /// Should we drop items when we fall?.
     /// </summary>
     [DataField]
     public bool Drop;

@@ -69,7 +69,7 @@ namespace Content.Shared.UserInterface
 
         /// <summary>
         ///     The client channel currently using the object, or null if there's none/not single user.
-        ///     NOTE: DO NOT DIRECTLY SET, USE ActivatableUISystem.SetCurrentSingleUser
+        ///     NOTE: DO NOT DIRECTLY SET, USE ActivatableUISystem.SetCurrentSingleUser.
         /// </summary>
         [DataField, AutoNetworkedField]
         public EntityUid? CurrentSingleUser;

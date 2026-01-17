@@ -34,7 +34,7 @@ public sealed partial class EmagProviderComponent : Component
     public EmagType EmagType = EmagType.Access;
 
     /// <summary>
-    /// What sound should the emag play when used
+    /// What sound should the emag play when used.
     /// </summary>
     [DataField]
     public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");

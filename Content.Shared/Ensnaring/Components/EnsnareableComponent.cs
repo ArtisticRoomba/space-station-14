@@ -6,31 +6,31 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Ensnaring.Components;
 
 /// <summary>
-/// Use this on an entity that you would like to be ensnared by anything that has the <see cref="EnsnaringComponent"/>
+/// Use this on an entity that you would like to be ensnared by anything that has the <see cref="EnsnaringComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class EnsnareableComponent : Component
 {
     /// <summary>
-    /// How much should this slow down the entities walk?
+    /// How much should this slow down the entities walk?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float WalkSpeed = 1.0f;
 
     /// <summary>
-    /// How much should this slow down the entities sprint?
+    /// How much should this slow down the entities sprint?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float SprintSpeed = 1.0f;
 
     /// <summary>
-    /// Is this entity currently ensnared?
+    /// Is this entity currently ensnared?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsEnsnared;
 
     /// <summary>
-    /// The container where the <see cref="EnsnaringComponent"/> entity will be stored
+    /// The container where the <see cref="EnsnaringComponent"/> entity will be stored.
     /// </summary>
     public Container Container = default!;
 

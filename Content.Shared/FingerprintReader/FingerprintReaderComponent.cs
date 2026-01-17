@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.FingerprintReader;
 
 /// <summary>
-/// Component for checking if a user's fingerprint matches allowed fingerprints
+/// Component for checking if a user's fingerprint matches allowed fingerprints.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(FingerprintReaderSystem))]

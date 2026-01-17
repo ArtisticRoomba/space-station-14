@@ -22,7 +22,7 @@ public sealed partial class Explosion : EntityEffectBase<Explosion>
     public float MaxIntensity = 5;
 
     /// <summary>
-    ///     How quickly intensity drops off as you move away from the epicenter
+    ///     How quickly intensity drops off as you move away from the epicenter.
     /// </summary>
     [DataField]
     public float IntensitySlope = 1;

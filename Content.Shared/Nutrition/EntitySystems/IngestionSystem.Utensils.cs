@@ -27,7 +27,7 @@ public sealed partial class IngestionSystem
     }
 
     /// <summary>
-    /// Clicked with utensil
+    /// Clicked with utensil.
     /// </summary>
     private void OnAfterInteract(Entity<UtensilComponent> entity, ref AfterInteractEvent ev)
     {

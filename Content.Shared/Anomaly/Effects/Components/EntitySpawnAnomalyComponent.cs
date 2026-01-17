@@ -7,7 +7,7 @@ namespace Content.Shared.Anomaly.Effects.Components;
 public sealed partial class EntitySpawnAnomalyComponent : Component
 {
     /// <summary>
-    /// All types of entity spawns with their settings
+    /// All types of entity spawns with their settings.
     /// </summary>
     [DataField]
     public List<EntitySpawnSettingsEntry> Entries = new();
@@ -17,7 +17,7 @@ public sealed partial class EntitySpawnAnomalyComponent : Component
 public partial record struct EntitySpawnSettingsEntry()
 {
     /// <summary>
-    /// A list of entities that are random picked to be spawned on each pulse
+    /// A list of entities that are random picked to be spawned on each pulse.
     /// </summary>
     public List<EntProtoId> Spawns { get; set; } = new();
 

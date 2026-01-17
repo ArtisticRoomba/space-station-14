@@ -62,7 +62,7 @@ public sealed partial class ItemToggleMeleeWeaponComponent : Component
     public DamageSpecifier? DeactivatedDamage = null;
 
     /// <summary>
-    ///     Does this become hidden when deactivated
+    ///     Does this become hidden when deactivated.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool DeactivatedSecret = false;

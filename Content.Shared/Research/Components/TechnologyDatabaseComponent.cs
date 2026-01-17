@@ -22,7 +22,7 @@ public sealed partial class TechnologyDatabaseComponent : Component
     public List<string> CurrentTechnologyCards = new();
 
     /// <summary>
-    /// Which research disciplines are able to be unlocked
+    /// Which research disciplines are able to be unlocked.
     /// </summary>
     [AutoNetworkedField]
     [DataField]
@@ -37,7 +37,7 @@ public sealed partial class TechnologyDatabaseComponent : Component
 
     /// <summary>
     /// The ids of all the lathe recipes which have been unlocked.
-    /// This is maintained alongside the TechnologyIds
+    /// This is maintained alongside the TechnologyIds.
     /// </summary>
     /// todo: if you unlock all the recipes in a tech, it doesn't count as unlocking the tech. sadge
     [AutoNetworkedField]

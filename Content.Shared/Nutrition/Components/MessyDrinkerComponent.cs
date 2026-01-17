@@ -22,7 +22,7 @@ public sealed partial class MessyDrinkerComponent : Component
     public FixedPoint2 SpillAmount = 1.0;
 
     /// <summary>
-    /// The types of food prototypes we can spill
+    /// The types of food prototypes we can spill.
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<ProtoId<EdiblePrototype>> SpillableTypes = new List<ProtoId<EdiblePrototype>> { "Drink" };

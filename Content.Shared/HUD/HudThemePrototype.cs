@@ -15,7 +15,7 @@ namespace Content.Shared.HUD
         public string Path { get; private set; } = string.Empty;
 
         /// <summary>
-        /// An order for the themes to be displayed in the UI
+        /// An order for the themes to be displayed in the UI.
         /// </summary>
         [DataField]
         public int Order = 0;

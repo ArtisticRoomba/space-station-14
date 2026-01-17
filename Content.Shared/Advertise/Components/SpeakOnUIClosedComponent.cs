@@ -25,7 +25,7 @@ public sealed partial class SpeakOnUIClosedComponent : Component
     public bool Enabled = true;
 
     /// <summary>
-    /// Should messages be spoken only if the <see cref="Flag"/> is set (true), or every time the UI is closed (false)?
+    /// Should messages be spoken only if the <see cref="Flag"/> is set (true), or every time the UI is closed (false)?.
     /// </summary>
     [DataField]
     public bool RequireFlag = true;

@@ -23,7 +23,7 @@ public enum MechVisualLayers : byte
 }
 
 /// <summary>
-/// Event raised on equipment when it is inserted into a mech
+/// Event raised on equipment when it is inserted into a mech.
 /// </summary>
 [ByRefEvent]
 public readonly record struct MechEquipmentInsertedEvent(EntityUid Mech)
@@ -32,7 +32,7 @@ public readonly record struct MechEquipmentInsertedEvent(EntityUid Mech)
 }
 
 /// <summary>
-/// Event raised on equipment when it is removed from a mech
+/// Event raised on equipment when it is removed from a mech.
 /// </summary>
 [ByRefEvent]
 public readonly record struct MechEquipmentRemovedEvent(EntityUid Mech)

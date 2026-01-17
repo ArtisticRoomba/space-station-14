@@ -5,7 +5,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Points;
 
 /// <summary>
-/// This handles modifying point counts for <see cref="PointManagerComponent"/>
+/// This handles modifying point counts for <see cref="PointManagerComponent"/>.
 /// </summary>
 public abstract class SharedPointSystem : EntitySystem
 {
@@ -24,7 +24,7 @@ public abstract class SharedPointSystem : EntitySystem
     }
 
     /// <summary>
-    /// Sets the amount of points for a player
+    /// Sets the amount of points for a player.
     /// </summary>
     public void SetPointValue(NetUserId userId, FixedPoint2 value, EntityUid uid, PointManagerComponent? component = null)
     {
@@ -43,7 +43,7 @@ public abstract class SharedPointSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets the amount of points for a given player
+    /// Gets the amount of points for a given player.
     /// </summary>
     public FixedPoint2 GetPointValue(NetUserId userId, EntityUid uid, PointManagerComponent? component = null)
     {

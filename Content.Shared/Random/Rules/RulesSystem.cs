@@ -5,7 +5,7 @@ namespace Content.Shared.Random.Rules;
 /// <summary>
 /// Rules-based item selection. Can be used for any sort of conditional selection
 /// Every single condition needs to be true for this to be selected.
-/// e.g. "choose maintenance audio if 90% of tiles nearby are maintenance tiles"
+/// e.g. "choose maintenance audio if 90% of tiles nearby are maintenance tiles".
 /// </summary>
 [Prototype]
 public sealed partial class RulesPrototype : IPrototype

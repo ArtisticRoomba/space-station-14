@@ -12,7 +12,7 @@ namespace Content.Shared.Tools.Components
     public sealed partial class ToolOpenableComponent : Component
     {
         /// <summary>
-        ///     Is the openable part open or closed?
+        ///     Is the openable part open or closed?.
         /// </summary>
         [DataField, AutoNetworkedField]
         public bool IsOpen = false;

@@ -15,7 +15,7 @@ public sealed partial class TechnologyPrototype : IPrototype
 
     /// <summary>
     /// The name of the technology.
-    /// Supports locale strings
+    /// Supports locale strings.
     /// </summary>
     [DataField(required: true)]
     public LocId Name = string.Empty;
@@ -59,7 +59,7 @@ public sealed partial class TechnologyPrototype : IPrototype
     public List<ProtoId<TechnologyPrototype>> TechnologyPrerequisites = new();
 
     /// <summary>
-    /// A list of <see cref="LatheRecipePrototype"/>s that are unlocked by this technology
+    /// A list of <see cref="LatheRecipePrototype"/>s that are unlocked by this technology.
     /// </summary>
     [DataField]
     public List<ProtoId<LatheRecipePrototype>> RecipeUnlocks = new();

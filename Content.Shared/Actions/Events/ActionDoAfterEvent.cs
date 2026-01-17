@@ -4,23 +4,23 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Actions.Events;
 
 /// <summary>
-/// The event that triggers when an action doafter is completed or cancelled
+/// The event that triggers when an action doafter is completed or cancelled.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ActionDoAfterEvent : DoAfterEvent
 {
     /// <summary>
-    /// The action performer
+    /// The action performer.
     /// </summary>
     public readonly NetEntity Performer;
 
     /// <summary>
-    /// The original action use delay, used for repeating actions
+    /// The original action use delay, used for repeating actions.
     /// </summary>
     public readonly TimeSpan? OriginalUseDelay;
 
     /// <summary>
-    /// The original request, for validating
+    /// The original request, for validating.
     /// </summary>
     public readonly RequestPerformActionEvent Input;
 

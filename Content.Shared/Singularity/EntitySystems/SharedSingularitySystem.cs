@@ -35,7 +35,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <summary>
     /// The amount to scale a singularities distortion shader by when it's in a container.
     /// This is the inverse of an exponent, not a linear scaling factor.
-    /// ie. n => intensity = intensity ** (1/n)
+    /// ie. n => intensity = intensity ** (1/n).
     /// </summary>
     public const float DistortionContainerScaling = 4f;
 

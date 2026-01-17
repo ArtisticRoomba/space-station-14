@@ -48,7 +48,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Interaction
 {
     /// <summary>
-    /// Governs interactions during clicking on entities
+    /// Governs interactions during clicking on entities.
     /// </summary>
     [UsedImplicitly]
     public abstract partial class SharedInteractionSystem : EntitySystem
@@ -88,7 +88,7 @@ namespace Content.Shared.Interaction
 
         /// <summary>
         /// The collision mask used by default for
-        /// <see cref="InRangeUnobstructed(MapCoordinates,MapCoordinates,float,CollisionGroup,Ignored?,bool)" />
+        /// <see cref="InRangeUnobstructed(MapCoordinates,MapCoordinates,float,CollisionGroup,Ignored?,bool)" />.
         /// </summary>
         public const CollisionGroup InRangeUnobstructedMask = CollisionGroup.Impassable | CollisionGroup.InteractImpassable;
 
@@ -216,7 +216,7 @@ namespace Content.Shared.Interaction
         }
 
         /// <summary>
-        ///     Prevents an item with the Unremovable component from being removed from a container by almost any means
+        ///     Prevents an item with the Unremovable component from being removed from a container by almost any means.
         /// </summary>
         private void OnRemoveAttempt(EntityUid uid, UnremoveableComponent item, ContainerGettingRemovedAttemptEvent args)
         {
@@ -352,10 +352,10 @@ namespace Content.Shared.Interaction
         }
 
         /// <summary>
-        ///     Returns true if the specified entity should hand interact with the target instead of attacking
+        ///     Returns true if the specified entity should hand interact with the target instead of attacking.
         /// </summary>
-        /// <param name="user">The user interacting in combat mode</param>
-        /// <param name="target">The target of the interaction</param>
+        /// <param name="user">The user interacting in combat mode.</param>
+        /// <param name="target">The target of the interaction.</param>
         /// <returns></returns>
         public bool CombatModeCanHandInteract(EntityUid user, EntityUid? target)
         {
@@ -608,7 +608,7 @@ namespace Content.Shared.Interaction
         /// </summary>
         /// <param name="origin">Set of coordinates to use.</param>
         /// <param name="other">Other set of coordinates to use.</param>
-        /// <param name="collisionMask">the mask to check for collisions</param>
+        /// <param name="collisionMask">the mask to check for collisions.</param>
         /// <param name="predicate">
         ///     A predicate to check whether to ignore an entity or not.
         ///     If it returns true, it will be ignored.
@@ -652,7 +652,7 @@ namespace Content.Shared.Interaction
         ///     A predicate to check whether to ignore an entity or not.
         ///     If it returns true, it will be ignored.
         /// </param>
-        /// <param name="checkAccess">Perform range checks</param>
+        /// <param name="checkAccess">Perform range checks.</param>
         /// <returns>
         ///     True if the two points are within a given range without being obstructed.
         /// </returns>
@@ -869,7 +869,7 @@ namespace Content.Shared.Interaction
         }
 
         /// <summary>
-        /// Gets the entities to ignore for an unobstructed raycast
+        /// Gets the entities to ignore for an unobstructed raycast.
         /// </summary>
         /// <example>
         /// if the target entity is a wallmount we ignore all other entities on the tile.
@@ -1029,7 +1029,7 @@ namespace Content.Shared.Interaction
         /// <summary>
         /// Uses an item/object on an entity
         /// Finds components with the InteractUsing interface and calls their function
-        /// NOTE: Does not have an InRangeUnobstructed check
+        /// NOTE: Does not have an InRangeUnobstructed check.
         /// </summary>
         /// <param name="user">User doing the interaction.</param>
         /// <param name="used">Item being used on the <paramref name="target"/>.</param>
@@ -1225,9 +1225,9 @@ namespace Content.Shared.Interaction
 
         /// <summary>
         /// Raises UseInHandEvents and activates the IUse behaviors of an entity
-        /// Does not check accessibility or range, for obvious reasons
+        /// Does not check accessibility or range, for obvious reasons.
         /// </summary>
-        /// <returns>True if the interaction was handled. False otherwise</returns>
+        /// <returns>True if the interaction was handled. False otherwise.</returns>
         public bool UseInHandInteraction(
             EntityUid user,
             EntityUid used,
@@ -1516,7 +1516,7 @@ namespace Content.Shared.Interaction
     }
 
     /// <summary>
-    ///     Raised when a player attempts to activate an item in an inventory slot or hand slot
+    ///     Raised when a player attempts to activate an item in an inventory slot or hand slot.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class InteractInventorySlotEvent : EntityEventArgs
@@ -1561,7 +1561,7 @@ namespace Content.Shared.Interaction
     /// <summary>
     /// Override event raised directed on the user to say the target is accessible.
     /// </summary>
-    /// <param name="Target">Entity we're targeting</param>
+    /// <param name="Target">Entity we're targeting.</param>
     [ByRefEvent]
     public record struct AccessibleOverrideEvent(EntityUid User, EntityUid Target)
     {

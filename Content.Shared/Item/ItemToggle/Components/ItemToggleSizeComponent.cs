@@ -13,13 +13,13 @@ namespace Content.Shared.Item.ItemToggle.Components;
 public sealed partial class ItemToggleSizeComponent : Component
 {
     /// <summary>
-    ///     Item's size when activated
+    ///     Item's size when activated.
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<ItemSizePrototype>? ActivatedSize = null;
 
     /// <summary>
-    ///     Item's shape when activated
+    ///     Item's shape when activated.
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<Box2i>? ActivatedShape = null;

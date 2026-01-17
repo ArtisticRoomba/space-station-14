@@ -4,7 +4,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Objectives;
 
 /// <summary>
-/// General data about a group of items, such as icon, description, name. Used for Steal objective
+/// General data about a group of items, such as icon, description, name. Used for Steal objective.
 /// </summary>
 [Prototype]
 public sealed partial class StealTargetGroupPrototype : IPrototype

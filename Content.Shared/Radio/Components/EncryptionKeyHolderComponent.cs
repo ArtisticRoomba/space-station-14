@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Radio.Components;
 
 /// <summary>
-///     This component is by entities that can contain encryption keys
+///     This component is by entities that can contain encryption keys.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class EncryptionKeyHolderComponent : Component

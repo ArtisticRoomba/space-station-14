@@ -6,7 +6,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Lock;
 
 /// <summary>
-/// Allows locking/unlocking, with access determined by AccessReader
+/// Allows locking/unlocking, with access determined by AccessReader.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(LockSystem))]

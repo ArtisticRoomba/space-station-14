@@ -34,7 +34,7 @@ namespace Content.Shared.Humanoid.Markings
 
         /// <summary>
         /// Do we need to apply any displacement maps to this marking? Set to false if your marking is incompatible
-        /// with a standard human doll, and is used for some special races with unusual shapes
+        /// with a standard human doll, and is used for some special races with unusual shapes.
         /// </summary>
         [DataField]
         public bool CanBeDisplaced { get; private set; } = true;

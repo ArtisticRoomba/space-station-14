@@ -14,7 +14,7 @@ public abstract partial class SharedPointingArrowComponent : Component
     public Vector2 StartPosition;
 
     /// <summary>
-    /// When the pointing arrow ends
+    /// When the pointing arrow ends.
     /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]

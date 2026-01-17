@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Storage.EntitySystems;
 
 /// <summary>
-/// <see cref="MagnetPickupComponent"/>
+/// <see cref="MagnetPickupComponent"/>.
 /// </summary>
 public sealed class MagnetPickupSystem : EntitySystem
 {

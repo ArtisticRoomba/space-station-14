@@ -10,13 +10,13 @@ namespace Content.Shared.Wieldable.Components;
 public sealed partial class WieldingBlockerComponent : Component
 {
     /// <summary>
-    /// Block wielding when this item is held in a hand?
+    /// Block wielding when this item is held in a hand?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool BlockInHand = true;
 
     /// <summary>
-    /// Block wielding when this item is equipped?
+    /// Block wielding when this item is equipped?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool BlockEquipped = true;

@@ -16,13 +16,13 @@ namespace Content.Shared.Nutrition.Components;
 public sealed partial class EdibleComponent : Component
 {
     /// <summary>
-    /// Name of the solution that stores the consumable reagents
+    /// Name of the solution that stores the consumable reagents.
     /// </summary>
     [DataField]
     public string Solution = "food";
 
     /// <summary>
-    /// Should this entity be deleted when our solution is emptied?
+    /// Should this entity be deleted when our solution is emptied?.
     /// </summary>
     [DataField]
     public bool DestroyOnEmpty = true;
@@ -40,13 +40,13 @@ public sealed partial class EdibleComponent : Component
     public FixedPoint2? TransferAmount = FixedPoint2.New(5);
 
     /// <summary>
-    /// Acceptable utensils to use
+    /// Acceptable utensils to use.
     /// </summary>
     [DataField]
     public UtensilType Utensil = UtensilType.Fork; // There are more "solid" than "liquid" food
 
     /// <summary>
-    /// Do we need a utensil to access this solution?
+    /// Do we need a utensil to access this solution?.
     /// </summary>
     [DataField]
     public bool UtensilRequired;

@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Roles;
 
 /// <summary>
-/// Requires the character to be or not be on the list of specified species
+/// Requires the character to be or not be on the list of specified species.
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]

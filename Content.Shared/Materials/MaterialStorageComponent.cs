@@ -51,19 +51,19 @@ public sealed partial class MaterialStorageComponent : Component
     public bool IgnoreColor;
 
     /// <summary>
-    /// The sound that plays when inserting an item into the storage
+    /// The sound that plays when inserting an item into the storage.
     /// </summary>
     [DataField]
     public SoundSpecifier? InsertingSound;
 
     /// <summary>
-    /// How long the inserting animation will play
+    /// How long the inserting animation will play.
     /// </summary>
     [DataField]
     public TimeSpan InsertionTime = TimeSpan.FromSeconds(0.79f); // 0.01 off for animation timing
 
     /// <summary>
-    /// Whether the storage can eject the materials stored within it
+    /// Whether the storage can eject the materials stored within it.
     /// </summary>
     [DataField]
     public bool CanEjectStoredMaterials = true;
@@ -76,10 +76,10 @@ public enum MaterialStorageVisuals : byte
 }
 
 /// <summary>
-/// Collects all the materials stored on a <see cref="MaterialStorageComponent"/>
+/// Collects all the materials stored on a <see cref="MaterialStorageComponent"/>.
 /// </summary>
-/// <param name="Entity">The entity holding all these materials</param>
-/// <param name="Materials">A dictionary of all materials held</param>
+/// <param name="Entity">The entity holding all these materials.</param>
+/// <param name="Materials">A dictionary of all materials held.</param>
 /// <param name="LocalOnly">An optional specifier. Non-local sources (silo, etc.) should not add materials when this is false.</param>
 [ByRefEvent]
 public readonly record struct GetStoredMaterialsEvent(Entity<MaterialStorageComponent> Entity, Dictionary<ProtoId<MaterialPrototype>, int> Materials, bool LocalOnly);
@@ -87,7 +87,7 @@ public readonly record struct GetStoredMaterialsEvent(Entity<MaterialStorageComp
 /// <summary>
 /// After using materials, removes them from storage.
 /// </summary>
-/// <param name="Entity">The entity that held the materials and is being used up</param>
+/// <param name="Entity">The entity that held the materials and is being used up.</param>
 /// <param name="Materials">A dictionary of the difference of materials left.</param>
 /// <param name="LocalOnly">An optional specifier. Non-local sources (silo, etc.) should not consume materials when this is false.</param>
 [ByRefEvent]
@@ -103,13 +103,13 @@ public readonly record struct MaterialEntityInsertedEvent(MaterialComponent Mate
 }
 
 /// <summary>
-/// Event raised when a material amount is changed
+/// Event raised when a material amount is changed.
 /// </summary>
 [ByRefEvent]
 public readonly record struct MaterialAmountChangedEvent;
 
 /// <summary>
-/// Event raised to get all the materials that the
+/// Event raised to get all the materials that the.
 /// </summary>
 [ByRefEvent]
 public record struct GetMaterialWhitelistEvent(EntityUid Storage)
@@ -120,7 +120,7 @@ public record struct GetMaterialWhitelistEvent(EntityUid Storage)
 }
 
 /// <summary>
-/// Message sent to try and eject a material from a storage
+/// Message sent to try and eject a material from a storage.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class EjectMaterialMessage : EntityEventArgs

@@ -10,7 +10,7 @@ namespace Content.Shared.Medical;
 /// <summary>
 /// This is used for defibrillators; a machine that shocks a dead
 /// person back into the world of the living.
-/// Uses <see cref="ItemToggleComponent"/>
+/// Uses <see cref="ItemToggleComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DefibrillatorComponent : Component
@@ -61,7 +61,7 @@ public sealed partial class DefibrillatorComponent : Component
     public bool AllowDoAfterMovement = true;
 
     /// <summary>
-    /// Can the defibrilator be used on mobs in critical mobstate?
+    /// Can the defibrilator be used on mobs in critical mobstate?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool CanDefibCrit = true;

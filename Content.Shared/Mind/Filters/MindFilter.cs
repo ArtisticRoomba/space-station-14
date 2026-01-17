@@ -12,8 +12,8 @@ public abstract partial class MindFilter
     /// The actual filter function, this has to return false for minds that get removed from the pool.
     /// An excluded mind will be the same one passed to <see cref="IMindPool.FindMinds"/>.
     /// </summary>
-    /// <param name="mind">The mind to check</param>
-    /// <param name="exclude">The same mind passed to FindMinds</param>
+    /// <param name="mind">The mind to check.</param>
+    /// <param name="exclude">The same mind passed to FindMinds.</param>
     protected abstract bool ShouldRemove(Entity<MindComponent> mind, EntityUid? exclude, IEntityManager entMan, SharedMindSystem mindSys);
 
     /// <summary>

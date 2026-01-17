@@ -17,7 +17,7 @@ public sealed partial class CameraRecoilComponent : Component
     public float LastKickTime { get; set; }
 
     /// <summary>
-    ///     Basically I needed a way to chain this effect for the attack lunge animation. Sorry!
+    ///     Basically I needed a way to chain this effect for the attack lunge animation. Sorry!.
     /// </summary>
     ///
     [ViewVariables(VVAccess.ReadWrite)]

@@ -67,19 +67,19 @@ namespace Content.Shared.Light.Components
         public ProtoId<SinkPortPrototype> TogglePort = "Toggle";
 
         /// <summary>
-        /// How long it takes to eject a bulb from this
+        /// How long it takes to eject a bulb from this.
         /// </summary>
         [DataField]
         public float EjectBulbDelay = 2;
 
         /// <summary>
-        /// Shock damage done to a mob that hits the light with an unarmed attack
+        /// Shock damage done to a mob that hits the light with an unarmed attack.
         /// </summary>
         [DataField]
         public int UnarmedHitShock = 20;
 
         /// <summary>
-        /// Stun duration applied to a mob that hits the light with an unarmed attack
+        /// Stun duration applied to a mob that hits the light with an unarmed attack.
         /// </summary>
         [DataField]
         public TimeSpan UnarmedHitStun = TimeSpan.FromSeconds(5);

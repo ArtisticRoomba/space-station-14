@@ -30,10 +30,10 @@ public sealed partial class PortalComponent : Component
     public float MaxRandomRadius = 7.0f;
 
     /// <summary>
-    ///     If false, this portal will fail to teleport and fizzle out if attempting to send an entity to a different map
+    ///     If false, this portal will fail to teleport and fizzle out if attempting to send an entity to a different map.
     /// </summary>
     /// <remarks>
-    ///     Shouldn't be able to teleport people to centcomm or the eshuttle from the station
+    ///     Shouldn't be able to teleport people to centcomm or the eshuttle from the station.
     /// </remarks>
     [DataField("canTeleportToOtherMaps"), ViewVariables(VVAccess.ReadWrite)]
     public bool CanTeleportToOtherMaps = false;
@@ -43,7 +43,7 @@ public sealed partial class PortalComponent : Component
     ///     Null means no restriction on distance.
     /// </summary>
     /// <remarks>
-    ///     Obviously this should strictly be larger than <see cref="MaxRandomRadius"/> (or null)
+    ///     Obviously this should strictly be larger than <see cref="MaxRandomRadius"/> (or null).
     /// </remarks>
     [DataField("maxTeleportRadius"), ViewVariables(VVAccess.ReadWrite)]
     public float? MaxTeleportRadius;

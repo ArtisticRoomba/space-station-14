@@ -5,7 +5,7 @@ using Content.Shared.Singularity.Components;
 namespace Content.Shared.Singularity.EntitySystems;
 
 /// <summary>
-/// Shared part of SingularitySingularityGeneratorSystem
+/// Shared part of SingularitySingularityGeneratorSystem.
 /// </summary>
 public abstract class SharedSingularityGeneratorSystem : EntitySystem
 {

@@ -23,7 +23,7 @@ public sealed partial class IonStormTargetComponent : Component
     public float Chance = 0.8f;
 
     /// <summary>
-    /// Chance to replace the lawset with a random one
+    /// Chance to replace the lawset with a random one.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float RandomLawsetChance = 0.25f;

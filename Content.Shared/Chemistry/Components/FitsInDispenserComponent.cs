@@ -7,7 +7,7 @@ namespace Content.Shared.Chemistry.Components;
 /// <para>Otherwise it's considered to be too large or the improper shape to fit.</para>
 /// <para>Allows us to have obscenely large containers that are harder to abuse in chem dispensers
 /// since they can't be placed directly in them.</para>
-/// <see cref="Dispenser.SharedReagentDispenserComponent"/>
+/// <see cref="Dispenser.SharedReagentDispenserComponent"/>.
 /// </summary>
 [RegisterComponent]
 [NetworkedComponent] // only needed for white-lists. Client doesn't actually need Solution data;

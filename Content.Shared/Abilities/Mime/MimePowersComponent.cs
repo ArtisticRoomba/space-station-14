@@ -42,14 +42,14 @@ public sealed partial class MimePowersComponent : Component
     public bool ReadyToRepent = false;
 
     /// <summary>
-    /// Time when the mime can repent their vow
+    /// Time when the mime can repent their vow.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan VowRepentTime = TimeSpan.Zero;
 
     /// <summary>
-    /// How long it takes the mime to get their powers back
+    /// How long it takes the mime to get their powers back.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan VowCooldown = TimeSpan.FromMinutes(5);
@@ -61,13 +61,13 @@ public sealed partial class MimePowersComponent : Component
     public ProtoId<AlertPrototype> VowBrokenAlert = "VowBroken";
 
     /// <summary>
-    /// Does this component prevent the mime from writing on paper while their vow is active?
+    /// Does this component prevent the mime from writing on paper while their vow is active?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool PreventWriting = false;
 
     /// <summary>
-    /// What message is displayed when the mime fails to write?
+    /// What message is displayed when the mime fails to write?.
     /// </summary>
     [DataField]
     public LocId FailWriteMessage = "paper-component-illiterate-mime";

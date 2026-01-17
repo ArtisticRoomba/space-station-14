@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Parallax.Biomes;
 
 /// <summary>
-/// A preset group of biome layers to be used for a <see cref="BiomeComponent"/>
+/// A preset group of biome layers to be used for a <see cref="BiomeComponent"/>.
 /// </summary>
 [Prototype]
 public sealed partial class BiomeTemplatePrototype : IPrototype

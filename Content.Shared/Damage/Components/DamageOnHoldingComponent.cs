@@ -14,7 +14,7 @@ public sealed partial class DamageOnHoldingComponent : Component
     public bool Enabled = true;
 
     /// <summary>
-    /// Damage per interval dealt to entity holding the entity with this component
+    /// Damage per interval dealt to entity holding the entity with this component.
     /// </summary>
     [DataField("damage"), ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier Damage = new();
@@ -22,7 +22,7 @@ public sealed partial class DamageOnHoldingComponent : Component
     // TODO: make it networked
 
     /// <summary>
-    /// Delay between damage events in seconds
+    /// Delay between damage events in seconds.
     /// </summary>
     [DataField("interval"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]

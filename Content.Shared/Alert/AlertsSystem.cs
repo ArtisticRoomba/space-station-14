@@ -107,7 +107,7 @@ public abstract class AlertsSystem : EntitySystem
         return false;
     }
 
-    /// <returns>true iff an alert of the indicated alert category is currently showing</returns>
+    /// <returns>true iff an alert of the indicated alert category is currently showing.</returns>
     public bool IsShowingAlertCategory(Entity<AlertsComponent?> entity, ProtoId<AlertCategoryPrototype> alertCategory)
     {
         return _alertsQuery.Resolve(entity, ref entity.Comp, false)
@@ -129,12 +129,12 @@ public abstract class AlertsSystem : EntitySystem
     /// it will be updated / replaced with the specified values.
     /// </summary>
     /// <param name="entity">The entity who we are showing the alert for.</param>
-    /// <param name="alertType">type of the alert to set</param>
-    /// <param name="severity">severity, if supported by the alert</param>
+    /// <param name="alertType">type of the alert to set.</param>
+    /// <param name="severity">severity, if supported by the alert.</param>
     /// <param name="cooldown">cooldown start and end, if null there will be no cooldown (and it will
-    ///     be erased if there is currently a cooldown for the alert)</param>
-    /// <param name="autoRemove">if true, the alert will be removed at the end of the cooldown</param>
-    /// <param name="showCooldown">if true, the cooldown will be visibly shown over the alert icon</param>
+    ///     be erased if there is currently a cooldown for the alert).</param>
+    /// <param name="autoRemove">if true, the alert will be removed at the end of the cooldown.</param>
+    /// <param name="showCooldown">if true, the cooldown will be visibly shown over the alert icon.</param>
     public void ShowAlert(Entity<AlertsComponent?> entity,
         ProtoId<AlertPrototype> alertType,
         short? severity = null,
@@ -190,12 +190,12 @@ public abstract class AlertsSystem : EntitySystem
     /// <summary>
     /// An alternative to show alert with different behavior if an alert already exists.
     /// </summary>
-    /// <param name="entity">Entity whose alert we're updating</param>
-    /// <param name="alertType">Prototype of the alert we're updating</param>
-    /// <param name="severity">Severity we're setting the alert to</param>
+    /// <param name="entity">Entity whose alert we're updating.</param>
+    /// <param name="alertType">Prototype of the alert we're updating.</param>
+    /// <param name="severity">Severity we're setting the alert to.</param>
     /// <param name="cooldown">Time left in the alert.</param>
-    /// <param name="autoRemove">Do we want to remove this alert when it expires?</param>
-    /// <param name="showCooldown">Should we show/hide the cooldown?</param>
+    /// <param name="autoRemove">Do we want to remove this alert when it expires?.</param>
+    /// <param name="showCooldown">Should we show/hide the cooldown?.</param>
     public void UpdateAlert(Entity<AlertsComponent?> entity,
         ProtoId<AlertPrototype> alertType,
         short? severity = null,
@@ -276,12 +276,12 @@ public abstract class AlertsSystem : EntitySystem
     }
 
     /// <summary>
-    /// Invoked after showing an alert prior to dirtying the component
+    /// Invoked after showing an alert prior to dirtying the component.
     /// </summary>
     protected virtual void AfterShowAlert(Entity<AlertsComponent> alerts) { }
 
     /// <summary>
-    /// Invoked after clearing an alert prior to dirtying the component
+    /// Invoked after clearing an alert prior to dirtying the component.
     /// </summary>
     protected virtual void AfterClearAlert(Entity<AlertsComponent> alerts) { }
 
@@ -338,9 +338,9 @@ public abstract class AlertsSystem : EntitySystem
     }
 
     /// <summary>
-    /// Tries to get the alert of the indicated type
+    /// Tries to get the alert of the indicated type.
     /// </summary>
-    /// <returns>true if found</returns>
+    /// <returns>true if found.</returns>
     public bool TryGet(ProtoId<AlertPrototype> alertType, [NotNullWhen(true)] out AlertPrototype? alert)
     {
         return _typeToAlert.TryGetValue(alertType, out alert);

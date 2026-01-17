@@ -17,7 +17,7 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <summary>
-    ///     Default ID of <see cref="TypingIndicatorPrototype"/>
+    ///     Default ID of <see cref="TypingIndicatorPrototype"/>.
     /// </summary>
     public static readonly ProtoId<TypingIndicatorPrototype> InitialIndicatorId = "default";
 

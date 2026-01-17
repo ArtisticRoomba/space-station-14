@@ -46,7 +46,7 @@ namespace Content.Shared.Chemistry.Components
         public string? InHandsFillBaseName = null;
 
         /// <summary>
-        /// A separate max fill levels for in-hands (to reduce number of sprites needed)
+        /// A separate max fill levels for in-hands (to reduce number of sprites needed).
         /// </summary>
         [DataField]
         public int InHandsMaxFillLevels = 0;
@@ -58,7 +58,7 @@ namespace Content.Shared.Chemistry.Components
         public string? EquippedFillBaseName = null;
 
         /// <summary>
-        /// A separate max fill levels for equipped items (to reduce number of sprites needed)
+        /// A separate max fill levels for equipped items (to reduce number of sprites needed).
         /// </summary>
         [DataField]
         public int EquippedMaxFillLevels = 0;

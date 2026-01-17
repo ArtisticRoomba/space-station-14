@@ -9,7 +9,7 @@ namespace Content.Shared.Weather;
 public sealed partial class WeatherComponent : Component
 {
     /// <summary>
-    /// Currently running weathers
+    /// Currently running weathers.
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<WeatherPrototype>, WeatherData> Weather = new();

@@ -146,7 +146,7 @@ namespace Content.Shared.Movement.Components
         public float WeightlessFrictionNoInput;
 
         /// <summary>
-        /// The negative velocity applied for friction when weightless and not standing on a grid or mapgrid
+        /// The negative velocity applied for friction when weightless and not standing on a grid or mapgrid.
         /// </summary>
         [AutoNetworkedField, DataField]
         public float? OffGridFriction;

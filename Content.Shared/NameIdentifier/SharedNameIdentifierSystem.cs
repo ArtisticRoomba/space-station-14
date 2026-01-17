@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.NameIdentifier;
 
 /// <summary>
-///     Handles unique name identifiers for entities e.g. `monkey (MK-912)`
+///     Handles unique name identifiers for entities e.g. `monkey (MK-912)`.
 /// </summary>
 public abstract class SharedNameIdentifierSystem : EntitySystem
 {

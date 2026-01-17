@@ -60,21 +60,21 @@ public sealed partial class ReproductiveComponent : Component
 
     /// <summary>
     /// Whether or not this entity has bred successfully
-    /// and will produce offspring imminently
+    /// and will produce offspring imminently.
     /// </summary>
     [DataField]
     public bool Gestating;
 
     /// <summary>
     /// When gestation will end.
-    /// Null if <see cref="Gestating"/> is false
+    /// Null if <see cref="Gestating"/> is false.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan? GestationEndTime;
 
     /// <summary>
     /// How long it takes the entity after breeding
-    /// to produce offspring
+    /// to produce offspring.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan GestationDuration = TimeSpan.FromMinutes(1.5);

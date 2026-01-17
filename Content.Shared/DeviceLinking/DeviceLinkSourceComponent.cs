@@ -9,7 +9,7 @@ namespace Content.Shared.DeviceLinking;
 public sealed partial class DeviceLinkSourceComponent : Component
 {
     /// <summary>
-    /// The ports the device link source sends signals from
+    /// The ports the device link source sends signals from.
     /// </summary>
     [DataField]
     public HashSet<ProtoId<SourcePortPrototype>> Ports = new();
@@ -29,7 +29,7 @@ public sealed partial class DeviceLinkSourceComponent : Component
     public Dictionary<ProtoId<SourcePortPrototype>, bool> LastSignals = new();
 
     /// <summary>
-    /// The list of source to sink ports for each linked sink entity for easier managing of links
+    /// The list of source to sink ports for each linked sink entity for easier managing of links.
     /// </summary>
     [DataField]
     public Dictionary<EntityUid, HashSet<(ProtoId<SourcePortPrototype> Source, ProtoId<SinkPortPrototype> Sink)>> LinkedPorts = new();

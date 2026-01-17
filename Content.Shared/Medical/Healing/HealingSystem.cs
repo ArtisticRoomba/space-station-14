@@ -226,11 +226,11 @@ public sealed class HealingSystem : EntitySystem
     }
 
     /// <summary>
-    /// Scales the self-heal penalty based on the amount of damage taken
+    /// Scales the self-heal penalty based on the amount of damage taken.
     /// </summary>
-    /// <param name="ent">Entity we're healing</param>
+    /// <param name="ent">Entity we're healing.</param>
     /// <param name="mod">Maximum modifier we can have.</param>
-    /// <returns>Modifier we multiply our healing time by</returns>
+    /// <returns>Modifier we multiply our healing time by.</returns>
     public float GetScaledHealingPenalty(Entity<DamageableComponent?, MobThresholdsComponent?> ent, float mod)
     {
         if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))

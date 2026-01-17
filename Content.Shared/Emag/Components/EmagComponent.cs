@@ -14,21 +14,21 @@ namespace Content.Shared.Emag.Components;
 public sealed partial class EmagComponent : Component
 {
     /// <summary>
-    /// The tag that marks an entity as immune to emags
+    /// The tag that marks an entity as immune to emags.
     /// </summary>
     [DataField]
     [AutoNetworkedField]
     public ProtoId<TagPrototype> EmagImmuneTag = "EmagImmune";
 
     /// <summary>
-    /// What type of emag effect this device will do
+    /// What type of emag effect this device will do.
     /// </summary>
     [DataField]
     [AutoNetworkedField]
     public EmagType EmagType = EmagType.Interaction;
 
     /// <summary>
-    /// What sound should the emag play when used
+    /// What sound should the emag play when used.
     /// </summary>
     [DataField]
     [AutoNetworkedField]

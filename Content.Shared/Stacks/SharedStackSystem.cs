@@ -225,7 +225,7 @@ public abstract partial class SharedStackSystem : EntitySystem
     ///     However, prediction of interacitons with spawned entities is non-functional (or so i'm told)
     ///     So, UserSplit() and Split() should remain on the server for the time being.
     ///     This empty virtual method allows for UserSplit() to be called on the server from the client.
-    ///     When prediction is improved, those two methods should be moved to shared, in order to predict the splitting itself (not just the verbs)
+    ///     When prediction is improved, those two methods should be moved to shared, in order to predict the splitting itself (not just the verbs).
     /// </remarks>
     protected virtual void UserSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user, int amount)
     {

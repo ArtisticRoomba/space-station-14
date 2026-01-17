@@ -3,13 +3,13 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Objectives.Components;
 
 /// <summary>
-/// An abstract component that allows other systems to count adjacent objects as "stolen" when controlling other systems
+/// An abstract component that allows other systems to count adjacent objects as "stolen" when controlling other systems.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class StealAreaComponent : Component
 {
     /// <summary>
-    /// Is the component currently enabled?
+    /// Is the component currently enabled?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled = true;

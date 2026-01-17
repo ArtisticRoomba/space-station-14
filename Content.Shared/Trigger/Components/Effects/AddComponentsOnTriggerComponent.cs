@@ -30,7 +30,7 @@ public sealed partial class AddComponentsOnTriggerComponent : BaseXOnTriggerComp
     public bool TriggerOnce = false;
 
     /// <summary>
-    /// Should components that already exist on the entity be overwritten?
+    /// Should components that already exist on the entity be overwritten?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool RemoveExisting = false;

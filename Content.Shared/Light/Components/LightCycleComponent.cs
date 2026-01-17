@@ -4,7 +4,7 @@ using Robust.Shared.Map.Components;
 namespace Content.Shared.Light.Components;
 
 /// <summary>
-/// Cycles through colors AKA "Day / Night cycle" on <see cref="MapLightComponent"/>
+/// Cycles through colors AKA "Day / Night cycle" on <see cref="MapLightComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class LightCycleComponent : Component
@@ -13,7 +13,7 @@ public sealed partial class LightCycleComponent : Component
     public Color OriginalColor = Color.Transparent;
 
     /// <summary>
-    /// How long an entire cycle lasts
+    /// How long an entire cycle lasts.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan Duration = TimeSpan.FromMinutes(30);
@@ -37,7 +37,7 @@ public sealed partial class LightCycleComponent : Component
     public float MinLightLevel = 0f;
 
     /// <summary>
-    /// Peak of the oscillation
+    /// Peak of the oscillation.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MaxLightLevel = 3f;

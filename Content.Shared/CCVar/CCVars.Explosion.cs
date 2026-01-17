@@ -5,7 +5,7 @@ namespace Content.Shared.CCVar;
 public sealed partial class CCVars
 {
     /// <summary>
-    ///     How many tiles the explosion system will process per tick
+    ///     How many tiles the explosion system will process per tick.
     /// </summary>
     /// <remarks>
     ///     Setting this too high will put a large load on a single tick. Setting this too low will lead to

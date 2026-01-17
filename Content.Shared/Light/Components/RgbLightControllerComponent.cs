@@ -33,7 +33,7 @@ public sealed partial class RgbLightControllerComponent : Component
     public Dictionary<int, Color>? OriginalLayerColors;
 
     /// <summary>
-    ///     User that is holding or wearing this entity
+    ///     User that is holding or wearing this entity.
     /// </summary>
     public EntityUid? Holder;
 

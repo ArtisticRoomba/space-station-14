@@ -4,7 +4,7 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAE.Components;
 
 /// <summary>
 /// When activated, will teleport the artifact
-/// to a random position within a certain radius
+/// to a random position within a certain radius.
 /// </summary>
 [RegisterComponent, Access(typeof(XAERandomTeleportInvokerSystem)), NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class XAERandomTeleportInvokerComponent : Component

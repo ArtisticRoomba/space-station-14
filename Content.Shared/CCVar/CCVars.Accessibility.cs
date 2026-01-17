@@ -6,7 +6,7 @@ public sealed partial class CCVars
 {
     /// <summary>
     ///     Chat window opacity slider, controlling the alpha of the chat window background.
-    ///     Goes from to 0 (completely transparent) to 1 (completely opaque)
+    ///     Goes from to 0 (completely transparent) to 1 (completely opaque).
     /// </summary>
     public static readonly CVarDef<float> ChatWindowOpacity =
         CVarDef.Create("accessibility.chat_window_transparency", 0.85f, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -27,7 +27,7 @@ public sealed partial class CCVars
 
     /// <summary>
     ///     Screen shake intensity slider, controlling the intensity of the CameraRecoilSystem.
-    ///     Goes from 0 (no recoil at all) to 1 (regular amounts of recoil)
+    ///     Goes from 0 (no recoil at all) to 1 (regular amounts of recoil).
     /// </summary>
     public static readonly CVarDef<float> ScreenShakeIntensity =
         CVarDef.Create("accessibility.screen_shake_intensity", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -41,21 +41,21 @@ public sealed partial class CCVars
 
     /// <summary>
     ///     Speech bubble text opacity slider, controlling the alpha of speech bubble's text.
-    ///     Goes from to 0 (completely transparent) to 1 (completely opaque)
+    ///     Goes from to 0 (completely transparent) to 1 (completely opaque).
     /// </summary>
     public static readonly CVarDef<float> SpeechBubbleTextOpacity =
         CVarDef.Create("accessibility.speech_bubble_text_opacity", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     ///     Speech bubble speaker opacity slider, controlling the alpha of the speaker's name in a speech bubble.
-    ///     Goes from to 0 (completely transparent) to 1 (completely opaque)
+    ///     Goes from to 0 (completely transparent) to 1 (completely opaque).
     /// </summary>
     public static readonly CVarDef<float> SpeechBubbleSpeakerOpacity =
         CVarDef.Create("accessibility.speech_bubble_speaker_opacity", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     ///     Speech bubble background opacity slider, controlling the alpha of the speech bubble's background.
-    ///     Goes from to 0 (completely transparent) to 1 (completely opaque)
+    ///     Goes from to 0 (completely transparent) to 1 (completely opaque).
     /// </summary>
     public static readonly CVarDef<float> SpeechBubbleBackgroundOpacity =
         CVarDef.Create("accessibility.speech_bubble_background_opacity", 0.75f, CVar.CLIENTONLY | CVar.ARCHIVE);

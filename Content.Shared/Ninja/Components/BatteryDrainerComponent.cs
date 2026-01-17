@@ -27,7 +27,7 @@ public sealed partial class BatteryDrainerComponent : Component
     public float DrainEfficiency = 0.001f;
 
     /// <summary>
-    /// Time that the do after takes to drain charge from a battery, in seconds
+    /// Time that the do after takes to drain charge from a battery, in seconds.
     /// </summary>
     [DataField]
     public float DrainTime = 1f;

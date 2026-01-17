@@ -48,9 +48,9 @@ public sealed class EntityTableContext
     /// Retrieves an arbitrary piece of data from the context based on a provided key.
     /// </summary>
     /// <param name="key">A string key that corresponds to the value we are searching for. </param>
-    /// <param name="value">The value we are trying to extract from the context object</param>
-    /// <typeparam name="T">The type of <see cref="value"/> that we are trying to retrieve</typeparam>
-    /// <returns>If <see cref="key"/> has a corresponding value of type <see cref="T"/></returns>
+    /// <param name="value">The value we are trying to extract from the context object.</param>
+    /// <typeparam name="T">The type of <see cref="value"/> that we are trying to retrieve.</typeparam>
+    /// <returns>If <see cref="key"/> has a corresponding value of type <see cref="T"/>.</returns>
     [PublicAPI]
     public bool TryGetData<T>([ForbidLiteral] string key, [NotNullWhen(true)] out T? value)
     {

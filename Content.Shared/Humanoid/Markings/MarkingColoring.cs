@@ -3,19 +3,19 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Humanoid.Markings;
 
 /// <summary>
-///     Default colors for marking
+///     Default colors for marking.
 /// </summary>
 [DataDefinition]
 public sealed partial class MarkingColors
 {
     /// <summary>
-    /// Coloring properties that will be used on any unspecified layer
+    /// Coloring properties that will be used on any unspecified layer.
     /// </summary>
     [DataField("default", true)]
     public LayerColoringDefinition Default = new LayerColoringDefinition();
 
     /// <summary>
-    ///     Layers with their own coloring type and properties
+    ///     Layers with their own coloring type and properties.
     /// </summary>
     [DataField("layers", true)]
     public Dictionary<string, LayerColoringDefinition>? Layers;
@@ -24,7 +24,7 @@ public sealed partial class MarkingColors
 public static class MarkingColoring
 {
     /// <summary>
-    ///     Returns list of colors for marking layers
+    ///     Returns list of colors for marking layers.
     /// </summary>
     public static List<Color> GetMarkingLayerColors
     (
@@ -84,7 +84,7 @@ public static class MarkingColoring
 }
 
 /// <summary>
-///     A class that defines coloring type and fallback for markings
+///     A class that defines coloring type and fallback for markings.
 /// </summary>
 [DataDefinition]
 public sealed partial class LayerColoringDefinition
@@ -93,13 +93,13 @@ public sealed partial class LayerColoringDefinition
     public LayerColoringType? Type = new SkinColoring();
 
     /// <summary>
-    ///     Coloring types that will be used if main coloring type will return nil
+    ///     Coloring types that will be used if main coloring type will return nil.
     /// </summary>
     [DataField("fallbackTypes")]
     public List<LayerColoringType> FallbackTypes = new() { };
 
     /// <summary>
-    ///     Color that will be used if coloring type and fallback type will return nil
+    ///     Color that will be used if coloring type and fallback type will return nil.
     /// </summary>
     [DataField("fallbackColor")]
     public Color FallbackColor = Color.White;
@@ -123,13 +123,13 @@ public sealed partial class LayerColoringDefinition
 }
 
 /// <summary>
-///     An abstract class for coloring types
+///     An abstract class for coloring types.
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class LayerColoringType
 {
     /// <summary>
-    ///     Makes output color negative
+    ///     Makes output color negative.
     /// </summary>
     [DataField("negative")]
     public bool Negative { get; private set; } = false;

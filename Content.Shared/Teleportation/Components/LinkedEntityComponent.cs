@@ -19,7 +19,7 @@ public sealed partial class LinkedEntityComponent : Component
     public HashSet<EntityUid> LinkedEntities = new();
 
     /// <summary>
-    ///     Should this entity be deleted if all of its links are removed?
+    ///     Should this entity be deleted if all of its links are removed?.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool DeleteOnEmptyLinks;

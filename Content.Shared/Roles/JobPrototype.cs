@@ -63,13 +63,13 @@ namespace Content.Shared.Roles
         public bool RequireAdminNotify { get; private set; } = false;
 
         /// <summary>
-        ///     Should this job appear in preferences menu?
+        ///     Should this job appear in preferences menu?.
         /// </summary>
         [DataField]
         public bool SetPreference { get; private set; } = true;
 
         /// <summary>
-        ///     Should the selected traits be applied for this job?
+        ///     Should the selected traits be applied for this job?.
         /// </summary>
         [DataField]
         public bool ApplyTraits { get; private set; } = true;

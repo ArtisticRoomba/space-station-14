@@ -17,7 +17,7 @@ public sealed partial class FireProtectionComponent : Component
 
     /// <summary>
     /// LocId for message that will be shown on detailed examine.
-    /// Actually can be moved into system
+    /// Actually can be moved into system.
     /// </summary>
     [DataField]
     public LocId ExamineMessage = "fire-protection-reduction-value";

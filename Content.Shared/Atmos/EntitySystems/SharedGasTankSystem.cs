@@ -148,10 +148,10 @@ public abstract class SharedGasTankSystem : EntitySystem
 
     /// <summary>
     /// Tries to retrieve the internals component of either the gas tank's user,
-    /// or the gas tank's... containing container
+    /// or the gas tank's... containing container.
     /// </summary>
-    /// <param name="user">The user of the gas tank</param>
-    /// <returns>True if internals comp isn't null, false if it is null</returns>
+    /// <param name="user">The user of the gas tank.</param>
+    /// <returns>True if internals comp isn't null, false if it is null.</returns>
     private bool TryGetInternalsComp(Entity<GasTankComponent> ent, out EntityUid? internalsUid, out InternalsComponent? internalsComp, EntityUid? user = null)
     {
         internalsUid = default;

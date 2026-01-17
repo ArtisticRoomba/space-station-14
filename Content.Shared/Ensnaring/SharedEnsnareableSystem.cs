@@ -142,12 +142,12 @@ public abstract class SharedEnsnareableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Used where you want to try to free an entity with the <see cref="EnsnareableComponent"/>
+    /// Used where you want to try to free an entity with the <see cref="EnsnareableComponent"/>.
     /// </summary>
-    /// <param name="target">The entity that will be freed</param>
-    /// <param name="user">The entity that is freeing the target</param>
-    /// <param name="ensnare">The entity used to ensnare</param>
-    /// <param name="component">The ensnaring component</param>
+    /// <param name="target">The entity that will be freed.</param>
+    /// <param name="user">The entity that is freeing the target.</param>
+    /// <param name="ensnare">The entity used to ensnare.</param>
+    /// <param name="component">The ensnaring component.</param>
     public void TryFree(EntityUid target, EntityUid user, EntityUid ensnare, EnsnaringComponent component)
     {
         // Don't do anything if they don't have the ensnareable component.
@@ -236,11 +236,11 @@ public abstract class SharedEnsnareableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Used where you want to try to ensnare an entity with the <see cref="EnsnareableComponent"/>
+    /// Used where you want to try to ensnare an entity with the <see cref="EnsnareableComponent"/>.
     /// </summary>
-    /// <param name="target">The entity that will be ensnared</param>
-    /// <paramref name="ensnare"> The entity that is used to ensnare</param>
-    /// <param name="component">The ensnaring component</param>
+    /// <param name="target">The entity that will be ensnared.</param>
+    /// <paramref name="ensnare"> The entity that is used to ensnare.</param>
+    /// <param name="component">The ensnaring component.</param>
     public bool TryEnsnare(EntityUid target, EntityUid ensnare, EnsnaringComponent component)
     {
         // Don't do anything if they don't have the ensnareable component.
@@ -272,7 +272,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Used to force free someone for things like if the <see cref="EnsnaringComponent"/> is removed
+    /// Used to force free someone for things like if the <see cref="EnsnaringComponent"/> is removed.
     /// </summary>
     public void ForceFree(EntityUid ensnare, EnsnaringComponent component)
     {
@@ -297,7 +297,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
     /// <summary>
     /// Update the Ensnared alert for an entity.
     /// </summary>
-    /// <param name="target">The entity that has been affected by a snare</param>
+    /// <param name="target">The entity that has been affected by a snare.</param>
     public void UpdateAlert(EntityUid target, EnsnareableComponent component)
     {
         if (!component.IsEnsnared)

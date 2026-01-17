@@ -66,7 +66,7 @@ namespace Content.Shared.Examine
         }
 
         /// <summary>
-        ///     Sends an ExamineTooltip based on the contents of <paramref name="group"/>
+        ///     Sends an ExamineTooltip based on the contents of <paramref name="group"/>.
         /// </summary>
         public void SendExamineGroup(EntityUid user, EntityUid target, ExamineGroup group)
         {

@@ -7,7 +7,7 @@ namespace Content.Shared.EntityEffects.Effects;
 public sealed partial class Polymorph : EntityEffectBase<Polymorph>
 {
     /// <summary>
-    ///     What polymorph prototype is used on effect
+    ///     What polymorph prototype is used on effect.
     /// </summary>
     [DataField(required: true)]
     public ProtoId<PolymorphPrototype> Prototype;

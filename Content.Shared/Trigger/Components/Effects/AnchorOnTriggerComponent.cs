@@ -10,7 +10,7 @@ namespace Content.Shared.Trigger.Components.Effects;
 public sealed partial class AnchorOnTriggerComponent : BaseXOnTriggerComponent
 {
     /// <summary>
-    /// Anchor the entity on trigger if it is currently unanchored?
+    /// Anchor the entity on trigger if it is currently unanchored?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool CanAnchor = true;

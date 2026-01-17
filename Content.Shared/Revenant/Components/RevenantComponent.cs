@@ -60,7 +60,7 @@ public sealed partial class RevenantComponent : Component
     #region Harvest Ability
 
     /// <summary>
-    /// The duration of the soul search
+    /// The duration of the soul search.
     /// </summary>
     [DataField("soulSearchDuration")]
     public float SoulSearchDuration = 2.5f;
@@ -99,13 +99,13 @@ public sealed partial class RevenantComponent : Component
     public Vector2 DefileDebuffs = new(1, 4);
 
     /// <summary>
-    /// The radius around the user that this ability affects
+    /// The radius around the user that this ability affects.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("defileRadius")]
     public float DefileRadius = 3.5f;
 
     /// <summary>
-    /// The amount of tiles that are uprooted by the ability
+    /// The amount of tiles that are uprooted by the ability.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("defileTilePryAmount")]
     public int DefileTilePryAmount = 15;
@@ -135,7 +135,7 @@ public sealed partial class RevenantComponent : Component
     public Vector2 OverloadDebuffs = new(3, 8);
 
     /// <summary>
-    /// The radius around the user that this ability affects
+    /// The radius around the user that this ability affects.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("overloadRadius")]
     public float OverloadRadius = 5f;
@@ -164,7 +164,7 @@ public sealed partial class RevenantComponent : Component
     public Vector2 BlightDebuffs = new(2, 5);
 
     /// <summary>
-    /// The radius around the user that this ability affects
+    /// The radius around the user that this ability affects.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("blightRadius")]
     public float BlightRadius = 3.5f;
@@ -187,7 +187,7 @@ public sealed partial class RevenantComponent : Component
     public Vector2 MalfunctionDebuffs = new(2, 8);
 
     /// <summary>
-    /// The radius around the user that this ability affects
+    /// The radius around the user that this ability affects.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("malfunctionRadius")]
     public float MalfunctionRadius = 3.5f;

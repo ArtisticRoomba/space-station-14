@@ -23,7 +23,7 @@ public sealed partial class GasAnalyzerComponent : Component
     }
 
     /// <summary>
-    /// Atmospheric data is gathered in the system and sent to the user
+    /// Atmospheric data is gathered in the system and sent to the user.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class GasAnalyzerUserMessage : BoundUserInterfaceMessage
@@ -44,13 +44,13 @@ public sealed partial class GasAnalyzerComponent : Component
     }
 
     /// <summary>
-    /// Contains information on a gas mix entry, turns into a tab in the UI
+    /// Contains information on a gas mix entry, turns into a tab in the UI.
     /// </summary>
     [Serializable, NetSerializable]
     public struct GasMixEntry
     {
         /// <summary>
-        /// Name of the tab in the UI
+        /// Name of the tab in the UI.
         /// </summary>
         public readonly string Name;
         public readonly float Volume;
@@ -69,7 +69,7 @@ public sealed partial class GasAnalyzerComponent : Component
     }
 
     /// <summary>
-    /// Individual gas entry data for populating the UI
+    /// Individual gas entry data for populating the UI.
     /// </summary>
     [Serializable, NetSerializable]
     public struct GasEntry

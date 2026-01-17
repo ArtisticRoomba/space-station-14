@@ -18,7 +18,7 @@ public sealed partial class CargoBountyPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// The monetary reward for completing the bounty
+    /// The monetary reward for completing the bounty.
     /// </summary>
     [DataField(required: true)]
     public int Reward;
@@ -72,7 +72,7 @@ public readonly partial record struct CargoBountyItemEntry()
     // todo: implement some kind of simple generic condition system
 
     /// <summary>
-    /// How much of the item must be present to satisfy the entry
+    /// How much of the item must be present to satisfy the entry.
     /// </summary>
     [DataField]
     public int Amount { get; init; } = 1;

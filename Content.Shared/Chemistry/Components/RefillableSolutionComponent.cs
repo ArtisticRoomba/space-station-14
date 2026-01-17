@@ -20,7 +20,7 @@ public sealed partial class RefillableSolutionComponent : Component
     public string Solution = "default";
 
     /// <summary>
-    /// The maximum amount that can be transferred to the solution at once
+    /// The maximum amount that can be transferred to the solution at once.
     /// </summary>
     [DataField]
     public FixedPoint2? MaxRefill = null;

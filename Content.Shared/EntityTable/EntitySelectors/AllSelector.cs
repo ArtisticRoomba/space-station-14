@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityTable.EntitySelectors;
 
 /// <summary>
-/// Gets spawns from all of the child selectors
+/// Gets spawns from all of the child selectors.
 /// </summary>
 public sealed partial class AllSelector : EntityTableSelector
 {

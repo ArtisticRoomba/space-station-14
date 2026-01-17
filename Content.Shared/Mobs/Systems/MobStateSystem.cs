@@ -32,11 +32,11 @@ public partial class MobStateSystem : EntitySystem
     #region Public API
 
     /// <summary>
-    ///  Check if a Mob is Alive
+    ///  Check if a Mob is Alive.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="component">The MobState component owned by the target</param>
-    /// <returns>If the entity is alive</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="component">The MobState component owned by the target.</param>
+    /// <returns>If the entity is alive.</returns>
     public bool IsAlive(EntityUid target, MobStateComponent? component = null)
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
@@ -45,11 +45,11 @@ public partial class MobStateSystem : EntitySystem
     }
 
     /// <summary>
-    ///  Check if a Mob is Critical
+    ///  Check if a Mob is Critical.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="component">The MobState component owned by the target</param>
-    /// <returns>If the entity is Critical</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="component">The MobState component owned by the target.</param>
+    /// <returns>If the entity is Critical.</returns>
     public bool IsCritical(EntityUid target, MobStateComponent? component = null)
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
@@ -58,11 +58,11 @@ public partial class MobStateSystem : EntitySystem
     }
 
     /// <summary>
-    ///  Check if a Mob is Dead
+    ///  Check if a Mob is Dead.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="component">The MobState component owned by the target</param>
-    /// <returns>If the entity is Dead</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="component">The MobState component owned by the target.</param>
+    /// <returns>If the entity is Dead.</returns>
     public bool IsDead(EntityUid target, MobStateComponent? component = null)
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
@@ -71,11 +71,11 @@ public partial class MobStateSystem : EntitySystem
     }
 
     /// <summary>
-    ///  Check if a Mob is Critical or Dead
+    ///  Check if a Mob is Critical or Dead.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="component">The MobState component owned by the target</param>
-    /// <returns>If the entity is Critical or Dead</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="component">The MobState component owned by the target.</param>
+    /// <returns>If the entity is Critical or Dead.</returns>
     public bool IsIncapacitated(EntityUid target, MobStateComponent? component = null)
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
@@ -84,11 +84,11 @@ public partial class MobStateSystem : EntitySystem
     }
 
     /// <summary>
-    ///  Check if a Mob is in an Invalid state
+    ///  Check if a Mob is in an Invalid state.
     /// </summary>
-    /// <param name="target">Target Entity</param>
-    /// <param name="component">The MobState component owned by the target</param>
-    /// <returns>If the entity is in an Invalid State</returns>
+    /// <param name="target">Target Entity.</param>
+    /// <param name="component">The MobState component owned by the target.</param>
+    /// <returns>If the entity is in an Invalid State.</returns>
     public bool IsInvalidState(EntityUid target, MobStateComponent? component = null)
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))

@@ -68,7 +68,7 @@ public sealed partial class AccessReaderComponent : Component
     public Queue<AccessRecord> AccessLog = new();
 
     /// <summary>
-    /// A limit on the max size of <see cref="AccessLog"/>
+    /// A limit on the max size of <see cref="AccessLog"/>.
     /// </summary>
     [DataField]
     public int AccessLogLimit = 20;

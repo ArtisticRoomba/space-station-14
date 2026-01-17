@@ -21,7 +21,7 @@ public sealed partial class Explode : EntityEffectBase<Explode>
     public float? Radius;
 
     /// <summary>
-    /// Delete the entity with the explosion?
+    /// Delete the entity with the explosion?.
     /// </summary>
     [DataField]
     public bool Delete = true;

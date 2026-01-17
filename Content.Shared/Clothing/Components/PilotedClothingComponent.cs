@@ -16,7 +16,7 @@ public sealed partial class PilotedClothingComponent : Component
     public EntityWhitelist? PilotWhitelist;
 
     /// <summary>
-    /// Should movement input be relayed from the pilot to the target?
+    /// Should movement input be relayed from the pilot to the target?.
     /// </summary>
     [DataField]
     public bool RelayMovement = true;

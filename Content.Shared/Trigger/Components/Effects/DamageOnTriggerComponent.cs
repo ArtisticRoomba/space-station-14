@@ -11,7 +11,7 @@ namespace Content.Shared.Trigger.Components.Effects;
 public sealed partial class DamageOnTriggerComponent : BaseXOnTriggerComponent
 {
     /// <summary>
-    /// Should the damage ignore resistances?
+    /// Should the damage ignore resistances?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IgnoreResistances;

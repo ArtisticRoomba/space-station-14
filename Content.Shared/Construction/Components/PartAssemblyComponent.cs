@@ -5,7 +5,7 @@ namespace Content.Shared.Construction.Components;
 /// <summary>
 /// This is used for construction which requires a set of
 /// entities with specific tags to be inserted into another entity.
-/// todo: in a pr that isn't 6k loc, combine this with MechAssemblyComponent
+/// todo: in a pr that isn't 6k loc, combine this with MechAssemblyComponent.
 /// </summary>
 [RegisterComponent]
 public sealed partial class PartAssemblyComponent : Component
@@ -23,7 +23,7 @@ public sealed partial class PartAssemblyComponent : Component
     public string? CurrentAssembly;
 
     /// <summary>
-    /// The container where the parts are stored
+    /// The container where the parts are stored.
     /// </summary>
     [DataField("containerId")]
     public string ContainerId = "part-container";

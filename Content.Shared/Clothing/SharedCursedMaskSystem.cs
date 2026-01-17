@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Clothing;
 
 /// <summary>
-/// This handles <see cref="CursedMaskComponent"/>
+/// This handles <see cref="CursedMaskComponent"/>.
 /// </summary>
 public abstract class SharedCursedMaskSystem : EntitySystem
 {

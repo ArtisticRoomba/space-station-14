@@ -14,7 +14,7 @@ public sealed partial class BiomeDunGen : IDunGenLayer
     public ProtoId<BiomeTemplatePrototype> BiomeTemplate;
 
     /// <summary>
-    /// creates a biome only on the specified tiles
+    /// creates a biome only on the specified tiles.
     /// </summary>
     [DataField]
     public HashSet<ProtoId<ContentTileDefinition>>? TileMask;

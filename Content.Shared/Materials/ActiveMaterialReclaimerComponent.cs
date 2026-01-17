@@ -5,14 +5,14 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Materials;
 
 /// <summary>
-/// Tracker component for the process of reclaiming entities
+/// Tracker component for the process of reclaiming entities.
 /// <seealso cref="MaterialReclaimerComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedMaterialReclaimerSystem)), AutoGenerateComponentPause]
 public sealed partial class ActiveMaterialReclaimerComponent : Component
 {
     /// <summary>
-    /// Container used to store the item currently being reclaimed
+    /// Container used to store the item currently being reclaimed.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public Container ReclaimingContainer = default!;

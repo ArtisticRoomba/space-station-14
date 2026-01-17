@@ -29,7 +29,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     public string Descriptor { get; private set; } = "humanoid";
 
     /// <summary>
-    /// Whether the species is available "at round start" (In the character editor)
+    /// Whether the species is available "at round start" (In the character editor).
     /// </summary>
     [DataField(required: true)]
     public bool RoundStart { get; private set; } = false;

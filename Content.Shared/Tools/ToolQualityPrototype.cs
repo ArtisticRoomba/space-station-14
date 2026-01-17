@@ -11,14 +11,14 @@ namespace Content.Shared.Tools
         public string ID { get; private set; } = default!;
 
         /// <summary>
-        ///     Human-readable name for this tool quality e.g. "Anchoring"
+        ///     Human-readable name for this tool quality e.g. "Anchoring".
         /// </summary>
         /// <remarks>This is a localization string ID.</remarks>
         [DataField("name")]
         public string Name { get; private set; } = string.Empty;
 
         /// <summary>
-        ///     Human-readable name for a tool of this type e.g. "Wrench"
+        ///     Human-readable name for a tool of this type e.g. "Wrench".
         /// </summary>
         /// <remarks>This is a localization string ID.</remarks>
         [DataField("toolName")]

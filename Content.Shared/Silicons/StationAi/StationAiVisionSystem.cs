@@ -262,7 +262,7 @@ public sealed class StationAiVisionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Checks whether this tile fits the definition of a "corner"
+    /// Checks whether this tile fits the definition of a "corner".
     /// </summary>
     private bool IsCorner(
         HashSet<Vector2i> tiles,

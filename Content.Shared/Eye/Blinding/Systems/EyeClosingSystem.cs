@@ -63,7 +63,7 @@ public sealed class EyeClosingSystem : EntitySystem
     /// <summary>
     /// Checks whether or not the entity's eyelids are closed.
     /// </summary>
-    /// <param name="eyelids">The entity that contains an EyeClosingComponent</param>
+    /// <param name="eyelids">The entity that contains an EyeClosingComponent.</param>
     /// <returns>Exactly what this function says on the tin. True if eyes are closed, false if they're open.</returns>
     public bool AreEyesClosed(Entity<EyeClosingComponent?> eyelids)
     {
@@ -73,8 +73,8 @@ public sealed class EyeClosingSystem : EntitySystem
     /// <summary>
     /// Sets whether or not the entity's eyelids are closed.
     /// </summary>
-    /// <param name="eyelids">The entity that contains an EyeClosingComponent</param>
-    /// <param name="value">Set to true to close the entity's eyes. Set to false to open them</param>
+    /// <param name="eyelids">The entity that contains an EyeClosingComponent.</param>
+    /// <param name="value">Set to true to close the entity's eyes. Set to false to open them.</param>
     public void SetEyelids(Entity<EyeClosingComponent?> eyelids, bool value)
     {
         if (!Resolve(eyelids, ref eyelids.Comp))

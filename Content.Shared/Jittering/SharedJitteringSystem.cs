@@ -30,7 +30,7 @@ namespace Content.Shared.Jittering
 
         /// <summary>
         ///     Applies a jitter effect to the specified entity.
-        ///     You can apply this to any entity whatsoever, so be careful what you use it on!
+        ///     You can apply this to any entity whatsoever, so be careful what you use it on!.
         /// </summary>
         /// <remarks>
         ///     If the entity is already jittering, the jitter values will be updated but only if they're greater

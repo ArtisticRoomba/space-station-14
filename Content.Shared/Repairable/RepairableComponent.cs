@@ -45,13 +45,13 @@ public sealed partial class RepairableComponent : Component
     public ProtoId<ToolQualityPrototype> QualityNeeded = "Welding";
 
     /// <summary>
-    /// The base tool use delay (seconds). This will be modified by the tool's quality
+    /// The base tool use delay (seconds). This will be modified by the tool's quality.
     /// </summary>
     [DataField, AutoNetworkedField]
     public int DoAfterDelay = 1;
 
     /// <summary>
-    /// If true and after the repair there still damage, a new doafter starts automatically
+    /// If true and after the repair there still damage, a new doafter starts automatically.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool AutoDoAfter = true;

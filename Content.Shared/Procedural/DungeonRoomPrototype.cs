@@ -30,7 +30,7 @@ public sealed partial class DungeonRoomPrototype : IPrototype
 
     /// <summary>
     /// These tiles will be ignored when copying from the atlas into the actual game,
-    /// allowing you to make rooms of irregular shapes that blend seamlessly into their surroundings
+    /// allowing you to make rooms of irregular shapes that blend seamlessly into their surroundings.
     /// </summary>
     [DataField]
     public ProtoId<ContentTileDefinition>? IgnoreTile;

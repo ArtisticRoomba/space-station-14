@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Actions;
 
 /// <summary>
-/// Grants actions on MapInit and removes them on shutdown
+/// Grants actions on MapInit and removes them on shutdown.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(ActionGrantSystem))]
 public sealed partial class ActionGrantComponent : Component

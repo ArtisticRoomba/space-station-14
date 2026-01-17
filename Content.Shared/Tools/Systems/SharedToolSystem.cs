@@ -101,11 +101,11 @@ public abstract partial class SharedToolSystem : EntitySystem
     ///     Attempts to use a tool on some entity, which will start a DoAfter. Returns true if an interaction occurred.
     ///     Note that this does not mean the interaction was successful, you need to listen for the DoAfter event.
     /// </summary>
-    /// <param name="tool">The tool to use</param>
-    /// <param name="user">The entity using the tool</param>
+    /// <param name="tool">The tool to use.</param>
+    /// <param name="user">The entity using the tool.</param>
     /// <param name="target">The entity that the tool is being used on. This is also the entity that will receive the
-    /// event. If null, the event will be broadcast</param>
-    /// <param name="doAfterDelay">The base tool use delay (seconds). This will be modified by the tool's quality</param>
+    /// event. If null, the event will be broadcast.</param>
+    /// <param name="doAfterDelay">The base tool use delay (seconds). This will be modified by the tool's quality.</param>
     /// <param name="toolQualitiesNeeded">The qualities needed for this tool to work.</param>
     /// <param name="doAfterEv">The event that will be raised when the tool has finished (including cancellation). Event
     /// will be directed at the tool target.</param>
@@ -137,16 +137,16 @@ public abstract partial class SharedToolSystem : EntitySystem
     ///     Attempts to use a tool on some entity, which will start a DoAfter. Returns true if an interaction occurred.
     ///     Note that this does not mean the interaction was successful, you need to listen for the DoAfter event.
     /// </summary>
-    /// <param name="tool">The tool to use</param>
-    /// <param name="user">The entity using the tool</param>
+    /// <param name="tool">The tool to use.</param>
+    /// <param name="user">The entity using the tool.</param>
     /// <param name="target">The entity that the tool is being used on. This is also the entity that will receive the
-    /// event. If null, the event will be broadcast</param>
-    /// <param name="delay">The base tool use delay. This will be modified by the tool's quality</param>
+    /// event. If null, the event will be broadcast.</param>
+    /// <param name="delay">The base tool use delay. This will be modified by the tool's quality.</param>
     /// <param name="toolQualitiesNeeded">The qualities needed for this tool to work.</param>
     /// <param name="doAfterEv">The event that will be raised when the tool has finished (including cancellation). Event
     /// will be directed at the tool target.</param>
     /// <param name="id">The id of the DoAfter that was created. This may be null even if the function returns true in
-    /// the event that this tool-use cancelled an existing DoAfter</param>
+    /// the event that this tool-use cancelled an existing DoAfter.</param>
     /// <param name="fuel">Amount of fuel that should be taken from the tool.</param>
     /// <param name="toolComponent">The tool component.</param>
     /// <returns>Returns true if any interaction takes place.</returns>
@@ -186,11 +186,11 @@ public abstract partial class SharedToolSystem : EntitySystem
     ///     Attempts to use a tool on some entity, which will start a DoAfter. Returns true if an interaction occurred.
     ///     Note that this does not mean the interaction was successful, you need to listen for the DoAfter event.
     /// </summary>
-    /// <param name="tool">The tool to use</param>
-    /// <param name="user">The entity using the tool</param>
+    /// <param name="tool">The tool to use.</param>
+    /// <param name="user">The entity using the tool.</param>
     /// <param name="target">The entity that the tool is being used on. This is also the entity that will receive the
-    /// event. If null, the event will be broadcast</param>
-    /// <param name="doAfterDelay">The base tool use delay (seconds). This will be modified by the tool's quality</param>
+    /// event. If null, the event will be broadcast.</param>
+    /// <param name="doAfterDelay">The base tool use delay (seconds). This will be modified by the tool's quality.</param>
     /// <param name="toolQualityNeeded">The quality needed for this tool to work.</param>
     /// <param name="doAfterEv">The event that will be raised when the tool has finished (including cancellation). Event
     /// will be directed at the tool target.</param>

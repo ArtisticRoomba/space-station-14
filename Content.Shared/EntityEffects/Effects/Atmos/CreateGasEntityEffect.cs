@@ -11,13 +11,13 @@ namespace Content.Shared.EntityEffects.Effects.Atmos;
 public sealed partial class CreateGas : EntityEffectBase<CreateGas>
 {
     /// <summary>
-    ///     The gas we're creating
+    ///     The gas we're creating.
     /// </summary>
     [DataField]
     public Gas Gas;
 
     /// <summary>
-    ///     Amount of moles we're creating
+    ///     Amount of moles we're creating.
     /// </summary>
     [DataField]
     public float Moles = 3f;

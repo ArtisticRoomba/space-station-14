@@ -11,7 +11,7 @@ namespace Content.Shared.Atmos
     public sealed class GasOverlayChunk
     {
         /// <summary>
-        ///     The index of this chunk
+        ///     The index of this chunk.
         /// </summary>
         public readonly Vector2i Index;
         public readonly Vector2i Origin;

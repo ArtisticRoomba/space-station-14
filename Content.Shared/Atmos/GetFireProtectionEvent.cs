@@ -14,7 +14,7 @@ public sealed class GetFireProtectionEvent : EntityEventArgs, IInventoryRelayEve
 
     /// <summary>
     /// What to multiply the fire damage by.
-    /// If this is 0 then it's ignored
+    /// If this is 0 then it's ignored.
     /// </summary>
     public float Multiplier;
 

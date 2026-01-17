@@ -62,19 +62,19 @@ public sealed partial class BloodstreamComponent : Component
     public float BleedAmount;
 
     /// <summary>
-    /// How much should bleeding be reduced every update interval?
+    /// How much should bleeding be reduced every update interval?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float BleedReductionAmount = 0.33f;
 
     /// <summary>
-    /// How high can <see cref="BleedAmount"/> go?
+    /// How high can <see cref="BleedAmount"/> go?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MaxBleedAmount = 10.0f;
 
     /// <summary>
-    /// What percentage of current blood is necessary to avoid dealing blood loss damage?
+    /// What percentage of current blood is necessary to avoid dealing blood loss damage?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float BloodlossThreshold = 0.9f;
@@ -96,13 +96,13 @@ public sealed partial class BloodstreamComponent : Component
     // TODO shouldn't be hardcoded, should just use some organ simulation like bone marrow or smth.
 
     /// <summary>
-    /// How much reagent of blood should be restored each update interval?
+    /// How much reagent of blood should be restored each update interval?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public FixedPoint2 BloodRefreshAmount = 1.0f;
 
     /// <summary>
-    /// How much blood needs to be in the temporary solution in order to create a puddle?
+    /// How much blood needs to be in the temporary solution in order to create a puddle?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public FixedPoint2 BleedPuddleThreshold = 1.0f;
@@ -173,7 +173,7 @@ public sealed partial class BloodstreamComponent : Component
     public string BloodTemporarySolutionName = DefaultBloodTemporarySolutionName;
 
     /// <summary>
-    /// Internal solution for blood storage
+    /// Internal solution for blood storage.
     /// </summary>
     [ViewVariables]
     public Entity<SolutionComponent>? BloodSolution;

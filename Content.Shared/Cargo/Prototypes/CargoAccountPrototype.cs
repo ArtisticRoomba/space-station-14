@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Cargo.Prototypes;
 
 /// <summary>
-/// This is a prototype for a single account that stores money on StationBankAccountComponent
+/// This is a prototype for a single account that stores money on StationBankAccountComponent.
 /// </summary>
 [Prototype]
 public sealed partial class CargoAccountPrototype : IPrototype
@@ -20,7 +20,7 @@ public sealed partial class CargoAccountPrototype : IPrototype
     public LocId Name;
 
     /// <summary>
-    /// A shortened code used to refer to the account in UIs
+    /// A shortened code used to refer to the account in UIs.
     /// </summary>
     [DataField]
     public LocId Code;

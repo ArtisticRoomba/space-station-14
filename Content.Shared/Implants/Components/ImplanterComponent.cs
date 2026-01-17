@@ -9,7 +9,7 @@ namespace Content.Shared.Implants.Components;
 
 /// <summary>
 /// Implanters are used to implant or extract implants from an entity.
-/// Some can be single use (implant only) or some can draw out an implant
+/// Some can be single use (implant only) or some can draw out an implant.
 /// </summary>
 // TODO: Rework drawing to work with implant cases when surgery is in
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
@@ -32,13 +32,13 @@ public sealed partial class ImplanterComponent : Component
     public EntityWhitelist? Blacklist;
 
     /// <summary>
-    /// Used for implanters that start with specific implants
+    /// Used for implanters that start with specific implants.
     /// </summary>
     [DataField]
     public EntProtoId? Implant;
 
     /// <summary>
-    /// The time it takes to implant someone else
+    /// The time it takes to implant someone else.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
@@ -48,27 +48,27 @@ public sealed partial class ImplanterComponent : Component
 
     /// <summary>
     /// The time it takes to extract an implant from someone
-    /// It's excessively long to deter from implant checking any antag
+    /// It's excessively long to deter from implant checking any antag.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public float DrawTime = 25f;
 
     /// <summary>
-    /// Good for single-use injectors
+    /// Good for single-use injectors.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ImplantOnly;
 
     /// <summary>
     /// The current mode of the implanter
-    /// Mode is changed automatically depending if it implants or draws
+    /// Mode is changed automatically depending if it implants or draws.
     /// </summary>
     [DataField, AutoNetworkedField]
     public ImplanterToggleMode CurrentMode;
 
     /// <summary>
-    /// The name and description of the implant to show on the implanter
+    /// The name and description of the implant to show on the implanter.
     /// </summary>
     [DataField]
     public (string, string) ImplantData;
@@ -80,7 +80,7 @@ public sealed partial class ImplanterComponent : Component
     public bool AllowMultipleImplants = false;
 
     /// <summary>
-    /// The <see cref="ItemSlot"/> for this implanter
+    /// The <see cref="ItemSlot"/> for this implanter.
     /// </summary>
     [DataField(required: true)]
     public ItemSlot ImplanterSlot = new();
@@ -92,13 +92,13 @@ public sealed partial class ImplanterComponent : Component
     public bool AllowDeimplantAll = false;
 
     /// <summary>
-    /// The subdermal implants that may be removed via this implanter
+    /// The subdermal implants that may be removed via this implanter.
     /// </summary>
     [DataField]
     public List<EntProtoId> DeimplantWhitelist = new();
 
     /// <summary>
-    /// The subdermal implants that may be removed via this implanter
+    /// The subdermal implants that may be removed via this implanter.
     /// </summary>
     [DataField]
     public DamageSpecifier DeimplantFailureDamage = new();

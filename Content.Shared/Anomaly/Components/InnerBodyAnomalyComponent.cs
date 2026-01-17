@@ -18,55 +18,55 @@ public sealed partial class InnerBodyAnomalyComponent : Component
     public bool Injected;
 
     /// <summary>
-    /// A prototype of an entity whose components will be added to the anomaly host **AND** then removed at the right time
+    /// A prototype of an entity whose components will be added to the anomaly host **AND** then removed at the right time.
     /// </summary>
     [DataField(required: true)]
     public EntProtoId? InjectionProto;
 
     /// <summary>
-    /// Duration of stun from the effect of the anomaly
+    /// Duration of stun from the effect of the anomaly.
     /// </summary>
     [DataField]
     public float StunDuration = 4f;
 
     /// <summary>
-    /// A message sent in chat to a player who has become infected by an anomaly
+    /// A message sent in chat to a player who has become infected by an anomaly.
     /// </summary>
     [DataField]
     public LocId? StartMessage = null;
 
     /// <summary>
-    /// A message sent in chat to a player who has cleared an anomaly
+    /// A message sent in chat to a player who has cleared an anomaly.
     /// </summary>
     [DataField]
     public LocId? EndMessage = "inner-anomaly-end-message";
 
     /// <summary>
-    /// Sound, playing on becoming anomaly
+    /// Sound, playing on becoming anomaly.
     /// </summary>
     [DataField]
     public SoundSpecifier? StartSound = new SoundPathSpecifier("/Audio/Effects/inneranomaly.ogg");
 
     /// <summary>
-    /// Used to display messages to the player about their level of disease progression
+    /// Used to display messages to the player about their level of disease progression.
     /// </summary>
     [DataField]
     public float LastSeverityInformed = 0f;
 
     /// <summary>
-    /// The fallback sprite to be added on the original entity. Allows you to visually identify the feature and type of anomaly to other players
+    /// The fallback sprite to be added on the original entity. Allows you to visually identify the feature and type of anomaly to other players.
     /// </summary>
     [DataField, AutoNetworkedField]
     public SpriteSpecifier? FallbackSprite = null;
 
     /// <summary>
-    /// Ability to use unique sprites for different body types
+    /// Ability to use unique sprites for different body types.
     /// </summary>
     [DataField, AutoNetworkedField]
     public Dictionary<ProtoId<SpeciesPrototype>, SpriteSpecifier> SpeciesSprites = new();
 
     /// <summary>
-    /// The key of the entity layer into which the sprite will be inserted
+    /// The key of the entity layer into which the sprite will be inserted.
     /// </summary>
     [DataField]
     public string LayerMap = "inner_anomaly_layer";

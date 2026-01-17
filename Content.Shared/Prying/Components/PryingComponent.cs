@@ -7,7 +7,7 @@ namespace Content.Shared.Prying.Components;
 public sealed partial class PryingComponent : Component
 {
     /// <summary>
-    /// Whether the entity can pry open powered doors
+    /// Whether the entity can pry open powered doors.
     /// </summary>
     [DataField]
     public bool PryPowered;

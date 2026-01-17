@@ -21,7 +21,7 @@ public abstract class SharedPinpointerSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Set the target if capable
+    ///     Set the target if capable.
     /// </summary>
     private void OnAfterInteract(EntityUid uid, PinpointerComponent component, AfterInteractEvent args)
     {
@@ -40,7 +40,7 @@ public abstract class SharedPinpointerSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Set pinpointers target to track
+    ///     Set pinpointers target to track.
     /// </summary>
     public virtual void SetTarget(EntityUid uid, EntityUid? target, PinpointerComponent? pinpointer = null)
     {
@@ -58,7 +58,7 @@ public abstract class SharedPinpointerSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Update direction from pinpointer to selected target (if it was set)
+    ///     Update direction from pinpointer to selected target (if it was set).
     /// </summary>
     protected virtual void UpdateDirectionToTarget(EntityUid uid, PinpointerComponent? pinpointer = null)
     {
@@ -73,7 +73,7 @@ public abstract class SharedPinpointerSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Manually set distance from pinpointer to target
+    ///     Manually set distance from pinpointer to target.
     /// </summary>
     public void SetDistance(EntityUid uid, Distance distance, PinpointerComponent? pinpointer = null)
     {
@@ -124,7 +124,7 @@ public abstract class SharedPinpointerSystem : EntitySystem
     /// <summary>
     ///     Toggle Pinpointer screen. If it has target it will start tracking it.
     /// </summary>
-    /// <returns>True if pinpointer was activated, false otherwise</returns>
+    /// <returns>True if pinpointer was activated, false otherwise.</returns>
     public virtual bool TogglePinpointer(EntityUid uid, PinpointerComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer))

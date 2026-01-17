@@ -32,7 +32,7 @@ public sealed class SalvageExpeditionConsoleState : BoundUserInterfaceState
 public sealed partial class SalvageExpeditionConsoleComponent : Component
 {
     /// <summary>
-    /// The sound made when spawning a coordinates disk
+    /// The sound made when spawning a coordinates disk.
     /// </summary>
     [DataField]
     public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/terminal_insert_disc.ogg");

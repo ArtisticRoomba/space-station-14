@@ -24,7 +24,7 @@ namespace Content.Shared.Storage
         // No datafield because we can just derive it from stored items.
 
         /// <summary>
-        /// Bitmask of occupied tiles
+        /// Bitmask of occupied tiles.
         /// </summary>
         public Dictionary<Vector2i, ulong> OccupiedGrid = new();
 
@@ -52,7 +52,7 @@ namespace Content.Shared.Storage
         public List<Box2i> Grid = new();
 
         /// <summary>
-        /// The maximum size item that can be inserted into this storage,
+        /// The maximum size item that can be inserted into this storage.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         [Access(typeof(SharedStorageSystem))]
@@ -138,7 +138,7 @@ namespace Content.Shared.Storage
         /// <summary>
         /// If not null, ensures that all inserted items are of the same orientation
         /// Horizontal - items are stored laying down
-        /// Vertical - items are stored standing up
+        /// Vertical - items are stored standing up.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public StorageDefaultOrientation? DefaultStorageOrientation;
@@ -146,7 +146,7 @@ namespace Content.Shared.Storage
         /// <summary>
         /// If true, sets StackVisuals.Hide to true when the container is closed
         /// Used in cases where there are sprites that are shown when the container is open but not
-        /// when it is closed
+        /// when it is closed.
         /// </summary>
         [DataField]
         public bool HideStackVisualsWhenClosed = true;
@@ -268,7 +268,7 @@ namespace Content.Shared.Storage
 
 
     /// <summary>
-    /// Network event for displaying an animation of entities flying into a storage entity
+    /// Network event for displaying an animation of entities flying into a storage entity.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class AnimateInsertingEntitiesEvent : EntityEventArgs

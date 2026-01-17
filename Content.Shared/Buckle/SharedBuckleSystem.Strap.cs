@@ -57,7 +57,7 @@ public abstract partial class SharedBuckleSystem
     }
 
     /// <summary>
-    /// Remove everything attached to the strap
+    /// Remove everything attached to the strap.
     /// </summary>
     private void StrapRemoveAll(EntityUid uid, StrapComponent strapComp)
     {
@@ -82,7 +82,7 @@ public abstract partial class SharedBuckleSystem
     }
 
     /// <summary>
-    /// Sets the enabled field in the strap component to a value
+    /// Sets the enabled field in the strap component to a value.
     /// </summary>
     public void StrapSetEnabled(EntityUid strapUid, bool enabled, StrapComponent? strapComp = null)
     {

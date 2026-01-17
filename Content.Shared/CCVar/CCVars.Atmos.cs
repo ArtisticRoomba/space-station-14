@@ -68,7 +68,7 @@ public sealed partial class CCVars
 
     /// <summary>
     ///     What fraction of air from a spaced tile escapes every tick.
-    ///     1.0 for instant spacing, 0.2 means 20% of remaining air lost each time
+    ///     1.0 for instant spacing, 0.2 means 20% of remaining air lost each time.
     /// </summary>
     public static readonly CVarDef<float> AtmosSpacingEscapeRatio =
         CVarDef.Create("atmos.mmos_spacing_speed", 0.15f, CVar.SERVERONLY);
@@ -83,7 +83,7 @@ public sealed partial class CCVars
 
     /// <summary>
     ///     How much wind can go through a single tile before that tile doesn't depressurize itself
-    ///     (I.e spacing is limited in large rooms heading into smaller spaces)
+    ///     (I.e spacing is limited in large rooms heading into smaller spaces).
     /// </summary>
     public static readonly CVarDef<float> AtmosSpacingMaxWind =
         CVarDef.Create("atmos.mmos_max_wind", 500f, CVar.SERVERONLY);

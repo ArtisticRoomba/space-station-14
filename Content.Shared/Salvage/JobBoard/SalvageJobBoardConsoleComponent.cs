@@ -8,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Salvage.JobBoard;
 
 /// <summary>
-/// Used to view the job board ui
+/// Used to view the job board ui.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SalvageJobBoardConsoleComponent : Component
@@ -20,7 +20,7 @@ public sealed partial class SalvageJobBoardConsoleComponent : Component
     public EntProtoId LabelEntity = "PaperSalvageJobLabel";
 
     /// <summary>
-    /// The sound made when printing occurs
+    /// The sound made when printing occurs.
     /// </summary>
     [DataField]
     public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/printer.ogg");

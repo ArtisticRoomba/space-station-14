@@ -6,7 +6,7 @@ using static Content.Shared.Configurable.ConfigurationComponent;
 namespace Content.Shared.Configurable;
 
 /// <summary>
-/// <see cref="ConfigurationComponent"/>
+/// <see cref="ConfigurationComponent"/>.
 /// </summary>
 public abstract class SharedConfigurationSystem : EntitySystem
 {
@@ -64,7 +64,7 @@ public abstract class SharedConfigurationSystem : EntitySystem
 }
 
 /// <summary>
-/// Sent when configuration values got changes
+/// Sent when configuration values got changes.
 /// </summary>
 public sealed class ConfigurationUpdatedEvent : EntityEventArgs
 {

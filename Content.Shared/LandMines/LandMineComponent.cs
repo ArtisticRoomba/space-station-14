@@ -16,7 +16,7 @@ public sealed partial class LandMineComponent : Component
     public LocId? TriggerText = "land-mine-triggered";
 
     /// <summary>
-    /// Trigger sound effect when stepping onto landmine
+    /// Trigger sound effect when stepping onto landmine.
     /// </summary>
     [DataField]
     public SoundSpecifier? Sound;

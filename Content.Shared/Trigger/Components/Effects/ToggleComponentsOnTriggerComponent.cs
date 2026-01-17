@@ -17,7 +17,7 @@ public sealed partial class ToggleComponentsOnTriggerComponent : BaseXOnTriggerC
     public ComponentRegistry Components = new();
 
     /// <summary>
-    /// Are the components currently added?
+    /// Are the components currently added?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ComponentsAdded;

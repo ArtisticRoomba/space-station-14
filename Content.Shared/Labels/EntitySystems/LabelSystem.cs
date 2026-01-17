@@ -46,10 +46,10 @@ public sealed partial class LabelSystem : EntitySystem
     /// <summary>
     /// Apply or remove a label on an entity.
     /// </summary>
-    /// <param name="uid">EntityUid to change label on</param>
-    /// <param name="text">intended label text (null to remove)</param>
-    /// <param name="label">label component for resolve</param>
-    /// <param name="metadata">metadata component for resolve</param>
+    /// <param name="uid">EntityUid to change label on.</param>
+    /// <param name="text">intended label text (null to remove).</param>
+    /// <param name="label">label component for resolve.</param>
+    /// <param name="metadata">metadata component for resolve.</param>
     public void Label(EntityUid uid, string? text, MetaDataComponent? metadata = null, LabelComponent? label = null)
     {
         label ??= EnsureComp<LabelComponent>(uid);

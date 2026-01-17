@@ -5,7 +5,7 @@ namespace Content.Shared.CCVar;
 public sealed partial class CCVars
 {
     /// <summary>
-    ///     The time you must spend reading the rules, before the "Request" button is enabled
+    ///     The time you must spend reading the rules, before the "Request" button is enabled.
     /// </summary>
     public static readonly CVarDef<float> GhostRoleTime =
         CVarDef.Create("ghost.role_time", 3f, CVar.REPLICATED | CVar.SERVER);

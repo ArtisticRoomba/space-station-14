@@ -9,7 +9,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.Chemistry.Reaction
 {
     /// <summary>
-    /// Prototype for chemical reaction definitions
+    /// Prototype for chemical reaction definitions.
     /// </summary>
     [Prototype]
     public sealed partial class ReactionPrototype : IPrototype, IComparable<ReactionPrototype>
@@ -46,7 +46,7 @@ namespace Content.Shared.Chemistry.Reaction
         public float MaximumTemperature = float.PositiveInfinity;
 
         /// <summary>
-        ///     The required mixing categories for an entity to mix the solution with for the reaction to occur
+        ///     The required mixing categories for an entity to mix the solution with for the reaction to occur.
         /// </summary>
         [DataField("requiredMixerCategories")]
         public List<ProtoId<MixingCategoryPrototype>>? MixingCategories;
@@ -90,7 +90,7 @@ namespace Content.Shared.Chemistry.Reaction
         /// </summary>
         /// <example>
         /// Mixing together two reagents to get a third -> false
-        /// Heating a reagent to break it down into 2 different ones -> true
+        /// Heating a reagent to break it down into 2 different ones -> true.
         /// </example>
         [DataField]
         public bool Source;

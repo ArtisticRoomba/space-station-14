@@ -25,7 +25,7 @@ namespace Content.Shared.Tabletop
         }
 
         /// <summary>
-        ///     Move an entity which is dragged by the user, but check if they are allowed to do so and to these coordinates
+        ///     Move an entity which is dragged by the user, but check if they are allowed to do so and to these coordinates.
         /// </summary>
         protected virtual void OnTabletopMove(TabletopMoveEvent msg, EntitySessionEventArgs args)
         {

@@ -30,7 +30,7 @@ public sealed partial class ZombificationResistanceComponent : Component
 public sealed class ZombificationResistanceQueryEvent : EntityEventArgs, IInventoryRelayEvent
 {
     /// <summary>
-    /// All slots to relay to
+    /// All slots to relay to.
     /// </summary>
     public SlotFlags TargetSlots { get; }
 

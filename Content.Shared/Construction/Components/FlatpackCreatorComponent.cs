@@ -7,7 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Construction.Components;
 
 /// <summary>
-/// This is used for a machine that creates flatpacks at the cost of materials
+/// This is used for a machine that creates flatpacks at the cost of materials.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedFlatpackSystem))]
@@ -15,14 +15,14 @@ namespace Content.Shared.Construction.Components;
 public sealed partial class FlatpackCreatorComponent : Component
 {
     /// <summary>
-    /// Whether or not packing is occuring
+    /// Whether or not packing is occuring.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public bool Packing;
 
     /// <summary>
-    /// The time at which packing ends
+    /// The time at which packing ends.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]

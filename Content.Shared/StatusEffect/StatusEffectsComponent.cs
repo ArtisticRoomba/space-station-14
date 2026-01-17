@@ -12,7 +12,7 @@ namespace Content.Shared.StatusEffect
         public Dictionary<string, StatusEffectState> ActiveEffects = new();
 
         /// <summary>
-        ///     A list of status effect IDs to be allowed
+        ///     A list of status effect IDs to be allowed.
         /// </summary>
         [DataField("allowed", required: true), Access(typeof(StatusEffectsSystem), Other = AccessPermissions.ReadExecute)]
         public List<string> AllowedEffects = default!;

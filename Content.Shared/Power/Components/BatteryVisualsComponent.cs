@@ -38,17 +38,17 @@ public enum BatteryVisuals : byte
 public enum BatteryChargingState : byte
 {
     /// <summary>
-    /// BatteryComponent.ChargeRate &gt; 0
+    /// BatteryComponent.ChargeRate &gt; 0.
     /// </summary>
     Charging,
 
     /// <summary>
-    /// BatteryComponent.ChargeRate &lt; 0
+    /// BatteryComponent.ChargeRate &lt; 0.
     /// </summary>
     Decharging,
 
     /// <summary>
-    /// BatteryComponent.ChargeRate == 0
+    /// BatteryComponent.ChargeRate == 0.
     /// </summary>
     Constant,
 }

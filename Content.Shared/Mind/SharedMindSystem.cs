@@ -164,7 +164,7 @@ public abstract partial class SharedMindSystem : EntitySystem
 
     /// <summary>
     /// Checks to see if the user's mind prevents them from suicide
-    /// Handles the suicide event without killing the user if true
+    /// Handles the suicide event without killing the user if true.
     /// </summary>
     private void OnSuicide(EntityUid uid, MindContainerComponent component, SuicideEvent args)
     {
@@ -237,7 +237,7 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// <summary>
     ///     True if the OwnedEntity of this mind is physically unrevivable.
     ///     This is mainly to check whether a mind is able to inherit their "original" character again without the need for creating a new one.
-    ///     In cases of being a brain, being borged or a zombie they are "unrevivable"
+    ///     In cases of being a brain, being borged or a zombie they are "unrevivable".
     /// </summary>
     public bool IsCharacterUnrevivablePhysically(MindComponent mind)
     {
@@ -320,13 +320,13 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// <summary>
     ///     Transfer this mind's control over to a new entity.
     /// </summary>
-    /// <param name="mindId">The mind to transfer</param>
+    /// <param name="mindId">The mind to transfer.</param>
     /// <param name="entity">
     ///     The entity to control.
     ///     Can be null, in which case it will simply detach the mind from any entity.
     /// </param>
     /// <param name="ghostCheckOverride">
-    ///     If true, skips ghost check for Visiting Entity
+    ///     If true, skips ghost check for Visiting Entity.
     /// </param>
     /// <exception cref="ArgumentException">
     ///     Thrown if <paramref name="entity"/> is already controlled by another player.
@@ -430,10 +430,10 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// This relies on the fact that objectives are never changed after spawning them.
     /// If someone ever changes that, they will have to address this.
     /// </remarks>
-    /// <param name="source"> mind entity of the player to copy from </param>
-    /// <param name="target"> mind entity of the player to copy to </param>
-    /// <param name="except"> whitelist for objectives that should be copied </param>
-    /// <param name="except"> blacklist for objectives that should not be copied </param>
+    /// <param name="source"> mind entity of the player to copy from. </param>
+    /// <param name="target"> mind entity of the player to copy to. </param>
+    /// <param name="except"> whitelist for objectives that should be copied. </param>
+    /// <param name="except"> blacklist for objectives that should not be copied. </param>
     public void CopyObjectives(Entity<MindComponent?> source, Entity<MindComponent?> target, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
     {
         if (!Resolve(source, ref source.Comp) || !Resolve(target, ref target.Comp))
@@ -544,7 +544,7 @@ public abstract partial class SharedMindSystem : EntitySystem
     ///     True if this Mind is 'sufficiently dead' IC (Objectives, EndText).
     ///     Note that this is *IC logic*, it's not necessarily tied to any specific truth.
     ///     "If administrators decide that zombies are dead, this returns true for zombies."
-    ///     (Maybe you were looking for the action blocker system?)
+    ///     (Maybe you were looking for the action blocker system?).
     /// </summary>
     public bool IsCharacterDeadIc(MindComponent mind)
     {

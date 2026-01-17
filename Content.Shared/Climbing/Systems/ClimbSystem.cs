@@ -348,9 +348,9 @@ public sealed partial class ClimbSystem : VirtualController
     }
 
     /// <summary>
-    /// Replaces the current fixtures with non-climbing collidable versions so that climb end can be detected
+    /// Replaces the current fixtures with non-climbing collidable versions so that climb end can be detected.
     /// </summary>
-    /// <returns>Returns whether adding the new fixtures was successful</returns>
+    /// <returns>Returns whether adding the new fixtures was successful.</returns>
     private bool ReplaceFixtures(EntityUid uid, ClimbingComponent climbingComp, FixturesComponent fixturesComp)
     {
         // Swap fixtures
@@ -450,12 +450,12 @@ public sealed partial class ClimbSystem : VirtualController
     }
 
     /// <summary>
-    ///     Checks if the user can vault the target
+    ///     Checks if the user can vault the target.
     /// </summary>
-    /// <param name="component">The component of the entity that is being vaulted</param>
-    /// <param name="user">The entity that wants to vault</param>
-    /// <param name="target">The object that is being vaulted</param>
-    /// <param name="reason">The reason why it cant be dropped</param>
+    /// <param name="component">The component of the entity that is being vaulted.</param>
+    /// <param name="user">The entity that wants to vault.</param>
+    /// <param name="target">The object that is being vaulted.</param>
+    /// <param name="reason">The reason why it cant be dropped.</param>
     public bool CanVault(ClimbableComponent component, EntityUid user, EntityUid target, out string reason)
     {
         if (!component.Vaultable)
@@ -494,13 +494,13 @@ public sealed partial class ClimbSystem : VirtualController
     }
 
     /// <summary>
-    ///     Checks if the user can vault the dragged entity onto the the target
+    ///     Checks if the user can vault the dragged entity onto the the target.
     /// </summary>
-    /// <param name="component">The climbable component of the object being vaulted onto</param>
-    /// <param name="user">The user that wants to vault the entity</param>
-    /// <param name="dragged">The entity that is being vaulted</param>
-    /// <param name="target">The object that is being vaulted onto</param>
-    /// <param name="reason">The reason why it cant be dropped</param>
+    /// <param name="component">The climbable component of the object being vaulted onto.</param>
+    /// <param name="user">The user that wants to vault the entity.</param>
+    /// <param name="dragged">The entity that is being vaulted.</param>
+    /// <param name="target">The object that is being vaulted onto.</param>
+    /// <param name="reason">The reason why it cant be dropped.</param>
     /// <returns></returns>
     public bool CanVault(ClimbableComponent component, EntityUid user, EntityUid dragged, EntityUid target,
         out string reason)

@@ -21,7 +21,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Lock;
 
 /// <summary>
-/// Handles (un)locking and examining of Lock components
+/// Handles (un)locking and examining of Lock components.
 /// </summary>
 [UsedImplicitly]
 public sealed class LockSystem : EntitySystem
@@ -126,16 +126,16 @@ public sealed class LockSystem : EntitySystem
     }
 
     /// <summary>
-    /// Attmempts to lock a given entity
+    /// Attmempts to lock a given entity.
     /// </summary>
     /// <remarks>
     /// If the lock is set to require a do-after, a true return value only indicates that the do-after started.
     /// </remarks>
-    /// <param name="uid">The entity with the lock</param>
-    /// <param name="user">The person trying to lock it</param>
+    /// <param name="uid">The entity with the lock.</param>
+    /// <param name="user">The person trying to lock it.</param>
     /// <param name="lockComp"></param>
     /// <param name="skipDoAfter">If true, skip the required do-after if one is configured.</param>
-    /// <returns>If locking was successful</returns>
+    /// <returns>If locking was successful.</returns>
     public bool TryLock(EntityUid uid, EntityUid user, LockComponent? lockComp = null, bool skipDoAfter = false)
     {
         if (!Resolve(uid, ref lockComp))
@@ -191,13 +191,13 @@ public sealed class LockSystem : EntitySystem
     }
 
     /// <summary>
-    /// Forces a given entity to be unlocked
+    /// Forces a given entity to be unlocked.
     /// </summary>
     /// <remarks>
     /// This does not process do-after times.
     /// </remarks>
-    /// <param name="uid">The entity with the lock</param>
-    /// <param name="user">The person unlocking it. Can be null</param>
+    /// <param name="uid">The entity with the lock.</param>
+    /// <param name="user">The person unlocking it. Can be null.</param>
     /// <param name="lockComp"></param>
     public void Unlock(EntityUid uid, EntityUid? user, LockComponent? lockComp = null)
     {
@@ -225,16 +225,16 @@ public sealed class LockSystem : EntitySystem
 
 
     /// <summary>
-    /// Attmempts to unlock a given entity
+    /// Attmempts to unlock a given entity.
     /// </summary>
     /// <remarks>
     /// If the lock is set to require a do-after, a true return value only indicates that the do-after started.
     /// </remarks>
-    /// <param name="uid">The entity with the lock</param>
-    /// <param name="user">The person trying to unlock it</param>
+    /// <param name="uid">The entity with the lock.</param>
+    /// <param name="user">The person trying to unlock it.</param>
     /// <param name="lockComp"></param>
     /// <param name="skipDoAfter">If true, skip the required do-after if one is configured.</param>
-    /// <returns>If locking was successful</returns>
+    /// <returns>If locking was successful.</returns>
     public bool TryUnlock(EntityUid uid, EntityUid user, LockComponent? lockComp = null, bool skipDoAfter = false)
     {
         if (!Resolve(uid, ref lockComp))
@@ -266,8 +266,8 @@ public sealed class LockSystem : EntitySystem
     /// Toggle the lock to locked if unlocked, and unlocked if locked.
     /// </summary>
     /// <param name="uid">Entity to toggle the lock state of.</param>
-    /// <param name="user">The person trying to toggle the lock</param>
-    /// <param name="lockComp">Entities lock comp (will be resolved)</param>
+    /// <param name="user">The person trying to toggle the lock.</param>
+    /// <param name="lockComp">Entities lock comp (will be resolved).</param>
     public void ToggleLock(EntityUid uid, EntityUid? user, LockComponent? lockComp = null)
     {
         if (IsLocked((uid, lockComp)))

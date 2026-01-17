@@ -13,7 +13,7 @@ namespace Content.Shared.Nutrition.Components;
 public sealed partial class SealableComponent : Component
 {
     /// <summary>
-    /// Whether the item's seal is intact (i.e. it has never been opened)
+    /// Whether the item's seal is intact (i.e. it has never been opened).
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Sealed = true;

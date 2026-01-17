@@ -86,7 +86,7 @@ namespace Content.Shared.Verbs
         public readonly List<VerbCategory> ExtraCategories;
 
         /// <summary>
-        ///     Can the user physically access the target?
+        ///     Can the user physically access the target?.
         /// </summary>
         /// <remarks>
         ///     This is a combination of <see cref="ContainerHelpers.IsInSameOrParentContainer"/> and
@@ -105,7 +105,7 @@ namespace Content.Shared.Verbs
         public readonly EntityUid User;
 
         /// <summary>
-        ///     Can the user physically interact?
+        ///     Can the user physically interact?.
         /// </summary>
         /// <remarks>
         ///     This is a just a cached <see cref="ActionBlockerSystem.CanInteract"/> result. Given that many verbs need
@@ -115,7 +115,7 @@ namespace Content.Shared.Verbs
         public readonly bool CanInteract;
 
         /// <summary>
-        /// Cached version of CanComplexInteract
+        /// Cached version of CanComplexInteract.
         /// </summary>
         public readonly bool CanComplexInteract;
 

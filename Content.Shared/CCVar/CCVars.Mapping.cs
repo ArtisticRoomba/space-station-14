@@ -5,7 +5,7 @@ namespace Content.Shared.CCVar;
 public sealed partial class CCVars
 {
     /// <summary>
-    ///     Will mapping mode enable autosaves when it's activated?
+    ///     Will mapping mode enable autosaves when it's activated?.
     /// </summary>
     public static readonly CVarDef<bool>
         AutosaveEnabled = CVarDef.Create("mapping.autosave", true, CVar.SERVERONLY);

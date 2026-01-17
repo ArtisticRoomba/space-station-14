@@ -2,7 +2,7 @@ namespace Content.Shared.Item;
 
 /// <summary>
 /// Raised on a *mob* when it tries to pickup something.
-/// IMPORTANT: Attempt event subscriptions should not be doing any state changes like throwing items, opening UIs, playing sounds etc!
+/// IMPORTANT: Attempt event subscriptions should not be doing any state changes like throwing items, opening UIs, playing sounds etc!.
 /// </summary>
 public sealed class PickupAttemptEvent : BasePickupAttemptEvent
 {
@@ -11,7 +11,7 @@ public sealed class PickupAttemptEvent : BasePickupAttemptEvent
 
 /// <summary>
 /// Raised directed at entity being picked up when someone tries to pick it up.
-/// IMPORTANT: Attempt event subscriptions should not be doing any state changes like throwing items, opening UIs, playing sounds etc!
+/// IMPORTANT: Attempt event subscriptions should not be doing any state changes like throwing items, opening UIs, playing sounds etc!.
 /// </summary>
 public sealed class GettingPickedUpAttemptEvent : BasePickupAttemptEvent
 {

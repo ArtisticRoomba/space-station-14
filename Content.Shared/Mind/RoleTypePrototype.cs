@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Mind;
 
 /// <summary>
-///     The core properties of Role Types
+///     The core properties of Role Types.
 /// </summary>
 [Prototype]
 public sealed partial class RoleTypePrototype : IPrototype

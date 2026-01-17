@@ -19,7 +19,7 @@ public sealed partial class RotIntoComponent : Component
 
     /// <summary>
     /// Rotting stage to turn at, this is a multiplier of the total rot time.
-    /// 0 = rotting, 1 = bloated, 2 = extremely bloated
+    /// 0 = rotting, 1 = bloated, 2 = extremely bloated.
     /// </summary>
     [DataField("stage"), ViewVariables(VVAccess.ReadWrite)]
     public int Stage;

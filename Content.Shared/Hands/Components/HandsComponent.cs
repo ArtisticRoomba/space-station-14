@@ -24,7 +24,7 @@ public sealed partial class HandsComponent : Component
     public Dictionary<string, Hand> Hands = new();
 
     /// <summary>
-    /// The number of hands
+    /// The number of hands.
     /// </summary>
     [ViewVariables]
     public int Count => Hands.Count;
@@ -79,19 +79,19 @@ public sealed partial class HandsComponent : Component
     public TimeSpan ThrowCooldown = TimeSpan.FromSeconds(0.5f);
 
     /// <summary>
-    ///     Fallback displacement map applied to all sprites in the hand, unless otherwise specified
+    ///     Fallback displacement map applied to all sprites in the hand, unless otherwise specified.
     /// </summary>
     [DataField]
     public DisplacementData? HandDisplacement;
 
     /// <summary>
-    ///     If defined, applies to all sprites in the left hand, ignoring <see cref="HandDisplacement"/>
+    ///     If defined, applies to all sprites in the left hand, ignoring <see cref="HandDisplacement"/>.
     /// </summary>
     [DataField]
     public DisplacementData? LeftHandDisplacement;
 
     /// <summary>
-    ///     If defined, applies to all sprites in the right hand, ignoring <see cref="HandDisplacement"/>
+    ///     If defined, applies to all sprites in the right hand, ignoring <see cref="HandDisplacement"/>.
     /// </summary>
     [DataField]
     public DisplacementData? RightHandDisplacement;
@@ -111,7 +111,7 @@ public partial record struct Hand
     public HandLocation Location = HandLocation.Middle;
 
     /// <summary>
-    /// The label to be displayed for this hand when it does not contain an entity
+    /// The label to be displayed for this hand when it does not contain an entity.
     /// </summary>
     [DataField]
     public LocId? EmptyLabel;
@@ -124,13 +124,13 @@ public partial record struct Hand
     public EntProtoId? EmptyRepresentative;
 
     /// <summary>
-    /// What this hand is allowed to hold
+    /// What this hand is allowed to hold.
     /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist;
 
     /// <summary>
-    /// What this hand is not allowed to hold
+    /// What this hand is not allowed to hold.
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist;

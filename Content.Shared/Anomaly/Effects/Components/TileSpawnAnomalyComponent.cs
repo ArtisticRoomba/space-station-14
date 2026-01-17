@@ -8,7 +8,7 @@ namespace Content.Shared.Anomaly.Effects.Components;
 public sealed partial class TileSpawnAnomalyComponent : Component
 {
     /// <summary>
-    /// All types of floors spawns with their settings
+    /// All types of floors spawns with their settings.
     /// </summary>
     [DataField]
     public List<TileSpawnSettingsEntry> Entries = new();
@@ -18,7 +18,7 @@ public sealed partial class TileSpawnAnomalyComponent : Component
 public partial record struct TileSpawnSettingsEntry()
 {
     /// <summary>
-    /// The tile that is spawned by the anomaly's effect
+    /// The tile that is spawned by the anomaly's effect.
     /// </summary>
     public ProtoId<ContentTileDefinition> Floor { get; set; } = default!;
 

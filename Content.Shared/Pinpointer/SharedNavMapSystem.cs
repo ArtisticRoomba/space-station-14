@@ -47,7 +47,7 @@ public abstract class SharedNavMapSystem : EntitySystem
     }
 
     /// <summary>
-    /// Inverse of <see cref="GetTileIndex"/>
+    /// Inverse of <see cref="GetTileIndex"/>.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector2i GetTileFromIndex(int index)

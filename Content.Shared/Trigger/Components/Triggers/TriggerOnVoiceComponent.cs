@@ -52,13 +52,13 @@ public sealed partial class TriggerOnVoiceComponent : BaseTriggerOnXComponent
     public int MaxLength = 50;
 
     /// <summary>
-    /// When examining the item, should it show information about what word is recorded?
+    /// When examining the item, should it show information about what word is recorded?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ShowExamine = true;
 
     /// <summary>
-    /// Should there be verbs that allow re-recording of the trigger word?
+    /// Should there be verbs that allow re-recording of the trigger word?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ShowVerbs = true;
@@ -100,7 +100,7 @@ public sealed partial class TriggerOnVoiceComponent : BaseTriggerOnXComponent
     public LocId? InspectUninitializedLoc = "trigger-on-voice-uninitialized";
 
     /// <summary>
-    /// The loc string to use when inspecting voice trigger. Will also include the triggering phrase
+    /// The loc string to use when inspecting voice trigger. Will also include the triggering phrase.
     /// </summary>
     [DataField, AutoNetworkedField]
     public LocId? InspectInitializedLoc = "trigger-on-voice-examine";

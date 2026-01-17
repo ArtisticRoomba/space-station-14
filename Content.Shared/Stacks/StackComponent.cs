@@ -38,7 +38,7 @@ public sealed partial class StackComponent : Component
     public bool Unlimited;
 
     /// <summary>
-    /// When throwing this item, do we want to only throw one part of the stack or the whole stack at once?
+    /// When throwing this item, do we want to only throw one part of the stack or the whole stack at once?.
     /// </summary>
     [DataField]
     public bool ThrowIndividually;
@@ -74,7 +74,7 @@ public sealed partial class StackComponent : Component
 
     /// <summary>
     /// Sprite layers used in stack visualizer. Sprites first in layer correspond to lower stack states
-    /// e.g. <code>_spriteLayers[0]</code> is lower stack level than <code>_spriteLayers[1]</code>.
+    /// e.g. <code>_spriteLayers[0]</code> is lower stack level than. <code>_spriteLayers[1]</code>.
     /// </summary>
     [DataField]
     public List<string> LayerStates = new();

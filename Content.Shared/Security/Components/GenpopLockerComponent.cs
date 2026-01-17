@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Security.Components;
 
 /// <summary>
-/// This is used for a locker that automatically sets up and handles a <see cref="GenpopIdCardComponent"/>
+/// This is used for a locker that automatically sets up and handles a <see cref="GenpopIdCardComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class GenpopLockerComponent : Component

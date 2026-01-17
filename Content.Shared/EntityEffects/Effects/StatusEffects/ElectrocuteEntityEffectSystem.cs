@@ -28,7 +28,7 @@ public sealed partial class ElectrocuteEntityEffectSystem : EntityEffectSystem<S
 public sealed partial class Electrocute : EntityEffectBase<Electrocute>
 {
     /// <summary>
-    /// Time we electrocute this entity
+    /// Time we electrocute this entity.
     /// </summary>
     [DataField] public TimeSpan ElectrocuteTime = TimeSpan.FromSeconds(2);
 
@@ -43,7 +43,7 @@ public sealed partial class Electrocute : EntityEffectBase<Electrocute>
     [DataField] public bool Refresh = true;
 
     /// <summary>
-    /// Should we by bypassing insulation?
+    /// Should we by bypassing insulation?.
     /// </summary>
     [DataField] public bool BypassInsulation = true;
 

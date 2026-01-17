@@ -22,7 +22,7 @@ public enum NetworkConfiguratorButtonKey
 }
 
 /// <summary>
-/// Message sent when the remove button for one device on the list was pressed
+/// Message sent when the remove button for one device on the list was pressed.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class NetworkConfiguratorRemoveDeviceMessage : BoundUserInterfaceMessage
@@ -36,7 +36,7 @@ public sealed class NetworkConfiguratorRemoveDeviceMessage : BoundUserInterfaceM
 }
 
 /// <summary>
-/// Message sent when the clear button was pressed
+/// Message sent when the clear button was pressed.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class NetworkConfiguratorClearDevicesMessage : BoundUserInterfaceMessage

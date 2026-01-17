@@ -56,7 +56,7 @@ public sealed partial class DoorComponent : Component
     public TimeSpan OpenTimeTwo = TimeSpan.FromSeconds(0.2f);
 
     /// <summary>
-    ///     Interval between deny sounds & visuals;
+    ///     Interval between deny sounds & visuals.
     /// </summary>
     [DataField]
     public TimeSpan DenyDuration = TimeSpan.FromSeconds(0.45f);
@@ -99,7 +99,7 @@ public sealed partial class DoorComponent : Component
     public SoundSpecifier? DenySound;
 
     /// <summary>
-    /// Sound to play when door has been emagged or possibly electrically tampered
+    /// Sound to play when door has been emagged or possibly electrically tampered.
     /// </summary>
     [DataField("sparkSound")]
     public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks");

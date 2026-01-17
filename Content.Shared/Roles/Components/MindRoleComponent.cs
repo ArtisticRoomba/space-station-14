@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Roles.Components;
 
 /// <summary>
-/// This holds data for, and indicates, a Mind Role entity
+/// This holds data for, and indicates, a Mind Role entity.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MindRoleComponent : BaseMindRoleComponent

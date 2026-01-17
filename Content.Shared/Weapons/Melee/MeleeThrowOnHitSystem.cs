@@ -9,7 +9,7 @@ using Robust.Shared.Physics.Components;
 namespace Content.Shared.Weapons.Melee;
 
 /// <summary>
-/// This handles <see cref="MeleeThrowOnHitComponent"/>
+/// This handles <see cref="MeleeThrowOnHitComponent"/>.
 /// </summary>
 public sealed class MeleeThrowOnHitSystem : EntitySystem
 {

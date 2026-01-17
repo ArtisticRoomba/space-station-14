@@ -27,7 +27,7 @@ public sealed partial class CurrencyPrototype : IPrototype
     public string DisplayName { get; private set; } = string.Empty;
 
     /// <summary>
-    /// The physical entity of the currency
+    /// The physical entity of the currency.
     /// </summary>
     [DataField]
     public Dictionary<FixedPoint2, EntProtoId>? Cash { get; private set; }

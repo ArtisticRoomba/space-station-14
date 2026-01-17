@@ -21,13 +21,13 @@ public sealed partial class AnomalySynchronizerComponent : Component
     public EntityUid? ConnectedAnomaly;
 
     /// <summary>
-    /// Should the anomaly pulse when connected to the synchronizer?
+    /// Should the anomaly pulse when connected to the synchronizer?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool PulseOnConnect = true;
 
     /// <summary>
-    /// Should the anomaly pulse when disconnected from synchronizer?
+    /// Should the anomaly pulse when disconnected from synchronizer?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool PulseOnDisconnect = false;

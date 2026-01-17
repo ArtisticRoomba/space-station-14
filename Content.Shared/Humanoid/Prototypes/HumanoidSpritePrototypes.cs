@@ -5,7 +5,7 @@ namespace Content.Shared.Humanoid.Prototypes;
 
 /// <summary>
 ///     Base sprites for a species (e.g., what replaces the empty tagged layer,
-///     or settings per layer)
+///     or settings per layer).
 /// </summary>
 [Prototype("speciesBaseSprites")]
 public sealed partial class HumanoidSpeciesBaseSpritesPrototype : IPrototype

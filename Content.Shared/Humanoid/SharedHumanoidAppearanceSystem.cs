@@ -118,10 +118,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <summary>
     ///     Toggles a humanoid's sprite layer visibility.
     /// </summary>
-    /// <param name="ent">Humanoid entity</param>
-    /// <param name="layer">Layer to toggle visibility for</param>
+    /// <param name="ent">Humanoid entity.</param>
+    /// <param name="layer">Layer to toggle visibility for.</param>
     /// <param name="visible">Whether to hide or show the layer. If more than once piece of clothing is hiding the layer, it may remain hidden.</param>
-    /// <param name="source">Equipment slot that has the clothing that is (or was) hiding the layer. If not specified, the change is "permanent" (i.e., see <see cref="HumanoidAppearanceComponent.PermanentlyHidden"/>)</param>
+    /// <param name="source">Equipment slot that has the clothing that is (or was) hiding the layer. If not specified, the change is "permanent" (i.e., see <see cref="HumanoidAppearanceComponent.PermanentlyHidden"/>).</param>
     public void SetLayerVisibility(Entity<HumanoidAppearanceComponent?> ent,
         HumanoidVisualLayers layer,
         bool visible,
@@ -165,9 +165,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <summary>
     ///     Sets the visibility for multiple layers at once on a humanoid's sprite.
     /// </summary>
-    /// <param name="ent">Humanoid entity</param>
-    /// <param name="layers">An enumerable of all sprite layers that are going to have their visibility set</param>
-    /// <param name="visible">The visibility state of the layers given</param>
+    /// <param name="ent">Humanoid entity.</param>
+    /// <param name="layers">An enumerable of all sprite layers that are going to have their visibility set.</param>
+    /// <param name="visible">The visibility state of the layers given.</param>
     public void SetLayersVisibility(Entity<HumanoidAppearanceComponent?> ent,
         IEnumerable<HumanoidVisualLayers> layers,
         bool visible)
@@ -245,7 +245,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="uid">The humanoid mob's UID.</param>
     /// <param name="species">The species to set the mob to. Will return if the species prototype was invalid.</param>
     /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
+    /// <param name="humanoid">Humanoid component of the entity.</param>
     public void SetSpecies(EntityUid uid, string species, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid) || !_proto.TryIndex<SpeciesPrototype>(species, out var prototype))
@@ -286,8 +286,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="uid">The humanoid mob's UID.</param>
     /// <param name="skinColor">Skin color to set on the humanoid mob.</param>
     /// <param name="sync">Whether to synchronize this to the humanoid mob, or not.</param>
-    /// <param name="verify">Whether to verify the skin color can be set on this humanoid or not</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
+    /// <param name="verify">Whether to verify the skin color can be set on this humanoid or not.</param>
+    /// <param name="humanoid">Humanoid component of the entity.</param>
     public virtual void SetSkinColor(EntityUid uid, Color skinColor, bool sync = true, bool verify = true, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid))
@@ -318,7 +318,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="layer">The layer to target on this humanoid mob.</param>
     /// <param name="id">The ID of the sprite to use. See <see cref="HumanoidSpeciesSpriteLayer"/>.</param>
     /// <param name="sync">Whether to synchronize this to the humanoid mob, or not.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
+    /// <param name="humanoid">Humanoid component of the entity.</param>
     public void SetBaseLayerId(EntityUid uid, HumanoidVisualLayers layer, string? id, bool sync = true,
         HumanoidAppearanceComponent? humanoid = null)
     {
@@ -361,7 +361,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="uid">The humanoid mob's UID.</param>
     /// <param name="sex">The sex to set the mob to.</param>
     /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
+    /// <param name="humanoid">Humanoid component of the entity.</param>
     public void SetSex(EntityUid uid, Sex sex, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid) || humanoid.Sex == sex)
@@ -383,7 +383,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// </summary>
     /// <param name="uid">The mob's entity UID.</param>
     /// <param name="profile">The character profile to load.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
+    /// <param name="humanoid">Humanoid component of the entity.</param>
     public virtual void LoadProfile(EntityUid uid, HumanoidCharacterProfile? profile, HumanoidAppearanceComponent? humanoid = null)
     {
         if (profile == null)
@@ -467,12 +467,12 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <summary>
     ///     Adds a marking to this humanoid.
     /// </summary>
-    /// <param name="uid">Humanoid mob's UID</param>
-    /// <param name="marking">Marking ID to use</param>
-    /// <param name="color">Color to apply to all marking layers of this marking</param>
-    /// <param name="sync">Whether to immediately sync this marking or not</param>
-    /// <param name="forced">If this marking was forced (ignores marking points)</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
+    /// <param name="uid">Humanoid mob's UID.</param>
+    /// <param name="marking">Marking ID to use.</param>
+    /// <param name="color">Color to apply to all marking layers of this marking.</param>
+    /// <param name="sync">Whether to immediately sync this marking or not.</param>
+    /// <param name="forced">If this marking was forced (ignores marking points).</param>
+    /// <param name="humanoid">Humanoid component of the entity.</param>
     public void AddMarking(EntityUid uid, string marking, Color? color = null, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid)
@@ -510,12 +510,12 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <summary>
     ///
     /// </summary>
-    /// <param name="uid">Humanoid mob's UID</param>
-    /// <param name="marking">Marking ID to use</param>
+    /// <param name="uid">Humanoid mob's UID.</param>
+    /// <param name="marking">Marking ID to use.</param>
     /// <param name="colors">Colors to apply against this marking's set of sprites.</param>
-    /// <param name="sync">Whether to immediately sync this marking or not</param>
-    /// <param name="forced">If this marking was forced (ignores marking points)</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
+    /// <param name="sync">Whether to immediately sync this marking or not.</param>
+    /// <param name="forced">If this marking was forced (ignores marking points).</param>
+    /// <param name="humanoid">Humanoid component of the entity.</param>
     public void AddMarking(EntityUid uid, string marking, IReadOnlyList<Color> colors, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid)

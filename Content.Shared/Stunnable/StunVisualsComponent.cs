@@ -3,7 +3,7 @@
 namespace Content.Shared.Stunnable;
 
 /// <summary>
-/// This is used to listen to incoming events from the AppearanceSystem
+/// This is used to listen to incoming events from the AppearanceSystem.
 /// </summary>
 [RegisterComponent]
 public sealed partial class StunVisualsComponent : Component

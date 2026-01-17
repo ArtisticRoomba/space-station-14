@@ -94,7 +94,7 @@ public sealed partial class IngestionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Eat or drink an item
+    /// Eat or drink an item.
     /// </summary>
     private void OnUseEdibleInHand(Entity<EdibleComponent> entity, ref UseInHandEvent ev)
     {
@@ -105,7 +105,7 @@ public sealed partial class IngestionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Feed someone else
+    /// Feed someone else.
     /// </summary>
     private void OnEdibleInteract(Entity<EdibleComponent> entity, ref AfterInteractEvent args)
     {
@@ -115,7 +115,7 @@ public sealed partial class IngestionSystem : EntitySystem
         args.Handled = TryIngest(args.User, args.Target.Value, entity);
     }
 
-    /// <summary>Raises events to see if it's possible to ingest </summary>
+    /// <summary>Raises events to see if it's possible to ingest. </summary>
     /// <param name="user">The entity who is trying to make this happen.</param>
     /// <param name="target">The entity who is being made to ingest something.</param>
     /// <param name="ingested">The entity that is trying to be ingested.</param>
@@ -176,9 +176,9 @@ public sealed partial class IngestionSystem : EntitySystem
     /// Generic method which takes a list of stomachs, and checks if a given food item passes any stomach's whitelist
     /// in a given list of stomachs.
     /// </summary>
-    /// <param name="food">Entity being eaten</param>
-    /// <param name="stomachs">Stomachs available to digest</param>
-    /// <param name="popup">Should we also display popup text if it exists?</param>
+    /// <param name="food">Entity being eaten.</param>
+    /// <param name="stomachs">Stomachs available to digest.</param>
+    /// <param name="popup">Should we also display popup text if it exists?.</param>
     public bool IsDigestibleBy(EntityUid food, List<Entity<StomachComponent, OrganComponent>> stomachs, out bool popup)
     {
         popup = false;
@@ -220,7 +220,7 @@ public sealed partial class IngestionSystem : EntitySystem
     /// <summary>
     /// Generic method which takes a single stomach into account, and checks if a given food item passes a stomach whitelist.
     /// </summary>
-    /// <param name="food">Entity being eaten</param>
+    /// <param name="food">Entity being eaten.</param>
     /// <param name="stomach">Stomachs that is attempting to digest.</param>
     public bool IsDigestibleBy(EntityUid food, Entity<StomachComponent, OrganComponent> stomach)
     {
@@ -405,13 +405,13 @@ public sealed partial class IngestionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets the DoAfterArgs for the specific event
+    /// Gets the DoAfterArgs for the specific event.
     /// </summary>
     /// <param name="user">Entity that is doing the action.</param>
     /// <param name="target">Entity that is eating.</param>
     /// <param name="food">Food entity we're trying to eat.</param>
-    /// <param name="delay">The time delay for our DoAfter</param>
-    /// <returns>Returns true if it was able to successfully start the DoAfter</returns>
+    /// <param name="delay">The time delay for our DoAfter.</param>
+    /// <returns>Returns true if it was able to successfully start the DoAfter.</returns>
     private DoAfterArgs GetEdibleDoAfterArgs(EntityUid user, EntityUid target, EntityUid food, TimeSpan delay = default)
     {
         var forceFeed = user != target;

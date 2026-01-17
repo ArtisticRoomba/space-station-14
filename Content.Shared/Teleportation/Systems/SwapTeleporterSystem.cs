@@ -16,7 +16,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Teleportation.Systems;
 
 /// <summary>
-/// This handles <see cref="SwapTeleporterComponent"/>
+/// This handles <see cref="SwapTeleporterComponent"/>.
 /// </summary>
 public sealed class SwapTeleporterSystem : EntitySystem
 {
@@ -196,7 +196,7 @@ public sealed class SwapTeleporterSystem : EntitySystem
     }
 
     /// <remarks>
-    /// HYAH -link
+    /// HYAH -link.
     /// </remarks>
     public void DestroyLink(Entity<SwapTeleporterComponent?> ent, EntityUid? user)
     {

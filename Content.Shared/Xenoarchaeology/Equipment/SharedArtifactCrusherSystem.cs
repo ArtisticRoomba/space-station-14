@@ -15,7 +15,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Xenoarchaeology.Equipment;
 
 /// <summary>
-/// This handles logic relating to <see cref="ArtifactCrusherComponent"/>
+/// This handles logic relating to <see cref="ArtifactCrusherComponent"/>.
 /// </summary>
 public abstract class SharedArtifactCrusherSystem : EntitySystem
 {

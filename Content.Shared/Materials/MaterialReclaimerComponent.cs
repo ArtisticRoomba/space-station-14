@@ -23,7 +23,7 @@ public sealed partial class MaterialReclaimerComponent : Component
     public bool Powered;
 
     /// <summary>
-    /// An "enable" toggle for things like interfacing with machine linking
+    /// An "enable" toggle for things like interfacing with machine linking.
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool Enabled = true;
@@ -44,7 +44,7 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// <summary>
     /// Whether or not the process
     /// speed scales with the amount of materials being processed
-    /// or if it's just <see cref="MinimumProcessDuration"/>
+    /// or if it's just <see cref="MinimumProcessDuration"/>.
     /// </summary>
     [DataField]
     public bool ScaleProcessSpeed = true;
@@ -58,13 +58,13 @@ public sealed partial class MaterialReclaimerComponent : Component
 
     /// <summary>
     /// The minimum amount fo time it can take to process an entity.
-    /// this value supercedes the calculated one using <see cref="MaterialProcessRate"/>
+    /// this value supercedes the calculated one using <see cref="MaterialProcessRate"/>.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan MinimumProcessDuration = TimeSpan.FromSeconds(0.5f);
 
     /// <summary>
-    /// The id of our output solution
+    /// The id of our output solution.
     /// </summary>
     [DataField]
     public string? SolutionContainerId;
@@ -85,19 +85,19 @@ public sealed partial class MaterialReclaimerComponent : Component
 
     /// <summary>
     /// If the reclaimer should attempt to reclaim all solutions or just drainable ones
-    /// Difference between Recycler and Industrial Reagent Grinder
+    /// Difference between Recycler and Industrial Reagent Grinder.
     /// </summary>
     [DataField]
     public bool OnlyReclaimDrainable = true;
 
     /// <summary>
-    /// a whitelist for what entities can be inserted into this reclaimer
+    /// a whitelist for what entities can be inserted into this reclaimer.
     /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist;
 
     /// <summary>
-    /// a blacklist for what entities cannot be inserted into this reclaimer
+    /// a blacklist for what entities cannot be inserted into this reclaimer.
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist;
@@ -122,7 +122,7 @@ public sealed partial class MaterialReclaimerComponent : Component
     public TimeSpan NextSound;
 
     /// <summary>
-    /// Minimum time inbetween each <see cref="Sound"/>
+    /// Minimum time inbetween each <see cref="Sound"/>.
     /// </summary>
     [DataField]
     public TimeSpan SoundCooldown = TimeSpan.FromSeconds(0.8f);
@@ -130,10 +130,10 @@ public sealed partial class MaterialReclaimerComponent : Component
     public EntityUid? Stream;
 
     /// <summary>
-    /// A counter of how many items have been processed
+    /// A counter of how many items have been processed.
     /// </summary>
     /// <remarks>
-    /// I saw this on the recycler and i'm porting it because it's cute af
+    /// I saw this on the recycler and i'm porting it because it's cute af.
     /// </remarks>
     [DataField, AutoNetworkedField]
     public int ItemsProcessed;

@@ -12,7 +12,7 @@ namespace Content.Shared.Speech.Components;
 public sealed partial class MeleeSpeechComponent : Component
 {
     /// <summary>
-    /// The battlecry to be said when an entity attacks with this component
+    /// The battlecry to be said when an entity attacks with this component.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("Battlecry")]
@@ -20,7 +20,7 @@ public sealed partial class MeleeSpeechComponent : Component
     public string? Battlecry;
 
     /// <summary>
-    /// The maximum amount of characters allowed in a battlecry
+    /// The maximum amount of characters allowed in a battlecry.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("MaxBattlecryLength")]
@@ -30,7 +30,7 @@ public sealed partial class MeleeSpeechComponent : Component
     [DataField] public EntProtoId ConfigureAction = "ActionConfigureMeleeSpeech";
 
     /// <summary>
-    /// The action to open the battlecry UI
+    /// The action to open the battlecry UI.
     /// </summary>
     [DataField("configureActionEntity")] public EntityUid? ConfigureActionEntity;
 }
@@ -46,7 +46,7 @@ public enum MeleeSpeechUiKey : byte
 }
 
 /// <summary>
-/// Represents an <see cref="MeleeSpeechComponent"/> state that can be sent to the client
+/// Represents an <see cref="MeleeSpeechComponent"/> state that can be sent to the client.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class MeleeSpeechBoundUserInterfaceState : BoundUserInterfaceState

@@ -131,7 +131,7 @@ public sealed class ActionUpgradeSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Raises a level by one
+    ///     Raises a level by one.
     /// </summary>
     public EntityUid? UpgradeAction(EntityUid? actionId, ActionUpgradeComponent? actionUpgradeComponent = null, EntProtoId? newActionProto = null, int newLevel = 0)
     {

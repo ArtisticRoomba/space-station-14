@@ -188,7 +188,7 @@ public sealed class ActionContainerSystem : EntitySystem
     /// </summary>
     /// <remarks>
     /// This will actually remove and then re-grant the action.
-    /// Useful where you need to transfer from one container to another but also change the attached entity (ie spellbook > mind > user)
+    /// Useful where you need to transfer from one container to another but also change the attached entity (ie spellbook > mind > user).
     /// </remarks>
     public void TransferActionWithNewAttached(
         EntityUid actionId,
@@ -218,7 +218,7 @@ public sealed class ActionContainerSystem : EntitySystem
     /// </summary>
     /// <remarks>
     /// This will actually remove and then re-grant the action.
-    /// Useful where you need to transfer from one container to another but also change the attached entity (ie spellbook > mind > user)
+    /// Useful where you need to transfer from one container to another but also change the attached entity (ie spellbook > mind > user).
     /// </remarks>
     public void TransferAllActionsWithNewAttached(
         EntityUid from,
@@ -265,7 +265,7 @@ public sealed class ActionContainerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Removes an action from its container and any action-performer and moves the action to null-space
+    /// Removes an action from its container and any action-performer and moves the action to null-space.
     /// </summary>
     public void RemoveAction(Entity<ActionComponent?>? action, bool logMissing = true)
     {

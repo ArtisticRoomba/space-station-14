@@ -11,7 +11,7 @@ namespace Content.Shared.Light.Components;
 public sealed partial class RotatingLightComponent : Component
 {
     /// <summary>
-    /// Speed to rotate at, in degrees per second
+    /// Speed to rotate at, in degrees per second.
     /// </summary>
     [DataField("speed")]
     public float Speed = 90f;

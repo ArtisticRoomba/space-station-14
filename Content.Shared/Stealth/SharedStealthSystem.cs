@@ -149,9 +149,9 @@ public abstract class SharedStealthSystem : EntitySystem
     }
 
     /// <summary>
-    /// Sets the visibility directly with no modifications
+    /// Sets the visibility directly with no modifications.
     /// </summary>
-    /// <param name="value">The value to set the visibility to. -1 is fully invisible, 1 is fully visible</param>
+    /// <param name="value">The value to set the visibility to. -1 is fully invisible, 1 is fully visible.</param>
     public void SetVisibility(EntityUid uid, float value, StealthComponent? component = null)
     {
         if (!Resolve(uid, ref component))

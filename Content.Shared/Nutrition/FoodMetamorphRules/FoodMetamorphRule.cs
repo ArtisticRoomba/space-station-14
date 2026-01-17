@@ -11,7 +11,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Nutrition.FoodMetamorphRules;
 
 /// <summary>
-/// abstract rules that are used to verify the correct foodSequence for recipe
+/// abstract rules that are used to verify the correct foodSequence for recipe.
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
 [Serializable, NetSerializable]
@@ -21,7 +21,7 @@ public abstract partial class FoodMetamorphRule
 }
 
 /// <summary>
-/// The requirement that the sequence be within the specified size limit
+/// The requirement that the sequence be within the specified size limit.
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
@@ -37,7 +37,7 @@ public sealed partial class SequenceLength : FoodMetamorphRule
 }
 
 /// <summary>
-/// A requirement that the last element of the sequence have one or all of the required tags
+/// A requirement that the last element of the sequence have one or all of the required tags.
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
@@ -76,7 +76,7 @@ public sealed partial class LastElementHasTags : FoodMetamorphRule
 }
 
 /// <summary>
-/// A requirement that the specified sequence element have one or all of the required tags
+/// A requirement that the specified sequence element have one or all of the required tags.
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
@@ -119,7 +119,7 @@ public sealed partial class ElementHasTags : FoodMetamorphRule
 }
 
 /// <summary>
-/// requirement that the food contains certain reagents (e.g. sauces)
+/// requirement that the food contains certain reagents (e.g. sauces).
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]

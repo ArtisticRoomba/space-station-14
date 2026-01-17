@@ -132,11 +132,11 @@ public sealed partial class BlockingSystem : EntitySystem
     /// <summary>
     /// Called where you want the user to start blocking
     /// Creates a new hard fixture to bodyblock
-    /// Also makes the user static to prevent prediction issues
+    /// Also makes the user static to prevent prediction issues.
     /// </summary>
-    /// <param name="item"> The entity with the blocking component</param>
-    /// <param name="component"> The <see cref="BlockingComponent"/></param>
-    /// <param name="user"> The entity who's using the item to block</param>
+    /// <param name="item"> The entity with the blocking component.</param>
+    /// <param name="component"> The <see cref="BlockingComponent"/>.</param>
+    /// <param name="user"> The entity who's using the item to block.</param>
     /// <returns></returns>
     public bool StartBlocking(EntityUid item, BlockingComponent component, EntityUid user)
     {
@@ -223,9 +223,9 @@ public sealed partial class BlockingSystem : EntitySystem
     /// <summary>
     /// Called where you want the user to stop blocking.
     /// </summary>
-    /// <param name="item"> The entity with the blocking component</param>
-    /// <param name="component"> The <see cref="BlockingComponent"/></param>
-    /// <param name="user"> The entity who's using the item to block</param>
+    /// <param name="item"> The entity with the blocking component.</param>
+    /// <param name="component"> The <see cref="BlockingComponent"/>.</param>
+    /// <param name="user"> The entity who's using the item to block.</param>
     /// <returns></returns>
     public bool StopBlocking(EntityUid item, BlockingComponent component, EntityUid user)
     {
@@ -262,11 +262,11 @@ public sealed partial class BlockingSystem : EntitySystem
 
     /// <summary>
     /// Called where you want someone to stop blocking and to remove the <see cref="BlockingUserComponent"/> from them
-    /// Won't remove the <see cref="BlockingUserComponent"/> if they're holding another blocking item
+    /// Won't remove the <see cref="BlockingUserComponent"/> if they're holding another blocking item.
     /// </summary>
-    /// <param name="uid"> The item the component is attached to</param>
-    /// <param name="component"> The <see cref="BlockingComponent"/> </param>
-    /// <param name="user"> The person holding the blocking item </param>
+    /// <param name="uid"> The item the component is attached to.</param>
+    /// <param name="component"> The <see cref="BlockingComponent"/>. </param>
+    /// <param name="user"> The person holding the blocking item. </param>
     private void StopBlockingHelper(EntityUid uid, BlockingComponent component, EntityUid user)
     {
         if (component.IsBlocking)

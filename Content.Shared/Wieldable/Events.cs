@@ -23,7 +23,7 @@ public readonly record struct ItemUnwieldedEvent(EntityUid User, bool Force);
 public record struct WieldAttemptEvent(EntityUid User, EntityUid Wielded, bool Cancelled = false) : IInventoryRelayEvent
 {
     /// <summary>
-    /// Popup message for the user to tell them why they cannot wield if Cancelled
+    /// Popup message for the user to tell them why they cannot wield if Cancelled.
     /// </summary>
     public string? Message;
 
@@ -45,7 +45,7 @@ public record struct WieldAttemptEvent(EntityUid User, EntityUid Wielded, bool C
 public record struct UnwieldAttemptEvent(EntityUid User, EntityUid Wielded, bool Cancelled = false) : IInventoryRelayEvent
 {
     /// <summary>
-    /// Popup message for the user to tell them why they cannot unwield if Cancelled
+    /// Popup message for the user to tell them why they cannot unwield if Cancelled.
     /// </summary>
     public string? Message;
 

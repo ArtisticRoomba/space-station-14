@@ -108,7 +108,7 @@ public sealed partial class DamageableSystem
     }
 
     /// <summary>
-    ///     Initialize a damageable component
+    ///     Initialize a damageable component.
     /// </summary>
     private void DamageableInit(Entity<DamageableComponent> ent, ref ComponentInit _)
     {
@@ -248,7 +248,7 @@ public sealed class DamageChangedEvent : EntityEventArgs
     public readonly DamageSpecifier? DamageDelta;
 
     /// <summary>
-    ///     Was any of the damage change dealing damage, or was it all healing?
+    ///     Was any of the damage change dealing damage, or was it all healing?.
     /// </summary>
     public readonly bool DamageIncreased;
 

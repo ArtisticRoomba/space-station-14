@@ -300,11 +300,11 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
     }
 
     /// <summary>
-    /// Ejects the contained body
+    /// Ejects the contained body.
     /// </summary>
-    /// <param name="uid">The cryopod entity</param>
-    /// <param name="cryoPodComponent">Cryopod component of <see cref="uid"/></param>
-    /// <returns>Ejected entity</returns>
+    /// <param name="uid">The cryopod entity.</param>
+    /// <param name="cryoPodComponent">Cryopod component of <see cref="uid"/>.</param>
+    /// <returns>Ejected entity.</returns>
     public EntityUid? EjectBody(EntityUid uid, CryoPodComponent? cryoPodComponent)
     {
         if (!Resolve(uid, ref cryoPodComponent))
@@ -342,7 +342,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
     /// <summary>
     /// Transfers reagents from the cryopod beaker into the injection buffer.
     /// </summary>
-    /// <param name="cryoPod">The cryopod entity</param>
+    /// <param name="cryoPod">The cryopod entity.</param>
     /// <param name="transferAmount">
     /// The amount of reagents that will be transferred.
     /// If less reagents are available, however much is available will be transferred.

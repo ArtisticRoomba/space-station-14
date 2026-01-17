@@ -18,13 +18,13 @@ namespace Content.Shared.Damage.Prototypes
         public string LocalizedName => Loc.GetString(Name);
 
         /// <summary>
-        /// The price for each 1% damage reduction in armors
+        /// The price for each 1% damage reduction in armors.
         /// </summary>
         [DataField("armorCoefficientPrice")]
         public double ArmorPriceCoefficient { get; set; }
 
         /// <summary>
-        /// The price for each flat damage reduction in armors
+        /// The price for each flat damage reduction in armors.
         /// </summary>
         [DataField("armorFlatPrice")]
         public double ArmorPriceFlat { get; set; }

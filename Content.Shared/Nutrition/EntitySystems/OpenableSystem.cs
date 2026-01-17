@@ -212,7 +212,7 @@ public sealed partial class OpenableSystem : EntitySystem
     /// <summary>
     /// If closed, opens it and plays the sound.
     /// </summary>
-    /// <returns>Whether it got opened</returns>
+    /// <returns>Whether it got opened.</returns>
     public bool TryOpen(EntityUid uid, OpenableComponent? comp = null, EntityUid? user = null)
     {
         if (!Resolve(uid, ref comp, false) || comp.Opened || _lock.IsLocked(uid))
@@ -231,7 +231,7 @@ public sealed partial class OpenableSystem : EntitySystem
     /// <summary>
     /// If opened, closes it and plays the close sound, if one is defined.
     /// </summary>
-    /// <returns>Whether it got closed</returns>
+    /// <returns>Whether it got closed.</returns>
     public bool TryClose(EntityUid uid, OpenableComponent? comp = null, EntityUid? user = null)
     {
         if (!Resolve(uid, ref comp, false) || !comp.Opened || !comp.Closeable)

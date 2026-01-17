@@ -23,21 +23,21 @@ public sealed partial class ContainmentFieldGeneratorComponent : Component
     }
 
     /// <summary>
-    /// The minimum the field generator needs to start generating a connection
+    /// The minimum the field generator needs to start generating a connection.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("powerMinimum")]
     public int PowerMinimum = 6;
 
     /// <summary>
-    /// How much power should this field generator receive from a collision
+    /// How much power should this field generator receive from a collision.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("power")]
     public int PowerReceived = 3;
 
     /// <summary>
-    /// How much power should this field generator lose if not powered?
+    /// How much power should this field generator lose if not powered?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("powerLoss")]
@@ -50,13 +50,13 @@ public sealed partial class ContainmentFieldGeneratorComponent : Component
     public float Accumulator;
 
     /// <summary>
-    /// How many seconds should the generators wait before losing power?
+    /// How many seconds should the generators wait before losing power?.
     /// </summary>
     [DataField("threshold")]
     public float Threshold = 20f;
 
     /// <summary>
-    /// How many tiles should this field check before giving up?
+    /// How many tiles should this field check before giving up?.
     /// </summary>
     [DataField("maxLength")]
     public float MaxLength = 8F;
@@ -77,19 +77,19 @@ public sealed partial class ContainmentFieldGeneratorComponent : Component
     public string SourceFixtureId = "projectile";
 
     /// <summary>
-    /// Is the generator toggled on?
+    /// Is the generator toggled on?.
     /// </summary>
     [DataField]
     public bool Enabled;
 
     /// <summary>
-    /// Is this generator connected to fields?
+    /// Is this generator connected to fields?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public bool IsConnected;
 
     /// <summary>
-    /// The masks the raycast should not go through
+    /// The masks the raycast should not go through.
     /// </summary>
     [DataField("collisionMask")]
     public int CollisionMask = (int)(CollisionGroup.MobMask | CollisionGroup.Impassable | CollisionGroup.MachineMask | CollisionGroup.Opaque);
@@ -102,7 +102,7 @@ public sealed partial class ContainmentFieldGeneratorComponent : Component
     public Dictionary<Direction, (Entity<ContainmentFieldGeneratorComponent>, List<EntityUid>)> Connections = new();
 
     /// <summary>
-    /// What fields should this spawn?
+    /// What fields should this spawn?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("createdField", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]

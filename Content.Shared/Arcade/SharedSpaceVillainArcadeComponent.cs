@@ -8,12 +8,12 @@ namespace Content.Shared.Arcade
         public enum Indicators
         {
             /// <summary>
-            /// Blinks when any invincible flag is set
+            /// Blinks when any invincible flag is set.
             /// </summary>
             HealthManager,
 
             /// <summary>
-            /// Blinks when Overflow flag is set
+            /// Blinks when Overflow flag is set.
             /// </summary>
             HealthLimiter,
         }

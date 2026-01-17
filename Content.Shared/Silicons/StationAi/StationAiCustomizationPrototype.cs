@@ -26,13 +26,13 @@ public sealed partial class StationAiCustomizationPrototype : IPrototype, IInher
     public Dictionary<string, PrototypeLayerData> LayerData = new();
 
     /// <summary>
-    /// Key used to index the prototype layer data and extract a preview of the customization (for menus, etc)
+    /// Key used to index the prototype layer data and extract a preview of the customization (for menus, etc).
     /// </summary>
     [DataField]
     public string PreviewKey = string.Empty;
 
     /// <summary>
-    /// Specifies a background to use for previewing the customization (for menus, etc)
+    /// Specifies a background to use for previewing the customization (for menus, etc).
     /// </summary>
     [DataField]
     public SpriteSpecifier? PreviewBackground;

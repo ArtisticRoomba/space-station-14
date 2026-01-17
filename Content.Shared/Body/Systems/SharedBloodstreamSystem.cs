@@ -300,9 +300,9 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     /// <summary>
     /// This returns the minimum amount of *usable* blood.
     /// For multi reagent bloodstreams, if you have 100 of Reagent Y need 100, and 50 of Reagent X and need 100,
-    /// this will return 0.5f
+    /// this will return 0.5f.
     /// </summary>
-    /// <returns>Returns the current blood level as a value from 0 to <see cref="BloodstreamComponent.MaxVolumeModifier"/></returns>
+    /// <returns>Returns the current blood level as a value from 0 to <see cref="BloodstreamComponent.MaxVolumeModifier"/>.</returns>
     public float GetBloodLevel(Entity<BloodstreamComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp)
@@ -400,8 +400,8 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     /// <param name="ent">Entity whose bloodstream we're modifying.</param>
     /// <param name="amount">The absolute maximum amount of blood we can add or remove.</param>
     /// <param name="referenceFactor">The modifier for an entity's blood equilibrium, try to hit an entity's default blood volume multiplied by this value.</param>
-    /// <remarks>This CANNOT go above maximum blood volume!</remarks>
-    /// <returns>False if we were unable to regulate blood level. This may return true even if blood level doesn't change!</returns>
+    /// <remarks>This CANNOT go above maximum blood volume!.</remarks>
+    /// <returns>False if we were unable to regulate blood level. This may return true even if blood level doesn't change!.</returns>
     public bool TryRegulateBloodLevel(Entity<BloodstreamComponent?> ent, FixedPoint2 amount, float referenceFactor = 1f)
     {
         if (!Resolve(ent, ref ent.Comp, logMissing: false)
@@ -506,7 +506,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
     /// <summary>
     /// Spill all bloodstream solutions into a puddle.
-    /// BLOOD FOR THE BLOOD GOD
+    /// BLOOD FOR THE BLOOD GOD.
     /// </summary>
     public void SpillAllSolutions(Entity<BloodstreamComponent?> ent)
     {
@@ -587,7 +587,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets new blood data for this entity and caches it in <see cref="BloodstreamComponent.BloodData"/>
+    /// Gets new blood data for this entity and caches it in <see cref="BloodstreamComponent.BloodData"/>.
     /// </summary>
     protected List<ReagentData> NewEntityBloodData(EntityUid uid)
     {

@@ -24,7 +24,7 @@ public partial class OreDunGen : IDunGenLayer
     public EntProtoId Entity;
 
     /// <summary>
-    /// Maximum amount of group spawns
+    /// Maximum amount of group spawns.
     /// </summary>
     [DataField]
     public int Count = 10;

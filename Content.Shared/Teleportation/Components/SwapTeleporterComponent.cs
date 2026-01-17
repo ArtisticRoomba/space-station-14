@@ -16,13 +16,13 @@ namespace Content.Shared.Teleportation.Components;
 public sealed partial class SwapTeleporterComponent : Component
 {
     /// <summary>
-    /// The other SwapTeleporterComponent that this one is linked to
+    /// The other SwapTeleporterComponent that this one is linked to.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? LinkedEnt;
 
     /// <summary>
-    /// the time at which <see cref="TeleportDelay"/> ends and the teleportation occurs
+    /// the time at which <see cref="TeleportDelay"/> ends and the teleportation occurs.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public TimeSpan? TeleportTime;
@@ -47,7 +47,7 @@ public sealed partial class SwapTeleporterComponent : Component
     public TimeSpan Cooldown = TimeSpan.FromMinutes(5);
 
     /// <summary>
-    /// Sound played when teleportation begins
+    /// Sound played when teleportation begins.
     /// </summary>
     [DataField]
     public SoundSpecifier? TeleportSound = new SoundPathSpecifier("/Audio/Weapons/flash.ogg");

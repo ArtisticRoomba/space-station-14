@@ -22,12 +22,12 @@ public sealed class MeleeLungeEvent : EntityEventArgs
     public Angle Angle;
 
     /// <summary>
-    /// The relative local position to the <see cref="Entity"/>
+    /// The relative local position to the <see cref="Entity"/>.
     /// </summary>
     public Vector2 LocalPos;
 
     /// <summary>
-    /// Entity to spawn for the animation
+    /// Entity to spawn for the animation.
     /// </summary>
     public string? Animation;
 

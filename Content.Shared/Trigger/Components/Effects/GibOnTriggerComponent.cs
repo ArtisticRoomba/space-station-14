@@ -10,7 +10,7 @@ namespace Content.Shared.Trigger.Components.Effects;
 public sealed partial class GibOnTriggerComponent : BaseXOnTriggerComponent
 {
     /// <summary>
-    /// Should gibbing also delete the owners items?
+    /// Should gibbing also delete the owners items?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool DeleteItems = false;

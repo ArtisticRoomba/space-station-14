@@ -6,7 +6,7 @@ namespace Content.Shared.Trigger.Components.Triggers;
 /// <summary>
 /// Triggers when this entity gets un-embedded from something.
 /// User is the item that was embedded or the actual embed depending on <see cref="UserIsEmbed"/>
-/// Handled by <seealso cref="TriggerOnEmbedSystem"/>
+/// Handled by. <seealso cref="TriggerOnEmbedSystem"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TriggerOnUnembedComponent : BaseTriggerOnXComponent

@@ -21,7 +21,7 @@ public sealed partial class GravityAnomalyComponent : Component
 
     /// <summary>
     /// The maximum strength the anomaly
-    /// can throw you via a pulse
+    /// can throw you via a pulse.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float MaxThrowStrength = 10;
@@ -76,7 +76,7 @@ public sealed partial class GravityAnomalyComponent : Component
     public float MaxSpeed = 1.0f;
 
     /// <summary>
-    /// Random +- speed modifier
+    /// Random +- speed modifier.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float SpeedVariation = 0.1f;

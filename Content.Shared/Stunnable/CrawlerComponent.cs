@@ -21,7 +21,7 @@ public sealed partial class CrawlerComponent : Component
     public float KnockdownDamageThreshold = 5f;
 
     /// <summary>
-    /// Time it takes us to stand up
+    /// Time it takes us to stand up.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan StandTime = TimeSpan.FromSeconds(2);

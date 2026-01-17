@@ -8,7 +8,7 @@ namespace Content.Shared.Research.Components;
 public sealed partial class ResearchServerComponent : Component
 {
     /// <summary>
-    /// The name of the server
+    /// The name of the server.
     /// </summary>
     [AutoNetworkedField]
     [DataField("serverName"), ViewVariables(VVAccess.ReadWrite)]
@@ -22,17 +22,17 @@ public sealed partial class ResearchServerComponent : Component
     public int Points;
 
     /// <summary>
-    /// A unique numeric id representing the server
+    /// A unique numeric id representing the server.
     /// </summary>
     [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadOnly)]
     public int Id;
 
     /// <summary>
-    /// Entities connected to the server
+    /// Entities connected to the server.
     /// </summary>
     /// <remarks>
-    /// This is not safe to read clientside
+    /// This is not safe to read clientside.
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public List<EntityUid> Clients = new();

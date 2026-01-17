@@ -4,7 +4,7 @@ namespace Content.Shared.Destructible.Thresholds.Triggers;
 
 /// <summary>
 /// A condition for triggering a <see cref="DamageThreshold">.
-/// </summary>
+/// </summary>.
 /// <remarks>
 /// I decided against converting these into EntityEffectConditions for performance reasons
 /// (although I did not do any benchmarks, so it might be fine).

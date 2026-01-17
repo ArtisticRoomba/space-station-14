@@ -20,7 +20,7 @@ using Robust.Shared.Player;
 namespace Content.Shared.Medical;
 
 /// <summary>
-/// This handles interactions and logic relating to <see cref="DefibrillatorComponent"/>
+/// This handles interactions and logic relating to <see cref="DefibrillatorComponent"/>.
 /// </summary>
 public abstract class SharedDefibrillatorSystem : EntitySystem
 {

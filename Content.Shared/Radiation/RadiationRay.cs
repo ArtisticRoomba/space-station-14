@@ -48,7 +48,7 @@ public struct RadiationRay(
     public float Rads = rads;
 
     /// <summary>
-    ///     Has rad ray reached destination or lost all intensity after blockers?
+    ///     Has rad ray reached destination or lost all intensity after blockers?.
     /// </summary>
     public bool ReachedDestination => Rads > 0;
 

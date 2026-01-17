@@ -5,13 +5,13 @@ namespace Content.Shared.CCVar;
 public sealed partial class CCVars
 {
     /// <summary>
-    ///     Allows enabling/disabling player-started votes for ultimate authority
+    ///     Allows enabling/disabling player-started votes for ultimate authority.
     /// </summary>
     public static readonly CVarDef<bool> VoteEnabled =
         CVarDef.Create("vote.enabled", true, CVar.SERVERONLY);
 
     /// <summary>
-    ///     See vote.enabled, but specific to restart votes
+    ///     See vote.enabled, but specific to restart votes.
     /// </summary>
     public static readonly CVarDef<bool> VoteRestartEnabled =
         CVarDef.Create("vote.restart_enabled", true, CVar.SERVERONLY);
@@ -29,13 +29,13 @@ public sealed partial class CCVars
         CVarDef.Create("vote.restart_ghost_percentage", 55, CVar.SERVERONLY);
 
     /// <summary>
-    ///     See vote.enabled, but specific to preset votes
+    ///     See vote.enabled, but specific to preset votes.
     /// </summary>
     public static readonly CVarDef<bool> VotePresetEnabled =
         CVarDef.Create("vote.preset_enabled", true, CVar.SERVERONLY);
 
     /// <summary>
-    ///     See vote.enabled, but specific to map votes
+    ///     See vote.enabled, but specific to map votes.
     /// </summary>
     public static readonly CVarDef<bool> VoteMapEnabled =
         CVarDef.Create("vote.map_enabled", false, CVar.SERVERONLY);
@@ -47,7 +47,7 @@ public sealed partial class CCVars
         CVarDef.Create("vote.restart_required_ratio", 0.85f, CVar.SERVERONLY);
 
     /// <summary>
-    /// Whether or not to prevent the restart vote from having any effect when there is an online admin
+    /// Whether or not to prevent the restart vote from having any effect when there is an online admin.
     /// </summary>
     public static readonly CVarDef<bool> VoteRestartNotAllowedWhenAdminOnline =
         CVarDef.Create("vote.restart_not_allowed_when_admin_online", true, CVar.SERVERONLY);
@@ -83,7 +83,7 @@ public sealed partial class CCVars
         VoteTimerAlone = CVarDef.Create("vote.timeralone", 10, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Allows enabling/disabling player-started votekick for ultimate authority
+    ///     Allows enabling/disabling player-started votekick for ultimate authority.
     /// </summary>
     public static readonly CVarDef<bool> VotekickEnabled =
         CVarDef.Create("votekick.enabled", true, CVar.SERVERONLY);
@@ -101,13 +101,13 @@ public sealed partial class CCVars
         CVarDef.Create("votekick.initiator_ghost_requirement", true, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Should the initiator be whitelisted to initiate a votekick?
+    ///     Should the initiator be whitelisted to initiate a votekick?.
     /// </summary>
     public static readonly CVarDef<bool> VotekickInitiatorWhitelistedRequirement =
         CVarDef.Create("votekick.initiator_whitelist_requirement", true, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Should the initiator be able to start a votekick if they are bellow the votekick.voter_playtime requirement?
+    ///     Should the initiator be able to start a votekick if they are bellow the votekick.voter_playtime requirement?.
     /// </summary>
     public static readonly CVarDef<bool> VotekickInitiatorTimeRequirement =
         CVarDef.Create("votekick.initiator_time_requirement", false, CVar.SERVERONLY);
@@ -161,7 +161,7 @@ public sealed partial class CCVars
         CVarDef.Create("votekick.antag_raider_protection", 10, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Default severity for votekick bans
+    ///     Default severity for votekick bans.
     /// </summary>
     public static readonly CVarDef<string> VotekickBanDefaultSeverity =
         CVarDef.Create("votekick.ban_default_severity", "High", CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);

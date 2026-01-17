@@ -163,7 +163,7 @@ namespace Content.Shared.Containers.ItemSlots
 
         /// <summary>
         ///     Override the eject verb text. Defaults to using the slot's name (if specified) or the name of the
-        ///     targeted item. If specified, the verb will not be added to the default eject verb category
+        ///     targeted item. If specified, the verb will not be added to the default eject verb category.
         /// </summary>
         [DataField]
         public string? EjectVerbText;
@@ -173,7 +173,7 @@ namespace Content.Shared.Containers.ItemSlots
 
         /// <summary>
         ///     If this slot belongs to some de-constructible component, should the item inside the slot be ejected upon
-        ///     deconstruction?
+        ///     deconstruction?.
         /// </summary>
         /// <remarks>
         ///     The actual deconstruction logic is handled by the server-side EmptyOnMachineDeconstructSystem.
@@ -185,7 +185,7 @@ namespace Content.Shared.Containers.ItemSlots
 
         /// <summary>
         ///     If this slot belongs to some breakable or destructible entity, should the item inside the slot be
-        ///     ejected when it is broken or destroyed?
+        ///     ejected when it is broken or destroyed?.
         /// </summary>
         [DataField]
         [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
@@ -213,7 +213,7 @@ namespace Content.Shared.Containers.ItemSlots
         public LocId? InsertSuccessPopup;
 
         /// <summary>
-        ///     If the user interacts with an entity with an already-filled item slot, should they attempt to swap out the item?
+        ///     If the user interacts with an entity with an already-filled item slot, should they attempt to swap out the item?.
         /// </summary>
         /// <remarks>
         ///     Useful for things like chem dispensers, but undesirable for things like the ID card console, where you

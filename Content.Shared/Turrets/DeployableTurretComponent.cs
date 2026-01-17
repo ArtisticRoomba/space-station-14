@@ -7,14 +7,14 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Turrets;
 
 /// <summary>
-/// Attached to turrets that can be toggled between an inactive and active state
+/// Attached to turrets that can be toggled between an inactive and active state.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 [Access(typeof(SharedDeployableTurretSystem))]
 public sealed partial class DeployableTurretComponent : Component
 {
     /// <summary>
-    /// Whether the turret is toggled 'on' or 'off'
+    /// Whether the turret is toggled 'on' or 'off'.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled = false;
@@ -74,31 +74,31 @@ public sealed partial class DeployableTurretComponent : Component
     #region: Animation data
 
     /// <summary>
-    /// The length of the deployment animation (in seconds)
+    /// The length of the deployment animation (in seconds).
     /// </summary>
     [DataField]
     public float DeploymentLength = 1.19f;
 
     /// <summary>
-    /// The length of the retraction animation (in seconds)
+    /// The length of the retraction animation (in seconds).
     /// </summary>
     [DataField]
     public float RetractionLength = 1.19f;
 
     /// <summary>
-    /// The time that the current animation should complete (in seconds)
+    /// The time that the current animation should complete (in seconds).
     /// </summary>
     [DataField, AutoPausedField]
     public TimeSpan AnimationCompletionTime = TimeSpan.Zero;
 
     /// <summary>
-    /// The animation used when turret activates
+    /// The animation used when turret activates.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public object DeploymentAnimation = default!;
 
     /// <summary>
-    /// The animation used when turret deactivates
+    /// The animation used when turret deactivates.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public object RetractionAnimation = default!;

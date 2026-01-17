@@ -21,7 +21,7 @@ public abstract class SharedCameraRecoilSystem : EntitySystem
     private const float RestoreRateMin = 0.1f;
 
     /// <summary>
-    ///     Time in seconds since the last kick that lerps RestoreRateMin and RestoreRateMax
+    ///     Time in seconds since the last kick that lerps RestoreRateMin and RestoreRateMax.
     /// </summary>
     private const float RestoreRateRamp = 4f;
 

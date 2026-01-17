@@ -3,7 +3,7 @@
 namespace Content.Shared.Power;
 
 /// <summary>
-///     Sent to the server to set whether the machine should be on or off
+///     Sent to the server to set whether the machine should be on or off.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class SwitchChargingMachineMessage : BoundUserInterfaceMessage

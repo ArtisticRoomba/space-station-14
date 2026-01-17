@@ -33,7 +33,7 @@ public sealed partial class TraitPrototype : IPrototype
     public EntityWhitelist? Whitelist;
 
     /// <summary>
-    /// Don't apply this trait to entities this whitelist IS valid for. (hence, a blacklist)
+    /// Don't apply this trait to entities this whitelist IS valid for. (hence, a blacklist).
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist;

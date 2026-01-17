@@ -20,7 +20,7 @@ namespace Content.Shared.Mind;
 ///     Getting borged, cloned, turned into a catbeast, etc... will keep it following you.
 ///
 ///     Minds are stored in null-space, and are thus generally not set to players unless that player is the owner
-///     of the mind. As a result it should be safe to network "secret" information like roles & objectives
+///     of the mind. As a result it should be safe to network "secret" information like roles & objectives.
 /// </remarks>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class MindComponent : Component
@@ -36,7 +36,7 @@ public sealed partial class MindComponent : Component
 
     /// <summary>
     ///     The session ID of the original owner, if any.
-    ///     May end up used for round-end information (as the owner may have abandoned Mind since)
+    ///     May end up used for round-end information (as the owner may have abandoned Mind since).
     /// </summary>
     [DataField, AutoNetworkedField, Access(typeof(SharedMindSystem))]
     public NetUserId? OriginalOwnerUserId { get; set; }
@@ -87,13 +87,13 @@ public sealed partial class MindComponent : Component
     public IEnumerable<EntityUid> AllObjectives => Objectives;
 
     /// <summary>
-    ///     Prevents user from ghosting out
+    ///     Prevents user from ghosting out.
     /// </summary>
     [DataField]
     public bool PreventGhosting { get; set; }
 
     /// <summary>
-    ///     Prevents user from suiciding
+    ///     Prevents user from suiciding.
     /// </summary>
     [DataField]
     public bool PreventSuicide { get; set; }
@@ -111,13 +111,13 @@ public sealed partial class MindComponent : Component
     public const string MindRoleContainerId = "mind_roles";
 
     /// <summary>
-    ///     The mind's current antagonist/special role, or lack thereof;
+    ///     The mind's current antagonist/special role, or lack thereof.
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<RoleTypePrototype> RoleType = "Neutral";
 
     /// <summary>
-    ///     The role's subtype, shown only to admins to help with antag categorization
+    ///     The role's subtype, shown only to admins to help with antag categorization.
     /// </summary>
     [DataField]
     public LocId? Subtype;

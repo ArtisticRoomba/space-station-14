@@ -30,10 +30,10 @@ public sealed class DamageOnAttackedSystem : EntitySystem
 
     /// <summary>
     /// Damages the user that attacks the entity and potentially
-    /// plays a sound or pops up text in response
+    /// plays a sound or pops up text in response.
     /// </summary>
-    /// <param name="entity">The entity being hit</param>
-    /// <param name="args">Contains the user that hit the entity</param>
+    /// <param name="entity">The entity being hit.</param>
+    /// <param name="args">Contains the user that hit the entity.</param>
     private void OnAttacked(Entity<DamageOnAttackedComponent> entity, ref AttackedEvent args)
     {
         if (!entity.Comp.IsDamageActive)

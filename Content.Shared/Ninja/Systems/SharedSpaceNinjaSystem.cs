@@ -33,7 +33,7 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
     }
 
     /// <summary>
-    /// Set the ninja's worn suit entity
+    /// Set the ninja's worn suit entity.
     /// </summary>
     public void AssignSuit(Entity<SpaceNinjaComponent> ent, EntityUid? suit)
     {
@@ -45,7 +45,7 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
     }
 
     /// <summary>
-    /// Set the ninja's worn gloves entity
+    /// Set the ninja's worn gloves entity.
     /// </summary>
     public void AssignGloves(Entity<SpaceNinjaComponent> ent, EntityUid? gloves)
     {
@@ -102,7 +102,7 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
     }
 
     /// <summary>
-    /// Require ninja to fight with HONOR, no guns!
+    /// Require ninja to fight with HONOR, no guns!.
     /// </summary>
     private void OnShotAttempted(Entity<SpaceNinjaComponent> ent, ref ShotAttemptedEvent args)
     {

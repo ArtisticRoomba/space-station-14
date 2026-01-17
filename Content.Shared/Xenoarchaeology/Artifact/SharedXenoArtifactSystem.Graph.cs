@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Xenoarchaeology.Artifact;
 
 /// <summary>
-/// User-friendly API for viewing and modifying the complex graph relationship in XenoArtifacts
+/// User-friendly API for viewing and modifying the complex graph relationship in XenoArtifacts.
 /// </summary>
 public abstract partial class SharedXenoArtifactSystem
 {
@@ -120,7 +120,7 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary>
-    /// Adds edge between artifact nodes - <see cref="from"/> and <see cref="to"/>
+    /// Adds edge between artifact nodes - <see cref="from"/> and <see cref="to"/>.
     /// </summary>
     /// <param name="ent">Artifact entity that contains 'from' and 'to' node entities.</param>
     /// <param name="from">Node from which we need to draw edge. </param>
@@ -143,7 +143,7 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary>
-    /// Adds edge between artifact nodes by indices inside node container - <see cref="fromIdx"/> and <see cref="toIdx"/>
+    /// Adds edge between artifact nodes by indices inside node container - <see cref="fromIdx"/> and <see cref="toIdx"/>.
     /// </summary>
     /// <param name="ent">Artifact entity that contains 'from' and 'to' node entities.</param>
     /// <param name="fromIdx">Node index inside artifact node container, from which we need to draw edge. </param>
@@ -289,7 +289,7 @@ public abstract partial class SharedXenoArtifactSystem
     /// <summary>
     /// Removes artifact node from artifact node container.
     /// </summary>
-    /// <param name="ent">Artifact from container of which node should be removed</param>
+    /// <param name="ent">Artifact from container of which node should be removed.</param>
     /// <param name="node">Node entity to be removed.</param>
     /// <param name="dirty">
     /// Marker, if we need to recalculate caches and mark related components dirty to update on client side.

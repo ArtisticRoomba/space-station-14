@@ -52,7 +52,7 @@ namespace Content.Shared.Preferences
         private HashSet<ProtoId<TraitPrototype>> _traitPreferences = new();
 
         /// <summary>
-        /// <see cref="_loadouts"/>
+        /// <see cref="_loadouts"/>.
         /// </summary>
         public IReadOnlyDictionary<string, RoleLoadout> Loadouts => _loadouts;
 
@@ -84,7 +84,7 @@ namespace Content.Shared.Preferences
         public Gender Gender { get; private set; } = Gender.Male;
 
         /// <summary>
-        /// <see cref="Appearance"/>
+        /// <see cref="Appearance"/>.
         /// </summary>
         public ICharacterAppearance CharacterAppearance => Appearance;
 
@@ -101,17 +101,17 @@ namespace Content.Shared.Preferences
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
         /// <summary>
-        /// <see cref="_jobPriorities"/>
+        /// <see cref="_jobPriorities"/>.
         /// </summary>
         public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities => _jobPriorities;
 
         /// <summary>
-        /// <see cref="_antagPreferences"/>
+        /// <see cref="_antagPreferences"/>.
         /// </summary>
         public IReadOnlySet<ProtoId<AntagPrototype>> AntagPreferences => _antagPreferences;
 
         /// <summary>
-        /// <see cref="_traitPreferences"/>
+        /// <see cref="_traitPreferences"/>.
         /// </summary>
         public IReadOnlySet<ProtoId<TraitPrototype>> TraitPreferences => _traitPreferences;
 
@@ -166,7 +166,7 @@ namespace Content.Shared.Preferences
             }
         }
 
-        /// <summary>Copy constructor</summary>
+        /// <summary>Copy constructor.</summary>
         public HumanoidCharacterProfile(HumanoidCharacterProfile other)
             : this(other.Name,
                 other.FlavorText,

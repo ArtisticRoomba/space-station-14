@@ -12,7 +12,7 @@ namespace Content.Shared.Whistle;
 public sealed partial class WhistleComponent : Component
 {
     /// <summary>
-    /// Entity prototype to spawn
+    /// Entity prototype to spawn.
     /// </summary>
     [DataField]
     public EntProtoId Effect = "WhistleExclamation";

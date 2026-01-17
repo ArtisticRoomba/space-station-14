@@ -12,7 +12,7 @@ namespace Content.Shared.Silicons.Borgs.Components;
 public sealed partial class BorgModuleIconComponent : Component
 {
     /// <summary>
-    /// The action icon for this module
+    /// The action icon for this module.
     /// </summary>
     [DataField]
     public SpriteSpecifier.Rsi Icon = default!;

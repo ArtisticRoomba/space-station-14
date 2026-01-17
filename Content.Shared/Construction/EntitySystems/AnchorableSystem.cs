@@ -66,7 +66,7 @@ public sealed partial class AnchorableSystem : EntitySystem
     /// <summary>
     ///     Tries to unanchor the entity.
     /// </summary>
-    /// <returns>true if unanchored, false otherwise</returns>
+    /// <returns>true if unanchored, false otherwise.</returns>
     private void TryUnAnchor(EntityUid uid, EntityUid userUid, EntityUid usingUid,
         AnchorableComponent? anchorable = null,
         TransformComponent? transform = null,
@@ -188,7 +188,7 @@ public sealed partial class AnchorableSystem : EntitySystem
     ///     Tries to toggle the anchored status of this component's owner.
     ///     override is used due to popup and adminlog being server side systems in this case.
     /// </summary>
-    /// <returns>true if toggled, false otherwise</returns>
+    /// <returns>true if toggled, false otherwise.</returns>
     public void TryToggleAnchor(EntityUid uid, EntityUid userUid, EntityUid usingUid,
         AnchorableComponent? anchorable = null,
         TransformComponent? transform = null,
@@ -211,7 +211,7 @@ public sealed partial class AnchorableSystem : EntitySystem
     /// <summary>
     ///     Tries to anchor the entity.
     /// </summary>
-    /// <returns>true if anchored, false otherwise</returns>
+    /// <returns>true if anchored, false otherwise.</returns>
     private void TryAnchor(EntityUid uid, EntityUid userUid, EntityUid usingUid,
             AnchorableComponent? anchorable = null,
             TransformComponent? transform = null,

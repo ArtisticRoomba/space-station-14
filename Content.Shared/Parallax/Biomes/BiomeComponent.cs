@@ -40,7 +40,7 @@ public sealed partial class BiomeComponent : Component
 
     /// <summary>
     /// If we've already generated a tile and couldn't deload it then we won't ever reload it in future.
-    /// Stored by [Chunkorigin, Tiles]
+    /// Stored by [Chunkorigin, Tiles].
     /// </summary>
     [DataField("modifiedTiles")]
     public Dictionary<Vector2i, HashSet<Vector2i>> ModifiedTiles = new();
@@ -55,7 +55,7 @@ public sealed partial class BiomeComponent : Component
     public Dictionary<Vector2i, Dictionary<EntityUid, Vector2i>> LoadedEntities = new();
 
     /// <summary>
-    /// Currently active chunks
+    /// Currently active chunks.
     /// </summary>
     [DataField("loadedChunks")]
     public HashSet<Vector2i> LoadedChunks = new();

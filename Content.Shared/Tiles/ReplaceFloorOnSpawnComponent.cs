@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Tiles;
 
 /// <summary>
-/// Replaces floor tiles around this entity when it spawns
+/// Replaces floor tiles around this entity when it spawns.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(ReplaceFloorOnSpawnSystem))]
 public sealed partial class ReplaceFloorOnSpawnComponent : Component

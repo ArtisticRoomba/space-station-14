@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Traits.Assorted;
 
 /// <summary>
-/// This is used for the accentless trait
+/// This is used for the accentless trait.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AccentlessComponent : Component

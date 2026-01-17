@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.SprayPainter.Prototypes;
 
 /// <summary>
-/// A category of spray paintable items (e.g. airlocks, crates)
+/// A category of spray paintable items (e.g. airlocks, crates).
 /// </summary>
 [Prototype]
 public sealed partial class PaintableGroupCategoryPrototype : IPrototype

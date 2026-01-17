@@ -4,7 +4,7 @@ using Robust.Shared.Map;
 namespace Content.Shared.Gravity;
 
 /// <summary>
-/// Handles offsetting a sprite when there is no gravity
+/// Handles offsetting a sprite when there is no gravity.
 /// </summary>
 public abstract class SharedFloatingVisualizerSystem : EntitySystem
 {
@@ -19,7 +19,7 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Offsets a sprite with a linear interpolation animation
+    /// Offsets a sprite with a linear interpolation animation.
     /// </summary>
     public virtual void FloatAnimation(EntityUid uid, Vector2 offset, string animationKey, float animationTime, bool stop = false) { }
 

@@ -42,14 +42,14 @@ namespace Content.Shared.Body.Components
         public Entity<SolutionComponent>? Solution;
 
         /// <summary>
-        ///     What solution should this stomach push reagents into, on the body?
+        ///     What solution should this stomach push reagents into, on the body?.
         /// </summary>
         [DataField]
         public string BodySolutionName = BloodstreamComponent.DefaultBloodSolutionName;
 
         /// <summary>
         ///     Time between reagents being ingested and them being
-        ///     transferred to <see cref="BloodstreamComponent"/>
+        ///     transferred to <see cref="BloodstreamComponent"/>.
         /// </summary>
         [DataField]
         public TimeSpan DigestionDelay = TimeSpan.FromSeconds(20);
@@ -67,13 +67,13 @@ namespace Content.Shared.Body.Components
         public bool IsSpecialDigestibleExclusive = true;
 
         /// <summary>
-        ///     Used to track how long each reagent has been in the stomach
+        ///     Used to track how long each reagent has been in the stomach.
         /// </summary>
         [ViewVariables]
         public readonly List<ReagentDelta> ReagentDeltas = new();
 
         /// <summary>
-        ///     Used to track quantity changes when ingesting & digesting reagents
+        ///     Used to track quantity changes when ingesting & digesting reagents.
         /// </summary>
         public sealed class ReagentDelta
         {

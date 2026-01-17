@@ -65,7 +65,7 @@ public abstract class SharedMailingUnitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Sends the given tag as a response to a <see cref="NetCmdRequest"/> if it's not null
+    /// Sends the given tag as a response to a <see cref="NetCmdRequest"/> if it's not null.
     /// </summary>
     private void SendTagRequestResponse(EntityUid uid, DeviceNetworkPacketEvent args, string? tag)
     {
@@ -82,7 +82,7 @@ public abstract class SharedMailingUnitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Prevents the unit from flushing if no target is selected
+    /// Prevents the unit from flushing if no target is selected.
     /// </summary>
     private void OnBeforeFlush(EntityUid uid, MailingUnitComponent component, BeforeDisposalFlushEvent args)
     {
@@ -100,7 +100,7 @@ public abstract class SharedMailingUnitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Broadcast that a mail was sent including the src and target tags
+    /// Broadcast that a mail was sent including the src and target tags.
     /// </summary>
     private void BroadcastSentMessage(EntityUid uid, MailingUnitComponent component, DeviceNetworkComponent? device = null)
     {
@@ -119,7 +119,7 @@ public abstract class SharedMailingUnitSystem : EntitySystem
 
     /// <summary>
     /// Clears the units target list and broadcasts a <see cref="NetCmdRequest"/>.
-    /// The target list will then get populated with <see cref="NetCmdResponse"/> responses from all active mailing units on the same grid
+    /// The target list will then get populated with <see cref="NetCmdResponse"/> responses from all active mailing units on the same grid.
     /// </summary>
     private void UpdateTargetList(EntityUid uid, MailingUnitComponent component, DeviceNetworkComponent? device = null)
     {
@@ -136,7 +136,7 @@ public abstract class SharedMailingUnitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets called when the units tag got updated
+    /// Gets called when the units tag got updated.
     /// </summary>
     private void OnConfigurationUpdated(EntityUid uid, MailingUnitComponent component, ConfigurationUpdatedEvent args)
     {

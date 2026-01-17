@@ -45,7 +45,7 @@ public sealed partial class EntityStorageComponent : Component, IGasMixtureHolde
         CollisionGroup.LowImpassable);
 
     /// <summary>
-    /// Collision masks that were removed from ANY layer when the storage was opened;
+    /// Collision masks that were removed from ANY layer when the storage was opened.
     /// </summary>
     [DataField]
     public int RemovedMasks;

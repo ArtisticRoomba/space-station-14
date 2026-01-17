@@ -18,13 +18,13 @@ public sealed partial class SpillableComponent : Component
     public float? SpillDelay;
 
     /// <summary>
-    ///     At most how much reagent can be splashed on someone at once?
+    ///     At most how much reagent can be splashed on someone at once?.
     /// </summary>
     [DataField]
     public FixedPoint2 MaxMeleeSpillAmount = FixedPoint2.New(20);
 
     /// <summary>
-    ///     Should this item be spilled when thrown?
+    ///     Should this item be spilled when thrown?.
     /// </summary>
     [DataField]
     public bool SpillWhenThrown = true;

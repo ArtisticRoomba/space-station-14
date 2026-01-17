@@ -4,7 +4,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Examine
 {
     /// <summary>
-    ///     This component groups examine messages together
+    ///     This component groups examine messages together.
     /// </summary>
     [RegisterComponent]
     public sealed partial class GroupExamineComponent : Component
@@ -72,13 +72,13 @@ namespace Content.Shared.Examine
     }
 
     /// <summary>
-    ///     An entry used when showing examine details
+    ///     An entry used when showing examine details.
     /// </summary>
     [Serializable, NetSerializable, DataDefinition]
     public sealed partial class ExamineEntry
     {
         /// <summary>
-        ///     Which component does this entry relate to?
+        ///     Which component does this entry relate to?.
         /// </summary>
         [DataField(required: true)]
         public string Component;

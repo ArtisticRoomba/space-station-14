@@ -3,7 +3,7 @@ using Content.Shared.Popups;
 namespace Content.Shared.UserInterface;
 
 /// <summary>
-/// <see cref="ActivatableUIRequiresAnchorComponent"/>
+/// <see cref="ActivatableUIRequiresAnchorComponent"/>.
 /// </summary>
 public sealed class ActivatableUIRequiresAnchorSystem : EntitySystem
 {

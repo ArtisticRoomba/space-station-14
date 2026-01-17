@@ -10,13 +10,13 @@ namespace Content.Shared.Armable;
 public sealed partial class ArmableComponent : Component
 {
     /// <summary>
-    /// Does it show its status on examination?
+    /// Does it show its status on examination?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ShowStatusOnExamination = true;
 
     /// <summary>
-    /// Does it change appearance when activated?
+    /// Does it change appearance when activated?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ChangeAppearance = true;
@@ -28,7 +28,7 @@ public sealed partial class ArmableComponent : Component
     public LocId? ExamineTextArmed = "armable-examine-armed";
 
     /// <summary>
-    /// Text to show on examination when the entity is not armed
+    /// Text to show on examination when the entity is not armed.
     /// </summary>
     [DataField]
     public LocId? ExamineTextNotArmed ="armable-examine-not-armed";

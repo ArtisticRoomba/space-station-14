@@ -42,13 +42,13 @@ public sealed partial class InteractionPopupComponent : Component
     public SoundSpecifier? InteractFailureSound;
 
     /// <summary>
-    /// a prototype that will spawn upon successful interaction (as planned only for special effects)
+    /// a prototype that will spawn upon successful interaction (as planned only for special effects).
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId? InteractSuccessSpawn;
 
     /// <summary>
-    /// a prototype that will spawn upon failure interaction (as planned only for special effects)
+    /// a prototype that will spawn upon failure interaction (as planned only for special effects).
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId? InteractFailureSpawn;
@@ -69,7 +69,7 @@ public sealed partial class InteractionPopupComponent : Component
     public string? MessagePerceivedByOthers;
 
     /// <summary>
-    /// Will the sound effect be perceived by entities not involved in the interaction?
+    /// Will the sound effect be perceived by entities not involved in the interaction?.
     /// </summary>
     [DataField("soundPerceivedByOthers")]
     public bool SoundPerceivedByOthers = true;

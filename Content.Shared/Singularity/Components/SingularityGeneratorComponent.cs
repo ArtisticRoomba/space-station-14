@@ -11,14 +11,14 @@ public sealed partial class SingularityGeneratorComponent : Component
 {
     /// <summary>
     /// The amount of power this generator has accumulated.
-    /// If you want to set this use <see  cref="SingularityGeneratorSystem.SetPower"/>
+    /// If you want to set this use <see  cref="SingularityGeneratorSystem.SetPower"/>.
     /// </summary>
     [DataField]
     public float Power = 0;
 
     /// <summary>
     /// The power threshold at which this generator will spawn a singularity.
-    /// If you want to set this use <see  cref="SingularityGeneratorSystem.SetThreshold"/>
+    /// If you want to set this use <see  cref="SingularityGeneratorSystem.SetThreshold"/>.
     /// </summary>
     [DataField]
     public float Threshold = 16;
@@ -31,13 +31,13 @@ public sealed partial class SingularityGeneratorComponent : Component
     public bool Inert;
 
     /// <summary>
-    /// Allows the generator to ignore all the failsafe stuff, e.g. when emagged
+    /// Allows the generator to ignore all the failsafe stuff, e.g. when emagged.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool FailsafeDisabled = false;
 
     /// <summary>
-    /// Maximum distance at which the generator will check for a field at
+    /// Maximum distance at which the generator will check for a field at.
     /// </summary>
     [DataField]
     public float FailsafeDistance = 16;
@@ -49,25 +49,25 @@ public sealed partial class SingularityGeneratorComponent : Component
     public string? SpawnPrototype = "Singularity";
 
     /// <summary>
-    /// The masks the raycast should not go through
+    /// The masks the raycast should not go through.
     /// </summary>
     [DataField]
     public int CollisionMask = (int)CollisionGroup.FullTileMask;
 
     /// <summary>
-    /// Message to use when there's no containment field on cardinal directions
+    /// Message to use when there's no containment field on cardinal directions.
     /// </summary>
     [DataField]
     public LocId ContainmentFailsafeMessage = "comp-generator-failsafe";
 
     /// <summary>
-    /// For how long the failsafe will cause the generator to stop working and not issue a failsafe warning
+    /// For how long the failsafe will cause the generator to stop working and not issue a failsafe warning.
     /// </summary>
     [DataField]
     public TimeSpan FailsafeCooldown = TimeSpan.FromSeconds(10);
 
     /// <summary>
-    /// How long until the generator can issue a failsafe warning again
+    /// How long until the generator can issue a failsafe warning again.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]

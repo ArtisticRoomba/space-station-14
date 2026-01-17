@@ -97,21 +97,21 @@ public sealed partial class GunComponent : Component
     public Angle AngleDecayModified;
 
     /// <summary>
-    /// The base value for the maximum angle allowed for <see cref="CurrentAngle"/>
+    /// The base value for the maximum angle allowed for <see cref="CurrentAngle"/>.
     /// </summary>
     [DataField]
     [AutoNetworkedField]
     public Angle MaxAngle = Angle.FromDegrees(2);
 
     /// <summary>
-    /// The maximum angle allowed for <see cref="CurrentAngle"/>
+    /// The maximum angle allowed for <see cref="CurrentAngle"/>.
     /// <seealso cref="GunRefreshModifiersEvent"/>
     /// </summary>
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public Angle MaxAngleModified;
 
     /// <summary>
-    /// The base value for the minimum angle allowed for <see cref="CurrentAngle"/>
+    /// The base value for the minimum angle allowed for <see cref="CurrentAngle"/>.
     /// </summary>
     [DataField]
     [AutoNetworkedField]
@@ -182,7 +182,7 @@ public sealed partial class GunComponent : Component
     public int BurstShotsCount = 0;
 
     /// <summary>
-    /// Used for tracking semi-auto / burst
+    /// Used for tracking semi-auto / burst.
     /// </summary>
     [ViewVariables]
     [AutoNetworkedField]
@@ -253,7 +253,7 @@ public sealed partial class GunComponent : Component
 
     /// <summary>
     /// Whether or not someone with the
-    /// clumsy trait can shoot this
+    /// clumsy trait can shoot this.
     /// </summary>
     [DataField]
     public bool ClumsyProof = false;

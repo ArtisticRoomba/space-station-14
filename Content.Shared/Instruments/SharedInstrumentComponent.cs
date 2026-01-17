@@ -175,12 +175,12 @@ public sealed class InstrumentSetChannelsEvent : EntityEventArgs
 public sealed class MidiTrack
 {
     /// <summary>
-    /// The first specified Track Name
+    /// The first specified Track Name.
     /// </summary>
     public string? TrackName;
 
     /// <summary>
-    /// The first specified instrument name
+    /// The first specified instrument name.
     /// </summary>
     public string? InstrumentName;
 

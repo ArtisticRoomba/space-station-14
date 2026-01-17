@@ -24,17 +24,17 @@ public abstract class SharedMobCollisionSystem : EntitySystem
     protected EntityQuery<PhysicsComponent> PhysicsQuery;
 
     /// <summary>
-    /// <see cref="CCVars.MovementPushingCap"/>
+    /// <see cref="CCVars.MovementPushingCap"/>.
     /// </summary>
     private float _pushingCap;
 
     /// <summary>
-    /// <see cref="CCVars.MovementPushingVelocityProduct"/>
+    /// <see cref="CCVars.MovementPushingVelocityProduct"/>.
     /// </summary>
     private float _pushingDotProduct;
 
     /// <summary>
-    /// <see cref="CCVars.MovementMinimumPush"/>
+    /// <see cref="CCVars.MovementMinimumPush"/>.
     /// </summary>
     private float _minimumPushSquared = 0.01f;
 

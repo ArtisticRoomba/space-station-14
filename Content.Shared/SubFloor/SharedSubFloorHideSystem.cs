@@ -221,12 +221,12 @@ namespace Content.Shared.SubFloor
     public enum SubFloorVisuals : byte
     {
         /// <summary>
-        /// Is there a floor tile over this entity
+        /// Is there a floor tile over this entity.
         /// </summary>
         Covered,
 
         /// <summary>
-        /// Is this entity revealed by a scanner or some other entity?
+        /// Is this entity revealed by a scanner or some other entity?.
         /// </summary>
         ScannerRevealed,
     }

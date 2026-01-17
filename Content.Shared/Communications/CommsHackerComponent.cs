@@ -12,7 +12,7 @@ namespace Content.Shared.Communications;
 public sealed partial class CommsHackerComponent : Component
 {
     /// <summary>
-    /// Time taken to hack the console
+    /// Time taken to hack the console.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan Delay = TimeSpan.FromSeconds(20);
@@ -27,7 +27,7 @@ public sealed partial class CommsHackerComponent : Component
 /// <summary>
 /// A threat that can be called in to the station by a ninja hacking a communications console.
 /// Generally some kind of mid-round minor antag, though you could make it call in scrubber backflow if you wanted to.
-/// You wouldn't do that, right?
+/// You wouldn't do that, right?.
 /// </summary>
 [Prototype]
 public sealed partial class NinjaHackingThreatPrototype : IPrototype

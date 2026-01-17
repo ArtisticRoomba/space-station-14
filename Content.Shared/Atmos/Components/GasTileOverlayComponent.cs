@@ -8,7 +8,7 @@ namespace Content.Shared.Atmos.Components;
 public sealed partial class GasTileOverlayComponent : Component
 {
     /// <summary>
-    ///     The tiles that have had their atmos data updated since last tick
+    ///     The tiles that have had their atmos data updated since last tick.
     /// </summary>
     public readonly HashSet<Vector2i> InvalidTiles = new();
 

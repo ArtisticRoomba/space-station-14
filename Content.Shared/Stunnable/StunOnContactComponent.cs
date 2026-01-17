@@ -7,7 +7,7 @@ namespace Content.Shared.Stunnable;
 public sealed partial class StunOnContactComponent : Component
 {
     /// <summary>
-    /// The fixture the entity must collide with to be stunned
+    /// The fixture the entity must collide with to be stunned.
     /// </summary>
     [DataField]
     public string FixtureId = "fix";
@@ -19,13 +19,13 @@ public sealed partial class StunOnContactComponent : Component
     public TimeSpan Duration = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// Should the stun applied refresh?
+    /// Should the stun applied refresh?.
     /// </summary>
     [DataField]
     public bool Refresh = true;
 
     /// <summary>
-    /// Should the stunned entity try to stand up when knockdown ends?
+    /// Should the stunned entity try to stand up when knockdown ends?.
     /// </summary>
     [DataField]
     public bool AutoStand = true;

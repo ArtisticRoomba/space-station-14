@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.Storage;
 
 /// <summary>
-/// Prototype wrapper around <see cref="EntitySpawnEntry"/>
+/// Prototype wrapper around <see cref="EntitySpawnEntry"/>.
 /// </summary>
 [Prototype]
 public sealed partial class EntitySpawnEntryPrototype : IPrototype
@@ -93,7 +93,7 @@ public static class EntitySpawnCollection
     /// </summary>
     /// <remarks>
     ///     This does not spawn the entities. The caller is responsible for doing so, since it may want to do something
-    ///     special to those entities (offset them, insert them into storage, etc)
+    ///     special to those entities (offset them, insert them into storage, etc).
     /// </remarks>
     /// <param name="entries">The entity spawn entries.</param>
     /// <param name="random">Resolve param.</param>

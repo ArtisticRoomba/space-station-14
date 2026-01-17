@@ -18,7 +18,7 @@ public sealed partial class BypassLockComponent : Component
     public ProtoId<ToolQualityPrototype> BypassingTool = "Prying";
 
     /// <summary>
-    /// Amount of time in seconds it takes to bypass
+    /// Amount of time in seconds it takes to bypass.
     /// </summary>
     [DataField]
     public TimeSpan BypassDelay = TimeSpan.FromSeconds(5f);

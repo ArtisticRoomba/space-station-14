@@ -11,7 +11,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Roles;
 
 /// <summary>
-/// Requires a character to have, or not have, certain traits
+/// Requires a character to have, or not have, certain traits.
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]

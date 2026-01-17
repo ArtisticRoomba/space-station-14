@@ -12,7 +12,7 @@ namespace Content.Shared.Charges.Components;
 public sealed partial class AutoRechargeComponent : Component
 {
     /// <summary>
-    /// The time it takes to regain a single charge
+    /// The time it takes to regain a single charge.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan RechargeDuration = TimeSpan.FromSeconds(90);

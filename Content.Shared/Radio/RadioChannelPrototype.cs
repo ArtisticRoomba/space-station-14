@@ -31,7 +31,7 @@ public sealed partial class RadioChannelPrototype : IPrototype
 
     /// <summary>
     /// If channel is long range it doesn't require telecommunication server
-    /// and messages can be sent across different stations
+    /// and messages can be sent across different stations.
     /// </summary>
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;

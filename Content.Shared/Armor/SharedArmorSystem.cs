@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Armor;
 
 /// <summary>
-///     This handles logic relating to <see cref="ArmorComponent" />
+///     This handles logic relating to <see cref="ArmorComponent" />.
 /// </summary>
 public abstract class SharedArmorSystem : EntitySystem
 {
@@ -30,8 +30,8 @@ public abstract class SharedArmorSystem : EntitySystem
     /// <summary>
     /// Get the total Damage reduction value of all equipment caught by the relay.
     /// </summary>
-    /// <param name="ent">The item that's being relayed to</param>
-    /// <param name="args">The event, contains the running count of armor percentage as a coefficient</param>
+    /// <param name="ent">The item that's being relayed to.</param>
+    /// <param name="args">The event, contains the running count of armor percentage as a coefficient.</param>
     private void OnCoefficientQuery(Entity<ArmorComponent> ent, ref InventoryRelayedEvent<CoefficientQueryEvent> args)
     {
         if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)

@@ -24,13 +24,13 @@ namespace Content.Shared.Decals
         public bool DefaultCleanable;
 
         /// <summary>
-        /// True if this decal has custom colors applied by default
+        /// True if this decal has custom colors applied by default.
         /// </summary>
         [DataField]
         public bool DefaultCustomColor;
 
         /// <summary>
-        /// True if this decal snaps to a tile by default
+        /// True if this decal snaps to a tile by default.
         /// </summary>
         [DataField]
         public bool DefaultSnap = true;

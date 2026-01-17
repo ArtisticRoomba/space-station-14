@@ -10,7 +10,7 @@ namespace Content.Shared.Research.TechnologyDisk.Components;
 public sealed partial class TechnologyDiskComponent : Component
 {
     /// <summary>
-    /// The recipe that will be added. If null, one will be randomly generated
+    /// The recipe that will be added. If null, one will be randomly generated.
     /// </summary>
     [DataField]
     [AutoNetworkedField]

@@ -12,7 +12,7 @@ namespace Content.Shared.Cargo.Components;
 public sealed partial class StationBankAccountComponent : Component
 {
     /// <summary>
-    /// The account that receives funds by default
+    /// The account that receives funds by default.
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<CargoAccountPrototype> PrimaryAccount = "Cargo";
@@ -64,7 +64,7 @@ public sealed partial class StationBankAccountComponent : Component
     public int IncreasePerSecond = 2;
 
     /// <summary>
-    /// The time at which the station will receive its next deposit of passive income
+    /// The time at which the station will receive its next deposit of passive income.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextIncomeTime;

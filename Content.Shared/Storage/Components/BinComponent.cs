@@ -15,7 +15,7 @@ namespace Content.Shared.Storage.Components;
 public sealed partial class BinComponent : Component
 {
     /// <summary>
-    /// The containers that contain the items held in the bin
+    /// The containers that contain the items held in the bin.
     /// </summary>
     [ViewVariables]
     public Container ItemContainer = default!;
@@ -33,7 +33,7 @@ public sealed partial class BinComponent : Component
     /// <remarks>
     /// The only reason this isn't a stack is so that
     /// i can handle entities being deleted and removed
-    /// out of order by other systems
+    /// out of order by other systems.
     /// </remarks>
     [DataField, AutoNetworkedField]
     public List<EntityUid> Items = new();

@@ -11,25 +11,25 @@ namespace Content.Shared.Climbing.Components;
 public sealed partial class GlassTableComponent : Component
 {
     /// <summary>
-    ///     How much damage should be given to the climber?
+    ///     How much damage should be given to the climber?.
     /// </summary>
     [DataField("climberDamage")]
     public DamageSpecifier ClimberDamage = default!;
 
     /// <summary>
-    ///     How much damage should be given to the table when climbed on?
+    ///     How much damage should be given to the table when climbed on?.
     /// </summary>
     [DataField("tableDamage")]
     public DamageSpecifier TableDamage = default!;
 
     /// <summary>
-    ///     How much mass should be needed to break the table?
+    ///     How much mass should be needed to break the table?.
     /// </summary>
     [DataField("tableMassLimit")]
     public float MassLimit;
 
     /// <summary>
-    ///     How long should someone who climbs on this table be stunned for?
+    ///     How long should someone who climbs on this table be stunned for?.
     /// </summary>
     public float StunTime = 2.0f;
 }

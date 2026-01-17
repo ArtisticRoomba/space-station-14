@@ -24,7 +24,7 @@ public sealed partial class CCVars
     // many interactions on the same tick. Hence, a very short period, with a relatively high count.
 
     /// <summary>
-    ///     Maximum number of interactions that a player can perform within <see cref="InteractionRateLimitCount"/> seconds
+    ///     Maximum number of interactions that a player can perform within <see cref="InteractionRateLimitCount"/> seconds.
     /// </summary>
     public static readonly CVarDef<int> InteractionRateLimitCount =
         CVarDef.Create("interaction.rate_limit_count", 5, CVar.SERVER | CVar.REPLICATED);
@@ -60,7 +60,7 @@ public sealed partial class CCVars
 
     /// <summary>
     /// How many storage windows are allowed to be open at once.
-    /// Recommended that you utilise this in conjunction with <see cref="StaticStorageUI"/>
+    /// Recommended that you utilise this in conjunction with <see cref="StaticStorageUI"/>.
     /// </summary>
     public static readonly CVarDef<int> StorageLimit =
         CVarDef.Create("control.storage_limit", 1, CVar.REPLICATED | CVar.SERVER);

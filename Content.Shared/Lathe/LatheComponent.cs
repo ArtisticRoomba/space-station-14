@@ -11,13 +11,13 @@ namespace Content.Shared.Lathe
     public sealed partial class LatheComponent : Component
     {
         /// <summary>
-        /// All of the recipe packs that the lathe has by default
+        /// All of the recipe packs that the lathe has by default.
         /// </summary>
         [DataField]
         public List<ProtoId<LatheRecipePackPrototype>> StaticPacks = new();
 
         /// <summary>
-        /// All of the recipe packs that the lathe is capable of researching
+        /// All of the recipe packs that the lathe is capable of researching.
         /// </summary>
         [DataField]
         public List<ProtoId<LatheRecipePackPrototype>> DynamicPacks = new();
@@ -37,7 +37,7 @@ namespace Content.Shared.Lathe
         public LinkedList<LatheRecipeBatch> Queue = new();
 
         /// <summary>
-        /// The sound that plays when the lathe is producing an item, if any
+        /// The sound that plays when the lathe is producing an item, if any.
         /// </summary>
         [DataField]
         public SoundSpecifier? ProducingSound;
@@ -66,7 +66,7 @@ namespace Content.Shared.Lathe
         #endregion
 
         /// <summary>
-        /// The recipe the lathe is currently producing
+        /// The recipe the lathe is currently producing.
         /// </summary>
         [ViewVariables]
         public ProtoId<LatheRecipePrototype>? CurrentRecipe;
@@ -74,13 +74,13 @@ namespace Content.Shared.Lathe
         #region MachineUpgrading
 
         /// <summary>
-        /// A modifier that changes how long it takes to print a recipe
+        /// A modifier that changes how long it takes to print a recipe.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float TimeMultiplier = 1;
 
         /// <summary>
-        /// A modifier that changes how much of a material is needed to print a recipe
+        /// A modifier that changes how much of a material is needed to print a recipe.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public float MaterialUseMultiplier = 1;

@@ -79,7 +79,7 @@ public abstract partial class SharedStationSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets the station that "owns" the given entity (essentially, the station the grid it's on is attached to)
+    /// Gets the station that "owns" the given entity (essentially, the station the grid it's on is attached to).
     /// </summary>
     /// <param name="entity">Entity to find the owner of.</param>
     /// <param name="xform">Resolve pattern, transform of the entity.</param>

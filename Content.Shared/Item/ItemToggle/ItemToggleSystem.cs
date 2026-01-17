@@ -117,7 +117,7 @@ public sealed class ItemToggleSystem : EntitySystem
     /// Used when an item is attempted to be toggled.
     /// Sets its state to the opposite of what it is.
     /// </summary>
-    /// <returns>Same as <see cref="TrySetActive"/></returns>
+    /// <returns>Same as <see cref="TrySetActive"/>.</returns>
     public bool Toggle(Entity<ItemToggleComponent?> ent, EntityUid? user = null, bool predicted = true, bool showPopup = true)
     {
         if (!_query.Resolve(ent, ref ent.Comp, false))
@@ -129,7 +129,7 @@ public sealed class ItemToggleSystem : EntitySystem
     /// <summary>
     /// Tries to set the activated bool from a value.
     /// </summary>
-    /// <returns>false if the attempt fails for any reason</returns>
+    /// <returns>false if the attempt fails for any reason.</returns>
     public bool TrySetActive(Entity<ItemToggleComponent?> ent, bool active, EntityUid? user = null, bool predicted = true, bool showPopup = true)
     {
         if (active)
@@ -281,7 +281,7 @@ public sealed class ItemToggleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Sets if this toggleable item can be activated in world by pressing "e"
+    /// Sets if this toggleable item can be activated in world by pressing "e".
     /// </summary>
     public void SetOnActivate(Entity<ItemToggleComponent?> ent, bool val)
     {

@@ -13,14 +13,14 @@ public sealed partial class NetworkConfiguratorComponent : Component
     // AAAAA ALL OF THESE FAA
 
     /// <summary>
-    /// Determines whether the configurator is in linking mode or list mode
+    /// Determines whether the configurator is in linking mode or list mode.
     /// </summary>
     [DataField, AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool LinkModeActive = true;
 
     /// <summary>
-    /// The entity containing a <see cref="DeviceListComponent"/> this configurator is currently interacting with
+    /// The entity containing a <see cref="DeviceListComponent"/> this configurator is currently interacting with.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ActiveDeviceList { get; set; }
@@ -33,13 +33,13 @@ public sealed partial class NetworkConfiguratorComponent : Component
     public EntityUid? ActiveDeviceLink;
 
     /// <summary>
-    /// The target device this configurator is currently linking with the <see cref="ActiveDeviceLink"/>
+    /// The target device this configurator is currently linking with the <see cref="ActiveDeviceLink"/>.
     /// </summary>
     // TODO handle device deletion
     public EntityUid? DeviceLinkTarget;
 
     /// <summary>
-    /// The list of devices stored in the configurator
+    /// The list of devices stored in the configurator.
     /// </summary>
     [DataField]
     public Dictionary<string, EntityUid> Devices = new();

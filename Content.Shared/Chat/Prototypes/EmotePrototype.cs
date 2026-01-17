@@ -24,7 +24,7 @@ public sealed partial class EmotePrototype : IPrototype
     /// <summary>
     ///     Determines if emote available to all by default
     ///     <see cref="Whitelist"/> check comes after this setting
-    ///     <see cref="Content.Shared.Speech.SpeechComponent.AllowedEmotes"/> can ignore this setting
+    ///     <see cref="Content.Shared.Speech.SpeechComponent.AllowedEmotes"/> can ignore this setting.
     /// </summary>
     [DataField]
     public bool Available = true;
@@ -43,13 +43,13 @@ public sealed partial class EmotePrototype : IPrototype
     public SpriteSpecifier Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/Actions/scream.png"));
 
     /// <summary>
-    ///     Determines conditions to this emote be available to use
+    ///     Determines conditions to this emote be available to use.
     /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist;
 
     /// <summary>
-    ///     Determines conditions to this emote be unavailable to use
+    ///     Determines conditions to this emote be unavailable to use.
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist;

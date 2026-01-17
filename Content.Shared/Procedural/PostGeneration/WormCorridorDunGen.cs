@@ -14,13 +14,13 @@ public sealed partial class WormCorridorDunGen : IDunGenLayer
     public int PathLimit = 2048;
 
     /// <summary>
-    /// How many times to run the worm
+    /// How many times to run the worm.
     /// </summary>
     [DataField]
     public int Count = 20;
 
     /// <summary>
-    /// How long to make each worm
+    /// How long to make each worm.
     /// </summary>
     [DataField]
     public int Length = 20;

@@ -4,7 +4,7 @@ using Robust.Shared.Audio;
 namespace Content.Shared.Atmos.Components;
 
 /// <summary>
-/// Allows you to extinguish an object by interacting with it
+/// Allows you to extinguish an object by interacting with it.
 /// </summary>
 [RegisterComponent]
 public sealed partial class ExtinguishOnInteractComponent : Component
@@ -13,7 +13,7 @@ public sealed partial class ExtinguishOnInteractComponent : Component
     public SoundSpecifier? ExtinguishAttemptSound = new SoundPathSpecifier("/Audio/Items/candle_blowing.ogg");
 
     /// <summary>
-    /// Extinguishing chance
+    /// Extinguishing chance.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float Probability = 0.9f;

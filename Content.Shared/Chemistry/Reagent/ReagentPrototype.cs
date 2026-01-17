@@ -63,19 +63,19 @@ namespace Content.Shared.Chemistry.Reagent
         public ProtoId<ContrabandSeverityPrototype>? ContrabandSeverity = null;
 
         /// <summary>
-        ///     Which departments is this reagent restricted to, if any?
+        ///     Which departments is this reagent restricted to, if any?.
         /// </summary>
         [DataField]
         public HashSet<ProtoId<DepartmentPrototype>> AllowedDepartments = new();
 
         /// <summary>
-        ///     Which jobs is this reagent restricted to, if any?
+        ///     Which jobs is this reagent restricted to, if any?.
         /// </summary>
         [DataField]
         public HashSet<ProtoId<JobPrototype>> AllowedJobs = new();
 
         /// <summary>
-        ///     Is this reagent recognizable to the average spaceman (water, welding fuel, ketchup, etc)?
+        ///     Is this reagent recognizable to the average spaceman (water, welding fuel, ketchup, etc)?.
         /// </summary>
         [DataField]
         public bool Recognizable;
@@ -157,13 +157,13 @@ namespace Content.Shared.Chemistry.Reagent
 
         /// <summary>
         /// Linear Friction Multiplier for a reagent
-        /// 0 - frictionless, 1 - no effect on friction
+        /// 0 - frictionless, 1 - no effect on friction.
         /// </summary>
         [DataField]
         public float Friction = 1.0f;
 
         /// <summary>
-        /// Should this reagent work on the dead?
+        /// Should this reagent work on the dead?.
         /// </summary>
         [DataField]
         public bool WorksOnTheDead;

@@ -73,7 +73,7 @@ public sealed partial class AtmosPipeLayersComponent : Component
     public bool PipeLayersLocked;
 
     /// <summary>
-    /// Tool quality required to cause a pipe to change layers
+    /// Tool quality required to cause a pipe to change layers.
     /// </summary>
     [DataField]
     public ProtoId<ToolQualityPrototype> Tool = "Screwing";
@@ -86,13 +86,13 @@ public sealed partial class AtmosPipeLayersComponent : Component
 }
 
 /// <summary>
-/// Raised when a player attempts to cycle a pipe to its next layer
+/// Raised when a player attempts to cycle a pipe to its next layer.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class TrySetNextPipeLayerCompletedEvent : SimpleDoAfterEvent;
 
 /// <summary>
-/// Raised when a player attempts to set a pipe a specified layer
+/// Raised when a player attempts to set a pipe a specified layer.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class TrySettingPipeLayerCompletedEvent : SimpleDoAfterEvent

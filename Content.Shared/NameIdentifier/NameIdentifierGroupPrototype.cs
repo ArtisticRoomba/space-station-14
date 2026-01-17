@@ -9,7 +9,7 @@ public sealed partial class NameIdentifierGroupPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// Should the identifier become the full name, or just append?
+    /// Should the identifier become the full name, or just append?.
     /// </summary>
     [DataField]
     public bool FullName = false;

@@ -18,7 +18,7 @@ public sealed partial class BatterySelfRechargerComponent : Component
     public float AutoRechargeRate;
 
     /// <summary>
-    /// How long should the entity stop automatically recharging if a charge is used?
+    /// How long should the entity stop automatically recharging if a charge is used?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan AutoRechargePauseTime = TimeSpan.Zero;

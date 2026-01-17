@@ -81,7 +81,7 @@ public sealed partial class PressurizedSolutionComponent : Component
     /// Holds the current randomly-rolled threshold value for spraying.
     /// If fizziness exceeds this value when the entity is opened, it will spray.
     /// By rolling this value when the entity is aggitated, we can have randomization
-    /// while still having prediction!
+    /// while still having prediction!.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float SprayFizzinessThresholdRoll;

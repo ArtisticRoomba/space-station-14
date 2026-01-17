@@ -37,7 +37,7 @@ namespace Content.Shared.Movement.Components
         public MoveButtons HeldMoveButtons = MoveButtons.None;
 
         /// <summary>
-        /// Does our input indicate actual movement, and not just modifiers?
+        /// Does our input indicate actual movement, and not just modifiers?.
         /// </summary>
         /// <remarks>
         /// This can be useful to filter out input from just pressing the walk button with no directions, for example.
@@ -58,7 +58,7 @@ namespace Content.Shared.Movement.Components
 
         /// <summary>
         /// Although our movement might be relative to a particular entity we may have an additional relative rotation
-        /// e.g. if we've snapped to a different cardinal direction
+        /// e.g. if we've snapped to a different cardinal direction.
         /// </summary>
         [ViewVariables]
         public Angle TargetRelativeRotation = Angle.Zero;

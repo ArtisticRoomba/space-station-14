@@ -21,7 +21,7 @@ public sealed partial class DumpableSolutionComponent : Component
     /// <summary>
     /// Whether the solution can be dumped into infinitely.
     /// </summary>
-    /// <remarks>Note that this is what makes the ChemMaster's buffer a stasis buffer as well!</remarks>
+    /// <remarks>Note that this is what makes the ChemMaster's buffer a stasis buffer as well!.</remarks>
     [DataField]
     public bool Unlimited = false;
 }

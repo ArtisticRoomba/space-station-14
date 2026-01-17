@@ -11,7 +11,7 @@ public sealed class LogProbeUiState : BoundUserInterfaceState
     public string EntityName;
 
     /// <summary>
-    /// The list of probed network devices
+    /// The list of probed network devices.
     /// </summary>
     public List<PulledAccessLog> PulledLogs;
 

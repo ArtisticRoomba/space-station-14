@@ -74,13 +74,13 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public Color EyeColor = Color.Brown;
 
     /// <summary>
-    ///     Hair color of this humanoid. Used to avoid looping through all markings
+    ///     Hair color of this humanoid. Used to avoid looping through all markings.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public Color? CachedHairColor;
 
     /// <summary>
-    ///     Facial Hair color of this humanoid. Used to avoid looping through all markings
+    ///     Facial Hair color of this humanoid. Used to avoid looping through all markings.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public Color? CachedFacialHairColor;

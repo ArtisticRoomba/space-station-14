@@ -12,7 +12,7 @@ namespace Content.Shared.Trigger.Components.Triggers;
 public sealed partial class TriggerOnMobstateChangeComponent : BaseTriggerOnXComponent
 {
     /// <summary>
-    /// What states should trigger this?
+    /// What states should trigger this?.
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public List<MobState> MobState = new();

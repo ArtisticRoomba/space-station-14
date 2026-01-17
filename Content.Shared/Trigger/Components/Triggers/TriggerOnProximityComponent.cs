@@ -27,7 +27,7 @@ public sealed partial class TriggerOnProximityComponent : BaseTriggerOnXComponen
     public readonly Dictionary<EntityUid, PhysicsComponent> Colliding = new();
 
     /// <summary>
-    /// What is the shape of the proximity fixture?
+    /// What is the shape of the proximity fixture?.
     /// </summary>
     [ViewVariables]
     [DataField]
@@ -58,33 +58,33 @@ public sealed partial class TriggerOnProximityComponent : BaseTriggerOnXComponen
     public TimeSpan Cooldown = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// When can the trigger run again?
+    /// When can the trigger run again?.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan NextTrigger = TimeSpan.Zero;
 
     /// <summary>
-    /// When will the visual state be updated again after activation?
+    /// When will the visual state be updated again after activation?.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan NextVisualUpdate = TimeSpan.Zero;
 
     /// <summary>
-    /// What speed should the other object be moving at to trigger the proximity fixture?
+    /// What speed should the other object be moving at to trigger the proximity fixture?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float TriggerSpeed = 3.5f;
 
     /// <summary>
-    /// If this proximity is triggered should we continually repeat it?
+    /// If this proximity is triggered should we continually repeat it?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Repeating = true;
 
     /// <summary>
-    /// What layer is the trigger fixture on?
+    /// What layer is the trigger fixture on?.
     /// </summary>
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionLayer>))]
     public int Layer = (int)(CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.HighImpassable);

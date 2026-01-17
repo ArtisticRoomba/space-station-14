@@ -28,7 +28,7 @@ public abstract partial class SharedBeamComponent : Component
     public EntityUid OriginBeam;
 
     /// <summary>
-    /// The entity that fired the beam originally
+    /// The entity that fired the beam originally.
     /// </summary>
     [DataField("beamShooter")]
     public EntityUid BeamShooter;
@@ -40,7 +40,7 @@ public abstract partial class SharedBeamComponent : Component
     public HashSet<EntityUid> CreatedBeams = new();
 
     /// <summary>
-    /// Sound played upon creation
+    /// Sound played upon creation.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("sound")]
@@ -79,7 +79,7 @@ public sealed class CreateBeamSuccessEvent : EntityEventArgs
 }
 
 /// <summary>
-/// Called once the beam is fully created
+/// Called once the beam is fully created.
 /// </summary>
 public sealed class BeamFiredEvent : EntityEventArgs
 {

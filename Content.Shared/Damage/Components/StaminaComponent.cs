@@ -15,7 +15,7 @@ namespace Content.Shared.Damage.Components;
 public sealed partial class StaminaComponent : Component
 {
     /// <summary>
-    /// Have we reached peak stamina damage and been paralyzed?
+    /// Have we reached peak stamina damage and been paralyzed?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool Critical;
@@ -51,7 +51,7 @@ public sealed partial class StaminaComponent : Component
     public float CritThreshold = 100f;
 
     /// <summary>
-    /// How long will this mob be stunned for?
+    /// How long will this mob be stunned for?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public TimeSpan StunTime = TimeSpan.FromSeconds(6);
@@ -79,13 +79,13 @@ public sealed partial class StaminaComponent : Component
     public float AfterCritDecayMultiplier = 5f;
 
     /// <summary>
-    /// This is how much stamina damage a mob takes when it forces itself to stand up before modifiers
+    /// This is how much stamina damage a mob takes when it forces itself to stand up before modifiers.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ForceStandStamina = 10f;
 
     /// <summary>
-    /// What sound should play when we successfully stand up
+    /// What sound should play when we successfully stand up.
     /// </summary>
     [DataField, AutoNetworkedField]
     public SoundSpecifier ForceStandSuccessSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
@@ -106,55 +106,55 @@ public sealed partial class StaminaComponent : Component
     public float AnimationThreshold = 50;
 
     /// <summary>
-    /// Minimum y vector displacement for breathing at AnimationThreshold
+    /// Minimum y vector displacement for breathing at AnimationThreshold.
     /// </summary>
     [DataField]
     public float BreathingAmplitudeMin = 0.04f;
 
     /// <summary>
-    /// Maximum y vector amount we add to the BreathingAmplitudeMin
+    /// Maximum y vector amount we add to the BreathingAmplitudeMin.
     /// </summary>
     [DataField]
     public float BreathingAmplitudeMod = 0.04f;
 
     /// <summary>
-    /// Minimum vector displacement for jittering at AnimationThreshold
+    /// Minimum vector displacement for jittering at AnimationThreshold.
     /// </summary>
     [DataField]
     public float JitterAmplitudeMin;
 
     /// <summary>
-    /// Maximum vector amount we add to the JitterAmplitudeMin
+    /// Maximum vector amount we add to the JitterAmplitudeMin.
     /// </summary>
     [DataField]
     public float JitterAmplitudeMod = 0.04f;
 
     /// <summary>
-    /// Min multipliers for JitterAmplitude in the X and Y directions, animation randomly chooses between these min and max multipliers
+    /// Min multipliers for JitterAmplitude in the X and Y directions, animation randomly chooses between these min and max multipliers.
     /// </summary>
     [DataField]
     public Vector2 JitterMin = Vector2.Create(0.5f, 0.125f);
 
     /// <summary>
-    /// Max multipliers for JitterAmplitude in the X and Y directions, animation randomly chooses between these min and max multipliers
+    /// Max multipliers for JitterAmplitude in the X and Y directions, animation randomly chooses between these min and max multipliers.
     /// </summary>
     [DataField]
     public Vector2 JitterMax = Vector2.Create(1f, 0.25f);
 
     /// <summary>
-    /// Minimum total animations per second
+    /// Minimum total animations per second.
     /// </summary>
     [DataField]
     public float FrequencyMin = 0.25f;
 
     /// <summary>
-    /// Maximum amount we add to the Frequency min just before crit
+    /// Maximum amount we add to the Frequency min just before crit.
     /// </summary>
     [DataField]
     public float FrequencyMod = 1.75f;
 
     /// <summary>
-    /// Jitter keyframes per animation
+    /// Jitter keyframes per animation.
     /// </summary>
     [DataField]
     public int Jitters = 4;

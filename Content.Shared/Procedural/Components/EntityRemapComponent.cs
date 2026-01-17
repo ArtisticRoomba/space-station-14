@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Procedural.Components;
 
 /// <summary>
-/// Indicates this entity prototype should be re-mapped to another
+/// Indicates this entity prototype should be re-mapped to another.
 /// </summary>
 [RegisterComponent]
 public sealed partial class EntityRemapComponent : Component

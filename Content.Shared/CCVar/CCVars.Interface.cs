@@ -5,31 +5,31 @@ namespace Content.Shared.CCVar;
 public sealed partial class CCVars
 {
     /// <summary>
-    /// The sound played when clicking a UI button
+    /// The sound played when clicking a UI button.
     /// </summary>
     public static readonly CVarDef<string> UIClickSound =
         CVarDef.Create("interface.click_sound", "/Audio/UserInterface/click.ogg", CVar.REPLICATED);
 
     /// <summary>
-    /// The sound played when the mouse hovers over a clickable UI element
+    /// The sound played when the mouse hovers over a clickable UI element.
     /// </summary>
     public static readonly CVarDef<string> UIHoverSound =
         CVarDef.Create("interface.hover_sound", "/Audio/UserInterface/hover.ogg", CVar.REPLICATED);
 
     /// <summary>
-    /// The layout style of the UI
+    /// The layout style of the UI.
     /// </summary>
     public static readonly CVarDef<string> UILayout =
         CVarDef.Create("ui.layout", "Default", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// The dimensions for the chat window in Default UI mode
+    /// The dimensions for the chat window in Default UI mode.
     /// </summary>
     public static readonly CVarDef<string> DefaultScreenChatSize =
         CVarDef.Create("ui.default_chat_size", "", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// The width of the chat panel in Separated UI mode
+    /// The width of the chat panel in Separated UI mode.
     /// </summary>
     public static readonly CVarDef<string> SeparatedScreenChatSize =
         CVarDef.Create("ui.separated_chat_size", "0.6,0", CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -47,7 +47,7 @@ public sealed partial class CCVars
         CVarDef.Create("ui.admin_overlay_antag_format", "Subtype", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// If true, the admin overlay will display the total time of the players
+    /// If true, the admin overlay will display the total time of the players.
     /// </summary>
     public static readonly CVarDef<bool> AdminOverlayPlaytime =
         CVarDef.Create("ui.admin_overlay_playtime", true, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -82,7 +82,7 @@ public sealed partial class CCVars
     /// RoleType
     /// SubType
     /// RoleTypeSubtype
-    /// SubtypeRoleType
+    /// SubtypeRoleType.
     /// </summary>
     public static readonly CVarDef<string> AdminPlayerTabRoleSetting =
         CVarDef.Create("ui.admin_player_tab_role", "Subtype", CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -97,20 +97,20 @@ public sealed partial class CCVars
         CVarDef.Create("ui.admin_overlay_symbol_style", "Specific", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// The range (in tiles) around the cursor within which the admin overlays of ghosts start to fade out
+    /// The range (in tiles) around the cursor within which the admin overlays of ghosts start to fade out.
     /// </summary>
     public static readonly CVarDef<int> AdminOverlayGhostFadeDistance =
         CVarDef.Create("ui.admin_overlay_ghost_fade_distance", 6, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// The range (in tiles) around the cursor within which the admin overlays of ghosts disappear
+    /// The range (in tiles) around the cursor within which the admin overlays of ghosts disappear.
     /// </summary>
     public static readonly CVarDef<int> AdminOverlayGhostHideDistance =
         CVarDef.Create("ui.admin_overlay_ghost_hide_distance", 2, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// The maximum range (in tiles) at which admin overlay entries still merge to form a stack
-    /// Recommended to keep under 1, otherwise the overlays of people sitting next to each other will stack
+    /// Recommended to keep under 1, otherwise the overlays of people sitting next to each other will stack.
     /// </summary>
     public static readonly CVarDef<float> AdminOverlayMergeDistance =
         CVarDef.Create("ui.admin_overlay_merge_distance", 0.33f, CVar.CLIENTONLY | CVar.ARCHIVE);

@@ -8,7 +8,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Roles;
 
 /// <summary>
-/// Requires the character to be older or younger than a certain age (inclusive)
+/// Requires the character to be older or younger than a certain age (inclusive).
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]

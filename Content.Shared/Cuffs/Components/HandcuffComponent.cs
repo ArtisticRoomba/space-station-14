@@ -33,13 +33,13 @@ public sealed partial class HandcuffComponent : Component
     public float StunBonus = 2f;
 
     /// <summary>
-    ///     Will the cuffs break when removed?
+    ///     Will the cuffs break when removed?.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool BreakOnRemove;
 
     /// <summary>
-    ///     Will the cuffs break when removed?
+    ///     Will the cuffs break when removed?.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId? BrokenPrototype;
@@ -72,7 +72,7 @@ public sealed partial class HandcuffComponent : Component
     public string? BodyIconState = "body-overlay";
 
     /// <summary>
-    /// An opptional color specification for <see cref="BodyIconState"/>
+    /// An opptional color specification for <see cref="BodyIconState"/>.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Color Color = Color.White;

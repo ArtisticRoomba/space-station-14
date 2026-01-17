@@ -278,22 +278,22 @@ public sealed partial class AtmosAlarmThreshold
 }
 
 /// <summary>
-///     A change of a single value between two AtmosAlarmThreshold, for a given AtmosMonitorLimitType
+///     A change of a single value between two AtmosAlarmThreshold, for a given AtmosMonitorLimitType.
 /// </summary>
 public readonly struct AtmosAlarmThresholdChange
 {
     /// <summary>
-    ///     The type of change between the two threshold sets
+    ///     The type of change between the two threshold sets.
     /// </summary>
     public readonly AtmosMonitorLimitType Type;
 
     /// <summary>
-    ///     The value in the old threshold set
+    ///     The value in the old threshold set.
     /// </summary>
     public readonly AlarmThresholdSetting? Previous;
 
     /// <summary>
-    ///     The value in the new threshold set
+    ///     The value in the new threshold set.
     /// </summary>
     public readonly AlarmThresholdSetting Current;
 
@@ -397,7 +397,7 @@ public enum AtmosMonitorThresholdType
 }
 
 /// <summary>
-/// Bitflags version of <see cref="AtmosMonitorThresholdType"/>
+/// Bitflags version of <see cref="AtmosMonitorThresholdType"/>.
 /// </summary>
 [Flags]
 public enum AtmosMonitorThresholdTypeFlags

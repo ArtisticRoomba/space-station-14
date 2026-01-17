@@ -7,7 +7,7 @@ using Content.Shared.Xenoarchaeology.Artifact.XAT.Components;
 namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
 
 /// <summary>
-/// This handles <see cref="XATToolUseComponent"/>
+/// This handles <see cref="XATToolUseComponent"/>.
 /// </summary>
 public sealed class XATToolUseSystem : BaseXATSystem<XATToolUseComponent>
 {

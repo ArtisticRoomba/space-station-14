@@ -6,7 +6,7 @@ namespace Content.Shared.CartridgeLoader.Cartridges;
 public sealed class NetProbeUiState : BoundUserInterfaceState
 {
     /// <summary>
-    /// The list of probed network devices
+    /// The list of probed network devices.
     /// </summary>
     public List<ProbedNetworkDevice> ProbedDevices;
 

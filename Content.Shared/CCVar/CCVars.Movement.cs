@@ -59,7 +59,7 @@ public sealed partial class CCVars
         CVarDef.Create("movement.push_mass_cap", 1.75f, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    /// Is crawling enabled
+    /// Is crawling enabled.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<bool> MovementCrawling =

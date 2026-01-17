@@ -58,7 +58,7 @@ public sealed partial class ChameleonProjectorComponent : Component
     public float MaxHealth = 100f;
 
     /// <summary>
-    /// User currently disguised by this projector, if any
+    /// User currently disguised by this projector, if any.
     /// </summary>
     [DataField]
     public EntityUid? Disguised;

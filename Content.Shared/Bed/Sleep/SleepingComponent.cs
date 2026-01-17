@@ -44,7 +44,7 @@ public sealed partial class SleepingComponent : Component
 
     /// <summary>
     ///     The fluent string prefix to use when picking a random suffix
-    ///     This is only active for those who have the sleeping component
+    ///     This is only active for those who have the sleeping component.
     /// </summary>
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> ForceSaySleepDataset = "ForceSaySleepDataset";

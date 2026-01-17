@@ -24,7 +24,7 @@ public sealed partial class GoliathSummonTentacleAction : WorldTargetActionEvent
     };
 
     /// <summary>
-    /// How many entities will spawn beyond the original one at the target location?
+    /// How many entities will spawn beyond the original one at the target location?.
     /// </summary>
     [DataField]
     public int ExtraSpawns = 3;

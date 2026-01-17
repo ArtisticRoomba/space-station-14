@@ -13,7 +13,7 @@ public sealed partial class FTLDestinationComponent : Component
     public EntityWhitelist? Whitelist;
 
     /// <summary>
-    /// Is this destination visible but available to be warped to?
+    /// Is this destination visible but available to be warped to?.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool Enabled = true;

@@ -24,7 +24,7 @@ public sealed partial class EmitSoundOnTriggerComponent : BaseXOnTriggerComponen
     public bool Positional;
 
     /// <summary>
-    /// Should this sound be predicted for the User?
+    /// Should this sound be predicted for the User?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Predicted;

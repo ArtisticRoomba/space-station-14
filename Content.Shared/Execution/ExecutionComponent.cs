@@ -16,7 +16,7 @@ public sealed partial class ExecutionComponent : Component
 
     /// <summary>
     /// Arbitrarily chosen number to multiply damage by, used to deal reasonable amounts of damage to a victim of an execution.
-    /// /// </summary>
+    /// ///. </summary>
     [DataField, AutoNetworkedField]
     public float DamageMultiplier = 9f;
 

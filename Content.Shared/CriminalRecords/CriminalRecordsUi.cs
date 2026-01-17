@@ -48,7 +48,7 @@ public sealed class CriminalRecordsConsoleState : BoundUserInterfaceState
     }
 
     /// <summary>
-    /// Default state for opening the console
+    /// Default state for opening the console.
     /// </summary>
     public CriminalRecordsConsoleState() : this(null, null)
     {

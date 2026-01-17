@@ -35,22 +35,22 @@ public sealed class SuitSensorStatus
 public enum SuitSensorMode : byte
 {
     /// <summary>
-    /// Sensor doesn't send any information about owner
+    /// Sensor doesn't send any information about owner.
     /// </summary>
     SensorOff = 0,
 
     /// <summary>
-    /// Sensor sends only binary status (alive/dead)
+    /// Sensor sends only binary status (alive/dead).
     /// </summary>
     SensorBinary = 1,
 
     /// <summary>
-    /// Sensor sends health vitals status
+    /// Sensor sends health vitals status.
     /// </summary>
     SensorVitals = 2,
 
     /// <summary>
-    /// Sensor sends vitals status and GPS position
+    /// Sensor sends vitals status and GPS position.
     /// </summary>
     SensorCords = 3,
 }

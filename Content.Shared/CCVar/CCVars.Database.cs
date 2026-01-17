@@ -22,7 +22,7 @@ public sealed partial class CCVars
     /// <remarks>
     ///     Defaults to 1 on DEBUG, 0 on RELEASE.
     ///     This is intended to help catch .Result deadlock bugs that only happen on postgres
-    ///     (because SQLite is not actually asynchronous normally)
+    ///     (because SQLite is not actually asynchronous normally).
     /// </remarks>
     public static readonly CVarDef<int> DatabaseSqliteDelay =
         CVarDef.Create("database.sqlite_delay", DefaultSqliteDelay, CVar.SERVERONLY);

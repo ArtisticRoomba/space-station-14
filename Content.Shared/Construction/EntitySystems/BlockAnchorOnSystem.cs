@@ -58,7 +58,7 @@ public sealed class BlockAnchorOnSystem : EntitySystem
     /// <summary>
     /// Check if there is any anchored overlap with non whitelisted or blacklisted entities.
     /// </summary>
-    /// <returns>True if there is, false if there isn't</returns>
+    /// <returns>True if there is, false if there isn't.</returns>
     private bool HasOverlap(Entity<BlockAnchorOnComponent, TransformComponent> ent)
     {
         if (ent.Comp2.GridUid is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))

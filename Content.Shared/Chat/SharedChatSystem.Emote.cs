@@ -36,8 +36,8 @@ public abstract partial class SharedChatSystem
     /// <summary>
     /// Makes the selected entity emote using the given <see cref="EmotePrototype"/> and sends a message to chat.
     /// </summary>
-    /// <param name="source">The entity that is speaking</param>
-    /// <param name="emoteId">The id of emote prototype. Should have valid <see cref="EmotePrototype.ChatMessages"/></param>
+    /// <param name="source">The entity that is speaking.</param>
+    /// <param name="emoteId">The id of emote prototype. Should have valid <see cref="EmotePrototype.ChatMessages"/>.</param>
     /// <param name="hideLog">Whether this message should appear in the adminlog window, or not.</param>
     /// <param name="range">Conceptual range of transmission, if it shows in the chat window, if it shows to far-away ghosts or ghosts at all...</param>
     /// <param name="ignoreActionBlocker">Whether emote action blocking should be ignored or not.</param>
@@ -45,7 +45,7 @@ public abstract partial class SharedChatSystem
     /// The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>.
     /// If this is set, the event will not get raised.
     /// </param>
-    /// <param name="forceEmote">Bypasses whitelist/blacklist/availibility checks for if the entity can use this emote</param>
+    /// <param name="forceEmote">Bypasses whitelist/blacklist/availibility checks for if the entity can use this emote.</param>
     /// <returns>True if an emote was performed. False if the emote is unavailable, cancelled, etc.</returns>
     public bool TryEmoteWithChat(
         EntityUid source,
@@ -74,7 +74,7 @@ public abstract partial class SharedChatSystem
     /// The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>.
     /// If this is set, the event will not get raised.
     /// </param>
-    /// <param name="forceEmote">Bypasses whitelist/blacklist/availibility checks for if the entity can use this emote</param>
+    /// <param name="forceEmote">Bypasses whitelist/blacklist/availibility checks for if the entity can use this emote.</param>
     /// <returns>True if an emote was performed. False if the emote is unavailable, cancelled, etc.</returns>
     public bool TryEmoteWithChat(
         EntityUid source,
@@ -161,7 +161,7 @@ public abstract partial class SharedChatSystem
     /// <summary>
     /// Checks if a valid emote was typed, to play sounds and etc and invokes an event.
     /// </summary>
-    /// <param name="source">The entity that is speaking</param>
+    /// <param name="source">The entity that is speaking.</param>
     /// <param name="textInput">Formatted emote message.</param>
     /// <returns>True if the chat message should be displayed (because the emote was explicitly cancelled), false if it should not be.</returns>
     protected bool TryEmoteChatInput(EntityUid source, string textInput)
@@ -180,8 +180,8 @@ public abstract partial class SharedChatSystem
     /// <summary>
     /// Checks if we can use this emote based on the emotes whitelist, blacklist, and availability to the entity.
     /// </summary>
-    /// <param name="source">The entity that is speaking</param>
-    /// <param name="emote">The emote being used</param>
+    /// <param name="source">The entity that is speaking.</param>
+    /// <param name="emote">The emote being used.</param>
     public bool AllowedToUseEmote(EntityUid source, EmotePrototype emote)
     {
         // If emote is in AllowedEmotes, it will bypass whitelist and blacklist
@@ -212,8 +212,8 @@ public abstract partial class SharedChatSystem
     /// In the case that the Before event is cancelled, EmoteEvent will NOT be raised, and will optionally show a message to the player
     /// explaining why the emote didn't happen.
     /// </summary>
-    /// <param name="uid">The entity which is emoting</param>
-    /// <param name="proto">The emote which is being performed</param>
+    /// <param name="uid">The entity which is emoting.</param>
+    /// <param name="proto">The emote which is being performed.</param>
     /// <returns>True if the emote was performed, false otherwise.</returns>
     private bool TryInvokeEmoteEvent(EntityUid uid, EmotePrototype proto)
     {

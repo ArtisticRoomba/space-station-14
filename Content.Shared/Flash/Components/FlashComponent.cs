@@ -11,13 +11,13 @@ namespace Content.Shared.Flash.Components;
 public sealed partial class FlashComponent : Component
 {
     /// <summary>
-    /// Flash the area around the entity when used in hand?
+    /// Flash the area around the entity when used in hand?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool FlashOnUse = true;
 
     /// <summary>
-    /// Flash the target when melee attacking them?
+    /// Flash the target when melee attacking them?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool FlashOnMelee = true;

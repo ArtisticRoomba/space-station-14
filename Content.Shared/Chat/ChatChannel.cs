@@ -9,37 +9,37 @@ namespace Content.Shared.Chat
         None = 0,
 
         /// <summary>
-        ///     Chat heard by players within earshot
+        ///     Chat heard by players within earshot.
         /// </summary>
         Local = 1 << 0,
 
         /// <summary>
-        ///     Chat heard by players right next to each other
+        ///     Chat heard by players right next to each other.
         /// </summary>
         Whisper = 1 << 1,
 
         /// <summary>
-        ///     Messages from the server
+        ///     Messages from the server.
         /// </summary>
         Server = 1 << 2,
 
         /// <summary>
-        ///     Damage messages
+        ///     Damage messages.
         /// </summary>
         Damage = 1 << 3,
 
         /// <summary>
-        ///     Radio messages
+        ///     Radio messages.
         /// </summary>
         Radio = 1 << 4,
 
         /// <summary>
-        ///     Local out-of-character channel
+        ///     Local out-of-character channel.
         /// </summary>
         LOOC = 1 << 5,
 
         /// <summary>
-        ///     Out-of-character channel
+        ///     Out-of-character channel.
         /// </summary>
         OOC = 1 << 6,
 
@@ -51,32 +51,32 @@ namespace Content.Shared.Chat
 
         /// <summary>
         ///     Notifications from things like the PDA.
-        ///     Receiving a PDA message will send a notification to this channel for example
+        ///     Receiving a PDA message will send a notification to this channel for example.
         /// </summary>
         Notifications = 1 << 8,
 
         /// <summary>
-        ///     Emotes
+        ///     Emotes.
         /// </summary>
         Emotes = 1 << 9,
 
         /// <summary>
-        ///     Deadchat
+        ///     Deadchat.
         /// </summary>
         Dead = 1 << 10,
 
         /// <summary>
-        ///     Misc admin messages
+        ///     Misc admin messages.
         /// </summary>
         Admin = 1 << 11,
 
         /// <summary>
-        ///     Admin alerts, messages likely of elevated importance to admins
+        ///     Admin alerts, messages likely of elevated importance to admins.
         /// </summary>
         AdminAlert = 1 << 12,
 
         /// <summary>
-        ///     Admin chat
+        ///     Admin chat.
         /// </summary>
         AdminChat = 1 << 13,
 
@@ -94,7 +94,7 @@ namespace Content.Shared.Chat
     }
 
     /// <summary>
-    /// Contains extension methods for <see cref="ChatChannel"/>
+    /// Contains extension methods for <see cref="ChatChannel"/>.
     /// </summary>
     public static class ChatChannelExt
     {

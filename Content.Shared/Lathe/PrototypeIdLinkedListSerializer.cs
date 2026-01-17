@@ -10,7 +10,7 @@ namespace Content.Shared.Lathe;
 /// <summary>
 /// Handles reading, writing, and validation for linked lists of prototypes.
 /// </summary>
-/// <typeparam name="T">The type of prototype this linked list represents</typeparam>
+/// <typeparam name="T">The type of prototype this linked list represents.</typeparam>
 /// <remarks>
 /// This is in the Content.Shared.Lathe namespace as there are no other LinkedList ProtoId instances.
 /// </remarks>

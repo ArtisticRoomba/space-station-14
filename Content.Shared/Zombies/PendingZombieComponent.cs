@@ -55,7 +55,7 @@ public sealed partial class PendingZombieComponent : Component
     public float InfectionWarningChance = 0.0166f;
 
     /// <summary>
-    /// Infection warnings shown as popups
+    /// Infection warnings shown as popups.
     /// </summary>
     [DataField("infectionWarnings")]
     public List<string> InfectionWarnings = new()

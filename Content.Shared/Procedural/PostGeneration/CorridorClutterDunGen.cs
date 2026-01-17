@@ -13,7 +13,7 @@ public sealed partial class CorridorClutterDunGen : IDunGenLayer
     public float Chance = 0.05f;
 
     /// <summary>
-    /// The default starting bulbs
+    /// The default starting bulbs.
     /// </summary>
     [DataField(required: true)]
     public ProtoId<EntityTablePrototype> Contents;

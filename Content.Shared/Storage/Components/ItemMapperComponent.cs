@@ -12,7 +12,7 @@ namespace Content.Shared.Storage.Components
     /// </para>
     /// <para>
     /// If you need a more straightforward way to change appearance where only variable is how many items, rather than which items
-    /// and how many, see <see cref="ItemCounterComponent"/>
+    /// and how many, see <see cref="ItemCounterComponent"/>.
     /// </para>
     /// <para>
     /// For a contrived example, create a tool-belt with a Power drill slot and two light bulb slots.
@@ -32,7 +32,7 @@ namespace Content.Shared.Storage.Components
     ///         - Powerdrill
     /// #... to be continued
     /// </code>
-    /// To map <c>Lightbulb</c> <b><see cref="Component"/></b> (not tag) to two different layers (for one and two light bulbs, respectively)
+    /// To map <c>Lightbulb</c> <b><see cref="Component"/></b> (not tag) to two different layers (for one and two light bulbs, respectively).
     /// <code>
     /// #... to be continued
     ///     lightbulb1:
@@ -68,7 +68,7 @@ namespace Content.Shared.Storage.Components
 
         /// <summary>
         ///     The list of map layer keys that are valid targets for changing in <see cref="MapLayers"/>
-        ///     Can be initialized if already existing on the sprite, or inferred automatically
+        ///     Can be initialized if already existing on the sprite, or inferred automatically.
         /// </summary>
         [DataField("spriteLayers")]
         public List<string> SpriteLayers = new();

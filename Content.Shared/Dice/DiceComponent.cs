@@ -18,7 +18,7 @@ public sealed partial class DiceComponent : Component
 
     /// <summary>
     ///     Quantity that is subtracted from the value of a die. Can be used to make dice that start at "0". Applied
-    ///     before the <see cref="Multiplier"/>
+    ///     before the <see cref="Multiplier"/>.
     /// </summary>
     [DataField]
     public int Offset { get; private set; } = 0;

@@ -30,7 +30,7 @@ namespace Content.Shared.Interaction
         public EntityCoordinates ClickLocation { get; }
 
         /// <summary>
-        /// Is the click location in range and unobstructed?
+        /// Is the click location in range and unobstructed?.
         /// </summary>
         public bool CanReach { get; }
 

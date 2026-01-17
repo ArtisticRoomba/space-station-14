@@ -15,7 +15,7 @@ public sealed partial class RotatableComponent : Component
     public bool RotateWhileAnchored;
 
     /// <summary>
-    /// If true, will rotate entity in players direction when pulled
+    /// If true, will rotate entity in players direction when pulled.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool RotateWhilePulling = true;

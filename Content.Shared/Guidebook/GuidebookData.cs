@@ -22,7 +22,7 @@ public sealed partial class GuidebookData
     /// The data extracted by the system.
     /// </summary>
     /// <remarks>
-    /// Structured as PrototypeName, ComponentName, FieldName, Value
+    /// Structured as PrototypeName, ComponentName, FieldName, Value.
     /// </remarks>
     [DataField]
     public Dictionary<string, Dictionary<string, Dictionary<string, object?>>> Data = [];
@@ -52,7 +52,7 @@ public sealed partial class GuidebookData
     /// <summary>
     /// Attempts to retrieve a value using the given identifiers.
     /// </summary>
-    /// <returns>true if the value was retrieved, otherwise false</returns>
+    /// <returns>true if the value was retrieved, otherwise false.</returns>
     public bool TryGetValue(string prototype, string component, string field, out object? value)
     {
         if (!IsFrozen)

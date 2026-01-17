@@ -11,7 +11,7 @@ public sealed partial class OreVeinComponent : Component
 {
     /// <summary>
     /// How often an entity will be seeded with ore. Note: the amount of ore
-    /// that is dropped is dependent on the ore prototype. <see crefalso="OrePrototype"/>
+    /// that is dropped is dependent on the ore prototype. <see crefalso="OrePrototype"/>.
     /// </summary>
     [DataField]
     public float OreChance = 0.1f;

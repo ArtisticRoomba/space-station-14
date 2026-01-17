@@ -38,21 +38,21 @@ public sealed partial class IdCardComponent : Component
     public ProtoId<JobIconPrototype> JobIcon = "JobIconUnknown";
 
     /// <summary>
-    /// Holds the job prototype when the ID card has no associated station record
+    /// Holds the job prototype when the ID card has no associated station record.
     /// </summary>
     [DataField]
     [AutoNetworkedField]
     public ProtoId<JobPrototype>? JobPrototype;
 
     /// <summary>
-    /// The proto IDs of the departments associated with the job
+    /// The proto IDs of the departments associated with the job.
     /// </summary>
     [DataField]
     [AutoNetworkedField]
     public List<ProtoId<DepartmentPrototype>> JobDepartments = new();
 
     /// <summary>
-    /// Determines if accesses from this card should be logged by <see cref="AccessReaderComponent"/>
+    /// Determines if accesses from this card should be logged by <see cref="AccessReaderComponent"/>.
     /// </summary>
     [DataField]
     public bool BypassLogging;

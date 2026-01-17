@@ -9,25 +9,25 @@ namespace Content.Shared.Storage.Components;
 public sealed partial class StoreOnCollideComponent : Component
 {
     /// <summary>
-    ///     Entities that are allowed in the storage on collide
+    ///     Entities that are allowed in the storage on collide.
     /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist;
 
     /// <summary>
-    ///     Should this storage lock on collide, provided they have a lock component?
+    ///     Should this storage lock on collide, provided they have a lock component?.
     /// </summary>
     [DataField]
     public bool LockOnCollide;
 
     /// <summary>
-    ///     Should the behavior be disabled when the storage is first opened?
+    ///     Should the behavior be disabled when the storage is first opened?.
     /// </summary>
     [DataField]
     public bool DisableWhenFirstOpened;
 
     /// <summary>
-    ///     If the behavior is disabled or not
+    ///     If the behavior is disabled or not.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Disabled;

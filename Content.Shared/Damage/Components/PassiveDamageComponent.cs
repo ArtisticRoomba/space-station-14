@@ -12,19 +12,19 @@ namespace Content.Shared.Damage.Components;
 public sealed partial class PassiveDamageComponent : Component
 {
     /// <summary>
-    /// The entitys' states that passive damage will apply in
+    /// The entitys' states that passive damage will apply in.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public List<MobState> AllowedStates = new();
 
     /// <summary>
-    /// Damage / Healing per interval dealt to the entity every interval
+    /// Damage / Healing per interval dealt to the entity every interval.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier Damage = new();
 
     /// <summary>
-    /// Delay between damage events in seconds
+    /// Delay between damage events in seconds.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float Interval = 1f;

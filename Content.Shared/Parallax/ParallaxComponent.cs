@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Parallax;
 
 /// <summary>
-/// Handles per-map parallax
+/// Handles per-map parallax.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class ParallaxComponent : Component

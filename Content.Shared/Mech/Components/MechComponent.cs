@@ -50,7 +50,7 @@ public sealed partial class MechComponent : Component
 
     /// <summary>
     /// A multiplier used to calculate how much of the damage done to a mech
-    /// is transfered to the pilot
+    /// is transfered to the pilot.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float MechToPilotDamageMultiplier;
@@ -78,7 +78,7 @@ public sealed partial class MechComponent : Component
     public EntityUid? CurrentSelectedEquipment;
 
     /// <summary>
-    /// The maximum amount of equipment items that can be installed in the mech
+    /// The maximum amount of equipment items that can be installed in the mech.
     /// </summary>
     [DataField("maxEquipmentAmount"), ViewVariables(VVAccess.ReadWrite)]
     public int MaxEquipmentAmount = 3;
@@ -125,7 +125,7 @@ public sealed partial class MechComponent : Component
     /// </summary>
     /// <remarks>
     /// This needs to be redone
-    /// when mech internals are added
+    /// when mech internals are added.
     /// </remarks>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Airtight;

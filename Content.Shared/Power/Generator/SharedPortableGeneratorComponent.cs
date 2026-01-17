@@ -143,7 +143,7 @@ public enum GeneratorVisualLayers : byte
 public enum GeneratorVisuals : byte
 {
     /// <summary>
-    /// Boolean: is the generator running?
+    /// Boolean: is the generator running?.
     /// </summary>
     Running,
 }

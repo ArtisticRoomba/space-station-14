@@ -36,7 +36,7 @@ public sealed partial class Jitter : EntityEffectBase<Jitter>
     public float Time = 2.0f;
 
     /// <remarks>
-    ///     true - refresh jitter time,  false - accumulate jitter time
+    ///     true - refresh jitter time,  false - accumulate jitter time.
     /// </remarks>
     [DataField]
     public bool Refresh = true;

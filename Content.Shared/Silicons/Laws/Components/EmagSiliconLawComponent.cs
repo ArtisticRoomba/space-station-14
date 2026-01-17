@@ -31,7 +31,7 @@ public sealed partial class EmagSiliconLawComponent : Component
 
     /// <summary>
     /// The sound that plays for the borg player
-    /// to let them know they've been emagged
+    /// to let them know they've been emagged.
     /// </summary>
     [DataField]
     public SoundSpecifier EmaggedSound = new SoundPathSpecifier("/Audio/Ambience/Antag/emagged_borg.ogg");

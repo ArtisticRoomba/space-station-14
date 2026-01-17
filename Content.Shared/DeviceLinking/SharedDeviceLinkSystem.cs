@@ -31,7 +31,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     #region Link Validation
 
     /// <summary>
-    /// Removes invalid links where the saved sink doesn't exist/have a sink component for example
+    /// Removes invalid links where the saved sink doesn't exist/have a sink component for example.
     /// </summary>
     private void OnSourceStartup(Entity<DeviceLinkSourceComponent> source, ref ComponentStartup args)
     {
@@ -78,7 +78,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     #endregion
 
     /// <summary>
-    /// Ensures that its links get deleted when a source gets removed
+    /// Ensures that its links get deleted when a source gets removed.
     /// </summary>
     private void OnSourceRemoved(Entity<DeviceLinkSourceComponent> source, ref ComponentRemove args)
     {
@@ -93,7 +93,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Ensures that its links get deleted when a sink gets removed
+    /// Ensures that its links get deleted when a sink gets removed.
     /// </summary>
     private void OnSinkRemoved(Entity<DeviceLinkSinkComponent> sink, ref ComponentRemove args)
     {
@@ -109,7 +109,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     #region Ports
 
     /// <summary>
-    /// Convenience function to add several ports to an entity
+    /// Convenience function to add several ports to an entity.
     /// </summary>
     public void EnsureSourcePorts(EntityUid uid, params ProtoId<SourcePortPrototype>[] ports)
     {
@@ -150,9 +150,9 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Retrieves the available ports from a source
+    /// Retrieves the available ports from a source.
     /// </summary>
-    /// <returns>A list of source port prototypes</returns>
+    /// <returns>A list of source port prototypes.</returns>
     public List<SourcePortPrototype> GetSourcePorts(EntityUid sourceUid, DeviceLinkSourceComponent? sourceComponent = null)
     {
         if (!Resolve(sourceUid, ref sourceComponent))
@@ -173,9 +173,9 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Retrieves the available ports from a sink
+    /// Retrieves the available ports from a sink.
     /// </summary>
-    /// <returns>A list of sink port prototypes</returns>
+    /// <returns>A list of sink port prototypes.</returns>
     public List<SinkPortPrototype> GetSinkPorts(EntityUid sinkUid, DeviceLinkSinkComponent? sinkComponent = null)
     {
         if (!Resolve(sinkUid, ref sinkComponent))
@@ -191,7 +191,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Convenience function to retrieve the name of a port prototype
+    /// Convenience function to retrieve the name of a port prototype.
     /// </summary>
     public string PortName<TPort>(string port)
         where TPort : DevicePortPrototype, IPrototype
@@ -206,9 +206,9 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     #region Links
 
     /// <summary>
-    /// Returns the links of a source
+    /// Returns the links of a source.
     /// </summary>
-    /// <returns>A list of sink and source port ids that are linked together</returns>
+    /// <returns>A list of sink and source port ids that are linked together.</returns>
     public HashSet<(ProtoId<SourcePortPrototype> source, ProtoId<SinkPortPrototype> sink)> GetLinks(EntityUid sourceUid, EntityUid sinkUid, DeviceLinkSourceComponent? sourceComponent = null)
     {
         if (!Resolve(sourceUid, ref sourceComponent) || !sourceComponent.LinkedPorts.TryGetValue(sinkUid, out var links))
@@ -229,10 +229,10 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Returns the default links for the given list of source port prototypes
+    /// Returns the default links for the given list of source port prototypes.
     /// </summary>
-    /// <param name="sources">The list of source port prototypes to get the default links for</param>
-    /// <returns>A list of sink and source port ids</returns>
+    /// <param name="sources">The list of source port prototypes to get the default links for.</param>
+    /// <returns>A list of sink and source port ids.</returns>
     public List<(string source, string sink)> GetDefaults(List<SourcePortPrototype> sources)
     {
         var defaults = new List<(string, string)>();
@@ -251,11 +251,11 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Links the given source and sink by their default links
+    /// Links the given source and sink by their default links.
     /// </summary>
-    /// <param name="userId">Optinal user uid for displaying popups</param>
-    /// <param name="sourceUid">The source uid</param>
-    /// <param name="sinkUid">The sink uid</param>
+    /// <param name="userId">Optinal user uid for displaying popups.</param>
+    /// <param name="sourceUid">The source uid.</param>
+    /// <param name="sinkUid">The sink uid.</param>
     /// <param name="sourceComponent"></param>
     /// <param name="sinkComponent"></param>
     public void LinkDefaults(
@@ -284,12 +284,12 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
 
     /// <summary>
     /// Saves multiple links between a source and a sink device.
-    /// Ignores links where either the source or sink port aren't present
+    /// Ignores links where either the source or sink port aren't present.
     /// </summary>
-    /// <param name="userId">Optinal user uid for displaying popups</param>
-    /// <param name="sourceUid">The source uid</param>
-    /// <param name="sinkUid">The sink uid</param>
-    /// <param name="links">List of source and sink ids to link</param>
+    /// <param name="userId">Optinal user uid for displaying popups.</param>
+    /// <param name="sourceUid">The source uid.</param>
+    /// <param name="sinkUid">The sink uid.</param>
+    /// <param name="links">List of source and sink ids to link.</param>
     /// <param name="sourceComponent"></param>
     /// <param name="sinkComponent"></param>
     public void SaveLinks(
@@ -334,7 +334,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Removes every link from the given sink
+    /// Removes every link from the given sink.
     /// </summary>
     public void RemoveAllFromSink(EntityUid sinkUid, DeviceLinkSinkComponent? sinkComponent = null)
     {
@@ -348,7 +348,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Removes all links between a source and a sink
+    /// Removes all links between a source and a sink.
     /// </summary>
     public void RemoveSinkFromSource(
         EntityUid sourceUid,
@@ -405,9 +405,9 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds or removes a link depending on if it's already present
+    /// Adds or removes a link depending on if it's already present.
     /// </summary>
-    /// <returns>True if the link was successfully added or removed</returns>
+    /// <returns>True if the link was successfully added or removed.</returns>
     public bool ToggleLink(
         EntityUid? userId,
         EntityUid sourceUid,
@@ -464,7 +464,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
 
     /// <summary>
     /// Checks if a source and a sink can be linked by allowing other systems to veto the link
-    /// and by optionally checking if they are in range of each other
+    /// and by optionally checking if they are in range of each other.
     /// </summary>
     /// <returns></returns>
     private bool CanLink(
@@ -540,11 +540,11 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
 
     /// <summary>
     /// Sends a network payload directed at the sink entity.
-    /// Just raises a <see cref="SignalReceivedEvent"/> without data if the source or the sink doesn't have a <see cref="DeviceNetworkComponent"/>
+    /// Just raises a <see cref="SignalReceivedEvent"/> without data if the source or the sink doesn't have a <see cref="DeviceNetworkComponent"/>.
     /// </summary>
-    /// <param name="uid">The source uid that invokes the port</param>
-    /// <param name="port">The port to invoke</param>
-    /// <param name="data">Optional data to send along</param>
+    /// <param name="uid">The source uid that invokes the port.</param>
+    /// <param name="port">The port to invoke.</param>
+    /// <param name="data">Optional data to send along.</param>
     /// <param name="sourceComponent"></param>
     public virtual void InvokePort(EntityUid uid, string port, NetworkPayload? data = null,
         DeviceLinkSourceComponent? sourceComponent = null)

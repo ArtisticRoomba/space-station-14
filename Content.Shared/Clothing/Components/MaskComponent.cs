@@ -9,13 +9,13 @@ namespace Content.Shared.Clothing.Components;
 public sealed partial class MaskComponent : Component
 {
     /// <summary>
-    /// Action for toggling a mask (e.g., pulling the mask down or putting it back up)
+    /// Action for toggling a mask (e.g., pulling the mask down or putting it back up).
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntProtoId ToggleAction = "ActionToggleMask";
 
     /// <summary>
-    /// Action for toggling a mask (e.g., pulling the mask down or putting it back up)
+    /// Action for toggling a mask (e.g., pulling the mask down or putting it back up).
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleActionEntity;
@@ -40,7 +40,7 @@ public sealed partial class MaskComponent : Component
     public bool IsToggleable = true;
 
     /// <summary>
-    /// When <see langword="true"/> will disable <see cref="IsToggleable"/> when folded
+    /// When <see langword="true"/> will disable <see cref="IsToggleable"/> when folded.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool DisableOnFolded;

@@ -55,21 +55,21 @@ namespace Content.Shared.Atmos.Components
         public IPhysShape FlammableCollisionShape = new PhysShapeCircle(0.35f);
 
         /// <summary>
-        ///     Should the component be set on fire by interactions with isHot entities
+        ///     Should the component be set on fire by interactions with isHot entities.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public bool AlwaysCombustible = false;
 
         /// <summary>
-        ///     Can the component anyhow lose its FireStacks?
+        ///     Can the component anyhow lose its FireStacks?.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public bool CanExtinguish = true;
 
         /// <summary>
-        ///     How many firestacks should be applied to component when being set on fire?
+        ///     How many firestacks should be applied to component when being set on fire?.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]

@@ -4,7 +4,7 @@ using Content.Shared.Clothing.Components;
 namespace Content.Shared.Clothing;
 
 /// <summary>
-///     Raised directed at a piece of clothing to get the set of layers to show on the wearer's sprite
+///     Raised directed at a piece of clothing to get the set of layers to show on the wearer's sprite.
 /// </summary>
 public sealed class GetEquipmentVisualsEvent : EntityEventArgs
 {
@@ -19,7 +19,7 @@ public sealed class GetEquipmentVisualsEvent : EntityEventArgs
     ///     The layers that will be added to the entity that is wearing this item.
     /// </summary>
     /// <remarks>
-    ///     Note that the actual ordering of the layers depends on the order in which they are added to this list;
+    ///     Note that the actual ordering of the layers depends on the order in which they are added to this list.
     /// </remarks>
     public List<(string, PrototypeLayerData)> Layers = new();
 
@@ -34,7 +34,7 @@ public sealed class GetEquipmentVisualsEvent : EntityEventArgs
 ///     Raised directed at a piece of clothing after its visuals have been updated.
 /// </summary>
 /// <remarks>
-///     Useful for systems/components that modify the visual layers that an item adds to a player. (e.g. RGB memes)
+///     Useful for systems/components that modify the visual layers that an item adds to a player. (e.g. RGB memes).
 /// </remarks>
 public sealed class EquipmentVisualsUpdatedEvent : EntityEventArgs
 {

@@ -18,7 +18,7 @@ public abstract class SharedMultipartMachineSystem : EntitySystem
     }
 
     /// <summary>
-    /// Returns whether each non-optional part of the machine has a matched entity
+    /// Returns whether each non-optional part of the machine has a matched entity.
     /// </summary>
     /// <param name="ent">Entity to check the assembled state of.</param>
     /// <returns>True if all non-optional parts have a matching entity, false otherwise.</returns>
@@ -96,7 +96,7 @@ public abstract class SharedMultipartMachineSystem : EntitySystem
     }
 
     /// <summary>
-    /// Check if a machine has an entity bound to a specific part
+    /// Check if a machine has an entity bound to a specific part.
     /// </summary>
     /// <param name="ent">Entity, which might have a multipart machine attached, to use for the query.</param>
     /// <param name="part">Enum for the part to find.</param>

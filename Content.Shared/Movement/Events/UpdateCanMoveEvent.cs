@@ -10,7 +10,7 @@ namespace Content.Shared.Movement.Events;
 /// <remarks>
 ///     This is not an attempt event and the result is cached.
 ///     If you subscribe to this you must also call <see cref="ActionBlockerSystem.UpdateCanMove(EntityUid,InputMoverComponent?)"/>
-///     both when you want to prevent a mob from moving, and when you want to allow them to move again!
+///     both when you want to prevent a mob from moving, and when you want to allow them to move again!.
 /// </remarks>
 public sealed class UpdateCanMoveEvent : CancellableEntityEventArgs
 {

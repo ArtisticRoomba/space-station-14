@@ -41,7 +41,7 @@ namespace Content.Shared.Magic;
 // TODO: Use the MagicComp just for pure backend things like spawning patterns?
 
 /// <summary>
-/// Handles learning and using spells (actions)
+/// Handles learning and using spells (actions).
 /// </summary>
 public abstract class SharedMagicSystem : EntitySystem
 {
@@ -150,7 +150,7 @@ public abstract class SharedMagicSystem : EntitySystem
     }
 
         /// <summary>
-    ///     Gets spawn positions listed on <see cref="InstantSpawnSpellEvent"/>
+    ///     Gets spawn positions listed on <see cref="InstantSpawnSpellEvent"/>.
     /// </summary>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     private List<EntityCoordinates> GetInstantSpawnPositions(TransformComponent casterXform, MagicInstantSpawnData data)
@@ -248,17 +248,17 @@ public abstract class SharedMagicSystem : EntitySystem
     }
 
     /// <summary>
-    /// Loops through a supplied list of entity prototypes and spawns them
+    /// Loops through a supplied list of entity prototypes and spawns them.
     /// </summary>
     /// <remarks>
     /// If an offset of 0, 0 is supplied then the entities will all spawn on the same tile.
     /// Any other offset will spawn entities starting from the source Map Coordinates and will increment the supplied
-    /// offset
+    /// offset.
     /// </remarks>
-    /// <param name="entityEntries"> The list of Entities to spawn in</param>
-    /// <param name="entityCoords"> Map Coordinates where the entities will spawn</param>
-    /// <param name="lifetime"> Check to see if the entities should self delete</param>
-    /// <param name="offsetVector2"> A Vector2 offset that the entities will spawn in</param>
+    /// <param name="entityEntries"> The list of Entities to spawn in.</param>
+    /// <param name="entityCoords"> Map Coordinates where the entities will spawn.</param>
+    /// <param name="lifetime"> Check to see if the entities should self delete.</param>
+    /// <param name="offsetVector2"> A Vector2 offset that the entities will spawn in.</param>
     private void WorldSpawnSpellHelper(List<EntitySpawnEntry> entityEntries, EntityCoordinates entityCoords, EntityUid performer, float? lifetime, Vector2 offsetVector2)
     {
         var getProtos = EntitySpawnCollection.GetSpawns(entityEntries, _random);
@@ -315,7 +315,7 @@ public abstract class SharedMagicSystem : EntitySystem
     // TODO: Rename to teleport clicked spell?
 
     /// <summary>
-    /// Teleports the user to the clicked location
+    /// Teleports the user to the clicked location.
     /// </summary>
     /// <param name="args"></param>
     private void OnTeleportSpell(TeleportSpellEvent args)

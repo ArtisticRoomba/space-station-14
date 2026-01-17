@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 namespace Content.Shared.Movement.Events;
 
 /// <summary>
-/// Raised directed on an entity when trying to get a relevant footstep sound
+/// Raised directed on an entity when trying to get a relevant footstep sound.
 /// </summary>
 [ByRefEvent]
 public record struct GetFootstepSoundEvent(EntityUid User)

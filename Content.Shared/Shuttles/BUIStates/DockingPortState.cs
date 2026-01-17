@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Shuttles.BUIStates;
 
 /// <summary>
-/// State of each individual docking port for interface purposes
+/// State of each individual docking port for interface purposes.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class DockingPortState
@@ -19,12 +19,12 @@ public sealed class DockingPortState
     public NetEntity? GridDockedWith;
 
     /// <summary>
-    /// The default colour used to shade a dock on a radar screen
+    /// The default colour used to shade a dock on a radar screen.
     /// </summary>
     public Color Color;
 
     /// <summary>
-    /// The colour used to shade a dock on a radar screen if it is highlighted (hovered over/selected on docking screen/shown in the main ship radar)
+    /// The colour used to shade a dock on a radar screen if it is highlighted (hovered over/selected on docking screen/shown in the main ship radar).
     /// </summary>
     public Color HighlightedColor;
 }

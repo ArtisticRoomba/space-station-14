@@ -13,13 +13,13 @@ namespace Content.Shared.Roles.Components;
 public sealed partial class StartingMindRoleComponent : Component
 {
     /// <summary>
-    /// The ID of the mind role to add
+    /// The ID of the mind role to add.
     /// </summary>
     [DataField(required: true)]
     public EntProtoId MindRole;
 
     /// <summary>
-    /// Add the mind role silently
+    /// Add the mind role silently.
     /// </summary>
     [DataField]
     public bool Silent = true;

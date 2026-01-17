@@ -46,7 +46,7 @@ public struct AlertKey
         return AlertType.GetHashCode();
     }
 
-    /// <param name="category">alert category, must not be null</param>
+    /// <param name="category">alert category, must not be null.</param>
     /// <returns>An alert key for the provided alert category. This must only be used for
     /// queries and never storage, as it is lacking an alert type.</returns>
     public static AlertKey ForCategory(ProtoId<AlertCategoryPrototype> category)

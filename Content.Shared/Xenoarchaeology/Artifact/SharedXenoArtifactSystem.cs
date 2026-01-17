@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Xenoarchaeology.Artifact;
 
 /// <summary>
-/// Handles all logic for generating and facilitating interactions with XenoArtifacts
+/// Handles all logic for generating and facilitating interactions with XenoArtifacts.
 /// </summary>
 public abstract partial class SharedXenoArtifactSystem : EntitySystem
 {

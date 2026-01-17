@@ -13,7 +13,7 @@ using Robust.Shared.Random;
 namespace Content.Shared.Clothing;
 
 /// <summary>
-/// Assigns a loadout to an entity based on the RoleLoadout prototype
+/// Assigns a loadout to an entity based on the RoleLoadout prototype.
 /// </summary>
 public sealed class LoadoutSystem : EntitySystem
 {

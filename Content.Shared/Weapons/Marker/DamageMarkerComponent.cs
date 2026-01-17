@@ -7,7 +7,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Weapons.Marker;
 
 /// <summary>
-/// Marks an entity to take additional damage
+/// Marks an entity to take additional damage.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedDamageMarkerSystem))]
 [AutoGenerateComponentPause]

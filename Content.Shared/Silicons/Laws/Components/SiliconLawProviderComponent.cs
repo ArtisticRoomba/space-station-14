@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Silicons.Laws.Components;
 
 /// <summary>
-/// This is used for an entity which grants laws to a <see cref="SiliconLawBoundComponent"/>
+/// This is used for an entity which grants laws to a <see cref="SiliconLawBoundComponent"/>.
 /// </summary>
 [RegisterComponent, Access(typeof(SharedSiliconLawSystem))]
 public sealed partial class SiliconLawProviderComponent : Component

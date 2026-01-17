@@ -17,31 +17,31 @@ public sealed partial class ReformComponent : Component
     public EntityUid? ActionEntity;
 
     /// <summary>
-    /// How long it will take to reform
+    /// How long it will take to reform.
     /// </summary>
     [DataField(required: true)]
     public float ReformTime = 0;
 
     /// <summary>
-    /// Whether or not the entity should start with a cooldown
+    /// Whether or not the entity should start with a cooldown.
     /// </summary>
     [DataField]
     public bool StartDelayed = true;
 
     /// <summary>
-    /// Whether or not the entity should be stunned when reforming at all
+    /// Whether or not the entity should be stunned when reforming at all.
     /// </summary>
     [DataField]
     public bool ShouldStun = true;
 
     /// <summary>
-    /// The text that appears when attempting to reform
+    /// The text that appears when attempting to reform.
     /// </summary>
     [DataField(required: true)]
     public string PopupText;
 
     /// <summary>
-    /// The mob that our entity will reform into
+    /// The mob that our entity will reform into.
     /// </summary>
     [DataField(required: true)]
     public EntProtoId ReformPrototype { get; private set; }

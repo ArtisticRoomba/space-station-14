@@ -35,7 +35,7 @@ public sealed partial class ClumsyComponent : Component
     // Specific options
 
     /// <summary>
-    ///     Sound to play after hitting your head on a table. Ouch!
+    ///     Sound to play after hitting your head on a table. Ouch!.
     /// </summary>
     [DataField]
     public SoundCollectionSpecifier TableBonkSound = new SoundCollectionSpecifier("TrayHit");
@@ -59,7 +59,7 @@ public sealed partial class ClumsyComponent : Component
     public DamageSpecifier? CatchingFailDamage;
 
     /// <summary>
-    ///     Noise to play after failing to shoot a gun. Boom!
+    ///     Noise to play after failing to shoot a gun. Boom!.
     /// </summary>
     [DataField]
     public SoundSpecifier GunShootFailSound = new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/bang.ogg");

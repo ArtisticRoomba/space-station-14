@@ -40,7 +40,7 @@ public sealed partial class NavMapComponent : Component
     /// It is indexed by the entity assigned as the region owner.
     /// </summary>
     /// <remarks>
-    /// For client use only
+    /// For client use only.
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<NetEntity, NavMapRegionOverlay> RegionOverlays = new();
@@ -49,7 +49,7 @@ public sealed partial class NavMapComponent : Component
     /// A queue of all region owners that are waiting their associated regions to be floodfilled.
     /// </summary>
     /// <remarks>
-    /// For client use only
+    /// For client use only.
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Queue<NetEntity> QueuedRegionsToFlood = new();
@@ -58,7 +58,7 @@ public sealed partial class NavMapComponent : Component
     /// A look up table to get a list of region owners associated with a flood filled chunk.
     /// </summary>
     /// <remarks>
-    /// For client use only
+    /// For client use only.
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<Vector2i, HashSet<NetEntity>> ChunkToRegionOwnerTable = new();
@@ -67,7 +67,7 @@ public sealed partial class NavMapComponent : Component
     ///  A look up table to find flood filled chunks associated with a given region owner.
     /// </summary>
     /// <remarks>
-    /// For client use only
+    /// For client use only.
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<NetEntity, HashSet<Vector2i>> RegionOwnerToChunkTable = new();
@@ -77,19 +77,19 @@ public sealed partial class NavMapComponent : Component
 public sealed class NavMapChunk(Vector2i origin)
 {
     /// <summary>
-    /// The chunk origin
+    /// The chunk origin.
     /// </summary>
     [ViewVariables]
     public readonly Vector2i Origin = origin;
 
     /// <summary>
-    /// Array containing the chunk's data. The
+    /// Array containing the chunk's data. The.
     /// </summary>
     [ViewVariables]
     public int[] TileData = new int[SharedNavMapSystem.ArraySize];
 
     /// <summary>
-    /// The last game tick that the chunk was updated
+    /// The last game tick that the chunk was updated.
     /// </summary>
     [NonSerialized]
     public GameTick LastUpdate;
@@ -99,18 +99,18 @@ public sealed class NavMapChunk(Vector2i origin)
 public sealed class NavMapRegionOverlay(Enum uiKey, List<(Vector2i, Vector2i)> gridCoords)
 {
     /// <summary>
-    /// The key to the UI that will be displaying this region on its navmap
+    /// The key to the UI that will be displaying this region on its navmap.
     /// </summary>
     public Enum UiKey = uiKey;
 
     /// <summary>
     /// The local grid coordinates of the rectangles that make up the region
-    /// Item1 is the top left corner, Item2 is the bottom right corner
+    /// Item1 is the top left corner, Item2 is the bottom right corner.
     /// </summary>
     public List<(Vector2i, Vector2i)> GridCoords = gridCoords;
 
     /// <summary>
-    /// Color of the region
+    /// Color of the region.
     /// </summary>
     public Color Color = Color.White;
 }

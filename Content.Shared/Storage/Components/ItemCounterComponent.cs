@@ -12,7 +12,7 @@ namespace Content.Shared.Storage.Components
     ///  - type: ItemCounter
     ///    amount: 6 # Note: this field can be omitted.
     ///    count:
-    ///      tags: [Cigarette]
+    ///      tags: [Cigarette].
     /// </code>
     [RegisterComponent]
     [Access(typeof(SharedItemCounterSystem))]
@@ -50,7 +50,7 @@ namespace Content.Shared.Storage.Components
 
         /// <summary>
         /// Sprite layers used in counter visualizer. Sprites first in layer correspond to lower stack states
-        /// e.g. <code>_spriteLayers[0]</code> is lower stack level than <code>_spriteLayers[1]</code>.
+        /// e.g. <code>_spriteLayers[0]</code> is lower stack level than. <code>_spriteLayers[1]</code>.
         /// </summary>
         [DataField("layerStates")]
         [ViewVariables(VVAccess.ReadWrite)]

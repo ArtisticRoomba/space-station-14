@@ -257,7 +257,7 @@ public sealed partial class SleepingSystem : EntitySystem
 
     /// <summary>
     /// Wake up on being zombified.
-    /// In some cases, zombification might theoretically occur without a mob state change or being damaged
+    /// In some cases, zombification might theoretically occur without a mob state change or being damaged.
     /// </summary>
     /// //TODO Perhaps a generic component should be introduced that guarantees that a mob will wake up immediately and can't go to sleep again
     private void OnZombified(Entity<SleepingComponent> ent, ref EntityZombifiedEvent args)
@@ -354,7 +354,7 @@ public sealed partial class SleepingSystem : EntitySystem
     }
 
     /// <summary>
-    /// Prevents the use of emote actions while sleeping
+    /// Prevents the use of emote actions while sleeping.
     /// </summary>
     public void OnEmoteAttempt(Entity<SleepingComponent> ent, ref EmoteAttemptEvent args)
     {

@@ -24,7 +24,7 @@ public sealed partial class StackPrototype : IPrototype, IInheritingPrototype
     public bool Abstract { get; private set; }
 
     /// <summary>
-    /// Human-readable name for this stack type e.g. "Steel"
+    /// Human-readable name for this stack type e.g. "Steel".
     /// </summary>
     /// <remarks>This is a localization string ID.</remarks>
     [DataField]

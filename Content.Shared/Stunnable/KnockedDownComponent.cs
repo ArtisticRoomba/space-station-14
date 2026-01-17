@@ -14,7 +14,7 @@ public sealed partial class KnockedDownComponent : Component
     public TimeSpan NextUpdate;
 
     /// <summary>
-    /// Should we try to stand up?
+    /// Should we try to stand up?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool AutoStand = true;
@@ -39,7 +39,7 @@ public sealed partial class KnockedDownComponent : Component
     public float SpeedModifier = 1f;
 
     /// <summary>
-    /// How long does it take us to get up?
+    /// How long does it take us to get up?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan GetUpDoAfter = TimeSpan.FromSeconds(1);

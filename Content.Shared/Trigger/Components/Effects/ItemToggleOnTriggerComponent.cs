@@ -11,7 +11,7 @@ namespace Content.Shared.Trigger.Components.Effects;
 public sealed partial class ItemToggleOnTriggerComponent : BaseXOnTriggerComponent
 {
     /// <summary>
-    /// Can the item be toggled on using the trigger?
+    /// Can the item be toggled on using the trigger?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool CanActivate = true;
@@ -24,13 +24,13 @@ public sealed partial class ItemToggleOnTriggerComponent : BaseXOnTriggerCompone
     public bool CanDeactivate = true;
 
     /// <summary>
-    /// Can the audio and popups be predicted?
+    /// Can the audio and popups be predicted?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Predicted = true;
 
     /// <summary>
-    /// Show a popup to the user when toggling the item?
+    /// Show a popup to the user when toggling the item?.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ShowPopup = true;

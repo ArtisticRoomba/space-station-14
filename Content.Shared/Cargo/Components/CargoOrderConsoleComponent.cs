@@ -57,13 +57,13 @@ public sealed partial class CargoOrderConsoleComponent : Component
     public TimeSpan AccountActionDelay => TransferUnbounded ? UnboundedAccountActionDelay : BaseAccountActionDelay;
 
     /// <summary>
-    /// The minimum time between account actions when <see cref="TransferUnbounded"/> is false
+    /// The minimum time between account actions when <see cref="TransferUnbounded"/> is false.
     /// </summary>
     [DataField]
     public TimeSpan BaseAccountActionDelay = TimeSpan.FromMinutes(1);
 
     /// <summary>
-    /// The minimum time between account actions when <see cref="TransferUnbounded"/> is true
+    /// The minimum time between account actions when <see cref="TransferUnbounded"/> is true.
     /// </summary>
     [DataField]
     public TimeSpan UnboundedAccountActionDelay = TimeSpan.FromSeconds(10);
@@ -93,7 +93,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
     public HashSet<ProtoId<AccessLevelPrototype>> RemoveLimitAccess = new();
 
     /// <summary>
-    /// Radio channel on which order approval announcements are transmitted
+    /// Radio channel on which order approval announcements are transmitted.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<RadioChannelPrototype> AnnouncementChannel = "Supply";
@@ -104,7 +104,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
     public static readonly ProtoId<RadioChannelPrototype> BaseAnnouncementChannel = "Supply";
 
     /// <summary>
-    /// The behaviour of the cargo console regarding orders
+    /// The behaviour of the cargo console regarding orders.
     /// </summary>
     [DataField]
     public CargoOrderConsoleMode Mode = CargoOrderConsoleMode.DirectOrder;
@@ -122,13 +122,13 @@ public sealed partial class CargoOrderConsoleComponent : Component
     public TimeSpan PrintDelay = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// The sound made when printing occurs
+    /// The sound made when printing occurs.
     /// </summary>
     [DataField]
     public SoundSpecifier PrintSound = new SoundCollectionSpecifier("PrinterPrint");
 
     /// <summary>
-    /// The sound made when an order slip is scanned
+    /// The sound made when an order slip is scanned.
     /// </summary>
     [DataField]
     public SoundSpecifier ScanSound = new SoundCollectionSpecifier("CargoBeep");
@@ -147,29 +147,29 @@ public sealed partial class CargoOrderConsoleComponent : Component
 }
 
 /// <summary>
-/// The behaviour of the cargo order console
+/// The behaviour of the cargo order console.
 /// </summary>
 [Serializable, NetSerializable]
 public enum CargoOrderConsoleMode : byte
 {
     /// <summary>
-    /// Place orders directly
+    /// Place orders directly.
     /// </summary>
     DirectOrder,
 
     /// <summary>
-    /// Print a slip to be inserted into a DirectOrder console
+    /// Print a slip to be inserted into a DirectOrder console.
     /// </summary>
     PrintSlip,
 
     /// <summary>
-    /// Transfers the order to the primary account
+    /// Transfers the order to the primary account.
     /// </summary>
     SendToPrimary,
 }
 
 /// <summary>
-/// Withdraw funds from an account
+/// Withdraw funds from an account.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class CargoConsoleWithdrawFundsMessage : BoundUserInterfaceMessage

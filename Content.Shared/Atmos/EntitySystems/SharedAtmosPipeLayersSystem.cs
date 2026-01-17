@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Atmos.EntitySystems;
 
 /// <summary>
-/// The system responsible for checking and adjusting the connection layering of gas pipes
+/// The system responsible for checking and adjusting the connection layering of gas pipes.
 /// </summary>
 public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
 {
@@ -169,11 +169,11 @@ public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
     }
 
     /// <summary>
-    /// Increments an entity's pipe layer by 1, wrapping around to 0 if the max pipe layer is reached
+    /// Increments an entity's pipe layer by 1, wrapping around to 0 if the max pipe layer is reached.
     /// </summary>
-    /// <param name="ent">The pipe entity</param>
-    /// <param name="user">The player entity who adjusting the pipe layer</param>
-    /// <param name="used">The tool used to adjust the pipe layer</param>
+    /// <param name="ent">The pipe entity.</param>
+    /// <param name="user">The player entity who adjusting the pipe layer.</param>
+    /// <param name="used">The tool used to adjust the pipe layer.</param>
     public void SetNextPipeLayer(Entity<AtmosPipeLayersComponent> ent, EntityUid? user = null, EntityUid? used = null)
     {
         var newLayer = ((int)ent.Comp.CurrentPipeLayer + 1) % ent.Comp.NumberOfPipeLayers;
@@ -181,12 +181,12 @@ public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
     }
 
     /// <summary>
-    /// Sets an entity's pipe layer to a specified value
+    /// Sets an entity's pipe layer to a specified value.
     /// </summary>
-    /// <param name="ent">The pipe entity</param>
-    /// <param name="layer">The new layer value</param>
-    /// <param name="user">The player entity who adjusting the pipe layer</param>
-    /// <param name="used">The tool used to adjust the pipe layer</param>
+    /// <param name="ent">The pipe entity.</param>
+    /// <param name="layer">The new layer value.</param>
+    /// <param name="user">The player entity who adjusting the pipe layer.</param>
+    /// <param name="used">The tool used to adjust the pipe layer.</param>
     public virtual void SetPipeLayer(Entity<AtmosPipeLayersComponent> ent, AtmosPipeLayer layer, EntityUid? user = null, EntityUid? used = null)
     {
         if (ent.Comp.PipeLayersLocked)
@@ -236,12 +236,12 @@ public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
     }
 
     /// <summary>
-    /// Checks a player entity's hands to see if they are holding a tool with a specified quality
+    /// Checks a player entity's hands to see if they are holding a tool with a specified quality.
     /// </summary>
-    /// <param name="user">The player entity</param>
-    /// <param name="toolQuality">The tool quality being checked for</param>
-    /// <param name="heldTool">A tool with the specified tool quality</param>
-    /// <returns>True if an appropriate tool was found</returns>
+    /// <param name="user">The player entity.</param>
+    /// <param name="toolQuality">The tool quality being checked for.</param>
+    /// <param name="heldTool">A tool with the specified tool quality.</param>
+    /// <returns>True if an appropriate tool was found.</returns>
     private bool TryGetHeldTool(EntityUid user, ProtoId<ToolQualityPrototype> toolQuality, [NotNullWhen(true)] out Entity<ToolComponent>? heldTool)
     {
         heldTool = null;

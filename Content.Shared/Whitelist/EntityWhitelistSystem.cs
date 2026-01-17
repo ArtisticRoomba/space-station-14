@@ -94,7 +94,7 @@ public sealed class EntityWhitelistSystem : EntitySystem
     }
 
     /// <summary>
-    /// Helper function to determine if Whitelist is not null and entity is not on the list
+    /// Helper function to determine if Whitelist is not null and entity is not on the list.
     /// </summary>
     public bool IsWhitelistFail(EntityWhitelist? whitelist, EntityUid uid)
     {
@@ -105,7 +105,7 @@ public sealed class EntityWhitelistSystem : EntitySystem
     }
 
     /// <summary>
-    /// Helper function to determine if Whitelist is either null or the entity is on the list
+    /// Helper function to determine if Whitelist is either null or the entity is on the list.
     /// </summary>
     public bool IsWhitelistPassOrNull(EntityWhitelist? whitelist, EntityUid uid)
     {
@@ -116,7 +116,7 @@ public sealed class EntityWhitelistSystem : EntitySystem
     }
 
     /// <summary>
-    /// Helper function to determine if Whitelist is either null or the entity is not on the list
+    /// Helper function to determine if Whitelist is either null or the entity is not on the list.
     /// </summary>
     public bool IsWhitelistFailOrNull(EntityWhitelist? whitelist, EntityUid uid)
     {
