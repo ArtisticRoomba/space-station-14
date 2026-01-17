@@ -10,4 +10,3 @@ namespace Content.Shared.Materials;
 public sealed partial class MaterialComponent : Component
 {
 }
-

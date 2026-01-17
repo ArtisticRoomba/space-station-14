@@ -15,4 +15,3 @@ public sealed partial class FaxecuteComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public DamageSpecifier Damage = new();
 }
-

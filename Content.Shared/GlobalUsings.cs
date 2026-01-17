@@ -11,4 +11,3 @@ global using Robust.Shared.Log;
 global using Robust.Shared.Maths;
 global using Robust.Shared.Serialization.Manager.Attributes;
 global using Robust.Shared.ViewVariables;
-

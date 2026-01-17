@@ -113,4 +113,3 @@ public abstract partial class SharedSalvageSystem : EntitySystem
         throw new InvalidOperationException();
     }
 }
-

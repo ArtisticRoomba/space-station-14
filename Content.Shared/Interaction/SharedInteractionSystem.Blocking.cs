@@ -70,4 +70,3 @@ public partial class SharedInteractionSystem
         _actionBlockerSystem.UpdateCanMove(uid);
     }
 }
-

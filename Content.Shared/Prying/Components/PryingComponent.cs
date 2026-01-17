@@ -94,4 +94,3 @@ public record struct GetPryTimeModifierEvent
         User = user;
     }
 }
-
