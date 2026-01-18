@@ -324,85 +324,18 @@ namespace Content.Server.Atmos.EntitySystems
             Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> ent)
         {
             var atmosphere = ent.Comp1;
-            if (!atmosphere.ProcessingPaused)
-            {
-                atmosphere.LindaCurrentRunTilesCursor = 0;
-                atmosphere.LindaShareAirTilesCursor = 0;
-                atmosphere.LindaPostRunTilesCursor = 0;
+            if(!atmosphere.ProcessingPaused)
+                QueueRunTiles(atmosphere.CurrentRunTiles, atmosphere.ActiveTiles);
 
-                atmosphere.LindaCurrentRunTiles.Clear();
-                atmosphere.LindaPostRunTiles.Clear();
-                atmosphere.LindaShareAirTiles.Clear();
-
-                atmosphere.LindaCurrentRunTiles.EnsureCapacity(atmosphere.ActiveTiles.Count);
-                atmosphere.LindaPostRunTiles.EnsureCapacity(atmosphere.ActiveTiles.Count);
-
-                foreach (var tile in atmosphere.ActiveTiles)
-                {
-                    atmosphere.LindaCurrentRunTiles.Add(tile);
-                    atmosphere.LindaPostRunTiles.Add(tile);
-                }
-            }
-
-            var processCount = atmosphere.LindaCurrentRunTiles.Count;
             var number = 0;
-            while (atmosphere.LindaShareAirTilesCursor < processCount)
+            while (atmosphere.CurrentRunTiles.TryDequeue(out var tile))
             {
-                var cursor = atmosphere.LindaShareAirTilesCursor;
-                var tile = atmosphere.LindaCurrentRunTiles[cursor];
-                PreProcessCell(ent, tile, atmosphere.UpdateCounter);
-
-                atmosphere.LindaShareAirTilesCursor++;
+                ProcessCell(ent, tile, atmosphere.UpdateCounter);
 
                 if (number++ < LagCheckIterations)
                     continue;
 
                 number = 0;
-                // Process the rest next time.
-                if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
-                {
-                    return false;
-                }
-            }
-
-            var timeCheck1 = 0;
-            var shareCount = atmosphere.LindaShareAirTiles.Count;
-            while (atmosphere.LindaShareAirTilesCursor < shareCount)
-            {
-                var remaining = shareCount - atmosphere.LindaShareAirTilesCursor;
-                var toProcess = Math.Min(DeltaPressureParallelProcessPerIteration, remaining);
-
-                var job = new LindaParallelJob(this,
-                    atmosphere,
-                    atmosphere.LindaShareAirTilesCursor,
-                    DeltaPressureParallelBatchSize); // use dP cvar as backup for now
-                _parallel.ProcessNow(job, toProcess);
-
-                atmosphere.LindaShareAirTilesCursor += toProcess;
-
-                if (timeCheck1++ < LagCheckIterations)
-                    continue;
-
-                timeCheck1 = 0;
-                if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
-                    return false;
-
-            }
-
-            var postProcessCount = atmosphere.LindaPostRunTiles.Count;
-            var timeCheck2 = 0;
-            while (atmosphere.LindaPostRunTilesCursor < postProcessCount)
-            {
-                var cursor = atmosphere.LindaPostRunTilesCursor;
-                var tile = atmosphere.LindaPostRunTiles[cursor];
-                PostProcessCell(ent, tile);
-
-                atmosphere.LindaPostRunTilesCursor++;
-
-                if (timeCheck2++ < LagCheckIterations)
-                    continue;
-
-                timeCheck2 = 0;
                 // Process the rest next time.
                 if (_simulationStopwatch.Elapsed.TotalMilliseconds >= AtmosMaxProcessTime)
                 {

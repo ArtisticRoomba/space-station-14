@@ -39,42 +39,6 @@ namespace Content.Server.Atmos.Components
         [ViewVariables]
         public int ActiveTilesCount => ActiveTiles.Count;
 
-        /// <summary>
-        /// List of tiles that are currently being processed in the current cycle of atmospherics.
-        /// </summary>
-        [ViewVariables]
-        public readonly List<TileAtmosphere> LindaCurrentRunTiles = new(1000);
-
-        /// <summary>
-        /// Cursor for the current position in the <see cref="LindaCurrentRunTiles"/> list that is being processed.
-        /// </summary>
-        [ViewVariables]
-        public int LindaCurrentRunTilesCursor;
-
-        /// <summary>
-        /// List of tiles that need to have air sharing computed.
-        /// </summary>
-        [ViewVariables]
-        public readonly List<TileAtmosphere> LindaShareAirTiles = new(1000);
-
-        /// <summary>
-        /// Cursor for the current position in the <see cref="LindaShareAirTiles"/> list that is being processed.
-        /// </summary>
-        [ViewVariables]
-        public int LindaShareAirTilesCursor;
-
-        /// <summary>
-        /// List of tiles that are currently being processed in the current cycle of atmospherics.
-        /// </summary>
-        [ViewVariables]
-        public readonly List<TileAtmosphere> LindaPostRunTiles = new(1000);
-
-        /// <summary>
-        /// Cursor for the current position in the <see cref="LindaPostRunTiles"/> list that is being processed.
-        /// </summary>
-        [ViewVariables]
-        public int LindaPostRunTilesCursor;
-
         [ViewVariables]
         public readonly HashSet<ExcitedGroup> ExcitedGroups = new(1000);
 
