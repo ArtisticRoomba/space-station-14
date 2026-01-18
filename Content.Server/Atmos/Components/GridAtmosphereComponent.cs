@@ -39,6 +39,12 @@ namespace Content.Server.Atmos.Components
         [ViewVariables]
         public int ActiveTilesCount => ActiveTiles.Count;
 
+        /// <summary>
+        /// List of tiles that need air shared with adjacent tiles via LINDA this processing run.
+        /// </summary>
+        [ViewVariables]
+        public readonly List<TileAtmosphere> LindaShareAirTiles = new(1000);
+
         [ViewVariables]
         public readonly HashSet<ExcitedGroup> ExcitedGroups = new(1000);
 

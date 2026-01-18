@@ -404,5 +404,234 @@ public sealed partial class AtmosphereSystem
      multithreading it a big pain. But I've done this same thing before in DeltaPressure so let's see how it goes.
      */
 
+    #region Preprocessing & Helpers
+
+    /// <summary>
+    /// Archives the <see cref="GasMixture"/> on a <see cref="TileAtmosphere"/>
+    /// and its neighbors.
+    /// </summary>
+    /// <param name="tile">The <see cref="TileAtmosphere"/> to archive.</param>
+    /// <param name="cycleCount">The cycle count at which this tile was archived.
+    /// Prevents double-archival.</param>
+    private void ArchiveDeep(TileAtmosphere tile, int cycleCount)
+    {
+        Archive(tile, cycleCount);
+
+        // Now move onto neighbors.
+        for (var i = 0; i < Atmospherics.Directions; i++)
+        {
+            var enemyTile = tile.AdjacentTiles[i];
+            if (enemyTile?.Air == null)
+                continue;
+            if (cycleCount <= enemyTile.CurrentCycle)
+                continue;
+            Archive(enemyTile, cycleCount);
+        }
+    }
+
+    /// <summary>
+    /// Prunes tiles that are ineligible for LINDA processing from the active tiles list.
+    /// </summary>
+    /// <param name="gridAtmosphere">The <see cref="GridAtmosphereComponent"/> to prune tiles from.</param>
+    private void PruneLindaNonEligibleTiles(GridAtmosphereComponent gridAtmosphere)
+    {
+        foreach (var tile in gridAtmosphere.ActiveTiles)
+        {
+            if (tile.Air is null)
+                RemoveActiveTile(gridAtmosphere, tile);
+        }
+    }
+
+    /// <summary>
+    /// Counts the number of adjacent tiles that air can flow to. Used for determining how much gas to share during LINDA.
+    /// </summary>
+    /// <param name="tile">The <see cref="TileAtmosphere"/> to count adjacent tiles for.</param>
+    /// <returns>The number of adjacent tiles that have air.</returns>
+    private static int AdjacentTileCount(TileAtmosphere tile)
+    {
+        var count = 0;
+        for (var i = 0; i < Atmospherics.Directions; i++)
+        {
+            if (tile.AdjacentBits.IsFlagSet((AtmosDirection)(1 << i)))
+                count++;
+        }
+
+        return count;
+    }
+
+    /// <summary>
+    /// Merges two <see cref="ExcitedGroup"/>s if two tiles are eligible for merging
+    /// and if they are not the same group already.
+    /// Creates new groups and adds tiles to groups as necessary if two eligible tiles are not in any group.
+    /// </summary>
+    /// <param name="gridAtmosphere">The <see cref="GridAtmosphereComponent"/> to merge groups in.</param>
+    private void MergeAndCreateEligibleExcitedGroups(GridAtmosphereComponent gridAtmosphere)
+    {
+        foreach (var tile in gridAtmosphere.ActiveTiles)
+        {
+            var shareAir = false;
+            for (var i = 0; i < Atmospherics.Directions; i++)
+            {
+                var enemyTile = tile.AdjacentTiles[i];
+                if (enemyTile?.Air == null)
+                    continue;
+
+                if (ExcitedGroups && tile.ExcitedGroup != null && enemyTile.ExcitedGroup != null)
+                {
+                    if (tile.ExcitedGroup != enemyTile.ExcitedGroup)
+                    {
+                        // Critical section: Merging two active groups.
+                        ExcitedGroupMerge(gridAtmosphere, tile.ExcitedGroup, enemyTile.ExcitedGroup);
+                    }
+
+                    shareAir = true;
+                }
+                else
+                {
+                    // microopt, pass in GasMixtures as they're already confirmed non-null
+                    // null check: tiles being processed here were confirmed to have non-null AirArchived.
+                    // this is a LINDA-specific opt: pass in regular tiles if refactoring this method for use
+                    // generically.
+                    Debug.Assert(tile.AirArchived != null,
+                        "Encountered null AirArchived on source tile during MergeAndCreateEligibleExcitedGroups!");
+                    Debug.Assert(enemyTile.AirArchived != null,
+                        "Encountered null AirArchived on adjacent tile during MergeAndCreateEligibleExcitedGroups!");
+                    if (CompareExchange(tile.AirArchived, enemyTile.AirArchived) != GasCompareResult.NoExchange)
+                    {
+                        // Critical section: Adding tiles to the ActiveTiles hashset.
+                        AddActiveTile(gridAtmosphere, enemyTile);
+                        if (ExcitedGroups)
+                        {
+                            var excitedGroup = tile.ExcitedGroup;
+                            excitedGroup ??= enemyTile.ExcitedGroup;
+
+                            if (excitedGroup == null)
+                            {
+                                excitedGroup = new ExcitedGroup();
+                                gridAtmosphere.ExcitedGroups.Add(excitedGroup);
+                            }
+
+                            if (tile.ExcitedGroup == null)
+                                ExcitedGroupAddTile(excitedGroup, tile);
+
+                            if (enemyTile.ExcitedGroup == null)
+                                ExcitedGroupAddTile(excitedGroup, enemyTile);
+                        }
+
+                        shareAir = true;
+                    }
+                }
+            }
+
+            if (shareAir)
+            {
+                gridAtmosphere.LindaShareAirTiles.Add(tile);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Finalizes the results of LINDA processing for a grid.
+    /// </summary>
+    /// <param name="ent"></param>
+    private void FinalizeLindaTileProcessing(
+        Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> ent)
+    {
+        foreach (var tile in ent.Comp1.LindaShareAirTiles)
+        {
+            for (var i = 0; i < Atmospherics.Directions; i++)
+            {
+                var direction = (AtmosDirection)(1 << i);
+
+                if (!tile.AdjacentBits.IsFlagSet(direction))
+                    continue;
+                var enemyTile = tile.AdjacentTiles[i];
+                if (enemyTile?.Air == null)
+                    continue;
+
+                var difference = tile.LindaInfo.ComputedDifference[i];
+
+                // Monstermos already handles this, so let's not handle it ourselves.
+                if (!MonstermosEqualization)
+                {
+                    // Critical section: HighPressureDelta tile invalidation.
+                    if (difference >= 0)
+                    {
+                        ConsiderPressureDifference(ent.Comp1, tile, direction, difference);
+                    }
+                    else
+                    {
+                        ConsiderPressureDifference(ent.Comp1, enemyTile, i.ToOppositeDir(), -difference);
+                    }
+                }
+
+                // Critical section: Potential reset of an active group's cooldown.
+                LastShareCheck(tile);
+
+                if (tile.Air != null)
+                    React(tile.Air, tile);
+
+                // Critical section: Tile invalidation adds tiles to hashset.
+                InvalidateVisuals(ent, tile);
+
+                var remove = true;
+
+                if (tile.Air!.Temperature > Atmospherics.MinimumTemperatureStartSuperConduction)
+                {
+                    // Critical section: Superconductivity tiles are added to a hashset.
+                    if (ConsiderSuperconductivity(ent.Comp1, tile, true))
+                        remove = false;
+                }
+
+                // Critical section: Active tiles removed.
+                if (ExcitedGroups && tile.ExcitedGroup == null && remove)
+                    RemoveActiveTile(ent.Comp1, tile);
+            }
+        }
+
+        ent.Comp1.LindaShareAirTiles.Clear();
+    }
+
+    #endregion
+
+    #region Main Processing
+
+    /// <summary>
+    /// Processes a single cell for the parallelized version of LINDA.
+    /// </summary>
+    /// <param name="ent">The grid entity.</param>
+    /// <param name="tile">The tile to process.</param>
+    private void ProcessCellParallelSolve(
+        Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> ent,
+        TileAtmosphere tile)
+    {
+        var numAdjacentTiles = AdjacentTileCount(tile);
+        for (var i = 0; i < Atmospherics.Directions; i++)
+        {
+            var direction = (AtmosDirection)(1 << i);
+
+            var enemyTile = tile.AdjacentTiles[i];
+            if (enemyTile?.Air == null)
+                continue;
+
+            var difference = Share(tile, enemyTile, numAdjacentTiles);
+        }
+    }
+
+    /// <summary>
+    /// Calculates the results of LINDA sharing for a span of tiles on a grid.
+    /// </summary>
+    /// <param name="ent">The grid entity.</param>
+    /// <param name="start">The index of the first tile to process in the grid's active tiles list.</param>
+    /// <param name="end">The index of the last tile to process in the grid's active tiles list.</param>
+    private void VectorizedShare(
+        Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> ent,
+        int start,
+        int end)
+    {
+        // Alright pain time.
+    }
+    #endregion
+
     #endregion
 }

@@ -26,19 +26,6 @@ public struct LindaInfo
     /// This is formatted in <see cref="Atmospherics.Directions"/>.
     /// </summary>
     public ComputedDistanceHolder ComputedDifference;
-
-    public ArchivedGasMixture ArchivedGasMixture;
-}
-
-/// <summary>
-/// Special <see cref="GasMixture"/>-esque culled copy that contains only necessary information LINDA needs for processing.
-/// </summary>
-/// <para>Since LINDA doesn't need all the information available in a GasMixture,
-/// we can copy select parts of it. Bonus points, since LINDA will be serverside for the forseeable future,
-/// and inline arrays are easy to replace, we can make the moles array an inline array (for when heat capacity is needed).</para>
-public struct ArchivedGasMixture
-{
-    public GasMixtureMolesHolder Moles;
 }
 
 /// <summary>
@@ -48,16 +35,6 @@ public struct ArchivedGasMixture
 /// <remarks>I love cache locality!!!!!!!!!!!!!</remarks>
 [InlineArray(Atmospherics.Directions)]
 public struct ComputedDistanceHolder
-{
-    private float _element0;
-}
-
-/// <summary>
-/// Struct that holds the moles of each gas in a GasMixture for LINDA's processing.
-/// </summary>
-/// <remarks>Could you guess it? I love cache locality!!!!!</remarks>
-[InlineArray(Atmospherics.AdjustedNumberOfGases)]
-public struct GasMixtureMolesHolder
 {
     private float _element0;
 }
