@@ -52,16 +52,16 @@ namespace Content.Server.Atmos.Components
         public int LindaCurrentRunTilesCursor;
 
         /// <summary>
-        /// List of excited groups that need to be processed.
+        /// List of tiles that need to have air sharing computed.
         /// </summary>
         [ViewVariables]
-        public readonly List<ExcitedGroup> LindaExcitedGroupsToProcess = new(1000);
+        public readonly List<TileAtmosphere> LindaShareAirTiles = new(1000);
 
         /// <summary>
-        /// Cursor for the current position in the <see cref="LindaExcitedGroupsToProcess"/> list that is being processed.
+        /// Cursor for the current position in the <see cref="LindaShareAirTiles"/> list that is being processed.
         /// </summary>
         [ViewVariables]
-        public int LindaExcitedGroupsToProcessCursor;
+        public int LindaShareAirTilesCursor;
 
         /// <summary>
         /// List of tiles that are currently being processed in the current cycle of atmospherics.

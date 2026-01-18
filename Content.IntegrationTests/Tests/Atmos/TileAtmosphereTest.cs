@@ -111,8 +111,6 @@ public abstract class TileAtmosphereTest : AtmosTest
             Assert.That(SAtmos.IsHotspotActive(MapData.Grid, point2XY), Is.True);
         });
 
-        await Server.WaitRunTicks(1000);
-
         var mix1 = SAtmos.GetTileMixture(point1);
         var mix2 = SAtmos.GetTileMixture(point2);
 
