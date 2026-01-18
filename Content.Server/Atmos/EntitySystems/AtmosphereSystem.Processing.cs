@@ -327,12 +327,12 @@ namespace Content.Server.Atmos.EntitySystems
             if (!atmosphere.ProcessingPaused)
             {
                 atmosphere.LindaCurrentRunTilesCursor = 0;
-                atmosphere.LindaShareAirTilesCursor = 0;
+                atmosphere.LindaExcitedGroupsToProcessCursor = 0;
                 atmosphere.LindaPostRunTilesCursor = 0;
 
                 atmosphere.LindaCurrentRunTiles.Clear();
                 atmosphere.LindaPostRunTiles.Clear();
-                atmosphere.LindaShareAirTiles.Clear();
+                atmosphere.LindaExcitedGroupsToProcess.Clear();
 
                 atmosphere.LindaCurrentRunTiles.EnsureCapacity(atmosphere.ActiveTiles.Count);
                 atmosphere.LindaPostRunTiles.EnsureCapacity(atmosphere.ActiveTiles.Count);
@@ -346,13 +346,13 @@ namespace Content.Server.Atmos.EntitySystems
 
             var processCount = atmosphere.LindaCurrentRunTiles.Count;
             var number = 0;
-            while (atmosphere.LindaShareAirTilesCursor < processCount)
+            while (atmosphere.LindaCurrentRunTilesCursor < processCount)
             {
-                var cursor = atmosphere.LindaShareAirTilesCursor;
+                var cursor = atmosphere.LindaCurrentRunTilesCursor;
                 var tile = atmosphere.LindaCurrentRunTiles[cursor];
                 PreProcessCell(ent, tile, atmosphere.UpdateCounter);
 
-                atmosphere.LindaShareAirTilesCursor++;
+                atmosphere.LindaCurrentRunTilesCursor++;
 
                 if (number++ < LagCheckIterations)
                     continue;
@@ -365,20 +365,31 @@ namespace Content.Server.Atmos.EntitySystems
                 }
             }
 
-            var timeCheck1 = 0;
-            var shareCount = atmosphere.LindaShareAirTiles.Count;
-            while (atmosphere.LindaShareAirTilesCursor < shareCount)
+            // Preprocessing causes potential excited groups to mutate,
+            // so in order to keep everything consistent we must queue the groups to be processed
+            // *after* they are fully formed, merged, or dissolved.
+            if (atmosphere.LindaCurrentRunTilesCursor != 0)
             {
-                var remaining = shareCount - atmosphere.LindaShareAirTilesCursor;
+                foreach (var group in atmosphere.ExcitedGroups)
+                {
+                    atmosphere.LindaExcitedGroupsToProcess.Add(group);
+                }
+            }
+
+            var timeCheck1 = 0;
+            var shareCount = atmosphere.LindaExcitedGroupsToProcess.Count;
+            while (atmosphere.LindaExcitedGroupsToProcessCursor < shareCount)
+            {
+                var remaining = shareCount - atmosphere.LindaExcitedGroupsToProcessCursor;
                 var toProcess = Math.Min(DeltaPressureParallelProcessPerIteration, remaining);
 
                 var job = new LindaParallelJob(this,
                     atmosphere,
-                    atmosphere.LindaShareAirTilesCursor,
+                    atmosphere.LindaExcitedGroupsToProcessCursor,
                     DeltaPressureParallelBatchSize); // use dP cvar as backup for now
                 _parallel.ProcessNow(job, toProcess);
 
-                atmosphere.LindaShareAirTilesCursor += toProcess;
+                atmosphere.LindaExcitedGroupsToProcessCursor += toProcess;
 
                 if (timeCheck1++ < LagCheckIterations)
                     continue;

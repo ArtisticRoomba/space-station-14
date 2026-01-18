@@ -480,34 +480,33 @@ public sealed partial class AtmosphereSystem
             if (shouldShareAir)
                 tile.LindaInfo.ShouldShareAir |= direction;
         }
-
-        if (tile.LindaInfo.ShouldShareAir != AtmosDirection.Invalid)
-        {
-            gridAtmosphere.LindaShareAirTiles.Add(tile);
-        }
     }
 
-    private void ProcessShareAir(TileAtmosphere tile)
+    private void ProcessShareAirForGroup(ExcitedGroup group)
     {
-        var adjacentTileLength = 0;
-        for (var i = 0; i < Atmospherics.Directions; i++)
+        for (var i = 0; i < group.Tiles.Count; i++)
         {
-            var direction = (AtmosDirection)(1 << i);
-            if (tile.AdjacentBits.IsFlagSet(direction))
-                adjacentTileLength++;
-        }
+            var tile = group.Tiles[i];
+            var adjacentTileLength = 0;
+            for (var j = 0; j < Atmospherics.Directions; j++)
+            {
+                var direction = (AtmosDirection)(1 << j);
+                if (tile.AdjacentBits.IsFlagSet(direction))
+                    adjacentTileLength++;
+            }
 
-        for (var i = 0; i < Atmospherics.Directions; i++)
-        {
-            var direction = (AtmosDirection)(1 << i);
-            if (!tile.LindaInfo.ShouldShareAir.IsFlagSet(direction))
-                continue;
+            for (var k = 0; k < Atmospherics.Directions; k++)
+            {
+                var direction = (AtmosDirection)(1 << k);
+                if (!tile.LindaInfo.ShouldShareAir.IsFlagSet(direction))
+                    continue;
 
-            var enemyTile = tile.AdjacentTiles[i];
-            if (enemyTile?.Air == null)
-                continue;
+                var enemyTile = tile.AdjacentTiles[k];
+                if (enemyTile?.Air == null)
+                    continue;
 
-            tile.LindaInfo.ComputedDifference[i] = Share(tile, enemyTile, adjacentTileLength);
+                tile.LindaInfo.ComputedDifference[k] = Share(tile, enemyTile, adjacentTileLength);
+            }
         }
     }
 
@@ -521,8 +520,8 @@ public sealed partial class AtmosphereSystem
 
         public void Execute(int index)
         {
-            var tile = atmosphere.LindaShareAirTiles[startIndex + index];
-            system.ProcessShareAir(tile);
+            var group = atmosphere.LindaExcitedGroupsToProcess[startIndex + index];
+            system.ProcessShareAirForGroup(group);
         }
     }
 
