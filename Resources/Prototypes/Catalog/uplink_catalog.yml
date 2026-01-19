@@ -1069,10 +1069,8 @@
   description: uplink-slipocalypse-clustersoap-desc
   productEntity: SlipocalypseClusterSoap
   discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
   cost:
-    Telecrystal: 2
+    Telecrystal: 1
   categories:
   - UplinkDisruption
 

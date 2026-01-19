@@ -176,8 +176,9 @@
         sound:
           path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
       - type: GravityWell
-        maxRange: 7
-        baseRadialAcceleration: 5
+        maxRange: 17
+        minRange: 0.5
+        baseRadialAcceleration: 10
         baseTangentialAcceleration: .5
         gravPulsePeriod: 0.03
       - type: SingularityDistortion

@@ -137,11 +137,27 @@
     positional: true
 
 - type: entity
-  parent: [SoapSyndie, ScatteringGrenadeBase, BaseSyndicateContraband]
+  parent: [SoapSyndie, BaseSyndicateContraband] # prevent inheriting ScatteringGrenadeBase because it contains comps we dont want
   id: SlipocalypseClusterSoap
   name: slipocalypse clustersoap
   description: Spreads small pieces of syndicate soap over an area upon landing on the floor.
   components:
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
   - type: Sprite
     sprite: Objects/Specific/Janitorial/soap.rsi
     layers:
@@ -153,6 +169,8 @@
     delayBeforeTriggerContents: 60
     randomDistance: true
     randomThrowDistanceMax: 3
+    triggerKey: "trigger"
+  - type: TriggerOnLand
   - type: LandAtCursor
   - type: DamageOnLand
     damage:
@@ -166,6 +184,9 @@
     positional: true
   - type: StaticPrice
     price: 1000
+  - type: Tag
+    tags:
+    - HandGrenade
 
 - type: entity
   parent: [FragileGrenadeBase, ScatteringGrenadeBase]
