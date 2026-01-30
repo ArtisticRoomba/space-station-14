@@ -47,6 +47,11 @@ namespace Content.Server.Atmos.EntitySystems
         private readonly List<Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent>> _currentRunAtmosphere = new();
 
         /// <summary>
+        /// Dedicated list used for shuffling <see cref="AtmosDeviceComponent"/> each tick.
+        /// </summary>
+        private readonly List<Entity<AtmosDeviceComponent>> _atmosDeviceBuffer = [];
+
+        /// <summary>
         ///     Revalidates all invalid coordinates in a grid atmosphere.
         ///     I.e., process any tiles that have had their airtight blockers modified.
         /// </summary>
@@ -589,11 +594,8 @@ namespace Content.Server.Atmos.EntitySystems
             if (!atmosphere.ProcessingPaused)
             {
                 atmosphere.CurrentRunAtmosDevices.Clear();
-                atmosphere.CurrentRunAtmosDevices.EnsureCapacity(atmosphere.AtmosDevices.Count);
-                foreach (var device in atmosphere.AtmosDevices)
-                {
-                    atmosphere.CurrentRunAtmosDevices.Enqueue(device);
-                }
+
+                PopulateShuffledQueue(in atmosphere.AtmosDevices, _atmosDeviceBuffer, atmosphere.CurrentRunAtmosDevices);
             }
 
             var time = _gameTiming.CurTime;

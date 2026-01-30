@@ -1,5 +1,7 @@
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using Content.Server.Atmos.Components;
+using Content.Shared;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Piping.Components;
@@ -189,6 +191,43 @@ public partial class AtmosphereSystem
         foreach (var uid in inTile)
         {
             RaiseLocalEvent(uid, ref ev);
+        }
+    }
+
+    /// <summary>
+    /// Takes in a <see cref="HashSet{T}"/>, and using a working <see cref="List{T}"/>,
+    /// randomizes the source list into the output queue.
+    /// </summary>
+    /// <param name="sourceSet"><see cref="HashSet{T}"/> to pull elements from.
+    /// This is copied to the working list for randomization, so this is not mutated.</param>
+    /// <param name="workingList">Garbage <see cref="List{T}"/> to use as a shuffling intermediary
+    /// before copying to the output queue.</param>
+    /// <param name="outputQueue">The randomized queue.</param>
+    /// <typeparam name="T">Type of element in all params.</typeparam>
+    /// <remarks>workingList and outputQueue are cleared and expanded to sourceList capacity.
+    /// I'm also begging you to not use this for value types.</remarks>
+    private static void PopulateShuffledQueue<T>(ref readonly HashSet<T> sourceSet, List<T> workingList, Queue<T> outputQueue)
+    {
+        /*
+         The C# LINQ-provided shuffle isn't super great as it creates a lot of garbage.
+         I'd much prefer a copy-heavy method that uses preallocated lists/queues.
+         */
+
+        // everything is private!!!!!!! underlying implementations cannot be accessed!!!! the horror!!!
+        // no i dont want to copy to an array first either i just
+        // WANT THE UNDERLYING ARRAY GIVE ME THE UNDERLYING ARRAY
+        workingList.Clear();
+        workingList.EnsureCapacity(sourceSet.Count);
+        foreach (var element in sourceSet)
+        {
+            workingList.Add(element);
+        }
+
+        var workingSpan = CollectionsMarshal.AsSpan(workingList);
+        workingSpan.Shuffle();
+        foreach (var element in workingSpan)
+        {
+            outputQueue.Enqueue(element);
         }
     }
 }
