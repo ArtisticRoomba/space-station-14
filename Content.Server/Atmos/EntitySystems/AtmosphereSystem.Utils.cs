@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Content.Server.Atmos.Components;
@@ -218,10 +219,9 @@ public partial class AtmosphereSystem
         // WANT THE UNDERLYING ARRAY GIVE ME THE UNDERLYING ARRAY
         workingList.Clear();
         workingList.EnsureCapacity(sourceSet.Count);
-        foreach (var element in sourceSet)
-        {
-            workingList.Add(element);
-        }
+
+        // microopt: list is ICollection, so IL copies the array internally instead of copy via enumeration
+        workingList.AddRange(sourceSet);
 
         var workingSpan = CollectionsMarshal.AsSpan(workingList);
         workingSpan.Shuffle();
