@@ -218,6 +218,7 @@ public partial class AtmosphereSystem
         // no i dont want to copy to an array first either i just
         // WANT THE UNDERLYING ARRAY GIVE ME THE UNDERLYING ARRAY
         workingList.Clear();
+        outputQueue.Clear();
         workingList.EnsureCapacity(sourceSet.Count);
 
         // microopt: list is ICollection, so IL copies the array internally instead of copy via enumeration
