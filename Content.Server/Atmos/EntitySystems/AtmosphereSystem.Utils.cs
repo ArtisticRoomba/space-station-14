@@ -206,8 +206,8 @@ public partial class AtmosphereSystem
     /// <param name="outputQueue">The randomized queue.</param>
     /// <typeparam name="T">Type of element in all params.</typeparam>
     /// <remarks>workingList and outputQueue are cleared and expanded to sourceList capacity.
-    /// I'm also begging you to not use this for value types.</remarks>
-    private static void PopulateShuffledQueue<T>(ref readonly HashSet<T> sourceSet, List<T> workingList, Queue<T> outputQueue)
+    /// This method is public only for the purposes of benchmarking.</remarks>
+    public static void PopulateShuffledQueue<T>(ref readonly HashSet<T> sourceSet, List<T> workingList, Queue<T> outputQueue)
     {
         /*
          The C# LINQ-provided shuffle isn't super great as it creates a lot of garbage.
