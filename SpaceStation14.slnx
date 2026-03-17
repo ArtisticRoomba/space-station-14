@@ -5,6 +5,10 @@
     <BuildType Name="Release" />
     <BuildType Name="Tools" />
   </Configurations>
+  <Folder Name="/Atmos/">
+    <Project Path="Content.Shared.Atmos.Tests/Content.Shared.Atmos.Tests.csproj"/>
+    <Project Path="Content.Shared.Atmos/Content.Shared.Atmos.csproj" />
+  </Folder>
   <Folder Name="/Build Checker/">
     <Project Path="BuildChecker/BuildChecker.csproj">
       <Build Solution="Release|*" Project="false" />
