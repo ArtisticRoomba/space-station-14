@@ -1,12 +1,12 @@
 ﻿using Content.Shared.Atmos.Numerics;
 using Robust.Shared.Analyzers;
 
-namespace Content.Shared.Atmos.Tests;
+namespace Content.Shared.Atmos.Tests.Numerics;
 
 [TestFixture, TestOf(typeof(BitHelpers))]
 [Parallelizable(ParallelScope.All)]
 [Virtual]
-public class BitOpsTests
+public class BitHelpersTests
 {
     [TestCase(0, 0, 0ul)]
     [TestCase(1, 0, 1ul)]

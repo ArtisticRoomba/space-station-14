@@ -44,7 +44,12 @@ public static class BitHelpers
         return x;
     }
 
-    // Compacts every other bit back down into the low 32 bits.
+    /// <summary>
+    /// Compacts the bits of a 64-bit integer by removing every other bit.
+    /// Inverse of <see cref="Part1By1"/>.
+    /// </summary>
+    /// <param name="value">The 64-bit integer to compact.</param>
+    /// <returns>The 32-bit integer with the bits of the input compacted.</returns>
     private static uint Compact1By1(ulong value)
     {
         var x = value & 0x5555555555555555UL;
