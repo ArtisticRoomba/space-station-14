@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Atmos.Numerics;
 using JetBrains.Annotations;
@@ -22,7 +23,7 @@ public sealed class ChunkMap<T>
     /// <summary>
     /// Size of each chunk edge in tiles.
     /// </summary>
-    private readonly int _chunkSize;
+    public readonly int ChunkSize;
 
     /// <summary>
     /// Number of bits to shift a tile coordinate to obtain chunk coordinates.
@@ -49,7 +50,7 @@ public sealed class ChunkMap<T>
         if (!Powers.IsPowerOfTwo(chunkSize))
             throw new ArgumentOutOfRangeException(nameof(chunkSize), "chunkSize must be a power of two.");
 
-        _chunkSize = chunkSize;
+        ChunkSize = chunkSize;
         _shift = BitOperations.TrailingZeroCount((uint)chunkSize);
     }
 
@@ -60,7 +61,7 @@ public sealed class ChunkMap<T>
     /// <returns>The chunk-space coordinates containing <paramref name="p"/>.</returns>
     /// <remarks>
     /// Uses arithmetic right shift, which is equivalent to floor division by
-    /// <see cref="_chunkSize"/> for signed integers when chunk size is a power of two.
+    /// <see cref="ChunkSize"/> for signed integers when chunk size is a power of two.
     /// </remarks>
     private Vector2i ChunkOf(Vector2i p)
     {
@@ -112,7 +113,7 @@ public sealed class ChunkMap<T>
     {
         var c = DecodeChunk(code);
         var min = new Vector2i(c.X << _shift, c.Y << _shift);
-        var max = new Vector2i(min.X + _chunkSize - 1, min.Y + _chunkSize - 1);
+        var max = new Vector2i(min.X + ChunkSize - 1, min.Y + ChunkSize - 1);
         return new Box2i(min, max);
     }
 
@@ -129,7 +130,7 @@ public sealed class ChunkMap<T>
     /// otherwise false.
     /// </returns>
     [PublicAPI]
-    public bool TryGetValue(Vector2i tile, out T value)
+    public bool TryGetValue(Vector2i tile, [MaybeNullWhen(false)] out T value)
     {
         return _data.TryGetValue(CodeOf(tile), out value!);
     }
