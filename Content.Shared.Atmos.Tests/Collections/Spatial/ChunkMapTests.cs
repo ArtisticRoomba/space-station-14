@@ -22,7 +22,7 @@ public sealed class ChunkMapTests
     {
         var map = new ChunkMap<int>(8);
 
-        Assert.That(map.Chunks, Is.Zero);
+        Assert.That(map.ChunkCount, Is.Zero);
     }
 
     [Test]
@@ -35,7 +35,7 @@ public sealed class ChunkMapTests
         {
             Assert.That(map.TryGetValue((3, 3), out var value), Is.True);
             Assert.That(value, Is.EqualTo(42));
-            Assert.That(map.Chunks, Is.EqualTo(1));
+            Assert.That(map.ChunkCount, Is.EqualTo(1));
         }
     }
 
@@ -50,7 +50,7 @@ public sealed class ChunkMapTests
         {
             Assert.That(map.TryGetValue((0, 0), out var value), Is.True);
             Assert.That(value, Is.EqualTo(99));
-            Assert.That(map.Chunks, Is.EqualTo(1));
+            Assert.That(map.ChunkCount, Is.EqualTo(1));
         }
     }
 
@@ -67,7 +67,7 @@ public sealed class ChunkMapTests
             Assert.That(first, Is.EqualTo(11));
             Assert.That(map.TryGetValue((7, 3), out var second), Is.True);
             Assert.That(second, Is.EqualTo(22));
-            Assert.That(map.Chunks, Is.EqualTo(2));
+            Assert.That(map.ChunkCount, Is.EqualTo(2));
         }
     }
 
@@ -95,7 +95,7 @@ public sealed class ChunkMapTests
         {
             Assert.That(removed, Is.True);
             Assert.That(map.TryGetValue((0, 0), out _), Is.False);
-            Assert.That(map.Chunks, Is.Zero);
+            Assert.That(map.ChunkCount, Is.Zero);
         }
     }
 

@@ -15,7 +15,8 @@ namespace Content.Shared.Atmos.Collections.Spatial;
 /// <para>This is an abstracted datastructure purely for easily testing
 /// tile simulation in a vacuum. For datastructures that are intended to be shared and synced
 /// between client and server, the client would instead need to keep track of Morton arrays on
-/// an entity that is physically on the grid and loaded/unloaded by PVS.
+/// an entity that is physically on the grid and loaded/unloaded by PVS,
+/// with the <see cref="TileMap{T}"/>'s <see cref="ChunkMap{T}"/> pointing to entities maybe.
 /// This entity would then be stored on a <see cref="ChunkMap{T}"/> or something similar.</para>
 /// <para>The server, however, can get away with just using this thing willy nilly.</para>
 public sealed class TileMap<T>
@@ -26,18 +27,44 @@ public sealed class TileMap<T>
     private readonly ChunkMap<MortonArray<T>>? _chunks;
 
     /// <summary>
+    /// Bitmask for converting global tile coordinates to chunk-local coordinates.
+    /// For power-of-two chunk sizes, <c>tile &amp; (ChunkSize - 1)</c> extracts the
+    /// low bits, which are exactly the in-chunk offset.
+    /// </summary>
+    /// <example>For a chunk size 16: x=-1 -> 15, x=16 -> 0, x=17 -> 1.</example>
+    private readonly int _chunkMask;
+
+    /// <summary>
     /// Edge length of each chunk in tiles.
     /// </summary>
     public int ChunkSize => _chunks?.ChunkSize ?? 0;
 
     /// <summary>
     /// Creates a new <see cref="TileMap{T}"/> with the desired chunk size.
-    /// Chunk size must be a positive power of two.
+    /// Chunk size must be a positive power of two so bitmasking can map world
+    /// coordinates to valid local coordinates for <see cref="MortonArray{T}"/>.
+    /// Validation is enforced by <see cref="ChunkMap{T}"/>.
     /// </summary>
     /// <param name="chunkSize">Chunk edge length in tiles.</param>
     public TileMap(int chunkSize)
     {
         _chunks = new ChunkMap<MortonArray<T>>(chunkSize);
+        _chunkMask = chunkSize - 1;
+    }
+
+    /// <summary>
+    /// Converts global tile coordinates into local coordinates within a chunk.
+    /// This is equivalent to modulo by <see cref="ChunkSize"/> for power-of-two sizes,
+    /// but always yields a non-negative result in [0, ChunkSize - 1], including for
+    /// negative world coordinates.
+    /// </summary>
+    /// <param name="tilePos">Global tile coordinates.</param>
+    /// <returns>Chunk-local coordinates in the range [0, <see cref="ChunkSize"/> - 1].</returns>
+    [PublicAPI]
+    public Vector2i LocalTilePosition(Vector2i tilePos)
+    {
+        // fuck its genius
+        return new Vector2i(tilePos.X & _chunkMask, tilePos.Y & _chunkMask);
     }
 
     /// <summary>
@@ -55,7 +82,8 @@ public sealed class TileMap<T>
             return false;
         }
 
-        if (array.GetValue(tilePos) is { } tileValue)
+        var localPos = LocalTilePosition(tilePos);
+        if (array.GetValue(localPos) is { } tileValue)
         {
             value = tileValue;
             return true;
@@ -63,5 +91,43 @@ public sealed class TileMap<T>
 
         value = default;
         return false;
+    }
+
+    /// <summary>
+    /// Inserts a value at the given tile position.
+    /// </summary>
+    /// <param name="tilePos">Global tile coordinates to insert at.</param>
+    /// <param name="value">Value to insert.</param>
+    [PublicAPI]
+    public void Insert(Vector2i tilePos, T value)
+    {
+        if (_chunks is null)
+            return;
+
+        if (!_chunks.TryGetValue(tilePos, out var array))
+        {
+            array = new MortonArray<T>(ChunkSize);
+            _chunks.Set(tilePos, array);
+        }
+
+        array.Insert(LocalTilePosition(tilePos), value);
+    }
+
+    /// <summary>
+    /// Removes the value at the given tile position.
+    /// </summary>
+    /// <param name="tilePos">Global tile coordinates to remove from.</param>
+    /// <returns>True if the containing chunk exists and a removal was attempted.</returns>
+    [PublicAPI]
+    public bool Remove(Vector2i tilePos)
+    {
+        if (_chunks is null || !_chunks.TryGetValue(tilePos, out var array))
+            return false;
+
+        if (array.Count <= 0)
+            return false;
+
+        array.Remove(LocalTilePosition(tilePos));
+        return true;
     }
 }

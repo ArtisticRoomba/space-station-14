@@ -74,15 +74,10 @@ public sealed class MortonArray<T> : IEnumerable<T>
     /// <remarks>Note that a Morton array's origin starts at 0,
     /// so an array with <see cref="SideLength"/> 4 covers bounds from 0 to 3.</remarks>
     [PublicAPI]
-    public ref T this[Vector2i pos]
+    public T this[Vector2i pos]
     {
-        get
-        {
-            CheckBounds(pos);
-            var mortonIndex = BitHelpers.BitInterleave(pos);
-            return ref _array![mortonIndex];
-        }
-        // can't set ref
+        get => GetValue(pos);
+        set => Insert(pos, value);
     }
 
     /// <summary>

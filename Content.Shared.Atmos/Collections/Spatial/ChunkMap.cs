@@ -18,7 +18,7 @@ public sealed class ChunkMap<T>
     /// <summary>
     /// Number of chunks currently stored in the map.
     /// </summary>
-    public int Chunks => _data.Count;
+    public int ChunkCount => _data.Count;
 
     /// <summary>
     /// Size of each chunk edge in tiles.
