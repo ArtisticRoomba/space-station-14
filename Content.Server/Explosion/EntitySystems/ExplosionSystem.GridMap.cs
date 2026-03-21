@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared.Atmos;
+using Content.Shared.Atmos.Maths;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Explosion.EntitySystems;

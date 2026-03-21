@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Atmos.Maths;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Atmos.EntitySystems

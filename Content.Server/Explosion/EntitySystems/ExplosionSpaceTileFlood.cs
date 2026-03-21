@@ -1,4 +1,5 @@
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Maths;
 using Robust.Shared.Map;
 
 namespace Content.Server.Explosion.EntitySystems;
@@ -131,7 +132,7 @@ public sealed class ExplosionSpaceTileFlood : ExplosionTileFlood
             if (EnteredBlockedTiles.Contains(tile))
                 return;
 
-            // Did the explosion already attempt to enter this tile from some other direction? 
+            // Did the explosion already attempt to enter this tile from some other direction?
             if (!UnenteredBlockedTiles.Add(tile))
                 return;
 
@@ -144,7 +145,7 @@ public sealed class ExplosionSpaceTileFlood : ExplosionTileFlood
         if (!EnteredBlockedTiles.Add(tile))
             return;
 
-        // Did the explosion already attempt to enter this tile from some other direction? 
+        // Did the explosion already attempt to enter this tile from some other direction?
         if (UnenteredBlockedTiles.Contains(tile))
         {
             NewFreedTiles.Add(tile);

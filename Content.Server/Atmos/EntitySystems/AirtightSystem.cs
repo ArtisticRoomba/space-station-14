@@ -1,6 +1,7 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Maths;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
 

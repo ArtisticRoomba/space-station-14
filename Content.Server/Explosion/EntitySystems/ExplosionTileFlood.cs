@@ -1,5 +1,5 @@
-using Content.Shared.Atmos;
 using System.Runtime.CompilerServices;
+using Content.Shared.Atmos.Maths;
 
 namespace Content.Server.Explosion.EntitySystems;
 

@@ -1,4 +1,6 @@
-﻿namespace Content.Shared.Atmos;
+﻿using Content.Shared.Atmos.Maths;
+
+namespace Content.Shared.Atmos;
 
 /// <summary>
 /// Atmospherics class that stores data on tiles for Monstermos calculations and operations.
