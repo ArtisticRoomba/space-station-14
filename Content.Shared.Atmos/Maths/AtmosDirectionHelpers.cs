@@ -1,5 +1,6 @@
 using System.Numerics;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 
 namespace Content.Shared.Atmos.Maths;
 
@@ -11,7 +12,8 @@ public static class AtmosDirectionHelpers
     /// <param name="direction">The <see cref="AtmosDirection"/> to get the opposite of.</param>
     /// <returns>The opposite of the given <see cref="AtmosDirection"/>.</returns>
     /// <exception cref="ArgumentOutOfRangeException">Thrown if the given <see cref="AtmosDirection"/> is not a valid direction,
-    /// or when an opposite for the given direction doesn't exist.</exception>
+    /// or when an opposite for the given direction doesn't exist.</exception>+
+    [PublicAPI]
     public static AtmosDirection GetOpposite(this AtmosDirection direction)
     {
         return direction switch
@@ -33,6 +35,7 @@ public static class AtmosDirectionHelpers
     /// I.e., <c>1&lt;&lt;OppositeIndex(i) == (1&lt;&lt;i).GetOpposite()</c>
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    [PublicAPI]
     public static int ToOppositeIndex(this int index)
     {
         return index ^ 1;
@@ -44,11 +47,32 @@ public static class AtmosDirectionHelpers
     /// <param name="index">The index of the direction to get the opposite of.</param>
     /// <returns>The opposite of the given direction index as an <see cref="AtmosDirection"/>.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    [PublicAPI]
     public static AtmosDirection ToOppositeDir(this int index)
     {
-        return (AtmosDirection)(1 << (index ^ 1));
+        return (index^1).ToDirection();
     }
 
+    /// <summary>
+    /// Converts a direction index to an <see cref="AtmosDirection"/>.
+    /// </summary>
+    /// <param name="index">The index of the direction to convert.</param>
+    /// <returns>The <see cref="AtmosDirection"/> corresponding to the given index.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    [PublicAPI]
+    public static AtmosDirection ToDirection(this int index)
+    {
+        return (AtmosDirection)(1 << index);
+    }
+
+    /// <summary>
+    /// Converts an <see cref="AtmosDirection"/> to a <see cref="Direction"/>.
+    /// </summary>
+    /// <param name="direction">The <see cref="AtmosDirection"/> to convert.</param>
+    /// <returns>The <see cref="Direction"/> corresponding to the given <see cref="AtmosDirection"/>.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown if the given
+    /// <see cref="AtmosDirection"/> cannot be converted.</exception>
+    [PublicAPI]
     public static Direction ToDirection(this AtmosDirection direction)
     {
         return direction switch
@@ -66,6 +90,13 @@ public static class AtmosDirectionHelpers
         };
     }
 
+    /// <summary>
+    /// Converts a <see cref="Direction"/> to an <see cref="AtmosDirection"/>.
+    /// </summary>
+    /// <param name="direction">The <see cref="Direction"/> to convert.</param>
+    /// <returns>The <see cref="AtmosDirection"/> corresponding to the given <see cref="Direction"/>.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown if the given <see cref="Direction"/> cannot be converted.</exception>
+    [PublicAPI]
     public static AtmosDirection ToAtmosDirection(this Direction direction)
     {
         return direction switch
@@ -84,10 +115,12 @@ public static class AtmosDirectionHelpers
     }
 
     /// <summary>
-    /// Converts a direction to an angle, where angle is -PI to +PI.
+    /// Converts an <see cref="AtmosDirection"/> to an angle, where angle is -PI to +PI.
     /// </summary>
-    /// <param name="direction"></param>
-    /// <returns></returns>
+    /// <param name="direction">The <see cref="AtmosDirection"/> to convert.</param>
+    /// <returns>The angle corresponding to the given <see cref="AtmosDirection"/>.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown if the given <see cref="AtmosDirection"/> cannot be converted.</exception>
+    [PublicAPI]
     public static Angle ToAngle(this AtmosDirection direction)
     {
         return direction switch
@@ -100,71 +133,102 @@ public static class AtmosDirectionHelpers
             AtmosDirection.NorthWest => new Angle(-Math.PI * 3 / 4),
             AtmosDirection.SouthWest => new Angle(-MathHelper.PiOver4),
             AtmosDirection.SouthEast => new Angle(MathHelper.PiOver4),
-
             _ => throw new ArgumentOutOfRangeException(nameof(direction), $"It was {direction}."),
         };
     }
 
     /// <summary>
-    /// Converts an angle to a cardinal AtmosDirection
+    /// Converts an angle to a cardinal <see cref="AtmosDirection"/>.
     /// </summary>
-    /// <param name="angle"></param>
-    /// <returns></returns>
+    /// <param name="angle">The <see cref="Angle"/> to convert.</param>
+    /// <returns>The cardinal <see cref="AtmosDirection"/> corresponding to the given <see cref="Angle"/>.</returns>
+    [PublicAPI]
     public static AtmosDirection ToAtmosDirectionCardinal(this Angle angle)
     {
         return angle.GetCardinalDir().ToAtmosDirection();
     }
 
     /// <summary>
-    /// Converts an angle to an AtmosDirection
+    /// Converts an angle to an <see cref="AtmosDirection"/>.
     /// </summary>
-    /// <param name="angle"></param>
-    /// <returns></returns>
+    /// <param name="angle">The <see cref="Angle"/> to convert.</param>
+    /// <returns>The <see cref="AtmosDirection"/> corresponding to the given <see cref="Angle"/>.</returns>
+    [PublicAPI]
     public static AtmosDirection ToAtmosDirection(this Angle angle)
     {
         return angle.GetDir().ToAtmosDirection();
     }
 
+    /// <summary>
+    /// Converts an <see cref="AtmosDirection"/> to an index.
+    /// </summary>
+    /// <param name="direction">The <see cref="AtmosDirection"/> to convert.</param>
+    /// <returns>The index corresponding to the given <see cref="AtmosDirection"/>.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    [PublicAPI]
     public static int ToIndex(this AtmosDirection direction)
     {
         // This will throw if you pass an invalid direction. Not this method's fault, but yours!
         return BitOperations.Log2((uint)direction);
     }
 
+    /// <summary>
+    /// Returns a new <see cref="AtmosDirection"/> with the bits of the given other direction set.
+    /// </summary>
+    /// <param name="direction">The original <see cref="AtmosDirection"/>.</param>
+    /// <param name="other">The <see cref="AtmosDirection"/> whose bits to set in the result.</param>
+    /// <returns>A new <see cref="AtmosDirection"/> with the bits of <paramref name="other"/> set in the result.</returns>
+    [PublicAPI]
     public static AtmosDirection WithFlag(this AtmosDirection direction, AtmosDirection other)
     {
         return direction | other;
     }
 
+    /// <summary>
+    /// Returns a new <see cref="AtmosDirection"/> with the bits of the given other direction unset.
+    /// </summary>
+    /// <param name="direction">The original <see cref="AtmosDirection"/>.</param>
+    /// <param name="other">The <see cref="AtmosDirection"/> whose bits to unset in the result.</param>
+    /// <returns>A new <see cref="AtmosDirection"/> with the bits of <paramref name="other"/> unset in the result.</returns>
+    [PublicAPI]
     public static AtmosDirection WithoutFlag(this AtmosDirection direction, AtmosDirection other)
     {
         return direction & ~other;
     }
 
+    /// <summary>
+    /// Checks if the bits of the given other direction are set in this direction.
+    /// </summary>
+    /// <param name="direction">The <see cref="AtmosDirection"/> to check.</param>
+    /// <param name="other">The <see cref="AtmosDirection"/> whose bits to check for.</param>
+    /// <returns>True if the bits of <paramref name="other"/> are set in <paramref name="direction"/>, false otherwise.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    [PublicAPI]
     public static bool IsFlagSet(this AtmosDirection direction, AtmosDirection other)
     {
         return (direction & other) == other;
     }
 
+    [PublicAPI]
     public static Vector2i CardinalToIntVec(this AtmosDirection dir)
     {
-        switch (dir)
+        return dir switch
         {
-            case AtmosDirection.North:
-                return new Vector2i(0, 1);
-            case AtmosDirection.East:
-                return new Vector2i(1, 0);
-            case AtmosDirection.South:
-                return new Vector2i(0, -1);
-            case AtmosDirection.West:
-                return new Vector2i(-1, 0);
-            default:
-                throw new ArgumentException($"Direction dir {dir} is not a cardinal direction", nameof(dir));
-        }
+            AtmosDirection.North => Vector2i.Up,
+            AtmosDirection.East => Vector2i.Right,
+            AtmosDirection.South => Vector2i.Down,
+            AtmosDirection.West => Vector2i.Left,
+            _ => throw new ArgumentException($"Direction dir {dir} is not a cardinal direction", nameof(dir))
+        };
     }
 
+    /// <summary>
+    /// Offsets a position by one tile in the given cardinal direction.
+    /// </summary>
+    /// <param name="pos">The position to offset.</param>
+    /// <param name="dir">The cardinal direction to offset in.</param>
+    /// <returns>The offset position.</returns>
+    [PublicAPI]
     public static Vector2i Offset(this Vector2i pos, AtmosDirection dir)
     {
         return pos + dir.CardinalToIntVec();
