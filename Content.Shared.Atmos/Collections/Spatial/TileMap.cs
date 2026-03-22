@@ -40,6 +40,11 @@ public sealed class TileMap<T>
     public int ChunkSize => _chunks?.ChunkSize ?? 0;
 
     /// <summary>
+    /// Number of chunks currently allocated.
+    /// </summary>
+    public int ChunkCount => _chunks?.ChunkCount ?? 0;
+
+    /// <summary>
     /// Creates a new <see cref="TileMap{T}"/> with the desired chunk size.
     /// Chunk size must be a positive power of two so bitmasking can map world
     /// coordinates to valid local coordinates for <see cref="MortonArray{T}"/>.
@@ -129,5 +134,38 @@ public sealed class TileMap<T>
 
         array.Remove(LocalTilePosition(tilePos));
         return true;
+    }
+
+    /// <summary>
+    /// Sets an entire chunk at explicit chunk coordinates.
+    /// </summary>
+    [PublicAPI]
+    public void SetChunk(Vector2i chunk, MortonArray<T> value)
+    {
+        _chunks?.SetChunk(chunk, value);
+    }
+
+    /// <summary>
+    /// Enumerates all currently allocated chunks and their backing arrays.
+    /// </summary>
+    [PublicAPI]
+    public IEnumerable<(Vector2i Chunk, MortonArray<T> Value)> EnumerateChunks()
+    {
+        if (_chunks is null)
+            yield break;
+
+        foreach (var chunk in _chunks.EnumerateChunks())
+        {
+            yield return chunk;
+        }
+    }
+
+    /// <summary>
+    /// Clears all allocated chunks.
+    /// </summary>
+    [PublicAPI]
+    public void Clear()
+    {
+        _chunks?.Clear();
     }
 }

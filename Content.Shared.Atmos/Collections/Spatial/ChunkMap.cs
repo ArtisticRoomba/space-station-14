@@ -151,6 +151,24 @@ public sealed class ChunkMap<T>
     }
 
     /// <summary>
+    /// Tries to get the value associated with explicit chunk coordinates.
+    /// </summary>
+    [PublicAPI]
+    public bool TryGetChunkValue(Vector2i chunk, [MaybeNullWhen(false)] out T value)
+    {
+        return _data.TryGetValue(EncodeChunk(chunk), out value!);
+    }
+
+    /// <summary>
+    /// Stores a value at explicit chunk coordinates.
+    /// </summary>
+    [PublicAPI]
+    public void SetChunk(Vector2i chunk, T value)
+    {
+        _data[EncodeChunk(chunk)] = value;
+    }
+
+    /// <summary>
     /// Removes the value associated with the chunk containing the given tile.
     /// </summary>
     /// <param name="tile">Global tile coordinates used to locate the chunk.</param>
@@ -162,5 +180,35 @@ public sealed class ChunkMap<T>
     public bool Remove(Vector2i tile)
     {
         return _data.Remove(CodeOf(tile));
+    }
+
+    /// <summary>
+    /// Removes the value at explicit chunk coordinates.
+    /// </summary>
+    [PublicAPI]
+    public bool RemoveChunk(Vector2i chunk)
+    {
+        return _data.Remove(EncodeChunk(chunk));
+    }
+
+    /// <summary>
+    /// Clears all chunk data.
+    /// </summary>
+    [PublicAPI]
+    public void Clear()
+    {
+        _data.Clear();
+    }
+
+    /// <summary>
+    /// Enumerates all stored chunks as decoded chunk coordinates and values.
+    /// </summary>
+    [PublicAPI]
+    public IEnumerable<(Vector2i Chunk, T Value)> EnumerateChunks()
+    {
+        foreach (var (code, value) in _data)
+        {
+            yield return (DecodeChunk(code), value);
+        }
     }
 }

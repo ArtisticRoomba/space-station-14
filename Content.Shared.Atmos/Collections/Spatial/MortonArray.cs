@@ -158,6 +158,29 @@ public sealed class MortonArray<T> : IEnumerable<T>
     }
 
     /// <summary>
+    /// Gets the backing array length used for Morton storage.
+    /// </summary>
+    internal int RawLength => _array?.Length ?? 0;
+
+    /// <summary>
+    /// Sets a value directly by Morton index.
+    /// Intended for serializers that restore raw storage.
+    /// </summary>
+    internal void SetRawValue(int index, T value)
+    {
+        _array![index] = value;
+    }
+
+    /// <summary>
+    /// Overrides the tracked element count.
+    /// Intended for serializers that restore exact historical count state.
+    /// </summary>
+    internal void SetCountUnsafe(int count)
+    {
+        Count = count;
+    }
+
+    /// <summary>
     /// Checks if the given position is within the bounds of the current side length.
     /// </summary>
     /// <param name="pos">The position to check.</param>
