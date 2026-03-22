@@ -6,6 +6,7 @@
     <BuildType Name="Tools" />
   </Configurations>
   <Folder Name="/Atmos/">
+    <Project Path="Content.Atmos.Benchmarks/Content.Atmos.Benchmarks.csproj" />
     <Project Path="Content.Server.Atmos/Content.Server.Atmos.csproj" />
     <Project Path="Content.Shared.Atmos.Tests/Content.Shared.Atmos.Tests.csproj" />
     <Project Path="Content.Shared.Atmos/Content.Shared.Atmos.csproj" />

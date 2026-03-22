@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Atmos.Maths;
 using JetBrains.Annotations;
 
 namespace Content.Shared.Atmos.Collections.Spatial;
@@ -81,7 +82,7 @@ public sealed class TileMap<T>
     [PublicAPI]
     public bool TryGetValue(Vector2i tilePos, [NotNullWhen(true)] out T? value)
     {
-        if (_chunks is null || !_chunks.TryGetValue(tilePos, out var array))
+        if (!_chunks!.TryGetValue(tilePos, out var array))
         {
             value = default;
             return false;
@@ -106,10 +107,7 @@ public sealed class TileMap<T>
     [PublicAPI]
     public void Insert(Vector2i tilePos, T value)
     {
-        if (_chunks is null)
-            return;
-
-        if (!_chunks.TryGetValue(tilePos, out var array))
+        if (!_chunks!.TryGetValue(tilePos, out var array))
         {
             array = new MortonArray<T>(ChunkSize);
             _chunks.Set(tilePos, array);
@@ -126,7 +124,7 @@ public sealed class TileMap<T>
     [PublicAPI]
     public bool Remove(Vector2i tilePos)
     {
-        if (_chunks is null || !_chunks.TryGetValue(tilePos, out var array))
+        if (!_chunks!.TryGetValue(tilePos, out var array))
             return false;
 
         if (array.Count <= 0)
@@ -142,7 +140,7 @@ public sealed class TileMap<T>
     [PublicAPI]
     public void SetChunk(Vector2i chunk, MortonArray<T> value)
     {
-        _chunks?.SetChunk(chunk, value);
+        _chunks!.SetChunk(chunk, value);
     }
 
     /// <summary>
@@ -151,13 +149,7 @@ public sealed class TileMap<T>
     [PublicAPI]
     public IEnumerable<(Vector2i Chunk, MortonArray<T> Value)> EnumerateChunks()
     {
-        if (_chunks is null)
-            yield break;
-
-        foreach (var chunk in _chunks.EnumerateChunks())
-        {
-            yield return chunk;
-        }
+        return _chunks!.EnumerateChunks();
     }
 
     /// <summary>
@@ -166,6 +158,6 @@ public sealed class TileMap<T>
     [PublicAPI]
     public void Clear()
     {
-        _chunks?.Clear();
+        _chunks!.Clear();
     }
 }

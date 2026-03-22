@@ -4,6 +4,7 @@
 
 using System.Collections;
 using System.Runtime.CompilerServices;
+using Content.Shared.Atmos.Maths;
 using Content.Shared.Atmos.Numerics;
 using JetBrains.Annotations;
 using Robust.Shared.Utility;
@@ -62,7 +63,7 @@ public sealed class MortonArray<T> : IEnumerable<T>
     public MortonArray(int sideLength)
     {
         _actualSideLength = BufferHelpers.FittingPowerOfTwo(sideLength);
-        _array = new T[_actualSideLength^2];
+        _array = new T[_actualSideLength * _actualSideLength];
         SideLength = sideLength;
     }
 

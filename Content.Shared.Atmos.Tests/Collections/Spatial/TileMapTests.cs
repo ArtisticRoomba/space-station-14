@@ -70,6 +70,21 @@ public sealed class TileMapTests
     }
 
     [Test]
+    public void Insert_AtChunkLocalEdge_ThenTryGetValue_ReturnsStoredValue()
+    {
+        var map = new TileMap<string>(16);
+        map.Insert((15, 15), "edge");
+
+        var found = map.TryGetValue((15, 15), out var value);
+
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(found, Is.True);
+            Assert.That(value, Is.EqualTo("edge"));
+        }
+    }
+
+    [Test]
     public void Insert_SameTileTwice_OverwritesStoredValue()
     {
         var map = new TileMap<string>(8);

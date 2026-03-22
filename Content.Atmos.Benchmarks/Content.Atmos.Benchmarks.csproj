@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
+  <PropertyGroup>
+    <OutputPath>..\bin\Content.Atmos.Benchmarks\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputType>Exe</OutputType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IsTestingPlatformApplication>false</IsTestingPlatformApplication>
+    <Nullable>disable</Nullable>
+    <DefineConstants>$(DefineConstants);ALLOW_BAD_PRACTICES</DefineConstants>
+  </PropertyGroup>
+  <Import Project="../MSBuild/Content.props" />
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" />
+
+    <!-- pin transitive deps -->
+    <PackageReference Include="System.Management" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Content.Server.Atmos\Content.Server.Atmos.csproj" />
+    <ProjectReference Include="..\Content.Shared.Atmos\Content.Shared.Atmos.csproj" />
+    <ProjectReference Include="..\Content.Shared.Atmos.Tests\Content.Shared.Atmos.Tests.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\RobustToolbox\Imports\Lidgren.props" />
+  <Import Project="..\RobustToolbox\Imports\Client.props" />
+  <Import Project="..\RobustToolbox\Imports\Server.props" />
+  <Import Project="..\RobustToolbox\Imports\Shared.props" />
+  <Import Project="..\RobustToolbox\Imports\Benchmarks.props" />
+  <Import Project="..\RobustToolbox\Imports\Testing.props" />
+</Project>

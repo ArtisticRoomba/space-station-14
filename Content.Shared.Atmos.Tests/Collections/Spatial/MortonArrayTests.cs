@@ -1,5 +1,6 @@
 using System;
 using Content.Shared.Atmos.Collections.Spatial;
+using Content.Shared.Atmos.Maths;
 using Robust.Shared.Analyzers;
 
 namespace Content.Shared.Atmos.Tests.Collections.Spatial;
@@ -33,6 +34,20 @@ public sealed class MortonArrayTests
             Assert.That(array.GetValue((1, 1)), Is.EqualTo(42));
             Assert.That(array[(1, 1)], Is.EqualTo(42));
             Assert.That(array, Has.Count.EqualTo(1));
+        }
+    }
+
+    [Test]
+    public void InsertAndGetValue_MaxInBoundsPosition_DoesNotThrowAndReturnsValue()
+    {
+        var array = new MortonArray<int>(16);
+
+        Assert.That(() => array.Insert((15, 15), 123), Throws.Nothing);
+
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(array.GetValue((15, 15)), Is.EqualTo(123));
+            Assert.That(array.Count, Is.EqualTo(1));
         }
     }
 
