@@ -3,7 +3,13 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Atmos.Subsystems.Airtight.Components;
 
-[RegisterComponent, Access(typeof(AirtightSystem))]
+/// <summary>
+/// Component defining an entity as being airtight, meaning it can block air from flowing through it in certain directions,
+/// and can contribute to the airtightness of a tile.
+/// </summary>
+/// <remarks>Use the APIs available in <see cref="AirtightSystem"/>.</remarks>
+[RegisterComponent]
+[Access(typeof(AirtightSystem), typeof(SharedAirtightMapSystem), Other = AccessPermissions.None)]
 [NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AirtightComponent : Component
 {
