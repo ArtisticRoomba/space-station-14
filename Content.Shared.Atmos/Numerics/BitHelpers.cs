@@ -1,3 +1,4 @@
+using System.Runtime.Intrinsics.X86;
 using JetBrains.Annotations;
 
 namespace Content.Shared.Atmos.Numerics;
@@ -35,13 +36,35 @@ public static class BitHelpers
     /// <returns>The 64-bit integer with the bits of the input spread out.</returns>
     private static ulong Part1By1(uint value)
     {
+        return Bmi2.X64.IsSupported ? Part1By1Intrinsic64(value) : Part1By1Generic(value);
+    }
+
+    /// <summary>
+    /// Spreads the bits of a 32-bit integer so that there are zeros between each bit.
+    /// </summary>
+    /// <param name="value">The 32-bit integer to spread.</param>
+    /// <returns>The 64-bit integer with the bits of the input spread out.</returns>
+    private static ulong Part1By1Generic(uint value)
+    {
         ulong x = value;
         x = (x | (x << 16)) & 0x0000FFFF0000FFFFUL;
-        x = (x | (x << 8))  & 0x00FF00FF00FF00FFUL;
-        x = (x | (x << 4))  & 0x0F0F0F0F0F0F0F0FUL;
-        x = (x | (x << 2))  & 0x3333333333333333UL;
-        x = (x | (x << 1))  & 0x5555555555555555UL;
+        x = (x | (x << 8)) & 0x00FF00FF00FF00FFUL;
+        x = (x | (x << 4)) & 0x0F0F0F0F0F0F0F0FUL;
+        x = (x | (x << 2)) & 0x3333333333333333UL;
+        x = (x | (x << 1)) & 0x5555555555555555UL;
         return x;
+    }
+
+    /// <summary>
+    /// Spreads the bits of a 32-bit integer so that there are zeros between each bit,
+    /// using a BMI2 instruction.
+    /// </summary>
+    /// <param name="value">The 32-bit integer to spread.</param>
+    /// <returns>The 64-bit integer with the bits of the input spread out.</returns>
+    /// <remarks>Hey man it was 2x faster on my machine</remarks>
+    private static ulong Part1By1Intrinsic64(uint value)
+    {
+        return Bmi2.X64.ParallelBitDeposit(value, 0x5555555555555555UL);
     }
 
     /// <summary>
