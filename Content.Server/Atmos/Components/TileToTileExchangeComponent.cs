@@ -1,6 +1,7 @@
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Teleportation.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Atmos.Components;
 
@@ -11,4 +12,13 @@ namespace Content.Server.Atmos.Components;
 /// Device must have an <see cref="AtmosDeviceComponent"/>.
 /// </summary>
 [RegisterComponent]
-public sealed partial class TileToTileExchangeComponent : Component;
+public sealed partial class TileToTileExchangeComponent : Component
+{
+    /// <summary>
+    /// The last time this source/sink was updated. When tracing through all sources/sinks,
+    /// we may encounter groups we have already processed,
+    /// so this allows us to just skip them.
+    /// </summary>
+    [DataField]
+    public GameTick LastUpdated = GameTick.Zero;
+}

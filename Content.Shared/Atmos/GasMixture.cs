@@ -162,6 +162,13 @@ namespace Content.Shared.Atmos
             return RemoveRatio(amount / TotalMoles);
         }
 
+        /// <summary>
+        /// Removes a portion of the gas mixture and returns it as a new mixture.
+        /// If this mixture is immutable, it will not be altered, and a new mixture with the same contents will be returned.
+        /// </summary>
+        /// <param name="ratio">A value between 0 and 1 representing the portion of the mixture to remove.
+        /// Values outside this range will be clamped.</param>
+        /// <returns>A new <see cref="GasMixture"/> containing the removed portion of the gas mixture.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public GasMixture RemoveRatio(float ratio)
         {
@@ -196,6 +203,14 @@ namespace Content.Shared.Atmos
             return removed;
         }
 
+        /// <summary>
+        /// Removes a specific volume of the gas mixture and returns it as a new mixture.
+        /// </summary>
+        /// <param name="vol">A value representing the volume of the mixture to remove.
+        /// Values less than or equal to 0 will return an empty mixture,
+        /// and values greater than the current volume will return a copy of the entire mixture.</param>
+        /// <returns>A new <see cref="GasMixture"/> containing the removed portion of the gas mixture.</returns>
+        /// <seealso cref="RemoveRatio"/>
         public GasMixture RemoveVolume(float vol)
         {
             return RemoveRatio(vol / Volume);

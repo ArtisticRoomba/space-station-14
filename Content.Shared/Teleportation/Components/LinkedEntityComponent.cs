@@ -19,6 +19,13 @@ public sealed partial class LinkedEntityComponent : Component
     public HashSet<EntityUid> LinkedEntities = new();
 
     /// <summary>
+    /// Set of entities that are linked to this entity in a one-way link.
+    /// Enables systems to easily see one-way sinks/sources.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public HashSet<EntityUid> OneWayLinkedEntities = new();
+
+    /// <summary>
     ///     Should this entity be deleted if all of its links are removed?
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]

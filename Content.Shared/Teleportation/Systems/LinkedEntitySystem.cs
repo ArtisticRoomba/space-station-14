@@ -68,13 +68,14 @@ public sealed partial class LinkedEntitySystem : EntitySystem
     public bool OneWayLink(EntityUid source, EntityUid target, bool deleteOnEmptyLinks=false)
     {
         var firstLink = EnsureComp<LinkedEntityComponent>(source);
+        var secondLink = EnsureComp<LinkedEntityComponent>(target);
         firstLink.DeleteOnEmptyLinks = deleteOnEmptyLinks;
 
         _appearance.SetData(source, LinkedEntityVisuals.HasAnyLinks, true);
 
         Dirty(source, firstLink);
 
-        return firstLink.LinkedEntities.Add(target);
+        return firstLink.LinkedEntities.Add(target) && secondLink.OneWayLinkedEntities.Add(source);
     }
 
     /// <summary>
