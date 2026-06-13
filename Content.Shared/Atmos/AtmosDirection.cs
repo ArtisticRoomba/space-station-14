@@ -152,7 +152,8 @@ public static class AtmosDirectionHelpers
     /// Converts an index to an <see cref="AtmosDirection"/>.
     /// This is the same as doing <c>(AtmosDirection)(1 &lt;&lt; index)</c>, but reduces RSI from writing loops.
     /// </summary>
-    /// <param name="index">The 0-based index of the direction. Should be 0 for North, 1 for South, 2 for East, and 3 for West.</param>
+    /// <param name="index">The 0-based index of the direction.
+    /// Should be 0 for North, 1 for South, 2 for East, and 3 for West.</param>
     /// <returns>The <see cref="AtmosDirection"/> corresponding to the given index.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     [PublicAPI]
@@ -180,8 +181,10 @@ public static class AtmosDirectionHelpers
     /// <summary>
     /// Converts a cardinal direction to a <see cref="Vector2i"/>, where the value is the offset in that direction.
     /// </summary>
-    /// <param name="dir">The direction to convert. Should be a cardinal direction, but will work with diagonals too.</param>
-    /// <returns>A <see cref="Vector2i"/> where the value is the offset in that direction. E.g., North would be (0, -1), South would be (0, 1), etc.</returns>
+    /// <param name="dir">The direction to convert.
+    /// Should be a cardinal direction, but will work with diagonals too.</param>
+    /// <returns>A <see cref="Vector2i"/> where the value is the offset in that direction.
+    /// E.g., North would be (0, -1), South would be (0, 1), etc.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     [PublicAPI]
     public static Vector2i CardinalToIntVec(this AtmosDirection dir)
