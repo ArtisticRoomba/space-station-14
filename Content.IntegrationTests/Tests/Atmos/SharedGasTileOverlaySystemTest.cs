@@ -1,4 +1,3 @@
-using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
@@ -6,7 +5,6 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using Robust.Shared.Utility;
-using System.Linq;
 using System.Numerics;
 
 namespace Content.IntegrationTests.Tests.Atmos;
@@ -17,6 +15,10 @@ namespace Content.IntegrationTests.Tests.Atmos;
 public sealed class GasTileOverlayTemperatureNetworkingTest : AtmosTest
 {
     protected override ResPath? TestMapPath => new("Maps/Test/Atmospherics/DeltaPressure/deltapressuretest.yml");
+    public override PoolSettings PoolSettings => new()
+    {
+        Connected = true,
+    };
 
     [Test]
     public async Task TestGasOverlayDataSync()
@@ -36,10 +38,12 @@ public sealed class GasTileOverlayTemperatureNetworkingTest : AtmosTest
             "Client grid is missing GasTileOverlayComponent");
 
         // Check if the server actually sent the gas chunks
+        await RunUntilSynced();
+
         Assert.That(cOverlay, Is.Not.Null, "Gas overlay is null on the client.");
         Assert.That(cOverlay.Chunks, Is.Not.Empty, "Gas overlay chunks are empty on the client.");
 
-        //Start real tests
+        // Start real tests
         await InjectHotPlasma(ProcessEnt, tileIndices, mixture, 400f);
 
         await CheckForInjectedGas(cOverlay, tileIndices, 400f);
@@ -74,7 +78,7 @@ public sealed class GasTileOverlayTemperatureNetworkingTest : AtmosTest
             // Calculate the exact index in the TileData array
             var localX = MathHelper.Mod(indices.X, SharedGasTileOverlaySystem.ChunkSize);
             var localY = MathHelper.Mod(indices.Y, SharedGasTileOverlaySystem.ChunkSize);
-            int tileIndex = localX + localY * SharedGasTileOverlaySystem.ChunkSize;
+            var tileIndex = localX + localY * SharedGasTileOverlaySystem.ChunkSize;
 
             var tile = chunk.TileData[tileIndex];
             tile.ByteGasTemperature.TryGetTemperature(out var actualTemp);
@@ -97,7 +101,7 @@ public sealed class GasTileOverlayTemperatureNetworkingTest : AtmosTest
             }
         });
 
-        await RunTicks(60);
-        await Task.WhenAll(Client.WaitIdleAsync(), Server.WaitIdleAsync());
+        await RunTicksSync(5);
+        await RunUntilSynced();
     }
 }
