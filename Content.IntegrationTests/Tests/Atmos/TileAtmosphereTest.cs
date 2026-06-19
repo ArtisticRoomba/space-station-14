@@ -155,10 +155,8 @@ public sealed class TileAtmosphereTest_LINDA_X : TileAtmosphereTest
 
 public sealed class TileAtmosphereTest_LINDA_Snake : TileAtmosphereTest
 {
-    // needs to be bumped because LINDA is really really bad
-    // when it comes to floating point error in single tile chains.
-    // either that and/or PlasmaFireReaction is doing silly things with fp as well
-    // TODO ATMOS fix LINDA or PlasmaFireReaction so that this doesn't have to be 10% error tolerance.
+    // TODO ATMOS PlasmaFireReaction doesn't conserve mass
+    // error has to be bumped here
     protected override float Tolerance => 0.1f;
 
     protected override ResPath? TestMapPath => new("Maps/Test/Atmospherics/tile_atmosphere_test_snake.yml");

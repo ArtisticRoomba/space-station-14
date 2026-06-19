@@ -42,7 +42,7 @@ public sealed class RoomSpacingTest : AtmosTest
         var wall = lookup.FirstOrNull();
         Assert.That(wall, Is.Not.Null);
 
-        Assert.That(GetGridMoles(RelevantAtmos), Is.EqualTo(0));
+        Assert.That(GetGridMoles(RelevantAtmos), Is.Zero);
 
         var sourceMix = SAtmos.GetTileMixture(source, true);
         Assert.That(sourceMix, Is.Not.Null);
@@ -51,7 +51,7 @@ public sealed class RoomSpacingTest : AtmosTest
         await Server.WaitRunTicks(500);
 
         var mix1 = SAtmos.GetTileMixture(floor);
-        Assert.That(mix1, Is.Not.EqualTo(null));
+        Assert.That(mix1, Is.Not.Null);
 
         AssertMixMoles(sourceMix, mix1, Tolerance);
         AssertGridMoles(Moles, Tolerance);
@@ -98,7 +98,7 @@ public sealed class RoomSpacingTest : AtmosTest
         var wall = lookup.FirstOrNull();
         Assert.That(wall, Is.Not.Null);
 
-        Assert.That(GetGridMoles(RelevantAtmos), Is.EqualTo(0));
+        Assert.That(GetGridMoles(RelevantAtmos), Is.Zero);
 
         var sourceMix = SAtmos.GetTileMixture(source, true);
         Assert.That(sourceMix, Is.Not.Null);
@@ -112,7 +112,7 @@ public sealed class RoomSpacingTest : AtmosTest
         });
 
         var mix1 = SAtmos.GetTileMixture(floor);
-        Assert.That(mix1, Is.Not.EqualTo(null));
+        Assert.That(mix1, Is.Not.Null);
 
         AssertMixMoles(sourceMix, mix1, Tolerance);
         AssertGridMoles(Moles, Tolerance);
@@ -132,7 +132,7 @@ public sealed class RoomSpacingTest : AtmosTest
         });
 
         mix1 = SAtmos.GetTileMixture(floor);
-        Assert.That(mix1, Is.Not.EqualTo(null));
+        Assert.That(mix1, Is.Not.Null);
 
         AssertMixMoles(sourceMix, mix1, Tolerance);
         AssertGridMoles(0, Tolerance);
