@@ -146,7 +146,7 @@ public sealed class DeltaPressureTest : AtmosTest
         AtmosDirection direction = default;
 
         // Load our test map in and assert that it exists.
-        await Server.WaitPost(() =>
+        await Server.WaitAssertion(() =>
         {
             var uid = SSpawnAtPosition("DeltaPressureSolidTest", new EntityCoordinates(ProcessEnt, Vector2.Zero));
             dpEnt = new Entity<DeltaPressureComponent>(uid, SEntMan.GetComponent<DeltaPressureComponent>(uid));
@@ -156,7 +156,7 @@ public sealed class DeltaPressureTest : AtmosTest
 
         for (var i = 0; i < Atmospherics.Directions; i++)
         {
-            await Server.WaitPost(() =>
+            await Server.WaitAssertion(() =>
             {
                 var indices = _xformSys.GetGridOrMapTilePosition(dpEnt);
 
@@ -209,7 +209,7 @@ public sealed class DeltaPressureTest : AtmosTest
                 SAtmos.RunProcessingFull(ProcessEnt, ProcessEnt.Owner, SAtmos.AtmosTickRate);
             });
 
-            await Server.WaitPost(() =>
+            await Server.WaitAssertion(() =>
             {
                 // Need to spawn an entity each run to ensure it works for all directions.
                 var uid = SSpawnAtPosition("DeltaPressureSolidTest",
@@ -268,7 +268,7 @@ public sealed class DeltaPressureTest : AtmosTest
         TileAtmosphere tile = null!;
         AtmosDirection direction = default;
 
-        await Server.WaitPost(() =>
+        await Server.WaitAssertion(() =>
         {
             var uid = SSpawnAtPosition("DeltaPressureSolidTestAbsolute",
                 new EntityCoordinates(ProcessEnt.Owner, Vector2.Zero));
@@ -279,7 +279,7 @@ public sealed class DeltaPressureTest : AtmosTest
 
         for (var i = 0; i < Atmospherics.Directions; i++)
         {
-            await Server.WaitPost(() =>
+            await Server.WaitAssertion(() =>
             {
                 var indices = _xformSys.GetGridOrMapTilePosition(dpEnt);
                 var gridAtmosComp = SComp<GridAtmosphereComponent>(ProcessEnt);
@@ -320,7 +320,7 @@ public sealed class DeltaPressureTest : AtmosTest
 
         for (var i = 0; i < Atmospherics.Directions; i++)
         {
-            await Server.WaitPost(() =>
+            await Server.WaitAssertion(() =>
             {
                 // Spawn fresh entity each iteration to verify all directions work
                 var uid = SSpawnAtPosition("DeltaPressureSolidTestAbsolute",
@@ -367,7 +367,7 @@ public sealed class DeltaPressureTest : AtmosTest
     {
         Entity<DeltaPressureComponent> dpEnt = default;
 
-        await Server.WaitPost(delegate
+        await Server.WaitAssertion(delegate
         {
             SAtmos.SetAtmosphereSimulation(ProcessEnt, false);
             var uid = SSpawnAtPosition("DeltaPressureSolidTestDeltaOnly",
@@ -411,7 +411,7 @@ public sealed class DeltaPressureTest : AtmosTest
     {
         Entity<DeltaPressureComponent> dpEnt = default;
 
-        await Server.WaitPost(delegate
+        await Server.WaitAssertion(delegate
         {
             SAtmos.SetAtmosphereSimulation(ProcessEnt, false);
             var uid = SEntMan.SpawnAtPosition("DeltaPressureSolidTestDeltaOnly", new EntityCoordinates(ProcessEnt.Owner, Vector2.Zero));

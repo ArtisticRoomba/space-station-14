@@ -6,6 +6,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using Robust.Shared.Utility;
 using System.Numerics;
+using Content.IntegrationTests.Fixtures.Attributes;
 
 namespace Content.IntegrationTests.Tests.Atmos;
 
@@ -20,21 +21,35 @@ public sealed class GasTileOverlayTemperatureNetworkingTest : AtmosTest
         Connected = true,
     };
 
+    [SidedDependency(Side.Server)] private readonly SharedMapSystem _mapSys = default!;
+
     [Test]
     public async Task TestGasOverlayDataSync()
     {
-        var sMapSys = Server.System<SharedMapSystem>();
+        await Pair.Server.WaitPost(delegate
+        {
+            // funny thing, this grid is a star so we need to spawn some ents to give us one cell
+            // otherwise the gas will spread to other areas and itll be weird
+            for (var i = 0; i < Atmospherics.Directions; i++)
+            {
+                var direction = (AtmosDirection)(1 << i);
+                var offsetOrigin = Vector2i.Zero.Offset(direction);
+                SSpawnAtPosition("WallSolid", new EntityCoordinates(ProcessEnt, offsetOrigin));
+            }
+        });
+
+        await RunTicksSync(1);
 
         var gridComp = ProcessEnt.Comp3;
         var gridNetEnt = Server.EntMan.GetNetEntity(ProcessEnt);
 
         var gridCoords = new EntityCoordinates(ProcessEnt, Vector2.Zero);
-        var tileIndices = sMapSys.TileIndicesFor(ProcessEnt, gridComp, gridCoords);
+        var tileIndices = _mapSys.TileIndicesFor(ProcessEnt, gridComp, gridCoords);
         var mixture = SAtmos.GetTileMixture(ProcessEnt, null, tileIndices, true);
 
         // Get data for client side.
         var cGridEnt = CEntMan.GetEntity(gridNetEnt);
-        Assert.That(CEntMan.TryGetComponent<GasTileOverlayComponent>(cGridEnt, out var cOverlay),
+        Assert.That(CTryComp<GasTileOverlayComponent>(cGridEnt, out var cOverlay),
             "Client grid is missing GasTileOverlayComponent");
 
         // Check if the server actually sent the gas chunks
@@ -101,7 +116,6 @@ public sealed class GasTileOverlayTemperatureNetworkingTest : AtmosTest
             }
         });
 
-        await RunTicksSync(5);
-        await RunUntilSynced();
+        await RunTicksSync(10);
     }
 }
