@@ -8,15 +8,6 @@ namespace Content.Server.Atmos.EntitySystems
 {
     public sealed partial class AtmosphereSystem
     {
-        /*
-         TODO ATMOS LINDA: This accumulates a lot of floating point error over time.
-         Current benchmarks put it at around f(x)=1000-1.428718x-0.0633944x^2, x is ticks,
-         f(x) is moles, up to ~19 atmosticks. Of course its only a func fitted to data, but its still pretty bad.
-
-         Need to swap this logic over to using Math.FusedMultiplyAdd and/or using `double`s for
-         intermediary and casting back to `float`s for storage in the GasMixture. At least,
-         that's what seems to be done from my short browse online. Needs to be further benchmarked.
-         */
 
         private void ProcessCell(
             Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> ent,
