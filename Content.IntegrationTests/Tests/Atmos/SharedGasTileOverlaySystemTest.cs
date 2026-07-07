@@ -19,6 +19,7 @@ public sealed class GasTileOverlayTemperatureNetworkingTest : AtmosTest
     public override PoolSettings PoolSettings => new()
     {
         Connected = true,
+        Fresh = true,
     };
 
     [SidedDependency(Side.Server)] private readonly SharedMapSystem _mapSys = default!;
@@ -38,7 +39,7 @@ public sealed class GasTileOverlayTemperatureNetworkingTest : AtmosTest
             }
         });
 
-        await RunTicksSync(10);
+        await RunTicksSync(100);
 
         var gridComp = ProcessEnt.Comp3;
         var gridNetEnt = Server.EntMan.GetNetEntity(ProcessEnt);
