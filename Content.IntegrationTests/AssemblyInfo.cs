@@ -1,8 +1,6 @@
 ﻿[assembly: Parallelizable(ParallelScope.Children)]
 
-// I don't know why this parallelism limit was originally put here.
-// I *do* know that I tried removing it, and ran into the following .NET runtime problem:
-// https://github.com/dotnet/runtime/issues/107197
-// So we can't really parallelize integration tests harder either until the runtime fixes that,
-// *or* we fix serv3 to not spam expression trees.
-[assembly: LevelOfParallelism(2)]
+// Serv5 removed expression tree spam so we can raise parallelism, however entity serialization and prototypes in general still
+// limit things a bit.
+// Excessive parallelism levels also obliterates system memory so be mindful of that. Smile.
+[assembly: LevelOfParallelism(4)]
